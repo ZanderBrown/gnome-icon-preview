@@ -2,78 +2,153 @@
 
 using Gtk;
 
-class IconPlayWindow : Window {
-	private Image standard = new Image.from_icon_name("start-here", DIALOG);
-	private Image symbolic = new Image.from_icon_name("start-here-symbolic", DIALOG);
+namespace IconPreview { 
+	enum IconMode {
+		NAME,
+		FILE
+	}
 
-	private Entry icon_pick = new Entry();
-	private SpinButton size = new SpinButton.with_range(16, 2048, 1);
-	private ColorButton colour = new ColorButton();
-	
-	construct {
-		height_request = 300;
-		width_request = 400;
-		var wrap = new Box(VERTICAL, 0);
-		wrap.expand = true;
+	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
+	public class Window : ApplicationWindow {
+		// Selectors
+		[GtkChild]
+		ComboBox mode;
+
+		[GtkChild]
+		ColorButton colour;
+		[GtkChild]
+		Entry iconname;
+		[GtkChild]
+		FileChooserButton iconfile;
+
+		// Dummy Areas
+		[GtkChild]
+		ToolButton dummy1;
+
+		[GtkChild]
+		ToolButton dummy2;
+
+		[GtkChild]
+		ToolButton dummy3;
+
+		[GtkChild]
+		Button dummy4;
+
+		[GtkChild]
+		Button dummy5;
+
+		// Demo Areas
+		[GtkChild]
+		Button button;
+
+		[GtkChild]
+		ToolButton toolbar;
+
+		// Inspector View
+		[GtkChild]
+		Image viewer;
+
+		[GtkChild]
+		SpinButton size;
+
+		List<string> symbolics;
+		CssProvider provider = new CssProvider();
 		
-		var controls = new Box(HORIZONTAL, 15);
-		controls.border_width = 5;
-		controls.valign = START;
-		controls.halign = CENTER;
-		controls.add(new Label("Icon"));
-		controls.add(icon_pick);
-		icon_pick.text = standard.icon_name;
-		icon_pick.changed.connect(() => {
-			standard.icon_name = icon_pick.text;
-			symbolic.icon_name = icon_pick.text + "-symbolic";
-		});
-		icon_pick.completion = new EntryCompletion ();
+		construct {
+			update_iconname();
+			update_size();
 
-		controls.add(new Label("Size"));
-		controls.add(size);
-		size.value = (double) (standard.pixel_size = symbolic.pixel_size = 128);
-		size.notify["value"].connect(() => {
-			standard.pixel_size = symbolic.pixel_size = (int) size.value;
-			standard.icon_name = icon_pick.text;
-			symbolic.icon_name = icon_pick.text + "-symbolic";
-		});
-		controls.add(new Label("Colour"));
-		controls.add(colour);
-		var provider = new CssProvider();
-		var tmpl = "image { color:	%s; }";
-		colour.color_set.connect(() => {
+			colour.rgba = get_style_context().get_color(NORMAL);
+			StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_USER);
+
+			var icons = new Gtk.ListStore (1, typeof (string));
+			TreeIter iter;
+			foreach (var icon in IconTheme.get_default().list_icons(null)) {
+				icons.append (out iter);
+				icons.set (iter, 0, icon);
+				if (icon.has_suffix("symbolic")) {
+					symbolics.append(icon);
+				}
+			}
+
+			iconname.completion = new EntryCompletion ();
+			iconname.completion.model = icons;
+			iconname.completion.text_column = 0;
+
+			var modes = new Gtk.ListStore (2, typeof (string), typeof (IconMode));
+			modes.append (out iter);
+			modes.set (iter, 0, "Name", 1, IconMode.NAME);
+			modes.append (out iter);
+			modes.set (iter, 0, "File", 1, IconMode.FILE);
+			mode.model = modes;
+
+			var renderer = new CellRendererText ();
+			mode.pack_start (renderer, true);
+			mode.add_attribute (renderer, "text", 0);
+			mode.active = 0;
+
+			dummy1.icon_name = pick_symbolic();
+			dummy2.icon_name = pick_symbolic();
+			dummy3.icon_name = pick_symbolic();
+			dummy4.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
+			dummy5.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
+		}
+
+		private string pick_symbolic () {
+			//return symbolics.nth_data(Random.int_range(0, symbolics.length));
+			return symbolics.nth_data(1);
+		}
+
+		private void update_icon (Icon icon) {
+			viewer.gicon = icon;
+			toolbar.icon_widget = new Image.from_gicon(icon, BUTTON);
+			button.image = new Image.from_gicon(icon, BUTTON);
+		}
+
+		[GtkCallback]
+		private void mode_changed() {
+			Value id;
+			TreeIter iter;
+			mode.get_active_iter (out iter);
+			mode.model.get_value (iter, 1, out id);
+			switch (id.get_enum()) {
+				case IconPreview.IconMode.FILE:
+					iconfile.visible = true;
+					iconname.visible = false;
+					break;
+				case IconPreview.IconMode.NAME:
+					iconfile.visible = false;
+					iconname.visible = true;
+					break;
+				default:
+					critical("Something bad happened when changing icon mode");
+					break;
+			}
+		}
+
+		[GtkCallback]
+		private void update_iconname () {
+			update_icon(new ThemedIcon(iconname.text));
+		}
+
+		[GtkCallback]
+		private void update_iconfile () {
+			update_icon(new FileIcon(iconfile.get_file()));
+		}
+
+		[GtkCallback]
+		private void update_size () {
+			viewer.pixel_size = (int) size.value;
+		}
+
+		[GtkCallback]
+		private void update_colour () {
+			var tmpl = ".preview-area image { color: %s; }";
 			try {
 				provider.load_from_data(tmpl.printf(colour.rgba.to_string()));
 			} catch (Error e) {
 				message("Couldn't set colour: %s", e.message);
 			}
-		});
-		colour.rgba = get_style_context().get_color(NORMAL);
-		StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_USER);
-		wrap.pack_start(controls, false, false);
-
-		var icons = new Box(HORIZONTAL, 0);
-		icons.expand = true;
-		icons.valign = CENTER;
-		icons.homogeneous = true;
-		icons.add(standard);
-		icons.add(symbolic);
-		var scroll = new ScrolledWindow(null, null);
-		scroll.add(icons);
-		wrap.pack_end(scroll, true, true);
-
-		add(wrap);
-
-		var list_store = new Gtk.ListStore (1, typeof (string));
-		var iter = TreeIter();
-		foreach (var icon in IconTheme.get_default().list_icons(null)) {
-			if (!icon.has_suffix("symbolic")) {
-				list_store.append (out iter);
-				list_store.set (iter, 0, icon);
-			}
 		}
-		icon_pick.completion.model = list_store;
-		icon_pick.completion.text_column = 0;
 	}
 }
-
