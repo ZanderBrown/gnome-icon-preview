@@ -6,7 +6,8 @@ config = configure_file(input: 'config.vala.in', output: 'config.vala', configur
 
 sources = [
 	config,
-	'icons.vala'
+	'icons.vala',
+	'main.vala'
 ]
 
 executable('gnome-icon-preview', sources, dependencies: deps, install: true)

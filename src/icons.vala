@@ -77,10 +77,3 @@ class IconPlayWindow : Window {
 	}
 }
 
-void main(string[] args) {
-	Gtk.init(ref args);
-	var win = new IconPlayWindow();
-	win.destroy.connect(main_quit);
-	win.show_all();
-	Gtk.main();
-}
