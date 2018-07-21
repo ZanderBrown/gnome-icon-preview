@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.gnome.IconPreview
+Exec=@BINDIR@/gnome-icon-preview --gapplication-service

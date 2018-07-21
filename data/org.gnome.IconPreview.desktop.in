@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Icon Preview
+Comment=Preview icons
+Exec=gnome-icon-preview
+Icon=org.gnome.IconPreview
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;GTK;GNOME;
+DBusActivatable=true

@@ -1,4 +1,3 @@
-// Compile with `valac icons.vala --pkg gtk+-3.0`
 // (C) 2018 Zander Brown
 
 using Gtk;
