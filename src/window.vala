@@ -68,7 +68,7 @@ namespace IconPreview {
 	}
 
 	[GtkTemplate (ui = "/org/gnome/IconPreview/newwindow.ui")]
-	public class Window2 : ApplicationWindow {
+	public class Window : ApplicationWindow {
 		[GtkChild]
 		Box panes;
 
@@ -77,6 +77,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
+			{ "refresh", refresh },
 			{ "menu",  open_menu },
 			{ "about", about },
 			{ "quit",  quit  }
@@ -92,6 +93,7 @@ namespace IconPreview {
 			}
 		}
 
+		private File _file;
 		public File file {
 			set {
 				if (monitor != null) {
@@ -104,12 +106,16 @@ namespace IconPreview {
 					critical("Unable to watch icon: %s", e.message);
 				}
 				file_updated(value, null, CHANGED);
+				_file = value;
+			}
+			get {
+				return _file;
 			}
 		}
 
 		FileMonitor monitor = null;
 
-		public Window2 (Application app) {
+		public Window (Application app) {
 			Object(application: app);
 		}
 
@@ -133,9 +139,20 @@ namespace IconPreview {
 			dlg.show();
 		}
 
+		private void refresh () {
+			file_updated(file, null, CHANGED);
+		}
+
 		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
 			if (evt == CHANGED) {
 				preview_icon = new FileIcon(src);
+				try {
+					var info = src.query_info ("standard::display-name", NONE);
+					title = info.get_display_name();
+				} catch (Error e) {
+					critical("Failed to fetch icon name: %s", e.message);
+					title = "Icon Preview";
+				}
 			}
 		}
 

@@ -8,12 +8,12 @@ namespace IconPreview {
 		}
 
 		public override void activate () {
-			new Window2(this).present();
+			new Window(this).present();
 		}
 
 		public override void open (File[] files, string hint) {
 			foreach (var file in files) {
-				var win = new Window2(this) {
+				var win = new Window(this) {
 					file = file
 				};
 				win.present();
