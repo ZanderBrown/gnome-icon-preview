@@ -37,6 +37,21 @@ namespace IconPreview {
 		Button button;
 
 		[GtkChild]
+		Button button2;
+
+		[GtkChild]
+		Button button3;
+
+		[GtkChild]
+		Button button4;
+
+		[GtkChild]
+		Button button5;
+
+		[GtkChild]
+		Button button6;
+
+		[GtkChild]
 		ToolButton toolbar;
 
 		// Inspector View
@@ -162,6 +177,16 @@ namespace IconPreview {
 			toolbar.icon_widget.show();
 			button.image = new Image.from_gicon(icon, BUTTON);
 			button.image.show();
+			button2.image = new Image.from_gicon(icon, BUTTON);
+			button2.image.show();
+			button3.image = new Image.from_gicon(icon, BUTTON);
+			button3.image.show();
+			button4.image = new Image.from_gicon(icon, BUTTON);
+			button4.image.show();
+			button5.image = new Image.from_gicon(icon, BUTTON);
+			button5.image.show();
+			button6.image = new Image.from_gicon(icon, BUTTON);
+			button6.image.show();
 		}
 
 		[GtkCallback]
