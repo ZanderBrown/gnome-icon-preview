@@ -6,6 +6,7 @@ config = configure_file(input: 'config.vala.in', output: 'config.vala', configur
 
 sources = [
 	config,
+	'pane.vala',
 	'window.vala',
 	'main.vala'
 ]
