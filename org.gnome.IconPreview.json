@@ -1,0 +1,29 @@
+{
+    "app-id" : "org.gnome.IconPreview",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.28",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "gnome-icon-preview",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland"
+    ],
+    "modules" : [
+        {
+            "name" : "icon-preview",
+            "buildsystem" : "meson",
+            "builddir" : true,
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/ZanderBrown/icon-tool.git"
+                }
+            ]
+        }
+    ],
+    "build-options" : {
+        "env" : {
+        }
+    }
+}

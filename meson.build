@@ -1,4 +1,4 @@
-project('icon-tool', 'vala', 'c')
+project('gnome-icon-preview', 'vala', 'c')
 
 
 datadir = join_paths([ get_option('prefix'), get_option('datadir') ])
@@ -20,3 +20,4 @@ endif
 
 subdir('data')
 subdir('src')
+
