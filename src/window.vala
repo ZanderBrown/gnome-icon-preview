@@ -83,6 +83,8 @@ namespace IconPreview {
 			{ "quit",  quit  }
 		};
 
+		FileMonitor monitor = null;
+
 		private Icon _icon = new ThemedIcon("start-here-symbolic");
 		public Icon preview_icon {
 			get {
@@ -113,10 +115,14 @@ namespace IconPreview {
 			}
 		}
 
-		FileMonitor monitor = null;
+		public Application app {
+			construct {
+				application = value;
+			}
+		}
 
 		public Window (Application app) {
-			Object(application: app);
+			Object(app: app);
 		}
 
 		construct {
