@@ -92,6 +92,8 @@ namespace IconPreview {
 			}
 		}
 
+		FileMonitor monitor = null;
+
 		public Window2 (Application app) {
 			Object(application: app);
 		}
@@ -110,10 +112,26 @@ namespace IconPreview {
 			var dlg = new FileChooserNative("Select Icon", this, OPEN, null, null);
 			dlg.response.connect(res => {
 				if (res == ResponseType.ACCEPT) {
-					preview_icon = new FileIcon(dlg.get_file());
+					if (monitor != null) {
+						monitor.cancel();
+					}
+					var file = dlg.get_file();
+					try {
+						monitor = file.monitor_file(NONE, null);
+						monitor.changed.connect(file_updated);
+					} catch (Error e) {
+						critical("Unable to watch icon: %s", e.message);
+					}
+					file_updated(file, null, CHANGED);
 				}
 			});
 			dlg.show();
+		}
+
+		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
+			if (evt == CHANGED) {
+				preview_icon = new FileIcon(src);
+			}
 		}
 
 		// Wrapper for win.menu
