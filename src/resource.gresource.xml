@@ -3,4 +3,7 @@
   <gresource prefix="/org/gnome/IconPreview/">
     <file>window.ui</file>
   </gresource>
+  <gresource prefix="/org/gnome/IconPreview/gtk/">
+    <file>menus.ui</file>
+  </gresource>
 </gresources>

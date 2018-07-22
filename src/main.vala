@@ -1,23 +1,19 @@
 using Gtk;
 
 namespace IconPreview {
-	class Application : Gtk.Application {
+	public class Application : Gtk.Application {
 		construct {
 			application_id = "org.gnome.IconPreview";
 			flags = HANDLES_OPEN;
 		}
 
 		public override void activate () {
-			var win = new Window() {
-				application = this
-			};
-			win.present();
+			new Window(this).present();
 		}
 
 		public override void open (File[] files, string hint) {
 			foreach (var file in files) {
-				var win = new Window() {
-					application = this,
+				var win = new Window(this) {
 					file = file
 				};
 				win.present();
@@ -26,6 +22,7 @@ namespace IconPreview {
 
 		public override void startup () {
 			base.startup();
+			set_accels_for_action ("win.menu", { "F10" });
 		}
 	}
 

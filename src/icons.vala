@@ -46,10 +46,17 @@ namespace IconPreview {
 		[GtkChild]
 		SpinButton size;
 
+		// Available symbolic icons
 		List<string> symbolics;
+		// Used to set icon colour
 		CssProvider provider = new CssProvider();
 
+		// Window menu
+		[GtkChild]
+		MenuButton winmenu;
+
 		const GLib.ActionEntry[] entries = {
+			{ "menu",  open_menu },
 			{ "about", about },
 			{ "quit",  quit  }
 		};
@@ -65,7 +72,17 @@ namespace IconPreview {
 				}
 			}
 		}
+
+		public Application app {
+			construct {
+				application = value;
+			}
+		}
 		
+		public Window (Application app) {
+			Object(app: app);
+		}
+
 		construct {
 			update_iconname();
 			update_size();
@@ -105,11 +122,25 @@ namespace IconPreview {
 			dummy4.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
 			dummy5.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
 
-			add_action_entries(entries, null);
+			winmenu.menu_model = application.get_menu_by_id("win-menu");
+
+			add_action_entries(entries, this);
+		}
+
+		private void open_menu () {
+			winmenu.clicked();
 		}
 
 		private void about () {
-			message("About");
+			var authors = new string[] {"Zander Brown"};
+			show_about_dialog (this,
+				program_name: "Icon Preview",
+				version: "%s@%s".printf(PACKAGE_VERSION, COMMIT_ID),
+				copyright: "Copyright © 2018 Zander Brown",
+				license_type: License.GPL_3_0,
+				authors: authors,
+				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
+				website_label: "Repository");
 		}
 
 		private void quit () {
