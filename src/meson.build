@@ -6,6 +6,7 @@ config = configure_file(input: 'config.vala.in', output: 'config.vala', configur
 
 sources = [
 	config,
+	'window.vala',
 	'icons.vala',
 	'main.vala'
 ]
@@ -15,6 +16,5 @@ gnome = import('gnome')
 sources += gnome.compile_resources('resources',
   'resource.gresource.xml'
 )
-
 
 executable('gnome-icon-preview', sources, dependencies: deps, install: true)

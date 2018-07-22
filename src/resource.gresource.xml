@@ -2,6 +2,8 @@
 <gresources>
   <gresource prefix="/org/gnome/IconPreview/">
     <file>window.ui</file>
+    <file>pane.ui</file>
+    <file>newwindow.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">
     <file>menus.ui</file>
