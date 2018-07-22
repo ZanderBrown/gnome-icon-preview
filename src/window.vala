@@ -92,6 +92,21 @@ namespace IconPreview {
 			}
 		}
 
+		public File file {
+			set {
+				if (monitor != null) {
+					monitor.cancel();
+				}
+				try {
+					monitor = value.monitor_file(NONE, null);
+					monitor.changed.connect(file_updated);
+				} catch (Error e) {
+					critical("Unable to watch icon: %s", e.message);
+				}
+				file_updated(value, null, CHANGED);
+			}
+		}
+
 		FileMonitor monitor = null;
 
 		public Window2 (Application app) {
@@ -112,17 +127,7 @@ namespace IconPreview {
 			var dlg = new FileChooserNative("Select Icon", this, OPEN, null, null);
 			dlg.response.connect(res => {
 				if (res == ResponseType.ACCEPT) {
-					if (monitor != null) {
-						monitor.cancel();
-					}
-					var file = dlg.get_file();
-					try {
-						monitor = file.monitor_file(NONE, null);
-						monitor.changed.connect(file_updated);
-					} catch (Error e) {
-						critical("Unable to watch icon: %s", e.message);
-					}
-					file_updated(file, null, CHANGED);
+					file = dlg.get_file();
 				}
 			});
 			dlg.show();
