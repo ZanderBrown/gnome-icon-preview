@@ -127,10 +127,12 @@ namespace IconPreview {
 			add_action_entries(entries, this);
 		}
 
+		// Wrapper for win.menu
 		private void open_menu () {
 			winmenu.clicked();
 		}
 
+		// Show the about dialog, triggered by win.about
 		private void about () {
 			var authors = new string[] {"Zander Brown"};
 			show_about_dialog (this,
@@ -143,19 +145,23 @@ namespace IconPreview {
 				website_label: "Repository");
 		}
 
+		// Wrapper for win.quit
 		private void quit () {
 			application.quit();
 		}
 
+		// Choose a random symbolic icon
 		private string pick_symbolic () {
-			//return symbolics.nth_data(Random.int_range(0, symbolics.length));
-			return symbolics.nth_data(1);
+			return symbolics.nth_data(Random.int_range(0, (int32) symbolics.length()));
 		}
 
+		// Update everywhere the selected icon is displayed
 		private void update_icon (Icon icon) {
 			viewer.gicon = icon;
 			toolbar.icon_widget = new Image.from_gicon(icon, BUTTON);
+			toolbar.icon_widget.show();
 			button.image = new Image.from_gicon(icon, BUTTON);
+			button.image.show();
 		}
 
 		[GtkCallback]
