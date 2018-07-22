@@ -32,6 +32,9 @@ namespace IconPreview {
 		[GtkChild]
 		Button dummy5;
 
+		[GtkChild]
+		Grid cloud;
+
 		// Demo Areas
 		[GtkChild]
 		Button button;
@@ -65,6 +68,8 @@ namespace IconPreview {
 		List<string> symbolics;
 		// Used to set icon colour
 		CssProvider provider = new CssProvider();
+		// Holds all our dummy buttons (so we can iterate them)
+		List<Button> buttons;
 
 		// Window menu
 		[GtkChild]
@@ -99,9 +104,6 @@ namespace IconPreview {
 		}
 
 		construct {
-			update_iconname();
-			update_size();
-
 			colour.rgba = get_style_context().get_color(NORMAL);
 			StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, STYLE_PROVIDER_PRIORITY_USER);
 
@@ -131,11 +133,25 @@ namespace IconPreview {
 			mode.add_attribute (renderer, "text", 0);
 			mode.active = 0;
 
+			buttons.append(button);
+			buttons.append(button2);
+			buttons.append(button3);
+			buttons.append(button4);
+			buttons.append(button5);
+			buttons.append(button6);
+
 			dummy1.icon_name = pick_symbolic();
 			dummy2.icon_name = pick_symbolic();
 			dummy3.icon_name = pick_symbolic();
 			dummy4.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
 			dummy5.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
+
+			cloud.foreach(image => {
+				(image as Image).icon_name = pick_symbolic();
+			});
+
+			update_iconname();
+			update_size();
 
 			winmenu.menu_model = application.get_menu_by_id("win-menu");
 
@@ -175,18 +191,11 @@ namespace IconPreview {
 			viewer.gicon = icon;
 			toolbar.icon_widget = new Image.from_gicon(icon, BUTTON);
 			toolbar.icon_widget.show();
-			button.image = new Image.from_gicon(icon, BUTTON);
-			button.image.show();
-			button2.image = new Image.from_gicon(icon, BUTTON);
-			button2.image.show();
-			button3.image = new Image.from_gicon(icon, BUTTON);
-			button3.image.show();
-			button4.image = new Image.from_gicon(icon, BUTTON);
-			button4.image.show();
-			button5.image = new Image.from_gicon(icon, BUTTON);
-			button5.image.show();
-			button6.image = new Image.from_gicon(icon, BUTTON);
-			button6.image.show();
+			foreach (var button in buttons) {
+				button.image = new Image.from_gicon(icon, BUTTON);
+				button.image.show();
+			}
+			(cloud.get_child_at(2, 2) as Image).gicon = icon;
 		}
 
 		[GtkCallback]
