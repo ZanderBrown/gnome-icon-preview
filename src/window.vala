@@ -72,6 +72,26 @@ namespace IconPreview {
 		[GtkChild]
 		Box panes;
 
+		[GtkChild]
+		MenuButton menu;
+
+		const GLib.ActionEntry[] entries = {
+			{ "open", open },
+			{ "menu",  open_menu },
+			{ "about", about },
+			{ "quit",  quit  }
+		};
+
+		private Icon _icon = new ThemedIcon("start-here-symbolic");
+		public Icon preview_icon {
+			get {
+				return _icon;
+			}
+			set {
+				panes.foreach(pane => (pane as Pane).icon = value);
+			}
+		}
+
 		public Window2 (Application app) {
 			Object(application: app);
 		}
@@ -79,9 +99,44 @@ namespace IconPreview {
 		construct {
 			var a = new Pane();
 			var b = new Pane();
-			a.icon = b.icon = new ThemedIcon("open-menu-symbolic");
 			panes.pack_start(a);
 			panes.pack_end(b);
+
+			menu.menu_model = application.get_menu_by_id("win-menu");
+			add_action_entries(entries, this);
+		}
+
+		private void open () {
+			var dlg = new FileChooserNative("Select Icon", this, OPEN, null, null);
+			dlg.response.connect(res => {
+				if (res == ResponseType.ACCEPT) {
+					preview_icon = new FileIcon(dlg.get_file());
+				}
+			});
+			dlg.show();
+		}
+
+		// Wrapper for win.menu
+		private void open_menu () {
+			menu.clicked();
+		}
+
+		// Show the about dialog, triggered by win.about
+		private void about () {
+			var authors = new string[] {"Zander Brown"};
+			show_about_dialog (this,
+				program_name: "Icon Preview",
+				version: "%s@%s".printf(PACKAGE_VERSION, COMMIT_ID),
+				copyright: "Copyright © 2018 Zander Brown",
+				license_type: License.GPL_3_0,
+				authors: authors,
+				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
+				website_label: "Repository");
+		}
+
+		// Wrapper for win.quit
+		private void quit () {
+			application.quit();
 		}
 	}
 }
