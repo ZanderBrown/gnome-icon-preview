@@ -3,11 +3,6 @@
 using Gtk;
 
 namespace IconPreview { 
-	enum IconMode {
-		NAME,
-		FILE
-	}
-
 	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
 	public class Window : ApplicationWindow {
 		// Selectors
@@ -53,6 +48,23 @@ namespace IconPreview {
 
 		List<string> symbolics;
 		CssProvider provider = new CssProvider();
+
+		const GLib.ActionEntry[] entries = {
+			{ "about", about },
+			{ "quit",  quit  }
+		};
+
+		public File file {
+			set {
+				try {
+					iconfile.set_file(value);
+					mode.active_id = "file";
+					update_iconfile();
+				} catch (Error e) {
+					critical("Failed to set file");
+				}
+			}
+		}
 		
 		construct {
 			update_iconname();
@@ -75,11 +87,11 @@ namespace IconPreview {
 			iconname.completion.model = icons;
 			iconname.completion.text_column = 0;
 
-			var modes = new Gtk.ListStore (2, typeof (string), typeof (IconMode));
+			var modes = new Gtk.ListStore (2, typeof (string), typeof (string));
 			modes.append (out iter);
-			modes.set (iter, 0, "Name", 1, IconMode.NAME);
+			modes.set (iter, 0, "Name", 1, "name");
 			modes.append (out iter);
-			modes.set (iter, 0, "File", 1, IconMode.FILE);
+			modes.set (iter, 0, "File", 1, "file");
 			mode.model = modes;
 
 			var renderer = new CellRendererText ();
@@ -92,6 +104,16 @@ namespace IconPreview {
 			dummy3.icon_name = pick_symbolic();
 			dummy4.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
 			dummy5.image = new Image.from_icon_name(pick_symbolic(), BUTTON);
+
+			add_action_entries(entries, null);
+		}
+
+		private void about () {
+			message("About");
+		}
+
+		private void quit () {
+			application.quit();
 		}
 
 		private string pick_symbolic () {
@@ -107,16 +129,12 @@ namespace IconPreview {
 
 		[GtkCallback]
 		private void mode_changed() {
-			Value id;
-			TreeIter iter;
-			mode.get_active_iter (out iter);
-			mode.model.get_value (iter, 1, out id);
-			switch (id.get_enum()) {
-				case IconPreview.IconMode.FILE:
+			switch (mode.active_id) {
+				case "file":
 					iconfile.visible = true;
 					iconname.visible = false;
 					break;
-				case IconPreview.IconMode.NAME:
+				case "name":
 					iconfile.visible = false;
 					iconname.visible = true;
 					break;
