@@ -40,7 +40,6 @@ namespace IconPreview {
 				_theme = value;
 				provider = CssProvider.get_named(value, null);
 				apply_css(this);
-				message("Load %s", value);
 			}
 		}
 
@@ -56,23 +55,20 @@ namespace IconPreview {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
 			}
-			grid.foreach(image => (image as Image).gicon = random());
 			icons.append(grid.get_child_at(3, 1) as Image);
 			var count = 0;
+			// Doesn't seem to be a way to directly access
 			linked.foreach(btn => {
-				if (count != 2) {
-					(btn as Button).image = new Image.from_gicon(random(), BUTTON);
-				} else {
-					(btn as Button).image = new Image.from_gicon(icon, BUTTON);
+				if (count == 2) {
 					icons.append((btn as Button).image as Image);
 				}
 				count++;
 			});
 			states.foreach(state => {
-				var img = new Image.from_gicon(icon, BUTTON);
-				(state as Button).image = img;
-				icons.append(img);
+				icons.append((state as Button).image as Image);
 			});
+
+			shuffle();
 		}
 
 		// Adapted from one of the gtk demos
@@ -87,6 +83,28 @@ namespace IconPreview {
 			if (widget is Container) {
 				(widget as Container).forall(apply_css);
 			}
+		}
+
+		public void shuffle () {
+			// Do this a two sepeperate idle callbacks
+			// to avoid compleatly freezing the app
+			Idle.add(() => {
+				grid.foreach(image => (image as Image).gicon = random());
+				// Unfortunatly we have just randomised
+				// The icon in grid we actually care about
+				icon = icon;
+				return Source.REMOVE;
+			});
+			Idle.add(() => {
+				var count = 0;
+				linked.foreach(btn => {
+					if (count != 2) {
+						((btn as Button).image as Image).gicon = random();
+					}
+					count++;
+				});
+				return Source.REMOVE;
+			});
 		}
 
 		private Icon random () {

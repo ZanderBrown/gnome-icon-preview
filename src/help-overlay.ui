@@ -21,6 +21,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;s</property>
+                <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;r</property>
                 <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
               </object>

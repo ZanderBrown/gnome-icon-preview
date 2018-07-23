@@ -12,6 +12,7 @@ namespace IconPreview {
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "refresh", refresh },
+			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "about", about },
 			{ "quit",  quit  }
@@ -82,6 +83,10 @@ namespace IconPreview {
 
 		private void refresh () {
 			file_updated(file, null, CHANGED);
+		}
+
+		private void shuffle () {
+			panes.foreach(pane => (pane as Pane).shuffle());
 		}
 
 		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
