@@ -457,5 +457,8 @@
         <property name="position">3</property>
       </packing>
     </child>
+    <style>
+      <class name="background"/>
+    </style>
   </template>
 </interface>

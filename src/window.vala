@@ -62,6 +62,7 @@ namespace IconPreview {
 		construct {
 			var a = new Pane();
 			var b = new Pane();
+			b.theme = "Adwaita-dark";
 			panes.pack_start(a);
 			panes.pack_end(b);
 

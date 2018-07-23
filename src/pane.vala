@@ -17,6 +17,7 @@ namespace IconPreview {
 
 		List<string> symbolics;
 		List<Image> icons;
+		CssProvider provider = null;
 
 		private Icon _icon = new ThemedIcon("start-here-symbolic");
 		public Icon icon {
@@ -27,6 +28,19 @@ namespace IconPreview {
 				foreach (var icon in icons) {
 					icon.gicon = value;
 				}
+			}
+		}
+
+		private string _theme = "Adwaita";
+		public string theme {
+			get {
+				return _theme;
+			}
+			set {
+				_theme = value;
+				provider = CssProvider.get_named(value, null);
+				apply_css(this);
+				message("Load %s", value);
 			}
 		}
 
@@ -59,6 +73,20 @@ namespace IconPreview {
 				(state as Button).image = img;
 				icons.append(img);
 			});
+		}
+
+		// Adapted from one of the gtk demos
+		private void apply_css(Widget widget) {
+			var context = widget.get_style_context();
+			StyleProvider existing = widget.get_data("pane-style-provider");
+			if (existing != null) {
+				context.remove_provider(existing);
+			}
+			context.add_provider(provider, uint.MAX);
+			widget.set_data("pane-style-provider", provider);
+			if (widget is Container) {
+				(widget as Container).forall(apply_css);
+			}
 		}
 
 		private Icon random () {
