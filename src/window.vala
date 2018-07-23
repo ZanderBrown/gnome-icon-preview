@@ -14,6 +14,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
+			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
@@ -74,6 +75,7 @@ namespace IconPreview {
 			panes.pack_end(b);
 
 			recent.popover = recents;
+			recents.open.connect(recent => file = recent);
 
 			menu.menu_model = application.get_menu_by_id("win-menu");
 			add_action_entries(entries, this);
@@ -87,6 +89,10 @@ namespace IconPreview {
 				}
 			});
 			dlg.show();
+		}
+
+		private void open_recent () {
+			recent.clicked();
 		}
 
 		private void refresh () {

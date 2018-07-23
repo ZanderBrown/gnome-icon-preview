@@ -23,6 +23,7 @@ namespace IconPreview {
 		public override void startup () {
 			base.startup();
 			set_accels_for_action ("win.open", { "<primary>O" });
+			set_accels_for_action ("win.recents", { "<primary><shift>O" });
 			set_accels_for_action ("win.refresh", { "<primary>R" });
 			set_accels_for_action ("win.shuffle", { "<primary>S" });
 			set_accels_for_action ("win.menu", { "F10" });

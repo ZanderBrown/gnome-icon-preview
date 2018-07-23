@@ -27,7 +27,9 @@
         <child>
           <object class="GtkEntry">
             <property name="visible">True</property>
+            <property name="sensitive">False</property>
             <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">TODO</property>
             <property name="completion">completion</property>
           </object>
           <packing>
@@ -73,6 +75,7 @@
                         <property name="width_request">250</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <signal name="row-activated" handler="activated" swapped="no"/>
                       </object>
                     </child>
                   </object>
