@@ -7,6 +7,9 @@ namespace IconPreview {
 		Box panes;
 
 		[GtkChild]
+		MenuButton recent;
+
+		[GtkChild]
 		MenuButton menu;
 
 		const GLib.ActionEntry[] entries = {
@@ -19,6 +22,7 @@ namespace IconPreview {
 		};
 
 		FileMonitor monitor = null;
+		Recents recents = new Recents();
 
 		private Icon _icon = new ThemedIcon("start-here-symbolic");
 		public Icon preview_icon {
@@ -33,6 +37,7 @@ namespace IconPreview {
 		private File _file;
 		public File file {
 			set {
+				recents.open_file(value);
 				if (monitor != null) {
 					monitor.cancel();
 				}
@@ -62,10 +67,13 @@ namespace IconPreview {
 
 		construct {
 			var a = new Pane();
+			a.theme = "Adwaita";
 			var b = new Pane();
 			b.theme = "Adwaita-dark";
 			panes.pack_start(a);
 			panes.pack_end(b);
+
+			recent.popover = recents;
 
 			menu.menu_model = application.get_menu_by_id("win-menu");
 			add_action_entries(entries, this);

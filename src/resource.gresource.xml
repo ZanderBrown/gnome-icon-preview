@@ -2,6 +2,8 @@
 <gresources>
   <gresource prefix="/org/gnome/IconPreview/">
     <file>pane.ui</file>
+    <file>recentrow.ui</file>
+    <file>recents.ui</file>
     <file>window.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">

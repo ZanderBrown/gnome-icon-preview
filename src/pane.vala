@@ -4,6 +4,9 @@ namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/pane.ui")]
 	public class Pane : Box {
 		[GtkChild]
+		MenuButton picker;
+
+		[GtkChild]
 		Grid sizes;
 
 		[GtkChild]
@@ -45,6 +48,8 @@ namespace IconPreview {
 
 		construct {
 			set_css_name("pane");
+
+			bind_property("theme", picker, "label");
 
 			foreach (var icon in IconTheme.get_default().list_icons(null)) {
 				if (icon.has_suffix("symbolic")) {
