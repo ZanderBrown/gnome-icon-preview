@@ -28,6 +28,11 @@ namespace IconPreview {
 
 		public override void startup () {
 			base.startup();
+
+			var styles = new CssProvider();
+			styles.load_from_resource("/org/gnome/IconPreview/gtk/style.css");
+			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, STYLE_PROVIDER_PRIORITY_APPLICATION);
+
 			set_accels_for_action ("win.open", { "<primary>O" });
 			set_accels_for_action ("win.recents", { "<primary><shift>O" });
 			set_accels_for_action ("win.refresh", { "<primary>R" });

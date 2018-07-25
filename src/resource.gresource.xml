@@ -4,9 +4,11 @@
     <file>pane.ui</file>
     <file>recentrow.ui</file>
     <file>recents.ui</file>
+    <file>inital.ui</file>
     <file>window.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">
+    <file>style.css</file>
     <file>menus.ui</file>
     <file>help-overlay.ui</file>
   </gresource>

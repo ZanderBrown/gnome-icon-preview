@@ -1,0 +1,10 @@
+.drop-zone {
+	border: 5px dashed @theme-border-color;
+	border-radius: 10px;
+	padding: 20px 100px;
+	margin: 30px;
+}
+
+.drop-zone * {
+	margin: 15px;
+}

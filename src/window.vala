@@ -14,6 +14,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
+			{ "new-icon", new_icon, "s" },
 			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
@@ -71,10 +72,14 @@ namespace IconPreview {
 		}
 
 		construct {
-			var symbolics = new Symbolic();
-			content.add(symbolics);
-			symbolics.show();
-			content.visible_child = symbolics;
+			var inital = new InitalState();
+			content.add(inital);
+			inital.show();
+
+			//var symbolics = new Symbolic();
+			//content.add(symbolics);
+			//symbolics.show();
+			//content.visible_child = symbolics;
 
 			recent.popover = recents;
 			recents.open.connect(recent => file = recent);
@@ -93,6 +98,24 @@ namespace IconPreview {
 				}
 			});
 			dlg.show();
+		}
+
+		private void new_icon (GLib.Action _act, Variant? arg) {
+			if (arg == null) {
+				critical("Expected argument for win.new");
+				return;
+			}
+			switch (arg.get_string()) {
+				case "symbolic":
+					message("TODO");
+					break;
+				case "colour":
+					message("TODO");
+					break;
+				default:
+					critical("Bad argument for win.new");
+					break;
+			}
 		}
 
 		private void open_recent () {

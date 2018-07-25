@@ -9,6 +9,7 @@ sources = [
 	'pane.vala',
 	'recents.vala',
 	'symbolic.vala',
+	'inital.vala',
 	'window.vala',
 	'main.vala'
 ]
