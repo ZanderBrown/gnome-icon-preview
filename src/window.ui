@@ -2,22 +2,21 @@
 <!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkImage" id="image2">
+  <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">view-refresh-symbolic</property>
   </object>
   <template class="IconPreviewWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
+    <property name="icon_name">org.gnome.IconPreview</property>
     <property name="show_menubar">False</property>
     <child>
-      <object class="GtkBox" id="panes">
+      <object class="GtkStack" id="content">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="homogeneous">True</property>
-        <child>
-          <placeholder/>
-        </child>
+        <property name="transition_type">slide-up</property>
+        <property name="interpolate_size">True</property>
         <child>
           <placeholder/>
         </child>
@@ -27,7 +26,6 @@
       <object class="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="title">start-here-symbolic</property>
         <property name="show_close_button">True</property>
         <child>
           <object class="GtkBox">
@@ -70,6 +68,9 @@
               <class name="linked"/>
             </style>
           </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
         </child>
         <child>
           <object class="GtkButton">
@@ -77,7 +78,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="action_name">win.refresh</property>
-            <property name="image">image2</property>
+            <property name="image">image1</property>
             <property name="always_show_image">True</property>
           </object>
           <packing>
@@ -96,6 +97,19 @@
                 <property name="icon_name">open-menu-symbolic</property>
               </object>
             </child>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">Export</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">win.export</property>
           </object>
           <packing>
             <property name="pack_type">end</property>

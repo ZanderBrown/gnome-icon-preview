@@ -1,6 +1,12 @@
 using Gtk;
 
 namespace IconPreview {
+	public interface Previewer : Object {
+		public abstract Icon previewing {get;set;}
+		public abstract void shuffle();
+		public abstract void export();
+	}
+
 	public class Application : Gtk.Application {
 		construct {
 			application_id = "org.gnome.IconPreview";

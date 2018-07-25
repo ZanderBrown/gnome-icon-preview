@@ -4,7 +4,7 @@ namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
 	public class Window : ApplicationWindow {
 		[GtkChild]
-		Box panes;
+		Stack content;
 
 		[GtkChild]
 		MenuButton recent;
@@ -19,6 +19,7 @@ namespace IconPreview {
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "about", about },
+			{ "export", about },
 			{ "quit",  quit  }
 		};
 
@@ -31,7 +32,10 @@ namespace IconPreview {
 				return _icon;
 			}
 			set {
-				panes.foreach(pane => (pane as Pane).icon = value);
+				if (content.visible_child is Previewer) {
+					(content.visible_child as Previewer).previewing = value;
+				}
+				_icon = value;
 			}
 		}
 
@@ -67,18 +71,18 @@ namespace IconPreview {
 		}
 
 		construct {
-			var a = new Pane();
-			a.theme = "Adwaita";
-			var b = new Pane();
-			b.theme = "Adwaita-dark";
-			panes.pack_start(a);
-			panes.pack_end(b);
+			var symbolics = new Symbolic();
+			content.add(symbolics);
+			symbolics.show();
+			content.visible_child = symbolics;
 
 			recent.popover = recents;
 			recents.open.connect(recent => file = recent);
 
 			menu.menu_model = application.get_menu_by_id("win-menu");
 			add_action_entries(entries, this);
+
+			(lookup_action("export") as SimpleAction).set_enabled(false);
 		}
 
 		private void open () {
@@ -100,7 +104,9 @@ namespace IconPreview {
 		}
 
 		private void shuffle () {
-			panes.foreach(pane => (pane as Pane).shuffle());
+			if (content.visible_child is Previewer) {
+				(content.visible_child as Previewer).shuffle();
+			}
 		}
 
 		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
