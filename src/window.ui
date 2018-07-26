@@ -12,13 +12,31 @@
     <property name="icon_name">org.gnome.IconPreview</property>
     <property name="show_menubar">False</property>
     <child>
-      <object class="GtkStack" id="content">
+      <object class="GtkOverlay">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="transition_type">slide-up</property>
-        <property name="interpolate_size">True</property>
         <child>
-          <placeholder/>
+          <object class="GtkStack" id="content">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="transition_type">slide-up</property>
+            <property name="interpolate_size">True</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="index">-1</property>
+          </packing>
+        </child>
+        <child type="overlay">
+          <object class="GtkProgressBar" id="progress">
+            <property name="can_focus">False</property>
+            <property name="valign">start</property>
+          </object>
+          <packing>
+            <property name="pass_through">True</property>
+          </packing>
         </child>
       </object>
     </child>
@@ -73,7 +91,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="refreshbtn">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -104,7 +122,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkToggleButton" id="exportbtn">
             <property name="label" translatable="yes">Export</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

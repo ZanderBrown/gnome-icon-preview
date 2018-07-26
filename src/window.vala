@@ -4,13 +4,23 @@ namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
 	public class Window : ApplicationWindow {
 		[GtkChild]
+		ProgressBar progress;
+
+		[GtkChild]
 		Stack content;
 
 		[GtkChild]
 		MenuButton recent;
 
 		[GtkChild]
+		Button refreshbtn;
+
+		[GtkChild]
 		MenuButton menu;
+
+		[GtkChild]
+		ToggleButton exportbtn;
+
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
@@ -19,13 +29,14 @@ namespace IconPreview {
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
+			{ "export", open_export },
 			{ "about", about },
-			{ "export", about },
 			{ "quit",  quit  }
 		};
 
 		FileMonitor monitor = null;
 		Recents recents = new Recents();
+		Export export_pop = new Export();
 
 		private Icon _icon = new ThemedIcon("start-here-symbolic");
 		public Icon preview_icon {
@@ -61,6 +72,25 @@ namespace IconPreview {
 			}
 		}
 
+		public Mode mode { get; set; default = INITIAL; }
+
+		private uint pulser = 0;
+		public bool pulsing {
+			set {
+				if (value) {
+					pulser = Timeout.add(500, () => {
+						progress.pulse();
+						return Source.CONTINUE;
+					});
+				} else {
+					Source.remove(pulser);
+				}
+			}
+			get {
+				return pulser != 0;
+			}
+		}
+
 		public Application app {
 			construct {
 				application = value;
@@ -84,10 +114,34 @@ namespace IconPreview {
 			recent.popover = recents;
 			recents.open.connect(recent => file = recent);
 
+			bind_property("mode", export_pop, "mode");
+			exportbtn.bind_property("active", export_pop, "visible", BIDIRECTIONAL);
+			export_pop.relative_to = exportbtn;
+
+			notify["mode"].connect(mode_changed);
+			mode_changed();
+
 			menu.menu_model = application.get_menu_by_id("win-menu");
 			add_action_entries(entries, this);
+		}
 
-			(lookup_action("export") as SimpleAction).set_enabled(false);
+		private void mode_changed () {
+			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
+			switch (mode) {
+				case INITIAL:
+					if (!(content.visible_child is InitalState)) {
+						content.visible_child.destroy();
+					}
+					break;
+				case SYMBOLIC:
+					var sym = new Symbolic();
+					content.add(sym);
+					sym.show();
+					break;
+				case COLOUR:
+					message("TODO: Impl colour");
+					break;
+			}
 		}
 
 		private void open () {
@@ -105,21 +159,55 @@ namespace IconPreview {
 				critical("Expected argument for win.new");
 				return;
 			}
-			switch (arg.get_string()) {
-				case "symbolic":
-					message("TODO");
-					break;
-				case "colour":
-					message("TODO");
-					break;
-				default:
-					critical("Bad argument for win.new");
-					break;
+			var dlg = new FileChooserNative("New Icon", this, SAVE, "_Save", "_Cancel");
+			dlg.response.connect(res => {
+				if (res == ResponseType.ACCEPT) {
+					switch (arg.get_string()) {
+						case "symbolic":
+							_new_icon.begin(dlg.get_file(), "symbolic.svg");
+							break;
+						case "colour":
+							_new_icon.begin(dlg.get_file(), "colour.svg");
+							break;
+						default:
+							critical("Bad argument for win.new");
+							break;
+					}
+				}
+			});
+			dlg.show();
+		}
+
+
+		private async void _new_icon (File dest, string src) {
+			progress.visible = true;
+			pulsing = true;
+			var from = File.new_for_uri("resource:///org/gnome/IconPreview/template/" + src);
+			try {
+				yield from.copy_async (dest, NONE);
+				message("Copied %s -> %s", from.get_uri(), dest.get_uri());
+				/*var context = get_display().get_app_launch_context();
+				context.set_screen (screen);
+				context.set_timestamp (Gdk.CURRENT_TIME);
+				context.launched.connect(with => message("Opened with %s", with.get_display_name()));
+				context.launch_failed.connect(() => critical("Failed to launch template"));
+				message("Open: %s", dest.get_uri());*/
+				//yield AppInfo.launch_default_for_uri_async(dest.get_uri(), context);
+				//yield AppInfo.launch_default_for_uri_async("https://example.com", context);
+				message("Launched? %s", AppInfo.launch_default_for_uri(dest.get_uri(), null).to_string());
+			} catch (Error e) {
+				critical ("Error: %s", e.message);
 			}
+			pulsing = false;
+			progress.visible = false;
 		}
 
 		private void open_recent () {
 			recent.clicked();
+		}
+
+		private void open_export () {
+			export_pop.popup();
 		}
 
 		private void refresh () {

@@ -8,6 +8,7 @@ sources = [
 	config,
 	'pane.vala',
 	'recents.vala',
+	'export.vala',
 	'symbolic.vala',
 	'inital.vala',
 	'window.vala',

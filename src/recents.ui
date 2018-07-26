@@ -5,64 +5,38 @@
   <template class="IconPreviewRecents" parent="GtkPopover">
     <property name="can_focus">False</property>
     <child>
-      <object class="GtkBox">
+      <object class="GtkFrame">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="border_width">5</property>
-        <property name="orientation">vertical</property>
+        <property name="label_xalign">0</property>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkScrolledWindow">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="halign">start</property>
-            <property name="margin_top">5</property>
-            <property name="label" translatable="yes">Recent</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkFrame">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">never</property>
+            <property name="max_content_width">0</property>
+            <property name="max_content_height">200</property>
+            <property name="propagate_natural_width">True</property>
+            <property name="propagate_natural_height">True</property>
             <child>
-              <object class="GtkScrolledWindow">
+              <object class="GtkViewport">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">never</property>
-                <property name="max_content_width">0</property>
-                <property name="max_content_height">200</property>
-                <property name="propagate_natural_width">True</property>
-                <property name="propagate_natural_height">True</property>
+                <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkViewport">
+                  <object class="GtkListBox" id="recent">
+                    <property name="width_request">250</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkListBox" id="recent">
-                        <property name="width_request">250</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <signal name="row-activated" handler="activated" swapped="no"/>
-                      </object>
-                    </child>
+                    <signal name="row-activated" handler="activated" swapped="no"/>
                   </object>
                 </child>
               </object>
             </child>
-            <child type="label_item">
-              <placeholder/>
-            </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
+        </child>
+        <child type="label_item">
+          <placeholder/>
         </child>
       </object>
     </child>

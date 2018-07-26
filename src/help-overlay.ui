@@ -28,13 +28,6 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <property name="accelerator">&lt;primary&gt;s</property>
-                <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">F10</property>
                 <property name="title" translatable="yes" context="shortcut window">Open the menu</property>
               </object>
@@ -44,6 +37,19 @@
                 <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;q</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit the application</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Symbolics</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;s</property>
+                <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
               </object>
             </child>
           </object>

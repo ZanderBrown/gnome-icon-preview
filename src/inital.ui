@@ -9,9 +9,9 @@
     <property name="valign">center</property>
     <property name="margin_bottom">20</property>
     <property name="row_spacing">5</property>
-    <property name="column_spacing">5</property>
+    <property name="column_spacing">20</property>
     <child>
-      <object class="GtkBox" id="drop">
+      <object class="GtkBox" id="zone">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
@@ -26,19 +26,6 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Drop SVG here to preview
-(TODO)</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
           </packing>
         </child>
         <style>
@@ -58,7 +45,8 @@
         <property name="can_focus">True</property>
         <property name="receives_default">True</property>
         <property name="halign">end</property>
-        <property name="action_name">win.new-icon('symbolic')</property>
+        <property name="action_name">win.new-icon</property>
+        <property name="action_target">'symbolic'</property>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -72,7 +60,8 @@
         <property name="can_focus">True</property>
         <property name="receives_default">True</property>
         <property name="halign">start</property>
-        <property name="action_name">win.new-icon('colour')</property>
+        <property name="action_name">win.new-icon</property>
+        <property name="action_target">'colour'</property>
       </object>
       <packing>
         <property name="left_attach">1</property>

@@ -1,0 +1,317 @@
+<!--
+
+{{redirect|SVG}}
+{{Use dmy dates|date=February 2014}}
+
+{{Infobox file format
+| name                   = Scalable Vector Graphics
+| icon                   = File:SVG logo.svg
+| iconcaption            =
+| screenshot             =
+| caption                =
+|_noextcode              = on
+| extensions             = <code>.svg</code>{{nbsp|3}}<code>.svgz</code>
+|_nomimecode             = on
+| mime                   = <code>image/svg+xml</code><ref>{{cite web |title=Media Type Registration for image/svg+xml |url=http://www.w3.org/TR/SVG/mimereg.html |publisher=[[World Wide Web Consortium|W3C]] |accessdate=5 February 2014}}</ref><ref>{{cite web |title=XML Media Types |url=http://tools.ietf.org/html/rfc3023#section-8.19 |accessdate=5 February 2014}}</ref>
+| type_code              = <!-- {{hlist |"svg" |"svgz"}} -->
+| uniform_type           = <code>public.svg-image</code>
+| conforms_to            = <!--<code>public.image</code><br /><code>public.xml</code>-->
+| magic                  =
+| developer              = [[World Wide Web Consortium|W3C]]
+| released               = {{start date and age|df=yes|paren=yes|2001|09|04}}
+| latest_release_version = 1.1 (Second Edition)
+| latest_release_date    = {{start date and age|2011|08|16|df=yes}}
+| genre                  = [[Vector graphics]]
+| container_for          =
+| contained_by           =
+| extended_from          = [[XML]]
+| extended_to            =
+| standard               = {{URL|https://www.w3.org/TR/SVG/|W3C SVG}}
+| free                   = Yes
+| url                    = {{URL|https://www.w3.org/Graphics/SVG/}}
+}}
+
+'''Scalable Vector Graphics''' ('''SVG''') is an [[XML]]-based [[vector image format]] for [[two-dimensional]] graphics with support for interactivity and animation. The SVG specification is an [[open standard]] developed by the [[World Wide Web Consortium]] (W3C) since 1999.
+
+SVG images and their behaviors are defined in XML text files. This means that they can be [[search algorithm|searched]], [[subject indexing|indexed]], [[scripting language|scripted]], and [[data compression|compressed]]. As XML files, SVG images can be created and edited with any [[text editor]], as well as with drawing software.
+
+All major modern [[web browser]]s—including [[Mozilla Firefox]], [[Internet Explorer]], [[Google Chrome]], [[Opera (web browser)|Opera]], [[Safari (web browser)|Safari]], and [[Microsoft Edge]]—have [[Comparison of layout engines (Scalable Vector Graphics)|SVG rendering support]].
+
+==Overview==
+[[File:Bitmap VS SVG.svg|right|300px|thumb|This image illustrates the difference between bitmap and vector images. The bitmap image is composed of a fixed set of pixels, while the vector image is composed of a fixed set of shapes. In the picture, scaling the bitmap reveals the pixels while scaling the vector image preserves the shapes.]]
+
+SVG has been in development within the [[World Wide Web Consortium]] (W3C) since 1999, after six competing proposals for vector graphics languages had been submitted to the consortium during 1998. The early SVG Working Group decided not to develop any of the commercial submissions, but to create a new markup language that was informed by but not really based on any of them.<ref name="secretOrigin">{{cite web |url=http://www.w3.org/Graphics/SVG/WG/wiki/Secret_Origin_of_SVG|title=Secret Origin of SVG|date=21 December 2007|publisher=[[World Wide Web Consortium]]|accessdate=1 January 2011}}</ref>
+
+SVG allows three types of graphic objects: [[vector graphics|vector graphic]] shapes such as paths and outlines consisting of straight lines and curves, [[bitmap]] images, and text. Graphical objects can be grouped, styled, transformed and composited into previously [[rendering (computer graphics)|rendered]] objects. The feature set includes nested [[transformation (geometry)|transformations]], [[clipping path]]s, [[alpha compositing|alpha masks]], [[SVG filter effect|filter effects]] and template objects. SVG drawings can be [[Interactivity|interactive]] and can include [[animation]], defined in the SVG XML elements or via [[Scripting language|scripting]] that accesses the SVG [[Document Object Model]] (DOM). SVG uses [[Cascading Style Sheets|CSS]] for styling and [[JavaScript]] for scripting. Text, including [[internationalization and localization]], appearing in plain text within the SVG DOM enhances the [[Accessibility#Web_accessibility|accessibility]] of SVG graphics.<ref name="SVG1.1-2E"/>
+
+The SVG specification was updated to version 1.1 in 2011. There are two 'Mobile SVG Profiles,' SVG Tiny and SVG Basic, meant for [[mobile device]]s with reduced computational and display capabilities.<ref>{{cite web|last1=Capin|first1=Tolga|title=Mobile SVG Profiles: SVG Tiny and SVG Basic|url=https://www.w3.org/TR/SVGMobile/|publisher=W3C|accessdate=28 January 2017}}</ref> Scalable Vector Graphics 2 became a [[World Wide_Web Consortium#Specification maturation|W3C Candidate Recommendation]] on 15 September 2016. SVG 2 incorporates several new features in addition to those of SVG 1.1 and SVG Tiny 1.2.<ref>{{cite web|title=Scalable Vector Graphics (SVG) 2|url=https://www.w3.org/TR/SVG2/|publisher=W3C|accessdate=28 January 2017}}</ref>
+
+===Printing===
+Though the SVG Specification primarily focuses on [[vector graphics markup language]], its design includes the basic capabilities of a [[page description language]] like Adobe's [[Portable Document Format|PDF]]. It contains provisions for rich graphics, and is compatible with [[Cascading Style Sheets|CSS]] for styling purposes. SVG has the information needed to place each glyph and image in a chosen location on a printed page.<ref>{{cite web|url=http://www.svgopen.org/2002/papers/danilo_fujisawa__svg_as_page_description_language/index.html|title=SVG as a Page Description Language|last=Alex|first=Danilo|first2=Jun|last2=Fujisawa|year=2002|publisher=svgopen.org|accessdate=24 February 2010}}</ref>
+
+===Scripting and animation===
+{{Main|SVG animation}}
+SVG drawings can be dynamic and interactive. Time-based modifications to the elements can be described in [[Synchronized Multimedia Integration Language|SMIL]], or can be programmed in a [[scripting language]] (e.g. [[ECMAScript]] or [[JavaScript]]). The W3C explicitly recommends SMIL as the standard for animation in SVG.<ref>{{cite web|url=http://news.cnet.com/2100-1023-979976.html|title=W3C releases scripting standard, caveat|last=Paul|first=Festa|date=9 January 2003|publisher=[[CNET Networks|CNet]]|accessdate=24 February 2010}}</ref>
+
+A rich set of [[event handler]]s such as ''onmouseover'' and ''onclick'' can be assigned to any SVG graphical object.
+
+===Compression===
+SVG images, being XML, contain many repeated fragments of text, so they are well suited for [[Data compression#Lossless|lossless data compression]] algorithms. When an SVG image has been compressed with the industry standard [[gzip]] algorithm, it is referred to as an "SVGZ" image and uses the corresponding <code>.svgz</code> filename extension. Conforming SVG 1.1 viewers will display compressed images.<ref>See {{URL|http://www.w3.org/TR/SVG11/conform.html#ConformingSVGViewers}} which states, "SVG implementations must correctly support gzip-encoded [RFC1952] and deflate-encoded [RFC1951] data streams, for any content type (including SVG, script files, images)."</ref> An SVGZ file is typically 20 to 50 percent of the original size.<ref>{{cite web|url=https://www.adobe.com/svg/illustrator/compressedsvg.html|title=Saving compressed SVG (SVGZ)|work=SVG Zone|publisher=[[Adobe Systems]]|date=14 July 2009|accessdate=24 February 2010}}</ref> W3C provides SVGZ files to test for conformance.<ref>For example, {{URL|http://dev.w3.org/SVG/profiles/1.1F2/test/harness/htmlObject/conform-viewers-01-t.html}}</ref>
+
+==Development history==
+SVG was developed by the W3C [[SVG Working Group]] starting in 1998, after six competing vector graphics submissions were received that year:
+*Web Schematics, from CCLRC
+*PGML, from Adobe, IBM, Netscape, and Sun
+*VML, by Autodesk, Hewlett-Packard, Macromedia, and Microsoft
+*Hyper Graphics Markup Language, by Orange, PCSL, and PRP
+*WebCGM, from Boeing, CCLRC, Inso, JISC, and Xerox
+*DrawML, from Excosoft<ref name="secretOrigin"/>
+The working group was chaired at the time by [[Chris Lilley (W3C)|Chris Lilley]] of the W3C.
+
+=== Version 1.x ===
+* SVG 1.0 became a [[W3C Recommendation]] on 4 September 2001.<ref>{{cite web|url=http://www.w3.org/TR/SVG10/|title=Scalable Vector Graphics (SVG) 1.0 Specification|last=Ferraiolo|first=Jon|date=4 September 2001|publisher=World Wide Web Consortium|accessdate=24 February 2010}}</ref>
+* SVG 1.1 became a W3C Recommendation on 14 January 2003.<ref name="svg11">{{cite web|url=http://www.w3.org/TR/SVG11/|title=Scalable Vector Graphics (SVG) 1.1 Specification|last=Ferraiolo|first=Jon|date=16 August 2011|publisher=World Wide Web Consortium|accessdate=14 April 2016}}</ref> The SVG 1.1 specification is modularized in order to allow subsets to be defined as profiles. Apart from this, there is very little difference between SVG 1.1 and SVG 1.0.
+** [[SVG Tiny]] and [[SVG Basic]] (the Mobile SVG Profiles) became W3C Recommendations on 14 January 2003. These are described as profiles of SVG 1.1.<ref>{{cite web|url=http://www.w3.org/TR/2003/REC-SVGMobile-20030114/|title=Mobile SVG Profiles: SVG Tiny and SVG Basic|publisher=World Wide Web Consortium|last=Capin|first=Tolga|date=15 June 2009|accessdate=24 October 2010}}</ref>
+* SVG Tiny 1.2 became a W3C Recommendation on 22 December 2008.<ref>{{cite web|url=http://www.w3.org/TR/SVGTiny12/|title=Scalable Vector Graphics (SVG) Tiny 1.2 Specification|publisher=World Wide Web Consortium|date=22 December 2008|first=Ola|last=Andersson|accessdate=24 February 2010}}</ref> It was initially drafted as a profile of the planned SVG Full 1.2 (which has since been dropped in favor of SVG 2),<ref name="ieblog">{{cite web|url=https://blogs.msdn.microsoft.com/ie/2010/06/08/getting-to-svg-2-0-a-report-from-the-svg-working-group-face-to-face-may-24th-june-1st-2010/|title=Getting to SVG 2.0: A report from the SVG Working Group Face-to-Face (May 24th – June 1st 2010)|last=Dengler|first=Patrick|date=8 July 2010|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=26 August 2010}}</ref> but was later refactored as a standalone specification.
+* SVG 1.1 Second Edition, which includes all the errata and clarifications, but no new features to the original SVG 1.1 was released on 16 August 2011.<ref name="SVG1.1-2E">{{cite web|url=http://www.w3.org/TR/2011/REC-SVG11-20110816/|title=Scalable Vector Graphics (SVG) 1.1 (Second Edition)|publisher=W3C}}</ref>
+
+===Version 2.x===
+* SVG 2 completely reworks draft 1.2, with more integration with new web features such as [[Cascading Style Sheets]], [[HTML5]], and [[WOFF|Web Open Font Format]]. It reached Candidate Recommendation stage on 15 September 2016.<ref>[https://www.w3.org/TR/SVG2/ |Scalable Vector Graphics (SVG)2 W3C Candidate Recommendation]</ref>
+* Latest draft {{As of|2018|July|11|lc=y|url=https://svgwg.org/svg2-draft/ }}. [https://svgwg.org/svg2-draft/ ]
+
+===Mobile profiles===
+Because of industry demand, two mobile profiles were introduced with SVG 1.1: ''SVG Tiny'' (SVGT) and ''SVG Basic'' (SVGB).
+
+These are subsets of the full SVG standard, mainly intended for [[user agent]]s with limited capabilities. In particular, SVG Tiny was defined for highly restricted mobile devices such as [[cellphone]]s; it does not support styling or scripting.<ref name="tiny1.x">{{cite web|title=SVG Tiny 1.2|url=http://www.w3.org/TR/SVGTiny12/intro.html#SVGTiny12|work=Scalable Vector Graphics (SVG) Tiny 1.2 Specification|publisher=[[World Wide Web Consortium|W3C]]|date=2008-12-22|accessdate=2014-03-05}}</ref> SVG Basic was defined for higher-level mobile devices, such as [[smartphone|smartphones]].
+
+In 2003, the [[3GPP]], an international telecommunications standards group, adopted SVG Tiny as the mandatory vector graphics media format for next-generation phones. SVGT is the required vector graphics format and support of SVGB is optional for [[Multimedia Messaging Service]] (MMS) and Packet-switched Streaming Service.<ref>{{cite web|url=http://www.svgopen.org/2003/paperAbstracts/svgmms.htm|title=SVG in 3GPP Multimedia Messaging and Streaming Services (version March 2003)|publisher=SVG Open|year=2003|accessdate=19 October 2009}}</ref><ref>{{cite web|url=ftp://ftp.3gpp.org/specs/2003-03/Rel-5/26_series/26140-520.zip|title=3GPP Multimedia Messaging Service (MMS); Media formats and codecs (Release 5); 3GPP TS 26.140 V5.2.0 (2002-12); Technical Specification|date=2 January 2003|format=[[ZIP (file format)|zipped]] doc|publisher=[[3GPP]]|accessdate=25 February 2010|df=dmy-all}}</ref><ref>{{cite web|url=ftp://ftp.3gpp.org/specs/2003-03/Rel-5/26_series/26234-540.zip|title=3rd Generation Partnership Project; Technical Specification Group Services and System Aspects; Multimedia Messaging Service (MMS); Media formats and codecs (Release 5)|work=3GPP TS 26.140 V5.2.0 (2002-12)|date=March 2003|publisher=[[3GPP]]|format=[[ZIP (file format)|zipped]] doc|accessdate=24 February 2010|df=dmy-all}}</ref> It was later{{When|date=October 2017}} added as required format for vector graphics in 3GPP [[IP Multimedia Subsystem]] (IMS).<ref>{{cite web|url=http://www.3gpp.org/ftp/Specs/html-info/26141.htm|title=3GPP Specification detail - 3GPP TS 26.141: IP Multimedia System (IMS) Messaging and Presence; Media formats and codecs|date=10 December 2009|publisher=[[3GPP]]|accessdate=24 February 2010}}</ref>
+
+====Differences from non-mobile SVG====
+Neither mobile profile includes support for the full Document Object Model (DOM), while only SVG Basic has optional support for scripting, but because they are fully compatible subsets of the full standard, most SVG graphics can still be rendered by devices which only support the mobile profiles.<ref>{{cite web|url=http://svg.org/special/svg_phones|title=Listing of phones that support SVG|publisher=Svg.org|accessdate=24 October 2010|archiveurl=http://webarchive.loc.gov/all/20100108141222/http://www.svg.org/special/svg_phones|archivedate=8 January 2010}}</ref>
+
+SVGT 1.2 adds a microDOM (μDOM), styling and scripting.<ref name="tiny1.x" />
+
+===Related work===
+The [[MPEG-4 Part 20]] standard - ''Lightweight Application Scene Representation (LASeR) and Simple Aggregation Format (SAF)'' is based on SVG Tiny.<ref>{{cite web|url=http://mpeg.chiariglione.org/technologies/mpeg-4/mp04-lsr/index.htm|title=MPEG-4 LASeR white paper|date=July 2005|accessdate=29 August 2010|publisher=[[International Organization for Standardization]]|first=Cyril|last=Concolato}}</ref> It was developed by [[MPEG]] ([[ISO/IEC JTC1]]/SC29/WG11) and published as ISO/IEC 14496-20:2006.<ref>{{cite web|url=http://www.iso.org/iso/iso_catalogue/catalogue_ics/catalogue_detail_ics.htm?csnumber=52454|title=ISO/IEC 14496-20:2008 - Information technology – Coding of audio-visual objects – Part 20: Lightweight Application Scene Representation (LASeR) and Simple Aggregation Format (SAF)|publisher=[[International Organization for Standardization]]| accessdate=30 October 2009}}</ref> SVG capabilities are enhanced in MPEG-4 Part 20 with key features for mobile services, such as dynamic updates, binary encoding, state-of-art font representation.<ref>{{cite web|url=http://www.mpeg-laser.org/documents/LASeRWhitePaper.pdf|title=LASeR - the MPEG standard for Rich Media Services|format=PDF|accessdate=11 April 2010}}</ref> SVG was also accommodated in [[MPEG-4 Part 11]], in the [[Extensible MPEG-4 Textual Format|Extensible MPEG-4 Textual (XMT) format]] - a textual representation of the MPEG-4 multimedia content using [[XML]].<ref>{{cite web|url=http://ride.chiariglione.org/bits_and_bytes/bits_and_bytes.htm|title=Riding the media bits - Bits and bytes|first=Leonardo|last=Chiariglione|date=8 March 2005|accessdate=30 October 2009|deadurl=yes|archiveurl=https://web.archive.org/web/20100925220237/http://ride.chiariglione.org/bits_and_bytes/bits_and_bytes.htm|archivedate=25 September 2010|df=dmy-all}}</ref>
+
+==Functionality==
+The SVG 1.1 specification defines 14 functional areas or feature sets:<ref name="svg11" />
+
+;Paths
+:Simple or compound shape outlines are drawn with curved or straight lines that can be filled in, outlined, or used as a [[clipping path]]. Paths have a compact coding.
+:For example, <dfn><code>M</code></dfn> (for “move to”) precedes initial numeric <var>x</var> and <var>y</var> [[Cartesian coordinate system|coordinates]], and <dfn><code>L</code></dfn> (for “line to”) precedes a point to which a line should be drawn. Further command letters (<code>C</code>, <code>S</code>, <code>Q</code>, <code>T</code>, and <code>A</code>) precede data that is used to draw various [[Bézier curve|Bézier]] and [[Ellipse|elliptical]] curves. <code>Z</code> is used to close a path.
+:In all cases, absolute coordinates follow capital letter commands and relative coordinates are used after the equivalent lower-case letters.<ref name="path">{{cite web|url=http://www.w3.org/TR/SVG11/paths.html |title=SVG specification, "Paths" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Basic shapes
+:Straight-line paths and paths made up of a series of connected straight-line segments (polylines), as well as closed polygons, circles, and ellipses can be drawn. Rectangles and round-cornered rectangles are also standard elements.<ref name="shap">{{cite web|url=http://www.w3.org/TR/SVG11/shapes.html |title=SVG specification, "Basic Shapes" |publisher=World Wide Web Consortium|date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Text
+:Unicode character text included in an SVG file is expressed as [[XML]] character data. Many visual effects are possible, and the SVG specification automatically handles bidirectional text (for composing a combination of English and Arabic text, for example), vertical text (as Chinese was historically written) and characters along a curved path (such as the text around the edge of the [[Great Seal of the United States]]).<ref name="text">{{cite web|url=http://www.w3.org/TR/SVG11/text.html |title=SVG specification, "Text" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Painting
+:SVG shapes can be filled and/or outlined (painted with a color, a gradient, or a pattern). Fills may be opaque, or have any degree of transparency.
+:"Markers" are line-end features, such as arrowheads, or symbols that can appear at the vertices of a polygon.<ref name="pntg">{{cite web|url=http://www.w3.org/TR/SVG11/painting.html |title=SVG specification, "Painting: Filling, Stroking and Marker Symbols" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Color
+:Colors can be applied to all visible SVG elements, either directly or via <code>fill</code>, <code>stroke</code>, and other properties. Colors are specified in the same way as in [[Cascading Style Sheets|CSS2]], i.e. using names like <code>black</code> or <code>blue</code>, in [[hexadecimal]] such as <code>#2f0</code> or <code>#22ff00</code>, in decimal like <code>rgb(255,255,127)</code>, or as percentages of the form <code>rgb(100%,100%,50%)</code>.<ref name="colr">{{cite web|url=http://www.w3.org/TR/SVG11/color.html |title=SVG specification, "Color" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Gradients and patterns
+:SVG shapes can be filled or outlined with solid colors as above, or with color gradients or with repeating patterns. Color gradients can be linear or radial (circular), and can involve any number of colors as well as repeats. Opacity gradients can also be specified. Patterns are based on predefined raster or vector graphic objects, which can be repeated in <code>x</code> and/or <code>y</code> directions. Gradients and patterns can be animated and scripted.<ref name="patt">{{cite web|url=http://www.w3.org/TR/SVG11/pservers.html |title=SVG specification, "Gradients and Patterns" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+:Since 2008, there has been discussion<ref>{{cite web
+|url=http://www.w3.org/2008/11/17-svg-irc
+|title=IRC log of svg on 2008-11-17
+|quote=DS: Priorities should be layout, diffusion curves, 2.5D and make sure we work well with CSS on that
+|publisher=W3C
+|year=2008
+|accessdate=25 May 2009}}</ref><ref>{{cite web
+|url=http://lists.w3.org/Archives/Public/www-svg/2009Mar/0084.html
+|title=Propositions for the next SVG spec
+|quote=Indeed, we do plan to add new gradient capabilities to SVG in the next version, and we are looking into diffusion curves, which I think will meet your needs ... *Diffusion curves* seems really a great idea.
+|publisher=W3C
+|date=16 March 2009
+|accessdate=25 May 2009
+}}</ref> among professional users of SVG that either [[Image gradient|gradient]] [[Color gradient#gradient mesh|meshes]] or preferably [[diffusion curve]]s could usefully be added to the SVG specification. It is said that a "simple representation [using diffusion curves] is capable of representing even very subtle shading effects"<ref>{{cite web
+|url=http://www.svgopen.org/2008/papers/104-SVG_in_KDE/
+|title=SVG in KDE: Freedom of Beauty
+|last=Rusin
+|first=Zack
+|publisher=SVG Open
+|year=2008
+|accessdate=25 May 2009 }}</ref> and that "Diffusion curve images are comparable both in quality and coding efficiency with gradient meshes, but are simpler to create (according to several artists who have used both tools), and can be captured from bitmaps fully automatically."<ref>{{cite journal
+|title=Diffusion Curves: A Vector Representation for Smooth-Shaded Images
+|url=http://artis.imag.fr/Publications/2008/OBWBTS08/diffusion_curves.pdf
+|format=PDF
+|last1=Orzan
+|first1=Alexandrina
+|last2=Bousseau |first2=Adrien |last3=Winnemöller |first3=Holger |last4=Barla |first4=Pascal |last5=Thollot |first5=Joëlle |last6=Salesin |first6=David
+ |journal=ACM Transactions on Graphics (Proceedings of SIGGRAPH 2008)
+|volume=27
+|year=2008
+|accessdate=25 May 2009
+}}</ref> The current draft of SVG 2 includes gradient meshes.<ref>{{Cite web
+|url=https://svgwg.org/svg2-draft/pservers.html#MeshGradients
+|title=Scalable Vector Graphics (SVG) 2, W3C Editor’s Draft 13 June 2013
+|publisher=SVG WG
+|year=2013
+|accessdate=17 September 2013
+}}</ref>
+;Clipping, masking and compositing
+:Graphic elements, including text, paths, basic shapes and combinations of these, can be used as outlines to define both ''inside'' and ''outside'' regions that can be painted (with colors, gradients and patterns) independently. Fully opaque ''clipping paths'' and semi-transparent ''masks'' are ''composited'' together to calculate the color and opacity of every pixel of the final image, using [[alpha compositing|alpha]] blending.<ref name="mask">{{cite web|url=http://www.w3.org/TR/SVG11/masking.html |title=SVG specification, "Clipping, Masking and Compositing" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Filter effects<ref name="filt">{{cite web|url=http://www.w3.org/TR/SVG11/filters.html |title=SVG specification, "Filter Effects" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+:{{Main|SVG filter effects}}
+:A filter effect consists of a series of graphics operations that are applied to a given source vector graphic to produce a modified [[bitmapped]] result.
+;Interactivity
+:SVG images can interact with users in many ways. In addition to hyperlinks as mentioned below, any part of an SVG image can be made receptive to user interface [[event (computing)|events]] such as changes in [[focus (computing)|focus]], mouse clicks, scrolling or zooming the image and other pointer, keyboard and document events. Event handlers may start, stop or alter animations as well as trigger scripts in response to such events.<ref name="intr">{{cite web|url=http://www.w3.org/TR/SVG11/interact.html |title=SVG specification, "Interactivity" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Linking
+:SVG images can contain hyperlinks to other documents, using [[XLink]]. Through the use of the <code><nowiki><view></nowiki></code> element or a [[fragment identifier]], [[URL]]s can link to SVG files that change the visible area of the document. This allows for creating specific view states that are used to zoom in/out of a specific area or to limit the view to a specific element. This is helpful when creating [[Sprite (computer graphics)|sprites]]. [[XLink]] support in combination with the <code><nowiki><use></nowiki></code> element also allow linking to and re-using internal and external elements. This allows coders to do more with less markup and makes for cleaner code.<ref name="link">{{cite web|url=http://www.w3.org/TR/SVG11/linking.html |title=SVG specification, "Linking" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Scripting
+:All aspects of an SVG document can be accessed and manipulated using scripts in a similar way to HTML. The default scripting language is [[ECMAScript]] (closely related to [[JavaScript]]) and there are defined [[Document Object Model]] (DOM) objects for every SVG element and attribute. Scripts are enclosed in <code>&lt;script&gt;</code> elements. They can run in response to pointer events, keyboard events and document events as required.<ref name="scrp">{{cite web|url=http://www.w3.org/TR/SVG11/script.html |title=SVG specification, "Scripting" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Animation
+:{{Main|SVG animation}}
+: SVG content can be animated using the built-in animation elements such as <code>&lt;animate&gt;</code>, <code>&lt;animateMotion&gt;</code> and <code>&lt;animateColor&gt;</code>. Content can be animated by manipulating the DOM using ECMAScript and the scripting language's built-in timers. SVG animation has been designed to be compatible with current and future versions of [[Synchronized Multimedia Integration Language]] (SMIL). Animations can be continuous, they can loop and repeat, and they can respond to user events, as mentioned above.<ref name="anim">{{cite web|url=http://www.w3.org/TR/SVG11/animate.html |title=SVG specification, "Animation" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Fonts
+:As with HTML and CSS, text in SVG may reference external font files, such as system fonts. If the required font files do not exist on the machine where the SVG file is rendered, the text may not appear as intended. To overcome this limitation, text can be displayed in an ''SVG font'', where the required [[glyph]]s are defined in SVG as a font that is then referenced from the <code>&lt;text&gt;</code> element.<ref name="font">{{cite web|url=http://www.w3.org/TR/SVG11/fonts.html |title=SVG specification, "Fonts" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
+;Metadata
+:In accord with the [[W3C]]'s [[Semantic Web]] initiative, SVG allows authors to provide [[metadata]] about SVG content. The main facility is the <code>&lt;metadata&gt;</code> element, where the document can be described using [[Dublin Core]] metadata properties (e.g. title, creator/author, subject, description, etc.). Other metadata schemas may also be used. In addition, SVG defines <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> elements where authors may also provide plain-text descriptive material within an SVG image to help indexing, searching and retrieval by a number of means.<ref name="meta">{{cite web|url=http://www.w3.org/TR/SVG11/metadata.html |title=SVG specification, "Metadata" |publisher=World Wide Web Consortium |accessdate=19 October 2009}}</ref>
+
+An SVG document can define components including shapes, gradients etc., and use them repeatedly. SVG images can also contain [[raster graphics]], such as [[Portable Network Graphics|PNG]] and [[JPEG]] images, and further SVG images.
+
+===Example===
+[[Image:SVG example markup grid.svg]]
+<!--
+***********************************
+READ THIS: Please do not edit the SVG markup below! The SVG image included in the article is a static image which will not be updated if this code is modified. Please use https://en.wikipedia.org/wiki/Wikipedia:Sandbox for any test edits you wish to make.
+***********************************
+-->
+
+This code will produce the shapes shown in the image (excluding the grid):
+<source lang="xml">
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect x="25" y="25" width="200" height="200" fill="lime" stroke-width="4" stroke="pink" />
+  <circle cx="125" cy="125" r="75" fill="orange" />
+  <polyline points="50,150 50,200 200,200 200,100" stroke="red" stroke-width="4" fill="none" />
+  <line x1="50" y1="50" x2="200" y2="200" stroke="blue" stroke-width="4" />
+</svg>
+</source>
+
+== SVG on the web ==
+[[File:Пример чертежа в SVG формате.svg|thumb|right|SVG exported from {{ill|KOMPAS-Graphic|WD=Q1780795}}]]
+
+The use of SVG on the web was limited by the lack of support in older versions of [[Internet Explorer]] (IE). Many web sites that serve SVG images, such as [[Wikipedia]], also provide the images in a raster format, either automatically by [[HTTP]] [[content negotiation]] or by allowing the user directly to choose the file.
+
+[[Google]] announced on 31 August 2010 that it had started to index SVG content on the web, whether it is in standalone files or embedded in [[HTML]], and that users would begin to see such content listed among their search results.<ref>{{cite web|last=Stanescu|first=Bogdan|last2=Sarapata|first2=John|url=http://googlewebmastercentral.blogspot.com/2010/08/google-now-indexes-svg.html|title=Google now indexes SVG|work=Webmaster central blog|publisher=Google, Inc|date=31 August 2010|accessdate=1 September 2010}}</ref>
+It was announced on 8 December 2010 that [[Google Image Search]] would also begin indexing SVG files.<ref>{{cite web|publisher=Google, Inc|title=googleimages|url=https://www.twitter.com/googleimages/status/12589924704329728|accessdate=17 February 2011|date=8 December 2010}}</ref> The site announced an option to restrict image searches to SVG files on 11 February 2011.<ref>{{cite web|last=Singhal|first=Amit|title=This week in search 2/11/11|url=http://googleblog.blogspot.com/2011/02/this-week-in-search-21111.html|publisher=Google, Inc|accessdate=17 February 2011|date=11 February 2011}}</ref>
+
+===Native browser support===
+[[Konqueror]] was the first browser to support SVG in release version 3.2 in February 2004.<ref>{{Cite web |url=http://dot.kde.org/2003/09/16/kde-conquers-vectors-ksvg |title=KDE Conquers the Vectors with KSVG |last=Streichardt |first=Andreas |date=16 September 2003 |work=KDE News |publisher= |accessdate=11 February 2012}}</ref> As of 2011, all major desktop browsers, and many minor ones, have some level of SVG support. Other browsers' implementations are not yet complete; see [[Comparison of layout engines (Scalable Vector Graphics)|comparison of layout engines]] for further details.
+
+Some earlier versions of Firefox (e.g. versions between 1.5 and 3.6<ref>{{Cite journal|url=https://bugzilla.mozilla.org/show_bug.cgi?id=276431 |title=Bug 276431 - external SVG not loaded from img tag |publisher=Mozilla|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->&#123;&#123;inconsistent citations&#125;&#125; }}</ref>), as well as a smattering of other now-outdated web browsers capable of displaying SVG graphics, needed them embedded in <code>&lt;object&gt;</code> or <code>&lt;iframe&gt;</code> [[HTML element|elements]] to display them integrated as parts of an HTML webpage instead of using the standard way of integrating images with <code>&lt;img&gt;</code>.<ref>{{cite web|url=http://groups.google.com/group/mozilla.dev.tech.svg/browse_thread/thread/75f14ac7244b0fa5/a6ccf7261c5110b7?lnk=raot|title=SVG image not shown by Firefox|work=mozilla.dev.tech.svg|publisher=[[Google Groups]]|date=25 February 2009|accessdate=25 February 2010|author=Lusotec}}</ref> However, SVG images may be included in XHTML pages using [[XML namespace]]s.<ref>{{cite web|url=https://developer.mozilla.org/en/SVG_In_HTML_Introduction|title=SVG In HTML Introduction|publisher=[[Mozilla]]|date=25 August 2008|work=Mozilla Developer Center|author=Brettz9|accessdate=25 February 2010}}</ref>
+
+[[Tim Berners-Lee]], the inventor of the [[World Wide Web]], has been critical of (earlier versions of) Internet Explorer for its failure to support SVG.<ref>{{cite news|url=http://www.msnbc.msn.com/id/26646919|title=Creator of Web spots a flaw in Internet Explorer|agency=Associated Press|date=10 September 2008|first=Peter|last=Svensson|accessdate=25 February 2010|publisher=[[MSNBC]]}}</ref>
+* [[Opera (web browser)|Opera]] (since 8.0) has support for the SVG 1.1 Tiny specification while Opera 9 includes SVG 1.1 Basic support and some of SVG 1.1 Full. Opera 9.5 has partial SVG Tiny 1.2 support. It also supports SVGZ (compressed SVG).
+* Browsers based on the [[Gecko (layout engine)|Gecko]] [[Browser engine|layout engine]] (such as [[Mozilla Firefox|Firefox]], [[Flock (web browser)|Flock]], [[Camino (web browser)|Camino]], and [[SeaMonkey]]) all have had incomplete support for the SVG 1.1 Full specification since 2005. The Mozilla site has an overview of the modules which are supported in Firefox<ref>{{cite web|url=https://developer.mozilla.org/en/docs/SVG_in_Firefox|title=SVG in Firefox|work=Mozilla Developer Center|publisher=[[Mozilla]]|date=23 October 2009|accessdate=25 February 2010}}</ref> and of the modules which are in progress in the development.<ref>{{cite web|url=https://www.mozilla.org/projects/svg/status.html|title=Mozilla SVG Status |publisher=[[Mozilla]]|accessdate=25 February 2010}}</ref> Gecko 1.9, included in [[Mozilla Firefox 3|Firefox 3.0]], adds support for more of the SVG specification (including filters).<ref>{{cite web|url=https://developer.mozilla.org/en/docs/SVG_improvements_in_Firefox_3|title=SVG improvements in Firefox 3|publisher=[[Mozilla]]|work=Mozilla Developer Center|date=15 January 2008|author=Mgjbot|accessdate=25 February 2010}}</ref>
+* [[Pale Moon (web browser)|Pale Moon]], which uses the [[Goanna (software)|Goanna]] layout engine (a fork of the Gecko engine), supports SVG.
+* Browsers based on [[WebKit]] (such as [[Apple Inc.|Apple]]'s [[Safari (web browser)|Safari]], [[Google Chrome]], and [[The Omni Group]]'s [[OmniWeb]]) have had incomplete support for the SVG 1.1 Full specification since 2006.<ref>{{cite web|url=http://webkit.org/projects/svg/status.xml|title=WebKit SVG Status|publisher=[[WebKit]]|date=5 January 2010|accessdate=25 February 2010}}</ref>
+* [[Amaya (web browser)|Amaya]] has partial SVG support.
+* [[Internet Explorer 8]] and older versions do not support SVG.<ref>{{cite web|url=http://www.microsoft.com/windowsxp/expertzone/chats/transcripts/08_0619_ez_ie8.mspx|title=Windows Internet Explorer 8 Expert Zone Chat (19 June 2008)|publisher=Microsoft|date=19 June 2008|accessdate=24 October 2010}}</ref><ref>{{cite web|url=http://www.codedread.com/svg-support.php|title=SVG Support|last=Schiller|first=Jeff|date=13 February 2010|accessdate=25 February 2010}}</ref> IE9 (released 14 March 2011) supports the basic SVG feature set.<ref name="IE9">{{cite web|url=http://msdn.microsoft.com/en-us/library/ff974378(VS.85).aspx|title=What's New in Internet Explorer 9|date=22 March 2011|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=22 March 2011}}</ref> IE10 extended SVG support by adding SVG 1.1 filters.<ref>{{cite web|title=SVG (Windows)|url=https://msdn.microsoft.com/en-us/library/ie/hh673562(v=vs.85).aspx|website=Internet Explorer Dev Center|publisher=[[Microsoft]]|accessdate=27 August 2014}}</ref>
+* Microsoft Edge supports much of SVG 1.1.<ref>{{cite web|url=https://developer.microsoft.com/en-us/microsoft-edge/platform/status/|title=Microsoft Edge web platform features status and roadmap - Microsoft Edge Development|author=|date=|website=developer.microsoft.com|accessdate=19 April 2018}}</ref>
+* The [[Maxthon|Maxthon Cloud Browser]] also supports SVG.{{fact|reason=Not mentioned on the Maxthon page|date=March 2015}}
+
+There are several advantages to native and full support: [[Plug-in (computing)|plugins]] are not needed, SVG can be freely mixed with other content in a single document, and rendering and scripting become considerably more reliable.<ref>{{cite web|url=https://msdn.microsoft.com/en-us/library/ie/hh968248.aspx|publisher=[[Microsoft Developer Network|MSDN]]|title=Get ready for plug-in free browsing|year=2014|accessdate=2014-03-05}}</ref>
+
+===Plug-in browser support===
+Internet Explorer, up to and including IE8, was the only major browser not to provide native SVG support. IE8 and older require a plug-in to render SVG content. There are a number of plug-ins available to assist, including:
+* [[Ample SDK]] Open-Source JavaScript GUI Framework provides partial support for SVG 1.1, SMIL, DOM and style scripting in Internet Explorer (5.5 - 8.0) too. It is not dependent on any plugins and relies on presence of alternative Vector Graphics format VML in Internet Explorer.
+* [[Batik (software)|Batik]], a widely deployed [[Java (software platform)|Java]] plugin<ref>{{cite web|url=http://xmlgraphics.apache.org/batik/download.cgi|title=Download Batik|publisher=[[Apache Software Foundation]]|date=9 January 2008|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20121113144743/http://xmlgraphics.apache.org/batik/download.cgi |archivedate=2012-11-13|deadurl=yes}}</ref>
+* [[Google Chrome Frame]] from [[Google]] can support all web elements supported by WebKit, including SVG 1.0 and partially SVG 1.1. (''discontinued'')
+* [[GPAC Project on Advanced Content|GPAC]], targets SVGT 1.2<ref name="C4Wauto-512169">{{cite web |url=http://gpac.wp.mines-telecom.fr/home/gpac-features/ |title=Features |work=[[GPAC Project on Advanced Content|GPAC Multimedia Open Source Project]] |date=11 March 2014 <!-- No date available; last modification date used. --> |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312053819/http://gpac.wp.mines-telecom.fr/home/gpac-features/ |archivedate=12 March 2014 |deadurl=no |publisher=[[GPAC Project on Advanced Content|GPAC]] |df=dmy-all }}</ref><ref name="C4Wauto-349853">{{cite web |url=http://gpac.wp.mines-telecom.fr/2008/12/ |title=GPAC 0.4.5 released |work=[[GPAC Project on Advanced Content|GPAC Multimedia Open Source Project]] |date=2 December 2008 |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312054040/http://gpac.wp.mines-telecom.fr/2008/12/ |archivedate=12 March 2014 |deadurl=no |publisher=[[GPAC Project on Advanced Content|GPAC]] |df=dmy-all }}</ref>
+* Adobe SVG Viewer from [[Adobe Systems]] plugin supports most of SVG 1.0/1.1.<ref>{{cite web |url=https://www.adobe.com/svg/viewer/install/mainframed.html |title=Adobe SVG Viewer download area |publisher=[[Adobe Systems]] |accessdate=19 October 2009 |archiveurl=https://web.archive.org/web/20121221000438/http://www.adobe.com/devnet/svg/adobe-svg-viewer-download-area.html |archivedate=21 December 2012 |deadurl=no |df=dmy-all }}</ref><ref name="AdobeEoL">{{cite web|url=https://www.adobe.com/svg/eol.html|title=Adobe SVG Viewer End of Life announcement|publisher=[[Adobe Systems]]|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20121221000422/http://www.adobe.com/devnet/svg/adobe-svg-viewer-eol.html |archivedate=2012-12-21 |deadurl=no }}</ref> (''discontinued'')
+* [[Corel Corporation#Past products|Corel SVG Viewer]]<ref>{{cite web|url=http://www.corel.com/servlet/Satellite?pagename=Corel2/Products/Content&pid=1047023276653&cid=1047023286996|title=Corel SVG Viewer|publisher=[[Corel Corporation]]|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20100214155447/http://www.corel.com/servlet/Satellite?pagename=Corel2%2FProducts%2FContent&pid=1047023276653&cid=1047023286996|archivedate=14 February 2010|deadurl=yes|df=dmy-all}}</ref> (''discontinued'')
+* [[Raphaël (JavaScript Library)|Raphaël]] is another JavaScript library that takes advantage of the intersection between VML's and SVG's features to create vector graphics and animate them.
+* [[Renesis Player]] for Internet Explorer from examotion GmbH, supports SVG 1.1 on [[Internet Explorer 6|IE 6]] and [[Internet Explorer 7|7]] (''discontinued'')<ref>{{cite web|url=http://www.examotion.com/index.php?id=product_player|title=Renesis Player – Fast, easy and smart|publisher=examotion GmbH|accessdate=30 May 2009|archiveurl=https://web.archive.org/web/20090228054847/http://www.examotion.com/index.php?id=product_player |archivedate=2009-02-28 |deadurl=yes }}</ref>
+* SVG Web<ref name="svgweb">{{cite web |url=https://code.google.com/p/svgweb/ |title=svgweb - Scalable Vector Graphics for Web Browsers using Flash |work=[[Google Code]] |date=11 March 2014 <!-- No date available; last modification date used. --> |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312060722/http://code.google.com/p/svgweb/ |archivedate=12 March 2014 |deadurl=no |df=dmy-all }}</ref> is a JavaScript library for Web developers, targeted at Internet Explorer and dependent on the presence of an installed [[Adobe Flash]] plugin on the client machine. SVG Web provides partial support for SVG 1.1, SVG Animation (SMIL), Fonts, Video and Audio, DOM and style scripting.<ref name="C4Wauto-5839320">{{cite web |url=https://www.theregister.co.uk/2009/06/03/google_svg_internet_explorer/ |title=Google to slip SVG into Internet Explorer |work=[[The Register]] |date=3 June 2009 |accessdate=11 March 2014 |first=Gavin |last=Clarke |archiveurl=https://web.archive.org/web/20140312060953/https://www.theregister.co.uk/2009/06/03/google_svg_internet_explorer/ |archivedate=12 March 2014 |deadurl=no |publisher=The Register |df=dmy-all }}</ref>
+
+On 5 January 2010, a senior manager of the Internet Explorer team at Microsoft announced on his official blog that Microsoft had just requested to join the [[SVG Working Group]] of the W3C in order to "take part in ensuring future versions of the SVG spec will meet the needs of developers and end users," although no plans for SVG support in Internet Explorer were mentioned at that time.<ref name="C4Wauto-6837088">{{cite web |url=http://blogs.msdn.com/b/ie/archive/2010/01/05/microsoft-joins-w3c-svg-working-group.aspx |title=Microsoft Joins W3C SVG Working Group |work=[[MSDN Blogs]] |date=5 January 2010 |accessdate=11 March 2014 |last=Dengler |first=Patrick |archiveurl=https://web.archive.org/web/20140312061251/http://blogs.msdn.com/b/ie/archive/2010/01/05/microsoft-joins-w3c-svg-working-group.aspx |archivedate=12 March 2014 |deadurl=no |publisher=Microsoft |df=dmy-all }}</ref> Internet Explorer 9 beta supported a basic SVG feature set based on the SVG 1.1 W3C recommendation. Functionality has been implemented for most of the SVG document structure, interactivity through scripting and styling inline and through CSS. The presentation elements, attributes and DOM interfaces that have been implemented include basic shapes, colors, filling, gradients, patterns, paths and text.<ref name="IE9beta">{{cite web|url=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_Scaling_Vector_Graphics|title=Internet Explorer 9 Beta Guide for Developers|date=15 September 2010|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=15 September 2010|archiveurl=https://web.archive.org/web/20140312061457/http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_Scaling_Vector_Graphics|archivedate=12 March 2014|deadurl=no|df=dmy-all}}</ref>
+
+===Mobile support===
+SVG Tiny (SVGT) 1.1 and 1.2 are mobile profiles for SVG. SVGT 1.2 includes some features not found in SVG 1.1, including non-scaling strokes, which are supported by some SVG 1.1 implementations, such as Opera, Firefox and WebKit. As shared code bases between desktop and mobile browsers increased, the use of SVG 1.1 over SVGT 1.2 also increased.
+
+Support for SVG may be limited to SVGT on older or more limited [[Smart Phone|smart phones]], or may be primarily limited by their respective operating system. [[Adobe Flash Lite]] has optionally supported SVG Tiny since version 1.1. At the SVG Open 2005 conference, [[Sun Microsystems|Sun]] demonstrated a mobile implementation of SVG Tiny 1.1 for the [[Connected Limited Device Configuration]] (CLDC) platform.<ref>{{cite web|title=SVG Open 2005 Conference and Exhibition - Proceedings - Cartoon Oriented User Interfaces|url=http://www.svgopen.org/2005/proceedings.html#paper108|publisher=svgopen.org|accessdate=29 August 2010}}</ref>
+
+Mobiles that use [[Opera Mobile]], as well as the [[iPhone]]'s built in browser, also include SVG support. However, even though it used the [[WebKit]] engine, the [[Android (operating system)|Android]] built-in browser did not support SVG prior to v3.0 (Honeycomb).<ref>{{cite web|title=Browser doesn't render SVG images|url=https://code.google.com/p/android/issues/detail?id=1376|publisher=[[Google]]|accessdate=1 January 2011}}</ref> Prior to v3.0, Firefox Mobile 4.0b2 (beta) for Android was the first browser running under Android to support SVG by default.<ref>{{cite web|title=Firefox Mobile 4.0b2 (beta) for Android supports SVG images|url=https://code.google.com/p/android/issues/detail?id=1376#c30|date=2010-12-16|work=[[Android (operating system)|Android]] Issue 1376|accessdate=2014-01-29}}</ref>
+
+The level of SVG Tiny support available varies from mobile to mobile, depending on the SVG engine installed. Many newer mobile products support additional features beyond SVG Tiny 1.1, like gradient and opacity; this is sometimes referred as "SVGT 1.1+", though there is no such standard.
+
+[[Research In Motion|RIM]]'s [[BlackBerry]] has built-in support for SVG Tiny 1.1 since version 5.0.<ref>{{cite web|title=Support for SVG|url=http://docs.blackberry.com/en/developers/deliverables/11844/Native_SVG_support_887737_11.jsp|publisher=RIM|accessdate=6 October 2011}}</ref> Support continues for WebKit-based BlackBerry Torch browser in OS 6 and 7.<ref>{{cite web|title=BlackBerry Torch The HTML5 Developer Scorecard|url=http://www.sencha.com/blog/blackberry-torch-the-html5-developer-scorecard|publisher=[[Sencha]]|accessdate=6 October 2011}}</ref>
+
+[[Nokia]]'s [[S60 platform]] has built-in support for SVG. For example, icons are generally rendered using the platform's SVG engine. Nokia has also led the JSR 226: Scalable 2D Vector Graphics [[Application programming interface|API]] expert group that defines [[Java Platform, Micro Edition|Java ME]] API for SVG presentation and manipulation. This API has been implemented in S60 Platform 3rd Edition Feature Pack 1 and onward.<ref>{{cite web|url=http://www.s60.com/business/productinfo/applicationsandtechnologies/java/supportedfeaturesin3rdedition|title=S60 Product info|archiveurl=https://web.archive.org/web/20071013152026/http://www.s60.com/business/productinfo/applicationsandtechnologies/java/supportedfeaturesin3rdedition|archivedate=13 October 2007|publisher=S60.com|accessdate=19 October 2009}}</ref> Some [[Series 40 (software platform)|Series 40 phones]] also support SVG (such as [[Nokia 6280]]).
+
+Most [[Sony Ericsson]] phones beginning with [[Sony Ericsson K700|K700]] (by release date) support SVG Tiny 1.1. Phones beginning with [[K750]] also support such features as opacity and gradients. Phones with [[Sony Ericsson Java Platform|Sony Ericsson Java Platform-8]] have support for JSR 226.
+
+[[Windows Phone]] has supported SVG since version 7.5
+
+SVG is also supported on various mobile devices from [[Motorola]], [[Samsung]], [[LG]], and [[Siemens mobile]]/[[BenQ-Siemens]]. eSVG, an SVG rendering library mainly written for [[Embedded system|embedded]] devices, is available on some mobile platforms.<ref>{{Cite web|url=http://www.svgopen.org/2002/papers/jezic__esvg/|accessdate=5 April 2012|title=SVG for Embedded Systems|first=Damir|last=Jezic|date=15–17 July 2002|publisher=svgopen.org|work=Zurich 2002}}</ref><ref>{{cite web|url=http://www.intesis.hr/products/esvg|title=eSVG|work=Intesis Intelligent Embedded Software|year=2010|accessdate=2014-01-29}}</ref>
+
+== Online SVG converters ==
+This is an incomplete list of web applications that can convert SVG files to raster image formats (this process is known as [[rasterization]]), or raster images to SVG (this process is known as [[image tracing]] or vectorization) - without the need of installing a desktop software or browser plug-in.
+* Autotracer.org.<ref>{{cite web|url=http://www.autotracer.org/|title=Converts your raster images to vector graphics|work=autotracer.org|last=Reinhardt|first=Tobias|quote=This tool is using the fantastic autotrace library developed by Martin Weber|accessdate=2014-01-30}}</ref> Online raster image vectorizer using the AutoTrace library. BMP, GIF, JPEG, or PNG to [[AutoCAD DXF|DXF]], EPS, PDF, or SVG. Upload limit: 1MB.
+* FileFormat.info<ref>{{cite web|url=https://www.fileformat.info/convert/image/svg2raster.htm|title=FileFormat.info - SVG to raster image conversion|publisher=FileFormat.Info}}</ref> - Converts SVG to PNG, JPEG, TIFF. Output resolution can be specified. No batch processing. Upload limit: 5MB.
+* Online-Convert<ref>{{cite web|url=http://www.online-convert.com/|title=Free online file converter|work=online-convert.com|accessdate=2014-01-29}}</ref> - Converts to/from BMP, EPS, GIF, HDR, ICO, JPEG, PNG, SVG, TGA, TIFF, [[Wireless Application Protocol Bitmap Format|WBMP]], WebP. No batch processing. The output (e. g. image size) is customizable; the conversion to SVG is handled by [[Potrace]].<ref name="selinger">{{cite web|url=http://potrace.sourceforge.net/|last=Selinger|first=Peter|year=2001–2013|title=Potrace – Transforming bitmaps into vector graphics|work=[[SourceForge]] project [[Potrace]]|accessdate=2014-01-29}}</ref>
+* SVGConv<ref>{{cite web|url=http://svgconv.blasiussecundus.me/|last=Secundus|first=Blasius|year=2012|title=SVGConv - The free online SVG converter|accessdate=2014-01-30}}</ref> - Converts SVG to JPEG, PNG, GIF, BMP, TGA, TIFF, PDF, PS, EPS. Allows the user to customize the output (like image size, background color) and has batch processing features (converting multiple files in a single step). Upload limit: 10MB
+* SVG2Android<ref>{{cite web|url=https://inloop.github.io/svg2android/|title=Android SVG to VectorDrawable|last=Novák|first=Juraj|publisher=Juraj Novák}}</ref> - Converts SVG to an Android VectorDrawable (introduced in API 21)
+* Free Online Converter<ref>{{cite web|url=http://online-converting.com/image/convert-to-svg/|title=Online image converter to SVG format (JPG to SVG, PNG to SVG, EPS to SVG and more image format)|work=online-converting.com|accessdate=2015-02-09}}</ref> - Converts most raster images to SVG via tracing. When converting from raster images such as PNG to SVG or JPG to SVG, converter will convert the forms and objects in black-and-white images in vector graphics form. The conversion to SVG is handled by [[Potrace]].<ref name="selinger"/>
+* iLoveIMG <ref>{{Cite web|url=https://www.iloveimg.com/convert-to-jpg/svg-to-jpg|title=iLoveIMG|last=|first=|date=|website=www.iloveimg.com|access-date=}}</ref> - Converts a single or multiple SVG to JPG online.
+
+==Application support==
+SVG images can be produced by the use of a [[vector graphics editor]], such as [[Inkscape]], [[Adobe Illustrator]], [[Adobe Flash Professional]], or [[CorelDRAW]], and rendered to common [[Raster graphics|raster]] image formats such as [[Portable Network Graphics|PNG]] using the same software. [[Inkscape]] uses a (built-in) [[potrace]] to import raster image formats.<ref name="selinger" /><ref>{{cite web|url=http://wiki.inkscape.org/wiki/index.php/Tools#Vectorize.2Ftrace|title=Vectorize/trace|work=Inkscape wiki|year=2012|accessdate=2014-01-29}}</ref>
+
+Software can be programmed to render SVG images by using a [[library (computing)|library]] such as [[librsvg]] used by [[GNOME]] since 2000, or [[Batik (software)|Batik]]. SVG images can also be rendered to any desired popular image format by using [[ImageMagick]], a free command-line utility (which also uses librsvg under the hood).
+
+Other uses for SVG include embedding for use in [[word processing]] (e.g. with [[LibreOffice]]) and [[desktop publishing]] (e.g. [[Scribus]]), [[Plot (graphics)|plotting graphs]] (e.g. [[gnuplot]]), and importing paths (e.g. for use in [[GIMP]] or [[Blender (software)|Blender]]). [[Microsoft Office 2016]] added support for importing and editing SVG images in January 2017. The [[Uniform Type Identifier]] for SVG used by Apple is <tt>public.svg-image</tt> and conforms to <tt>public.image</tt> and <tt>public.xml</tt>.
+
+== DOCTYPE ==
+The [[DOCTYPE]] for SVG 1.0<ref>{{cite web |url=https://www.w3.org/TR/SVG10/intro.html#Namespace |title=Scalable Vector Graphics (SVG) 1.0 Specification |date=4 September 2001 |at=1.3 SVG Namespace, Public Identifier and System Identifier |accessdate=29 April 2018 }}</ref> is:
+
+<source lang=xml><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"></source>
+
+and that for SVG 1.1 is <source lang=xml><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"></source> but for various reasons, a DOCTYPE should not be included in SVG files.<ref>{{cite web |url=https://www.w3.org/TR/SVG11/intro.html#NamespaceAndDTDIdentifiers |title=Scalable Vector Graphics (SVG) 1.1 (Second Edition) |date=16 August 2011 |at=1.3 SVG Namespace, Public Identifier and System Identifier |accessdate=29 April 2018 }}</ref>
+
+==See also==
+{{SVGSeries}}
+* [[Canvas element]]
+* [[Comparison of graphics file formats]]
+* [[Comparison of raster-to-vector conversion software]]
+* [[Comparison of vector graphics editors]]
+* [[Computer graphics]]
+* [[Computer Graphics Metafile]]
+* [[Image file formats]]
+* [[Resolution independence]]
+* [[Commons:Help:SVG#SVG files in MediaWiki|SVG files in MediaWiki]] on [[Commons:Help:SVG|Commons: Help:SVG]]
+
+==References==
+{{Reflist|30em}}
+
+==External links==
+{{sisterlinks|d=Q2078|c=Category:SVG|mw=SVG|b=XML - Managing Data Exchange/SVG|wikt=SVG|v=Vector Drawing|m=SVG|s=no|n=no|q=no}}
+* {{Official website|http://www.w3.org/Graphics/SVG|W3C SVG page}} specifications, list of implementations
+* [http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html W3C SVG primer] W3C Primer (draft) under auspices of SVG Interest Group
+* {{dmoz|Computers/Data_Formats/Graphics/Vector/SVG}}
+
+{{W3C Standards}}
+{{vector graphics markup languages}}
+{{Graphics file formats}}
+{{SVG Plugins}}
+{{Web interfaces}}
+{{Web browsers}}
+
+{{Authority control}}
+[[Category:Articles with example code]]
+[[Category:Computer file formats]]
+[[Category:Graphics file formats]]
+[[Category:HTML5]]
+[[Category:Open formats]]
+[[Category:Page description markup languages]]
+[[Category:Scalable Vector Graphics|Scalable Vector Graphics]] <!-- the "| " sorts before "A" in cat -->
+[[Category:Vector graphics markup languages]]
+[[Category:World Wide Web Consortium standards]]
+[[Category:XML markup languages]]
+[[Category:Computer-related introductions in 2001]]
+
+
+-->

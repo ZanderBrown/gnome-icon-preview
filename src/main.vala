@@ -1,6 +1,12 @@
 using Gtk;
 
 namespace IconPreview {
+	public enum Mode {
+		INITIAL,
+		SYMBOLIC,
+		COLOUR
+	}
+
 	public interface Previewer : Object {
 		public abstract Icon previewing {get;set;}
 		public abstract void shuffle();
