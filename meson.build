@@ -3,6 +3,9 @@ project('gnome-icon-preview', 'vala', 'c', version: '0.1.0')
 
 datadir = join_paths([ get_option('prefix'), get_option('datadir') ])
 bindir = join_paths([ get_option('prefix'), 'bin' ])
+vapidir = join_paths(meson.current_source_dir(), 'vapi')
+
+add_project_arguments(['--vapidir', vapidir], language: 'vala')
 
 conf = configuration_data()
 conf.set_quoted('G_LOG_DOMAIN', 'org.gnome.IconPreview')
