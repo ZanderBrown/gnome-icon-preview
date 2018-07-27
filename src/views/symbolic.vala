@@ -2,8 +2,8 @@ using Gtk;
 
 namespace IconPreview {
 	public class Symbolic : Box, Previewer {
-		private Pane light = new Pane();
-		private Pane dark = new Pane();
+		private SymbolicPane light = new SymbolicPane();
+		private SymbolicPane dark = new SymbolicPane();
 
 		private File _icon;
 		public File previewing {

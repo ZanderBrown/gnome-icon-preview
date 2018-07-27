@@ -1,8 +1,8 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/IconPreview/pane.ui")]
-	public class Pane : Box {
+	[GtkTemplate (ui = "/org/gnome/IconPreview/symbolicpane.ui")]
+	public class SymbolicPane : Box {
 		[GtkChild]
 		MenuButton picker;
 

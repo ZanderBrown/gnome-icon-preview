@@ -6,8 +6,8 @@
     <file>export.ui</file>
     <file>window.ui</file>
     <file alias="initial.ui">views/initial.ui</file>
-    <file alias="colour.ui">views/colour.ui</file>
-    <file alias="pane.ui">views/pane.ui</file>
+    <file alias="colourpane.ui">views/colourpane.ui</file>
+    <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
     <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
   </gresource>

@@ -197,7 +197,7 @@ namespace IconPreview {
 		private async void _new_icon (File dest, string src) {
 			progress.visible = true;
 			pulsing = true;
-			var from = File.new_for_uri("resource:///org/gnome/IconPreview/template/" + src);
+			var from = File.new_for_uri("resource:///org/gnome/IconPreview/templates/" + src);
 			try {
 				yield from.copy_async (dest, NONE);
 				message("Copied %s -> %s", from.get_uri(), dest.get_uri());
