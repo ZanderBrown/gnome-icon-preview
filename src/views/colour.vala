@@ -17,6 +17,8 @@ namespace IconPreview {
 		}
 
 		construct {
+			homogeneous = true;
+
 			light.theme = "Adwaita";
 			dark.theme = "Adwaita-dark";
 			pack_start(light);
@@ -24,7 +26,8 @@ namespace IconPreview {
 		}
 
 		public void shuffle () {
-
+			light.shuffle();
+			dark.shuffle();
 		}
 
 		public void export () {

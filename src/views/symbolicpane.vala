@@ -28,8 +28,9 @@ namespace IconPreview {
 				return _icon;
 			}
 			set {
+				_icon = value;
 				foreach (var icon in icons) {
-					icon.gicon = value;
+					icon.gicon = _icon;
 				}
 			}
 		}

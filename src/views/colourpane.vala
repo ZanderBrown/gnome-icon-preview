@@ -1,6 +1,31 @@
 using Gtk;
 
 namespace IconPreview {
+	public class DemoIcon : Box {
+		private Image image = new Image();
+		private Label label = new Label(null);
+
+		public Icon icon { get; set; }
+
+		construct {
+			orientation = VERTICAL;
+			spacing = 10;
+
+			image.pixel_size = 128;
+
+			label.ellipsize = START;
+			label.max_width_chars = 30;
+
+			bind_property("icon", image, "gicon");
+			notify["icon"].connect(() => {
+				label.label = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
+			});
+
+			pack_start(image);
+			pack_end(label);
+		}
+	}
+
 	[GtkTemplate (ui = "/org/gnome/IconPreview/colourpane.ui")]
 	public class ColourPane : Box {
 		[GtkChild]
@@ -11,6 +36,7 @@ namespace IconPreview {
 
 		List<string> colours;
 		List<Image> icons;
+		DemoIcon demo_icon;
 		CssProvider provider = null;
 
 		private Icon _icon = new ThemedIcon("start-here-symbolic");
@@ -18,10 +44,13 @@ namespace IconPreview {
 			get {
 				return _icon;
 			}
+
 			set {
+				_icon = value;
 				foreach (var icon in icons) {
-					icon.gicon = value;
+					icon.gicon = _icon;
 				}
+				demo_icon.icon = _icon;
 			}
 		}
 
@@ -30,6 +59,7 @@ namespace IconPreview {
 			get {
 				return _theme;
 			}
+
 			set {
 				_theme = value;
 				provider = CssProvider.get_named(value, null);
@@ -40,7 +70,8 @@ namespace IconPreview {
 		construct {
 			set_css_name("pane");
 
-			foreach (var icon in IconTheme.get_default().list_icons(null)) {
+			// Not sure i should be hardcoding this
+			foreach (var icon in IconTheme.get_default().list_icons("Applications")) {
 				if (!icon.has_suffix("symbolic")) {
 					colours.append(icon);
 				}
@@ -49,7 +80,19 @@ namespace IconPreview {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
 			}
-			icons.append(grid.get_child_at(1, 1) as Image);
+			for (var i = 0; i < 3; i++) {
+				var ico = new DemoIcon();
+				grid.attach(ico, i, 0);
+			}
+			var ico = new DemoIcon();
+			grid.attach(ico, 0, 1);
+			demo_icon = new DemoIcon();
+			grid.attach(demo_icon, 1, 1);
+			ico = new DemoIcon();
+			grid.attach(ico, 2, 1);
+			grid.show_all();
+
+			shuffle();
 		}
 
 		// Adapted from one of the gtk demos
@@ -64,6 +107,23 @@ namespace IconPreview {
 			if (widget is Container) {
 				(widget as Container).forall(apply_css);
 			}
+		}
+
+		public void shuffle () {
+			// Do this a two sepeperate idle callbacks
+			// to avoid compleatly freezing the app
+			Idle.add(() => {
+				grid.foreach(image => (image as DemoIcon).icon = random());
+				// Unfortunatly we have just randomised
+				// The icon in grid we actually care about
+				icon = icon;
+				return Source.REMOVE;
+			});
+		}
+
+		private Icon random () {
+			var pos = Random.int_range(0, (int32) colours.length());
+			return new ThemedIcon(colours.nth_data(pos));
 		}
 	}
 }
