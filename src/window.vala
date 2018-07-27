@@ -41,11 +41,32 @@ namespace IconPreview {
 		private File _file;
 		public File file {
 			set {
-				recents.open_file(value);
-				if (monitor != null) {
-					monitor.cancel();
-				}
 				try {
+					// Hopefully this doesn't render the SVG?
+					var svg = new Rsvg.Handle.from_gfile_sync(value, FLAGS_NONE);
+					if (svg.height == 128 && svg.width == 128) {
+						mode = COLOUR;
+					} else if (svg.height == 16 && svg.width == 16) {
+						mode = SYMBOLIC;
+					} else {
+						// We are very specific about what we like
+						mode = INITIAL;
+						_file = null;
+						return;
+						// TODO report bad icon
+					}
+				} catch (Error e) {
+					critical("Failed to load %s: %s", value.get_basename(), e.message);
+					mode = INITIAL;
+					_file = null;
+					return;
+					// TODO report bad icon
+				}
+				recents.open_file(value);
+				try {
+					if (monitor != null) {
+						monitor.cancel();
+					}
 					monitor = value.monitor_file(NONE, null);
 					monitor.changed.connect(file_updated);
 				} catch (Error e) {
@@ -91,7 +112,7 @@ namespace IconPreview {
 		construct {
 			var inital = new InitalState();
 			content.add(inital);
-			inital.show();
+			content.visible_child = inital;
 
 			//var symbolics = new Symbolic();
 			//content.add(symbolics);
@@ -113,20 +134,27 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
+			message("Switched to %s", mode.to_string());
 			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					if (!(content.visible_child is InitalState)) {
 						content.visible_child.destroy();
+						message("Destroyed");
 					}
 					break;
 				case SYMBOLIC:
-					var sym = new Symbolic();
-					content.add(sym);
-					sym.show();
+					var view = new Symbolic();
+					view.show();
+					content.add_named(view, "symbolic");
+					content.visible_child_name = "symbolic";
 					break;
 				case COLOUR:
-					message("TODO: Impl colour");
+					var view = new Colour();
+					view.show();
+					content.add_named(view, "colour");
+					content.visible_child = view;
+					view.show();
 					break;
 			}
 		}
@@ -182,9 +210,11 @@ namespace IconPreview {
 				//yield AppInfo.launch_default_for_uri_async(dest.get_uri(), context);
 				//yield AppInfo.launch_default_for_uri_async("https://example.com", context);
 				message("Launched? %s", AppInfo.launch_default_for_uri(dest.get_uri(), null).to_string());
+				// TODO: Why doesn't this work? ^^^^^^^^^^^^^^^^^^^^^^
 			} catch (Error e) {
 				critical ("Error: %s", e.message);
 			}
+			file = dest;
 			pulsing = false;
 			progress.visible = false;
 		}
@@ -230,12 +260,14 @@ namespace IconPreview {
 		// Show the about dialog, triggered by win.about
 		private void about () {
 			var authors = new string[] {"Zander Brown"};
+			var artists = new string[] {"Tobias Bernard"};
 			show_about_dialog (this,
 				program_name: "Icon Preview",
 				version: "%s@%s".printf(PACKAGE_VERSION, COMMIT_ID),
 				copyright: "Copyright © 2018 Zander Brown",
 				license_type: License.GPL_3_0,
 				authors: authors,
+				artists: artists,
 				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
 				website_label: "Repository");
 		}

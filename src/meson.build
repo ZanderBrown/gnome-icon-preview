@@ -10,6 +10,7 @@ sources = [
 	'pane.vala',
 	'recents.vala',
 	'export.vala',
+	'colour.vala',
 	'symbolic.vala',
 	'inital.vala',
 	'window.vala',
