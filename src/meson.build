@@ -1,5 +1,6 @@
 deps = [
-	dependency('gtk+-3.0')
+	dependency('gtk+-3.0'),
+	dependency('librsvg-2.0')
 ]
 
 config = configure_file(input: 'config.vala.in', output: 'config.vala', configuration: conf)

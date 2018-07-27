@@ -3,6 +3,9 @@
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "3.28",
     "sdk" : "org.gnome.Sdk",
+    "sdk-extensions" : [
+        "org.freedesktop.Sdk.Extension.rust-stable"
+    ],
     "command" : "gnome-icon-preview",
     "finish-args" : [
         "--share=ipc",
@@ -14,6 +17,22 @@
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
     ],
     "modules" : [
+        {
+            "name" : "rsvg",
+            "buildsystem" : "autotools",
+            "builddir" : true,
+            "config-opts" : [
+                "--enable-debug",
+                "--enable-vala"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/librsvg",
+                    "tag" : "2.43.2"
+                }
+            ]
+        },
         {
             "name" : "icon-preview",
             "buildsystem" : "meson",
@@ -27,7 +46,13 @@
         }
     ],
     "build-options" : {
+        "append-path" : "/usr/lib/sdk/rust-stable/bin",
+        "build-args" : [
+            "--share=network"
+        ],
         "env" : {
+            "CARGO_HOME" : "/run/build/Podcasts/cargo",
+            "RUST_BACKTRACE" : "1"
         }
     }
 }

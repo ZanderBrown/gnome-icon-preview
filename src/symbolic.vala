@@ -5,12 +5,14 @@ namespace IconPreview {
 		private Pane light = new Pane();
 		private Pane dark = new Pane();
 
-		public Icon previewing {
+		private File _icon;
+		public File previewing {
 			get {
-				return light.icon;
+				return _icon;
 			}
 			set {
-				light.icon = dark.icon = value;
+				_icon = value;
+				light.icon = dark.icon = new FileIcon(_icon);
 			}
 		}
 

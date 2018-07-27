@@ -8,7 +8,7 @@ namespace IconPreview {
 	}
 
 	public interface Previewer : Object {
-		public abstract Icon previewing {get;set;}
+		public abstract File previewing {get;set;}
 		public abstract void shuffle();
 		public abstract void export();
 	}

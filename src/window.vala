@@ -38,19 +38,6 @@ namespace IconPreview {
 		Recents recents = new Recents();
 		Export export_pop = new Export();
 
-		private Icon _icon = new ThemedIcon("start-here-symbolic");
-		public Icon preview_icon {
-			get {
-				return _icon;
-			}
-			set {
-				if (content.visible_child is Previewer) {
-					(content.visible_child as Previewer).previewing = value;
-				}
-				_icon = value;
-			}
-		}
-
 		private File _file;
 		public File file {
 			set {
@@ -222,7 +209,9 @@ namespace IconPreview {
 
 		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
 			if (evt == CHANGED) {
-				preview_icon = new FileIcon(src);
+				if (content.visible_child is Previewer) {
+					(content.visible_child as Previewer).previewing = src;
+				}
 				try {
 					var info = src.query_info ("standard::display-name", NONE);
 					title = info.get_display_name();
