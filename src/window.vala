@@ -110,7 +110,7 @@ namespace IconPreview {
 		}
 
 		construct {
-			var inital = new InitalState();
+			var inital = new InitialState();
 			content.add(inital);
 			content.visible_child = inital;
 
@@ -138,7 +138,7 @@ namespace IconPreview {
 			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
-					if (!(content.visible_child is InitalState)) {
+					if (!(content.visible_child is InitialState)) {
 						content.visible_child.destroy();
 						message("Destroyed");
 					}
@@ -263,6 +263,7 @@ namespace IconPreview {
 			var artists = new string[] {"Tobias Bernard"};
 			show_about_dialog (this,
 				program_name: "Icon Preview",
+				logo_icon_name: "org.gnome.IconPreview",
 				version: "%s@%s".printf(PACKAGE_VERSION, COMMIT_ID),
 				copyright: "Copyright © 2018 Zander Brown",
 				license_type: License.GPL_3_0,

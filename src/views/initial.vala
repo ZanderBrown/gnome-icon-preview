@@ -7,8 +7,8 @@ namespace IconPreview {
 		ROOTWIN
 	}
 
-	[GtkTemplate (ui = "/org/gnome/IconPreview/inital.ui")]
-	class InitalState : Grid {
+	[GtkTemplate (ui = "/org/gnome/IconPreview/initial.ui")]
+	class InitialState : Grid {
 		/*
 		[GtkChild]
 		Box zone;

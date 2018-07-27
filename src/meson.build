@@ -7,12 +7,12 @@ config = configure_file(input: 'config.vala.in', output: 'config.vala', configur
 
 sources = [
 	config,
-	'pane.vala',
 	'recents.vala',
 	'export.vala',
-	'colour.vala',
-	'symbolic.vala',
-	'inital.vala',
+	'views/colour.vala',
+	'views/pane.vala',
+	'views/symbolic.vala',
+	'views/initial.vala',
 	'window.vala',
 	'main.vala'
 ]
