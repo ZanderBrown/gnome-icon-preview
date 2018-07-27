@@ -19,7 +19,7 @@ namespace IconPreview {
 		MenuButton menu;
 
 		[GtkChild]
-		ToggleButton exportbtn;
+		MenuButton exportbtn;
 
 
 		const GLib.ActionEntry[] entries = {
@@ -122,9 +122,8 @@ namespace IconPreview {
 			recent.popover = recents;
 			recents.open.connect(recent => file = recent);
 
+			exportbtn.popover = export_pop;
 			bind_property("mode", export_pop, "mode");
-			exportbtn.bind_property("active", export_pop, "visible", BIDIRECTIONAL);
-			export_pop.relative_to = exportbtn;
 
 			notify["mode"].connect(mode_changed);
 			mode_changed();
