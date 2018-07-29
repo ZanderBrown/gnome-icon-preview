@@ -3,6 +3,8 @@ using Gtk;
 namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/symbolicpane.ui")]
 	public class SymbolicPane : Box {
+		static List<string> symbolics;
+
 		[GtkChild]
 		Grid sizes;
 
@@ -15,7 +17,6 @@ namespace IconPreview {
 		[GtkChild]
 		Box states;
 
-		List<string> symbolics;
 		List<Image> icons;
 		CssProvider provider = null;
 
@@ -48,13 +49,15 @@ namespace IconPreview {
 			set_css_name("pane");
 		}
 
-		construct {
+		static construct {
 			foreach (var icon in IconTheme.get_default().list_icons(null)) {
 				if (icon.has_suffix("symbolic")) {
 					symbolics.append(icon);
 				}
 			}
+		}
 
+		construct {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
 			}
