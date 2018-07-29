@@ -28,8 +28,6 @@ namespace IconPreview {
 
 	[GtkTemplate (ui = "/org/gnome/IconPreview/colourpane.ui")]
 	public class ColourPane : Box {
-		static List<string> colours;
-
 		[GtkChild]
 		Grid sizes;
 
@@ -75,17 +73,6 @@ namespace IconPreview {
 			set_css_name("pane");
 		}
 
-		static construct {
-			try {
-				var icons = resources_enumerate_children("/org/gnome/IconPreview/icons/", NONE);
-				foreach (var icon in icons) {
-					colours.append(icon);
-				}
-			} catch (Error e) {
-				critical("Failed to load sample icons: %s", e.message);
-			}
-		}
-
 		construct {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
@@ -103,8 +90,6 @@ namespace IconPreview {
 			grid.show_all();
 
 			theme = theme;
-
-			shuffle();
 		}
 
 		// Adapted from one of the gtk demos
@@ -121,21 +106,13 @@ namespace IconPreview {
 			}
 		}
 
-		public void shuffle () {
-			// Do this a two sepeperate idle callbacks
-			// to avoid compleatly freezing the app
-			Idle.add(() => {
-				grid.foreach(image => (image as DemoIcon).icon = random());
-				// Unfortunatly we have just randomised
-				// The icon in grid we actually care about
-				icon = icon;
-				return Source.REMOVE;
-			});
-		}
-
-		private Icon random () {
-			var pos = Random.int_range(0, (int32) colours.length());
-			return new FileIcon(File.new_for_uri("resource://org/gnome/IconPreview/icons/" + colours.nth_data(pos)));
+		public void load_samples (Icon[] samples) requires (samples.length == 5) {
+			// Don't like how much of this is hardcoded
+			for (var i = 0; i < 3; i++) {
+				(grid.get_child_at(i, 0) as DemoIcon).icon = samples[i];
+			}
+			(grid.get_child_at(0, 1) as DemoIcon).icon = samples[3];
+			(grid.get_child_at(2, 1) as DemoIcon).icon = samples[4];
 		}
 	}
 }
