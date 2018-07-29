@@ -1,11 +1,13 @@
 using Gtk;
 
 namespace IconPreview {
+	/*
 	enum Target {
 		INT32,
 		STRING,
 		ROOTWIN
 	}
+	*/
 
 	[GtkTemplate (ui = "/org/gnome/IconPreview/initial.ui")]
 	class InitialState : Grid {

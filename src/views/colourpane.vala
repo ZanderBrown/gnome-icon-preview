@@ -61,15 +61,20 @@ namespace IconPreview {
 			}
 
 			set {
+				var context = get_style_context();
+				context.remove_class("theme-" + _theme);
 				_theme = value;
+				context.add_class("theme-" + _theme);
 				provider = CssProvider.get_named(value, null);
 				apply_css(this);
 			}
 		}
 
-		construct {
+		class construct {
 			set_css_name("pane");
+		}
 
+		construct {
 			// Not sure i should be hardcoding this
 			foreach (var icon in IconTheme.get_default().list_icons("Applications")) {
 				if (!icon.has_suffix("symbolic")) {
@@ -92,6 +97,8 @@ namespace IconPreview {
 			grid.attach(ico, 2, 1);
 			grid.show_all();
 
+			theme = theme;
+
 			shuffle();
 		}
 
@@ -102,7 +109,7 @@ namespace IconPreview {
 			if (existing != null) {
 				context.remove_provider(existing);
 			}
-			context.add_provider(provider, uint.MAX);
+			context.add_provider(provider, uint.MAX - 10);
 			widget.set_data("pane-style-provider", provider);
 			if (widget is Container) {
 				(widget as Container).forall(apply_css);

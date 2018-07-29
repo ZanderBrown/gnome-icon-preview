@@ -16,6 +16,10 @@ namespace IconPreview {
 			}
 		}
 
+		class construct {
+			set_css_name("colour-view");
+		}
+
 		construct {
 			homogeneous = true;
 

@@ -8,3 +8,16 @@
 .drop-zone * {
 	margin: 15px;
 }
+
+colour-view .sizes, colour-view .wallpaper grid {
+	padding: 15px;
+}
+
+colour-view .wallpaper {
+	background-size: cover;
+	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita.jpg');
+}
+
+.theme-Adwaita-dark .wallpaper {
+	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita-dark.jpg');
+}

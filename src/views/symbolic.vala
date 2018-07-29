@@ -16,6 +16,10 @@ namespace IconPreview {
 			}
 		}
 
+		class construct {
+			set_css_name("symbolic-view");
+		}
+
 		construct {
 			light.theme = "Adwaita";
 			dark.theme = "Adwaita-dark";

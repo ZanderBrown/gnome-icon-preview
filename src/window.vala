@@ -50,17 +50,15 @@ namespace IconPreview {
 						mode = SYMBOLIC;
 					} else {
 						// We are very specific about what we like
-						mode = INITIAL;
 						_file = null;
+						_load_failed();
 						return;
-						// TODO report bad icon
 					}
 				} catch (Error e) {
 					critical("Failed to load %s: %s", value.get_basename(), e.message);
-					mode = INITIAL;
 					_file = null;
+					_load_failed();
 					return;
-					// TODO report bad icon
 				}
 				recents.open_file(value);
 				try {
@@ -132,11 +130,19 @@ namespace IconPreview {
 			add_action_entries(entries, this);
 		}
 
+		private void _load_failed () {
+			var dlg = new MessageDialog(this, MODAL, WARNING, CANCEL, "This file is defective");
+			dlg.secondary_text = "Please start from a template to ensure that your file will work as a GNOME icon";
+			dlg.response.connect(() => dlg.destroy());
+			dlg.show();
+		}
+
 		private void mode_changed () {
 			message("Switched to %s", mode.to_string());
 			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
+					title = "Icon Preview";
 					if (!(content.visible_child is InitialState)) {
 						content.visible_child.destroy();
 						message("Destroyed");
