@@ -1,5 +1,3 @@
-For something thats's actually useful checkout commit e05f334fb0fc93290c0106b553a15fe4c2884939
-
 # Icon Preview
 
 A simple utility for testing out icons

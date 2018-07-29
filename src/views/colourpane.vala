@@ -28,13 +28,14 @@ namespace IconPreview {
 
 	[GtkTemplate (ui = "/org/gnome/IconPreview/colourpane.ui")]
 	public class ColourPane : Box {
+		static List<string> colours;
+
 		[GtkChild]
 		Grid sizes;
 
 		[GtkChild]
 		Grid grid;
 
-		List<string> colours;
 		List<Image> icons;
 		DemoIcon demo_icon;
 		CssProvider provider = null;
@@ -74,14 +75,18 @@ namespace IconPreview {
 			set_css_name("pane");
 		}
 
-		construct {
-			// Not sure i should be hardcoding this
-			foreach (var icon in IconTheme.get_default().list_icons("Applications")) {
-				if (!icon.has_suffix("symbolic")) {
+		static construct {
+			try {
+				var icons = resources_enumerate_children("/org/gnome/IconPreview/icons/", NONE);
+				foreach (var icon in icons) {
 					colours.append(icon);
 				}
+			} catch (Error e) {
+				critical("Failed to load sample icons: %s", e.message);
 			}
+		}
 
+		construct {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
 			}
@@ -130,7 +135,7 @@ namespace IconPreview {
 
 		private Icon random () {
 			var pos = Random.int_range(0, (int32) colours.length());
-			return new ThemedIcon(colours.nth_data(pos));
+			return new FileIcon(File.new_for_uri("resource://org/gnome/IconPreview/icons/" + colours.nth_data(pos)));
 		}
 	}
 }
