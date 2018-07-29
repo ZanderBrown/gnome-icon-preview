@@ -18,7 +18,9 @@ namespace IconPreview {
 
 			bind_property("icon", image, "gicon");
 			notify["icon"].connect(() => {
-				label.label = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
+				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
+				label.label = basename;
+				label.tooltip_text = basename;
 			});
 
 			pack_start(image);

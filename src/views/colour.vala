@@ -49,11 +49,14 @@ namespace IconPreview {
 			var samples_names = new string[5];
 			var samples = new Icon[5];
 
+			// Avoid infinite loop
+			var require_unique = colours.length() >= 5;
+
 			var i = 0;
 			while (i < 5) {
 				var pos = Random.int_range(0, (int32) colours.length());
 				var proposed = colours.nth_data(pos);
-				if (proposed in samples_names) {
+				if (proposed in samples_names && require_unique) {
 					continue;
 				}
 				samples_names[i] = proposed;

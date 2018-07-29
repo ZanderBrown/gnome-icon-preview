@@ -461,6 +461,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Button</property>
                 <property name="image">image5</property>
               </object>
               <packing>
@@ -475,6 +476,7 @@
                 <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Insensitive</property>
                 <property name="image">image6</property>
               </object>
               <packing>
@@ -488,6 +490,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Suggested</property>
                 <property name="image">image7</property>
                 <style>
                   <class name="suggested-action"/>
@@ -504,6 +507,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Destructive</property>
                 <property name="image">image8</property>
                 <style>
                   <class name="destructive-action"/>
