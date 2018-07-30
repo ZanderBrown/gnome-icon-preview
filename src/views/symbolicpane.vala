@@ -38,7 +38,12 @@ namespace IconPreview {
 			}
 			set {
 				_theme = value;
-				provider = CssProvider.get_named(value, null);
+				var parts = _theme.split("-");
+				if (parts.length > 1 && parts[1] == "dark") {
+					provider = CssProvider.get_named(parts[0], "dark");
+				} else {
+					provider = CssProvider.get_named(_theme, null);
+				}
 				apply_css(this);
 			}
 		}
