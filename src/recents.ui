@@ -8,7 +8,6 @@
       <object class="GtkFrame">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="border_width">5</property>
         <property name="label_xalign">0</property>
         <child>
           <object class="GtkScrolledWindow">
@@ -40,5 +39,8 @@
         </child>
       </object>
     </child>
+    <style>
+      <class name="recents"/>
+    </style>
   </template>
 </interface>

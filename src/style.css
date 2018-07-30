@@ -9,7 +9,17 @@
 	margin: 15px;
 }
 
-colour-view .sizes, colour-view .wallpaper grid {
+.recents frame {
+	margin: 5px;
+}
+
+.recents row label {
+	padding: 3px;
+}
+
+colour-view .sizes,
+colour-view .wallpaper grid,
+symbolic-view pane > box {
 	margin: 20px;
 }
 
@@ -24,6 +34,10 @@ colour-view .wallpaper {
 
 demo-icon {
 	margin: 15px;
+}
+
+.exporter {
+	margin: 10px;
 }
 
 .exporter .thumbnail {
