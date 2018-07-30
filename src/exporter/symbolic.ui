@@ -20,8 +20,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
         <property name="max_width_chars">35</property>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
         <property name="position">0</property>
       </packing>
     </child>
@@ -37,8 +35,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
         </style>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
         <property name="position">1</property>
       </packing>
     </child>
@@ -51,8 +47,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
         <property name="use_markup">True</property>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
         <property name="position">2</property>
       </packing>
     </child>
@@ -66,8 +60,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
         <property name="margin_top">10</property>
       </object>
       <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
         <property name="position">3</property>
       </packing>
     </child>

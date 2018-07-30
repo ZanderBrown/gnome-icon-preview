@@ -27,6 +27,7 @@
         </child>
         <child type="overlay">
           <object class="GtkProgressBar" id="progress">
+            <property name="visible">False</property>
             <property name="can_focus">False</property>
             <property name="valign">start</property>
           </object>
