@@ -18,6 +18,12 @@ namespace IconPreview {
 			}
 		}
 
+		public Widget exporter {
+			owned get {
+				return new SymbolicExporter();
+			}
+		}
+
 		class construct {
 			set_css_name("symbolic-view");
 		}

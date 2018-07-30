@@ -25,3 +25,8 @@ colour-view .wallpaper {
 demo-icon {
 	margin: 15px;
 }
+
+.exporter .thumbnail {
+	border: 1px solid @theme-border-color;
+	padding: 8px;
+}

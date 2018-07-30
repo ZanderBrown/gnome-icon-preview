@@ -7,8 +7,9 @@ namespace IconPreview {
 		COLOUR
 	}
 
-	public interface Previewer : Object {
-		public abstract File previewing {get;set;}
+	public interface Previewer : Widget {
+		public abstract File previewing { get; set; }
+		public abstract Widget exporter { owned get; }
 		public abstract void shuffle();
 		public abstract void export();
 	}

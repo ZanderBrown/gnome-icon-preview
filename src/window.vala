@@ -21,7 +21,6 @@ namespace IconPreview {
 		[GtkChild]
 		MenuButton exportbtn;
 
-
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
@@ -36,7 +35,6 @@ namespace IconPreview {
 
 		FileMonitor monitor = null;
 		Recents recents = new Recents();
-		Export export_pop = new Export();
 
 		private File _file;
 		public File file {
@@ -109,19 +107,12 @@ namespace IconPreview {
 
 		construct {
 			var inital = new InitialState();
+			inital.show();
 			content.add(inital);
 			content.visible_child = inital;
 
-			//var symbolics = new Symbolic();
-			//content.add(symbolics);
-			//symbolics.show();
-			//content.visible_child = symbolics;
-
 			recent.popover = recents;
 			recents.open.connect(recent => file = recent);
-
-			exportbtn.popover = export_pop;
-			bind_property("mode", export_pop, "mode");
 
 			notify["mode"].connect(mode_changed);
 			mode_changed();
@@ -138,29 +129,30 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			message("Switched to %s", mode.to_string());
 			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
-					if (!(content.visible_child is InitialState)) {
-						content.visible_child.destroy();
-						message("Destroyed");
-					}
 					break;
 				case SYMBOLIC:
-					var view = new Symbolic();
-					view.show();
-					content.add_named(view, "symbolic");
-					content.visible_child_name = "symbolic";
+					_mode_changed(new Symbolic());
 					break;
 				case COLOUR:
-					var view = new Colour();
-					view.show();
-					content.add_named(view, "colour");
-					content.visible_child = view;
-					view.show();
+					_mode_changed(new Colour());
 					break;
+			}
+		}
+
+		private void _mode_changed (Previewer view) {
+			var old = content.visible_child;
+			view.show();
+			content.add(view);
+			content.visible_child = view;
+			var pop = new Popover(exportbtn);
+			pop.add(view.exporter);
+			exportbtn.popover = pop;
+			if (!(old is InitialState)) {
+				old.destroy();
 			}
 		}
 
@@ -229,7 +221,7 @@ namespace IconPreview {
 		}
 
 		private void open_export () {
-			export_pop.popup();
+			exportbtn.clicked();
 		}
 
 		private void refresh () {

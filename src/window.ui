@@ -21,7 +21,6 @@
             <property name="can_focus">False</property>
             <property name="hhomogeneous">False</property>
             <property name="vhomogeneous">False</property>
-            <property name="transition_type">crossfade</property>
             <property name="interpolate_size">True</property>
             <child>
               <placeholder/>

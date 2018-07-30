@@ -8,13 +8,14 @@ config = configure_file(input: 'config.vala.in', output: 'config.vala', configur
 sources = [
 	config,
 	'recents.vala',
-	'export.vala',
 	'views/utils.vala',
 	'views/colourpane.vala',
 	'views/colour.vala',
 	'views/symbolicpane.vala',
 	'views/symbolic.vala',
 	'views/initial.vala',
+	'exporter/colour.vala',
+	'exporter/symbolic.vala',
 	'window.vala',
 	'main.vala'
 ]
