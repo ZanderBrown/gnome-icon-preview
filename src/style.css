@@ -32,6 +32,14 @@ colour-view .wallpaper {
 	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita-dark.jpg');
 }
 
+colour-view image {
+	/*
+	gtk4:
+	filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)) drop-shadow(0 1px 10px rgba(0,0,0,0.1));
+	*/
+	-gtk-icon-shadow: rgba(0,0,0,0.1) 0 1px 10px;
+}
+
 demo-icon {
 	margin: 15px;
 }
