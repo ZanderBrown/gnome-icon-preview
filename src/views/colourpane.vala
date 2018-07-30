@@ -7,6 +7,10 @@ namespace IconPreview {
 
 		public Icon icon { get; set; }
 
+		class construct {
+			set_css_name("demo-icon");
+		}
+
 		construct {
 			orientation = VERTICAL;
 			spacing = 10;

@@ -10,7 +10,7 @@
 }
 
 colour-view .sizes, colour-view .wallpaper grid {
-	padding: 15px;
+	margin: 20px;
 }
 
 colour-view .wallpaper {
@@ -20,4 +20,8 @@ colour-view .wallpaper {
 
 .theme-Adwaita-dark .wallpaper {
 	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita-dark.jpg');
+}
+
+demo-icon {
+	margin: 15px;
 }
