@@ -100,7 +100,7 @@ namespace IconPreview {
 			grid.attach(demo_icon, 1, 1);
 			ico = new DemoIcon();
 			grid.attach(ico, 2, 1);
-			grid.show_all();
+			grid.show();
 
 			theme = theme;
 		}

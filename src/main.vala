@@ -42,7 +42,7 @@ namespace IconPreview {
 			var styles = new CssProvider();
 			styles.load_from_resource("/org/gnome/IconPreview/gtk/style.css");
 			// Use of uint.MAX isn't ideal but we are effectivly in an arms race
-			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
+			StyleContext.add_provider_for_display(Gdk.Display.get_default(), styles, uint.MAX);
 
 			set_accels_for_action ("win.open", { "<primary>O" });
 			set_accels_for_action ("win.new-window", { "<primary>N" });
