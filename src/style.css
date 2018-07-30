@@ -33,10 +33,6 @@ colour-view .wallpaper {
 }
 
 colour-view image {
-	/*
-	gtk4:
-	filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)) drop-shadow(0 1px 10px rgba(0,0,0,0.1));
-	*/
 	-gtk-icon-shadow: rgba(0,0,0,0.1) 0 1px 10px;
 }
 

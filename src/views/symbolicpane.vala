@@ -56,12 +56,12 @@ namespace IconPreview {
 			// Doesn't seem to be a way to directly access
 			linked.foreach(btn => {
 				if (count == 2) {
-					icons.append((btn as Button).image as Image);
+					icons.append((btn as Button).get_child() as Image);
 				}
 				count++;
 			});
 			states.foreach(state => {
-				icons.append((state as Button).image as Image);
+				icons.append((state as Button).get_child() as Image);
 			});
 
 			theme = theme;
@@ -100,7 +100,7 @@ namespace IconPreview {
 			var count = 0;
 			linked.foreach(btn => {
 				if (count != 2) {
-					((btn as Button).image as Image).gicon = samples[pos++];
+					((btn as Button).get_child() as Image).gicon = samples[pos++];
 				}
 				count++;
 			});

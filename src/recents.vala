@@ -62,11 +62,11 @@ namespace IconPreview {
 
 		[GtkCallback]
 		private void activated (ListBox _box, ListBoxRow row) {
+			popdown();
 			Idle.add(() => {
 				open(File.new_for_uri((row as RecentRow).recent.uri));
 				return Source.REMOVE;
 			});
-			popdown();
 		}
 	}
 }

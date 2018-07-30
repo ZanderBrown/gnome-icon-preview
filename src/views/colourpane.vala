@@ -14,6 +14,7 @@ namespace IconPreview {
 		construct {
 			orientation = VERTICAL;
 			spacing = 5;
+			expand = false;
 
 			image.pixel_size = 128;
 
