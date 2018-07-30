@@ -9,6 +9,7 @@ sources = [
 	config,
 	'recents.vala',
 	'export.vala',
+	'views/utils.vala',
 	'views/colourpane.vala',
 	'views/colour.vala',
 	'views/symbolicpane.vala',

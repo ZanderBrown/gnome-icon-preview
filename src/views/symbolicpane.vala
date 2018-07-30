@@ -3,8 +3,6 @@ using Gtk;
 namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/symbolicpane.ui")]
 	public class SymbolicPane : Box {
-		static List<string> symbolics;
-
 		[GtkChild]
 		Grid sizes;
 
@@ -49,14 +47,6 @@ namespace IconPreview {
 			set_css_name("pane");
 		}
 
-		static construct {
-			foreach (var icon in IconTheme.get_default().list_icons(null)) {
-				if (icon.has_suffix("symbolic")) {
-					symbolics.append(icon);
-				}
-			}
-		}
-
 		construct {
 			for (var i = 0; i < 3; i++) {
 				icons.append(sizes.get_child_at(i, 0) as Image);
@@ -75,8 +65,6 @@ namespace IconPreview {
 			});
 
 			theme = theme;
-
-			shuffle();
 		}
 
 		// Adapted from one of the gtk demos
@@ -93,31 +81,29 @@ namespace IconPreview {
 			}
 		}
 
-		public void shuffle () {
-			// Do this a two sepeperate idle callbacks
-			// to avoid compleatly freezing the app
-			Idle.add(() => {
-				grid.foreach(image => (image as Image).gicon = random());
-				// Unfortunatly we have just randomised
-				// The icon in grid we actually care about
-				icon = icon;
-				return Source.REMOVE;
+		public void load_samples (Icon[] samples) /*requires (samples.length == 20)*/ {
+			// Vala seems to have some kinda bug with requires here
+			return_if_fail(samples.length == 20);
+			var pos = 0;
+			for (var i = 0; i < 6; i++) {
+				(grid.get_child_at(i, 0) as Image).gicon = samples[pos++];
+			}
+			for (var i = 0; i < 3; i++) {
+				(grid.get_child_at(i, 1) as Image).gicon = samples[pos++];
+			}
+			for (var i = 4; i < 6; i++) {
+				(grid.get_child_at(i, 1) as Image).gicon = samples[pos++];
+			}
+			for (var i = 0; i < 6; i++) {
+				(grid.get_child_at(i, 2) as Image).gicon = samples[pos++];
+			}
+			var count = 0;
+			linked.foreach(btn => {
+				if (count != 2) {
+					((btn as Button).image as Image).gicon = samples[pos++];
+				}
+				count++;
 			});
-			Idle.add(() => {
-				var count = 0;
-				linked.foreach(btn => {
-					if (count != 2) {
-						((btn as Button).image as Image).gicon = random();
-					}
-					count++;
-				});
-				return Source.REMOVE;
-			});
-		}
-
-		private Icon random () {
-			var pos = Random.int_range(0, (int32) symbolics.length());
-			return new ThemedIcon(symbolics.nth_data(pos));
 		}
 	}
 }

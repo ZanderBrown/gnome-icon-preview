@@ -3,7 +3,7 @@ using Gtk;
 namespace IconPreview {
 	public class Colour : Box, Previewer {
 		const string RES_PATH = "/org/gnome/IconPreview/icons/";
-		static List<string> colours;
+		static string[] colours;
 
 		private ColourPane light = new ColourPane();
 		private ColourPane dark = new ColourPane();
@@ -25,10 +25,7 @@ namespace IconPreview {
 
 		static construct {
 			try {
-				var icons = resources_enumerate_children(RES_PATH, NONE);
-				foreach (var icon in icons) {
-					colours.append(icon);
-				}
+				colours = resources_enumerate_children(RES_PATH, NONE);
 			} catch (Error e) {
 				critical("Failed to load sample icons: %s", e.message);
 			}
@@ -46,22 +43,8 @@ namespace IconPreview {
 		}
 
 		public void shuffle () {
-			var samples_names = new string[5];
+			var samples_names = random_selection(colours, 5);
 			var samples = new Icon[5];
-
-			// Avoid infinite loop
-			var require_unique = colours.length() >= 5;
-
-			var i = 0;
-			while (i < 5) {
-				var pos = Random.int_range(0, (int32) colours.length());
-				var proposed = colours.nth_data(pos);
-				if (proposed in samples_names && require_unique) {
-					continue;
-				}
-				samples_names[i] = proposed;
-				i++;
-			}
 
 			for (var j = 0; j < 5; j++) {
 				samples[j] = new FileIcon(File.new_for_uri("resource:/" + RES_PATH + samples_names[j]));
