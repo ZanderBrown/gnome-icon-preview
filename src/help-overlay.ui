@@ -43,8 +43,22 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Symbolics</property>
+            <property name="title" translatable="yes">View</property>
             <property name="visible">True</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;r</property>
+                <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;e</property>
+                <property name="title" translatable="yes" context="shortcut window">Export the icon</property>
+              </object>
+            </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
@@ -52,17 +66,11 @@
                 <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
               </object>
             </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Icon</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <property name="accelerator">&lt;primary&gt;r</property>
-                <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
+                <property name="accelerator">F11</property>
+                <property name="title" translatable="yes" context="shortcut window">Toggle fullscreen</property>
               </object>
             </child>
           </object>

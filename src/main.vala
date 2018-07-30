@@ -43,8 +43,10 @@ namespace IconPreview {
 			set_accels_for_action ("win.open", { "<primary>O" });
 			set_accels_for_action ("win.recents", { "<primary><shift>O" });
 			set_accels_for_action ("win.refresh", { "<primary>R" });
+			set_accels_for_action ("win.export", { "<primary>E" });
 			set_accels_for_action ("win.shuffle", { "<primary>S" });
 			set_accels_for_action ("win.menu", { "F10" });
+			set_accels_for_action ("win.fullscreen", { "F11" });
 			set_accels_for_action ("win.quit", { "<primary>Q" });
 		}
 	}

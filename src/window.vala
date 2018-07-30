@@ -29,9 +29,12 @@ namespace IconPreview {
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "export", open_export },
+			{ "fullscreen", toggle_fullscreen },
 			{ "about", about },
 			{ "quit",  quit  }
 		};
+
+		bool is_fullscreen = false;
 
 		FileMonitor monitor = null;
 		Recents recents = new Recents();
@@ -222,6 +225,16 @@ namespace IconPreview {
 
 		private void open_export () {
 			exportbtn.clicked();
+		}
+
+		private void toggle_fullscreen () {
+			if (is_fullscreen) {
+				is_fullscreen = false;
+				unfullscreen();
+			} else {
+				is_fullscreen = true;
+				fullscreen();
+			}
 		}
 
 		private void refresh () {
