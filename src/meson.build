@@ -26,4 +26,15 @@ sources += gnome.compile_resources('resources',
   'resource.gresource.xml'
 )
 
+sources += gnome.compile_resources('icons',
+  'icons/icons.gresource.xml',
+  source_dir: 'icons/'
+)
+
+sources += gnome.compile_resources('wallpapers',
+  'wallpapers/wallpapers.gresource.xml',
+  source_dir: 'wallpapers/'
+)
+
 executable('gnome-icon-preview', sources, dependencies: deps, install: true)
+

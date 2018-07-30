@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/IconPreview/icons/">
+    <file>org.gnome.Aisleriot.svg</file>
+    <file>org.gnome.Books.svg</file>
+    <file>org.gnome.Boxes.svg</file>
+    <file>org.gnome.Calculator.svg</file>
+    <file>org.gnome.Characters.svg</file>
+    <file>org.gnome.Contacts.svg</file>
+    <file>org.gnome.Epiphany.svg</file>
+    <file>org.gnome.Evince.svg</file>
+    <file>org.gnome.Games.svg</file>
+    <file>org.gnome.IconPreview.svg</file>
+    <file>org.gnome.Maps.svg</file>
+    <file>org.gnome.Music.svg</file>
+    <file>org.gnome.Nautilus.svg</file>
+    <file>org.gnome.Seahorse.svg</file>
+    <file>org.gnome.Settings.svg</file>
+    <file>org.gnome.SystemMonitor.svg</file>
+    <file>org.gnome.Totem.svg</file>
+    <file>org.gnucash.GnuCash.svg</file>
+  </gresource>
+</gresources>

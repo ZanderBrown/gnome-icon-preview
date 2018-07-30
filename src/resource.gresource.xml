@@ -11,21 +11,6 @@
     <file>exporter/colour.ui</file>
     <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
-    <file>icons/org.gnome.Aisleriot.svg</file>
-    <file>icons/org.gnome.Books.svg</file>
-    <file>icons/org.gnome.Boxes.svg</file>
-    <file>icons/org.gnome.Characters.svg</file>
-    <file>icons/org.gnome.Contacts.svg</file>
-    <file>icons/org.gnome.Games.svg</file>
-    <file>icons/org.gnome.IconPreview.svg</file>
-    <file>icons/org.gnome.Maps.svg</file>
-    <file>icons/org.gnome.Music.svg</file>
-    <file>icons/org.gnome.Nautilus.svg</file>
-    <file>icons/org.gnome.Settings.svg</file>
-    <file>icons/org.gnome.SystemMonitor.svg</file>
-    <file>icons/org.gnucash.GnuCash.svg</file>
-    <file>wallpapers/Adwaita.jpg</file>
-    <file>wallpapers/Adwaita-dark.jpg</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">
     <file>style.css</file>
