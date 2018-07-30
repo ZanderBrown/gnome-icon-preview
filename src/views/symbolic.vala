@@ -62,9 +62,5 @@ namespace IconPreview {
 			light.load_samples(samples);
 			dark.load_samples(samples);
 		}
-
-		public void export () {
-			message("TODO");
-		}
 	}
 }

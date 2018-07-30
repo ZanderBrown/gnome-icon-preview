@@ -11,7 +11,6 @@ namespace IconPreview {
 		public abstract File previewing { get; set; }
 		public abstract Widget exporter { owned get; }
 		public abstract void shuffle();
-		public abstract void export();
 	}
 
 	public class Application : Gtk.Application {

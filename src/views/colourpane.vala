@@ -13,7 +13,7 @@ namespace IconPreview {
 
 		construct {
 			orientation = VERTICAL;
-			spacing = 10;
+			spacing = 5;
 
 			image.pixel_size = 128;
 
@@ -23,7 +23,8 @@ namespace IconPreview {
 			bind_property("icon", image, "gicon");
 			notify["icon"].connect(() => {
 				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
-				label.label = basename;
+				var parts = basename.split(".");
+				label.label = parts[parts.length - 2];
 				label.tooltip_text = basename;
 			});
 
