@@ -1,5 +1,5 @@
 deps = [
-	dependency('gtk+-3.0'),
+	dependency('gtk+-4.0'),
 	dependency('librsvg-2.0')
 ]
 

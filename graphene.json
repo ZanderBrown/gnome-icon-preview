@@ -1,0 +1,22 @@
+{
+    "name" : "graphene",
+    "buildsystem" : "meson",
+    "builddir" : true,
+    "config-opts" : [
+        "--libdir=lib",
+        "-Dintrospection=false",
+        "-Dtests=false",
+        "-Dbenchmarks=false"
+    ],
+    "sources" : [
+        {
+            "type" : "git",
+            "url" : "https://github.com/ebassi/graphene.git",
+            "tag" : "1.8.2"
+        }
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "name" : "wayland",
+    "buildsystem" : "autotools",
+    "builddir" : true,
+    "config-opts" : [
+        "--disable-documentation"
+    ],
+    "sources" : [
+        {
+            "type" : "git",
+            "url" : "https://github.com/wayland-project/wayland.git",
+            "tag" : "1.15.0"
+        }
+    ],
+    "cleanup" : [
+        "/bin",
+        "/include",
+        "/lib/pkgconfig",
+        "/share/aclocal",
+        "*.la"
+    ]
+}

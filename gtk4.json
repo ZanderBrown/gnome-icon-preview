@@ -1,0 +1,24 @@
+{
+    "name" : "gtk+",
+    "buildsystem" : "meson",
+    "builddir" : true,
+    "config-opts" : [
+        "--libdir=lib",
+        "-Dintrospection=false",
+        "-Ddemos=false",
+        "-Dbuild-examples=false",
+        "-Dbuild-tests=false"
+    ],
+    "sources" : [
+        {
+            "type" : "git",
+            "url" : "https://gitlab.gnome.org/GNOME/gtk.git",
+            "tag" : "3.94.0"
+        }
+    ],
+    "cleanup" : [
+        "/bin",
+        "/include",
+        "/lib/pkgconfig"
+    ]
+}
