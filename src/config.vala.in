@@ -1,3 +1,2 @@
 const string G_LOG_DOMAIN = @G_LOG_DOMAIN@;
 const string PACKAGE_VERSION = @PACKAGE_VERSION@;
-const string COMMIT_ID = @COMMIT_ID@;

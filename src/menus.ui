@@ -5,6 +5,7 @@
 			<item>
 				<attribute name="label" translatable="yes">_Reload</attribute>
 				<attribute name="action">win.refresh</attribute>
+				<attribute name="hidden-when">action-disabled</attribute>
 			</item>
 		</section>
 		<section>

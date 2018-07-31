@@ -106,6 +106,8 @@ namespace IconPreview {
 		}
 
 		construct {
+			add_action_entries(entries, this);
+
 			var inital = new InitialState();
 			inital.show();
 			content.add(inital);
@@ -118,7 +120,6 @@ namespace IconPreview {
 			mode_changed();
 
 			menu.menu_model = application.get_menu_by_id("win-menu");
-			add_action_entries(entries, this);
 		}
 
 		private void _load_failed () {
@@ -133,6 +134,9 @@ namespace IconPreview {
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
+					(lookup_action("refresh") as SimpleAction).set_enabled(false);
+					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
+					(lookup_action("export") as SimpleAction).set_enabled(false);
 					break;
 				case SYMBOLIC:
 					_mode_changed(new Symbolic());
@@ -151,7 +155,13 @@ namespace IconPreview {
 			var pop = new Popover(exportbtn);
 			pop.add(view.exporter);
 			exportbtn.popover = pop;
-			if (!(old is InitialState)) {
+			if (old is InitialState) {
+				// We have an open file now
+				(lookup_action("refresh") as SimpleAction).set_enabled(true);
+				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
+				(lookup_action("export") as SimpleAction).set_enabled(true);
+			} else {
+				// Effectivly close the old previewer
 				old.destroy();
 			}
 		}
@@ -166,11 +176,8 @@ namespace IconPreview {
 			dlg.show();
 		}
 
-		private void new_icon (GLib.Action _act, Variant? arg) {
-			if (arg == null) {
-				critical("Expected argument for win.new");
-				return;
-			}
+		// win.new always expects an argument
+		private void new_icon (GLib.Action _act, Variant? arg) requires (arg != null) {
 			var dlg = new FileChooserNative("New Icon", this, SAVE, "_Save", "_Cancel");
 			dlg.response.connect(res => {
 				if (res == ResponseType.ACCEPT) {
@@ -216,14 +223,17 @@ namespace IconPreview {
 			progress.visible = false;
 		}
 
+		// Open the recent popover (win.recents)
 		private void open_recent () {
 			recent.clicked();
 		}
 
+		// Open the export popover (win.export)
 		private void open_export () {
 			exportbtn.clicked();
 		}
 
+		// Become / leave fullscreen (win.fullscreen)
 		private void toggle_fullscreen () {
 			if (is_fullscreen) {
 				is_fullscreen = false;
@@ -234,28 +244,37 @@ namespace IconPreview {
 			}
 		}
 
-		private void refresh () {
+		// Manually reload the current icon (win.refresh)
+		// Requires:
+		//     The must be an open file to reload
+		private void refresh () requires (file != null) {
+			// Trigger a dummy changed event
 			file_updated(file, null, CHANGED);
 		}
 
-		private void shuffle () {
-			if (content.visible_child is Previewer) {
-				(content.visible_child as Previewer).shuffle();
-			}
+		// Change the random comparison icons (win.shuffle)
+		// Requires:
+		//     The should be an open previewer to shuffle
+		private void shuffle () requires (content.visible_child is Previewer) {
+			(content.visible_child as Previewer).shuffle();
 		}
 
-		private void file_updated (File src, File? dest, FileMonitorEvent evt) {
-			if (evt == CHANGED) {
-				if (content.visible_child is Previewer) {
-					(content.visible_child as Previewer).previewing = src;
-				}
-				try {
-					var info = src.query_info ("standard::display-name", NONE);
-					title = info.get_display_name();
-				} catch (Error e) {
-					critical("Failed to fetch icon name: %s", e.message);
-					title = "Icon Preview";
-				}
+		// The currently open file was modified
+		// Requires:
+		//     The source of the event shouldn't be null and a previewer has no
+		//     chance of displaying null, equally there must be an active
+		//     previewer to display the modified icon in
+		private void file_updated (File src, File? dest, FileMonitorEvent evt) requires (src != null && content.visible_child is Previewer) {
+			if (evt != CHANGED) {
+				return;
+			}
+			(content.visible_child as Previewer).previewing = src;
+			try {
+				var info = src.query_info ("standard::display-name", NONE);
+				title = info.get_display_name();
+			} catch (Error e) {
+				critical("Failed to fetch icon name: %s", e.message);
+				title = "Icon Preview";
 			}
 		}
 
@@ -271,7 +290,7 @@ namespace IconPreview {
 			show_about_dialog (this,
 				program_name: "Icon Preview",
 				logo_icon_name: "org.gnome.IconPreview",
-				version: "%s@%s".printf(PACKAGE_VERSION, COMMIT_ID),
+				version: PACKAGE_VERSION,
 				copyright: "Copyright © 2018 Zander Brown",
 				license_type: License.GPL_3_0,
 				authors: authors,
