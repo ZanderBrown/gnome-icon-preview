@@ -13,9 +13,6 @@ namespace IconPreview {
 		MenuButton recent;
 
 		[GtkChild]
-		Button refreshbtn;
-
-		[GtkChild]
 		MenuButton menu;
 
 		[GtkChild]
@@ -132,7 +129,7 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			refreshbtn.visible = exportbtn.visible = mode != INITIAL;
+			exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
