@@ -42,35 +42,47 @@ namespace IconPreview {
 				try {
 					// Hopefully this doesn't render the SVG?
 					var svg = new Rsvg.Handle.from_gfile_sync(value, FLAGS_NONE);
+					// Colour (App) icons must be 128 by 128
 					if (svg.height == 128 && svg.width == 128) {
 						mode = COLOUR;
+					// Whereas symbolics are 16 by 16
 					} else if (svg.height == 16 && svg.width == 16) {
 						mode = SYMBOLIC;
+					// And anything else is unsupported
 					} else {
 						// We are very specific about what we like
 						_file = null;
 						_load_failed();
+						// Give up now
 						return;
 					}
 				} catch (Error e) {
+					// rsvg didn't like it (not an SVG?)
 					critical("Failed to load %s: %s", value.get_basename(), e.message);
 					_file = null;
 					_load_failed();
 					return;
 				}
+				// Tell the recents popover we opened this
 				recents.open_file(value);
 				try {
+					// If we are already monitoring an open file
 					if (monitor != null) {
+						// Stop doing that
 						monitor.cancel();
 					}
+					// Watch for updates
 					monitor = value.monitor_file(NONE, null);
 					monitor.changed.connect(file_updated);
 				} catch (Error e) {
+					// Failed to watch the file
 					critical("Unable to watch icon: %s", e.message);
 				}
-				file_updated(value, null, CHANGED);
 				_file = value;
+				// Actually display the thing
+				refresh();
 			}
+
 			get {
 				return _file;
 			}
@@ -78,7 +90,9 @@ namespace IconPreview {
 
 		public Mode mode { get; set; default = INITIAL; }
 
+		// A timeout id
 		private uint pulser = 0;
+		// Controls the windows indeterminate progress bar
 		public bool pulsing {
 			set {
 				if (value) {
@@ -95,6 +109,7 @@ namespace IconPreview {
 			}
 		}
 
+		// A hack to get construction to work properly
 		public Application app {
 			construct {
 				application = value;
@@ -106,19 +121,26 @@ namespace IconPreview {
 		}
 
 		construct {
+			// Bind the actions
 			add_action_entries(entries, this);
 
+			// Setup the initial state
 			var inital = new InitialState();
 			inital.show();
 			content.add(inital);
 			content.visible_child = inital;
 
+			// Connect the recent button and recent popover
 			recent.popover = recents;
+			// Load files selected in the popover
 			recents.open.connect(recent => file = recent);
 
+			// Listen for changes to the mode
 			notify["mode"].connect(mode_changed);
+			// Manually trigger a change
 			mode_changed();
 
+			// For some reason MenuButton doesn't have a menu_id property
 			menu.menu_model = application.get_menu_by_id("win-menu");
 		}
 
