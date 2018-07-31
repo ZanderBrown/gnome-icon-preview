@@ -33,7 +33,7 @@ colour-view .wallpaper {
 }
 
 colour-view image {
-	-gtk-icon-shadow: rgba(0,0,0,0.35) 0 5px 5px;
+	-gtk-icon-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 1px 8px rgba(0,0,0,0.2);
 }
 
 demo-icon {
