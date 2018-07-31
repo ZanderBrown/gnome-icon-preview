@@ -44,7 +44,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
                 <property name="icon_name">start-here-symbolic</property>
                 <style>
                   <class name="thumbnail"/>
-                  <class name="sidebar"/>
                 </style>
               </object>
               <packing>
@@ -106,7 +105,6 @@ Off-canvas objects are removed and the SVG is optimised for size</property>
                 <property name="icon_name">start-here-symbolic</property>
                 <style>
                   <class name="thumbnail"/>
-                  <class name="sidebar"/>
                 </style>
               </object>
               <packing>

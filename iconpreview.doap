@@ -10,7 +10,7 @@
       Tool for designing icons
   </shortdesc>
   <description xml:lang="en">
-      Perview SVG icons to aid in their creation
+      Preview SVG icons to aid in their creation
   </description>
   <!-- <homepage rdf:resource="https://wiki.gnome.org/Apps/IconPreview" /> -->
   <bug-database rdf:resource="https://gitlab.gnome.org/ZanderBrown/icon-tool/issues" />

@@ -33,7 +33,7 @@ colour-view .wallpaper {
 }
 
 colour-view image {
-	-gtk-icon-shadow: rgba(0,0,0,0.1) 0 1px 10px;
+	-gtk-icon-shadow: rgba(0,0,0,0.35) 0 5px 5px;
 }
 
 demo-icon {
@@ -45,6 +45,8 @@ demo-icon {
 }
 
 .exporter .thumbnail {
-	border: 1px solid @theme-border-color;
+	border: 1px solid @borders;
 	padding: 8px;
+	background: @theme_base_color;
+	border-radius: 3px;
 }
