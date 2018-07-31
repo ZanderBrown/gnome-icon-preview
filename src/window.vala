@@ -190,6 +190,11 @@ namespace IconPreview {
 
 		private void open () {
 			var dlg = new FileChooserNative("Select Icon", this, OPEN, null, null);
+			var filter = new Gtk.FileFilter ();
+			filter.set_filter_name ("Icons");
+			filter.add_pattern ("*.svg");
+			filter.add_mime_type ("image/svg+xml");
+			dlg.add_filter (filter);
 			dlg.response.connect(res => {
 				if (res == ResponseType.ACCEPT) {
 					file = dlg.get_file();
