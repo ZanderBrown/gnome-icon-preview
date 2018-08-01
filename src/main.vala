@@ -45,6 +45,7 @@ namespace IconPreview {
 			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
 
 			set_accels_for_action ("win.open", { "<primary>O" });
+			set_accels_for_action ("win.new-window", { "<primary>N" });
 			set_accels_for_action ("win.recents", { "<primary><shift>O" });
 			set_accels_for_action ("win.refresh", { "<primary>R" });
 			set_accels_for_action ("win.export", { "<primary>E" });

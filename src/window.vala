@@ -21,6 +21,7 @@ namespace IconPreview {
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
+			{ "new-window", new_window },
 			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
@@ -249,6 +250,11 @@ namespace IconPreview {
 			file = dest;
 			pulsing = false;
 			progress.visible = false;
+		}
+
+		// Open a new window (win.new-window)
+		private void new_window () {
+			new Window(application as Application).present();
 		}
 
 		// Open the recent popover (win.recents)
