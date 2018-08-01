@@ -64,7 +64,7 @@ namespace IconPreview {
 					return;
 				}
 				// Tell the recents popover we opened this
-				recents.open_file(value);
+				recents.opened(value);
 				try {
 					// If we are already monitoring an open file
 					if (monitor != null) {
@@ -176,6 +176,7 @@ namespace IconPreview {
 			content.visible_child = view;
 			var pop = new Popover(exportbtn);
 			pop.add(view.exporter);
+			view.exporter.close.connect(() => pop.popdown());
 			exportbtn.popover = pop;
 			if (old is InitialState) {
 				// We have an open file now

@@ -43,14 +43,14 @@ namespace IconPreview {
 
 		public signal void open (File file);
 
+		public virtual signal void opened (File file) {
+			manager.add_item(file.get_uri());
+		}
+
 		construct {
 			recent.bind_model(model, info => new RecentRow(info as Recent));
 			manager.changed.connect(populate_model);
 			populate_model();
-		}
-
-		public void open_file (File file) {
-			manager.add_item(file.get_uri());
 		}
 
 		private void populate_model () {

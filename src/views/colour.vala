@@ -19,9 +19,10 @@ namespace IconPreview {
 			}
 		}
 
-		public Widget exporter {
+		private ColourExporter _export = new ColourExporter();
+		public Exporter exporter {
 			owned get {
-				return new ColourExporter();
+				return _export;
 			}
 		}
 
@@ -44,6 +45,8 @@ namespace IconPreview {
 			dark.theme = "Adwaita-dark";
 			pack_start(light);
 			pack_end(dark);
+
+			bind_property("previewing", _export, "file");
 
 			shuffle();
 		}

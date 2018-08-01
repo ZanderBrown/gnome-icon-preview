@@ -18,7 +18,7 @@ namespace IconPreview {
 			}
 		}
 
-		public Widget exporter {
+		public Exporter exporter {
 			owned get {
 				return new SymbolicExporter();
 			}

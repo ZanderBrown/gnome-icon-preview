@@ -9,8 +9,12 @@ namespace IconPreview {
 
 	public interface Previewer : Widget {
 		public abstract File previewing { get; set; }
-		public abstract Widget exporter { owned get; }
+		public abstract Exporter exporter { owned get; }
 		public abstract void shuffle();
+	}
+
+	public interface Exporter : Widget {
+		public signal void close();
 	}
 
 	public class Application : Gtk.Application {
