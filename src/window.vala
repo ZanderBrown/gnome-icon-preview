@@ -4,9 +4,6 @@ namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
 	public class Window : ApplicationWindow {
 		[GtkChild]
-		ProgressBar progress;
-
-		[GtkChild]
 		Stack content;
 
 		[GtkChild]
@@ -90,25 +87,6 @@ namespace IconPreview {
 		}
 
 		public Mode mode { get; set; default = INITIAL; }
-
-		// A timeout id
-		private uint pulser = 0;
-		// Controls the windows indeterminate progress bar
-		public bool pulsing {
-			set {
-				if (value) {
-					pulser = Timeout.add(500, () => {
-						progress.pulse();
-						return Source.CONTINUE;
-					});
-				} else {
-					Source.remove(pulser);
-				}
-			}
-			get {
-				return pulser != 0;
-			}
-		}
 
 		// A hack to get construction to work properly
 		public Application app {
@@ -206,50 +184,16 @@ namespace IconPreview {
 		}
 
 		// win.new always expects an argument
-		private void new_icon (GLib.Action _act, Variant? arg) requires (arg != null) {
-			var dlg = new FileChooserNative("New Icon", this, SAVE, "_Save", "_Cancel");
-			dlg.response.connect(res => {
-				if (res == ResponseType.ACCEPT) {
-					switch (arg.get_string()) {
-						case "symbolic":
-							_new_icon.begin(dlg.get_file(), "symbolic.svg");
-							break;
-						case "colour":
-							_new_icon.begin(dlg.get_file(), "colour.svg");
-							break;
-						default:
-							critical("Bad argument for win.new");
-							break;
-					}
-				}
-			});
-			dlg.show();
-		}
-
-
-		private async void _new_icon (File dest, string src) {
-			progress.visible = true;
-			pulsing = true;
-			var from = File.new_for_uri("resource:///org/gnome/IconPreview/templates/" + src);
-			try {
-				yield from.copy_async (dest, NONE);
-				message("Copied %s -> %s", from.get_uri(), dest.get_uri());
-				/*var context = get_display().get_app_launch_context();
-				context.set_screen (screen);
-				context.set_timestamp (Gdk.CURRENT_TIME);
-				context.launched.connect(with => message("Opened with %s", with.get_display_name()));
-				context.launch_failed.connect(() => critical("Failed to launch template"));
-				message("Open: %s", dest.get_uri());*/
-				//yield AppInfo.launch_default_for_uri_async(dest.get_uri(), context);
-				//yield AppInfo.launch_default_for_uri_async("https://example.com", context);
-				message("Launched? %s", AppInfo.launch_default_for_uri(dest.get_uri(), null).to_string());
-				// TODO: Why doesn't this work? ^^^^^^^^^^^^^^^^^^^^^^
-			} catch (Error e) {
-				critical ("Error: %s", e.message);
+		private void new_icon (GLib.Action _act, Variant? arg) {
+			if ((arg as string) == "symbolic") {
+				var wiz = new Wizard(this, SYMBOLIC);
+				wiz.open.connect(@new => file = @new);
+				wiz.run();
+			} else {
+				var wiz = new Wizard(this, COLOUR);
+				wiz.open.connect(@new => file = @new);
+				wiz.run();
 			}
-			file = dest;
-			pulsing = false;
-			progress.visible = false;
 		}
 
 		// Open a new window (win.new-window)

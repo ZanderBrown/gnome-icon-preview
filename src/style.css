@@ -1,12 +1,5 @@
-.drop-zone {
-	/*border: 5px dashed @theme-border-color;
-	border-radius: 10px;*/
-	padding: 20px 100px;
-	margin: 30px;
-}
-
-.drop-zone * {
-	margin: 15px;
+initial-state {
+	padding: 30px 90px;
 }
 
 .recents frame {
@@ -19,7 +12,8 @@
 
 colour-view .sizes,
 colour-view .wallpaper grid,
-symbolic-view pane > box {
+symbolic-view pane > box,
+.margins {
 	margin: 20px;
 }
 
@@ -49,4 +43,9 @@ demo-icon {
 	padding: 8px;
 	background: @theme_base_color;
 	border-radius: 3px;
+}
+
+.working-spin {
+	padding: 10px;
+	border-radius: 50%;
 }

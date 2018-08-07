@@ -13,6 +13,11 @@
 				<attribute name="action">win.refresh</attribute>
 				<attribute name="hidden-when">action-disabled</attribute>
 			</item>
+			<item>
+				<attribute name="label" translatable="yes">_Shuffle Example Icons</attribute>
+				<attribute name="action">win.shuffle</attribute>
+				<attribute name="hidden-when">action-disabled</attribute>
+			</item>
 		</section>
 		<section>
 			<item>

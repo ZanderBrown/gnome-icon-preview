@@ -1,6 +1,7 @@
 deps = [
 	dependency('gtk+-3.0'),
-	dependency('librsvg-2.0')
+	dependency('librsvg-2.0'),
+	dependency('libdazzle-1.0')
 ]
 
 config = configure_file(input: 'config.vala.in', output: 'config.vala', configuration: conf)
@@ -16,6 +17,7 @@ sources = [
 	'views/initial.vala',
 	'exporter/colour.vala',
 	'exporter/symbolic.vala',
+	'wizard.vala',
 	'window.vala',
 	'main.vala'
 ]

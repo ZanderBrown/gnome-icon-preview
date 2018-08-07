@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="IconPreviewInitialState" parent="GtkGrid">
@@ -11,68 +11,112 @@
     <property name="row_spacing">5</property>
     <property name="column_spacing">20</property>
     <child>
-      <object class="GtkBox" id="zone">
+      <object class="GtkGrid">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="row_spacing">20</property>
+        <property name="column_spacing">50</property>
+        <property name="column_homogeneous">True</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Make a new GNOME icon</property>
+            <attributes>
+              <attribute name="font-desc" value="Cantarell 24"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+            <property name="width">2</property>
+          </packing>
+        </child>
         <child>
           <object class="GtkImage">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="pixel_size">128</property>
-            <property name="icon_name">x-office-drawing-symbolic</property>
+            <property name="icon_name">edit-cut-symbolic</property>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
           </packing>
         </child>
-        <style>
-          <class name="drop-zone"/>
-        </style>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="pixel_size">128</property>
+            <property name="icon_name">org.gnome.Maps</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">New App icon</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">win.new-icon</property>
+            <property name="action_target">'colour'</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="label" translatable="yes">New Symbolic Icon</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="action_name">win.new-icon</property>
+            <property name="action_target">'symbolic'</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="valign">start</property>
+            <property name="label" translatable="yes">An applications identity</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="valign">start</property>
+            <property name="label" translatable="yes">For actions, status and other
+things needed in apps</property>
+            <property name="justify">center</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">3</property>
+          </packing>
+        </child>
       </object>
       <packing>
         <property name="left_attach">0</property>
         <property name="top_attach">0</property>
-        <property name="width">2</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="button1">
-        <property name="label" translatable="yes">New Symbolic icon</property>
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="receives_default">True</property>
-        <property name="halign">end</property>
-        <property name="action_name">win.new-icon</property>
-        <property name="action_target">'symbolic'</property>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="button2">
-        <property name="label" translatable="yes">New Colour Icon</property>
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
-        <property name="receives_default">True</property>
-        <property name="halign">start</property>
-        <property name="action_name">win.new-icon</property>
-        <property name="action_target">'colour'</property>
-      </object>
-      <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">1</property>
       </packing>
     </child>
   </template>
-  <object class="GtkSizeGroup">
-    <widgets>
-      <widget name="button1"/>
-      <widget name="button2"/>
-    </widgets>
-  </object>
 </interface>
