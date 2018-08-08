@@ -1,317 +1,1085 @@
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-{{redirect|SVG}}
-{{Use dmy dates|date=February 2014}}
-
-{{Infobox file format
-| name                   = Scalable Vector Graphics
-| icon                   = File:SVG logo.svg
-| iconcaption            =
-| screenshot             =
-| caption                =
-|_noextcode              = on
-| extensions             = <code>.svg</code>{{nbsp|3}}<code>.svgz</code>
-|_nomimecode             = on
-| mime                   = <code>image/svg+xml</code><ref>{{cite web |title=Media Type Registration for image/svg+xml |url=http://www.w3.org/TR/SVG/mimereg.html |publisher=[[World Wide Web Consortium|W3C]] |accessdate=5 February 2014}}</ref><ref>{{cite web |title=XML Media Types |url=http://tools.ietf.org/html/rfc3023#section-8.19 |accessdate=5 February 2014}}</ref>
-| type_code              = <!-- {{hlist |"svg" |"svgz"}} -->
-| uniform_type           = <code>public.svg-image</code>
-| conforms_to            = <!--<code>public.image</code><br /><code>public.xml</code>-->
-| magic                  =
-| developer              = [[World Wide Web Consortium|W3C]]
-| released               = {{start date and age|df=yes|paren=yes|2001|09|04}}
-| latest_release_version = 1.1 (Second Edition)
-| latest_release_date    = {{start date and age|2011|08|16|df=yes}}
-| genre                  = [[Vector graphics]]
-| container_for          =
-| contained_by           =
-| extended_from          = [[XML]]
-| extended_to            =
-| standard               = {{URL|https://www.w3.org/TR/SVG/|W3C SVG}}
-| free                   = Yes
-| url                    = {{URL|https://www.w3.org/Graphics/SVG/}}
-}}
-
-'''Scalable Vector Graphics''' ('''SVG''') is an [[XML]]-based [[vector image format]] for [[two-dimensional]] graphics with support for interactivity and animation. The SVG specification is an [[open standard]] developed by the [[World Wide Web Consortium]] (W3C) since 1999.
-
-SVG images and their behaviors are defined in XML text files. This means that they can be [[search algorithm|searched]], [[subject indexing|indexed]], [[scripting language|scripted]], and [[data compression|compressed]]. As XML files, SVG images can be created and edited with any [[text editor]], as well as with drawing software.
-
-All major modern [[web browser]]s—including [[Mozilla Firefox]], [[Internet Explorer]], [[Google Chrome]], [[Opera (web browser)|Opera]], [[Safari (web browser)|Safari]], and [[Microsoft Edge]]—have [[Comparison of layout engines (Scalable Vector Graphics)|SVG rendering support]].
-
-==Overview==
-[[File:Bitmap VS SVG.svg|right|300px|thumb|This image illustrates the difference between bitmap and vector images. The bitmap image is composed of a fixed set of pixels, while the vector image is composed of a fixed set of shapes. In the picture, scaling the bitmap reveals the pixels while scaling the vector image preserves the shapes.]]
-
-SVG has been in development within the [[World Wide Web Consortium]] (W3C) since 1999, after six competing proposals for vector graphics languages had been submitted to the consortium during 1998. The early SVG Working Group decided not to develop any of the commercial submissions, but to create a new markup language that was informed by but not really based on any of them.<ref name="secretOrigin">{{cite web |url=http://www.w3.org/Graphics/SVG/WG/wiki/Secret_Origin_of_SVG|title=Secret Origin of SVG|date=21 December 2007|publisher=[[World Wide Web Consortium]]|accessdate=1 January 2011}}</ref>
-
-SVG allows three types of graphic objects: [[vector graphics|vector graphic]] shapes such as paths and outlines consisting of straight lines and curves, [[bitmap]] images, and text. Graphical objects can be grouped, styled, transformed and composited into previously [[rendering (computer graphics)|rendered]] objects. The feature set includes nested [[transformation (geometry)|transformations]], [[clipping path]]s, [[alpha compositing|alpha masks]], [[SVG filter effect|filter effects]] and template objects. SVG drawings can be [[Interactivity|interactive]] and can include [[animation]], defined in the SVG XML elements or via [[Scripting language|scripting]] that accesses the SVG [[Document Object Model]] (DOM). SVG uses [[Cascading Style Sheets|CSS]] for styling and [[JavaScript]] for scripting. Text, including [[internationalization and localization]], appearing in plain text within the SVG DOM enhances the [[Accessibility#Web_accessibility|accessibility]] of SVG graphics.<ref name="SVG1.1-2E"/>
-
-The SVG specification was updated to version 1.1 in 2011. There are two 'Mobile SVG Profiles,' SVG Tiny and SVG Basic, meant for [[mobile device]]s with reduced computational and display capabilities.<ref>{{cite web|last1=Capin|first1=Tolga|title=Mobile SVG Profiles: SVG Tiny and SVG Basic|url=https://www.w3.org/TR/SVGMobile/|publisher=W3C|accessdate=28 January 2017}}</ref> Scalable Vector Graphics 2 became a [[World Wide_Web Consortium#Specification maturation|W3C Candidate Recommendation]] on 15 September 2016. SVG 2 incorporates several new features in addition to those of SVG 1.1 and SVG Tiny 1.2.<ref>{{cite web|title=Scalable Vector Graphics (SVG) 2|url=https://www.w3.org/TR/SVG2/|publisher=W3C|accessdate=28 January 2017}}</ref>
-
-===Printing===
-Though the SVG Specification primarily focuses on [[vector graphics markup language]], its design includes the basic capabilities of a [[page description language]] like Adobe's [[Portable Document Format|PDF]]. It contains provisions for rich graphics, and is compatible with [[Cascading Style Sheets|CSS]] for styling purposes. SVG has the information needed to place each glyph and image in a chosen location on a printed page.<ref>{{cite web|url=http://www.svgopen.org/2002/papers/danilo_fujisawa__svg_as_page_description_language/index.html|title=SVG as a Page Description Language|last=Alex|first=Danilo|first2=Jun|last2=Fujisawa|year=2002|publisher=svgopen.org|accessdate=24 February 2010}}</ref>
-
-===Scripting and animation===
-{{Main|SVG animation}}
-SVG drawings can be dynamic and interactive. Time-based modifications to the elements can be described in [[Synchronized Multimedia Integration Language|SMIL]], or can be programmed in a [[scripting language]] (e.g. [[ECMAScript]] or [[JavaScript]]). The W3C explicitly recommends SMIL as the standard for animation in SVG.<ref>{{cite web|url=http://news.cnet.com/2100-1023-979976.html|title=W3C releases scripting standard, caveat|last=Paul|first=Festa|date=9 January 2003|publisher=[[CNET Networks|CNet]]|accessdate=24 February 2010}}</ref>
-
-A rich set of [[event handler]]s such as ''onmouseover'' and ''onclick'' can be assigned to any SVG graphical object.
-
-===Compression===
-SVG images, being XML, contain many repeated fragments of text, so they are well suited for [[Data compression#Lossless|lossless data compression]] algorithms. When an SVG image has been compressed with the industry standard [[gzip]] algorithm, it is referred to as an "SVGZ" image and uses the corresponding <code>.svgz</code> filename extension. Conforming SVG 1.1 viewers will display compressed images.<ref>See {{URL|http://www.w3.org/TR/SVG11/conform.html#ConformingSVGViewers}} which states, "SVG implementations must correctly support gzip-encoded [RFC1952] and deflate-encoded [RFC1951] data streams, for any content type (including SVG, script files, images)."</ref> An SVGZ file is typically 20 to 50 percent of the original size.<ref>{{cite web|url=https://www.adobe.com/svg/illustrator/compressedsvg.html|title=Saving compressed SVG (SVGZ)|work=SVG Zone|publisher=[[Adobe Systems]]|date=14 July 2009|accessdate=24 February 2010}}</ref> W3C provides SVGZ files to test for conformance.<ref>For example, {{URL|http://dev.w3.org/SVG/profiles/1.1F2/test/harness/htmlObject/conform-viewers-01-t.html}}</ref>
-
-==Development history==
-SVG was developed by the W3C [[SVG Working Group]] starting in 1998, after six competing vector graphics submissions were received that year:
-*Web Schematics, from CCLRC
-*PGML, from Adobe, IBM, Netscape, and Sun
-*VML, by Autodesk, Hewlett-Packard, Macromedia, and Microsoft
-*Hyper Graphics Markup Language, by Orange, PCSL, and PRP
-*WebCGM, from Boeing, CCLRC, Inso, JISC, and Xerox
-*DrawML, from Excosoft<ref name="secretOrigin"/>
-The working group was chaired at the time by [[Chris Lilley (W3C)|Chris Lilley]] of the W3C.
-
-=== Version 1.x ===
-* SVG 1.0 became a [[W3C Recommendation]] on 4 September 2001.<ref>{{cite web|url=http://www.w3.org/TR/SVG10/|title=Scalable Vector Graphics (SVG) 1.0 Specification|last=Ferraiolo|first=Jon|date=4 September 2001|publisher=World Wide Web Consortium|accessdate=24 February 2010}}</ref>
-* SVG 1.1 became a W3C Recommendation on 14 January 2003.<ref name="svg11">{{cite web|url=http://www.w3.org/TR/SVG11/|title=Scalable Vector Graphics (SVG) 1.1 Specification|last=Ferraiolo|first=Jon|date=16 August 2011|publisher=World Wide Web Consortium|accessdate=14 April 2016}}</ref> The SVG 1.1 specification is modularized in order to allow subsets to be defined as profiles. Apart from this, there is very little difference between SVG 1.1 and SVG 1.0.
-** [[SVG Tiny]] and [[SVG Basic]] (the Mobile SVG Profiles) became W3C Recommendations on 14 January 2003. These are described as profiles of SVG 1.1.<ref>{{cite web|url=http://www.w3.org/TR/2003/REC-SVGMobile-20030114/|title=Mobile SVG Profiles: SVG Tiny and SVG Basic|publisher=World Wide Web Consortium|last=Capin|first=Tolga|date=15 June 2009|accessdate=24 October 2010}}</ref>
-* SVG Tiny 1.2 became a W3C Recommendation on 22 December 2008.<ref>{{cite web|url=http://www.w3.org/TR/SVGTiny12/|title=Scalable Vector Graphics (SVG) Tiny 1.2 Specification|publisher=World Wide Web Consortium|date=22 December 2008|first=Ola|last=Andersson|accessdate=24 February 2010}}</ref> It was initially drafted as a profile of the planned SVG Full 1.2 (which has since been dropped in favor of SVG 2),<ref name="ieblog">{{cite web|url=https://blogs.msdn.microsoft.com/ie/2010/06/08/getting-to-svg-2-0-a-report-from-the-svg-working-group-face-to-face-may-24th-june-1st-2010/|title=Getting to SVG 2.0: A report from the SVG Working Group Face-to-Face (May 24th – June 1st 2010)|last=Dengler|first=Patrick|date=8 July 2010|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=26 August 2010}}</ref> but was later refactored as a standalone specification.
-* SVG 1.1 Second Edition, which includes all the errata and clarifications, but no new features to the original SVG 1.1 was released on 16 August 2011.<ref name="SVG1.1-2E">{{cite web|url=http://www.w3.org/TR/2011/REC-SVG11-20110816/|title=Scalable Vector Graphics (SVG) 1.1 (Second Edition)|publisher=W3C}}</ref>
-
-===Version 2.x===
-* SVG 2 completely reworks draft 1.2, with more integration with new web features such as [[Cascading Style Sheets]], [[HTML5]], and [[WOFF|Web Open Font Format]]. It reached Candidate Recommendation stage on 15 September 2016.<ref>[https://www.w3.org/TR/SVG2/ |Scalable Vector Graphics (SVG)2 W3C Candidate Recommendation]</ref>
-* Latest draft {{As of|2018|July|11|lc=y|url=https://svgwg.org/svg2-draft/ }}. [https://svgwg.org/svg2-draft/ ]
-
-===Mobile profiles===
-Because of industry demand, two mobile profiles were introduced with SVG 1.1: ''SVG Tiny'' (SVGT) and ''SVG Basic'' (SVGB).
-
-These are subsets of the full SVG standard, mainly intended for [[user agent]]s with limited capabilities. In particular, SVG Tiny was defined for highly restricted mobile devices such as [[cellphone]]s; it does not support styling or scripting.<ref name="tiny1.x">{{cite web|title=SVG Tiny 1.2|url=http://www.w3.org/TR/SVGTiny12/intro.html#SVGTiny12|work=Scalable Vector Graphics (SVG) Tiny 1.2 Specification|publisher=[[World Wide Web Consortium|W3C]]|date=2008-12-22|accessdate=2014-03-05}}</ref> SVG Basic was defined for higher-level mobile devices, such as [[smartphone|smartphones]].
-
-In 2003, the [[3GPP]], an international telecommunications standards group, adopted SVG Tiny as the mandatory vector graphics media format for next-generation phones. SVGT is the required vector graphics format and support of SVGB is optional for [[Multimedia Messaging Service]] (MMS) and Packet-switched Streaming Service.<ref>{{cite web|url=http://www.svgopen.org/2003/paperAbstracts/svgmms.htm|title=SVG in 3GPP Multimedia Messaging and Streaming Services (version March 2003)|publisher=SVG Open|year=2003|accessdate=19 October 2009}}</ref><ref>{{cite web|url=ftp://ftp.3gpp.org/specs/2003-03/Rel-5/26_series/26140-520.zip|title=3GPP Multimedia Messaging Service (MMS); Media formats and codecs (Release 5); 3GPP TS 26.140 V5.2.0 (2002-12); Technical Specification|date=2 January 2003|format=[[ZIP (file format)|zipped]] doc|publisher=[[3GPP]]|accessdate=25 February 2010|df=dmy-all}}</ref><ref>{{cite web|url=ftp://ftp.3gpp.org/specs/2003-03/Rel-5/26_series/26234-540.zip|title=3rd Generation Partnership Project; Technical Specification Group Services and System Aspects; Multimedia Messaging Service (MMS); Media formats and codecs (Release 5)|work=3GPP TS 26.140 V5.2.0 (2002-12)|date=March 2003|publisher=[[3GPP]]|format=[[ZIP (file format)|zipped]] doc|accessdate=24 February 2010|df=dmy-all}}</ref> It was later{{When|date=October 2017}} added as required format for vector graphics in 3GPP [[IP Multimedia Subsystem]] (IMS).<ref>{{cite web|url=http://www.3gpp.org/ftp/Specs/html-info/26141.htm|title=3GPP Specification detail - 3GPP TS 26.141: IP Multimedia System (IMS) Messaging and Presence; Media formats and codecs|date=10 December 2009|publisher=[[3GPP]]|accessdate=24 February 2010}}</ref>
-
-====Differences from non-mobile SVG====
-Neither mobile profile includes support for the full Document Object Model (DOM), while only SVG Basic has optional support for scripting, but because they are fully compatible subsets of the full standard, most SVG graphics can still be rendered by devices which only support the mobile profiles.<ref>{{cite web|url=http://svg.org/special/svg_phones|title=Listing of phones that support SVG|publisher=Svg.org|accessdate=24 October 2010|archiveurl=http://webarchive.loc.gov/all/20100108141222/http://www.svg.org/special/svg_phones|archivedate=8 January 2010}}</ref>
-
-SVGT 1.2 adds a microDOM (μDOM), styling and scripting.<ref name="tiny1.x" />
-
-===Related work===
-The [[MPEG-4 Part 20]] standard - ''Lightweight Application Scene Representation (LASeR) and Simple Aggregation Format (SAF)'' is based on SVG Tiny.<ref>{{cite web|url=http://mpeg.chiariglione.org/technologies/mpeg-4/mp04-lsr/index.htm|title=MPEG-4 LASeR white paper|date=July 2005|accessdate=29 August 2010|publisher=[[International Organization for Standardization]]|first=Cyril|last=Concolato}}</ref> It was developed by [[MPEG]] ([[ISO/IEC JTC1]]/SC29/WG11) and published as ISO/IEC 14496-20:2006.<ref>{{cite web|url=http://www.iso.org/iso/iso_catalogue/catalogue_ics/catalogue_detail_ics.htm?csnumber=52454|title=ISO/IEC 14496-20:2008 - Information technology – Coding of audio-visual objects – Part 20: Lightweight Application Scene Representation (LASeR) and Simple Aggregation Format (SAF)|publisher=[[International Organization for Standardization]]| accessdate=30 October 2009}}</ref> SVG capabilities are enhanced in MPEG-4 Part 20 with key features for mobile services, such as dynamic updates, binary encoding, state-of-art font representation.<ref>{{cite web|url=http://www.mpeg-laser.org/documents/LASeRWhitePaper.pdf|title=LASeR - the MPEG standard for Rich Media Services|format=PDF|accessdate=11 April 2010}}</ref> SVG was also accommodated in [[MPEG-4 Part 11]], in the [[Extensible MPEG-4 Textual Format|Extensible MPEG-4 Textual (XMT) format]] - a textual representation of the MPEG-4 multimedia content using [[XML]].<ref>{{cite web|url=http://ride.chiariglione.org/bits_and_bytes/bits_and_bytes.htm|title=Riding the media bits - Bits and bytes|first=Leonardo|last=Chiariglione|date=8 March 2005|accessdate=30 October 2009|deadurl=yes|archiveurl=https://web.archive.org/web/20100925220237/http://ride.chiariglione.org/bits_and_bytes/bits_and_bytes.htm|archivedate=25 September 2010|df=dmy-all}}</ref>
-
-==Functionality==
-The SVG 1.1 specification defines 14 functional areas or feature sets:<ref name="svg11" />
-
-;Paths
-:Simple or compound shape outlines are drawn with curved or straight lines that can be filled in, outlined, or used as a [[clipping path]]. Paths have a compact coding.
-:For example, <dfn><code>M</code></dfn> (for “move to”) precedes initial numeric <var>x</var> and <var>y</var> [[Cartesian coordinate system|coordinates]], and <dfn><code>L</code></dfn> (for “line to”) precedes a point to which a line should be drawn. Further command letters (<code>C</code>, <code>S</code>, <code>Q</code>, <code>T</code>, and <code>A</code>) precede data that is used to draw various [[Bézier curve|Bézier]] and [[Ellipse|elliptical]] curves. <code>Z</code> is used to close a path.
-:In all cases, absolute coordinates follow capital letter commands and relative coordinates are used after the equivalent lower-case letters.<ref name="path">{{cite web|url=http://www.w3.org/TR/SVG11/paths.html |title=SVG specification, "Paths" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Basic shapes
-:Straight-line paths and paths made up of a series of connected straight-line segments (polylines), as well as closed polygons, circles, and ellipses can be drawn. Rectangles and round-cornered rectangles are also standard elements.<ref name="shap">{{cite web|url=http://www.w3.org/TR/SVG11/shapes.html |title=SVG specification, "Basic Shapes" |publisher=World Wide Web Consortium|date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Text
-:Unicode character text included in an SVG file is expressed as [[XML]] character data. Many visual effects are possible, and the SVG specification automatically handles bidirectional text (for composing a combination of English and Arabic text, for example), vertical text (as Chinese was historically written) and characters along a curved path (such as the text around the edge of the [[Great Seal of the United States]]).<ref name="text">{{cite web|url=http://www.w3.org/TR/SVG11/text.html |title=SVG specification, "Text" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Painting
-:SVG shapes can be filled and/or outlined (painted with a color, a gradient, or a pattern). Fills may be opaque, or have any degree of transparency.
-:"Markers" are line-end features, such as arrowheads, or symbols that can appear at the vertices of a polygon.<ref name="pntg">{{cite web|url=http://www.w3.org/TR/SVG11/painting.html |title=SVG specification, "Painting: Filling, Stroking and Marker Symbols" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Color
-:Colors can be applied to all visible SVG elements, either directly or via <code>fill</code>, <code>stroke</code>, and other properties. Colors are specified in the same way as in [[Cascading Style Sheets|CSS2]], i.e. using names like <code>black</code> or <code>blue</code>, in [[hexadecimal]] such as <code>#2f0</code> or <code>#22ff00</code>, in decimal like <code>rgb(255,255,127)</code>, or as percentages of the form <code>rgb(100%,100%,50%)</code>.<ref name="colr">{{cite web|url=http://www.w3.org/TR/SVG11/color.html |title=SVG specification, "Color" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Gradients and patterns
-:SVG shapes can be filled or outlined with solid colors as above, or with color gradients or with repeating patterns. Color gradients can be linear or radial (circular), and can involve any number of colors as well as repeats. Opacity gradients can also be specified. Patterns are based on predefined raster or vector graphic objects, which can be repeated in <code>x</code> and/or <code>y</code> directions. Gradients and patterns can be animated and scripted.<ref name="patt">{{cite web|url=http://www.w3.org/TR/SVG11/pservers.html |title=SVG specification, "Gradients and Patterns" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-:Since 2008, there has been discussion<ref>{{cite web
-|url=http://www.w3.org/2008/11/17-svg-irc
-|title=IRC log of svg on 2008-11-17
-|quote=DS: Priorities should be layout, diffusion curves, 2.5D and make sure we work well with CSS on that
-|publisher=W3C
-|year=2008
-|accessdate=25 May 2009}}</ref><ref>{{cite web
-|url=http://lists.w3.org/Archives/Public/www-svg/2009Mar/0084.html
-|title=Propositions for the next SVG spec
-|quote=Indeed, we do plan to add new gradient capabilities to SVG in the next version, and we are looking into diffusion curves, which I think will meet your needs ... *Diffusion curves* seems really a great idea.
-|publisher=W3C
-|date=16 March 2009
-|accessdate=25 May 2009
-}}</ref> among professional users of SVG that either [[Image gradient|gradient]] [[Color gradient#gradient mesh|meshes]] or preferably [[diffusion curve]]s could usefully be added to the SVG specification. It is said that a "simple representation [using diffusion curves] is capable of representing even very subtle shading effects"<ref>{{cite web
-|url=http://www.svgopen.org/2008/papers/104-SVG_in_KDE/
-|title=SVG in KDE: Freedom of Beauty
-|last=Rusin
-|first=Zack
-|publisher=SVG Open
-|year=2008
-|accessdate=25 May 2009 }}</ref> and that "Diffusion curve images are comparable both in quality and coding efficiency with gradient meshes, but are simpler to create (according to several artists who have used both tools), and can be captured from bitmaps fully automatically."<ref>{{cite journal
-|title=Diffusion Curves: A Vector Representation for Smooth-Shaded Images
-|url=http://artis.imag.fr/Publications/2008/OBWBTS08/diffusion_curves.pdf
-|format=PDF
-|last1=Orzan
-|first1=Alexandrina
-|last2=Bousseau |first2=Adrien |last3=Winnemöller |first3=Holger |last4=Barla |first4=Pascal |last5=Thollot |first5=Joëlle |last6=Salesin |first6=David
- |journal=ACM Transactions on Graphics (Proceedings of SIGGRAPH 2008)
-|volume=27
-|year=2008
-|accessdate=25 May 2009
-}}</ref> The current draft of SVG 2 includes gradient meshes.<ref>{{Cite web
-|url=https://svgwg.org/svg2-draft/pservers.html#MeshGradients
-|title=Scalable Vector Graphics (SVG) 2, W3C Editor’s Draft 13 June 2013
-|publisher=SVG WG
-|year=2013
-|accessdate=17 September 2013
-}}</ref>
-;Clipping, masking and compositing
-:Graphic elements, including text, paths, basic shapes and combinations of these, can be used as outlines to define both ''inside'' and ''outside'' regions that can be painted (with colors, gradients and patterns) independently. Fully opaque ''clipping paths'' and semi-transparent ''masks'' are ''composited'' together to calculate the color and opacity of every pixel of the final image, using [[alpha compositing|alpha]] blending.<ref name="mask">{{cite web|url=http://www.w3.org/TR/SVG11/masking.html |title=SVG specification, "Clipping, Masking and Compositing" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Filter effects<ref name="filt">{{cite web|url=http://www.w3.org/TR/SVG11/filters.html |title=SVG specification, "Filter Effects" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-:{{Main|SVG filter effects}}
-:A filter effect consists of a series of graphics operations that are applied to a given source vector graphic to produce a modified [[bitmapped]] result.
-;Interactivity
-:SVG images can interact with users in many ways. In addition to hyperlinks as mentioned below, any part of an SVG image can be made receptive to user interface [[event (computing)|events]] such as changes in [[focus (computing)|focus]], mouse clicks, scrolling or zooming the image and other pointer, keyboard and document events. Event handlers may start, stop or alter animations as well as trigger scripts in response to such events.<ref name="intr">{{cite web|url=http://www.w3.org/TR/SVG11/interact.html |title=SVG specification, "Interactivity" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Linking
-:SVG images can contain hyperlinks to other documents, using [[XLink]]. Through the use of the <code><nowiki><view></nowiki></code> element or a [[fragment identifier]], [[URL]]s can link to SVG files that change the visible area of the document. This allows for creating specific view states that are used to zoom in/out of a specific area or to limit the view to a specific element. This is helpful when creating [[Sprite (computer graphics)|sprites]]. [[XLink]] support in combination with the <code><nowiki><use></nowiki></code> element also allow linking to and re-using internal and external elements. This allows coders to do more with less markup and makes for cleaner code.<ref name="link">{{cite web|url=http://www.w3.org/TR/SVG11/linking.html |title=SVG specification, "Linking" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Scripting
-:All aspects of an SVG document can be accessed and manipulated using scripts in a similar way to HTML. The default scripting language is [[ECMAScript]] (closely related to [[JavaScript]]) and there are defined [[Document Object Model]] (DOM) objects for every SVG element and attribute. Scripts are enclosed in <code>&lt;script&gt;</code> elements. They can run in response to pointer events, keyboard events and document events as required.<ref name="scrp">{{cite web|url=http://www.w3.org/TR/SVG11/script.html |title=SVG specification, "Scripting" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Animation
-:{{Main|SVG animation}}
-: SVG content can be animated using the built-in animation elements such as <code>&lt;animate&gt;</code>, <code>&lt;animateMotion&gt;</code> and <code>&lt;animateColor&gt;</code>. Content can be animated by manipulating the DOM using ECMAScript and the scripting language's built-in timers. SVG animation has been designed to be compatible with current and future versions of [[Synchronized Multimedia Integration Language]] (SMIL). Animations can be continuous, they can loop and repeat, and they can respond to user events, as mentioned above.<ref name="anim">{{cite web|url=http://www.w3.org/TR/SVG11/animate.html |title=SVG specification, "Animation" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Fonts
-:As with HTML and CSS, text in SVG may reference external font files, such as system fonts. If the required font files do not exist on the machine where the SVG file is rendered, the text may not appear as intended. To overcome this limitation, text can be displayed in an ''SVG font'', where the required [[glyph]]s are defined in SVG as a font that is then referenced from the <code>&lt;text&gt;</code> element.<ref name="font">{{cite web|url=http://www.w3.org/TR/SVG11/fonts.html |title=SVG specification, "Fonts" |publisher=World Wide Web Consortium |date=14 January 2003 |accessdate=19 October 2009}}</ref>
-;Metadata
-:In accord with the [[W3C]]'s [[Semantic Web]] initiative, SVG allows authors to provide [[metadata]] about SVG content. The main facility is the <code>&lt;metadata&gt;</code> element, where the document can be described using [[Dublin Core]] metadata properties (e.g. title, creator/author, subject, description, etc.). Other metadata schemas may also be used. In addition, SVG defines <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> elements where authors may also provide plain-text descriptive material within an SVG image to help indexing, searching and retrieval by a number of means.<ref name="meta">{{cite web|url=http://www.w3.org/TR/SVG11/metadata.html |title=SVG specification, "Metadata" |publisher=World Wide Web Consortium |accessdate=19 October 2009}}</ref>
-
-An SVG document can define components including shapes, gradients etc., and use them repeatedly. SVG images can also contain [[raster graphics]], such as [[Portable Network Graphics|PNG]] and [[JPEG]] images, and further SVG images.
-
-===Example===
-[[Image:SVG example markup grid.svg]]
-<!--
-***********************************
-READ THIS: Please do not edit the SVG markup below! The SVG image included in the article is a static image which will not be updated if this code is modified. Please use https://en.wikipedia.org/wiki/Wikipedia:Sandbox for any test edits you wish to make.
-***********************************
--->
-
-This code will produce the shapes shown in the image (excluding the grid):
-<source lang="xml">
-<?xml version="1.0" encoding="UTF-8" ?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <rect x="25" y="25" width="200" height="200" fill="lime" stroke-width="4" stroke="pink" />
-  <circle cx="125" cy="125" r="75" fill="orange" />
-  <polyline points="50,150 50,200 200,200 200,100" stroke="red" stroke-width="4" fill="none" />
-  <line x1="50" y1="50" x2="200" y2="200" stroke="blue" stroke-width="4" />
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="Template.png"
+   width="16"
+   height="16"
+   id="svg11300"
+   sodipodi:version="0.32"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="symbolic-template.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0"
+   style="display:inline;enable-background:new"
+   viewBox="0 0 16 16">
+  <title
+     id="title4162">Adwaita Icon Template</title>
+  <defs
+     id="defs3">
+    <linearGradient
+       y2="236"
+       x2="96"
+       y1="236"
+       x1="32"
+       gradientTransform="translate(604.81684,170.58641)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient1099"
+       xlink:href="#linearGradient1036" />
+    <linearGradient
+       id="linearGradient1036">
+      <stop
+         id="stop1032"
+         offset="0"
+         style="stop-color:#d5d3cf;stop-opacity:1;" />
+      <stop
+         id="stop1034"
+         offset="1"
+         style="stop-color:#f6f5f4;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient
+       r="32"
+       fy="-76"
+       fx="-244"
+       cy="-76"
+       cx="-244"
+       gradientTransform="matrix(0.88333331,0,0,0.88333331,-460.35018,463.11973)"
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient1103"
+       xlink:href="#linearGradient1069" />
+    <linearGradient
+       id="linearGradient1069">
+      <stop
+         id="stop1065"
+         offset="0"
+         style="stop-color:#d5d3cf;stop-opacity:1" />
+      <stop
+         id="stop1067-1"
+         offset="1"
+         style="stop-color:#949390;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="232"
+       x2="64"
+       y1="262.5"
+       x1="64"
+       id="linearGradient1027"
+       xlink:href="#linearGradient1025"
+       gradientTransform="translate(-470.5864,432.81685)" />
+    <linearGradient
+       id="linearGradient1025">
+      <stop
+         id="stop1021"
+         offset="0"
+         style="stop-color:#9a9996;stop-opacity:1" />
+      <stop
+         id="stop1023"
+         offset="1"
+         style="stop-color:#77767b;stop-opacity:1" />
+    </linearGradient>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect35304-9"
+       is_visible="true" />
+  </defs>
+  <sodipodi:namedview
+     stroke="#ef2929"
+     fill="#f57900"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="0.25490196"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="10.570726"
+     inkscape:cy="22.908062"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     width="400px"
+     height="300px"
+     inkscape:snap-nodes="true"
+     inkscape:snap-bbox="false"
+     objecttolerance="7"
+     gridtolerance="12"
+     guidetolerance="13"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="false"
+     showguides="false"
+     inkscape:guide-bbox="true"
+     inkscape:locked="false"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0"
+     inkscape:object-nodes="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-global="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     showborder="false"
+     inkscape:snap-center="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-text-baseline="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5883"
+       spacingx="2"
+       spacingy="2"
+       enabled="true"
+       visible="true"
+       empspacing="4"
+       originx="-160"
+       originy="-112" />
+    <sodipodi:guide
+       position="-96,-104"
+       orientation="0,1"
+       id="guide1073"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-148,-48"
+       orientation="1,0"
+       id="guide1075"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,-8"
+       orientation="0,1"
+       id="guide1099"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,16"
+       orientation="0,1"
+       id="guide993"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-56,-48"
+       orientation="1,0"
+       id="guide995"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-160,-48"
+       orientation="1,0"
+       id="guide867"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-40,-48"
+       orientation="1,0"
+       id="guide869"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,4"
+       orientation="0,1"
+       id="guide871"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid873"
+       spacingx="1"
+       spacingy="1"
+       empspacing="8"
+       color="#000000"
+       opacity="0.49019608"
+       empcolor="#000000"
+       empopacity="0.08627451"
+       dotted="true"
+       originx="-160"
+       originy="-112" />
+    <sodipodi:guide
+       position="-136,-48"
+       orientation="1,0"
+       id="guide877"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-44,-48"
+       orientation="1,0"
+       id="guide879"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,8"
+       orientation="0,1"
+       id="guide881"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,-100"
+       orientation="0,1"
+       id="guide883"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-152,-48"
+       orientation="1,0"
+       id="guide885"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-32,-48"
+       orientation="1,0"
+       id="guide887"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,-112"
+       orientation="0,1"
+       id="guide897"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,-88"
+       orientation="0,1"
+       id="guide899"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="96,144"
+       orientation="-0.70710678,0.70710678"
+       id="guide950"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-96,-48"
+       orientation="0.70710678,0.70710678"
+       id="guide952"
+       inkscape:locked="false"
+       inkscape:label=""
+       inkscape:color="rgb(0,0,255)" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>GNOME Design Team</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:title>Adwaita Icon Template</dc:title>
+        <dc:subject>
+          <rdf:Bag />
+        </dc:subject>
+        <dc:date />
+        <dc:rights>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:publisher>
+        <dc:identifier />
+        <dc:relation />
+        <dc:language />
+        <dc:coverage />
+        <dc:description />
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title />
+          </cc:Agent>
+        </dc:contributor>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Symbolic Icon"
+     inkscape:groupmode="layer"
+     style="display:inline"
+     transform="translate(-160,-172)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer2"
+       inkscape:label="baseplate"
+       style="display:inline"
+       sodipodi:insensitive="true">
+      <g
+         style="display:inline;fill:#000000;enable-background:new"
+         transform="matrix(7.9911709,0,0,8.0036407,-167.7909,-4846.0776)"
+         id="g12027"
+         inkscape:export-xdpi="12"
+         inkscape:export-ydpi="12" />
+      <g
+         id="g883"
+         style="fill:none;fill-opacity:0.25098039;stroke:#a579b3;stroke-opacity:1"
+         transform="translate(-24,24)" />
+      <g
+         id="g900"
+         style="fill:none;fill-opacity:0.25098039;stroke:#a579b3;stroke-opacity:1"
+         transform="translate(-24,24)" />
+      <rect
+         inkscape:label="512x512"
+         y="172"
+         x="160"
+         height="16"
+         width="16"
+         id="rect859"
+         style="display:inline;overflow:visible;visibility:visible;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;marker:none;enable-background:accumulate" />
+      <text
+         inkscape:label="icon-name"
+         id="text867"
+         y="164"
+         x="160"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;line-height:125%;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33264872;enable-background:new"
+         xml:space="preserve"><tspan
+           y="164"
+           x="160"
+           id="tspan865"
+           sodipodi:role="line"
+           style="font-size:4px;stroke-width:0.33264872">Canvas</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;line-height:125%;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33264872;enable-background:new"
+         x="-22"
+         y="164"
+         id="text1335"
+         inkscape:label="icon-name"><tspan
+           style="font-size:4px;stroke-width:0.33264872"
+           sodipodi:role="line"
+           id="tspan1333"
+           x="-22"
+           y="164">Examples</tspan></text>
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer9"
+       inkscape:label="icons"
+       style="display:inline">
+      <g
+         style="display:inline"
+         transform="translate(-92.0002,-317)"
+         inkscape:label="network-wireless-signal-excellent"
+         id="g6295">
+        <rect
+           transform="rotate(-90)"
+           y="70.000198"
+           x="-505"
+           height="16"
+           width="16"
+           id="rect6303"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           clip-path="none" />
+        <circle
+           transform="matrix(1.9999995,0,0,1.9999995,22.000213,84.0001)"
+           id="path6305"
+           style="display:inline;fill:#bebebe;fill-opacity:1;stroke:none"
+           clip-path="none"
+           cx="28"
+           cy="209"
+           r="1" />
+        <path
+           sodipodi:nodetypes="scccscccs"
+           inkscape:connector-curvature="0"
+           id="rect11714"
+           d="m 78.000188,491.0002 c -2.81422,0 -5.17173,1 -7,2.58557 v 1.41443 h 1.48072 c 1.51928,-1.26466 3.21936,-2 5.51928,-2 2.29992,0 4,0.77953 5.51928,2 h 1.48072 v -1.38128 c -1.64044,-1.46575 -4.18578,-2.61872 -7,-2.61872 z"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0;marker:none;enable-background:accumulate" />
+        <path
+           sodipodi:nodetypes="scccscccs"
+           inkscape:connector-curvature="0"
+           id="rect11703"
+           d="m 78.000188,494.0002 c -2.16664,0 -4.01982,0.73878 -5,2 v 1 h 2 c 0.78878,-0.60652 1.75887,-1 3,-1 1.24113,0 2.21938,0.39348 3,1 h 2 v -1 c -0.99478,-1.2229 -2.8734,-2 -5,-2 z"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0;marker:none;enable-background:accumulate" />
+        <path
+           sodipodi:nodetypes="zccccccz"
+           inkscape:connector-curvature="0"
+           id="path6297"
+           d="m 78.000188,497.0002 c -1.25733,0 -2.21571,0.31165 -3,1 v 1 h 3 0.375 2.625 v -1 c -0.8369,-0.67206 -1.74267,-1 -3,-1 z"
+           clip-path="none"
+           mask="none"
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2.32782054;marker:none;enable-background:accumulate" />
+      </g>
+      <g
+         style="display:inline"
+         id="g3728"
+         inkscape:label="battery-full"
+         transform="rotate(90,19,210.99999)">
+        <desc
+           id="desc11549">battery is full and there is no a/c connected.</desc>
+        <rect
+           transform="scale(1,-1)"
+           y="-247"
+           x="25"
+           height="6"
+           width="2"
+           id="rect2928"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;enable-background:accumulate" />
+        <path
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccccc"
+           id="path2930"
+           d="m 35,239 v 10 H 23 v -2 H 21.484375 C 21.25,247 21,246.75 21,246.53125 V 241.5625 C 20.98437,241.28125 21.340963,241.01563 21.622213,241 H 23 v -2 z"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#bebebe;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none" />
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           id="rect3704-3"
+           width="16"
+           height="16"
+           x="20"
+           y="236" />
+        <rect
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;enable-background:accumulate"
+           id="rect4227"
+           width="2"
+           height="6"
+           x="28"
+           y="-247"
+           transform="scale(1,-1)" />
+        <rect
+           transform="scale(1,-1)"
+           y="-247"
+           x="31"
+           height="6"
+           width="2"
+           id="rect4229"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;marker:none;enable-background:accumulate" />
+      </g>
+      <g
+         style="display:inline"
+         inkscape:label="network-cellular-signal-good"
+         id="g3288"
+         transform="translate(-21.99999,-64)">
+        <path
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc"
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/Users/hylkebons/tmp/mid/Toolbar/Graphics/tiny_toolbar_icons/icons/cell-network-no-connection.png"
+           style="display:inline;opacity:0.35;fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:#bebebe;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 33.5,277.5 v 12"
+           id="path3290" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3292"
+           d="M 29.5,280.49216 V 289.5"
+           style="display:inline;fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:#bebebe;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-filename="/Users/hylkebons/tmp/mid/Toolbar/Graphics/tiny_toolbar_icons/icons/cell-network-no-connection.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           sodipodi:nodetypes="cc" />
+        <path
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cc"
+           inkscape:export-ydpi="90"
+           inkscape:export-xdpi="90"
+           inkscape:export-filename="/Users/hylkebons/tmp/mid/Toolbar/Graphics/tiny_toolbar_icons/icons/cell-network-no-connection.png"
+           style="display:inline;fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:#bebebe;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 25.5,283.5 v 6"
+           id="path3294" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3296"
+           d="m 21.5,286.5 v 3"
+           style="display:inline;fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:#bebebe;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-filename="/Users/hylkebons/tmp/mid/Toolbar/Graphics/tiny_toolbar_icons/icons/cell-network-no-connection.png"
+           inkscape:export-xdpi="90"
+           inkscape:export-ydpi="90"
+           sodipodi:nodetypes="cc" />
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           id="rect3298"
+           width="16"
+           height="16"
+           x="20"
+           y="276" />
+      </g>
+      <g
+         id="g35596"
+         inkscape:label="mail-unread"
+         transform="translate(-22,-124)"
+         style="display:inline">
+        <rect
+           y="296"
+           x="19.99975"
+           height="16"
+           width="16"
+           id="rect35598"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none" />
+        <path
+           style="fill:none;stroke:#bebebe;stroke-width:1.99999976;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 22.999801,300.99992 5.000005,4.00007 4.999994,-4.00002"
+           id="path35600"
+           sodipodi:nodetypes="ccc"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#bebebe;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+           id="rect35604"
+           width="12"
+           height="9"
+           x="21.9998"
+           y="300" />
+      </g>
+      <g
+         transform="translate(-123.0002,-105)"
+         style="display:inline"
+         id="g9250"
+         inkscape:label="call-missed">
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           id="rect44122"
+           width="16"
+           height="16"
+           x="141.0002"
+           y="317" />
+        <path
+           style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:xx-small;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;opacity:0.5;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+           d="m 149.99715,317.00012 v 0.78125 a 1.001098,1.001098 0 0 0 1.03125,1.21875 h 0.59375 l -2.5625,2.5625 -2.375,-2.28125 a 1.0054782,1.0054782 0 0 0 -0.71875,-0.28125 h -0.125 -0.84375 v 0.75 a 1.0054782,1.0054782 0 0 0 0,0.0937 1.0054782,1.0054782 0 0 0 0.28125,0.875 l 3.09375,2.96875 0.6875,0.6875 0.71875,-0.6875 3.21875,-3.25 v 0.5625 a 1.0001,1.0001 0 0 0 1,1 h 1 v -0.84375 a 1.0001,1.0001 0 0 0 0,-0.1562 v -3 -1 h -1 -2.96875 a 1.0001,1.0001 0 0 0 -0.0312,0 z"
+           id="path44196"
+           inkscape:connector-curvature="0" />
+        <path
+           id="rect5922-5-0"
+           d="m 141.2661,330.71341 c -0.34368,-0.34368 -0.34865,-1.07502 -2e-5,-1.42366 l 0.0404,-0.0403 c 4.26664,-4.24462 11.16673,-4.2381 15.42494,0.0201 l 0.02,0.0201 c 0.35061,0.35061 0.31852,1.07025 -0.0201,1.44378 l -1.93062,1.99693 c -0.35652,0.35653 -0.93056,0.35652 -1.28709,10e-6 l -1.28709,-1.2871 c -0.35652,-0.35653 -0.35653,-0.93055 -1e-5,-1.28709 l 0.30167,-0.30165 c -2.22715,-1.06378 -4.81163,-1.06378 -7.03876,10e-6 l 0.30166,0.30164 c 0.35653,0.35654 0.35652,0.93056 0,1.2871 l -1.28709,1.28708 c -0.35653,0.35653 -0.93663,0.3625 -1.28709,0 z"
+           style="display:inline;opacity:1;fill:#bebebe;fill-opacity:1;stroke:none;enable-background:new"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccccscccccscc" />
+      </g>
+      <g
+         transform="translate(-43.0002,-165)"
+         style="display:inline"
+         id="g8272"
+         inkscape:label="user-available">
+        <path
+           style="fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m -196.5,141 c -1.385,0 -2.5,1.115 -2.5,2.5 v 5 c 0,1.385 1.115,2.5 2.5,2.5 h 6.375 l 3.125,4 v -4.0625 c 1.14126,-0.23235 2,-1.22563 2,-2.4375 v -5 c 0,-1.385 -1.115,-2.5 -2.5,-2.5 z"
+           transform="translate(241.0002,217)"
+           id="path8268"
+           inkscape:connector-curvature="0" />
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           id="rect11252"
+           width="16"
+           height="16"
+           x="41.000198"
+           y="357" />
+      </g>
+      <g
+         style="display:inline;enable-background:new"
+         id="g5836"
+         inkscape:label="airplane-mode"
+         transform="translate(-223.00021,455)">
+        <rect
+           y="-243"
+           x="261.00021"
+           height="16"
+           width="16"
+           id="rect5092"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path6273"
+           d="m 267.49679,-242 c -0.79399,9.7e-4 -0.78072,0.0333 -0.53125,1.03125 l 1.625,4.96875 h -4.5 l -1.21875,-1.78125 c -0.13926,-0.20883 -0.1227,-0.21873 -0.34375,-0.21875 h -0.21875 c -0.42773,0 -0.28125,0.4375 -0.28125,0.4375 l 0.28125,2.5625 -0.28125,2.5625 c 0,0 -0.13986,0.43749 0.25,0.4375 h 0.25 c 0.21159,0 0.20422,-0.009 0.34375,-0.21875 L 264.09054,-234 h 4.5 l -1.625,4.9375 c -0.26171,1.04691 -0.2647,1.06251 0.53125,1.0625 0.43199,0 0.43388,-0.0117 0.71875,-0.5 l 3.6875,-5.5 h 3.09375 c 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 h -3.09375 l -3.6875,-5.5 c -0.2665,-0.45685 -0.28331,-0.49822 -0.65625,-0.5 z"
+           style="fill:#bebebe;fill-opacity:1;stroke:none" />
+      </g>
+      <g
+         transform="translate(-2,-84)"
+         id="g3281-5"
+         inkscape:label="audio-input-microphone"
+         style="display:inline">
+        <rect
+           y="276"
+           x="20"
+           height="16"
+           width="16"
+           id="rect3825-9-5"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none" />
+        <path
+           id="rect6806"
+           transform="translate(200.0002,46)"
+           style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1.00302994;marker:none;enable-background:accumulate"
+           d="m -176.5,235 c -0.27614,0 -0.5,0.22386 -0.5,0.5 v 2.96875 c 0,1.96838 1.25801,3.62455 3,4.25 V 244 h -2 c -0.56475,0 -1,0.49007 -1,1 v 1 h 0.84375 2.15625 5 0.0937 0.90625 v -1 c -6e-5,-0.58435 -0.47642,-0.99995 -1,-1 h -2 v -1.28125 c 1.74199,-0.62545 3,-2.28162 3,-4.25 V 235.5 c 0,-0.27614 -0.22386,-0.5 -0.5,-0.5 -0.27614,0 -0.5,0.22386 -0.5,0.5 0,0.069 0.006,0.12768 0.0312,0.1875 v 2.78125 c 0,1.96415 -1.57895,3.53125 -3.53125,3.53125 -1.9523,0 -3.5,-1.5671 -3.5,-3.53125 V 235.5 c 0,-0.27614 -0.22386,-0.5 -0.5,-0.5 z m 3.9998,-4.01288 c 1.385,0 2.5,1.115 2.5,2.5 V 238.5 c 0,1.385 -1.115,2.5 -2.5,2.5 -1.385,0 -2.5,-1.115 -2.5,-2.5 v -5.01288 c 0,-1.385 1.115,-2.5 2.5,-2.5 z"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="translate(-2,-104)"
+         id="g11537"
+         inkscape:label="camera-photo"
+         style="display:inline">
+        <rect
+           y="276"
+           x="20"
+           height="16"
+           width="16"
+           id="rect11539"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none" />
+        <path
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;marker:none;enable-background:accumulate"
+           d="m 26,278 c -0.549959,0 -1,0.45004 -1,1 v 1 h -3 c -0.552014,0 -1,0.45004 -1,1 v 8 c 0,0.54996 0.447986,1 1,1 h 12 c 0.552014,0 1,-0.45004 1,-1 v -8 c 0,-0.54996 -0.447986,-1 -1,-1 h -3 v -1 c 0,-0.54996 -0.450041,-1 -1,-1 z m 2,3 c 2.209139,0 4,1.79086 4,4 0,2.20914 -1.790861,4 -4,4 -2.209139,0 -4,-1.79086 -4,-4 0,-2.20914 1.790861,-4 4,-4 z m 0,2 c -1.10457,0 -2,0.89543 -2,2 0,1.10457 0.89543,2 2,2 1.10457,0 2,-0.89543 2,-2 0,-1.10457 -0.89543,-2 -2,-2 z"
+           id="rect5238"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         transform="translate(-61.9998,-398)"
+         style="display:inline"
+         inkscape:label="input-dialpad"
+         id="g8762">
+        <rect
+           transform="translate(99.9998,334)"
+           y="276"
+           x="20"
+           height="16"
+           width="16"
+           id="rect8764"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none" />
+        <path
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+           d="m 3.5,230 c 0,0 -1.5,0 -1.5,1.5 v 9 C 2,242 3.5,242 3.5,242 H 5 v 2 c 0,0.554 0.446,1 1,1 h 4 c 0.554,0 1,-0.446 1,-1 v -2 h 1.5 c 1.5,0 1.5,-1.5 1.5,-1.5 v -9 C 14,230 12.5,230 12.5,230 Z m 0.5,2 h 2 v 2 H 4 Z m 3,0 h 2 v 2 H 7 Z m 3,0 h 2 v 2 h -2 z m -6,3 h 2 v 2 H 4 Z m 3,0 h 2 v 2 H 7 Z m 3,0 h 2 v 2 h -2 z m -6,3 h 2 v 2 H 4 Z m 3,0 h 2 v 2 H 7 Z m 3,0 h 2 v 2 h -2 z m -3,3 h 2 v 2 H 7 Z"
+           transform="translate(120,380)"
+           id="rect8806"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cssccsssscscscccccccccccccccccccccccccccccccccccccccccccccccccccc" />
+      </g>
+      <g
+         transform="translate(-63.0002,-5)"
+         style="display:inline"
+         id="g14087">
+        <g
+           inkscape:label="audio-volume-high"
+           id="g8093"
+           style="display:inline"
+           transform="translate(1.6357422e-6)">
+          <path
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none"
+             d="m 41.0002,201.99979 h 2.484375 L 46.453329,199 H 47.0002 v 11.99917 L 46.524903,211 43.484575,207.99938 H 41.0002 Z"
+             id="path5491"
+             sodipodi:nodetypes="ccccccccc"
+             inkscape:connector-curvature="0" />
+          <rect
+             y="197"
+             x="41.000198"
+             height="16"
+             width="16"
+             id="rect6203"
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;opacity:0.1;fill:none;stroke:none;stroke-width:1;marker:none" />
+          <path
+             sodipodi:nodetypes="scccscccs"
+             inkscape:connector-curvature="0"
+             id="rect11714-3"
+             d="m 56.00019,205.0002 c 0,-2.81422 -1,-5.17173 -2.58557,-7 h -1.41443 v 1.48072 c 1.26466,1.51928 2,3.21936 2,5.51928 0,2.29992 -0.77953,4 -2,5.51928 v 1.48072 h 1.38128 c 1.46575,-1.64044 2.61872,-4.18578 2.61872,-7 z"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0;marker:none;enable-background:accumulate" />
+          <path
+             sodipodi:nodetypes="scccscccs"
+             inkscape:connector-curvature="0"
+             id="rect11703-1"
+             d="m 53.00019,205.0002 c 0,-2.16664 -0.73878,-4.01982 -2,-5 h -1 v 2 c 0.60652,0.78878 1,1.75887 1,3 0,1.24113 -0.39348,2.21938 -1,3 v 2 h 1 c 1.2229,-0.99478 2,-2.8734 2,-5 z"
+             style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0;marker:none;enable-background:accumulate" />
+          <path
+             sodipodi:nodetypes="zccccz"
+             inkscape:connector-curvature="0"
+             id="path6297-6"
+             d="m 50.00019,205.0002 c 0,-1.25733 -0.31165,-2.21571 -1,-3 h -1 v 6 h 1 c 0.67206,-0.8369 1,-1.74267 1,-3 z"
+             clip-path="none"
+             mask="none"
+             style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2.32782054;marker:none;enable-background:accumulate" />
+        </g>
+      </g>
+      <g
+         style="display:inline"
+         transform="translate(30.00001,-226)"
+         inkscape:label="application-rss+xml"
+         id="g11497-6-7-9-1">
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;opacity:0.51464431;fill:none;stroke:none;stroke-width:3;marker:none;enable-background:accumulate"
+           id="rect10727-3-4-6-9"
+           width="16"
+           height="16"
+           x="48"
+           y="398" />
+        <ellipse
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.69602728;marker:none;enable-background:new"
+           id="path4983"
+           transform="matrix(1.0000007,0,0,0.61803426,-271.06253,349.93467)"
+           cx="323.0625"
+           cy="97.1875"
+           rx="2"
+           ry="3.236068" />
+        <path
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333492;marker:none;enable-background:new"
+           d="m 50.0002,399.99988 v 1 c 0,0.55016 0.45347,1 1,1 4.97056,0 9,4.02944 9,9 0,0.55016 0.45347,1 1,1 h 1 v -1 c 0,-6.07513 -4.92487,-11 -11,-11 z m 0,4 v 1 c 0,0.55016 0.45347,1 1,1 2.76143,0 5,2.23857 5,5 0,0.55016 0.45347,1 1,1 h 1 v -1 c 0,-3.866 -3.134,-7 -7,-7 z"
+           id="path5814"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="display:inline"
+         id="g6252"
+         inkscape:label="emblem-music"
+         transform="translate(-503.99999,-189.99997)">
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+           id="rect24874-7-8-7"
+           width="16"
+           height="16"
+           x="582"
+           y="381.99997" />
+        <circle
+           transform="matrix(1.0285185,0,0,1.028518,229.63673,214.36204)"
+           id="path6170"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#bebebe;stroke-width:1.94454503;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:new"
+           cx="345.99619"
+           cy="174.17094"
+           r="2.4306796" />
+        <circle
+           transform="matrix(1.0285185,0,0,1.028518,237.63673,214.36204)"
+           id="path6170-5"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#bebebe;stroke-width:1.94454503;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:new"
+           cx="345.99619"
+           cy="174.17094"
+           r="2.4306796" />
+        <rect
+           y="384"
+           x="587.00018"
+           height="9.515729"
+           width="2.0000219"
+           id="rect6190"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+        <rect
+           y="384"
+           x="595.00018"
+           height="9.5626974"
+           width="2.0000412"
+           id="rect6190-8"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+        <rect
+           y="384"
+           x="587.00018"
+           height="2"
+           width="10.000017"
+           id="rect6190-8-8"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+      </g>
+      <g
+         style="display:inline"
+         id="g5244"
+         inkscape:label="emblem-synchronizing"
+         transform="translate(-423.0002,-169)">
+        <rect
+           transform="rotate(-90)"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none;enable-background:new"
+           id="rect10837-5-8-4-4-2-3"
+           y="501.00021"
+           x="-397"
+           height="16"
+           width="16" />
+        <path
+           id="path4597-1"
+           d="m 515.90195,383.0005 c -0.0423,0.008 -0.0841,0.0181 -0.125,0.0312 -0.44715,0.10014 -0.79228,0.5419 -0.78125,1 v 1.6875 c 0.004,1.31255 0.004,1.31255 -1.5625,1.3125 h -1.4375 c -0.52358,5e-5 -0.99995,0.47642 -1,1 -0.008,0.0726 -0.008,0.14613 0,0.21875 v 0.78125 h 6 v -1 -4 c 0.006,-0.0623 0.006,-0.12518 0,-0.1875 v -0.8125 h -0.8125 c -0.0916,-0.0236 -0.18665,-0.0342 -0.28125,-0.0312 z"
+           style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccccccccccccccc" />
+        <path
+           id="path10913"
+           d="m 501.0047,389 v 1 4 c -0.006,0.0623 -0.006,0.12518 0,0.1875 V 395 h 0.8125 c 0.0916,0.0236 0.18665,0.0342 0.28125,0.0312 0.0423,-0.008 0.0841,-0.0181 0.125,-0.0312 0.44715,-0.10014 0.79228,-0.5419 0.78125,-1 v -1.6875 C 503.00029,391 503.00029,391 504.5672,391 h 1.4375 c 0.52358,-5e-5 0.99995,-0.47642 1,-1 0.008,-0.0726 0.008,-0.14613 0,-0.21875 V 389 Z"
+           style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cccccccccccccccc" />
+        <path
+           id="path1483"
+           transform="translate(241.0002,217)"
+           d="m 268,165 c -3.15321,0 -5.81948,2.12571 -6.6875,5 h 2.09375 c 0.7734,-1.76501 2.53819,-3 4.59375,-3 2.05556,0 3.82035,1.23499 4.59375,3 h 2.09375 c -0.86802,-2.87429 -3.53429,-5 -6.6875,-5 z m -6.6875,9 c 0.86802,2.87429 3.53429,5 6.6875,5 3.15321,0 5.81948,-2.12571 6.6875,-5 h -2.09375 c -0.7734,1.76501 -2.53819,3 -4.59375,3 -2.05556,0 -3.82035,-1.23499 -4.59375,-3 z"
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:2.33333325;marker:none;enable-background:accumulate"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="display:inline"
+         id="g21333-9-5"
+         transform="translate(198.0002,-38)"
+         inkscape:label="emblem-videos">
+        <g
+           transform="matrix(-1,0,0,1,-124.0002,-46)"
+           id="use21331-8-1"
+           inkscape:label="camera-web"
+           style="display:inline">
+          <rect
+             y="276"
+             x="20"
+             height="16"
+             width="16"
+             id="rect2132"
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none" />
+          <rect
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none"
+             id="rect2134"
+             width="9.96875"
+             height="9"
+             x="21.03125"
+             y="280"
+             rx="0.99980003"
+             ry="1" />
+          <path
+             sodipodi:nodetypes="cccccc"
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;stroke:none;stroke-width:1;marker:none"
+             d="M 31,284.4693 34.469295,281 H 35.0002 v 7 h -0.5 z"
+             id="path2136"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         style="display:inline;enable-background:new"
+         id="g6051"
+         inkscape:label="call-start"
+         transform="matrix(-1,0,0,1,579.00037,151.00336)">
+        <rect
+           transform="scale(-1,1)"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:1;marker:none"
+           id="rect43299-3"
+           width="16"
+           height="16"
+           x="-521.00037"
+           y="20.996641" />
+        <path
+           id="rect5922"
+           d="M 266.96875,495 C 266.43472,495 266,495.42699 266,495.96875 v 0.0625 C 266.01714,502.64406 271.38317,508 278,508 h 0.0312 c 0.54483,0 0.9688,-0.446 0.9688,-1 v -1 -2 c 0,-0.554 -0.446,-1 -1,-1 h -2 c -0.554,0 -1,0.446 -1,1 v 0.46875 C 272.44314,503.56487 270.43513,501.55686 269.53125,499 H 270 c 0.55401,0 1,-0.44599 1,-1 v -2 c 0,-0.55401 -0.44599,-1 -1,-1 h -1 -1 -0.96875 -0.0312 -0.0312 z"
+           style="opacity:1;fill:#bebebe;fill-opacity:1;stroke:none"
+           inkscape:connector-curvature="0"
+           transform="translate(241.0002,-473)" />
+      </g>
+      <g
+         style="display:inline"
+         id="g10444"
+         inkscape:label="document-edit"
+         transform="translate(-122,-454)">
+        <rect
+           style="fill:none;stroke:none"
+           id="rect10447"
+           width="16"
+           height="16"
+           x="180"
+           y="646" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 182.67863,656.29269 5.84933,-5.85075 2.99982,2.99981 -5.82888,5.87306 -4.02677,1.07184 z"
+           id="path13107"
+           sodipodi:nodetypes="cccccc"
+           style="fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+        <path
+           inkscape:connector-curvature="0"
+           style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           d="m 191.63729,647.67638 c -0.20052,0 -0.40103,0.0768 -0.55468,0.23047 l -1.76953,1.76758 3.05273,3.05273 1.76953,-1.76953 c 0.3073,-0.3073 0.3073,-0.80208 0,-1.10938 l -1.94336,-1.9414 c -0.15365,-0.15365 -0.35417,-0.23047 -0.55469,-0.23047 z"
+           id="rect9831" />
+      </g>
+      <g
+         style="display:inline"
+         id="g9849"
+         inkscape:label="go-home"
+         transform="translate(-362,214.00001)">
+        <g
+           inkscape:label="user-home"
+           id="use9847"
+           style="display:inline"
+           transform="translate(-853.0002,532.99999)">
+          <path
+             style="fill:none;stroke:#bebebe;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="M 1256.0002,-568.99998 V -562 h 10 v -6.99998"
+             id="path2140"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="cccc" />
+          <path
+             style="fill:none;stroke:#bebebe;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 1254.0002,-567.99998 7,-5 7,5"
+             id="path2142"
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccc" />
+          <rect
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+             id="rect2144"
+             width="3"
+             height="6"
+             x="1259.0002"
+             y="-567" />
+          <rect
+             rx="1"
+             ry="1"
+             transform="scale(-1,1)"
+             y="-568"
+             x="-1269.0004"
+             height="1"
+             width="1"
+             id="rect2146"
+             style="display:inline;fill:#bebebe;fill-opacity:1;stroke:none" />
+          <rect
+             rx="1"
+             ry="1"
+             transform="scale(-1,1)"
+             y="-568"
+             x="-1254.0004"
+             height="1"
+             width="1"
+             id="rect2148"
+             style="display:inline;fill:#bebebe;fill-opacity:1;stroke:none" />
+          <rect
+             style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+             id="rect2150"
+             width="16"
+             height="16"
+             x="1253.0002"
+             y="-575" />
+        </g>
+      </g>
+      <g
+         style="display:inline"
+         transform="matrix(-1,0,0,1,341.94876,-784)"
+         inkscape:label="user-trash"
+         id="g40070">
+        <rect
+           y="996"
+           x="227.9998"
+           height="16"
+           width="16"
+           id="rect40076"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path3799"
+           style="fill:#bebebe;fill-opacity:1;stroke:none"
+           d="m 230.9998,1001 v 9 h 9 v -9 h 2 v 9 c 0,2 -2,2 -2,2 h -9 c -2,0 -2,-2 -2,-2 v -9 z m 4.00001,1 h 1.00002 v 6 h -1.00002 z m 2,0 h 1.00002 v 6 h -1.00002 z m -4,0 h 0.99999 v 6 h -0.99999 z m -1.00001,-6 c -2,0 -2,2 -2,2 h -2 v 2 h 15 v -2 h -2 c 0,-2 -2,-2 -2,-2 z m 0,1 h 7 v 1 h -7 z" />
+      </g>
+      <g
+         style="display:inline"
+         inkscape:label="emblem-important"
+         transform="translate(-248.24175,-771.1781)"
+         id="g35539">
+        <path
+           inkscape:connector-curvature="0"
+           id="path35543"
+           d="m 354.1907,964.17812 c -3.86599,0 -7,3.13401 -7,7 0,3.86599 3.13401,7 7,7 3.86599,0 7,-3.13401 7,-7 0,-3.86599 -3.13401,-7 -7,-7 z m -0.0937,1.96875 a 1.0001,1.0001 0 0 1 1.09375,1.03125 v 5 a 1.0001,1.0001 0 1 1 -2,0 v -5 a 1.0001,1.0001 0 0 1 0.78125,-1 1.0001,1.0001 0 0 1 0.125,-0.0313 z m 0.0937,8.03125 c 0.55228,0 1,0.44772 1,1 0,0.55228 -0.44772,1 -1,1 -0.55229,0 -1,-0.44772 -1,-1 0,-0.55228 0.44771,-1 1,-1 z"
+           style="fill:#bebebe;fill-opacity:1;stroke:none" />
+        <rect
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+           id="rect35549"
+           width="16"
+           height="16"
+           x="346.1907"
+           y="963.1781" />
+      </g>
+      <g
+         style="display:inline"
+         id="g8559"
+         inkscape:label="emblem-favorite"
+         transform="translate(-343.05126,-209)">
+        <rect
+           y="381"
+           x="441.00021"
+           height="16"
+           width="16"
+           id="rect14243"
+           style="color:#bebebe;display:inline;overflow:visible;visibility:visible;fill:none;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
+        <path
+           d="m 456.0002,386.76617 c 0,-2.07495 -1.68742,-3.75698 -3.76925,-3.75698 -1.37132,0 -2.57123,0.73006 -3.23065,1.8214 -0.65942,-1.09135 -1.85953,-1.8214 -3.23085,-1.8214 -2.08183,0 -3.76925,1.68203 -3.76925,3.75698 0,1.07968 0.45777,2.05239 1.18953,2.73766 h -10e-4 l 5.72506,5.49617 5.89867,-5.49617 h -0.002 c 0.73186,-0.68517 1.18933,-1.65788 1.18933,-2.73766"
+           id="path4"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cscsscccccc"
+           style="display:inline;fill:#bebebe;fill-opacity:1;stroke:none;enable-background:new" />
+      </g>
+      <g
+         id="g1419"
+         style="fill:#000000">
+        <ellipse
+           ry="2.4999976"
+           rx="2.4999988"
+           id="path6170-56"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:new"
+           cx="163.50003"
+           cy="183.49998" />
+        <ellipse
+           ry="2.4999976"
+           rx="2.4999988"
+           id="path6170-5-2"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:new"
+           cx="171.50003"
+           cy="183.49998" />
+        <rect
+           y="174"
+           x="165"
+           height="9.515729"
+           width="2.0000219"
+           id="rect6190-9"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+        <rect
+           y="174"
+           x="173"
+           height="9.5626974"
+           width="2.0000412"
+           id="rect6190-8-1"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+        <rect
+           y="174"
+           x="165"
+           height="2"
+           width="10.000017"
+           id="rect6190-8-8-2"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.50793636;marker:none;enable-background:new" />
+      </g>
+    </g>
+  </g>
 </svg>
-</source>
-
-== SVG on the web ==
-[[File:Пример чертежа в SVG формате.svg|thumb|right|SVG exported from {{ill|KOMPAS-Graphic|WD=Q1780795}}]]
-
-The use of SVG on the web was limited by the lack of support in older versions of [[Internet Explorer]] (IE). Many web sites that serve SVG images, such as [[Wikipedia]], also provide the images in a raster format, either automatically by [[HTTP]] [[content negotiation]] or by allowing the user directly to choose the file.
-
-[[Google]] announced on 31 August 2010 that it had started to index SVG content on the web, whether it is in standalone files or embedded in [[HTML]], and that users would begin to see such content listed among their search results.<ref>{{cite web|last=Stanescu|first=Bogdan|last2=Sarapata|first2=John|url=http://googlewebmastercentral.blogspot.com/2010/08/google-now-indexes-svg.html|title=Google now indexes SVG|work=Webmaster central blog|publisher=Google, Inc|date=31 August 2010|accessdate=1 September 2010}}</ref>
-It was announced on 8 December 2010 that [[Google Image Search]] would also begin indexing SVG files.<ref>{{cite web|publisher=Google, Inc|title=googleimages|url=https://www.twitter.com/googleimages/status/12589924704329728|accessdate=17 February 2011|date=8 December 2010}}</ref> The site announced an option to restrict image searches to SVG files on 11 February 2011.<ref>{{cite web|last=Singhal|first=Amit|title=This week in search 2/11/11|url=http://googleblog.blogspot.com/2011/02/this-week-in-search-21111.html|publisher=Google, Inc|accessdate=17 February 2011|date=11 February 2011}}</ref>
-
-===Native browser support===
-[[Konqueror]] was the first browser to support SVG in release version 3.2 in February 2004.<ref>{{Cite web |url=http://dot.kde.org/2003/09/16/kde-conquers-vectors-ksvg |title=KDE Conquers the Vectors with KSVG |last=Streichardt |first=Andreas |date=16 September 2003 |work=KDE News |publisher= |accessdate=11 February 2012}}</ref> As of 2011, all major desktop browsers, and many minor ones, have some level of SVG support. Other browsers' implementations are not yet complete; see [[Comparison of layout engines (Scalable Vector Graphics)|comparison of layout engines]] for further details.
-
-Some earlier versions of Firefox (e.g. versions between 1.5 and 3.6<ref>{{Cite journal|url=https://bugzilla.mozilla.org/show_bug.cgi?id=276431 |title=Bug 276431 - external SVG not loaded from img tag |publisher=Mozilla|postscript=<!-- Bot inserted parameter. Either remove it; or change its value to "." for the cite to end in a ".", as necessary. -->&#123;&#123;inconsistent citations&#125;&#125; }}</ref>), as well as a smattering of other now-outdated web browsers capable of displaying SVG graphics, needed them embedded in <code>&lt;object&gt;</code> or <code>&lt;iframe&gt;</code> [[HTML element|elements]] to display them integrated as parts of an HTML webpage instead of using the standard way of integrating images with <code>&lt;img&gt;</code>.<ref>{{cite web|url=http://groups.google.com/group/mozilla.dev.tech.svg/browse_thread/thread/75f14ac7244b0fa5/a6ccf7261c5110b7?lnk=raot|title=SVG image not shown by Firefox|work=mozilla.dev.tech.svg|publisher=[[Google Groups]]|date=25 February 2009|accessdate=25 February 2010|author=Lusotec}}</ref> However, SVG images may be included in XHTML pages using [[XML namespace]]s.<ref>{{cite web|url=https://developer.mozilla.org/en/SVG_In_HTML_Introduction|title=SVG In HTML Introduction|publisher=[[Mozilla]]|date=25 August 2008|work=Mozilla Developer Center|author=Brettz9|accessdate=25 February 2010}}</ref>
-
-[[Tim Berners-Lee]], the inventor of the [[World Wide Web]], has been critical of (earlier versions of) Internet Explorer for its failure to support SVG.<ref>{{cite news|url=http://www.msnbc.msn.com/id/26646919|title=Creator of Web spots a flaw in Internet Explorer|agency=Associated Press|date=10 September 2008|first=Peter|last=Svensson|accessdate=25 February 2010|publisher=[[MSNBC]]}}</ref>
-* [[Opera (web browser)|Opera]] (since 8.0) has support for the SVG 1.1 Tiny specification while Opera 9 includes SVG 1.1 Basic support and some of SVG 1.1 Full. Opera 9.5 has partial SVG Tiny 1.2 support. It also supports SVGZ (compressed SVG).
-* Browsers based on the [[Gecko (layout engine)|Gecko]] [[Browser engine|layout engine]] (such as [[Mozilla Firefox|Firefox]], [[Flock (web browser)|Flock]], [[Camino (web browser)|Camino]], and [[SeaMonkey]]) all have had incomplete support for the SVG 1.1 Full specification since 2005. The Mozilla site has an overview of the modules which are supported in Firefox<ref>{{cite web|url=https://developer.mozilla.org/en/docs/SVG_in_Firefox|title=SVG in Firefox|work=Mozilla Developer Center|publisher=[[Mozilla]]|date=23 October 2009|accessdate=25 February 2010}}</ref> and of the modules which are in progress in the development.<ref>{{cite web|url=https://www.mozilla.org/projects/svg/status.html|title=Mozilla SVG Status |publisher=[[Mozilla]]|accessdate=25 February 2010}}</ref> Gecko 1.9, included in [[Mozilla Firefox 3|Firefox 3.0]], adds support for more of the SVG specification (including filters).<ref>{{cite web|url=https://developer.mozilla.org/en/docs/SVG_improvements_in_Firefox_3|title=SVG improvements in Firefox 3|publisher=[[Mozilla]]|work=Mozilla Developer Center|date=15 January 2008|author=Mgjbot|accessdate=25 February 2010}}</ref>
-* [[Pale Moon (web browser)|Pale Moon]], which uses the [[Goanna (software)|Goanna]] layout engine (a fork of the Gecko engine), supports SVG.
-* Browsers based on [[WebKit]] (such as [[Apple Inc.|Apple]]'s [[Safari (web browser)|Safari]], [[Google Chrome]], and [[The Omni Group]]'s [[OmniWeb]]) have had incomplete support for the SVG 1.1 Full specification since 2006.<ref>{{cite web|url=http://webkit.org/projects/svg/status.xml|title=WebKit SVG Status|publisher=[[WebKit]]|date=5 January 2010|accessdate=25 February 2010}}</ref>
-* [[Amaya (web browser)|Amaya]] has partial SVG support.
-* [[Internet Explorer 8]] and older versions do not support SVG.<ref>{{cite web|url=http://www.microsoft.com/windowsxp/expertzone/chats/transcripts/08_0619_ez_ie8.mspx|title=Windows Internet Explorer 8 Expert Zone Chat (19 June 2008)|publisher=Microsoft|date=19 June 2008|accessdate=24 October 2010}}</ref><ref>{{cite web|url=http://www.codedread.com/svg-support.php|title=SVG Support|last=Schiller|first=Jeff|date=13 February 2010|accessdate=25 February 2010}}</ref> IE9 (released 14 March 2011) supports the basic SVG feature set.<ref name="IE9">{{cite web|url=http://msdn.microsoft.com/en-us/library/ff974378(VS.85).aspx|title=What's New in Internet Explorer 9|date=22 March 2011|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=22 March 2011}}</ref> IE10 extended SVG support by adding SVG 1.1 filters.<ref>{{cite web|title=SVG (Windows)|url=https://msdn.microsoft.com/en-us/library/ie/hh673562(v=vs.85).aspx|website=Internet Explorer Dev Center|publisher=[[Microsoft]]|accessdate=27 August 2014}}</ref>
-* Microsoft Edge supports much of SVG 1.1.<ref>{{cite web|url=https://developer.microsoft.com/en-us/microsoft-edge/platform/status/|title=Microsoft Edge web platform features status and roadmap - Microsoft Edge Development|author=|date=|website=developer.microsoft.com|accessdate=19 April 2018}}</ref>
-* The [[Maxthon|Maxthon Cloud Browser]] also supports SVG.{{fact|reason=Not mentioned on the Maxthon page|date=March 2015}}
-
-There are several advantages to native and full support: [[Plug-in (computing)|plugins]] are not needed, SVG can be freely mixed with other content in a single document, and rendering and scripting become considerably more reliable.<ref>{{cite web|url=https://msdn.microsoft.com/en-us/library/ie/hh968248.aspx|publisher=[[Microsoft Developer Network|MSDN]]|title=Get ready for plug-in free browsing|year=2014|accessdate=2014-03-05}}</ref>
-
-===Plug-in browser support===
-Internet Explorer, up to and including IE8, was the only major browser not to provide native SVG support. IE8 and older require a plug-in to render SVG content. There are a number of plug-ins available to assist, including:
-* [[Ample SDK]] Open-Source JavaScript GUI Framework provides partial support for SVG 1.1, SMIL, DOM and style scripting in Internet Explorer (5.5 - 8.0) too. It is not dependent on any plugins and relies on presence of alternative Vector Graphics format VML in Internet Explorer.
-* [[Batik (software)|Batik]], a widely deployed [[Java (software platform)|Java]] plugin<ref>{{cite web|url=http://xmlgraphics.apache.org/batik/download.cgi|title=Download Batik|publisher=[[Apache Software Foundation]]|date=9 January 2008|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20121113144743/http://xmlgraphics.apache.org/batik/download.cgi |archivedate=2012-11-13|deadurl=yes}}</ref>
-* [[Google Chrome Frame]] from [[Google]] can support all web elements supported by WebKit, including SVG 1.0 and partially SVG 1.1. (''discontinued'')
-* [[GPAC Project on Advanced Content|GPAC]], targets SVGT 1.2<ref name="C4Wauto-512169">{{cite web |url=http://gpac.wp.mines-telecom.fr/home/gpac-features/ |title=Features |work=[[GPAC Project on Advanced Content|GPAC Multimedia Open Source Project]] |date=11 March 2014 <!-- No date available; last modification date used. --> |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312053819/http://gpac.wp.mines-telecom.fr/home/gpac-features/ |archivedate=12 March 2014 |deadurl=no |publisher=[[GPAC Project on Advanced Content|GPAC]] |df=dmy-all }}</ref><ref name="C4Wauto-349853">{{cite web |url=http://gpac.wp.mines-telecom.fr/2008/12/ |title=GPAC 0.4.5 released |work=[[GPAC Project on Advanced Content|GPAC Multimedia Open Source Project]] |date=2 December 2008 |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312054040/http://gpac.wp.mines-telecom.fr/2008/12/ |archivedate=12 March 2014 |deadurl=no |publisher=[[GPAC Project on Advanced Content|GPAC]] |df=dmy-all }}</ref>
-* Adobe SVG Viewer from [[Adobe Systems]] plugin supports most of SVG 1.0/1.1.<ref>{{cite web |url=https://www.adobe.com/svg/viewer/install/mainframed.html |title=Adobe SVG Viewer download area |publisher=[[Adobe Systems]] |accessdate=19 October 2009 |archiveurl=https://web.archive.org/web/20121221000438/http://www.adobe.com/devnet/svg/adobe-svg-viewer-download-area.html |archivedate=21 December 2012 |deadurl=no |df=dmy-all }}</ref><ref name="AdobeEoL">{{cite web|url=https://www.adobe.com/svg/eol.html|title=Adobe SVG Viewer End of Life announcement|publisher=[[Adobe Systems]]|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20121221000422/http://www.adobe.com/devnet/svg/adobe-svg-viewer-eol.html |archivedate=2012-12-21 |deadurl=no }}</ref> (''discontinued'')
-* [[Corel Corporation#Past products|Corel SVG Viewer]]<ref>{{cite web|url=http://www.corel.com/servlet/Satellite?pagename=Corel2/Products/Content&pid=1047023276653&cid=1047023286996|title=Corel SVG Viewer|publisher=[[Corel Corporation]]|accessdate=25 February 2010|archiveurl=https://web.archive.org/web/20100214155447/http://www.corel.com/servlet/Satellite?pagename=Corel2%2FProducts%2FContent&pid=1047023276653&cid=1047023286996|archivedate=14 February 2010|deadurl=yes|df=dmy-all}}</ref> (''discontinued'')
-* [[Raphaël (JavaScript Library)|Raphaël]] is another JavaScript library that takes advantage of the intersection between VML's and SVG's features to create vector graphics and animate them.
-* [[Renesis Player]] for Internet Explorer from examotion GmbH, supports SVG 1.1 on [[Internet Explorer 6|IE 6]] and [[Internet Explorer 7|7]] (''discontinued'')<ref>{{cite web|url=http://www.examotion.com/index.php?id=product_player|title=Renesis Player – Fast, easy and smart|publisher=examotion GmbH|accessdate=30 May 2009|archiveurl=https://web.archive.org/web/20090228054847/http://www.examotion.com/index.php?id=product_player |archivedate=2009-02-28 |deadurl=yes }}</ref>
-* SVG Web<ref name="svgweb">{{cite web |url=https://code.google.com/p/svgweb/ |title=svgweb - Scalable Vector Graphics for Web Browsers using Flash |work=[[Google Code]] |date=11 March 2014 <!-- No date available; last modification date used. --> |accessdate=11 March 2014 |author=<!--Staff writer(s); no by-line.--> |archiveurl=https://web.archive.org/web/20140312060722/http://code.google.com/p/svgweb/ |archivedate=12 March 2014 |deadurl=no |df=dmy-all }}</ref> is a JavaScript library for Web developers, targeted at Internet Explorer and dependent on the presence of an installed [[Adobe Flash]] plugin on the client machine. SVG Web provides partial support for SVG 1.1, SVG Animation (SMIL), Fonts, Video and Audio, DOM and style scripting.<ref name="C4Wauto-5839320">{{cite web |url=https://www.theregister.co.uk/2009/06/03/google_svg_internet_explorer/ |title=Google to slip SVG into Internet Explorer |work=[[The Register]] |date=3 June 2009 |accessdate=11 March 2014 |first=Gavin |last=Clarke |archiveurl=https://web.archive.org/web/20140312060953/https://www.theregister.co.uk/2009/06/03/google_svg_internet_explorer/ |archivedate=12 March 2014 |deadurl=no |publisher=The Register |df=dmy-all }}</ref>
-
-On 5 January 2010, a senior manager of the Internet Explorer team at Microsoft announced on his official blog that Microsoft had just requested to join the [[SVG Working Group]] of the W3C in order to "take part in ensuring future versions of the SVG spec will meet the needs of developers and end users," although no plans for SVG support in Internet Explorer were mentioned at that time.<ref name="C4Wauto-6837088">{{cite web |url=http://blogs.msdn.com/b/ie/archive/2010/01/05/microsoft-joins-w3c-svg-working-group.aspx |title=Microsoft Joins W3C SVG Working Group |work=[[MSDN Blogs]] |date=5 January 2010 |accessdate=11 March 2014 |last=Dengler |first=Patrick |archiveurl=https://web.archive.org/web/20140312061251/http://blogs.msdn.com/b/ie/archive/2010/01/05/microsoft-joins-w3c-svg-working-group.aspx |archivedate=12 March 2014 |deadurl=no |publisher=Microsoft |df=dmy-all }}</ref> Internet Explorer 9 beta supported a basic SVG feature set based on the SVG 1.1 W3C recommendation. Functionality has been implemented for most of the SVG document structure, interactivity through scripting and styling inline and through CSS. The presentation elements, attributes and DOM interfaces that have been implemented include basic shapes, colors, filling, gradients, patterns, paths and text.<ref name="IE9beta">{{cite web|url=http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_Scaling_Vector_Graphics|title=Internet Explorer 9 Beta Guide for Developers|date=15 September 2010|work=[[Microsoft Developer Network]]|publisher=[[Microsoft]]|accessdate=15 September 2010|archiveurl=https://web.archive.org/web/20140312061457/http://msdn.microsoft.com/en-us/ie/ff468705.aspx#_Scaling_Vector_Graphics|archivedate=12 March 2014|deadurl=no|df=dmy-all}}</ref>
-
-===Mobile support===
-SVG Tiny (SVGT) 1.1 and 1.2 are mobile profiles for SVG. SVGT 1.2 includes some features not found in SVG 1.1, including non-scaling strokes, which are supported by some SVG 1.1 implementations, such as Opera, Firefox and WebKit. As shared code bases between desktop and mobile browsers increased, the use of SVG 1.1 over SVGT 1.2 also increased.
-
-Support for SVG may be limited to SVGT on older or more limited [[Smart Phone|smart phones]], or may be primarily limited by their respective operating system. [[Adobe Flash Lite]] has optionally supported SVG Tiny since version 1.1. At the SVG Open 2005 conference, [[Sun Microsystems|Sun]] demonstrated a mobile implementation of SVG Tiny 1.1 for the [[Connected Limited Device Configuration]] (CLDC) platform.<ref>{{cite web|title=SVG Open 2005 Conference and Exhibition - Proceedings - Cartoon Oriented User Interfaces|url=http://www.svgopen.org/2005/proceedings.html#paper108|publisher=svgopen.org|accessdate=29 August 2010}}</ref>
-
-Mobiles that use [[Opera Mobile]], as well as the [[iPhone]]'s built in browser, also include SVG support. However, even though it used the [[WebKit]] engine, the [[Android (operating system)|Android]] built-in browser did not support SVG prior to v3.0 (Honeycomb).<ref>{{cite web|title=Browser doesn't render SVG images|url=https://code.google.com/p/android/issues/detail?id=1376|publisher=[[Google]]|accessdate=1 January 2011}}</ref> Prior to v3.0, Firefox Mobile 4.0b2 (beta) for Android was the first browser running under Android to support SVG by default.<ref>{{cite web|title=Firefox Mobile 4.0b2 (beta) for Android supports SVG images|url=https://code.google.com/p/android/issues/detail?id=1376#c30|date=2010-12-16|work=[[Android (operating system)|Android]] Issue 1376|accessdate=2014-01-29}}</ref>
-
-The level of SVG Tiny support available varies from mobile to mobile, depending on the SVG engine installed. Many newer mobile products support additional features beyond SVG Tiny 1.1, like gradient and opacity; this is sometimes referred as "SVGT 1.1+", though there is no such standard.
-
-[[Research In Motion|RIM]]'s [[BlackBerry]] has built-in support for SVG Tiny 1.1 since version 5.0.<ref>{{cite web|title=Support for SVG|url=http://docs.blackberry.com/en/developers/deliverables/11844/Native_SVG_support_887737_11.jsp|publisher=RIM|accessdate=6 October 2011}}</ref> Support continues for WebKit-based BlackBerry Torch browser in OS 6 and 7.<ref>{{cite web|title=BlackBerry Torch The HTML5 Developer Scorecard|url=http://www.sencha.com/blog/blackberry-torch-the-html5-developer-scorecard|publisher=[[Sencha]]|accessdate=6 October 2011}}</ref>
-
-[[Nokia]]'s [[S60 platform]] has built-in support for SVG. For example, icons are generally rendered using the platform's SVG engine. Nokia has also led the JSR 226: Scalable 2D Vector Graphics [[Application programming interface|API]] expert group that defines [[Java Platform, Micro Edition|Java ME]] API for SVG presentation and manipulation. This API has been implemented in S60 Platform 3rd Edition Feature Pack 1 and onward.<ref>{{cite web|url=http://www.s60.com/business/productinfo/applicationsandtechnologies/java/supportedfeaturesin3rdedition|title=S60 Product info|archiveurl=https://web.archive.org/web/20071013152026/http://www.s60.com/business/productinfo/applicationsandtechnologies/java/supportedfeaturesin3rdedition|archivedate=13 October 2007|publisher=S60.com|accessdate=19 October 2009}}</ref> Some [[Series 40 (software platform)|Series 40 phones]] also support SVG (such as [[Nokia 6280]]).
-
-Most [[Sony Ericsson]] phones beginning with [[Sony Ericsson K700|K700]] (by release date) support SVG Tiny 1.1. Phones beginning with [[K750]] also support such features as opacity and gradients. Phones with [[Sony Ericsson Java Platform|Sony Ericsson Java Platform-8]] have support for JSR 226.
-
-[[Windows Phone]] has supported SVG since version 7.5
-
-SVG is also supported on various mobile devices from [[Motorola]], [[Samsung]], [[LG]], and [[Siemens mobile]]/[[BenQ-Siemens]]. eSVG, an SVG rendering library mainly written for [[Embedded system|embedded]] devices, is available on some mobile platforms.<ref>{{Cite web|url=http://www.svgopen.org/2002/papers/jezic__esvg/|accessdate=5 April 2012|title=SVG for Embedded Systems|first=Damir|last=Jezic|date=15–17 July 2002|publisher=svgopen.org|work=Zurich 2002}}</ref><ref>{{cite web|url=http://www.intesis.hr/products/esvg|title=eSVG|work=Intesis Intelligent Embedded Software|year=2010|accessdate=2014-01-29}}</ref>
-
-== Online SVG converters ==
-This is an incomplete list of web applications that can convert SVG files to raster image formats (this process is known as [[rasterization]]), or raster images to SVG (this process is known as [[image tracing]] or vectorization) - without the need of installing a desktop software or browser plug-in.
-* Autotracer.org.<ref>{{cite web|url=http://www.autotracer.org/|title=Converts your raster images to vector graphics|work=autotracer.org|last=Reinhardt|first=Tobias|quote=This tool is using the fantastic autotrace library developed by Martin Weber|accessdate=2014-01-30}}</ref> Online raster image vectorizer using the AutoTrace library. BMP, GIF, JPEG, or PNG to [[AutoCAD DXF|DXF]], EPS, PDF, or SVG. Upload limit: 1MB.
-* FileFormat.info<ref>{{cite web|url=https://www.fileformat.info/convert/image/svg2raster.htm|title=FileFormat.info - SVG to raster image conversion|publisher=FileFormat.Info}}</ref> - Converts SVG to PNG, JPEG, TIFF. Output resolution can be specified. No batch processing. Upload limit: 5MB.
-* Online-Convert<ref>{{cite web|url=http://www.online-convert.com/|title=Free online file converter|work=online-convert.com|accessdate=2014-01-29}}</ref> - Converts to/from BMP, EPS, GIF, HDR, ICO, JPEG, PNG, SVG, TGA, TIFF, [[Wireless Application Protocol Bitmap Format|WBMP]], WebP. No batch processing. The output (e. g. image size) is customizable; the conversion to SVG is handled by [[Potrace]].<ref name="selinger">{{cite web|url=http://potrace.sourceforge.net/|last=Selinger|first=Peter|year=2001–2013|title=Potrace – Transforming bitmaps into vector graphics|work=[[SourceForge]] project [[Potrace]]|accessdate=2014-01-29}}</ref>
-* SVGConv<ref>{{cite web|url=http://svgconv.blasiussecundus.me/|last=Secundus|first=Blasius|year=2012|title=SVGConv - The free online SVG converter|accessdate=2014-01-30}}</ref> - Converts SVG to JPEG, PNG, GIF, BMP, TGA, TIFF, PDF, PS, EPS. Allows the user to customize the output (like image size, background color) and has batch processing features (converting multiple files in a single step). Upload limit: 10MB
-* SVG2Android<ref>{{cite web|url=https://inloop.github.io/svg2android/|title=Android SVG to VectorDrawable|last=Novák|first=Juraj|publisher=Juraj Novák}}</ref> - Converts SVG to an Android VectorDrawable (introduced in API 21)
-* Free Online Converter<ref>{{cite web|url=http://online-converting.com/image/convert-to-svg/|title=Online image converter to SVG format (JPG to SVG, PNG to SVG, EPS to SVG and more image format)|work=online-converting.com|accessdate=2015-02-09}}</ref> - Converts most raster images to SVG via tracing. When converting from raster images such as PNG to SVG or JPG to SVG, converter will convert the forms and objects in black-and-white images in vector graphics form. The conversion to SVG is handled by [[Potrace]].<ref name="selinger"/>
-* iLoveIMG <ref>{{Cite web|url=https://www.iloveimg.com/convert-to-jpg/svg-to-jpg|title=iLoveIMG|last=|first=|date=|website=www.iloveimg.com|access-date=}}</ref> - Converts a single or multiple SVG to JPG online.
-
-==Application support==
-SVG images can be produced by the use of a [[vector graphics editor]], such as [[Inkscape]], [[Adobe Illustrator]], [[Adobe Flash Professional]], or [[CorelDRAW]], and rendered to common [[Raster graphics|raster]] image formats such as [[Portable Network Graphics|PNG]] using the same software. [[Inkscape]] uses a (built-in) [[potrace]] to import raster image formats.<ref name="selinger" /><ref>{{cite web|url=http://wiki.inkscape.org/wiki/index.php/Tools#Vectorize.2Ftrace|title=Vectorize/trace|work=Inkscape wiki|year=2012|accessdate=2014-01-29}}</ref>
-
-Software can be programmed to render SVG images by using a [[library (computing)|library]] such as [[librsvg]] used by [[GNOME]] since 2000, or [[Batik (software)|Batik]]. SVG images can also be rendered to any desired popular image format by using [[ImageMagick]], a free command-line utility (which also uses librsvg under the hood).
-
-Other uses for SVG include embedding for use in [[word processing]] (e.g. with [[LibreOffice]]) and [[desktop publishing]] (e.g. [[Scribus]]), [[Plot (graphics)|plotting graphs]] (e.g. [[gnuplot]]), and importing paths (e.g. for use in [[GIMP]] or [[Blender (software)|Blender]]). [[Microsoft Office 2016]] added support for importing and editing SVG images in January 2017. The [[Uniform Type Identifier]] for SVG used by Apple is <tt>public.svg-image</tt> and conforms to <tt>public.image</tt> and <tt>public.xml</tt>.
-
-== DOCTYPE ==
-The [[DOCTYPE]] for SVG 1.0<ref>{{cite web |url=https://www.w3.org/TR/SVG10/intro.html#Namespace |title=Scalable Vector Graphics (SVG) 1.0 Specification |date=4 September 2001 |at=1.3 SVG Namespace, Public Identifier and System Identifier |accessdate=29 April 2018 }}</ref> is:
-
-<source lang=xml><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"></source>
-
-and that for SVG 1.1 is <source lang=xml><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"></source> but for various reasons, a DOCTYPE should not be included in SVG files.<ref>{{cite web |url=https://www.w3.org/TR/SVG11/intro.html#NamespaceAndDTDIdentifiers |title=Scalable Vector Graphics (SVG) 1.1 (Second Edition) |date=16 August 2011 |at=1.3 SVG Namespace, Public Identifier and System Identifier |accessdate=29 April 2018 }}</ref>
-
-==See also==
-{{SVGSeries}}
-* [[Canvas element]]
-* [[Comparison of graphics file formats]]
-* [[Comparison of raster-to-vector conversion software]]
-* [[Comparison of vector graphics editors]]
-* [[Computer graphics]]
-* [[Computer Graphics Metafile]]
-* [[Image file formats]]
-* [[Resolution independence]]
-* [[Commons:Help:SVG#SVG files in MediaWiki|SVG files in MediaWiki]] on [[Commons:Help:SVG|Commons: Help:SVG]]
-
-==References==
-{{Reflist|30em}}
-
-==External links==
-{{sisterlinks|d=Q2078|c=Category:SVG|mw=SVG|b=XML - Managing Data Exchange/SVG|wikt=SVG|v=Vector Drawing|m=SVG|s=no|n=no|q=no}}
-* {{Official website|http://www.w3.org/Graphics/SVG|W3C SVG page}} specifications, list of implementations
-* [http://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html W3C SVG primer] W3C Primer (draft) under auspices of SVG Interest Group
-* {{dmoz|Computers/Data_Formats/Graphics/Vector/SVG}}
-
-{{W3C Standards}}
-{{vector graphics markup languages}}
-{{Graphics file formats}}
-{{SVG Plugins}}
-{{Web interfaces}}
-{{Web browsers}}
-
-{{Authority control}}
-[[Category:Articles with example code]]
-[[Category:Computer file formats]]
-[[Category:Graphics file formats]]
-[[Category:HTML5]]
-[[Category:Open formats]]
-[[Category:Page description markup languages]]
-[[Category:Scalable Vector Graphics|Scalable Vector Graphics]] <!-- the "| " sorts before "A" in cat -->
-[[Category:Vector graphics markup languages]]
-[[Category:World Wide Web Consortium standards]]
-[[Category:XML markup languages]]
-[[Category:Computer-related introductions in 2001]]
-
-
--->
