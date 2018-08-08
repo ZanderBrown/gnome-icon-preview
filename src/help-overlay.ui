@@ -59,13 +59,13 @@
                 <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
               </object>
             </child>
-            <child>
+            <!--<child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;e</property>
                 <property name="title" translatable="yes" context="shortcut window">Export the icon</property>
               </object>
-            </child>
+            </child>-->
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>

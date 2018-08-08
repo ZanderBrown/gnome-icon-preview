@@ -78,8 +78,10 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="action_name">win.new-icon</property>
-            <property name="action_target">'symbolic'</property>
+            <property name="sensitive">False</property>
+            <!--<property name="action_name">win.new-icon</property>
+            <property name="action_target">'symbolic'</property>-->
+            <property name="tooltip_text">Coming Soon!</property>
           </object>
           <packing>
             <property name="left_attach">1</property>

@@ -131,7 +131,7 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			exportbtn.visible = mode != INITIAL;
+			//exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
@@ -161,7 +161,7 @@ namespace IconPreview {
 				// We have an open file now
 				(lookup_action("refresh") as SimpleAction).set_enabled(true);
 				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
-				(lookup_action("export") as SimpleAction).set_enabled(true);
+				//(lookup_action("export") as SimpleAction).set_enabled(true);
 			} else {
 				// Effectivly close the old previewer
 				old.destroy();
