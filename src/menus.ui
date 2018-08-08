@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <interface domain="gnome-icon-preview">
 	<menu id="win-menu">
-		<section>
+		<section id="app">
 			<item>
 				<attribute name="label" translatable="yes">_New Window</attribute>
 				<attribute name="action">win.new-window</attribute>
 			</item>
 		</section>
-		<section>
+		<section id="view">
 			<item>
 				<attribute name="label" translatable="yes">_Reload</attribute>
 				<attribute name="action">win.refresh</attribute>
@@ -19,7 +19,7 @@
 				<attribute name="hidden-when">action-disabled</attribute>
 			</item>
 		</section>
-		<section>
+		<section id="help">
 			<item>
 				<attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
 				<attribute name="action">win.show-help-overlay</attribute>

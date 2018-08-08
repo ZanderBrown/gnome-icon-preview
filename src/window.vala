@@ -2,7 +2,7 @@ using Gtk;
 
 namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
-	public class Window : ApplicationWindow {
+	public class Window : Dazzle.ApplicationWindow {
 		[GtkChild]
 		Stack content;
 
@@ -24,12 +24,9 @@ namespace IconPreview {
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "export", open_export },
-			{ "fullscreen", toggle_fullscreen },
 			{ "about", about },
 			{ "quit",  quit  }
 		};
-
-		bool is_fullscreen = false;
 
 		FileMonitor monitor = null;
 		Recents recents = new Recents();
@@ -103,11 +100,7 @@ namespace IconPreview {
 			// Bind the actions
 			add_action_entries(entries, this);
 
-			// Setup the initial state
-			var inital = new InitialState();
-			inital.show();
-			content.add(inital);
-			content.visible_child = inital;
+			add_action(new PropertyAction("fullscreen", this, "fullscreen"));
 
 			// Connect the recent button and recent popover
 			recent.popover = recents;
@@ -157,14 +150,14 @@ namespace IconPreview {
 			pop.add(view.exporter);
 			view.exporter.close.connect(() => pop.popdown());
 			exportbtn.popover = pop;
-			if (old is InitialState) {
+			if (old is Previewer) {
+				// Effectivly close the old previewer
+				old.destroy();
+			} else {
 				// We have an open file now
 				(lookup_action("refresh") as SimpleAction).set_enabled(true);
 				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
 				(lookup_action("export") as SimpleAction).set_enabled(true);
-			} else {
-				// Effectivly close the old previewer
-				old.destroy();
 			}
 		}
 
@@ -209,17 +202,6 @@ namespace IconPreview {
 		// Open the export popover (win.export)
 		private void open_export () {
 			exportbtn.clicked();
-		}
-
-		// Become / leave fullscreen (win.fullscreen)
-		private void toggle_fullscreen () {
-			if (is_fullscreen) {
-				is_fullscreen = false;
-				unfullscreen();
-			} else {
-				is_fullscreen = true;
-				fullscreen();
-			}
 		}
 
 		// Manually reload the current icon (win.refresh)

@@ -10,3 +10,6 @@ configure_file(input: 'org.gnome.IconPreview.service.in',
 
 install_data('org.gnome.IconPreview.svg',
              install_dir: join_paths([datadir,'icons/hicolor/scalable/apps']))
+
+install_data('org.gnome.IconPreview-symbolic.svg',
+             install_dir: join_paths([datadir,'icons/hicolor/symbolic/apps']))

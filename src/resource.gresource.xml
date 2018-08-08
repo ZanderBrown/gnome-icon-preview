@@ -5,7 +5,6 @@
     <file>recents.ui</file>
     <file>wizard.ui</file>
     <file>window.ui</file>
-    <file alias="initial.ui">views/initial.ui</file>
     <file alias="colourpane.ui">views/colourpane.ui</file>
     <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
     <file>exporter/symbolic.ui</file>

@@ -17,7 +17,7 @@ namespace IconPreview {
 		public signal void close();
 	}
 
-	public class Application : Gtk.Application {
+	public class Application : Dazzle.Application {
 		construct {
 			application_id = "org.gnome.IconPreview";
 			flags = HANDLES_OPEN;
