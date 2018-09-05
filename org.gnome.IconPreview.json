@@ -22,7 +22,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
+                    "tag": "3.30.0"
                 }
             ]
         },

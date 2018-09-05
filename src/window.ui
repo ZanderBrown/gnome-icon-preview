@@ -208,24 +208,6 @@
             <property name="position">1</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkMenuButton" id="exportbtn">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <child>
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Export</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
       </object>
     </child>
   </template>

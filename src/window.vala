@@ -12,9 +12,6 @@ namespace IconPreview {
 		[GtkChild]
 		MenuButton menu;
 
-		[GtkChild]
-		MenuButton exportbtn;
-
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
@@ -23,7 +20,6 @@ namespace IconPreview {
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
-			{ "export", open_export },
 			{ "about", about },
 			{ "quit",  quit  }
 		};
@@ -124,13 +120,11 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
 					(lookup_action("refresh") as SimpleAction).set_enabled(false);
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
-					(lookup_action("export") as SimpleAction).set_enabled(false);
 					break;
 				case SYMBOLIC:
 					_mode_changed(new Symbolic());
@@ -146,10 +140,6 @@ namespace IconPreview {
 			view.show();
 			content.add(view);
 			content.visible_child = view;
-			var pop = new Popover(exportbtn);
-			pop.add(view.exporter);
-			view.exporter.close.connect(() => pop.popdown());
-			exportbtn.popover = pop;
 			if (old is Previewer) {
 				// Effectivly close the old previewer
 				old.destroy();
@@ -157,7 +147,6 @@ namespace IconPreview {
 				// We have an open file now
 				(lookup_action("refresh") as SimpleAction).set_enabled(true);
 				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
-				(lookup_action("export") as SimpleAction).set_enabled(true);
 			}
 		}
 
@@ -197,11 +186,6 @@ namespace IconPreview {
 		// Open the recent popover (win.recents)
 		private void open_recent () {
 			recent.clicked();
-		}
-
-		// Open the export popover (win.export)
-		private void open_export () {
-			exportbtn.clicked();
 		}
 
 		// Manually reload the current icon (win.refresh)
