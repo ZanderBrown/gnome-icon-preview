@@ -164,6 +164,7 @@
         <property name="use-underline">1</property>
         <property name="can-default">1</property>
         <property name="visible">True</property>
+        <property name="sensitive">False</property>
       </object>
     </child>
     <action-widgets>

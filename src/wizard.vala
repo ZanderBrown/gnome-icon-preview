@@ -18,6 +18,9 @@ namespace IconPreview {
 		[GtkChild]
 		Spinner spin;
 
+		[GtkChild]
+		Button accept_button;
+
 		public Mode mode { get; construct; }
 
 		public signal void open (File file);
@@ -38,6 +41,20 @@ namespace IconPreview {
 				// Hmm
 				desc.label = "The reverse domain notation name, e.g. org.inkscape.Inkscape";
 			}
+
+			icon_title.notify["text"].connect(() => {
+				accept_button.sensitive = icon_title.text.length > 0;
+				if (mode == SYMBOLIC && !("-" in icon_title.text)) {
+					icon_title.secondary_icon_name = "dialog-warning-symbolic";
+					icon_title.secondary_icon_tooltip_text = "Expecting at least one '-'";
+				} else if (mode == COLOUR && !("." in icon_title.text)) {
+					icon_title.secondary_icon_name = "dialog-warning-symbolic";
+					icon_title.secondary_icon_tooltip_text = "Expecting at least one '.'";
+				} else {
+					icon_title.secondary_icon_name = null;
+					icon_title.secondary_icon_tooltip_text = null;
+				}
+			});
 		}
 
 		public Wizard (Window parent, Mode mode) {
