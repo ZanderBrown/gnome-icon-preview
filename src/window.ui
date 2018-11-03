@@ -34,7 +34,7 @@
                   <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Make a new GNOME icon</property>
+                    <property name="label" translatable="yes">Make a new GNOME Icon</property>
                     <attributes>
                       <attribute name="font-desc" value="Cantarell 24"/>
                     </attributes>
@@ -71,7 +71,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">New App icon</property>
+                    <property name="label" translatable="yes">New App Icon</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -102,7 +102,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="valign">start</property>
-                    <property name="label" translatable="yes">An applications identity</property>
+                    <property name="label" translatable="yes">An application's identity</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>

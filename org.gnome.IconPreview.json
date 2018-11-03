@@ -1,7 +1,7 @@
 {
     "app-id" : "org.gnome.IconPreview",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "master",
+    "runtime-version" : "3.30",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-icon-preview",
     "finish-args" : [
@@ -22,7 +22,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
+                    "tag" : "3.30.2",
+                    "commit" : "27c741ad67cd07073d4c7ee9930789832494d028"
                 }
             ]
         },
