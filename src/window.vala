@@ -124,7 +124,7 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			exportbtn.visible = mode != INITIAL;
+			//exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = "Icon Preview";
