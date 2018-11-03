@@ -1,4 +1,4 @@
-project('gnome-icon-preview', 'vala', 'c', version: '0.1.0')
+project('gnome-icon-preview', 'vala', 'c', version: '0.9.0')
 
 i18n = import('i18n')
 
