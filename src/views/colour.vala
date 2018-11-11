@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	public class Colour : Box, Previewer {
+	public class Colour : ScrolledWindow, Previewer {
 		const string RES_PATH = "/org/gnome/IconPreview/icons/";
 		static string[] colours;
 
@@ -39,12 +39,24 @@ namespace IconPreview {
 		}
 
 		construct {
-			homogeneous = true;
+			hscrollbar_policy = NEVER;
+			min_content_height = 520;
 
 			light.theme = "Adwaita";
 			dark.theme = "Adwaita-dark";
-			pack_start(light);
-			pack_end(dark);
+
+			var view = new Viewport(null, null);
+			view.shadow_type = NONE;
+			view.show();
+
+			var box = new Box(HORIZONTAL, 0);
+			box.homogeneous = true;
+			box.pack_start(light);
+			box.pack_end(dark);
+			box.show();
+			view.add(box);
+
+			add(view);
 
 			bind_property("previewing", _export, "file");
 
@@ -52,10 +64,10 @@ namespace IconPreview {
 		}
 
 		public void shuffle () {
-			var samples_names = random_selection(colours, 5);
-			var samples = new Icon[5];
+			var samples_names = random_selection(colours, 14);
+			var samples = new Icon[14];
 
-			for (var j = 0; j < 5; j++) {
+			for (var j = 0; j < 14; j++) {
 				samples[j] = new FileIcon(File.new_for_uri("resource:/" + RES_PATH + samples_names[j]));
 			}
 

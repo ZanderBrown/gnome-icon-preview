@@ -6,6 +6,7 @@ namespace IconPreview {
 		private Label label = new Label(null);
 
 		public Icon icon { get; set; }
+		public int size { get; construct set; default = 128; }
 
 		class construct {
 			set_css_name("demo-icon");
@@ -16,12 +17,11 @@ namespace IconPreview {
 			spacing = 5;
 			expand = false;
 
-			image.pixel_size = 128;
-
 			label.ellipsize = START;
 			label.max_width_chars = 30;
 
 			bind_property("icon", image, "gicon");
+			bind_property("size", image, "pixel_size");
 			notify["icon"].connect(() => {
 				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
 				var parts = basename.split(".");
@@ -31,6 +31,10 @@ namespace IconPreview {
 
 			pack_start(image);
 			pack_end(label);
+		}
+
+		public DemoIcon (int size) {
+			Object (size: size);
 		}
 	}
 
@@ -42,24 +46,13 @@ namespace IconPreview {
 		[GtkChild]
 		Grid grid;
 
-		List<Image> icons;
-		DemoIcon demo_icon;
+		[GtkChild]
+		Grid small;
+
 		CssProvider provider = null;
+		List<DemoIcon> randoms;
 
-		private Icon _icon = new ThemedIcon("start-here-symbolic");
-		public Icon icon {
-			get {
-				return _icon;
-			}
-
-			set {
-				_icon = value;
-				foreach (var icon in icons) {
-					icon.gicon = _icon;
-				}
-				demo_icon.icon = _icon;
-			}
-		}
+		public Icon icon { get; set; default =  new ThemedIcon("start-here-symbolic");}
 
 		private string _theme = "Adwaita";
 		public string theme {
@@ -87,19 +80,46 @@ namespace IconPreview {
 		}
 
 		construct {
+			DemoIcon ico;
 			for (var i = 0; i < 3; i++) {
-				icons.append(sizes.get_child_at(i, 0) as Image);
+				bind_property("icon", sizes.get_child_at(i, 0), "gicon");
 			}
+			for (var i = 0; i < 5; i++) {
+				ico = new DemoIcon(64);
+				small.attach(ico, i, 0);
+				randoms.append(ico);
+			}
+			for (var i = 0; i < 2; i++) {
+				ico = new DemoIcon(64);
+				small.attach(ico, i, 1);
+				randoms.append(ico);
+			}
+			ico = new DemoIcon(64);
+			bind_property("icon", ico, "icon");
+			small.attach(ico, 2, 1);
+			for (var i = 3; i < 5; i++) {
+				ico = new DemoIcon(64);
+				small.attach(ico, i, 1);
+				randoms.append(ico);
+			}
+			small.show_all();
+
 			for (var i = 0; i < 3; i++) {
-				var ico = new DemoIcon();
+				ico = new DemoIcon(128);
 				grid.attach(ico, i, 0);
+				randoms.append(ico);
 			}
-			var ico = new DemoIcon();
+			ico = new DemoIcon(128);
 			grid.attach(ico, 0, 1);
-			demo_icon = new DemoIcon();
-			grid.attach(demo_icon, 1, 1);
-			ico = new DemoIcon();
+			randoms.append(ico);
+
+			ico = new DemoIcon(128);
+			bind_property("icon", ico, "icon");
+			grid.attach(ico, 1, 1);
+
+			ico = new DemoIcon(128);
 			grid.attach(ico, 2, 1);
+			randoms.append(ico);
 			grid.show_all();
 
 			theme = theme;
@@ -119,13 +139,13 @@ namespace IconPreview {
 			}
 		}
 
-		public void load_samples (Icon[] samples) requires (samples.length == 5) {
+		public void load_samples (Icon[] samples) requires (samples.length == randoms.length()) {
 			// Don't like how much of this is hardcoded
-			for (var i = 0; i < 3; i++) {
-				(grid.get_child_at(i, 0) as DemoIcon).icon = samples[i];
+			var idx = 0;
+			foreach (var sample in randoms) {
+				sample.icon = samples[idx];
+				idx++;
 			}
-			(grid.get_child_at(0, 1) as DemoIcon).icon = samples[3];
-			(grid.get_child_at(2, 1) as DemoIcon).icon = samples[4];
 		}
 	}
 }

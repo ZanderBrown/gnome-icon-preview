@@ -17,6 +17,14 @@ symbolic-view pane > box,
 	margin: 20px;
 }
 
+colour-view grid.smaller {
+	margin-bottom: 10px;
+}
+
+colour-view grid.larger {
+	margin-top: 10px;
+}
+
 colour-view .wallpaper {
 	background-size: cover;
 	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita.jpg');
