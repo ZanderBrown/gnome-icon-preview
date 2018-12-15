@@ -17,7 +17,7 @@ namespace IconPreview {
 			spacing = 5;
 			expand = false;
 
-			label.ellipsize = START;
+			label.ellipsize = MIDDLE;
 			label.max_width_chars = 30;
 
 			bind_property("icon", image, "gicon");
@@ -104,21 +104,16 @@ namespace IconPreview {
 			}
 			small.show_all();
 
-			for (var i = 0; i < 3; i++) {
-				ico = new DemoIcon(128);
-				grid.attach(ico, i, 0);
-				randoms.append(ico);
-			}
 			ico = new DemoIcon(128);
-			grid.attach(ico, 0, 1);
+			grid.attach(ico, 0, 0);
 			randoms.append(ico);
 
 			ico = new DemoIcon(128);
 			bind_property("icon", ico, "icon");
-			grid.attach(ico, 1, 1);
+			grid.attach(ico, 1, 0);
 
 			ico = new DemoIcon(128);
-			grid.attach(ico, 2, 1);
+			grid.attach(ico, 2, 0);
 			randoms.append(ico);
 			grid.show_all();
 
