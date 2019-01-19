@@ -1,7 +1,8 @@
 deps = [
 	dependency('gtk+-3.0'),
 	dependency('librsvg-2.0'),
-	dependency('libdazzle-1.0')
+	dependency('libdazzle-1.0'),
+	dependency('libhandy-0.0')
 ]
 
 config = configure_file(input: 'config.vala.in', output: 'config.vala', configuration: conf)

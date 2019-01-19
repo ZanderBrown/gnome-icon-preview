@@ -245,7 +245,7 @@ namespace IconPreview {
 
 		// Show the about dialog, triggered by win.about
 		private void about () {
-			var authors = new string[] {"Zander Brown"};
+			var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};
 			var artists = new string[] {"Tobias Bernard"};
 			show_about_dialog (this,
 				program_name: _("Icon Preview"),
