@@ -24,7 +24,7 @@ appdata_file = i18n.merge_file(
 
 appstream_util = find_program('appstream-util', required: false)
 if appstream_util.found()
-  validate_args = ['validate-strict', appdata_file, '--nonet']
+  validate_args = ['validate', appdata_file, '--nonet']
   test('Validate appstream file', appstream_util, args: validate_args)
 endif
 
