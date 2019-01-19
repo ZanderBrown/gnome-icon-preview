@@ -32,24 +32,24 @@ namespace IconPreview {
 			location.file = File.new_for_path(Path.build_filename(Environment.get_home_dir(), "Projects", "Icons"));
 
 			if (mode == SYMBOLIC) {
-				title = "New Symbolic Icon";
-				icon_type.label = "Icon Name";
-				desc.label = "All lowercase with dashes between words, e.g list-add";
+				title = _("New Symbolic Icon");
+				icon_type.label = _("Icon Name");
+				desc.label = _("All lowercase with dashes between words, e.g list-add");
 			} else {
-				title = "New App Icon";
-				icon_type.label = "App Name";
+				title = _("New App Icon");
+				icon_type.label = _("App Name");
 				// Hmm
-				desc.label = "The reverse domain notation name, e.g. org.inkscape.Inkscape";
+				desc.label = _("The reverse domain notation name, e.g. org.inkscape.Inkscape");
 			}
 
 			icon_title.notify["text"].connect(() => {
 				accept_button.sensitive = icon_title.text.length > 0;
 				if (mode == SYMBOLIC && !("-" in icon_title.text)) {
 					icon_title.secondary_icon_name = "dialog-warning-symbolic";
-					icon_title.secondary_icon_tooltip_text = "Expecting at least one '-'";
+					icon_title.secondary_icon_tooltip_text = _("Expecting at least one '-'");
 				} else if (mode == COLOUR && !("." in icon_title.text)) {
 					icon_title.secondary_icon_name = "dialog-warning-symbolic";
-					icon_title.secondary_icon_tooltip_text = "Expecting at least one '.'";
+					icon_title.secondary_icon_tooltip_text = _("Expecting at least one '.'");
 				} else {
 					icon_title.secondary_icon_name = null;
 					icon_title.secondary_icon_tooltip_text = null;

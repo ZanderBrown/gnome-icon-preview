@@ -2,6 +2,7 @@
 Name=Icon Preview
 Comment=Preview icons
 Exec=gnome-icon-preview %f
+# Traslators: Don't translate this, it's the application icon name
 Icon=org.gnome.IconPreview
 Terminal=false
 Type=Application

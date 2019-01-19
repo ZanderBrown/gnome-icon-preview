@@ -1,0 +1,13 @@
+data/org.gnome.IconPreview.appdata.xml.in
+data/org.gnome.IconPreview.desktop.in
+src/exporter/colour.ui
+src/exporter/symbolic.ui
+src/views/colourpane.ui
+src/views/symbolicpane.ui
+src/help-overlay.ui
+src/menus.ui
+src/recentrow.ui
+src/window.ui
+src/window.vala
+src/wizard.ui
+src/wizard.vala

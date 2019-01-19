@@ -117,8 +117,8 @@ namespace IconPreview {
 		}
 
 		private void _load_failed () {
-			var dlg = new MessageDialog(this, MODAL, WARNING, CANCEL, "This file is defective");
-			dlg.secondary_text = "Please start from a template to ensure that your file will work as a GNOME icon";
+			var dlg = new MessageDialog(this, MODAL, WARNING, CANCEL, _("This file is defective"));
+			dlg.secondary_text = _("Please start from a template to ensure that your file will work as a GNOME icon");
 			dlg.response.connect(() => dlg.destroy());
 			dlg.show();
 		}
@@ -127,7 +127,7 @@ namespace IconPreview {
 			//exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
-					title = "Icon Preview";
+					title = _("Icon Preview");
 					(lookup_action("refresh") as SimpleAction).set_enabled(false);
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
 					(lookup_action("export") as SimpleAction).set_enabled(false);
@@ -162,9 +162,9 @@ namespace IconPreview {
 		}
 
 		private void open () {
-			var dlg = new FileChooserNative("Select Icon", this, OPEN, null, null);
+			var dlg = new FileChooserNative(_("Select Icon"), this, OPEN, null, null);
 			var filter = new Gtk.FileFilter ();
-			filter.set_filter_name ("Icons");
+			filter.set_filter_name (_("Icons"));
 			filter.add_pattern ("*.svg");
 			filter.add_mime_type ("image/svg+xml");
 			dlg.add_filter (filter);
@@ -234,7 +234,7 @@ namespace IconPreview {
 				title = info.get_display_name();
 			} catch (Error e) {
 				critical("Failed to fetch icon name: %s", e.message);
-				title = "Icon Preview";
+				title = _("Icon Preview");
 			}
 		}
 
@@ -248,15 +248,15 @@ namespace IconPreview {
 			var authors = new string[] {"Zander Brown"};
 			var artists = new string[] {"Tobias Bernard"};
 			show_about_dialog (this,
-				program_name: "Icon Preview",
+				program_name: _("Icon Preview"),
 				logo_icon_name: "org.gnome.IconPreview",
 				version: PACKAGE_VERSION,
-				copyright: "Copyright © 2018 Zander Brown",
+				copyright: _("Copyright © 2018 Zander Brown"),
 				license_type: License.GPL_3_0,
 				authors: authors,
 				artists: artists,
 				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
-				website_label: "Repository");
+				website_label: _("Repository"));
 		}
 
 		// Wrapper for win.quit

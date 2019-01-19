@@ -57,8 +57,14 @@ namespace IconPreview {
 	}
 
 	public int main (string[] args) {
-		Environment.set_application_name("Icon Preview");
+		Environment.set_application_name(_("Icon Preview"));
 		Gtk.Window.set_default_icon_name("org.gnome.IconPreview");
+
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
 		var app = new Application();
 		return app.run(args);
 	}
