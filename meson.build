@@ -15,6 +15,7 @@ conf.set('BINDIR', bindir)
 
 add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format (meson.project_name()), language: 'c')
 add_global_arguments('-DG_LOG_DOMAIN="@0@"'.format ('org.gnome.IconPreview'), language: 'c')
+add_global_arguments('-DHANDY_USE_UNSTABLE_API', language: 'c')
 
 subdir('data')
 subdir('po')

@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <template class="IconPreviewWizard" parent="GtkDialog">
+  <template class="IconPreviewWizard" parent="HdyDialog">
     <property name="can_focus">False</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
@@ -173,3 +173,4 @@
     </action-widgets>
   </template>
 </interface>
+

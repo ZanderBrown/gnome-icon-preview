@@ -2,7 +2,7 @@ using Gtk;
 
 namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/IconPreview/wizard.ui")]
-	class Wizard : Dialog {
+	class Wizard : Hdy.Dialog {
 		[GtkChild]
 		Label icon_type;
 
