@@ -30,7 +30,7 @@
     <release version="0.9.0" date="2018-11-03" />
     <release version="0.2.0" date="2018-09-05" />
     <release version="0.1.0" date="2018-08-08" />
-  </release>
+  </releases>
   <launchable type="desktop-id">org.gnome.IconPreview.desktop</launchable>
   <url type="homepage">https://gitlab.gnome.org/World/icon-tool</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/icon-tool/issues</url>

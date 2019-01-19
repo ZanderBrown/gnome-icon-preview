@@ -17,6 +17,7 @@
     "modules" : [
         {
             "name" : "libdazzle",
+            "builddir": "true",
             "buildsystem" : "meson",
             "sources" : [
                 {
@@ -29,6 +30,7 @@
         },
         {
             "name" : "icon-preview",
+            "builddir": "true",
             "buildsystem" : "meson",
             "sources" : [
                 {
