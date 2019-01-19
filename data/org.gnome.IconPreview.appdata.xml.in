@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 Zander Brown -->
-<component type="desktop">
-  <id>org.gnome.IconPreview.desktop</id>
+<component type="desktop-application">
+  <id>org.gnome.IconPreview</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <project_group>GNOME</project_group>
@@ -18,18 +18,24 @@
   </kudos>
   <screenshots>
     <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/GNOME/gnome-builder/raw/master/data/screenshots/01-Welcome.png</image>
+      <image height="650" width="1196">https://gitlab.gnome.org/World/icon-tool/raw/master/data/screenshots/01-Welcome.png</image>
       <caption>Welcome screen</caption>
     </screenshot>
     <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/GNOME/gnome-builder/raw/master/data/screenshots/02-Application.png</image>
+      <image height="650" width="1196">https://gitlab.gnome.org/World/icon-tool/raw/master/data/screenshots/02-Application.png</image>
       <caption>Previewing an Application icon</caption>
     </screenshot>
   </screenshots>
-  <url type="homepage">https://gitlab.gnome.org/ZanderBrown/icon-tool</url>
+  <releases>
+    <release version="0.9.0" date="2018-11-03" />
+    <release version="0.2.0" date="2018-09-05" />
+    <release version="0.1.0" date="2018-08-08" />
+  </release>
+  <launchable type="desktop-id">org.gnome.IconPreview.desktop</launchable>
+  <url type="homepage">https://gitlab.gnome.org/World/icon-tool</url>
+  <url type="bugtracker">https://gitlab.gnome.org/World/icon-tool/issues</url>
   <update_contact>zbrown@gnome.org</update_contact>
   <translation type="gettext">gnome-icon-preview</translation>
   <content_rating type="oars-1.1" />
   <developer_name>Zander Brown</developer_name>
-  <url type="bugtracker">https://gitlab.gnome.org/ZanderBrown/icon-tool/issues</url>
 </component>
