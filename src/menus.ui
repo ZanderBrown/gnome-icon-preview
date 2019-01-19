@@ -25,7 +25,7 @@
 				<attribute name="action">win.show-help-overlay</attribute>
 			</item>
 			<item>
-				<attribute name="label" translatable="yes">_About</attribute>
+				<attribute name="label" translatable="yes">_About Icon Preview</attribute>
 				<attribute name="action">win.about</attribute>
 			</item>
 		</section>
