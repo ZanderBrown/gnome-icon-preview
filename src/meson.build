@@ -11,6 +11,8 @@ sources = [
 	config,
 	'recents.vala',
 	'views/utils.vala',
+	'views/columns.vala',
+	'views/utils.vala',
 	'views/colourpane.vala',
 	'views/colour.vala',
 	'views/symbolicpane.vala',

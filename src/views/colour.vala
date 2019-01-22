@@ -49,10 +49,9 @@ namespace IconPreview {
 			view.shadow_type = NONE;
 			view.show();
 
-			var box = new Box(HORIZONTAL, 0);
-			box.homogeneous = true;
-			box.pack_start(light);
-			box.pack_end(dark);
+			var box = new Columns ();
+			box.add(light);
+			box.add(dark);
 			box.show();
 			view.add(box);
 
@@ -64,10 +63,10 @@ namespace IconPreview {
 		}
 
 		public void shuffle () {
-			var samples_names = random_selection(colours, 11);
-			var samples = new Icon[11];
+			var samples_names = random_selection(colours, 9);
+			var samples = new Icon[9];
 
-			for (var j = 0; j < 11; j++) {
+			for (var j = 0; j < 9; j++) {
 				samples[j] = new FileIcon(File.new_for_uri("resource:/" + RES_PATH + samples_names[j]));
 			}
 
