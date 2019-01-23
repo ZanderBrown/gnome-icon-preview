@@ -3,6 +3,7 @@ using Gtk;
 namespace IconPreview {
 	public class Colour : ScrolledWindow, Previewer {
 		const string RES_PATH = "/org/gnome/IconPreview/icons/";
+		const string BASE_THEME = "Adwaita";
 		static string[] colours;
 
 		private Columns container = new Columns();
@@ -43,17 +44,45 @@ namespace IconPreview {
 			hscrollbar_policy = NEVER;
 			min_content_height = 520;
 
-			light.theme = "Adwaita";
-			dark.theme = "Adwaita-dark";
+			light.theme = BASE_THEME;
+			dark.theme = BASE_THEME + "-dark";
 
 			var view = new Viewport(null, null);
 			view.shadow_type = NONE;
 			view.show();
 
+			var overlay = new Overlay();
+			overlay.show();
+
 			container.add(light);
 			container.add(dark);
 			container.show();
-			view.add(container);
+			overlay.add(container);
+			view.add(overlay);
+
+			var box = new Box(HORIZONTAL, 0);
+			box.halign = END;
+			box.valign = START;
+			var context = box.get_style_context();
+			context.add_class("osd");
+			context.add_class("linked");
+			context.add_class("switcher");
+
+			var btn = new ToggleButton();
+			btn.toggled.connect(() => {
+				if (btn.active) {
+					light.theme = BASE_THEME + "-dark";
+				} else {
+					light.theme = BASE_THEME;
+				}
+			});
+			var img = new Image.from_icon_name ("night-light-symbolic", BUTTON);
+			img.show();
+			btn.add(img);
+			btn.show();
+			box.add(btn);
+			box.show();
+			overlay.add_overlay(box);
 
 			add(view);
 

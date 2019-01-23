@@ -52,23 +52,29 @@ namespace IconPreview {
 			if (min > alloc.width) {
 				message ("Time to collapse");
 				collapsed = true;
+				children.data.set_child_visible(true);
+				children.data.size_allocate (alloc);
+				//var rest = children.next;
+				foreach (var child in children.next) {
+					child.set_child_visible(false);
+				}
 			} else {
 				collapsed = false;
-			}
+				int offset = 0;
+				int c_width = alloc.width / (int) children.length();
+				foreach (var child in children) {
+					Allocation c_alloc = alloc;
 
-			int offset = 0;
-			int c_width = alloc.width / (int) children.length();
-			foreach (var child in children) {
-				Allocation c_alloc = alloc;
+					if (!child.visible) continue;
 
-				if (!child.visible) continue;
+					c_alloc.x += offset;
+					c_alloc.width = c_width;
 
-				c_alloc.x += offset;
-				c_alloc.width = c_width;
+					child.set_child_visible(true);
+					child.size_allocate (c_alloc);
 
-				child.size_allocate (c_alloc);
-
-				offset += c_width;
+					offset += c_width;
+				}
 			}
 		}
 
@@ -91,8 +97,8 @@ namespace IconPreview {
 			}
 
 			nat = _nat;
-			/*min = _min;*/
-			min = nat;
+			min = _min;
+			/*min = nat;*/
 		}
 
 		public override void get_preferred_height (out int min, out int nat) {
