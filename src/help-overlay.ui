@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkShortcutsWindow" id="help_overlay">
     <property name="modal">True</property>
     <child>
@@ -71,6 +72,13 @@
                 <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;s</property>
                 <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;&lt;alt&gt;s</property>
+                <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
               </object>
             </child>
             <child>

@@ -82,7 +82,13 @@ namespace IconPreview {
 
 			container.draw(context);
 
-			var logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/IconPreview/badge.svg", 32, -1, true);
+			Gdk.Pixbuf logo;
+			try {
+				logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/IconPreview/badge.svg", 32, -1, true);
+			} catch (Error e) {
+				critical (e.message);
+				logo = new Gdk.Pixbuf (RGB, false, 1, 2, 2);
+			}
 			var layout = container.create_pango_layout (_("Icon Preview"));
 
 			var padding = 8;
@@ -92,8 +98,6 @@ namespace IconPreview {
 			Pango.Rectangle txt_extents;
 
 			layout.get_pixel_extents(null, out txt_extents);
-
-			message ("%ix%i %ix%i", img_width, img_height, txt_extents.width, txt_extents.height);
 
 			var img_x = 0;
 			var txt_x = img_width + padding;
@@ -111,7 +115,6 @@ namespace IconPreview {
 			}
 
 			context.save();
-			message ("%ix%i", padding + img_x, padding + img_y);
 			Gdk.cairo_set_source_pixbuf (context, logo,
 										 padding + img_x, padding + img_y);
 			context.rectangle (padding + img_x, padding + img_y,
@@ -119,7 +122,6 @@ namespace IconPreview {
 			context.fill();
 			context.restore();
 
-			message ("%ix%i", padding + txt_x, padding + txt_y);
 			context.move_to (padding + txt_x, padding + txt_y);
 			Pango.cairo_show_layout (context, layout);
 

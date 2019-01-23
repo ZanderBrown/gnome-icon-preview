@@ -132,6 +132,7 @@ namespace IconPreview {
 					(lookup_action("refresh") as SimpleAction).set_enabled(false);
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
 					(lookup_action("export") as SimpleAction).set_enabled(false);
+					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
 					break;
 				case SYMBOLIC:
 					_mode_changed(new Symbolic());
@@ -159,11 +160,13 @@ namespace IconPreview {
 				(lookup_action("refresh") as SimpleAction).set_enabled(true);
 				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
 				(lookup_action("export") as SimpleAction).set_enabled(true);
+				(lookup_action("screenshot") as SimpleAction).set_enabled(true);
 			}
 		}
 
 		private void open () {
-			var dlg = new FileChooserNative(_("Select Icon"), this, OPEN, null, null);
+			var dlg = new FileChooserNative(_("Select Icon"), this, OPEN, _("_Open"), null);
+			dlg.modal = true;
 			var filter = new Gtk.FileFilter ();
 			filter.set_filter_name (_("Icons"));
 			filter.add_pattern ("*.svg");
@@ -198,19 +201,31 @@ namespace IconPreview {
 		// Screenshot the previewer
 		private void screenshot () requires (content.visible_child is Previewer) {
 			var buf = (content.visible_child as Previewer).screenshot();
-			/*var dlg = new FileChooserNative(_("Save Screenshot"), this, SAVE, null, null);
+			var dlg = new FileChooserNative(_("Save Screenshot"), this, SAVE, _("_Save"), null);
+			dlg.modal = true;
+			dlg.do_overwrite_confirmation = true;
+			dlg.set_filename("%.png".printf(_("Preview")));
 			var filter = new Gtk.FileFilter ();
+
 			filter.set_filter_name (_("Screenshot"));
 			filter.add_pattern ("*.png");
 			filter.add_mime_type ("image/png");
+			filter.add_pattern ("*.jpg");
+			filter.add_pattern ("*.jpeg");
+			filter.add_mime_type ("image/jpeg");
+
 			dlg.add_filter (filter);
-			dlg.response.connect(res => {
-				if (res == ResponseType.ACCEPT) {
-					var file = dlg.get_file();*/
-					buf.save("/home/zbrown/demo2.png", "png");
-				/*}
-			});
-			dlg.show();*/
+			if (dlg.run() == ResponseType.ACCEPT) {
+				var file = dlg.get_filename();
+				try {
+					buf.save(dlg.get_filename(), file.reverse().split(".", 2)[0].reverse());
+				} catch (Error e) {
+					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save screenshot"));
+					msg.secondary_text = e.message;
+					msg.response.connect(() => msg.destroy());
+					msg.show();
+				}
+			}
 		}
 
 		// Open the recent popover (win.recents)
