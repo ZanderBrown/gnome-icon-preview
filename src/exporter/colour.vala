@@ -6,14 +6,14 @@ namespace IconPreview {
 		[GtkChild]
 		Image regular_image;
 
-		[GtkChild]
-		Label regular_label;
+		/*[GtkChild]
+		Label regular_label;*/
 
 		[GtkChild]
 		Image nightly_image;
 
-		[GtkChild]
-		Label nightly_label;
+		/*[GtkChild]
+		Label nightly_label;*/
 
 		public File file { get; set; }
 

@@ -19,6 +19,7 @@ namespace IconPreview {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
 			{ "new-window", new_window },
+			{ "screenshot", screenshot },
 			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
@@ -192,6 +193,24 @@ namespace IconPreview {
 		// Open a new window (win.new-window)
 		private void new_window () {
 			new Window(application as Application).present();
+		}
+
+		// Screenshot the previewer
+		private void screenshot () requires (content.visible_child is Previewer) {
+			var buf = (content.visible_child as Previewer).screenshot();
+			/*var dlg = new FileChooserNative(_("Save Screenshot"), this, SAVE, null, null);
+			var filter = new Gtk.FileFilter ();
+			filter.set_filter_name (_("Screenshot"));
+			filter.add_pattern ("*.png");
+			filter.add_mime_type ("image/png");
+			dlg.add_filter (filter);
+			dlg.response.connect(res => {
+				if (res == ResponseType.ACCEPT) {
+					var file = dlg.get_file();*/
+					buf.save("/home/zbrown/demo2.png", "png");
+				/*}
+			});
+			dlg.show();*/
 		}
 
 		// Open the recent popover (win.recents)

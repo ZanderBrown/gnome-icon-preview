@@ -11,6 +11,7 @@
     <file>exporter/colour.ui</file>
     <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
+    <file alias="badge.svg">../data/org.gnome.IconPreview-symbolic.svg</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">
     <file>style.css</file>

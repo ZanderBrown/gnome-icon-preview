@@ -26,7 +26,7 @@ namespace IconPreview {
 		public override void remove (Widget child) {
 			children.remove (child);
 
-			child.set_parent (null);
+			child.unparent ();
 		}
 
 		public override void forall_internal (bool internals, Gtk.Callback cb) {

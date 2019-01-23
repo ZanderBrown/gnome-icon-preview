@@ -14,6 +14,11 @@
 				<attribute name="hidden-when">action-disabled</attribute>
 			</item>
 			<item>
+				<attribute name="label" translatable="yes">_Take Screenshot</attribute>
+				<attribute name="action">win.screenshot</attribute>
+				<attribute name="hidden-when">action-disabled</attribute>
+			</item>
+			<item>
 				<attribute name="label" translatable="yes">_Shuffle Example Icons</attribute>
 				<attribute name="action">win.shuffle</attribute>
 				<attribute name="hidden-when">action-disabled</attribute>
