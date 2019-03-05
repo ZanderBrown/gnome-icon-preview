@@ -6,7 +6,7 @@ namespace IconPreview {
 		const string BASE_THEME = "Adwaita";
 		static string[] colours;
 
-		private Columns container = new Columns();
+		private Box container = new Box(HORIZONTAL, 0);
 		private ColourPane light = new ColourPane();
 		private ColourPane dark = new ColourPane();
 
@@ -51,38 +51,10 @@ namespace IconPreview {
 			view.shadow_type = NONE;
 			view.show();
 
-			var overlay = new Overlay();
-			overlay.show();
-
 			container.add(light);
 			container.add(dark);
 			container.show();
-			overlay.add(container);
-			view.add(overlay);
-
-			var box = new Box(HORIZONTAL, 0);
-			box.halign = END;
-			box.valign = START;
-			var context = box.get_style_context();
-			context.add_class("osd");
-			context.add_class("linked");
-			context.add_class("switcher");
-
-			var btn = new ToggleButton();
-			btn.toggled.connect(() => {
-				if (btn.active) {
-					light.theme = BASE_THEME + "-dark";
-				} else {
-					light.theme = BASE_THEME;
-				}
-			});
-			var img = new Image.from_icon_name ("night-light-symbolic", BUTTON);
-			img.show();
-			btn.add(img);
-			btn.show();
-			box.add(btn);
-			box.show();
-			overlay.add_overlay(box);
+			view.add(container);
 
 			add(view);
 
