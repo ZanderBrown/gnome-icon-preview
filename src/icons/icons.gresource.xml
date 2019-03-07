@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/IconPreview/icons/">
+    <file>com.github.bilelmoussaoui.Authenticator.svg</file>
     <file>de.haeckerfelix.Radio.svg</file>
     <file>org.gnome.Aisleriot.svg</file>
+    <file>org.gnome.Backups.svg</file>
     <file>org.gnome.Books.svg</file>
     <file>org.gnome.Boxes.svg</file>
-    <file>org.gnome.Camera.svg</file>
     <file>org.gnome.Calculator.svg</file>
+    <file>org.gnome.Camera.svg</file>
     <file>org.gnome.Characters.svg</file>
     <file>org.gnome.Clocks.svg</file>
-    <file>org.gnome.Epiphany.svg</file>
+    <file>org.gnome.Contacts.svg</file>
     <file>org.gnome.Fonts.svg</file>
     <file>org.gnome.Games.svg</file>
     <file>org.gnome.IconPreview.svg</file>
+    <file>org.gnome.Logs.svg</file>
     <file>org.gnome.Maps.svg</file>
+    <file>org.gnome.Messages.svg</file>
     <file>org.gnome.Music.svg</file>
     <file>org.gnome.Nautilus.svg</file>
+    <file>org.gnome.Passwords.svg</file>
     <file>org.gnome.Podcasts.svg</file>
-    <file>org.gnome.Seahorse.svg</file>
     <file>org.gnome.Settings.svg</file>
     <file>org.gnome.SystemMonitor.svg</file>
     <file>org.gnome.Totem.svg</file>
     <file>org.gnome.Weather.svg</file>
+    <file>org.gnome.Web.svg</file>
   </gresource>
 </gresources>
