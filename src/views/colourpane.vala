@@ -6,7 +6,7 @@ namespace IconPreview {
 		private Label label = new Label(null);
 
 		public Icon icon { get; set; }
-		public int size { get; construct set; default = 128; }
+		public int size { get; construct set; default = 96; }
 
 		class construct {
 			set_css_name("demo-icon");
@@ -23,7 +23,7 @@ namespace IconPreview {
 			bind_property("icon", image, "gicon");
 			bind_property("size", image, "pixel_size");
 			notify["icon"].connect(() => {
-				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 128, FORCE_SVG).get_filename());
+				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 96, FORCE_SVG).get_filename());
 				var parts = basename.split(".");
 				label.label = parts[parts.length - 2];
 				label.tooltip_text = basename;
@@ -110,20 +110,20 @@ namespace IconPreview {
 			small.show_all();
 			/* 64px                            */
 
-			/* 128px                            */
-			ico = new DemoIcon(128);
+			/* 96px                            */
+			ico = new DemoIcon(96);
 			grid.attach(ico, 0, 0);
 			randoms.append(ico);
 
-			ico = new DemoIcon(128);
+			ico = new DemoIcon(96);
 			bind_property("icon", ico, "icon");
 			grid.attach(ico, 1, 0);
 
-			ico = new DemoIcon(128);
+			ico = new DemoIcon(96);
 			grid.attach(ico, 2, 0);
 			randoms.append(ico);
 			grid.show_all();
-			/* 128px                            */
+			/* 96px                            */
 
 			theme = theme;
 		}
