@@ -9,4 +9,10 @@ Type=Application
 StartupNotify=true
 Categories=Utility;GTK;GNOME;
 DBusActivatable=true
+Actions=palette;
 MimeType=image/svg+xml;
+
+[Desktop Action palette]
+Name=Colour Palette
+Exec=gnome-icon-preview --palette
+

@@ -5,6 +5,8 @@
     <file>recents.ui</file>
     <file>wizard.ui</file>
     <file>window.ui</file>
+    <file>palette.ui</file>
+    <file>palette.gpl</file>
     <file alias="colourpane.ui">views/colourpane.ui</file>
     <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
     <file>exporter/symbolic.ui</file>

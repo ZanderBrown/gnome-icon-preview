@@ -26,13 +26,44 @@ namespace IconPreview {
 	}
 
 	public class Application : Dazzle.Application {
+		const GLib.ActionEntry[] entries = {
+			{ "palette", palette },
+			{ "quit",  quit  }
+		};
+
 		construct {
+			// Bind the actions
+			add_action_entries(entries, this);
+
 			application_id = "org.gnome.IconPreview";
-			flags = HANDLES_OPEN;
+			flags = HANDLES_OPEN | HANDLES_COMMAND_LINE;
+
+			// Open the palette instead of a normal window
+			add_main_option ("palette", 'p', IN_MAIN, NONE, _("Open colour palette"), null);
+		}
+
+		public void about (Gtk.Window parent) {
+			var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};
+			var artists = new string[] {"Tobias Bernard"};
+			show_about_dialog (parent,
+				program_name: _("Icon Preview"),
+				logo_icon_name: "org.gnome.IconPreview",
+				version: PACKAGE_VERSION,
+				copyright: _("Copyright © 2018 Zander Brown"),
+				license_type: License.GPL_3_0,
+				authors: authors,
+				artists: artists,
+				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
+				website_label: _("Repository"));
+		}
+
+		// Handler for app.palette
+		private void palette () {
+			new Palette(this).show();
 		}
 
 		public override void activate () {
-			new Window(this).present();
+			new Window(this).show();
 		}
 
 		public override void open (File[] files, string hint) {
@@ -40,7 +71,7 @@ namespace IconPreview {
 				var win = new Window(this) {
 					file = file
 				};
-				win.present();
+				win.show();
 			}
 		}
 
@@ -61,7 +92,22 @@ namespace IconPreview {
 			set_accels_for_action ("win.screenshot", { "<primary><alt>s" });
 			set_accels_for_action ("win.menu", { "F10" });
 			set_accels_for_action ("win.fullscreen", { "F11" });
-			set_accels_for_action ("win.quit", { "<primary>Q" });
+			set_accels_for_action ("app.quit", { "<primary>Q" });
+		}
+
+		public override int command_line (ApplicationCommandLine cli) {
+			var options = cli.get_options_dict();
+
+			// If opening the palette directly
+			if (options.contains("palette")) {
+				palette();
+
+				// Don't activate normally
+				return 0;
+			}
+
+			// Handle files ext
+			return base.command_line(cli);
 		}
 	}
 

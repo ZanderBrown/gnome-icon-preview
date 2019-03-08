@@ -25,8 +25,7 @@ namespace IconPreview {
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "export", open_export },
-			{ "about", about },
-			{ "quit",  quit  }
+			{ "about", about }
 		};
 
 		FileMonitor monitor = null;
@@ -38,11 +37,16 @@ namespace IconPreview {
 				try {
 					// Hopefully this doesn't render the SVG?
 					var svg = new Rsvg.Handle.from_gfile_sync(value, FLAGS_NONE);
+
+					Rsvg.Rectangle logical;
+
+					svg.get_geometry_sub(null, out logical, null);
+
 					// Colour (App) icons must be 128 by 128
-					if (svg.height == 128 && svg.width == 128) {
+					if (logical.height == 128 && logical.width == 128) {
 						mode = COLOUR;
 					// Whereas symbolics are 16 by 16
-					} else if (svg.height == 16 && svg.width == 16) {
+					} else if (logical.height == 16 && logical.width == 16) {
 						mode = SYMBOLIC;
 					// And anything else is unsupported
 					} else {
@@ -90,6 +94,10 @@ namespace IconPreview {
 		public Application app {
 			construct {
 				application = value;
+			}
+
+			private get {
+				return application as Application;
 			}
 		}
 
@@ -279,23 +287,7 @@ namespace IconPreview {
 
 		// Show the about dialog, triggered by win.about
 		private void about () {
-			var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};
-			var artists = new string[] {"Tobias Bernard"};
-			show_about_dialog (this,
-				program_name: _("Icon Preview"),
-				logo_icon_name: "org.gnome.IconPreview",
-				version: PACKAGE_VERSION,
-				copyright: _("Copyright © 2018 Zander Brown"),
-				license_type: License.GPL_3_0,
-				authors: authors,
-				artists: artists,
-				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
-				website_label: _("Repository"));
-		}
-
-		// Wrapper for win.quit
-		private void quit () {
-			application.quit();
+			app.about(this);
 		}
 	}
 }

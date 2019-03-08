@@ -19,6 +19,7 @@ sources = [
 	'exporter/colour.vala',
 	'exporter/symbolic.vala',
 	'wizard.vala',
+	'palette.vala',
 	'window.vala',
 	'main.vala'
 ]
