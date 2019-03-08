@@ -17,7 +17,7 @@
     "modules" : [
         {
             "name" : "libdazzle",
-            "builddir": true,
+            "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
                 {
@@ -30,17 +30,17 @@
         },
         {
             "name" : "libhandy",
-            "builddir": true,
+            "builddir" : true,
             "buildsystem" : "meson",
-            "config-opts": [
+            "config-opts" : [
                 "-Dglade_catalog=disabled"
             ],
             "sources" : [
                 {
                     "type" : "git",
                     "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "tag" : "v0.0.7",
-                    "commit" :  "fac9fa59a83f47655d604796632a932d58cf60bb"
+                    "tag" : "v0.0.9",
+                    "commit" : "56b0aa62f6251ee19a88fc208b7ca8dcf9c9633c"
                 }
             ],
             "cleanup" : [
@@ -49,7 +49,7 @@
         },
         {
             "name" : "icon-preview",
-            "builddir": true,
+            "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
                 {
@@ -58,5 +58,9 @@
                 }
             ]
         }
-    ]
+    ],
+    "build-options" : {
+        "env" : {
+        }
+    }
 }
