@@ -87,25 +87,21 @@ namespace IconPreview {
 			}
 
 			/* 64px                            */
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < 2; i++) {
 				ico = new DemoIcon(64);
 				small.attach(ico, i, 0);
 				randoms.append(ico);
 			}
 
-			for (var i = 0; i < 2; i++) {
-				ico = new DemoIcon(64);
-				small.attach(ico, i, 1);
-				randoms.append(ico);
-			}
-
 			ico = new DemoIcon(64);
 			bind_property("icon", ico, "icon");
-			small.attach(ico, 2, 1);
+			small.attach(ico, 2, 0);
 
-			ico = new DemoIcon(64);
-			small.attach(ico, 3, 1);
-			randoms.append(ico);
+			for (var i = 3; i < 5; i++) {
+				ico = new DemoIcon(64);
+				small.attach(ico, i, 0);
+				randoms.append(ico);
+			}
 
 			small.show_all();
 			/* 64px                            */

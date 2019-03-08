@@ -64,10 +64,10 @@ namespace IconPreview {
 		}
 
 		public void shuffle () {
-			var samples_names = random_selection(colours, 9);
-			var samples = new Icon[9];
+			var samples_names = random_selection(colours, 6);
+			var samples = new Icon[6];
 
-			for (var j = 0; j < 9; j++) {
+			for (var j = 0; j < 6; j++) {
 				samples[j] = new FileIcon(File.new_for_uri("resource:/" + RES_PATH + samples_names[j]));
 			}
 
