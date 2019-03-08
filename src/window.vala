@@ -209,31 +209,9 @@ namespace IconPreview {
 		// Screenshot the previewer
 		private void screenshot () requires (content.visible_child is Previewer) {
 			var buf = (content.visible_child as Previewer).screenshot();
-			var dlg = new FileChooserNative(_("Save Screenshot"), this, SAVE, _("_Save"), null);
-			dlg.modal = true;
-			dlg.do_overwrite_confirmation = true;
-			dlg.set_filename("%.png".printf(_("Preview")));
-			var filter = new Gtk.FileFilter ();
 
-			filter.set_filter_name (_("Screenshot"));
-			filter.add_pattern ("*.png");
-			filter.add_mime_type ("image/png");
-			filter.add_pattern ("*.jpg");
-			filter.add_pattern ("*.jpeg");
-			filter.add_mime_type ("image/jpeg");
-
-			dlg.add_filter (filter);
-			if (dlg.run() == ResponseType.ACCEPT) {
-				var file = dlg.get_filename();
-				try {
-					buf.save(dlg.get_filename(), file.reverse().split(".", 2)[0].reverse());
-				} catch (Error e) {
-					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save screenshot"));
-					msg.secondary_text = e.message;
-					msg.response.connect(() => msg.destroy());
-					msg.show();
-				}
-			}
+			var s = new ScreenshotSaver(this, buf);
+			s.show();
 		}
 
 		// Open the recent popover (win.recents)
