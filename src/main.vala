@@ -106,7 +106,8 @@ namespace IconPreview {
 				return 0;
 			}
 
-			// Handle files ext
+			activate();
+
 			return base.command_line(cli);
 		}
 	}
