@@ -203,7 +203,7 @@ namespace IconPreview {
 
 		// Open a new window (win.new-window)
 		private void new_window () {
-			new Window(application as Application).present();
+			new Window(application as Application).show();
 		}
 
 		// Screenshot the previewer

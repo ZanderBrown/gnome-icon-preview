@@ -12,8 +12,12 @@ namespace IconPreview {
 
 			set {
 				_hex = value;
-				provider.load_from_data("* { background: %s; }".printf(value));
 				tooltip_text = value;
+				try {
+					provider.load_from_data("* { background: %s; }".printf(value));
+				} catch (Error e) {
+					warning("Can't set colour! %s", e.message);
+				}
 			}
 		}
 
