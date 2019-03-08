@@ -1,12 +1,11 @@
 using Gtk;
 
 namespace IconPreview {
-	public class Colour : ScrolledWindow, Previewer {
+	public class Colour : Box, Previewer {
 		const string RES_PATH = "/org/gnome/IconPreview/icons/";
 		const string BASE_THEME = "Adwaita";
 		static string[] colours;
 
-		private Box container = new Box(HORIZONTAL, 0);
 		private ColourPane light = new ColourPane();
 		private ColourPane dark = new ColourPane();
 
@@ -41,22 +40,12 @@ namespace IconPreview {
 		}
 
 		construct {
-			hscrollbar_policy = NEVER;
-			min_content_height = 520;
-
 			light.theme = BASE_THEME;
 			dark.theme = BASE_THEME + "-dark";
 
-			var view = new Viewport(null, null);
-			view.shadow_type = NONE;
-			view.show();
-
-			container.add(light);
-			container.add(dark);
-			container.show();
-			view.add(container);
-
-			add(view);
+			homogeneous = true;
+			add(light);
+			add(dark);
 
 			bind_property("previewing", _export, "file");
 
@@ -76,12 +65,12 @@ namespace IconPreview {
 		}
 
 		public Gdk.Pixbuf screenshot () {
-			var w = container.get_allocated_width();
-			var h = container.get_allocated_height();
+			var w = get_allocated_width();
+			var h = get_allocated_height();
 			var surface = new Cairo.ImageSurface (ARGB32, w, h);
 			var context = new Cairo.Context (surface);
 
-			container.draw(context);
+			draw(context);
 
 			Gdk.Pixbuf logo;
 			try {
@@ -90,7 +79,7 @@ namespace IconPreview {
 				critical (e.message);
 				logo = new Gdk.Pixbuf (RGB, false, 1, 2, 2);
 			}
-			var layout = container.create_pango_layout (_("Icon Preview"));
+			var layout = create_pango_layout (_("Icon Preview"));
 
 			var padding = 8;
 
@@ -102,7 +91,7 @@ namespace IconPreview {
 
 			var img_x = 0;
 			var txt_x = img_width + padding;
-			if (container.get_direction () == RTL) {
+			if (get_direction () == RTL) {
 				img_x = txt_extents.width + padding;
 				txt_x = 0;
 			}

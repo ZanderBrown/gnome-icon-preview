@@ -44,10 +44,10 @@ namespace IconPreview {
 		Grid sizes;
 
 		[GtkChild]
-		Grid grid;
+		Box grid;
 
 		[GtkChild]
-		Grid small;
+		Box small;
 
 		CssProvider provider = null;
 		List<DemoIcon> randoms;
@@ -89,17 +89,17 @@ namespace IconPreview {
 			/* 64px                            */
 			for (var i = 0; i < 2; i++) {
 				ico = new DemoIcon(64);
-				small.attach(ico, i, 0);
+				small.add(ico);
 				randoms.append(ico);
 			}
 
 			ico = new DemoIcon(64);
 			bind_property("icon", ico, "icon");
-			small.attach(ico, 2, 0);
+			small.add(ico);
 
 			for (var i = 3; i < 5; i++) {
 				ico = new DemoIcon(64);
-				small.attach(ico, i, 0);
+				small.add(ico);
 				randoms.append(ico);
 			}
 
@@ -108,15 +108,15 @@ namespace IconPreview {
 
 			/* 96px                            */
 			ico = new DemoIcon(96);
-			grid.attach(ico, 0, 0);
+			grid.add(ico);
 			randoms.append(ico);
 
 			ico = new DemoIcon(96);
 			bind_property("icon", ico, "icon");
-			grid.attach(ico, 1, 0);
+			grid.add(ico);
 
 			ico = new DemoIcon(96);
-			grid.attach(ico, 2, 0);
+			grid.add(ico);
 			randoms.append(ico);
 			grid.show_all();
 			/* 96px                            */
