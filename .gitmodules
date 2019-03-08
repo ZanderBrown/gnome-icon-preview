@@ -1,0 +1,3 @@
+[submodule "src/hig"]
+	path = src/hig
+	url = https://gitlab.gnome.org/Teams/Design/HIG-app-icons.git
