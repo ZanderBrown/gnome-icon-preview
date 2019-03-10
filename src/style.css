@@ -26,7 +26,8 @@ colour-view grid.larger {
 }
 
 colour-view .wallpaper {
-	background-size: cover;
+	/* Try again with gtk4 background-size: cover; */
+	background-position: center;
 	background-image: url('resource://org/gnome/IconPreview/wallpapers/Adwaita.jpg');
 }
 
