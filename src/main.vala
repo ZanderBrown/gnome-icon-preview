@@ -7,6 +7,20 @@ namespace IconPreview {
 		COLOUR
 	}
 
+	// Adapted from one of the gtk demos
+	public void apply_css(Widget widget, CssProvider provider) {
+		var context = widget.get_style_context();
+		StyleProvider existing = widget.get_data("it-style-provider");
+		if (existing != null) {
+			context.remove_provider(existing);
+		}
+		context.add_provider(provider, uint.MAX - 10);
+		widget.set_data("it-style-provider", provider);
+		if (widget is Container) {
+			(widget as Container).forall(child => apply_css(child, provider));
+		}
+	}
+
 	public interface Previewer : Widget {
 		public abstract File previewing { get; set; }
 		public abstract Exporter exporter { owned get; }
@@ -45,16 +59,22 @@ namespace IconPreview {
 		public void about (Gtk.Window parent) {
 			var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};
 			var artists = new string[] {"Tobias Bernard"};
-			show_about_dialog (parent,
-				program_name: _("Icon Preview"),
-				logo_icon_name: "org.gnome.IconPreview",
-				version: PACKAGE_VERSION,
-				copyright: _("Copyright © 2018 Zander Brown"),
-				license_type: License.GPL_3_0,
-				authors: authors,
-				artists: artists,
-				website: "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
-				website_label: _("Repository"));
+			var helpers = new string[] {"Jordan Petridis"};
+			var dlg = new AboutDialog () {
+				transient_for = parent,
+				modal = true,
+				program_name = _("Icon Preview"),
+				logo_icon_name = "org.gnome.IconPreview",
+				version = PACKAGE_VERSION,
+				copyright = _("Copyright © 2018 Zander Brown"),
+				license_type = GPL_3_0,
+				authors = authors,
+				artists = artists,
+				website = "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
+				website_label = _("Repository")
+			};
+			dlg.add_credit_section(_("Kept sane by"), helpers);
+			dlg.show();
 		}
 
 		// Handler for app.palette

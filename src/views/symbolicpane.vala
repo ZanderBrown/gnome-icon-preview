@@ -44,7 +44,7 @@ namespace IconPreview {
 				} else {
 					provider = CssProvider.get_named(_theme, null);
 				}
-				apply_css(this);
+				apply_css(this, provider);
 			}
 		}
 
@@ -70,20 +70,6 @@ namespace IconPreview {
 			});
 
 			theme = theme;
-		}
-
-		// Adapted from one of the gtk demos
-		private void apply_css(Widget widget) {
-			var context = widget.get_style_context();
-			StyleProvider existing = widget.get_data("pane-style-provider");
-			if (existing != null) {
-				context.remove_provider(existing);
-			}
-			context.add_provider(provider, uint.MAX - 10);
-			widget.set_data("pane-style-provider", provider);
-			if (widget is Container) {
-				(widget as Container).forall(apply_css);
-			}
 		}
 
 		public void load_samples (Icon[] samples) /*requires (samples.length == 20)*/ {
