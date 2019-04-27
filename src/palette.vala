@@ -40,7 +40,7 @@ namespace IconPreview {
 		}
 	}
 
-	[GtkTemplate (ui = "/org/gnome/IconPreview/palette.ui")]
+	[GtkTemplate (ui = "/org/gnome/IconPreview/Palette/palette.ui")]
 	class Palette : ApplicationWindow {
 		[GtkChild]
 		private Box blue;
@@ -74,6 +74,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "about", about },
+			{ "icon-preview", icon_preview },
 		};
 
 		// A hack to get construction to work properly
@@ -91,7 +92,7 @@ namespace IconPreview {
 			// Bind the actions
 			add_action_entries(entries, this);
 
-			var file = File.new_for_uri("resource:///org/gnome/IconPreview/palette.gpl");
+			var file = File.new_for_uri("resource:///org/gnome/IconPreview/Palette/palette.gpl");
 			var regex = /(?<r>\d+)\s+(?<g>\d+)\s+(?<b>\d+)\s+(?<name>\w+)/;
 			try {
 				var dis = new DataInputStream (file.read ());
@@ -156,10 +157,57 @@ namespace IconPreview {
 			Object(app: app);
 		}
 
+		// Handler for win.icon-preview
+		private void icon_preview () {
+			var context = Gdk.Display.get_default().get_app_launch_context();
+			context.set_icon_name ("org.gnome.IconPreview");
+
+			var palette = new DesktopAppInfo ("org.gnome.IconPreview.desktop");
+			try {
+				palette.launch (null, context);
+			} catch (Error e) {
+				warning ("Launching failed: %s\n", e.message);
+			}
+		}
+
 		// Show the about dialog, triggered by win.about
 		private void about () {
-			app.about(this);
+			about_app(this);
 		}
+	}
+
+	class Application : Gtk.Application {
+		construct {
+			flags = FLAGS_NONE;
+			application_id = "org.gnome.IconPreview.Palette";
+		}
+
+		public override void activate () {
+			if (active_window != null)
+				active_window.show();
+			var win = new Palette(this);
+			win.show();
+		}
+
+		public override void startup () {
+			base.startup();
+
+			Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
+		}
+	}
+
+	public int main (string[] args) {
+		Gtk.Window.set_default_icon_name("org.gnome.IconPreview.Palette");
+
+		Intl.setlocale (LocaleCategory.ALL, "");
+		Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
+		Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+		Intl.textdomain (GETTEXT_PACKAGE);
+
+		Environment.set_application_name(_("Colour Palette"));
+
+		var app = new Application();
+		return app.run(args);
 	}
 }
 

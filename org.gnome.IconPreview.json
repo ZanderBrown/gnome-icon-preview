@@ -6,7 +6,8 @@
     "command" : "gnome-icon-preview",
     "finish-args" : [
         "--share=ipc",
-        "--socket=x11",
+        "--device=dri",
+        "--socket=fallback-x11",
         "--socket=wayland",
         "--filesystem=home",
         "--filesystem=xdg-run/dconf",
@@ -23,8 +24,8 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
-                    "tag" : "3.30.2",
-                    "commit" : "27c741ad67cd07073d4c7ee9930789832494d028"
+                    "tag" : "3.32.1",
+                    "commit" : "7e3154edeecd97aef8bd4a89e3c2fe941e0ef59f"
                 }
             ]
         },

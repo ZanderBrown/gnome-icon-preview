@@ -18,7 +18,6 @@ namespace IconPreview {
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
-			{ "new-window", new_window },
 			{ "screenshot", screenshot },
 			{ "recents", open_recent },
 			{ "refresh", refresh },
@@ -206,11 +205,6 @@ namespace IconPreview {
 			}
 		}
 
-		// Open a new window (win.new-window)
-		private void new_window () {
-			new Window(application as Application).show();
-		}
-
 		// Screenshot the previewer
 		private void screenshot () requires (content.visible_child is Previewer) {
 			var buf = (content.visible_child as Previewer).screenshot();
@@ -270,7 +264,7 @@ namespace IconPreview {
 
 		// Show the about dialog, triggered by win.about
 		private void about () {
-			app.about(this);
+			about_app(this);
 		}
 	}
 }

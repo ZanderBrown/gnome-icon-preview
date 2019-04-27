@@ -42,6 +42,7 @@ namespace IconPreview {
 	public class Application : Dazzle.Application {
 		const GLib.ActionEntry[] entries = {
 			{ "palette", palette },
+			{ "new-window", new_window },
 			{ "quit",  quit  }
 		};
 
@@ -56,30 +57,22 @@ namespace IconPreview {
 			add_main_option ("palette", 'p', IN_MAIN, NONE, _("Open colour palette"), null);
 		}
 
-		public void about (Gtk.Window parent) {
-			var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};
-			var artists = new string[] {"Tobias Bernard"};
-			var helpers = new string[] {"Jordan Petridis"};
-			var dlg = new AboutDialog () {
-				transient_for = parent,
-				modal = true,
-				program_name = _("Icon Preview"),
-				logo_icon_name = "org.gnome.IconPreview",
-				version = PACKAGE_VERSION,
-				copyright = _("Copyright © 2018 Zander Brown"),
-				license_type = GPL_3_0,
-				authors = authors,
-				artists = artists,
-				website = "https://gitlab.gnome.org/ZanderBrown/icon-tool/",
-				website_label = _("Repository")
-			};
-			dlg.add_credit_section(_("Kept sane by"), helpers);
-			dlg.show();
-		}
-
 		// Handler for app.palette
 		private void palette () {
-			new Palette(this).show();
+			var context = Gdk.Display.get_default().get_app_launch_context();
+			context.set_icon_name ("org.gnome.IconPreview.Palette");
+
+			var palette = new DesktopAppInfo ("org.gnome.IconPreview.Palette.desktop");
+			try {
+				palette.launch (null, context);
+			} catch (Error e) {
+				warning ("Launching failed: %s\n", e.message);
+			}
+		}
+
+		// Open a new window (app.new-window)
+		private void new_window () {
+			new Window(this).show();
 		}
 
 		public override void activate () {
@@ -104,7 +97,7 @@ namespace IconPreview {
 			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
 
 			set_accels_for_action ("win.open", { "<primary>O" });
-			set_accels_for_action ("win.new-window", { "<primary>N" });
+			set_accels_for_action ("app.new-window", { "<primary>N" });
 			set_accels_for_action ("win.recents", { "<primary><shift>O" });
 			set_accels_for_action ("win.refresh", { "<primary>R" });
 			set_accels_for_action ("win.export", { "<primary>E" });

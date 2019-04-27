@@ -4,7 +4,7 @@
 		<section id="app">
 			<item>
 				<attribute name="label" translatable="yes">_New Window</attribute>
-				<attribute name="action">win.new-window</attribute>
+				<attribute name="action">app.new-window</attribute>
 			</item>
 			<item>
 				<attribute name="label" translatable="yes">_Colour Palette</attribute>
@@ -40,9 +40,15 @@
 		</section>
 	</menu>
 	<menu id="win-palette-menu">
+		<section id="app">
+			<item>
+				<attribute name="label" translatable="yes">_Icon Preview</attribute>
+				<attribute name="action">win.icon-preview</attribute>
+			</item>
+		</section>
 		<section id="help">
 			<item>
-				<attribute name="label" translatable="yes">_About Icon Preview</attribute>
+				<attribute name="label" translatable="yes">_About Colour Palette</attribute>
 				<attribute name="action">win.about</attribute>
 			</item>
 		</section>

@@ -18,7 +18,7 @@ namespace IconPreview {
 			expand = false;
 			valign = CENTER;
 
-			label.ellipsize = MIDDLE;
+			label.ellipsize = END;
 			label.max_width_chars = 30;
 
 			bind_property("icon", image, "gicon");
