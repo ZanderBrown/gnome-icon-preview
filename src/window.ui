@@ -78,6 +78,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                     <property name="action_name">win.new-icon</property>
                     <property name="action_target">'colour'</property>
                   </object>
@@ -92,6 +93,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="halign">center</property>
                     <property name="action_name">win.new-icon</property>
                     <property name="action_target">'symbolic'</property>
                   </object>
