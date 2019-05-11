@@ -16,7 +16,18 @@ namespace IconPreview {
 			}
 			set {
 				_icon = value;
-				light.icon = dark.icon = new FileIcon(_icon);
+				var svg = new Rsvg.Handle.from_gfile_sync(_icon, FLAGS_NONE);
+				var hicolor = split_svg(svg, "#hicolor");
+				var symbolic = split_svg(svg, "#symbolic");
+
+				light.name = dark.name = _icon.get_basename();
+
+				if (hicolor != null) {
+					light.hicolor = dark.hicolor = hicolor;
+				} else {
+					light.hicolor = dark.hicolor = _icon;
+				}
+				light.symbolic = dark.symbolic = symbolic;
 			}
 		}
 
@@ -54,10 +65,10 @@ namespace IconPreview {
 
 		public void shuffle () {
 			var samples_names = random_selection(colours, 6);
-			var samples = new Icon[6];
+			var samples = new File[6];
 
 			for (var j = 0; j < 6; j++) {
-				samples[j] = new FileIcon(File.new_for_uri("resource:/" + RES_PATH + samples_names[j]));
+				samples[j] = File.new_for_uri("resource:/" + RES_PATH + samples_names[j]);
 			}
 
 			light.load_samples(samples);
@@ -116,6 +127,23 @@ namespace IconPreview {
 			Pango.cairo_show_layout (context, layout);
 
 			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, h);
+		}
+
+		private File? split_svg(Rsvg.Handle svg, string id) {
+			if (svg.has_sub(id)) {
+				FileIOStream stream;
+				var temp_file = File.new_tmp("XXXXXX-" + id.substring(1, -1) +".svg", out stream);
+				Rsvg.Rectangle size;
+				Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
+				svg.get_geometry_for_element(id, viewport, null, out size);
+				var surface = new Cairo.SvgSurface(temp_file.get_path(), 128, 128);
+				var cr = new Cairo.Context(surface);
+				cr.scale(128/size.width, 128/size.height);
+				cr.translate(-size.x, -size.y);
+				svg.render_cairo(cr);
+				return temp_file;
+			}
+			return null;
 		}
 	}
 }

@@ -37,20 +37,19 @@ namespace IconPreview {
 					// Hopefully this doesn't render the SVG?
 					var svg = new Rsvg.Handle.from_gfile_sync(value, FLAGS_NONE);
 
-					var width = 0;
-					var height = 0;
+					Rsvg.Rectangle hicolor = { 0.0, 0.0, svg.width, svg.height };
 
-					// Rsvg.Rectangle logical;
-					// svg.get_geometry_sub(null, out logical, null);
+					Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
+					if (svg.has_sub("#hicolor")) {
+						svg.get_geometry_for_element("#hicolor", viewport, null ,out hicolor);
+					}
 
-					width = svg.width;
-					height = svg.height;
-
-					// Colour (App) icons must be 128 by 128
-					if (height == 128 && width == 128) {
+					// Colour (App) icons must be 128 by 128 and
+					// and can contain a simbolic icon
+					if (hicolor.height == 128 && hicolor.width == 128) {
 						mode = COLOUR;
 					// Whereas symbolics are 16 by 16
-					} else if (height == 16 && width == 16) {
+					} else if (svg.height == 16 && svg.width == 16) {
 						mode = SYMBOLIC;
 					// And anything else is unsupported
 					} else {

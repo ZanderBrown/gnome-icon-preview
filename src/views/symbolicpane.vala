@@ -37,7 +37,10 @@ namespace IconPreview {
 				return _theme;
 			}
 			set {
+				var context = get_style_context();
+				context.remove_class("theme-" + _theme);
 				_theme = value;
+				context.add_class("theme-" + _theme);
 				var parts = _theme.split("-");
 				if (parts.length > 1 && parts[1] == "dark") {
 					provider = CssProvider.get_named(parts[0], "dark");

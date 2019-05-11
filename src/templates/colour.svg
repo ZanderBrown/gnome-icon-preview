@@ -13,16 +13,16 @@
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
    inkscape:export-filename="Template.png"
-   width="128"
-   height="128"
+   width="192"
+   height="152"
    id="svg11300"
    sodipodi:version="0.32"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="template.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
    style="display:inline;enable-background:new"
-   viewBox="0 0 128 128">
+   viewBox="0 0 192 152">
   <title
      id="title4162">Adwaita Icon Template</title>
   <defs
@@ -346,25 +346,6 @@
          offset="1"
          id="stop1243" />
     </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1697"
-       id="linearGradient1694"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(2,-22)"
-       x1="50"
-       y1="238"
-       x2="74"
-       y2="238" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1245"
-       id="linearGradient1696"
-       gradientUnits="userSpaceOnUse"
-       x1="65"
-       y1="204"
-       x2="65"
-       y2="200" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath1289">
@@ -580,6 +561,25 @@
        y1="619.96387"
        x2="568"
        y2="619.96387" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1697"
+       id="linearGradient1278"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(2,-22)"
+       x1="50"
+       y1="238"
+       x2="74"
+       y2="238" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1245"
+       id="linearGradient1280"
+       gradientUnits="userSpaceOnUse"
+       x1="65"
+       y1="204"
+       x2="65"
+       y2="200" />
   </defs>
   <sodipodi:namedview
      stroke="#ef2929"
@@ -590,10 +590,10 @@
      borderopacity="0.25490196"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="-51.790628"
-     inkscape:cy="-54.117604"
-     inkscape:current-layer="layer9"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="-16.018274"
+     inkscape:cy="11.797527"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
@@ -623,12 +623,13 @@
      inkscape:snap-intersection-paths="true"
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:snap-bbox-midpoints="true"
-     showborder="false"
+     showborder="true"
      inkscape:snap-center="true"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-midpoints="true"
      inkscape:snap-smooth-nodes="true"
-     inkscape:snap-text-baseline="true">
+     inkscape:snap-text-baseline="true"
+     borderlayer="true">
     <inkscape:grid
        type="xygrid"
        id="grid5883"
@@ -637,59 +638,59 @@
        enabled="true"
        visible="true"
        empspacing="4"
-       originx="0"
-       originy="0" />
+       originx="8"
+       originy="8" />
     <sodipodi:guide
-       position="64,8"
+       position="72,16"
        orientation="0,1"
        id="guide1073"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="12,64"
+       position="20,72"
        orientation="1,0"
        id="guide1075"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,104"
+       position="72,112"
        orientation="0,1"
        id="guide1099"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,128"
+       position="72,136"
        orientation="0,1"
        id="guide993"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="104,64"
+       position="112,72"
        orientation="1,0"
        id="guide995"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="9.2651362e-08,64"
+       position="8.0000001,72"
        orientation="1,0"
        id="guide867"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="120,64"
+       position="128,72"
        orientation="1,0"
        id="guide869"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,116"
+       position="72,124"
        orientation="0,1"
        id="guide871"
        inkscape:locked="false"
@@ -705,72 +706,74 @@
        opacity="0.49019608"
        empcolor="#000000"
        empopacity="0.08627451"
-       dotted="true" />
+       dotted="true"
+       originx="8"
+       originy="8" />
     <sodipodi:guide
-       position="24,64"
+       position="32,72"
        orientation="1,0"
        id="guide877"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="116,64"
+       position="124,72"
        orientation="1,0"
        id="guide879"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,120"
+       position="72,128"
        orientation="0,1"
        id="guide881"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,12"
+       position="72,20"
        orientation="0,1"
        id="guide883"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="8,64"
+       position="16,72"
        orientation="1,0"
        id="guide885"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="128,64"
+       position="136,72"
        orientation="1,0"
        id="guide887"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,0"
+       position="72,8"
        orientation="0,1"
        id="guide897"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,24"
+       position="72,32"
        orientation="0,1"
        id="guide899"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="256,256"
+       position="264,264"
        orientation="-0.70710678,0.70710678"
        id="guide950"
        inkscape:locked="false"
        inkscape:label=""
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="64,64"
+       position="72,72"
        orientation="0.70710678,0.70710678"
        id="guide952"
        inkscape:locked="false"
@@ -841,7 +844,30 @@
      inkscape:label="App Icon"
      inkscape:groupmode="layer"
      style="display:inline"
-     transform="translate(0,-172)">
+     transform="translate(8,-156)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer4"
+       inkscape:label="template"
+       style="display:inline"
+       sodipodi:insensitive="true">
+      <rect
+         inkscape:label="0"
+         y="172"
+         x="9.2651362e-08"
+         height="128"
+         width="128"
+         id="hicolor"
+         style="display:inline;overflow:visible;visibility:visible;fill:#f0f0f0;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:0.5;marker:none;enable-background:accumulate" />
+      <rect
+         style="display:inline;overflow:visible;visibility:visible;fill:#f0f0f0;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:0.5;marker:none;enable-background:accumulate"
+         id="symbolic"
+         width="16"
+         height="16"
+         x="160"
+         y="172"
+         inkscape:label="0" />
+    </g>
     <g
        inkscape:groupmode="layer"
        id="layer2"
@@ -1010,12 +1036,12 @@
          inkscape:export-ydpi="12" />
       <rect
          style="display:inline;overflow:visible;visibility:visible;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;marker:none;enable-background:accumulate"
-         id="rect13805"
+         id="128"
          width="128"
          height="128"
          x="9.2651362e-08"
          y="172"
-         inkscape:label="512x512" />
+         inkscape:label="0" />
       <g
          id="g883"
          style="fill:none;fill-opacity:0.25098039;stroke:#a579b3;stroke-opacity:1"
@@ -1025,33 +1051,33 @@
          style="fill:none;fill-opacity:0.25098039;stroke:#a579b3;stroke-opacity:1"
          transform="translate(-24,24)" />
       <rect
-         inkscape:label="512x512"
+         inkscape:label=""
          y="172"
          x="160"
          height="16"
          width="16"
-         id="rect859"
+         id="16"
          style="display:inline;overflow:visible;visibility:visible;fill:#f0f0f0;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.5;marker:none;enable-background:accumulate" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;line-height:125%;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33264872;enable-background:new"
          x="0"
-         y="164"
+         y="167"
          id="text863"
          inkscape:label="icon-name"><tspan
            style="font-size:4px;stroke-width:0.33264872"
            sodipodi:role="line"
            id="tspan861"
            x="0"
-           y="164">Hicolor</tspan></text>
+           y="167">Hicolor</tspan></text>
       <text
          inkscape:label="icon-name"
          id="text867"
-         y="164"
+         y="167"
          x="160"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4px;line-height:125%;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.33264872;enable-background:new"
          xml:space="preserve"><tspan
-           y="164"
+           y="167"
            x="160"
            id="tspan865"
            sodipodi:role="line"
@@ -1360,51 +1386,6 @@
              style="display:inline;fill:none;stroke:#62a0ea;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" />
         </g>
       </g>
-    </g>
-    <g
-       inkscape:groupmode="layer"
-       id="layer3"
-       inkscape:label="hairlines"
-       style="display:inline"
-       sodipodi:insensitive="true">
-      <circle
-         cx="64.000031"
-         cy="236"
-         r="59.504131"
-         id="circle2892"
-         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
-      <rect
-         ry="7.9292889"
-         rx="8.701004"
-         y="180.49496"
-         x="20.495007"
-         height="111.01005"
-         width="87.009987"
-         id="rect2894"
-         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
-      <rect
-         ry="7.9238095"
-         rx="7.9238095"
-         y="184.49524"
-         x="12.495266"
-         height="103.00952"
-         width="103.00952"
-         id="rect2896"
-         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
-      <rect
-         ry="8.701005"
-         rx="7.9292889"
-         y="200.49496"
-         x="8.4950066"
-         height="87.010048"
-         width="111.01004"
-         id="rect2898"
-         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path2900"
-         d="M 2.6203015e-5,288.99999 H 128.00003"
-         style="display:inline;fill:none;stroke:#62a0ea;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" />
     </g>
     <g
        inkscape:groupmode="layer"
@@ -2861,6 +2842,51 @@
       </g>
     </g>
     <g
+       inkscape:groupmode="layer"
+       id="layer3"
+       inkscape:label="grid"
+       style="display:inline"
+       sodipodi:insensitive="true">
+      <circle
+         cx="64.000031"
+         cy="236"
+         r="59.504131"
+         id="circle2892"
+         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
+      <rect
+         ry="7.9292889"
+         rx="8.701004"
+         y="180.49496"
+         x="20.495007"
+         height="111.01005"
+         width="87.009987"
+         id="rect2894"
+         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
+      <rect
+         ry="7.9238095"
+         rx="7.9238095"
+         y="184.49524"
+         x="12.495266"
+         height="103.00952"
+         width="103.00952"
+         id="rect2896"
+         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
+      <rect
+         ry="8.701005"
+         rx="7.9292889"
+         y="200.49496"
+         x="8.4950066"
+         height="87.010048"
+         width="111.01004"
+         id="rect2898"
+         style="display:inline;opacity:0.1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.99000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.99000001, 0.99000001;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal;enable-background:new" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path2900"
+         d="M 2.6203015e-5,288.99999 H 128.00003"
+         style="display:inline;fill:none;stroke:#62a0ea;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;enable-background:new" />
+    </g>
+    <g
        id="g1648"
        transform="translate(-120.50005,-26)">
       <g
@@ -2928,7 +2954,7 @@
              inkscape:connector-curvature="0"
              id="path26035"
              d="m 55,196 h 18 c 1.662,0 3,1 3,3 v 5 H 72.03125 L 72,200 H 56 l 0.03125,4 H 52 v -5 c 0,-1.662 1.338,-3 3,-3 z"
-             style="opacity:1;vector-effect:none;fill:url(#linearGradient1694);fill-opacity:1;stroke:none;stroke-width:0.01184966px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal" />
+             style="opacity:1;vector-effect:none;fill:url(#linearGradient1278);fill-opacity:1;stroke:none;stroke-width:0.01184966px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:normal" />
           <rect
              style="opacity:0.1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
              id="rect1059"
@@ -2939,7 +2965,7 @@
              ry="1.5"
              rx="1.5" />
           <path
-             style="opacity:1;fill:url(#linearGradient1696);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             style="opacity:1;fill:url(#linearGradient1280);fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
              d="m 55,200 c -1.662,0 -3,1.338 -3,3 v 1 h 4 v -2 h 16 v 2 h 4 v -1 c 0,-1.662 -1.338,-3 -3,-3 z"
              id="rect1061"
              inkscape:connector-curvature="0"

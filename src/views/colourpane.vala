@@ -4,10 +4,10 @@ namespace IconPreview {
 	public class DemoIcon : Box {
 		private Image image = new Image();
 		private Label label = new Label(null);
+		public File ?file { get; construct set; }
+		public string ?name { get; set; }
 
-		public Icon icon { get; set; }
 		public int size { get; construct set; default = 96; }
-
 		class construct {
 			set_css_name("demo-icon");
 		}
@@ -21,13 +21,14 @@ namespace IconPreview {
 			label.ellipsize = END;
 			label.max_width_chars = 30;
 
-			bind_property("icon", image, "gicon");
 			bind_property("size", image, "pixel_size");
-			notify["icon"].connect(() => {
-				var basename = Path.get_basename(IconTheme.get_default().lookup_by_gicon(icon, 96, FORCE_SVG).get_filename());
-				var parts = basename.split(".");
-				label.label = parts[parts.length - 2];
-				label.tooltip_text = basename;
+			notify["file"].connect((s, p) => {
+				if (name != null) {
+					var parts = name.split(".");
+					label.label = parts[parts.length - 2];
+					label.tooltip_text = name;
+					image.gicon = new FileIcon(file);
+				}
 			});
 
 			pack_start(image);
@@ -53,7 +54,9 @@ namespace IconPreview {
 		CssProvider provider = null;
 		List<DemoIcon> randoms;
 
-		public Icon icon { get; set; default =  new ThemedIcon("start-here-symbolic");}
+		public File hicolor { get; set; }
+		public File ?symbolic { get; set; }
+		public string name { get; set; }
 
 		private string _theme = "Adwaita";
 		public string theme {
@@ -83,9 +86,33 @@ namespace IconPreview {
 		construct {
 			DemoIcon ico;
 
-			for (var i = 0; i < 3; i++) {
-				bind_property("icon", sizes.get_child_at(i, 0), "gicon");
-			}
+			notify["hicolor"].connect(() => {
+				if (symbolic == null) {
+					//hide the symbolic icon in the preview
+					sizes.get_child_at(0, 0).hide();
+					sizes.get_child_at(0, 1).hide();
+				}
+				FileIcon icon = new FileIcon(hicolor);
+				// Three different sizes {32, 64, 128};
+				for (var i = 0; i < 3; i++) {
+					var image = sizes.get_child_at(i + 1, 0) as Image;
+					image.set_from_gicon(icon, BUTTON);
+				}
+			});
+
+			notify["symbolic"].connect(() => {
+				if (symbolic != null) {
+					sizes.get_child_at(0, 1).show();
+					var image = sizes.get_child_at(0, 0) as Image;
+					image.show();
+					FileIcon icon = new FileIcon(symbolic);
+					image.set_from_gicon(icon, BUTTON);
+				} else {
+					//hide the symbolic icon in the preview
+					sizes.get_child_at(0, 0).hide();
+					sizes.get_child_at(0, 1).hide();
+				}
+			});
 
 			/* 64px                            */
 			for (var i = 0; i < 2; i++) {
@@ -94,8 +121,10 @@ namespace IconPreview {
 				randoms.append(ico);
 			}
 
+			/* add 64x64 users icon preivew */
 			ico = new DemoIcon(64);
-			bind_property("icon", ico, "icon");
+			bind_property("hicolor", ico, "file");
+			bind_property("name", ico, "name");
 			small.add(ico);
 
 			for (var i = 3; i < 5; i++) {
@@ -112,8 +141,10 @@ namespace IconPreview {
 			grid.add(ico);
 			randoms.append(ico);
 
+			/* add 96x96 users icon preivew */
 			ico = new DemoIcon(96);
-			bind_property("icon", ico, "icon");
+			bind_property("hicolor", ico, "file");
+			bind_property("name", ico, "name");
 			grid.add(ico);
 
 			ico = new DemoIcon(96);
@@ -125,11 +156,12 @@ namespace IconPreview {
 			theme = theme;
 		}
 
-		public void load_samples (Icon[] samples) requires (samples.length == randoms.length()) {
+		public void load_samples (File[] samples) requires (samples.length == randoms.length()) {
 			// Don't like how much of this is hardcoded
 			var idx = 0;
 			foreach (var sample in randoms) {
-				sample.icon = samples[idx];
+				sample.name = samples[idx].get_basename();
+				sample.file = samples[idx];
 				idx++;
 			}
 		}
