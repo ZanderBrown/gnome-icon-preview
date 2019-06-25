@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.gnome.IconPreview.Palette
-Exec=@BINDIR@/gnome-icon-palette --gapplication-service

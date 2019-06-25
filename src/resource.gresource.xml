@@ -6,8 +6,6 @@
     <file>wizard.ui</file>
     <file>saver.ui</file>
     <file>window.ui</file>
-    <file>palette.ui</file>
-    <file alias="palette.gpl">hig/GNOME HIG.gpl</file>
     <file alias="colourpane.ui">views/colourpane.ui</file>
     <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
     <file>exporter/symbolic.ui</file>

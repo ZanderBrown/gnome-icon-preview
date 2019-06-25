@@ -1,6 +1,5 @@
 deps = [
 	dependency('gtk+-3.0'),
-	dependency('gio-unix-2.0'),
 	dependency('librsvg-2.0'),
 	dependency('libdazzle-1.0'),
 	dependency('libhandy-0.0')
@@ -43,16 +42,4 @@ sources += gnome.compile_resources('wallpapers',
 )
 
 executable('gnome-icon-preview', sources, dependencies: deps, install: true)
-
-palette_sources = [
-	config,
-	'common.vala',
-	'palette.vala',
-]
-
-palette_sources += gnome.compile_resources('palette',
-  'palette.gresource.xml'
-)
-
-executable('gnome-icon-palette', palette_sources, dependencies: deps, install: true)
 

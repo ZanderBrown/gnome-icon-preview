@@ -41,7 +41,6 @@ namespace IconPreview {
 
 	public class Application : Dazzle.Application {
 		const GLib.ActionEntry[] entries = {
-			{ "palette", palette },
 			{ "new-window", new_window },
 			{ "quit",  quit  }
 		};
@@ -53,21 +52,7 @@ namespace IconPreview {
 			application_id = "org.gnome.IconPreview";
 			flags = HANDLES_OPEN | HANDLES_COMMAND_LINE;
 
-			// Open the palette instead of a normal window
-			add_main_option ("palette", 'p', IN_MAIN, NONE, _("Open colour palette"), null);
-		}
-
-		// Handler for app.palette
-		private void palette () {
-			var context = Gdk.Display.get_default().get_app_launch_context();
-			context.set_icon_name ("org.gnome.IconPreview.Palette");
-
-			var palette = new DesktopAppInfo ("org.gnome.IconPreview.Palette.desktop");
-			try {
-				palette.launch (null, context);
-			} catch (Error e) {
-				warning ("Launching failed: %s\n", e.message);
-			}
+			add_main_option ("palette", 'p', IN_MAIN, NONE, _("no longer supported"), null);
 		}
 
 		// Open a new window (app.new-window)
@@ -113,7 +98,8 @@ namespace IconPreview {
 
 			// If opening the palette directly
 			if (options.contains("palette")) {
-				palette();
+				cli.printerr(_("Palette is all grown up!\n" +
+				               "It's not available seperatly as org.gnome.zbrown.Palette"));
 
 				// Don't activate normally
 				return 0;
