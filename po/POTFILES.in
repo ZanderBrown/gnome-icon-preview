@@ -3,6 +3,7 @@ data/org.gnome.IconPreview.desktop.in
 src/exporter/colour.ui
 src/exporter/symbolic.ui
 src/views/colourpane.ui
+src/views/symbolic.vala
 src/views/symbolicpane.ui
 src/help-overlay.ui
 src/menus.ui
