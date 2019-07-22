@@ -23,8 +23,8 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/libdazzle.git",
-                    "tag" : "3.32.1",
-                    "commit" : "7e3154edeecd97aef8bd4a89e3c2fe941e0ef59f"
+                    "tag" : "3.32.2",
+                    "commit" : "43a8284ec1ccf626dcedfe748f43e65ad051cb66"
                 }
             ]
         },
@@ -40,8 +40,8 @@
                 {
                     "type" : "git",
                     "url" : "https://source.puri.sm/Librem5/libhandy.git",
-                    "tag" : "v0.0.9",
-                    "commit" : "56b0aa62f6251ee19a88fc208b7ca8dcf9c9633c"
+                    "tag" : "v0.0.10",
+                    "commit" : "2d777677352d037b6f5cc24d9c1c8d9a74ac0ded"
                 }
             ],
             "cleanup" : [
