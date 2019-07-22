@@ -16,13 +16,10 @@ namespace IconPreview {
 			set {
 				_icon = value;
 				light.icon = dark.icon = new FileIcon(_icon);
-				if (_icon.get_basename().contains("-symbolic")) {
-					this.info_bar.hide();
-				} else {
-					this.info_bar.show_all();
-				}
+				this.info_bar.visible = !_icon.get_basename().down().has_suffix("-symbolic.svg");
 			}
 		}
+
 		public Symbolic () {
 			Object(orientation: Orientation.VERTICAL);
 		}
@@ -58,12 +55,29 @@ namespace IconPreview {
 			panes_container.pack_start(light);
 			panes_container.pack_end(dark);
 
-			var warning_label = new Label(_("The icon is not recoloring because the file name needs to end in \"-symbolic\""));
-			warning_label.set_halign(START);
-			warning_label.set_valign(CENTER);
+			var rename_button = new Button.with_label(_("Rename"));
+			rename_button.clicked.connect(() => {
+				try {
+					var icon_uri = this._icon.get_uri();
+					var new_fileuri = icon_uri.substring(0, icon_uri.length - 4) + "-symbolic.svg";
+					var destination = File.new_for_uri(new_fileuri);
+					this._icon.move(destination, NONE);
+					previewing = destination;
+				} catch (Error e) {
+					critical("Unable to rename the symbolic icon: %s", e.message);
+				}
+			});
+			rename_button.show();
+			info_bar.add_action_widget(rename_button, 0);
 
 			var content_area = info_bar.get_content_area();
+			var warning_label = new Label(_("The icon is not recoloring because the file name needs to end in \"-symbolic\""));
+			warning_label.halign = START;
+			warning_label.set_valign(CENTER);
+			warning_label.show();
+
 			var warning_img = new Image.from_icon_name("dialog-warning-symbolic", LARGE_TOOLBAR);
+			warning_img.show();
 			content_area.add(warning_img);
 			content_area.add(warning_label);
 			content_area.margin = 6;
