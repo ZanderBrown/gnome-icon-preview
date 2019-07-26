@@ -55,7 +55,7 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/ZanderBrown/icon-tool.git"
+                    "url" : "https://gitlab.gnome.org/World/design/icon-preview.git"
                 }
             ]
         }
