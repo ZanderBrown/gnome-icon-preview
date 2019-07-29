@@ -15,7 +15,7 @@ namespace IconPreview {
 			license_type = GPL_3_0,
 			authors = authors,
 			artists = artists,
-			website = "https://gitlab.gnome.org/World/design/icon-preview/",
+			website = "https://gitlab.gnome.org/World/design/icon-tool/",
 			website_label = _("Repository")
 		};
 		dlg.add_credit_section(_("Kept sane by"), helpers);
