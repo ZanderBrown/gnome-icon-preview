@@ -77,11 +77,7 @@ namespace IconPreview {
 
 		public Gdk.Pixbuf screenshot () {
 			var w = get_allocated_width();
-			var h = get_allocated_height();
-			var surface = new Cairo.ImageSurface (ARGB32, w, h);
-			var context = new Cairo.Context (surface);
-
-			draw(context);
+			var content_h = get_allocated_height();
 
 			Gdk.Pixbuf logo;
 			try {
@@ -92,13 +88,20 @@ namespace IconPreview {
 			}
 			var layout = create_pango_layout (_("Icon Preview"));
 
-			var padding = 8;
+			var padding = 6;
 
 			var img_height = logo.get_height();
 			var img_width = logo.get_width();
 			Pango.Rectangle txt_extents;
 
 			layout.get_pixel_extents(null, out txt_extents);
+
+			var bottom_bar = int.max(img_height, txt_extents.height) + (padding * 2);
+
+			var surface = new Cairo.ImageSurface (ARGB32, w, content_h + bottom_bar);
+			var context = new Cairo.Context (surface);
+
+			draw(context);
 
 			var img_x = 0;
 			var txt_x = img_width + padding;
@@ -107,12 +110,12 @@ namespace IconPreview {
 				txt_x = 0;
 			}
 
-			var img_y = 0;
+			var img_y = content_h;
 			var txt_y = 0;
 			if (txt_extents.height < img_height) {
-				txt_y = (img_height - txt_extents.height) / 2;
+				txt_y = content_h + (img_height - txt_extents.height) / 2;
 			} else {
-				img_y = (txt_extents.height - img_height) / 2;
+				img_y = content_h + (txt_extents.height - img_height) / 2;
 			}
 
 			context.save();
@@ -126,7 +129,7 @@ namespace IconPreview {
 			context.move_to (padding + txt_x, padding + txt_y);
 			Pango.cairo_show_layout (context, layout);
 
-			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, h);
+			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, content_h + bottom_bar);
 		}
 
 		private File? split_svg(Rsvg.Handle svg, string id) {
