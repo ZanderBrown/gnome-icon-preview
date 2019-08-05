@@ -15,6 +15,7 @@ namespace IconPreview {
 			license_type = GPL_3_0,
 			authors = authors,
 			artists = artists,
+			translator_credits = _("translator-credits"),
 			website = "https://gitlab.gnome.org/World/design/icon-tool/",
 			website_label = _("Repository")
 		};
