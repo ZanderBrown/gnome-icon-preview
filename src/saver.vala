@@ -53,7 +53,7 @@ namespace IconPreview {
 				var file = File.new_build_filename(Environment.get_home_dir(), "Projects", "Icons", name, null);
 				dlg.set_file(file);
 			} catch (Error e) {
-				warning("Can't set inital file: %s", e.message);
+				warning("Can't set initial file: %s", e.message);
 			}
 
 			var any = new Gtk.FileFilter ();

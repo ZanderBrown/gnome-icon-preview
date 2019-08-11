@@ -110,7 +110,7 @@
                     <property name="wrap">true</property>
                     <property name="max-width-chars">28</property>
                     <property name="justify">center</property>
-                    <property name="label" translatable="yes">An application's identity</property>
+                    <property name="label" translatable="yes">An application’s identity</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>

@@ -45,7 +45,7 @@ namespace IconPreview {
 					}
 
 					// Colour (App) icons must be 128 by 128 and
-					// and can contain a simbolic icon
+					// and can contain a symbolic icon
 					if (hicolor.height == 128 && hicolor.width == 128) {
 						mode = COLOUR;
 					// Whereas symbolics are 16 by 16
@@ -164,7 +164,7 @@ namespace IconPreview {
 			view.exporter.close.connect(() => pop.popdown());
 			exportbtn.popover = pop;
 			if (old is Previewer) {
-				// Effectivly close the old previewer
+				// Effectively close the old previewer
 				old.destroy();
 			} else {
 				// We have an open file now

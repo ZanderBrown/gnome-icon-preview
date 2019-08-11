@@ -10,7 +10,7 @@
         <property name="visible">True</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Application</property>
+            <property name="title" translatable="yes" context="shortcut window">Application</property>
             <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
@@ -30,7 +30,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;&lt;shift&gt;o</property>
-                <property name="title" translatable="yes" context="shortcut window">Open the recents list</property>
+                <property name="title" translatable="yes" context="shortcut window">Open the recent list</property>
               </object>
             </child>
             <child>
@@ -51,7 +51,7 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">View</property>
+            <property name="title" translatable="yes" context="shortcut window">View</property>
             <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
@@ -78,7 +78,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;&lt;alt&gt;s</property>
-                <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
+                <property name="title" translatable="yes" context="shortcut window">Take screenshot</property>
               </object>
             </child>
             <child>

@@ -71,7 +71,7 @@ namespace IconPreview {
 			info_bar.add_action_widget(rename_button, 0);
 
 			var content_area = info_bar.get_content_area();
-			var warning_label = new Label(_("The icon is not recoloring because the file name needs to end in \"-symbolic\""));
+			var warning_label = new Label(_("The icon is not recoloring because the file name needs to end in “-symbolic”"));
 			warning_label.halign = START;
 			warning_label.set_valign(CENTER);
 			warning_label.show();

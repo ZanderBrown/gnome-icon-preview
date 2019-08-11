@@ -78,7 +78,7 @@ namespace IconPreview {
 
 			var styles = new CssProvider();
 			styles.load_from_resource("/org/gnome/IconPreview/gtk/style.css");
-			// Use of uint.MAX isn't ideal but we are effectivly in an arms race
+			// Use of uint.MAX isn't ideal but we are effectively in an arms race
 			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
 
 			set_accels_for_action ("win.open", { "<primary>O" });
@@ -99,7 +99,7 @@ namespace IconPreview {
 			// If opening the palette directly
 			if (options.contains("palette")) {
 				cli.printerr(_("Palette is all grown up!\n" +
-				               "It's not available seperatly as org.gnome.zbrown.Palette"));
+				               "It’s now available separately as org.gnome.zbrown.Palette"));
 
 				// Don't activate normally
 				return 0;

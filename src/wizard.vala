@@ -34,7 +34,7 @@ namespace IconPreview {
 			if (mode == SYMBOLIC) {
 				title = _("New Symbolic Icon");
 				icon_type.label = _("Icon Name");
-				desc.label = _("All lowercase with dashes between words, e.g list-add");
+				desc.label = _("All lowercase with dashes between words, e.g. list-add");
 			} else {
 				title = _("New App Icon");
 				icon_type.label = _("App Name");
@@ -46,10 +46,10 @@ namespace IconPreview {
 				accept_button.sensitive = icon_title.text.length > 0;
 				if (mode == SYMBOLIC && !("-" in icon_title.text)) {
 					icon_title.secondary_icon_name = "dialog-warning-symbolic";
-					icon_title.secondary_icon_tooltip_text = _("Expecting at least one '-'");
+					icon_title.secondary_icon_tooltip_text = _("Expecting at least one “-”");
 				} else if (mode == COLOUR && !("." in icon_title.text)) {
 					icon_title.secondary_icon_name = "dialog-warning-symbolic";
-					icon_title.secondary_icon_tooltip_text = _("Expecting at least one '.'");
+					icon_title.secondary_icon_tooltip_text = _("Expecting at least one “.”");
 				} else {
 					icon_title.secondary_icon_name = null;
 					icon_title.secondary_icon_tooltip_text = null;
