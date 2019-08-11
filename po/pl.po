@@ -1,0 +1,375 @@
+# Polish translation for icon-tool.
+# Copyright © 2019 the icon-tool authors.
+# This file is distributed under the same license as the icon-tool package.
+# Piotr Drąg <piotrdrag@gmail.com>, 2019.
+# Aviary.pl <community-poland@mozilla.org>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: icon-tool\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"issues\n"
+"POT-Creation-Date: 2019-08-11 12:24+0000\n"
+"PO-Revision-Date: 2019-08-11 15:42+0200\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:8
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:122 src/saver.vala:60
+#: src/views/colour.vala:89 src/window.vala:142 src/window.vala:255
+msgid "Icon Preview"
+msgstr "Podgląd ikon"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Narzędzie do projektowania ikon"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr "Podgląd ikon to narzędzie do projektowania ikon dla środowiska GNOME."
+
+#: data/org.gnome.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Ekran powitalny"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Podgląd ikony programu"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:48
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Podgląd ikon"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Copyright © 2018-2019 Zander Brown"
+
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr ""
+"Piotr Drąg <piotrdrag@gmail.com>, 2019\n"
+"Aviary.pl <community-poland@mozilla.org>, 2019"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Repozytorium"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr "Pomocnicy:"
+
+#: src/exporter/colour.ui:14 src/exporter/symbolic.ui:17
+msgid ""
+"Export the icon for production use.\n"
+"Off-canvas objects are removed and the SVG is optimised for size"
+msgstr ""
+"Eksport ikony do użytku.\n"
+"Obiekty poza płótnem są usuwane, a rozmiar pliku SVG jest optymalizowany"
+
+#: src/exporter/colour.ui:60
+msgid "<b>Regular</b> (34 kB)"
+msgstr "<b>Zwykła</b> (34 kB)"
+
+#: src/exporter/colour.ui:71
+msgid "Save Regular As…"
+msgstr "Zapisz zwykłą jako…"
+
+#: src/exporter/colour.ui:122
+msgid "<b>Nightly</b> (39 kB)"
+msgstr "<b>Nightly</b> (39 kB)"
+
+#: src/exporter/colour.ui:133
+msgid "Save Nightly As…"
+msgstr "Zapisz Nightly jako…"
+
+#: src/exporter/symbolic.ui:50
+msgid "<b>Symbolic</b> (4 kB)"
+msgstr "<b>Symboliczna</b> (4 kB)"
+
+#: src/exporter/symbolic.ui:61
+msgid "Save Symbolic As…"
+msgstr "Zapisz symboliczną jako…"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Program"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Nowe okno"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Otwarcie ikony"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Otwarcie listy ostatnio używanych"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Otwarcie menu"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Zakończenie działania programu"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Widok"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Ponowne wczytanie ikony"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Eksport ikony"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Wymieszanie ikon"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Wykonanie zrzutu ekranu"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Przełączenie pełnego ekranu"
+
+#: src/main.vala:55
+msgid "no longer supported"
+msgstr "nie jest już obsługiwane"
+
+#. If opening the palette directly
+#: src/main.vala:101
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Paleta się usamodzielniła!\n"
+"Jest teraz dostępna jako program org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Nowe okno"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "_Wczytaj ponownie"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "Wykonaj _zrzut ekranu"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "Wy_mieszaj przykładowe ikony"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "Skróty _klawiszowe"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "_O programie"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Zamknij"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Zapisz…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Skopiuj do schowka"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Zapis zrzutu ekranu"
+
+#: src/saver.vala:48
+msgid "_Save"
+msgstr "_Zapisz"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Podgląd"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Zapisanie zrzutu ekranu się nie powiodło"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Przycisk"
+
+#: src/views/symbolicpane.ui:465
+msgid "Insensitive"
+msgstr "Nieaktywny"
+
+#: src/views/symbolicpane.ui:486
+msgid "Suggested"
+msgstr "Sugerowany"
+
+#: src/views/symbolicpane.ui:510
+msgid "Destructive"
+msgstr "Destrukcyjny"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Zmień nazwę"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr ""
+"Ikona nie jest przekoloryzowywana, ponieważ nazwa pliku musi kończyć się "
+"„-symbolic”"
+
+#: src/window.ui:37
+msgid "Make a new GNOME Icon"
+msgstr "Utworzenie nowej ikony GNOME"
+
+#: src/window.ui:77 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Nowa ikona programu"
+
+#: src/window.ui:92 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Nowa ikona symboliczna"
+
+#: src/window.ui:113
+msgid "An application’s identity"
+msgstr "Tożsamość programu"
+
+#: src/window.ui:128
+msgid "For actions, status and other things needed in apps"
+msgstr "Dla działań, stanu i innych rzeczy potrzebnych w programach"
+
+#: src/window.ui:160
+msgid "Open"
+msgstr "Otwórz"
+
+#: src/window.ui:164
+msgid "Open an icon"
+msgstr "Otwiera ikonę"
+
+#: src/window.ui:178
+msgid "Recent"
+msgstr "Ostatnio używane"
+
+#: src/window.ui:206
+msgid "Menu"
+msgstr "Menu"
+
+#: src/window.ui:229
+msgid "Export"
+msgstr "Wyeksportuj"
+
+#: src/window.vala:132
+msgid "This file is defective"
+msgstr "Ten plik jest wadliwy"
+
+#: src/window.vala:133
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Proszę zacząć od szablonu, aby zapewnić, że plik będzie działał jako ikona "
+"GNOME"
+
+#: src/window.vala:179
+msgid "Select Icon"
+msgstr "Wybór ikony"
+
+#: src/window.vala:179
+msgid "_Open"
+msgstr "_Otwórz"
+
+#: src/window.vala:182
+msgid "Icons"
+msgstr "Ikony"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Położenie ikony"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Zapis ikony"
+
+#: src/wizard.ui:92
+msgid "label"
+msgstr "etykieta"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Plik SVG ikony zostanie zapisany w tym katalogu"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Utwórz"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Nazwa ikony"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Małe znaki z myślnikami między wyrazami, np. „list-add”"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Nazwa programu"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Odwrotna notacja nazwy domeny, np. „org.inkscape.Inkscape”"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "Oczekiwano co najmniej jednego znaku „-”"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "Oczekiwano co najmniej jednego znaku „.”"
