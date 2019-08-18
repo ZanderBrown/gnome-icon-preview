@@ -1,0 +1,374 @@
+# Brazilian Portuguese translation for icon-tool.
+# Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
+# This file is distributed under the same license as the icon-tool package.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: icon-tool master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"issues\n"
+"POT-Creation-Date: 2019-08-16 09:23+0000\n"
+"PO-Revision-Date: 2019-08-18 01:10-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.32.0\n"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:8
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:122 src/saver.vala:60
+#: src/views/colour.vala:89 src/window.vala:142 src/window.vala:255
+msgid "Icon Preview"
+msgstr "Visualização de ícones"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Ferramenta para projetar ícones"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr ""
+"Visualização de ícones é uma ferramenta para projetar ícones que visam o "
+"ambiente GNOME."
+
+#: data/org.gnome.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Tela de saudação"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Visualizando um ícone de aplicativo"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:48
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Visualize ícones"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Copyright © 2018-19 Zander Brown"
+
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr "Rafael Fontenelle <rafaelff@gnome.org>"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Repositório"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr "Mantido são por"
+
+#: src/exporter/colour.ui:14 src/exporter/symbolic.ui:17
+msgid ""
+"Export the icon for production use.\n"
+"Off-canvas objects are removed and the SVG is optimised for size"
+msgstr ""
+"Exporte o ícone para uso em produção.\n"
+"Objetos fora da tela de pintura são removidos e o SVG é otimizado ao tamanho"
+
+#: src/exporter/colour.ui:60
+msgid "<b>Regular</b> (34 kB)"
+msgstr "<b>Comum</b> (34 kB)"
+
+#: src/exporter/colour.ui:71
+msgid "Save Regular As…"
+msgstr "Salvar comum como…"
+
+#: src/exporter/colour.ui:122
+msgid "<b>Nightly</b> (39 kB)"
+msgstr "<b>Nightly</b> (39 kB)"
+
+#: src/exporter/colour.ui:133
+msgid "Save Nightly As…"
+msgstr "Salvar nightly como…"
+
+#: src/exporter/symbolic.ui:50
+msgid "<b>Symbolic</b> (4 kB)"
+msgstr "<b>Simbólico</b> (4 kB)"
+
+#: src/exporter/symbolic.ui:61
+msgid "Save Symbolic As…"
+msgstr "Salvar simbólico como…"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Aplicativo"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Nova janela"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Abre um ícone"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Abre a lista de recentes"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Abre o menu"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Sai do aplicativo"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Visualização"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Recarrega o ícone"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Exporta o ícone"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Embaralha os ícones"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Captura a tela"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Ativa/desativa a tela cheia"
+
+#: src/main.vala:55
+msgid "no longer supported"
+msgstr "não há mais suporte"
+
+#. If opening the palette directly
+#: src/main.vala:101
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Paleta cresceu!\n"
+"Agora está disponível separadamente como org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Nova janela"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "_Recarregar"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "Captura _tela"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "_Embaralhar ícones de exemplo"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "Atalhos de _teclado"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "_Sobre o Visualização de ícones"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Fechar"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Salvar…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Copiar para área de transferência"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Salvar captura de tela"
+
+#: src/saver.vala:48
+msgid "_Save"
+msgstr "_Salvar"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Visualizar"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Falha ao salvar a captura de tela"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Botão"
+
+#: src/views/symbolicpane.ui:465
+msgid "Insensitive"
+msgstr "Insensível"
+
+#: src/views/symbolicpane.ui:486
+msgid "Suggested"
+msgstr "Sugerido"
+
+#: src/views/symbolicpane.ui:510
+msgid "Destructive"
+msgstr "Destrutivo"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Renomear"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr ""
+"O ícone não é recolorido porque o nome de arquivo precisa terminar em “-"
+"symbolic”"
+
+#: src/window.ui:37
+msgid "Make a new GNOME Icon"
+msgstr "Crie um novo ícone do GNOME"
+
+#: src/window.ui:77 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Novo ícone de aplicativo"
+
+#: src/window.ui:92 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Novo ícone simbólico"
+
+#: src/window.ui:113
+msgid "An application’s identity"
+msgstr "Uma identidade do aplicativo"
+
+#: src/window.ui:128
+msgid "For actions, status and other things needed in apps"
+msgstr "Para ações, status e outras coisas necessárias em aplicativos"
+
+#: src/window.ui:160
+msgid "Open"
+msgstr "Abrir"
+
+#: src/window.ui:164
+msgid "Open an icon"
+msgstr "Abre um ícone"
+
+#: src/window.ui:178
+msgid "Recent"
+msgstr "Recentes"
+
+#: src/window.ui:206
+msgid "Menu"
+msgstr "Menu"
+
+#: src/window.ui:229
+msgid "Export"
+msgstr "Exportar"
+
+#: src/window.vala:132
+msgid "This file is defective"
+msgstr "Esse arquivo está defeituoso"
+
+#: src/window.vala:133
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Por favor, incie a partir de um modelo para garantir que seu arquivo vai "
+"funcionar como um ícone do GNOME"
+
+#: src/window.vala:179
+msgid "Select Icon"
+msgstr "Selecionar ícone"
+
+#: src/window.vala:179
+msgid "_Open"
+msgstr "_Abrir"
+
+#: src/window.vala:182
+msgid "Icons"
+msgstr "Ícones"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Local do ícone"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Salvar ícone"
+
+#: src/wizard.ui:92
+msgid "label"
+msgstr "rótulo"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "O arquivo SVG do ícone será armazenado neste diretório"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Criar"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Nome do ícone"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Tudo minúsculo com traços entre palavras, p. ex., list-add"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Nome do aplicativo"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "A notação inversa de nome de domínio, p. ex., org.inkscape.Inkscape"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "Esperava-se pelo menos um “-”"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "Esperava-se pelo menos um “.”"
