@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
 "issues\n"
-"POT-Creation-Date: 2019-08-18 04:13+0000\n"
-"PO-Revision-Date: 2019-08-20 13:06+0200\n"
+"POT-Creation-Date: 2019-08-20 11:22+0000\n"
+"PO-Revision-Date: 2019-08-21 13:06+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:122 src/saver.vala:60
 #: src/views/colour.vala:89 src/window.vala:142 src/window.vala:255
 msgid "Icon Preview"
-msgstr "Vista previa del icono"
+msgstr "Vista previa de iconos"
 
 #: data/org.gnome.IconPreview.appdata.xml.in:9
 msgid "Tool for designing icons"
@@ -33,6 +33,8 @@ msgstr "Herramienta para diseñar iconos"
 msgid ""
 "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgstr ""
+"Vista previa de iconos es una herramienta para diseñar iconos cuyo objetivo "
+"es el escritorio GNOME."
 
 #: data/org.gnome.IconPreview.appdata.xml.in:22
 msgid "Welcome screen"
@@ -71,6 +73,8 @@ msgid ""
 "Export the icon for production use.\n"
 "Off-canvas objects are removed and the SVG is optimised for size"
 msgstr ""
+"Exportar el icono para usar en producción.\n"
+"Los objetos de fuera del lienzo se eliminan y se optimiza el tamaño del SVG."
 
 #: src/exporter/colour.ui:60
 msgid "<b>Regular</b> (34 kB)"
@@ -166,6 +170,8 @@ msgid ""
 "Palette is all grown up!\n"
 "It’s now available separately as org.gnome.zbrown.Palette"
 msgstr ""
+"Paleta ya existe.\n"
+"Está disponible por separado como org.gnome.zbrown.Palette"
 
 #: src/menus.ui:6
 msgid "_New Window"
@@ -251,18 +257,20 @@ msgstr "Renombrar"
 msgid ""
 "The icon is not recoloring because the file name needs to end in “-symbolic”"
 msgstr ""
+"El icono no se vuelve a colorear porque el nombre del archivo necesita "
+"termina con «-symbolic»"
 
 #: src/window.ui:37
 msgid "Make a new GNOME Icon"
-msgstr ""
+msgstr "Crear un icono de GNOME nuevo"
 
 #: src/window.ui:77 src/wizard.vala:39
 msgid "New App Icon"
-msgstr ""
+msgstr "Nuevo icono de aplicación"
 
 #: src/window.ui:92 src/wizard.vala:35
 msgid "New Symbolic Icon"
-msgstr ""
+msgstr "Nuevo icono simbólico"
 
 #: src/window.ui:113
 msgid "An application’s identity"
@@ -270,7 +278,7 @@ msgstr "La identidad de una aplicación"
 
 #: src/window.ui:128
 msgid "For actions, status and other things needed in apps"
-msgstr ""
+msgstr "Para acciones, estado y otras necesarias en las aplicaciones"
 
 #: src/window.ui:160
 msgid "Open"
@@ -294,13 +302,15 @@ msgstr "Exportar"
 
 #: src/window.vala:132
 msgid "This file is defective"
-msgstr ""
+msgstr "El archivo está corrupto"
 
 #: src/window.vala:133
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
 msgstr ""
+"Inicie desde una plantilla para asegurarse de que su archivo funcionará como "
+"un icono de GNOME"
 
 #: src/window.vala:179
 msgid "Select Icon"
@@ -328,7 +338,7 @@ msgstr "etiqueta"
 
 #: src/wizard.ui:108
 msgid "The icon SVG file will be stored in this directory"
-msgstr ""
+msgstr "El icono en SVG se guardará en esta carpeta"
 
 #: src/wizard.ui:157
 msgid "_Cancel"
@@ -344,7 +354,7 @@ msgstr "Nombre del icono"
 
 #: src/wizard.vala:37
 msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr ""
+msgstr "Permitir minúsculas con guiones entre palabras, ej. list-add"
 
 #: src/wizard.vala:40
 msgid "App Name"
@@ -353,7 +363,7 @@ msgstr "Nombre de la aplicación"
 #. Hmm
 #: src/wizard.vala:42
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr ""
+msgstr "El nombre en notación de dominio inverso, ej. org.inkscape.Inkscape"
 
 #: src/wizard.vala:49
 msgid "Expecting at least one “-”"
