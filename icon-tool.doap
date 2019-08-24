@@ -21,6 +21,8 @@
   <maintainer>
     <foaf:Person>
       <foaf:name>Zander Brown</foaf:name>
+      <foaf:mbox rdf:resource="mailto:zbrown@gnome.org" />
+      <gnome:userid>zbrown</gnome:userid>
     </foaf:Person>
   </maintainer>
 </Project>
