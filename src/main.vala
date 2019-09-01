@@ -23,7 +23,6 @@ namespace IconPreview {
 
 	public interface Previewer : Widget {
 		public abstract File previewing { get; set; }
-		public abstract Exporter exporter { owned get; }
 		public abstract void shuffle();
 		public virtual Gdk.Pixbuf screenshot () {
 			var w = get_allocated_width();
@@ -33,10 +32,6 @@ namespace IconPreview {
 			draw(context);
 			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, h);
 		}
-	}
-
-	public interface Exporter : Widget {
-		public signal void close();
 	}
 
 	public class Application : Dazzle.Application {

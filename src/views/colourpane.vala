@@ -56,6 +56,7 @@ namespace IconPreview {
 
 		public File hicolor { get; set; }
 		public File ?symbolic { get; set; }
+
 		public string name { get; set; }
 
 		private string _theme = "Adwaita";

@@ -15,6 +15,8 @@ namespace IconPreview {
 		[GtkChild]
 		MenuButton exportbtn;
 
+		Exporter exporter;
+
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
@@ -24,6 +26,7 @@ namespace IconPreview {
 			{ "shuffle", shuffle },
 			{ "menu",  open_menu },
 			{ "export", open_export },
+			{ "export-save", save_export, "s" },
 			{ "about", about }
 		};
 
@@ -39,9 +42,9 @@ namespace IconPreview {
 
 					Rsvg.Rectangle hicolor = { 0.0, 0.0, svg.width, svg.height };
 
-					Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
 					if (svg.has_sub("#hicolor")) {
-						svg.get_geometry_for_element("#hicolor", viewport, null ,out hicolor);
+            Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
+						svg.get_geometry_for_layer("#hicolor", viewport, null, out hicolor);
 					}
 
 					// Colour (App) icons must be 128 by 128 and
@@ -126,6 +129,14 @@ namespace IconPreview {
 
 			// For some reason MenuButton doesn't have a menu_id property
 			menu.menu_model = application.get_menu_by_id("win-menu");
+
+			// Connect exporter popover to button
+			exporter = new Exporter();
+			exportbtn.set_popover(exporter);
+
+			// Bind export action state to button visibility
+			var action = lookup_action("export");
+			action.bind_property("enabled", exportbtn, "visible", GLib.BindingFlags.SYNC_CREATE);
 		}
 
 		private void _load_failed () {
@@ -136,7 +147,6 @@ namespace IconPreview {
 		}
 
 		private void mode_changed () {
-			//exportbtn.visible = mode != INITIAL;
 			switch (mode) {
 				case INITIAL:
 					title = _("Icon Preview");
@@ -146,10 +156,10 @@ namespace IconPreview {
 					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
 					break;
 				case SYMBOLIC:
-					_mode_changed(new Symbolic());
+					_mode_changed(new Symbolic(exporter));
 					break;
 				case COLOUR:
-					_mode_changed(new Colour());
+					_mode_changed(new Colour(exporter));
 					break;
 			}
 		}
@@ -159,10 +169,6 @@ namespace IconPreview {
 			view.show();
 			content.add(view);
 			content.visible_child = view;
-			var pop = new Popover(exportbtn);
-			pop.add(view.exporter);
-			view.exporter.close.connect(() => pop.popdown());
-			exportbtn.popover = pop;
 			if (old is Previewer) {
 				// Effectively close the old previewer
 				old.destroy();
@@ -210,6 +216,61 @@ namespace IconPreview {
 
 			var s = new ScreenshotSaver(this, buf);
 			s.show();
+		}
+
+		// Open file chooser for exporting
+		private void save_export(GLib.Action _act, Variant? arg) {
+			string title = "";
+			string filename = exporter.name;
+			File file = null;
+			print(arg as string);
+			switch (arg as string){
+				case "regular": {title = _("Regular");
+								file = exporter.get_regular();
+								break;
+								}
+				case "nightly": {title = _("Nightly");
+								// FIXME: this could go wrong if the string doesn't end with .svg
+								filename = filename.substring(0, filename.length - 4) + "-nightly.svg";
+								file = exporter.get_nightly();
+								break;
+								}
+				case "symbolic": {title = _("Symbolic");
+								// FIXME: this could go wrong if the string doesn't end with .svg
+								filename = filename.substring(0, filename.length - 4) + "-symbolic.svg";
+								file = exporter.get_symbolic();
+								break;
+								}
+			}
+			var dlg = new FileChooserNative(_("Save") + " " + title, this, SAVE, _("_Save"), null);
+			dlg.modal = true;
+			dlg.do_overwrite_confirmation = true;
+			dlg.set_current_folder(Environment.get_home_dir());
+			dlg.set_current_name(filename);
+
+			var any = new Gtk.FileFilter();
+			any.set_filter_name(title + " " + _("Icon"));
+			any.add_pattern("*.svg");
+			any.add_mime_type("image/svg");
+			dlg.add_filter(any);
+
+			var svg = new Gtk.FileFilter();
+			svg.set_filter_name(_("SVG"));
+			svg.add_pattern("*.svg");
+			svg.add_mime_type("image/svg");
+			dlg.add_filter(svg);
+
+			if (dlg.run() == ResponseType.ACCEPT) {
+				var dest = dlg.get_file();
+				try {
+					file.copy (dest, FileCopyFlags.NONE);
+				} catch (Error e) {
+					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save exported file"));
+					msg.secondary_text = e.message;
+					msg.response.connect(() => msg.destroy());
+					msg.show();
+				}
+			}
 		}
 
 		// Open the recent popover (win.recents)
@@ -266,4 +327,5 @@ namespace IconPreview {
 			about_app(this);
 		}
 	}
+
 }

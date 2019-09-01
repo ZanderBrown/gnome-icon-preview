@@ -8,6 +8,7 @@ namespace IconPreview {
 
 		private ColourPane light = new ColourPane();
 		private ColourPane dark = new ColourPane();
+		private Exporter exporter;
 
 		private File _icon;
 		public File previewing {
@@ -17,8 +18,15 @@ namespace IconPreview {
 			set {
 				_icon = value;
 				var svg = new Rsvg.Handle.from_gfile_sync(_icon, FLAGS_NONE);
-				var hicolor = split_svg(svg, "#hicolor");
-				var symbolic = split_svg(svg, "#symbolic");
+				var hicolor = create_tmp_file ("#hicolor");
+				render_by_id(svg, "#hicolor", hicolor, 128);
+
+				var nightly = create_tmp_file ("#nightly");
+				var nightly_surface = render_by_id(svg, "#hicolor", nightly, 128);
+				make_nightly(nightly_surface, 128);
+
+				var symbolic = create_tmp_file ("#symbolic");
+        render_by_id(svg, "#symbolic", symbolic, 16);
 
 				light.name = dark.name = _icon.get_basename();
 
@@ -27,15 +35,17 @@ namespace IconPreview {
 				} else {
 					light.hicolor = dark.hicolor = _icon;
 				}
+
+				exporter.update_regolar(light.hicolor);
+				exporter.update_nightly(nightly);
+				exporter.update_symbolic(symbolic);
+				exporter.name = light.name;
 				light.symbolic = dark.symbolic = symbolic;
 			}
 		}
 
-		private ColourExporter _export = new ColourExporter();
-		public Exporter exporter {
-			owned get {
-				return _export;
-			}
+		public Colour(Exporter e) {
+			exporter = e;
 		}
 
 		class construct {
@@ -57,8 +67,6 @@ namespace IconPreview {
 			homogeneous = true;
 			add(light);
 			add(dark);
-
-			bind_property("previewing", _export, "file");
 
 			shuffle();
 		}
@@ -132,21 +140,51 @@ namespace IconPreview {
 			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, content_h + bottom_bar);
 		}
 
-		private File? split_svg(Rsvg.Handle svg, string id) {
+		private Cairo.Surface? render_by_id (Rsvg.Handle svg, string id, File file, int output_size) {
 			if (svg.has_sub(id)) {
-				FileIOStream stream;
-				var temp_file = File.new_tmp("XXXXXX-" + id.substring(1, -1) +".svg", out stream);
 				Rsvg.Rectangle size;
 				Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
-				svg.get_geometry_for_element(id, viewport, null, out size);
-				var surface = new Cairo.SvgSurface(temp_file.get_path(), 128, 128);
+				svg.get_geometry_for_layer (id, viewport, null, out size);
+				var surface = new Cairo.SvgSurface(file.get_path(), output_size, output_size);
+				surface.set_document_unit (Cairo.SvgUnit.PX);
 				var cr = new Cairo.Context(surface);
-				cr.scale(128/size.width, 128/size.height);
+				cr.scale(output_size/size.width, output_size/size.height);
 				cr.translate(-size.x, -size.y);
 				svg.render_cairo(cr);
-				return temp_file;
+				return surface;
 			}
 			return null;
 		}
-	}
+
+    private File create_tmp_file (string id) {
+      FileIOStream stream;
+      return File.new_tmp("XXXXXX-" + id.substring(1, -1) +".svg", out stream);
+    }
+
+    // This adds the nightly stripes to a Cairo.Surface
+    private void make_nightly (Cairo.Surface? hicolor, int output_size) {
+      if (hicolor != null) {
+        debug ("Add nightly stripes");
+        var cr = new Cairo.Context(hicolor);
+        cr.set_source_surface(get_overlay(), 0.0, 0.0);
+        var mask = new Cairo.Surface.similar (hicolor, Cairo.Content.ALPHA, output_size, output_size);
+        var cr_mask = new Cairo.Context (mask);
+        cr_mask.set_source_surface(hicolor, 0.0, 0.0);
+        cr_mask.paint();
+        cr.mask_surface(mask, 0.0, 0.0);
+      }
+    }
+
+    private Cairo.Surface get_overlay() {
+      var stripes = File.new_for_uri ("resource:///org/gnome/IconPreview/templates/stripes.svg");
+      var handle = new Rsvg.Handle.from_gfile_sync (stripes, FLAGS_NONE);
+      FileIOStream stream;
+      var temp_file = File.new_tmp("XXXXXX-strips.svg", out stream);
+      //FIXME: Vala doesn't allow us to use null for a new SvgSurface
+      var surface = new Cairo.SvgSurface(temp_file.get_path(), 128, 128);
+      var cr = new Cairo.Context(surface);
+      handle.render_cairo(cr);
+      return surface;
+    }
+  }
 }

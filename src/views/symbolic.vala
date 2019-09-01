@@ -8,6 +8,8 @@ namespace IconPreview {
 		private SymbolicPane light = new SymbolicPane();
 		private SymbolicPane dark = new SymbolicPane();
 
+		private Exporter exporter;
+
 		private File _icon;
 		public File previewing {
 			get {
@@ -15,19 +17,17 @@ namespace IconPreview {
 			}
 			set {
 				_icon = value;
+				exporter.update_regolar(null);
+				exporter.update_nightly(null);
+				exporter.update_symbolic(_icon);
 				light.icon = dark.icon = new FileIcon(_icon);
 				this.info_bar.visible = !_icon.get_basename().down().has_suffix("-symbolic.svg");
 			}
 		}
 
-		public Symbolic () {
+		public Symbolic(Exporter e) {
 			Object(orientation: Orientation.VERTICAL);
-		}
-
-		public Exporter exporter {
-			owned get {
-				return new SymbolicExporter();
-			}
+			exporter = e;
 		}
 
 		class construct {

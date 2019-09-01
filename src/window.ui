@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+
   <template class="IconPreviewWindow" parent="DzlApplicationWindow">
     <property name="can_focus">False</property>
     <property name="icon_name">org.gnome.IconPreview</property>
@@ -219,7 +221,7 @@
         </child>
         <child>
           <object class="GtkMenuButton" id="exportbtn">
-            <property name="visible">False</property>
+            <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <child>

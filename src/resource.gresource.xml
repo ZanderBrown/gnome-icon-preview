@@ -8,10 +8,10 @@
     <file>window.ui</file>
     <file alias="colourpane.ui">views/colourpane.ui</file>
     <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
-    <file>exporter/symbolic.ui</file>
-    <file>exporter/colour.ui</file>
+    <file>exporter/exporter.ui</file>
     <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
+    <file>templates/stripes.svg</file>
     <file alias="badge.svg">../data/org.gnome.IconPreview-symbolic.svg</file>
   </gresource>
   <gresource prefix="/org/gnome/IconPreview/gtk/">
