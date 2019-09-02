@@ -1,8 +1,7 @@
 data/org.gnome.IconPreview.appdata.xml.in
 data/org.gnome.IconPreview.desktop.in
 src/common.vala
-src/exporter/colour.ui
-src/exporter/symbolic.ui
+src/exporter/exporter.ui
 src/help-overlay.ui
 src/main.vala
 src/menus.ui
