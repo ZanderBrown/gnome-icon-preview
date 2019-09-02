@@ -85,7 +85,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Regular as...</property>
+                    <property name="label" translatable="yes">Save Regular As…</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -161,7 +161,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Nightly as...</property>
+                    <property name="label" translatable="yes">Save Nightly As…</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -192,7 +192,7 @@
                 <property name="expand">True</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Symbolic as...</property>
+                    <property name="label" translatable="yes">Save Symbolic As…</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
