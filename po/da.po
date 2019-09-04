@@ -1,0 +1,369 @@
+# Danish translation for icon-tool.
+# Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
+# This file is distributed under the same license as the icon-tool package.
+# scootergrisen, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: icon-tool master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/issues\n"
+"POT-Creation-Date: 2019-08-16 09:23+0000\n"
+"PO-Revision-Date: 2019-08-16 19:44+0200\n"
+"Last-Translator: scootergrisen\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:8
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:122 src/saver.vala:60
+#: src/views/colour.vala:89 src/window.vala:142 src/window.vala:255
+msgid "Icon Preview"
+msgstr "Ikonforhåndsvisning"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Værktøj til at designe ikoner"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr ""
+"Ikonforhåndsvisning er et værktøj til at designe ikoner til GNOME-"
+"skrivebordet."
+
+#: data/org.gnome.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Velkomstskærm"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Forhåndsvisning af et programikon"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:48
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Forhåndsvis ikoner"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Ophavsret © 2018-19 Zander Brown"
+
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr "scootergrisen"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Arkiv"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr "Med hjælp fra"
+
+#: src/exporter/colour.ui:14 src/exporter/symbolic.ui:17
+msgid ""
+"Export the icon for production use.\n"
+"Off-canvas objects are removed and the SVG is optimised for size"
+msgstr ""
+"Eksportér ikonet til færdig brug.\n"
+"Objekter, som er udenfor lærredet, fjernes og SVG'ens størrelse optimeres"
+
+#: src/exporter/colour.ui:60
+msgid "<b>Regular</b> (34 kB)"
+msgstr "<b>Almindelig</b> (34 kB)"
+
+#: src/exporter/colour.ui:71
+msgid "Save Regular As…"
+msgstr "Gem almindelig som …"
+
+#: src/exporter/colour.ui:122
+msgid "<b>Nightly</b> (39 kB)"
+msgstr "<b>Natlig</b> (39 kB)"
+
+#: src/exporter/colour.ui:133
+msgid "Save Nightly As…"
+msgstr "Gem natlig som …"
+
+#: src/exporter/symbolic.ui:50
+msgid "<b>Symbolic</b> (4 kB)"
+msgstr "<b>Symbolsk</b> (4 kB)"
+
+#: src/exporter/symbolic.ui:61
+msgid "Save Symbolic As…"
+msgstr "Gem symbolsk som …"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Program"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Nyt vindue"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Åbn et ikon"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Åbn listen oven seneste"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Åbn menuen"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Afslut programmet"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Vis"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Genindlæs ikonet"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Eksportér ikonet"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Bland ikoner"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Tag skærmbillede"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Fuldskærm til/fra"
+
+#: src/main.vala:55
+msgid "no longer supported"
+msgstr "understøttes ikke længere"
+
+#. If opening the palette directly
+#: src/main.vala:101
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Palet er blevet voksen!\n"
+"Den er nu tilgængelig seperat som org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Nyt vindue"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "_Genindlæs"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "_Tag skærmbillede"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "_Bland eksempelikoner"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastaturgenveje"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "_Om Ikonforhåndsvisning"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Luk"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Gem …"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiér til udklipsholder"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Gem skærmbillede"
+
+#: src/saver.vala:48
+msgid "_Save"
+msgstr "_Gem"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Kunne ikke gemme skærmbillede"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Knap"
+
+#: src/views/symbolicpane.ui:465
+msgid "Insensitive"
+msgstr "Ufølsom"
+
+#: src/views/symbolicpane.ui:486
+msgid "Suggested"
+msgstr "Foreslået"
+
+#: src/views/symbolicpane.ui:510
+msgid "Destructive"
+msgstr "Destruktiv"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Omdøb"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr "Ikonet genfarves ikke, da filnavnet skal slutte med “-symbolic”"
+
+#: src/window.ui:37
+msgid "Make a new GNOME Icon"
+msgstr "Skab et nyt GNOME-ikon"
+
+#: src/window.ui:77 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Nyt programikon"
+
+#: src/window.ui:92 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Nyt symbolsk ikon"
+
+#: src/window.ui:113
+msgid "An application’s identity"
+msgstr "Et programs identitet"
+
+#: src/window.ui:128
+msgid "For actions, status and other things needed in apps"
+msgstr "Til handlinger, status og andre ting som der er brug for i programmer"
+
+#: src/window.ui:160
+msgid "Open"
+msgstr "Åbn"
+
+#: src/window.ui:164
+msgid "Open an icon"
+msgstr "Åbn et ikon"
+
+#: src/window.ui:178
+msgid "Recent"
+msgstr "Seneste"
+
+#: src/window.ui:206
+msgid "Menu"
+msgstr "Menu"
+
+#: src/window.ui:229
+msgid "Export"
+msgstr "Eksportér"
+
+#: src/window.vala:132
+msgid "This file is defective"
+msgstr "Filen er defekt"
+
+#: src/window.vala:133
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Start venligst fra en skabelon, for at sikre, at din fil virker som et GNOME-"
+"ikon"
+
+#: src/window.vala:179
+msgid "Select Icon"
+msgstr "Vælg ikon"
+
+#: src/window.vala:179
+msgid "_Open"
+msgstr "_Åbn"
+
+#: src/window.vala:182
+msgid "Icons"
+msgstr "Ikoner"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Placering af ikon"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Gem ikon"
+
+#: src/wizard.ui:92
+msgid "label"
+msgstr "etiket"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Mappe hvor ikonets SVG-fil gemmes"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "_Annullér"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Opret"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Ikonnavn"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Bogstaver med småt og bindestreger mellem ord, f.eks. liste-tilføj"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Programnavn"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Navnet som omvendte domænenotering, f.eks. org.inkscape.Inkscape"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "Forventer mindst ét “-”"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "Forventer mindst ét “.”"
