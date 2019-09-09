@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
 "issues\n"
-"POT-Creation-Date: 2019-08-20 11:22+0000\n"
-"PO-Revision-Date: 2019-08-21 13:06+0200\n"
+"POT-Creation-Date: 2019-09-03 11:32+0000\n"
+"PO-Revision-Date: 2019-09-09 09:34+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Gtranslator 3.32.1\n"
 
 #: data/org.gnome.IconPreview.appdata.xml.in:8
-#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:122 src/saver.vala:60
-#: src/views/colour.vala:89 src/window.vala:142 src/window.vala:255
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
+#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
 msgid "Icon Preview"
 msgstr "Vista previa de iconos"
 
@@ -68,37 +68,41 @@ msgstr "Repositorio"
 msgid "Kept sane by"
 msgstr "Mantenido por"
 
-#: src/exporter/colour.ui:14 src/exporter/symbolic.ui:17
+#: src/exporter/exporter.ui:18
+#| msgid ""
+#| "Export the icon for production use.\n"
+#| "Off-canvas objects are removed and the SVG is optimised for size"
 msgid ""
-"Export the icon for production use.\n"
-"Off-canvas objects are removed and the SVG is optimised for size"
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
 msgstr ""
-"Exportar el icono para usar en producción.\n"
-"Los objetos de fuera del lienzo se eliminan y se optimiza el tamaño del SVG."
+"Exportar el icono para usar en producción. Los objetos de fuera del lienzo "
+"se eliminan y se optimiza el tamaño del SVG"
 
-#: src/exporter/colour.ui:60
-msgid "<b>Regular</b> (34 kB)"
-msgstr "<b>Regular</b> (34 kB)"
+#: src/exporter/exporter.ui:68 src/window.vala:228
+msgid "Regular"
+msgstr "Regular"
 
-#: src/exporter/colour.ui:71
+#: src/exporter/exporter.ui:88
 msgid "Save Regular As…"
 msgstr "Guardar regular como…"
 
-#: src/exporter/colour.ui:122
-msgid "<b>Nightly</b> (39 kB)"
-msgstr "<b>Nocturno</b> (39 kB)"
+#: src/exporter/exporter.ui:144 src/window.vala:232
+msgid "Nightly"
+msgstr "Nocturno"
 
-#: src/exporter/colour.ui:133
+#: src/exporter/exporter.ui:164
 msgid "Save Nightly As…"
 msgstr "Guardar nocturno como…"
 
-#: src/exporter/symbolic.ui:50
-msgid "<b>Symbolic</b> (4 kB)"
-msgstr "<b>Simbólico</b> (4 kB)"
-
-#: src/exporter/symbolic.ui:61
+#: src/exporter/exporter.ui:195
 msgid "Save Symbolic As…"
 msgstr "Guardar simbólico como…"
+
+#: src/exporter/exporter.ui:217 src/window.vala:238
+#| msgid "New Symbolic Icon"
+msgid "Symbolic"
+msgstr "Simbólico"
 
 #: src/help-overlay.ui:13
 msgctxt "shortcut window"
@@ -160,12 +164,12 @@ msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Alternar la vista de pantalla completa"
 
-#: src/main.vala:55
+#: src/main.vala:50
 msgid "no longer supported"
 msgstr "ya no esta soportado"
 
 #. If opening the palette directly
-#: src/main.vala:101
+#: src/main.vala:96
 msgid ""
 "Palette is all grown up!\n"
 "It’s now available separately as org.gnome.zbrown.Palette"
@@ -213,7 +217,7 @@ msgstr "Copiar al portapapeles"
 msgid "Save Screenshot"
 msgstr "Guardar captura"
 
-#: src/saver.vala:48
+#: src/saver.vala:48 src/window.vala:245
 msgid "_Save"
 msgstr "_Guardar"
 
@@ -260,51 +264,51 @@ msgstr ""
 "El icono no se vuelve a colorear porque el nombre del archivo necesita "
 "termina con «-symbolic»"
 
-#: src/window.ui:37
+#: src/window.ui:39
 msgid "Make a new GNOME Icon"
 msgstr "Crear un icono de GNOME nuevo"
 
-#: src/window.ui:77 src/wizard.vala:39
+#: src/window.ui:79 src/wizard.vala:39
 msgid "New App Icon"
 msgstr "Nuevo icono de aplicación"
 
-#: src/window.ui:92 src/wizard.vala:35
+#: src/window.ui:94 src/wizard.vala:35
 msgid "New Symbolic Icon"
 msgstr "Nuevo icono simbólico"
 
-#: src/window.ui:113
+#: src/window.ui:115
 msgid "An application’s identity"
 msgstr "La identidad de una aplicación"
 
-#: src/window.ui:128
+#: src/window.ui:130
 msgid "For actions, status and other things needed in apps"
 msgstr "Para acciones, estado y otras necesarias en las aplicaciones"
 
-#: src/window.ui:160
+#: src/window.ui:162
 msgid "Open"
 msgstr "Abierta"
 
-#: src/window.ui:164
+#: src/window.ui:166
 msgid "Open an icon"
 msgstr "Abrir un icono"
 
-#: src/window.ui:178
+#: src/window.ui:180
 msgid "Recent"
 msgstr "Recientes"
 
-#: src/window.ui:206
+#: src/window.ui:208
 msgid "Menu"
 msgstr "Menú"
 
-#: src/window.ui:229
+#: src/window.ui:231
 msgid "Export"
 msgstr "Exportar"
 
-#: src/window.vala:132
+#: src/window.vala:143
 msgid "This file is defective"
 msgstr "El archivo está corrupto"
 
-#: src/window.vala:133
+#: src/window.vala:144
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -312,17 +316,36 @@ msgstr ""
 "Inicie desde una plantilla para asegurarse de que su archivo funcionará como "
 "un icono de GNOME"
 
-#: src/window.vala:179
+#: src/window.vala:185
 msgid "Select Icon"
 msgstr "Seleccionar icono"
 
-#: src/window.vala:179
+#: src/window.vala:185
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/window.vala:182
+#: src/window.vala:188
 msgid "Icons"
 msgstr "Iconos"
+
+#: src/window.vala:245
+#| msgid "_Save"
+msgid "Save"
+msgstr "Guardar"
+
+#: src/window.vala:252
+#| msgid "Icons"
+msgid "Icon"
+msgstr "Icono"
+
+#: src/window.vala:258
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:268
+#| msgid "Failed to save screenshot"
+msgid "Failed to save exported file"
+msgstr "Falló al guardar el archivo exportado"
 
 #: src/wizard.ui:56
 msgid "Icon Location"
@@ -372,3 +395,12 @@ msgstr "Se esperaba al menos un «-»"
 #: src/wizard.vala:52
 msgid "Expecting at least one “.”"
 msgstr "Se esperaba al menos un «.»"
+
+#~ msgid "<b>Regular</b> (34 kB)"
+#~ msgstr "<b>Regular</b> (34 kB)"
+
+#~ msgid "<b>Nightly</b> (39 kB)"
+#~ msgstr "<b>Nocturno</b> (39 kB)"
+
+#~ msgid "<b>Symbolic</b> (4 kB)"
+#~ msgstr "<b>Simbólico</b> (4 kB)"
