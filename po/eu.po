@@ -1,0 +1,377 @@
+# Basque translation for icon-tool.
+# Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
+# This file is distributed under the same license as the icon-tool package.
+# Asier Sarasua Garmendia <asier.sarasua@gmail.com>, 2019.
+#
+msgid ""
+msgstr "Project-Id-Version: icon-tool master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/issues\n"
+"POT-Creation-Date: 2019-09-11 05:16+0000\n"
+"PO-Revision-Date: 2019-09-15 10:00+0100\n"
+"Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:8
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
+#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
+msgid "Icon Preview"
+msgstr "Ikonoen Aurrebista"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Ikonoak diseinatzeko tresna"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr "Ikonoen Aurrebista GNOME magaigainerako ikonoak diseinatzeko tresna bat da."
+
+#: data/org.gnome.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Ongi etorriko pantaila"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Aplikazio-ikono baten aurrebista"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:48
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Ikonoen aurrebista"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Copyright © 2018-19 Zander Brown"
+
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr "Asier Sarasua Garmendia <asier.sarasua@gmail.com>"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Biltegia"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr ""
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr "Esportatu ikonoaren bertsio erabilgarria. Oihalez kanpoko objektuak kendu egingo dira eta SVG optimizatu egingo da tamaina txikiagoa izateko"
+
+#: src/exporter/exporter.ui:68 src/window.vala:228
+msgid "Regular"
+msgstr "Arrunta"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Gorde arrunta honela…"
+
+#: src/exporter/exporter.ui:144 src/window.vala:232
+msgid "Nightly"
+msgstr "Gauekoa"
+
+#: src/exporter/exporter.ui:164
+msgid "Save Nightly As…"
+msgstr "Gorde gauekoa honela…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Gorde sinbolikoa honela…"
+
+#: src/exporter/exporter.ui:217 src/window.vala:238
+msgid "Symbolic"
+msgstr "Sinbolikoa"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Aplikazioa"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "_Leiho berria"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Ireki ikono bat"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Ireki azken erabilitakoen zerrenda"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Ireki menua"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Irten aplikaziotik"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Ikusi"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Birkargatu ikonoa"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Esportatu ikonoa"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Nahastu ikonoak"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Egin pantaila-argazkia"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Txandakatu pantaila osoa"
+
+#: src/main.vala:50
+msgid "no longer supported"
+msgstr "jadanik ez da onartzen"
+
+#. If opening the palette directly
+#: src/main.vala:96
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr "Paleta hazi egin da!\n"
+"Orain aparte eskura daiteke, izen honekin: org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Leiho berria"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "Bir_kargatu"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "_Egin pantaila-argazkia"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "_Nahastu adibideko ikonoak"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "Las_ter-teklak"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "Ikonoen Aurrebista aplikazioari _buruz"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Itxi"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Gorde…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiatu arbelean"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Gorde pantaila-argazkia"
+
+#: src/saver.vala:48 src/window.vala:245
+msgid "_Save"
+msgstr "_Gorde"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Aurrebista"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Huts egin du pantaila-argazkia egiteak"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Botoia"
+
+#: src/views/symbolicpane.ui:465
+msgid "Insensitive"
+msgstr ""
+
+#: src/views/symbolicpane.ui:486
+msgid "Suggested"
+msgstr "Iradokia"
+
+#: src/views/symbolicpane.ui:510
+msgid "Destructive"
+msgstr "Suntsigarria"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Aldatu izena"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr "Ikonoaren koloreak ez dira aldatzen fitxategi-izenak “-symbolic” duelako amaieran"
+
+#: src/window.ui:39
+msgid "Make a new GNOME Icon"
+msgstr "Sortu GNOME ikono berria"
+
+#: src/window.ui:79 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Aplikazio-ikono berria"
+
+#: src/window.ui:94 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Ikono sinboliko erria"
+
+#: src/window.ui:115
+msgid "An application’s identity"
+msgstr "Aplikazio baten nortasuna"
+
+#: src/window.ui:130
+msgid "For actions, status and other things needed in apps"
+msgstr "Aplikazioetan behar diren ekintzetarako, egoeretarako eta beste zenbait gauzetarako"
+
+#: src/window.ui:162
+msgid "Open"
+msgstr "Ireki"
+
+#: src/window.ui:166
+msgid "Open an icon"
+msgstr "Ireki ikono bat"
+
+#: src/window.ui:180
+msgid "Recent"
+msgstr "Duela gutxi erabilita"
+
+#: src/window.ui:208
+msgid "Menu"
+msgstr "Menua"
+
+#: src/window.ui:231
+msgid "Export"
+msgstr "Esportatu"
+
+#: src/window.vala:143
+msgid "This file is defective"
+msgstr "Fitxategi hau akastuna da"
+
+#: src/window.vala:144
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr "Hasi txantiloi batetik zure fitxategiak GNOME ikono gisa funtzionatuko duela ziurtatzeko"
+
+#: src/window.vala:185
+msgid "Select Icon"
+msgstr "Hautatu ikonoa"
+
+#: src/window.vala:185
+msgid "_Open"
+msgstr "_Ireki"
+
+#: src/window.vala:188
+msgid "Icons"
+msgstr "Ikonoak"
+
+#: src/window.vala:245
+msgid "Save"
+msgstr "Gorde"
+
+#: src/window.vala:252
+msgid "Icon"
+msgstr "Ikonoa"
+
+#: src/window.vala:258
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:268
+msgid "Failed to save exported file"
+msgstr "Huts egin du esportatuko fitxategia gordetzeak"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Ikonoaren okalekua"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Gorde ikonoa"
+
+#: src/wizard.ui:92
+msgid "label"
+msgstr "etiketa"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Ikonoaren SVG fitxategia direktorio honetan gordeko da"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "_Utzi"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Sortu"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Ikono-izena"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Dena minuskuletan, hitzen arteko marratxoekin, adib. zerrenda-gehitu"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Aplikazioaren izena"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Domeinuen alderantzizko izenaren forman, adib. org.inkscape.Inkscape"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "Gutxienez “-” bat espero zen"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "Gutxienez “.” bat espero zen"
