@@ -242,7 +242,7 @@ namespace IconPreview {
 								}
 				case "nightly": {title = _("Nightly");
 								// FIXME: this could go wrong if the string doesn't end with .svg
-								filename = filename.substring(0, filename.length - 4) + "-nightly.svg";
+								filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
 								file = exporter.get_nightly();
 								break;
 								}
