@@ -1,5 +1,5 @@
-data/org.gnome.IconPreview.appdata.xml.in
-data/org.gnome.IconPreview.desktop.in
+data/org.gnome.design.IconPreview.appdata.xml.in
+data/org.gnome.design.IconPreview.desktop.in
 src/common.vala
 src/exporter/exporter.ui
 src/help-overlay.ui

@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/IconPreview/symbolicpane.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/symbolicpane.ui")]
 	public class SymbolicPane : Box {
 		[GtkChild]
 		Grid sizes;

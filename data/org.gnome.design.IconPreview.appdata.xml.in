@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 Zander Brown -->
 <component type="desktop-application">
-  <id>org.gnome.IconPreview</id>
+  <id>org.gnome.design.IconPreview</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <project_group>GNOME</project_group>
@@ -39,7 +39,10 @@
     <release version="0.2.0" date="2018-09-05" />
     <release version="0.1.0" date="2018-08-08" />
   </releases>
-  <launchable type="desktop-id">org.gnome.IconPreview.desktop</launchable>
+  <provides>
+    <id>org.gnome.IconPreview</id>
+  </provides>
+  <launchable type="desktop-id">org.gnome.design.IconPreview.desktop</launchable>
   <url type="homepage">https://gitlab.gnome.org/World/design/icon-tool</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/design/icon-icon/issues</url>
   <update_contact>zbrown@gnome.org</update_contact>

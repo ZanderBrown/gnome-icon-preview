@@ -22,7 +22,7 @@
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">128</property>
-            <property name="icon_name">org.gnome.IconPreview</property>
+            <property name="icon_name">org.gnome.design.IconPreview</property>
           </object>
           <packing>
             <property name="left_attach">3</property>
@@ -47,7 +47,7 @@
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">64</property>
-            <property name="icon_name">org.gnome.IconPreview</property>
+            <property name="icon_name">org.gnome.design.IconPreview</property>
           </object>
           <packing>
             <property name="left_attach">2</property>
@@ -72,7 +72,7 @@
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">32</property>
-            <property name="icon_name">org.gnome.IconPreview</property>
+            <property name="icon_name">org.gnome.design.IconPreview</property>
           </object>
           <packing>
             <property name="left_attach">1</property>
@@ -97,7 +97,7 @@
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">16</property>
-            <property name="icon_name">org.gnome.IconPreview-symbolic</property>
+            <property name="icon_name">org.gnome.design.IconPreview-symbolic</property>
             <style>
               <class name="symbolic"/>
             </style>

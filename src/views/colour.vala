@@ -2,7 +2,7 @@ using Gtk;
 
 namespace IconPreview {
 	public class Colour : Box, Previewer {
-		const string RES_PATH = "/org/gnome/IconPreview/icons/";
+		const string RES_PATH = "/org/gnome/design/IconPreview/icons/";
 		const string BASE_THEME = "Adwaita";
 		static string[] colours;
 
@@ -89,7 +89,7 @@ namespace IconPreview {
 
 			Gdk.Pixbuf logo;
 			try {
-				logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/IconPreview/badge.svg", 32, -1, true);
+				logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/design/IconPreview/badge.svg", 32, -1, true);
 			} catch (Error e) {
 				critical (e.message);
 				logo = new Gdk.Pixbuf (RGB, false, 1, 2, 2);
@@ -176,7 +176,7 @@ namespace IconPreview {
     }
 
     private Cairo.Surface get_overlay() {
-      var stripes = File.new_for_uri ("resource:///org/gnome/IconPreview/templates/stripes.svg");
+      var stripes = File.new_for_uri ("resource:///org/gnome/design/IconPreview/templates/stripes.svg");
       var handle = new Rsvg.Handle.from_gfile_sync (stripes, FLAGS_NONE);
       FileIOStream stream;
       var temp_file = File.new_tmp("XXXXXX-strips.svg", out stream);

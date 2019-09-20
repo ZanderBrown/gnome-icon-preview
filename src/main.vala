@@ -44,7 +44,7 @@ namespace IconPreview {
 			// Bind the actions
 			add_action_entries(entries, this);
 
-			application_id = "org.gnome.IconPreview";
+			application_id = "org.gnome.design.IconPreview";
 			flags = HANDLES_OPEN | HANDLES_COMMAND_LINE;
 
 			add_main_option ("palette", 'p', IN_MAIN, NONE, _("no longer supported"), null);
@@ -72,7 +72,7 @@ namespace IconPreview {
 			base.startup();
 
 			var styles = new CssProvider();
-			styles.load_from_resource("/org/gnome/IconPreview/gtk/style.css");
+			styles.load_from_resource("/org/gnome/design/IconPreview/gtk/style.css");
 			// Use of uint.MAX isn't ideal but we are effectively in an arms race
 			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
 
@@ -108,7 +108,7 @@ namespace IconPreview {
 	}
 
 	public int main (string[] args) {
-		Gtk.Window.set_default_icon_name("org.gnome.IconPreview");
+		Gtk.Window.set_default_icon_name("org.gnome.design.IconPreview");
 
 		Intl.setlocale (LocaleCategory.ALL, "");
 		Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);

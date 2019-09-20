@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
-  input: 'org.gnome.IconPreview.desktop.in',
-  output: 'org.gnome.IconPreview.desktop',
+  input: 'org.gnome.design.IconPreview.desktop.in',
+  output: '@BASENAME@',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -15,8 +15,8 @@ if desktop_utils.found()
 endif
 
 appdata_file = i18n.merge_file(
-  input: 'org.gnome.IconPreview.appdata.xml.in',
-  output: 'org.gnome.IconPreview.appdata.xml',
+  input: 'org.gnome.design.IconPreview.appdata.xml.in',
+  output: '@BASENAME@',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo'),
@@ -28,14 +28,14 @@ if appstream_util.found()
   test('Validate appstream file', appstream_util, args: validate_args)
 endif
 
-configure_file(input: 'org.gnome.IconPreview.service.in',
-               output: 'org.gnome.IconPreview.service',
+configure_file(input: 'org.gnome.design.IconPreview.service.in',
+               output: '@BASENAME@',
                configuration: conf,
                install_dir: join_paths([datadir,'dbus-1/services']))
 
-install_data('org.gnome.IconPreview.svg',
+install_data('org.gnome.design.IconPreview.svg',
              install_dir: join_paths([datadir,'icons/hicolor/scalable/apps']))
 
-install_data('org.gnome.IconPreview-symbolic.svg',
+install_data('org.gnome.design.IconPreview-symbolic.svg',
              install_dir: join_paths([datadir,'icons/hicolor/symbolic/apps']))
 

@@ -11,7 +11,7 @@ namespace IconPreview {
 		}
 	}
 
-	[GtkTemplate (ui = "/org/gnome/IconPreview/recentrow.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/recentrow.ui")]
 	class RecentRow : ListBoxRow {
 		[GtkChild]
 		Label label;
@@ -33,7 +33,7 @@ namespace IconPreview {
 		}
 	}
 
-	[GtkTemplate (ui = "/org/gnome/IconPreview/recents.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/recents.ui")]
 	public class Recents : Popover {
 		[GtkChild]
 		ListBox recent;

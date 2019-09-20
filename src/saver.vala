@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/IconPreview/saver.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/saver.ui")]
 	class ScreenshotSaver : Hdy.Dialog {
 		[GtkChild]
 		Image preview;

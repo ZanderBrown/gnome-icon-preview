@@ -1,5 +1,5 @@
 {
-    "app-id" : "org.gnome.IconPreview",
+    "app-id" : "org.gnome.design.IconPreview",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",

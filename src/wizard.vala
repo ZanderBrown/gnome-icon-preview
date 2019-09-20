@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/IconPreview/wizard.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/wizard.ui")]
 	class Wizard : Hdy.Dialog {
 		[GtkChild]
 		Label icon_type;
@@ -95,7 +95,7 @@ namespace IconPreview {
 
 		private async File colour () requires (mode == COLOUR) {
 			var dest = File.new_for_path(Path.build_filename(location.file.get_path(), icon_title.text + ".svg"));
-			var from = File.new_for_uri("resource:///org/gnome/IconPreview/templates/colour.svg");
+			var from = File.new_for_uri("resource:///org/gnome/design/IconPreview/templates/colour.svg");
 			try {
 				var p = dest.get_parent();
 				if (!p.query_exists()) {
@@ -111,7 +111,7 @@ namespace IconPreview {
 
 		private async File symbolic () requires (mode == SYMBOLIC) {
 			var dest = File.new_for_path(Path.build_filename(location.file.get_path(), icon_title.text + "-symbolic.svg"));
-			var from = File.new_for_uri("resource:///org/gnome/IconPreview/templates/symbolic.svg");
+			var from = File.new_for_uri("resource:///org/gnome/design/IconPreview/templates/symbolic.svg");
 			try {
 				var p = dest.get_parent();
 				if (!p.query_exists()) {

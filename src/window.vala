@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/IconPreview/window.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/IconPreview/window.ui")]
 	public class Window : Dazzle.ApplicationWindow {
 		[GtkChild]
 		Stack content;

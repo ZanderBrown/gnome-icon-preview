@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/IconPreview/icons/">
+  <gresource prefix="/org/gnome/design/IconPreview/icons/">
     <file>com.github.bilelmoussaoui.Authenticator.svg</file>
     <file>de.haeckerfelix.Radio.svg</file>
     <file>org.gnome.Aisleriot.svg</file>
@@ -14,7 +14,7 @@
     <file>org.gnome.Contacts.svg</file>
     <file>org.gnome.Fonts.svg</file>
     <file>org.gnome.Games.svg</file>
-    <file>org.gnome.IconPreview.svg</file>
+    <file>org.gnome.design.IconPreview.svg</file>
     <file>org.gnome.Logs.svg</file>
     <file>org.gnome.Maps.svg</file>
     <file>org.gnome.Messages.svg</file>

@@ -5,7 +5,7 @@
 
   <template class="IconPreviewWindow" parent="DzlApplicationWindow">
     <property name="can_focus">False</property>
-    <property name="icon_name">org.gnome.IconPreview</property>
+    <property name="icon_name">org.gnome.design.IconPreview</property>
     <property name="show_menubar">False</property>
     <child>
       <object class="GtkStack" id="content">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/IconPreview/">
+  <gresource prefix="/org/gnome/design/IconPreview/">
     <file>recentrow.ui</file>
     <file>recents.ui</file>
     <file>wizard.ui</file>
@@ -12,9 +12,9 @@
     <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
     <file>templates/stripes.svg</file>
-    <file alias="badge.svg">../data/org.gnome.IconPreview-symbolic.svg</file>
+    <file alias="badge.svg">../data/org.gnome.design.IconPreview-symbolic.svg</file>
   </gresource>
-  <gresource prefix="/org/gnome/IconPreview/gtk/">
+  <gresource prefix="/org/gnome/design/IconPreview/gtk/">
     <file>style.css</file>
     <file>menus.ui</file>
     <file>help-overlay.ui</file>

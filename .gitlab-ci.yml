@@ -7,10 +7,10 @@ variables:
 flatpak:
     image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
-        MANIFEST_PATH: "org.gnome.IconPreview.json"
+        MANIFEST_PATH: "org.gnome.design.IconPreview.json"
         FLATPAK_MODULE: "icon-preview"
         RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
-        APP_ID: "org.gnome.IconPreview"
+        APP_ID: "org.gnome.design.IconPreview"
     extends: .flatpak
 
 review:
