@@ -274,7 +274,7 @@ namespace IconPreview {
 			if (dlg.run() == ResponseType.ACCEPT) {
 				var dest = dlg.get_file();
 				try {
-					file.copy (dest, FileCopyFlags.NONE);
+					file.copy (dest, FileCopyFlags.OVERWRITE);
 				} catch (Error e) {
 					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save exported file"));
 					msg.secondary_text = e.message;
