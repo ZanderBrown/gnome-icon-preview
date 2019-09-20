@@ -83,6 +83,7 @@ namespace IconPreview {
 			set_accels_for_action ("win.export", { "<primary>E" });
 			set_accels_for_action ("win.shuffle", { "<primary>S" });
 			set_accels_for_action ("win.screenshot", { "<primary><alt>s" });
+			set_accels_for_action ("win.copy-screenshot", { "<primary><alt>c" });
 			set_accels_for_action ("win.menu", { "F10" });
 			set_accels_for_action ("win.fullscreen", { "F11" });
 			set_accels_for_action ("app.quit", { "<primary>Q" });

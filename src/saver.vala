@@ -40,7 +40,7 @@ namespace IconPreview {
 			destroy();
 		}
 
-		private void copy () {
+		public void copy () {
 			Clipboard.get_default(get_display()).set_image(pixbuf);
 		}
 

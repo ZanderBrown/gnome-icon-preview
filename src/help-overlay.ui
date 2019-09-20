@@ -84,6 +84,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
+                <property name="accelerator">&lt;primary&gt;&lt;alt&gt;c</property>
+                <property name="title" translatable="yes" context="shortcut window">Copy a screenshot to clipboard</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
                 <property name="accelerator">F11</property>
                 <property name="title" translatable="yes" context="shortcut window">Toggle fullscreen</property>
               </object>

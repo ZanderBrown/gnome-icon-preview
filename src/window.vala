@@ -21,6 +21,7 @@ namespace IconPreview {
 			{ "open", open },
 			{ "new-icon", new_icon, "s" },
 			{ "screenshot", screenshot },
+			{ "copy-screenshot", copy_screenshot },
 			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
@@ -154,6 +155,7 @@ namespace IconPreview {
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
 					(lookup_action("export") as SimpleAction).set_enabled(false);
 					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
+					(lookup_action("copy-screenshot") as SimpleAction).set_enabled(false);
 					break;
 				case SYMBOLIC:
 					_mode_changed(new Symbolic(exporter));
@@ -178,6 +180,7 @@ namespace IconPreview {
 				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
 				(lookup_action("export") as SimpleAction).set_enabled(true);
 				(lookup_action("screenshot") as SimpleAction).set_enabled(true);
+				(lookup_action("copy-screenshot") as SimpleAction).set_enabled(true);
 			}
 		}
 
@@ -216,6 +219,14 @@ namespace IconPreview {
 
 			var s = new ScreenshotSaver(this, buf);
 			s.show();
+		}
+
+		// Screenshot the previewer
+		private void copy_screenshot () requires (content.visible_child is Previewer) {
+			var buf = (content.visible_child as Previewer).screenshot();
+
+			var s = new ScreenshotSaver(this, buf);
+			s.copy();
 		}
 
 		// Open file chooser for exporting
