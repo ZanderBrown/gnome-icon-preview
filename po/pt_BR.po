@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
 "issues\n"
-"POT-Creation-Date: 2019-09-03 11:32+0000\n"
-"PO-Revision-Date: 2019-09-08 09:20-0300\n"
+"POT-Creation-Date: 2019-09-20 12:28+0000\n"
+"PO-Revision-Date: 2019-09-21 07:17-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Gtranslator 3.32.0\n"
 
 #: data/org.gnome.IconPreview.appdata.xml.in:8
-#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
-#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:118 src/saver.vala:60
+#: src/views/colour.vala:97 src/window.vala:153 src/window.vala:327
 msgid "Icon Preview"
 msgstr "Visualização de ícones"
 
@@ -69,9 +69,6 @@ msgid "Kept sane by"
 msgstr "Mantido são por"
 
 #: src/exporter/exporter.ui:18
-#| msgid ""
-#| "Export the icon for production use.\n"
-#| "Off-canvas objects are removed and the SVG is optimised for size"
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -79,7 +76,7 @@ msgstr ""
 "Exporte o ícone para uso em produção. Objetos fora da tela de pintura são "
 "removidos e o SVG é otimizado ao tamanho"
 
-#: src/exporter/exporter.ui:68 src/window.vala:228
+#: src/exporter/exporter.ui:68 src/window.vala:239
 msgid "Regular"
 msgstr "Comum"
 
@@ -87,7 +84,7 @@ msgstr "Comum"
 msgid "Save Regular As…"
 msgstr "Salvar comum como…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:232
+#: src/exporter/exporter.ui:144 src/window.vala:243
 msgid "Nightly"
 msgstr "Nightly"
 
@@ -99,8 +96,7 @@ msgstr "Salvar nightly como…"
 msgid "Save Symbolic As…"
 msgstr "Salvar simbólico como…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:238
-#| msgid "New Symbolic Icon"
+#: src/exporter/exporter.ui:217 src/window.vala:249
 msgid "Symbolic"
 msgstr "Simbólico"
 
@@ -160,6 +156,12 @@ msgid "Take screenshot"
 msgstr "Captura a tela"
 
 #: src/help-overlay.ui:88
+#| msgid "Copy to Clipboard"
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Copia uma captura de tela para a área de transferência"
+
+#: src/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Ativa/desativa a tela cheia"
@@ -169,7 +171,7 @@ msgid "no longer supported"
 msgstr "não há mais suporte"
 
 #. If opening the palette directly
-#: src/main.vala:96
+#: src/main.vala:97
 msgid ""
 "Palette is all grown up!\n"
 "It’s now available separately as org.gnome.zbrown.Palette"
@@ -217,7 +219,7 @@ msgstr "Copiar para área de transferência"
 msgid "Save Screenshot"
 msgstr "Salvar captura de tela"
 
-#: src/saver.vala:48 src/window.vala:245
+#: src/saver.vala:48 src/window.vala:256
 msgid "_Save"
 msgstr "_Salvar"
 
@@ -304,11 +306,11 @@ msgstr "Menu"
 msgid "Export"
 msgstr "Exportar"
 
-#: src/window.vala:143
+#: src/window.vala:144
 msgid "This file is defective"
 msgstr "Esse arquivo está defeituoso"
 
-#: src/window.vala:144
+#: src/window.vala:145
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -316,34 +318,31 @@ msgstr ""
 "Por favor, incie a partir de um modelo para garantir que seu arquivo vai "
 "funcionar como um ícone do GNOME"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "Select Icon"
 msgstr "Selecionar ícone"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/window.vala:188
+#: src/window.vala:191
 msgid "Icons"
 msgstr "Ícones"
 
-#: src/window.vala:245
-#| msgid "_Save"
+#: src/window.vala:256
 msgid "Save"
 msgstr "Salvar"
 
-#: src/window.vala:252
-#| msgid "Icons"
+#: src/window.vala:263
 msgid "Icon"
 msgstr "Ícone"
 
-#: src/window.vala:258
+#: src/window.vala:269
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:268
-#| msgid "Failed to save screenshot"
+#: src/window.vala:279
 msgid "Failed to save exported file"
 msgstr "Falha ao salvar o arquivo exportado"
 
