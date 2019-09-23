@@ -13,7 +13,7 @@
       Preview SVG icons to aid in their creation
   </description>
   <!-- <homepage rdf:resource="https://wiki.gnome.org/Apps/IconPreview" /> -->
-  <bug-database rdf:resource="https://gitlab.gnome.org/World/design/icon-tool/issues" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/World/design/icon-preview" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>Vala</programming-language>
