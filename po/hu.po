@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/issues\n"
-"POT-Creation-Date: 2019-09-09 07:35+0000\n"
-"PO-Revision-Date: 2019-09-11 07:14+0200\n"
+"POT-Creation-Date: 2019-09-22 12:00+0000\n"
+"PO-Revision-Date: 2019-09-27 21:51+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -18,36 +18,37 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 18.12.3\n"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:8
-#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
-#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
+#: data/org.gnome.design.IconPreview.appdata.xml.in:8
+#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.vala:153
+#: src/window.vala:327
 msgid "Icon Preview"
 msgstr "Ikonelőnézet"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:9
+#: data/org.gnome.design.IconPreview.appdata.xml.in:9
 msgid "Tool for designing icons"
 msgstr "Egy eszköz ikonok tervezéséhez"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.IconPreview.appdata.xml.in:11
 msgid ""
 "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgstr ""
 "Az Ikonelőnézet olyan ikonok tervezéséhez készült eszköz, amelyek a GNOME "
 "asztal számára készülnek."
 
-#: data/org.gnome.IconPreview.appdata.xml.in:22
+#: data/org.gnome.design.IconPreview.appdata.xml.in:22
 msgid "Welcome screen"
 msgstr "Üdvözlő képernyő"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.IconPreview.appdata.xml.in:26
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:48
+#: data/org.gnome.design.IconPreview.appdata.xml.in:51
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.IconPreview.desktop.in:4
+#: data/org.gnome.design.IconPreview.desktop.in:4
 msgid "Preview icons"
 msgstr "Ikonok előnézete"
 
@@ -75,7 +76,7 @@ msgstr ""
 "Az ikon exportálása produktív használathoz. A vásznon kívüli objektumok "
 "eltávolításra kerülnek, és az SVG optimalizálva lesz a mérethez"
 
-#: src/exporter/exporter.ui:68 src/window.vala:228
+#: src/exporter/exporter.ui:68 src/window.vala:239
 msgid "Regular"
 msgstr "Szabályos"
 
@@ -83,7 +84,7 @@ msgstr "Szabályos"
 msgid "Save Regular As…"
 msgstr "Szabályos mentése másként…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:232
+#: src/exporter/exporter.ui:144 src/window.vala:243
 msgid "Nightly"
 msgstr "Éjszakai"
 
@@ -95,7 +96,7 @@ msgstr "Éjszakai mentése másként…"
 msgid "Save Symbolic As…"
 msgstr "Szimbolikus mentése másként…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:238
+#: src/exporter/exporter.ui:217 src/window.vala:249
 msgid "Symbolic"
 msgstr "Szimbolikus"
 
@@ -155,6 +156,12 @@ msgid "Take screenshot"
 msgstr "Képernyőkép készítése"
 
 #: src/help-overlay.ui:88
+#| msgid "Copy to Clipboard"
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Képernyőkép másolása a vágólapra"
+
+#: src/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Teljes képernyő átváltása"
@@ -164,7 +171,7 @@ msgid "no longer supported"
 msgstr "többé nem támogatott"
 
 #. If opening the palette directly
-#: src/main.vala:96
+#: src/main.vala:97
 msgid ""
 "Palette is all grown up!\n"
 "It’s now available separately as org.gnome.zbrown.Palette"
@@ -212,7 +219,7 @@ msgstr "Másolás a vágólapra"
 msgid "Save Screenshot"
 msgstr "Képernyőkép mentése"
 
-#: src/saver.vala:48 src/window.vala:245
+#: src/saver.vala:48 src/window.vala:256
 msgid "_Save"
 msgstr "_Mentés"
 
@@ -300,11 +307,11 @@ msgstr "Menü"
 msgid "Export"
 msgstr "Exportálás"
 
-#: src/window.vala:143
+#: src/window.vala:144
 msgid "This file is defective"
 msgstr "Ez a fájl hiányos"
 
-#: src/window.vala:144
+#: src/window.vala:145
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -312,31 +319,31 @@ msgstr ""
 "Kezdjen egy sablonból, annak biztosításához hogy a fájl működjön GNOME "
 "ikonként"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "Select Icon"
 msgstr "Ikon kiválasztása"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "_Open"
 msgstr "_Megnyitás"
 
-#: src/window.vala:188
+#: src/window.vala:191
 msgid "Icons"
 msgstr "Ikonok"
 
-#: src/window.vala:245
+#: src/window.vala:256
 msgid "Save"
 msgstr "Mentés"
 
-#: src/window.vala:252
+#: src/window.vala:263
 msgid "Icon"
 msgstr "Ikon"
 
-#: src/window.vala:258
+#: src/window.vala:269
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:268
+#: src/window.vala:279
 msgid "Failed to save exported file"
 msgstr "Nem sikerült elmenteni az exportált fájlt"
 
@@ -371,8 +378,8 @@ msgstr "Ikonnév"
 #: src/wizard.vala:37
 msgid "All lowercase with dashes between words, e.g. list-add"
 msgstr ""
-"Csak ékezet nélküli kisbetűk, kötőjellel a szavak között, például "
-"lista-hozzaadas"
+"Csak ékezet nélküli kisbetűk, kötőjellel a szavak között, például lista-"
+"hozzaadas"
 
 #: src/wizard.vala:40
 msgid "App Name"
