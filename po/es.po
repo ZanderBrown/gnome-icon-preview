@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
 "issues\n"
-"POT-Creation-Date: 2019-09-03 11:32+0000\n"
-"PO-Revision-Date: 2019-09-09 09:34+0200\n"
+"POT-Creation-Date: 2019-09-22 12:00+0000\n"
+"PO-Revision-Date: 2019-10-01 15:17+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -17,38 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 3.32.1\n"
+"X-Generator: Gtranslator 3.34.0\n"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:8
-#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
-#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
+#: data/org.gnome.design.IconPreview.appdata.xml.in:8
+#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.vala:153
+#: src/window.vala:327
 msgid "Icon Preview"
 msgstr "Vista previa de iconos"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:9
+#: data/org.gnome.design.IconPreview.appdata.xml.in:9
 msgid "Tool for designing icons"
 msgstr "Herramienta para diseñar iconos"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.IconPreview.appdata.xml.in:11
 msgid ""
 "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgstr ""
 "Vista previa de iconos es una herramienta para diseñar iconos cuyo objetivo "
 "es el escritorio GNOME."
 
-#: data/org.gnome.IconPreview.appdata.xml.in:22
+#: data/org.gnome.design.IconPreview.appdata.xml.in:22
 msgid "Welcome screen"
 msgstr "Pantalla de bienvenida"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.IconPreview.appdata.xml.in:26
 msgid "Previewing an Application icon"
 msgstr "Vista previa del icono de una aplicación"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:48
+#: data/org.gnome.design.IconPreview.appdata.xml.in:51
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.IconPreview.desktop.in:4
+#: data/org.gnome.design.IconPreview.desktop.in:4
 msgid "Preview icons"
 msgstr "Vista previa de iconos"
 
@@ -69,9 +70,6 @@ msgid "Kept sane by"
 msgstr "Mantenido por"
 
 #: src/exporter/exporter.ui:18
-#| msgid ""
-#| "Export the icon for production use.\n"
-#| "Off-canvas objects are removed and the SVG is optimised for size"
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -79,7 +77,7 @@ msgstr ""
 "Exportar el icono para usar en producción. Los objetos de fuera del lienzo "
 "se eliminan y se optimiza el tamaño del SVG"
 
-#: src/exporter/exporter.ui:68 src/window.vala:228
+#: src/exporter/exporter.ui:68 src/window.vala:239
 msgid "Regular"
 msgstr "Regular"
 
@@ -87,7 +85,7 @@ msgstr "Regular"
 msgid "Save Regular As…"
 msgstr "Guardar regular como…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:232
+#: src/exporter/exporter.ui:144 src/window.vala:243
 msgid "Nightly"
 msgstr "Nocturno"
 
@@ -99,8 +97,7 @@ msgstr "Guardar nocturno como…"
 msgid "Save Symbolic As…"
 msgstr "Guardar simbólico como…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:238
-#| msgid "New Symbolic Icon"
+#: src/exporter/exporter.ui:217 src/window.vala:249
 msgid "Symbolic"
 msgstr "Simbólico"
 
@@ -160,6 +157,12 @@ msgid "Take screenshot"
 msgstr "Capturar la pantalla"
 
 #: src/help-overlay.ui:88
+#| msgid "Copy to Clipboard"
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Copiar una captura de pantalla al portapapeles"
+
+#: src/help-overlay.ui:95
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Alternar la vista de pantalla completa"
@@ -169,7 +172,7 @@ msgid "no longer supported"
 msgstr "ya no esta soportado"
 
 #. If opening the palette directly
-#: src/main.vala:96
+#: src/main.vala:97
 msgid ""
 "Palette is all grown up!\n"
 "It’s now available separately as org.gnome.zbrown.Palette"
@@ -217,7 +220,7 @@ msgstr "Copiar al portapapeles"
 msgid "Save Screenshot"
 msgstr "Guardar captura"
 
-#: src/saver.vala:48 src/window.vala:245
+#: src/saver.vala:48 src/window.vala:256
 msgid "_Save"
 msgstr "_Guardar"
 
@@ -304,11 +307,11 @@ msgstr "Menú"
 msgid "Export"
 msgstr "Exportar"
 
-#: src/window.vala:143
+#: src/window.vala:144
 msgid "This file is defective"
 msgstr "El archivo está corrupto"
 
-#: src/window.vala:144
+#: src/window.vala:145
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -316,34 +319,31 @@ msgstr ""
 "Inicie desde una plantilla para asegurarse de que su archivo funcionará como "
 "un icono de GNOME"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "Select Icon"
 msgstr "Seleccionar icono"
 
-#: src/window.vala:185
+#: src/window.vala:188
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/window.vala:188
+#: src/window.vala:191
 msgid "Icons"
 msgstr "Iconos"
 
-#: src/window.vala:245
-#| msgid "_Save"
+#: src/window.vala:256
 msgid "Save"
 msgstr "Guardar"
 
-#: src/window.vala:252
-#| msgid "Icons"
+#: src/window.vala:263
 msgid "Icon"
 msgstr "Icono"
 
-#: src/window.vala:258
+#: src/window.vala:269
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:268
-#| msgid "Failed to save screenshot"
+#: src/window.vala:279
 msgid "Failed to save exported file"
 msgstr "Falló al guardar el archivo exportado"
 
