@@ -89,7 +89,7 @@
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="valign">start</property>
-                    <property name="label" translatable="yes">label</property>
+                    <property name="label">label</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
