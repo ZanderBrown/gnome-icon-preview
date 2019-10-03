@@ -1,6 +1,6 @@
 deps = [
 	dependency('gtk+-3.0'),
-	dependency('librsvg-2.0'),
+	dependency('librsvg-2.0', version: '>= 2.46'),
 	dependency('libdazzle-1.0'),
 	dependency('libhandy-0.0')
 ]
