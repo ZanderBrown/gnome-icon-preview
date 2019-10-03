@@ -110,6 +110,9 @@ namespace IconPreview {
 
 		public Window (Application app) {
 			Object(app: app);
+			if (PROFILE == "Devel") {
+				get_style_context().add_class("devel");
+			}
 		}
 
 		construct {

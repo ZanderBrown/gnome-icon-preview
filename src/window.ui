@@ -231,6 +231,9 @@
             <property name="position">2</property>
           </packing>
         </child>
+        <style>
+          <class name="titlebar" />
+        </style>
       </object>
     </child>
   </template>

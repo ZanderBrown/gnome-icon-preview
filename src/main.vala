@@ -44,7 +44,7 @@ namespace IconPreview {
 			// Bind the actions
 			add_action_entries(entries, this);
 
-			application_id = "org.gnome.design.IconPreview";
+			application_id = APP_ID;
 			flags = HANDLES_OPEN | HANDLES_COMMAND_LINE;
 
 			add_main_option ("palette", 'p', IN_MAIN, NONE, _("no longer supported"), null);
@@ -69,6 +69,7 @@ namespace IconPreview {
 		}
 
 		public override void startup () {
+			set_resource_base_path("/org/gnome/design/IconPreview");
 			base.startup();
 
 			var styles = new CssProvider();
@@ -108,7 +109,7 @@ namespace IconPreview {
 	}
 
 	public int main (string[] args) {
-		Gtk.Window.set_default_icon_name("org.gnome.design.IconPreview");
+		Gtk.Window.set_default_icon_name(APP_ID);
 
 		Intl.setlocale (LocaleCategory.ALL, "");
 		Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALE_DIR);
