@@ -1,0 +1,398 @@
+# Swedish translation for icon-tool.
+# Copyright © 2019 icon-tool's COPYRIGHT HOLDER
+# This file is distributed under the same license as the icon-tool package.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: icon-tool master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"issues\n"
+"POT-Creation-Date: 2019-09-08 12:23+0000\n"
+"PO-Revision-Date: 2019-09-08 18:39+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:8
+#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:117 src/saver.vala:60
+#: src/views/colour.vala:97 src/window.vala:152 src/window.vala:316
+msgid "Icon Preview"
+msgstr "Ikonförhandsgranskning"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Verktyg för att designa ikoner"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr ""
+"Ikonförhandsgranskning är ett verktyg för att designa ikoner som är tänkta "
+"att användas för GNOME-skrivbordet."
+
+#: data/org.gnome.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Välkomstskärm"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Förhandsgranska en programikon"
+
+#: data/org.gnome.IconPreview.appdata.xml.in:48
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Förhandsgranska ikoner"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Copyright © 2018-19 Zander Brown"
+
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr ""
+"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Arkiv"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr "Hålls vettigt av"
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Exportera ikonen för skarp användning. Objekt utanför ritytan tas bort och "
+"SVG-filen optimeras för storlek"
+
+#: src/exporter/exporter.ui:68 src/window.vala:228
+msgid "Regular"
+msgstr "Vanlig"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Spara vanlig som…"
+
+#: src/exporter/exporter.ui:144 src/window.vala:232
+#, fuzzy
+msgid "Nightly"
+msgstr "Nattlig"
+
+#: src/exporter/exporter.ui:164
+#, fuzzy
+msgid "Save Nightly As…"
+msgstr "Spara nattlig som…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Spara symbolisk som…"
+
+#: src/exporter/exporter.ui:217 src/window.vala:238
+msgid "Symbolic"
+msgstr "Symbolisk"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Program"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Nytt fönster"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Öppna en ikon"
+
+#: src/help-overlay.ui:33
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Öppna lista över senaste"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Öppna menyn"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Avsluta programmet"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Visa"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Läs om ikonen"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Exportera ikonen"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Blanda ikoner"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Ta skärmbild"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Växla helskärm"
+
+#: src/main.vala:50
+msgid "no longer supported"
+msgstr "stöds inte längre"
+
+#. If opening the palette directly
+#: src/main.vala:96
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Palett har vuxit upp!\n"
+"Det är nu tillgängligt separat som org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Nytt fönster"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "_Läs om"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "_Ta skärmbild"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "_Blanda exempelikoner"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "Tan_gentbordsgenvägar"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "_Om Ikonförhandsgranskning"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Stäng"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Spara…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiera till urklipp"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Spara skärmbild"
+
+#: src/saver.vala:48 src/window.vala:245
+msgid "_Save"
+msgstr "_Spara"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Misslyckades med att spara skärmbild"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Knapp"
+
+#: src/views/symbolicpane.ui:465
+#, fuzzy
+msgid "Insensitive"
+msgstr "Okänslig"
+
+#: src/views/symbolicpane.ui:486
+#, fuzzy
+msgid "Suggested"
+msgstr "Föreslagen"
+
+#: src/views/symbolicpane.ui:510
+#, fuzzy
+msgid "Destructive"
+msgstr "Destruktiv"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Byt namn"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr "Ikonen färgas inte om eftersom filnamnet måste sluta med ”-symbolic”"
+
+#: src/window.ui:39
+msgid "Make a new GNOME Icon"
+msgstr "Gör en ny GNOME-ikon"
+
+#: src/window.ui:79 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Ny programikon"
+
+#: src/window.ui:94 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Ny symbolisk ikon"
+
+#: src/window.ui:115
+msgid "An application’s identity"
+msgstr "Ett programs identitet"
+
+#: src/window.ui:130
+msgid "For actions, status and other things needed in apps"
+msgstr "För åtgärder, status och andra saker som behövs i program"
+
+#: src/window.ui:162
+msgid "Open"
+msgstr "Öppna"
+
+#: src/window.ui:166
+msgid "Open an icon"
+msgstr "Öppna en ikon"
+
+#: src/window.ui:180
+msgid "Recent"
+msgstr "Senaste"
+
+#: src/window.ui:208
+msgid "Menu"
+msgstr "Meny"
+
+#: src/window.ui:231
+msgid "Export"
+msgstr "Exportera"
+
+#: src/window.vala:143
+msgid "This file is defective"
+msgstr "Denna fil är felaktig"
+
+#: src/window.vala:144
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Starta från en mall för att säkerställa att din fil kommer att fungera som "
+"en GNOME-ikon"
+
+#: src/window.vala:185
+msgid "Select Icon"
+msgstr "Välj ikon"
+
+#: src/window.vala:185
+msgid "_Open"
+msgstr "Ö_ppna"
+
+#: src/window.vala:188
+msgid "Icons"
+msgstr "Ikoner"
+
+#: src/window.vala:245
+msgid "Save"
+msgstr "Spara"
+
+#: src/window.vala:252
+msgid "Icon"
+msgstr "Ikon"
+
+#: src/window.vala:258
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:268
+msgid "Failed to save exported file"
+msgstr "Misslyckades med att spara exporterad fil"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Ikonplats"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Spara ikon"
+
+#: src/wizard.ui:92
+msgid "label"
+msgstr "etikett"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "SVG-filen för ikonen kommer lagras i denna katalog"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "A_vbryt"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Skapa"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Ikonnamn"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Gemener med bindestreck mellan ord, t.ex. list-add"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Programnamn"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Det omvända domännotationsnamnet, t.ex. org.inkscape.Inkscape"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "Förväntade minst ett ”-”"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "Förväntade minst en ”.”"
