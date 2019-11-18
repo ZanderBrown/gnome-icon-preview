@@ -1,0 +1,402 @@
+# Turkish translation for icon tool
+# Copyright (C) 2019 icon tool'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the icon tool package.
+#
+# Sabri Ünal <libreajans@gmail.com>, 2019.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: unnamed project\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"issues\n"
+"POT-Creation-Date: 2019-11-10 18:38+0000\n"
+"PO-Revision-Date: 2019-11-18 17:57+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Gtranslator 3.32.1\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+# Uygulama adı olduğu için çevrilmedi
+#: data/org.gnome.design.IconPreview.appdata.xml.in:8
+#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:154
+#: src/window.vala:153 src/window.vala:327
+msgid "Icon Preview"
+msgstr "Icon Preview"
+
+#: data/org.gnome.design.IconPreview.appdata.xml.in:9
+msgid "Tool for designing icons"
+msgstr "Simge tasarlamak için uygulama"
+
+#: data/org.gnome.design.IconPreview.appdata.xml.in:11
+msgid ""
+"Icon Preview is a tool for designing icons which target the GNOME desktop."
+msgstr ""
+"Icon Preview, GNOME masaüstü ortamını hedefleyen simge tasarlama "
+"uygulamasıdır."
+
+#: data/org.gnome.design.IconPreview.appdata.xml.in:22
+msgid "Welcome screen"
+msgstr "Hoş geldiniz ekranı"
+
+#: data/org.gnome.design.IconPreview.appdata.xml.in:26
+msgid "Previewing an Application icon"
+msgstr "Uygulama simgesini önizleme"
+
+# Şahıs adı olduğu için çevrilmedi
+#: data/org.gnome.design.IconPreview.appdata.xml.in:51
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.design.IconPreview.desktop.in:4
+msgid "Preview icons"
+msgstr "Simgeleri önizle"
+
+#: src/common.vala:14
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Telif Hakkı © 2018-19 Zander Brown"
+
+# Header bilgileriyle uyumlu olmasına özen gösterelim.
+#: src/common.vala:18
+msgid "translator-credits"
+msgstr ""
+"Sabri Ünal <libreajans@gmail.com>\n"
+"Emin Tufan Çetin <etcetin@gmail.com>"
+
+#: src/common.vala:20
+msgid "Repository"
+msgstr "Depo"
+
+#: src/common.vala:22
+msgid "Kept sane by"
+msgstr "Bakım yapan"
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Simgeyi genel kullanım için aktar. Tuval dışı nesneler silinir ve SVG boyutu "
+"eniyilenir"
+
+#: src/exporter/exporter.ui:68 src/window.vala:239
+msgid "Regular"
+msgstr "Sıradan"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Sıradanı Farklı Kaydet…"
+
+#: src/exporter/exporter.ui:144 src/window.vala:243
+msgid "Nightly"
+msgstr "Gecelik"
+
+#: src/exporter/exporter.ui:164
+msgid "Save Nightly As…"
+msgstr "Geceliği Farklı Kaydet…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Semboliği Farklı Kaydet…"
+
+#: src/exporter/exporter.ui:217 src/window.vala:249
+msgid "Symbolic"
+msgstr "Sembolik"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Uygulama"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Yeni Pencere"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Simge aç"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Son kullanılanlar listesini aç"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Menüyü aç"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Uygulamadan çık"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Görünüm"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Simgeyi yeniden yükle"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Simgeyi dışa aktar"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Simgeleri karıştır"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Ekran görüntüsü al"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Ekran görüntüsünü panoya kopyala"
+
+#: src/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Tam ekranı aç/kapat"
+
+#: src/main.vala:50
+msgid "no longer supported"
+msgstr "artık desteklenmiyor"
+
+#. If opening the palette directly
+#: src/main.vala:97
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Palette artık büyüdü!\n"
+"Artık ayrı bir uygulama olarak kullanımda: org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Yeni Pencere"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "Yeniden Y_ükle"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "Ekran Görün_tüsü Al"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "Örnek _Simgeleri Karıştır"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: src/menus.ui:33
+msgid "_About Icon Preview"
+msgstr "Icon Preview _Hakkında"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Kapat"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Kaydet…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Panoya Kopyala"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Ekran Görüntüsünü Kaydet"
+
+#: src/saver.vala:48 src/window.vala:256
+msgid "_Save"
+msgstr "_Kaydet"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Önizleme"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Ekran görüntüsü kaydedilemedi"
+
+#: src/views/symbolicpane.ui:443
+msgid "Button"
+msgstr "Düğme"
+
+#: src/views/symbolicpane.ui:465
+msgid "Insensitive"
+msgstr "Duyarsız"
+
+#: src/views/symbolicpane.ui:486
+msgid "Suggested"
+msgstr "Önerilen"
+
+#: src/views/symbolicpane.ui:510
+msgid "Destructive"
+msgstr "Yıkıcı"
+
+#: src/views/symbolic.vala:58
+msgid "Rename"
+msgstr "Yeniden Adlandır"
+
+#: src/views/symbolic.vala:74
+msgid ""
+"The icon is not recoloring because the file name needs to end in “-symbolic”"
+msgstr ""
+"Simge yeniden renklendirilemiyor çünkü dosya adının “-symbolic” olarak "
+"bitmesi gerekiyor"
+
+#: src/window.ui:39
+msgid "Make a new GNOME Icon"
+msgstr "Yeni GNOME Simgesi Oluştur"
+
+#: src/window.ui:79 src/wizard.vala:39
+msgid "New App Icon"
+msgstr "Yeni Uygulama Simgesi"
+
+#: src/window.ui:94 src/wizard.vala:35
+msgid "New Symbolic Icon"
+msgstr "Yeni Sembolik Simge"
+
+#: src/window.ui:115
+msgid "An application’s identity"
+msgstr "Uygulamanın kimliği"
+
+#: src/window.ui:130
+msgid "For actions, status and other things needed in apps"
+msgstr "Eylemler, durumlar ve uygulama içinde gereksinilen diğer şeyler için"
+
+#: src/window.ui:162
+msgid "Open"
+msgstr "Aç"
+
+#: src/window.ui:166
+msgid "Open an icon"
+msgstr "Simge aç"
+
+#: src/window.ui:180
+msgid "Recent"
+msgstr "Son Kullanılan"
+
+#: src/window.ui:208
+msgid "Menu"
+msgstr "Menü"
+
+#: src/window.ui:227
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: src/window.vala:144
+msgid "This file is defective"
+msgstr "Bu dosya kusurlu"
+
+#: src/window.vala:145
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Dosyanızın GNOME simgesi olarak çalışacağından emin olmak için şablondan "
+"başlayın"
+
+#: src/window.vala:188
+msgid "Select Icon"
+msgstr "Simge Seç"
+
+#: src/window.vala:188
+msgid "_Open"
+msgstr "_Aç"
+
+#: src/window.vala:191
+msgid "Icons"
+msgstr "Simgeler"
+
+#: src/window.vala:256
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/window.vala:263
+msgid "Icon"
+msgstr "Simge"
+
+#: src/window.vala:269
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:279
+msgid "Failed to save exported file"
+msgstr "Dışa aktarılan dosya kaydedilemedi"
+
+#: src/wizard.ui:56
+msgid "Icon Location"
+msgstr "Simge Konumu"
+
+#: src/wizard.ui:77
+msgid "Save Icon"
+msgstr "Simgeyi Kaydet"
+
+#: src/wizard.ui:108
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Simge SVG dosyası bu dizinde saklanacak"
+
+#: src/wizard.ui:157
+msgid "_Cancel"
+msgstr "İptal _Et"
+
+#: src/wizard.ui:163
+msgid "_Create"
+msgstr "_Oluştur"
+
+#: src/wizard.vala:36
+msgid "Icon Name"
+msgstr "Simge Adı"
+
+#: src/wizard.vala:37
+msgid "All lowercase with dashes between words, e.g. list-add"
+msgstr "Tümü küçük harf, arasında kısa çizgi olacak biçimde, örn.: list-add"
+
+#: src/wizard.vala:40
+msgid "App Name"
+msgstr "Uygulama Adı"
+
+#. Hmm
+#: src/wizard.vala:42
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Ters alan adı gösterim adı, örneğin: org.inscape.Inkscape"
+
+#: src/wizard.vala:49
+msgid "Expecting at least one “-”"
+msgstr "En az bir “-” bekleniyor"
+
+#: src/wizard.vala:52
+msgid "Expecting at least one “.”"
+msgstr "En az bir “.” bekleniyor"
+
+#~ msgid "label"
+#~ msgstr "etiket"
