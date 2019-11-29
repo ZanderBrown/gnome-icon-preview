@@ -5,6 +5,8 @@
   <template class="IconPreviewScreenshotSaver" parent="HdyDialog">
     <property name="can_focus">False</property>
     <property name="border_width">0</property>
+    <property name="default_width">940</property>
+    <property name="default_height">540</property>
     <property name="resizable">False</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">

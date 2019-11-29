@@ -84,8 +84,9 @@ namespace IconPreview {
 		}
 
 		public Gdk.Pixbuf screenshot () {
-			var w = get_allocated_width();
-			var content_h = get_allocated_height();
+			// enforced width & height - badge - padding
+			var w = 940;
+			var content_h = 496;
 
 			Gdk.Pixbuf logo;
 			try {

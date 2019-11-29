@@ -14,7 +14,7 @@ namespace IconPreview {
 			{ "save", save },
 		};
 
-		const int WIDTH = 450;
+		const int WIDTH = 940;
 
 		construct {
 			// Why is this int? Why is this not automatic?
