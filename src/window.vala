@@ -51,10 +51,7 @@ namespace IconPreview {
 					// and can contain a symbolic icon
 					if (hicolor.height == 128 && hicolor.width == 128) {
 						mode = COLOUR;
-					// Whereas symbolics are 16 by 16
-					} else if (svg.height == 16 && svg.width == 16) {
-						mode = SYMBOLIC;
-					// And anything else is unsupported
+					// anything else is unsupported
 					} else {
 						// We are very specific about what we like
 						_file = null;
@@ -159,9 +156,6 @@ namespace IconPreview {
 					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
 					(lookup_action("copy-screenshot") as SimpleAction).set_enabled(false);
 					break;
-				case SYMBOLIC:
-					_mode_changed(new Symbolic(exporter));
-					break;
 				case COLOUR:
 					_mode_changed(new Colour(exporter));
 					break;
@@ -240,12 +234,6 @@ namespace IconPreview {
 								// FIXME: this could go wrong if the string doesn't end with .svg
 								filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
 								file = exporter.get_nightly();
-								break;
-								}
-				case "symbolic": {title = _("Symbolic");
-								// FIXME: this could go wrong if the string doesn't end with .svg
-								filename = filename.substring(0, filename.length - 4) + "-symbolic.svg";
-								file = exporter.get_symbolic();
 								break;
 								}
 			}

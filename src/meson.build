@@ -14,8 +14,6 @@ sources = [
 	'views/utils.vala',
 	'views/colourpane.vala',
 	'views/colour.vala',
-	'views/symbolicpane.vala',
-	'views/symbolic.vala',
 	'exporter/exporter.vala',
 	'wizard.vala',
 	'saver.vala',
