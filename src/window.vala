@@ -1,5 +1,4 @@
 using Gtk;
-
 namespace IconPreview {
 	[GtkTemplate (ui = "/org/gnome/design/IconPreview/window.ui")]
 	public class Window : Dazzle.ApplicationWindow {
@@ -19,7 +18,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
-			{ "new-icon", new_icon, "s" },
+			{ "new-icon", new_icon },
 			{ "screenshot", screenshot },
 			{ "copy-screenshot", copy_screenshot },
 			{ "recents", open_recent },
@@ -204,16 +203,10 @@ namespace IconPreview {
 		}
 
 		// win.new always expects an argument
-		private void new_icon (GLib.Action _act, Variant? arg) {
-			if ((arg as string) == "symbolic") {
-				var wiz = new Wizard(this, SYMBOLIC);
-				wiz.open.connect(@new => file = @new);
-				wiz.run();
-			} else {
-				var wiz = new Wizard(this, COLOUR);
-				wiz.open.connect(@new => file = @new);
-				wiz.run();
-			}
+		private void new_icon () {
+			var wiz = new Wizard(this, COLOUR);
+			wiz.open.connect(@new => file = @new);
+			wiz.run();
 		}
 
 		// Screenshot the previewer
