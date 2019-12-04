@@ -4,7 +4,7 @@
   <requires lib="gtk+" version="3.20"/>
   <template class="IconPreviewWindow" parent="DzlApplicationWindow">
     <property name="can_focus">False</property>
-    <property name="icon_name">org.gnome.design.IconPreview</property>
+    <property name="icon_name">org.gnome.design.AppIconPreview</property>
     <property name="show_menubar">False</property>
     <child type="titlebar">
       <object class="GtkHeaderBar">

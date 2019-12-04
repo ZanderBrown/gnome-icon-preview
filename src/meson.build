@@ -38,5 +38,5 @@ sources += gnome.compile_resources('wallpapers',
   source_dir: 'wallpapers/'
 )
 
-executable('gnome-icon-preview', sources, dependencies: deps, install: true)
+executable(meson.project_name(), sources, dependencies: deps, install: true)
 

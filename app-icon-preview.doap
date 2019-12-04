@@ -5,15 +5,15 @@
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
 
-  <name xml:lang="en">Icon Preview</name>
+  <name xml:lang="en">App Icon Preview</name>
   <shortdesc xml:lang="en">
-      Tool for designing icons
+      Tool for designing applications icons
   </shortdesc>
   <description xml:lang="en">
       Preview SVG icons to aid in their creation
   </description>
   <!-- <homepage rdf:resource="https://wiki.gnome.org/Apps/IconPreview" /> -->
-  <bug-database rdf:resource="https://gitlab.gnome.org/World/design/icon-preview" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/World/design/app-icon-preview" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
   <programming-language>Vala</programming-language>

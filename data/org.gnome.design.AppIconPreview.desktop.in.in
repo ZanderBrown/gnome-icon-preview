@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Icon Preview
-Comment=Preview icons
-Exec=gnome-icon-preview %f
+Name=App Icon Preview
+Comment=Preview applications icons
+Exec=app-icon-preview %f
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=@icon@
 Terminal=false
@@ -10,4 +10,4 @@ StartupNotify=true
 Categories=Utility;GTK;GNOME;
 DBusActivatable=true
 MimeType=image/svg+xml;
-StartupWMClass=gnome-icon-preview
+StartupWMClass=app-icon-preview

@@ -1,4 +1,4 @@
-project('gnome-icon-preview', 'vala', 'c', version: '0.9.4')
+project('app-icon-preview', 'vala', 'c', version: '0.9.4')
 
 i18n = import('i18n')
 
@@ -11,7 +11,7 @@ if get_option('profile') == 'development'
 else
   profile = ''
 endif
-application_id = 'org.gnome.design.IconPreview@0@'.format('.' + profile)
+application_id = 'org.gnome.design.AppIconPreview@0@'.format('.' + profile)
 
 conf = configuration_data()
 conf.set_quoted('G_LOG_DOMAIN', application_id)

@@ -1,6 +1,6 @@
 using Gtk;
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/design/IconPreview/window.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/AppIconPreview/window.ui")]
 	public class Window : Dazzle.ApplicationWindow {
 		[GtkChild]
 		Stack content;
@@ -149,7 +149,7 @@ namespace IconPreview {
 		private void mode_changed () {
 			switch (mode) {
 				case INITIAL:
-					title = _("Icon Preview");
+					title = _("App Icon Preview");
 					(lookup_action("refresh") as SimpleAction).set_enabled(false);
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
 					(lookup_action("export") as SimpleAction).set_enabled(false);
@@ -308,7 +308,7 @@ namespace IconPreview {
 				title = info.get_display_name();
 			} catch (Error e) {
 				critical("Failed to fetch icon name: %s", e.message);
-				title = _("Icon Preview");
+				title = _("App Icon Preview");
 			}
 		}
 

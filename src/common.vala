@@ -16,7 +16,7 @@ namespace IconPreview {
 			authors = authors,
 			artists = artists,
 			translator_credits = _("translator-credits"),
-			website = "https://gitlab.gnome.org/World/design/icon-tool/",
+			website = "https://gitlab.gnome.org/World/design/app-icon-preview/",
 			website_label = _("Repository")
 		};
 		dlg.add_credit_section(_("Kept sane by"), helpers);

@@ -2,7 +2,7 @@ desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
 desktop_file = i18n.merge_file(
   input: configure_file(
-    input: 'org.gnome.design.IconPreview.desktop.in.in',
+    input: 'org.gnome.design.AppIconPreview.desktop.in.in',
     output: '@BASENAME@',
     configuration: desktop_conf
   ),
@@ -24,7 +24,7 @@ appdata_conf = configuration_data()
 appdata_conf.set('app-id', application_id)
 appdata_file = i18n.merge_file(
   input: configure_file(
-    input: 'org.gnome.design.IconPreview.metainfo.xml.in.in',
+    input: 'org.gnome.design.AppIconPreview.metainfo.xml.in.in',
     output: '@BASENAME@',
     configuration: appdata_conf
   ),
@@ -43,16 +43,16 @@ endif
 service_conf = configuration_data()
 service_conf.set('app-id', application_id)
 service_conf.set('bindir', bindir)
-configure_file(input: 'org.gnome.design.IconPreview.service.in',
+configure_file(input: 'org.gnome.design.AppIconPreview.service.in',
                output: '@0@.service'.format(application_id),
                configuration: service_conf,
                install_dir: join_paths([datadir,'dbus-1/services']))
 
-install_data('org.gnome.design.IconPreview.svg',
+install_data('org.gnome.design.AppIconPreview.svg',
              rename: '@0@.svg'.format(application_id),
              install_dir: join_paths([datadir,'icons/hicolor/scalable/apps']))
 
-install_data('org.gnome.design.IconPreview-symbolic.svg',
+install_data('org.gnome.design.AppIconPreview-symbolic.svg',
              rename: '@0@-symbolic.svg'.format(application_id),
              install_dir: join_paths([datadir,'icons/hicolor/symbolic/apps']))
 
