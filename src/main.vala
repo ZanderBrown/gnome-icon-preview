@@ -3,7 +3,6 @@ using Gtk;
 namespace IconPreview {
 	public enum Mode {
 		INITIAL,
-		SYMBOLIC,
 		COLOUR
 	}
 
