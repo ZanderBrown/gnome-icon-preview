@@ -204,7 +204,7 @@ namespace IconPreview {
 
 		// win.new always expects an argument
 		private void new_icon () {
-			var wiz = new Wizard(this, COLOUR);
+			var wiz = new Wizard(this);
 			wiz.open.connect(@new => file = @new);
 			wiz.run();
 		}
