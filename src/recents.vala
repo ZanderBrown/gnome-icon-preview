@@ -15,11 +15,22 @@ namespace IconPreview {
 	class RecentRow : ListBoxRow {
 		[GtkChild]
 		Label label;
+		[GtkChild]
+		Image image;
 
 		private Recent _recent;
 		public Recent recent {
 			construct {
 				label.label = value.name;
+				this.tooltip_text = value.name;
+
+				var svg = new Rsvg.Handle.from_gfile_sync(File.new_for_uri(value.uri), FLAGS_NONE);
+				var hicolor = create_tmp_file ("#hicolor");
+				render_by_id(svg, "#hicolor", hicolor, 128);
+
+				var gicon = new FileIcon(hicolor);
+				image.set_from_gicon(gicon, DND);
+
 				_recent = value;
 			}
 
@@ -48,6 +59,14 @@ namespace IconPreview {
 		}
 
 		construct {
+			recent.set_header_func((before, after) => {
+			  	if (after != null) {
+			        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+			        separator.show();
+			        before.set_header(separator);
+			    }
+			});
+
 			recent.bind_model(model, info => new RecentRow(info as Recent));
 			manager.changed.connect(populate_model);
 			populate_model();
