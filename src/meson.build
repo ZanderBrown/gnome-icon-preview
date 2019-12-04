@@ -14,8 +14,6 @@ sources = [
 	'views/utils.vala',
 	'views/colourpane.vala',
 	'views/colour.vala',
-	'views/symbolicpane.vala',
-	'views/symbolic.vala',
 	'exporter/exporter.vala',
 	'wizard.vala',
 	'saver.vala',
@@ -40,5 +38,5 @@ sources += gnome.compile_resources('wallpapers',
   source_dir: 'wallpapers/'
 )
 
-executable('gnome-icon-preview', sources, dependencies: deps, install: true)
+executable(meson.project_name(), sources, dependencies: deps, install: true)
 

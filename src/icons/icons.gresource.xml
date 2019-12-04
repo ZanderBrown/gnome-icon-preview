@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/design/IconPreview/icons/">
+  <gresource prefix="/org/gnome/design/AppIconPreview/icons/">
     <file>com.github.bilelmoussaoui.Authenticator.svg</file>
     <file>de.haeckerfelix.Shortwave.svg</file>
     <file>org.gnome.Aisleriot.svg</file>

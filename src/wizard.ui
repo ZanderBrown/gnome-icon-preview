@@ -6,6 +6,7 @@
     <property name="can_focus">False</property>
     <property name="window_position">center-on-parent</property>
     <property name="type_hint">dialog</property>
+    <property name="title">New App Icon</property>
     <child>
       <placeholder/>
     </child>
@@ -38,10 +39,11 @@
                 <property name="column_spacing">15</property>
                 <property name="row_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel" id="icon_type">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
+                    <property name="label" translatable="yes">App Name</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -84,12 +86,12 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="desc">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="valign">start</property>
-                    <property name="label">label</property>
+                    <property name="label" translatable="yes">The reverse domain notation name, e.g. org.inkscape.Inkscape</property>
                     <style>
                       <class name="dim-label"/>
                     </style>

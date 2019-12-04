@@ -3,7 +3,6 @@ using Gtk;
 namespace IconPreview {
 	public enum Mode {
 		INITIAL,
-		SYMBOLIC,
 		COLOUR
 	}
 
@@ -69,11 +68,11 @@ namespace IconPreview {
 		}
 
 		public override void startup () {
-			set_resource_base_path("/org/gnome/design/IconPreview");
+			set_resource_base_path("/org/gnome/design/AppIconPreview");
 			base.startup();
 
 			var styles = new CssProvider();
-			styles.load_from_resource("/org/gnome/design/IconPreview/gtk/style.css");
+			styles.load_from_resource("/org/gnome/design/AppIconPreview/gtk/style.css");
 			// Use of uint.MAX isn't ideal but we are effectively in an arms race
 			StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), styles, uint.MAX);
 
@@ -116,7 +115,7 @@ namespace IconPreview {
 		Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 		Intl.textdomain (GETTEXT_PACKAGE);
 
-		Environment.set_application_name(_("Icon Preview"));
+		Environment.set_application_name(_("App Icon Preview"));
 
 		var app = new Application();
 		return app.run(args);

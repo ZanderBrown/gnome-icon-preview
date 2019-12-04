@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/design/IconPreview/">
+  <gresource prefix="/org/gnome/design/AppIconPreview/">
     <file>recentrow.ui</file>
     <file>recents.ui</file>
     <file>wizard.ui</file>
     <file>saver.ui</file>
     <file>window.ui</file>
     <file alias="colourpane.ui">views/colourpane.ui</file>
-    <file alias="symbolicpane.ui">views/symbolicpane.ui</file>
     <file>exporter/exporter.ui</file>
-    <file>templates/symbolic.svg</file>
     <file>templates/colour.svg</file>
     <file>templates/stripes.svg</file>
-    <file alias="badge.svg">../data/org.gnome.design.IconPreview-symbolic.svg</file>
+    <file alias="badge.svg">../data/org.gnome.design.AppIconPreview-symbolic.svg</file>
   </gresource>
-  <gresource prefix="/org/gnome/design/IconPreview/gtk/">
+  <gresource prefix="/org/gnome/design/AppIconPreview/gtk/">
     <file>style.css</file>
     <file>menus.ui</file>
     <file>help-overlay.ui</file>

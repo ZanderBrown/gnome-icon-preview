@@ -40,7 +40,7 @@ namespace IconPreview {
 		}
 	}
 
-	[GtkTemplate (ui = "/org/gnome/design/IconPreview/colourpane.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/AppIconPreview/colourpane.ui")]
 	public class ColourPane : Box {
 		[GtkChild]
 		Grid sizes;

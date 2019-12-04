@@ -1,157 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.0 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-
   <template class="IconPreviewWindow" parent="DzlApplicationWindow">
     <property name="can_focus">False</property>
-    <property name="icon_name">org.gnome.design.IconPreview</property>
+    <property name="icon_name">org.gnome.design.AppIconPreview</property>
     <property name="show_menubar">False</property>
-    <child>
-      <object class="GtkStack" id="content">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="hhomogeneous">False</property>
-        <property name="vhomogeneous">False</property>
-        <property name="interpolate_size">True</property>
-        <child>
-          <object class="GtkGrid">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="margin_bottom">20</property>
-            <property name="row_spacing">5</property>
-            <property name="column_spacing">20</property>
-            <child>
-              <object class="GtkGrid">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="row_spacing">20</property>
-                <property name="column_spacing">50</property>
-                <property name="column_homogeneous">True</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Make a new GNOME Icon</property>
-                    <attributes>
-                      <attribute name="font-desc" value="Cantarell 24"/>
-                    </attributes>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">128</property>
-                    <property name="icon_name">edit-cut-symbolic</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">128</property>
-                    <property name="icon_name">org.gnome.Maps</property>
-                    <style>
-                      <class name="shadow-icon"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">New App Icon</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="halign">center</property>
-                    <property name="action_name">win.new-icon</property>
-                    <property name="action_target">'colour'</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">New Symbolic Icon</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="halign">center</property>
-                    <property name="action_name">win.new-icon</property>
-                    <property name="action_target">'symbolic'</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="valign">start</property>
-                    <property name="wrap">true</property>
-                    <property name="max-width-chars">28</property>
-                    <property name="justify">center</property>
-                    <property name="label" translatable="yes">An application’s identity</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="valign">start</property>
-                    <property name="wrap">true</property>
-                    <property name="max-width-chars">28</property>
-                    <property name="justify">center</property>
-                    <property name="label" translatable="yes">For actions, status and other things needed in apps</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">3</property>
-                  </packing>
-                </child>
-                <style>
-                  <class name="initial-state"/>
-                </style>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
     <child type="titlebar">
       <object class="GtkHeaderBar">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="title" translatable="yes">Icon Preview</property>
+        <property name="title" translatable="yes">App Icon Preview</property>
         <property name="show_close_button">True</property>
         <child>
           <object class="GtkBox">
@@ -221,10 +80,12 @@
         </child>
         <child>
           <object class="GtkMenuButton" id="exportbtn">
-            <property name="visible">False</property>
+            <property name="label" translatable="yes">Export</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="label" translatable="yes">Export</property>
+            <child>
+              <placeholder/>
+            </child>
           </object>
           <packing>
             <property name="pack_type">end</property>
@@ -232,8 +93,73 @@
           </packing>
         </child>
         <style>
-          <class name="titlebar" />
+          <class name="titlebar"/>
         </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStack" id="content">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="hhomogeneous">False</property>
+        <property name="vhomogeneous">False</property>
+        <property name="interpolate_size">True</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">48</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">24</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Make a new App Icon</property>
+                <attributes>
+                  <attribute name="font-desc" value="Cantarell 24"/>
+                  <attribute name="weight" value="semilight"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="pixel_size">128</property>
+                <property name="icon_name">org.gnome.Maps</property>
+                <style>
+                  <class name="shadow-icon"/>
+                </style>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">New App Icon</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="action_name">win.new-icon</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
   </template>

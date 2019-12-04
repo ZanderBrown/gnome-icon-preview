@@ -1,7 +1,6 @@
 using Gtk;
-
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/design/IconPreview/window.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/AppIconPreview/window.ui")]
 	public class Window : Dazzle.ApplicationWindow {
 		[GtkChild]
 		Stack content;
@@ -19,7 +18,7 @@ namespace IconPreview {
 
 		const GLib.ActionEntry[] entries = {
 			{ "open", open },
-			{ "new-icon", new_icon, "s" },
+			{ "new-icon", new_icon },
 			{ "screenshot", screenshot },
 			{ "copy-screenshot", copy_screenshot },
 			{ "recents", open_recent },
@@ -52,10 +51,7 @@ namespace IconPreview {
 					// and can contain a symbolic icon
 					if (hicolor.height == 128 && hicolor.width == 128) {
 						mode = COLOUR;
-					// Whereas symbolics are 16 by 16
-					} else if (svg.height == 16 && svg.width == 16) {
-						mode = SYMBOLIC;
-					// And anything else is unsupported
+					// anything else is unsupported
 					} else {
 						// We are very specific about what we like
 						_file = null;
@@ -153,15 +149,12 @@ namespace IconPreview {
 		private void mode_changed () {
 			switch (mode) {
 				case INITIAL:
-					title = _("Icon Preview");
+					title = _("App Icon Preview");
 					(lookup_action("refresh") as SimpleAction).set_enabled(false);
 					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
 					(lookup_action("export") as SimpleAction).set_enabled(false);
 					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
 					(lookup_action("copy-screenshot") as SimpleAction).set_enabled(false);
-					break;
-				case SYMBOLIC:
-					_mode_changed(new Symbolic(exporter));
 					break;
 				case COLOUR:
 					_mode_changed(new Colour(exporter));
@@ -204,16 +197,10 @@ namespace IconPreview {
 		}
 
 		// win.new always expects an argument
-		private void new_icon (GLib.Action _act, Variant? arg) {
-			if ((arg as string) == "symbolic") {
-				var wiz = new Wizard(this, SYMBOLIC);
-				wiz.open.connect(@new => file = @new);
-				wiz.run();
-			} else {
-				var wiz = new Wizard(this, COLOUR);
-				wiz.open.connect(@new => file = @new);
-				wiz.run();
-			}
+		private void new_icon () {
+			var wiz = new Wizard(this);
+			wiz.open.connect(@new => file = @new);
+			wiz.run();
 		}
 
 		// Screenshot the previewer
@@ -247,12 +234,6 @@ namespace IconPreview {
 								// FIXME: this could go wrong if the string doesn't end with .svg
 								filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
 								file = exporter.get_nightly();
-								break;
-								}
-				case "symbolic": {title = _("Symbolic");
-								// FIXME: this could go wrong if the string doesn't end with .svg
-								filename = filename.substring(0, filename.length - 4) + "-symbolic.svg";
-								file = exporter.get_symbolic();
 								break;
 								}
 			}
@@ -327,7 +308,7 @@ namespace IconPreview {
 				title = info.get_display_name();
 			} catch (Error e) {
 				critical("Failed to fetch icon name: %s", e.message);
-				title = _("Icon Preview");
+				title = _("App Icon Preview");
 			}
 		}
 

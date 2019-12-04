@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-	[GtkTemplate (ui = "/org/gnome/design/IconPreview/saver.ui")]
+	[GtkTemplate (ui = "/org/gnome/design/AppIconPreview/saver.ui")]
 	class ScreenshotSaver : Hdy.Dialog {
 		[GtkChild]
 		Image preview;
@@ -57,7 +57,7 @@ namespace IconPreview {
 			}
 
 			var any = new Gtk.FileFilter ();
-			any.set_filter_name (_("Icon Preview"));
+			any.set_filter_name (_("App Icon Preview"));
 			any.add_pattern ("*.png");
 			any.add_mime_type ("image/png");
 			any.add_pattern ("*.jpg");

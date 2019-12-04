@@ -5,11 +5,11 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <project_group>GNOME</project_group>
-  <name>Icon Preview</name>
-  <summary>Tool for designing icons</summary>
+  <name>App Icon Preview</name>
+  <summary>Tool for designing applications icons</summary>
   <description>
     <p>
-      Icon Preview is a tool for designing icons which target the GNOME desktop.
+      App Icon Preview is a tool for designing icons which target the GNOME desktop.
     </p>
   </description>
   <kudos>
@@ -18,11 +18,11 @@
   </kudos>
   <screenshots>
     <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/World/design/icon-preview/raw/master/data/screenshots/01-Welcome.png</image>
+      <image height="650" width="1196">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/01-Welcome.png</image>
       <caption>Welcome screen</caption>
     </screenshot>
     <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/World/design/icon-preview/raw/master/data/screenshots/02-Application.png</image>
+      <image height="650" width="1196">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/02-Application.png</image>
       <caption>Previewing an Application icon</caption>
     </screenshot>
   </screenshots>
@@ -43,10 +43,10 @@
     <id>org.gnome.IconPreview</id>
   </provides>
   <launchable type="desktop-id">@app-id@.desktop</launchable>
-  <url type="homepage">https://gitlab.gnome.org/World/design/icon-preview</url>
-  <url type="bugtracker">https://gitlab.gnome.org/World/design/icon-preview/issues</url>
+  <url type="homepage">https://gitlab.gnome.org/World/design/app-icon-preview</url>
+  <url type="bugtracker">https://gitlab.gnome.org/World/design/app-icon-preview/issues</url>
   <update_contact>zbrown@gnome.org</update_contact>
-  <translation type="gettext">gnome-icon-preview</translation>
+  <translation type="gettext">app-icon-preview</translation>
   <content_rating type="oars-1.1" />
   <developer_name>Zander Brown</developer_name>
 </component>

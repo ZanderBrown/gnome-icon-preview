@@ -1,7 +1,7 @@
 using Gtk;
 
 namespace IconPreview {
-  [GtkTemplate (ui = "/org/gnome/design/IconPreview/exporter/exporter.ui")]
+  [GtkTemplate (ui = "/org/gnome/design/AppIconPreview/exporter/exporter.ui")]
   public class Exporter : Popover {
     public string name { get; set; }
 

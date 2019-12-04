@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/gnome/design/IconPreview/">
+  <gresource prefix="/org/gnome/design/AppIconPreview/">
     <file>wallpapers/Adwaita.jpg</file>
     <file>wallpapers/Adwaita-dark.jpg</file>
   </gresource>
