@@ -18,10 +18,10 @@ namespace IconPreview {
 		return null;
 	}
 
-    public File create_tmp_file (string id) {
-      FileIOStream stream;
-      return File.new_tmp("XXXXXX-" + id.substring(1, -1) +".svg", out stream);
-    }
+	public File create_tmp_file (string id) {
+		FileIOStream stream;
+		return File.new_tmp("XXXXXX-" + id.substring(1, -1) +".svg", out stream);
+	}
 
 	public void about_app (Gtk.Window parent) {
 		var authors = new string[] {"Zander Brown", "Bilal Elmoussaoui"};

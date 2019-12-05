@@ -26,7 +26,7 @@ namespace IconPreview {
 
 				var svg = new Rsvg.Handle.from_gfile_sync(File.new_for_uri(value.uri), FLAGS_NONE);
 				var hicolor = create_tmp_file ("#hicolor");
-				render_by_id(svg, "#hicolor", hicolor, 128);
+				render_by_id(svg, "#hicolor", hicolor, 32);
 
 				var gicon = new FileIcon(hicolor);
 				image.set_from_gicon(gicon, DND);
@@ -75,7 +75,10 @@ namespace IconPreview {
 		private void populate_model () {
 			model.remove_all();
 			foreach (var recent in manager.get_items()) {
-				model.append(new Recent(recent));
+				var svg = new Rsvg.Handle.from_gfile_sync(File.new_for_uri(recent.get_uri()), FLAGS_NONE);
+				if (svg.has_sub("#hicolor")) {
+					model.append(new Recent(recent));
+				}
 			}
 		}
 
