@@ -181,7 +181,9 @@ namespace IconPreview {
 		}
 
 		private void open () {
-			var dlg = new FileChooserNative(_("Select Icon"), this, OPEN, _("_Open"), null);
+			var dlg = new FileChooserDialog(_("Select Icon"), this, OPEN, _("_Open"),
+		                                             Gtk.ResponseType.ACCEPT,
+		                                             _("Cancel"), Gtk.ResponseType.CANCEL);
 			dlg.modal = true;
 			var filter = new Gtk.FileFilter ();
 			filter.set_filter_name (_("Icons"));
@@ -192,6 +194,7 @@ namespace IconPreview {
 				if (res == ResponseType.ACCEPT) {
 					file = dlg.get_file();
 				}
+				dlg.close();
 			});
 			dlg.show();
 		}
@@ -224,20 +227,27 @@ namespace IconPreview {
 			string title = "";
 			string filename = exporter.name;
 			File file = null;
-			print(arg as string);
 			switch (arg as string){
-				case "regular": {title = _("Regular");
-								file = exporter.get_regular();
-								break;
-								}
-				case "nightly": {title = _("Nightly");
-								// FIXME: this could go wrong if the string doesn't end with .svg
-								filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
-								file = exporter.get_nightly();
-								break;
-								}
+				case "regular": {
+					title = _("Save Regular");
+					file = exporter.get_regular();
+					break;
+				}
+				case "symbolic": {
+					title = _("Save Symbolic");
+					filename = filename.substring(0, filename.length - 4) + "-symbolic.svg";
+					file = exporter.get_symbolic();
+					break;
+				}
+				case "nightly": {
+					title = _("Save Nightly");
+					// FIXME: this could go wrong if the string doesn't end with .svg
+					filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
+					file = exporter.get_nightly();
+					break;
+				}
 			}
-			var dlg = new FileChooserNative(_("Save") + " " + title, this, SAVE, _("_Save"), null);
+			var dlg = new FileChooserNative(title, this, SAVE, _("_Save"), null);
 			dlg.modal = true;
 			dlg.do_overwrite_confirmation = true;
 			dlg.set_current_folder(Environment.get_home_dir());

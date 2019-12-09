@@ -55,7 +55,10 @@ namespace IconPreview {
 		public signal void open (File file);
 
 		public virtual signal void opened (File file) {
-			manager.add_item(file.get_uri());
+			var uri = file.get_uri();
+			if (!manager.has_item(uri)) {
+				manager.add_item(uri);
+			}
 		}
 
 		construct {
@@ -75,9 +78,12 @@ namespace IconPreview {
 		private void populate_model () {
 			model.remove_all();
 			foreach (var recent in manager.get_items()) {
-				var svg = new Rsvg.Handle.from_gfile_sync(File.new_for_uri(recent.get_uri()), FLAGS_NONE);
-				if (svg.has_sub("#hicolor")) {
-					model.append(new Recent(recent));
+				var file = File.new_for_uri(recent.get_uri());
+				if (file.query_exists()) {
+					var svg = new Rsvg.Handle.from_gfile_sync(file, FLAGS_NONE);
+					if (svg.has_sub("#hicolor")) {
+						model.append(new Recent(recent));
+					}
 				}
 			}
 		}
