@@ -18,11 +18,7 @@
   </kudos>
   <screenshots>
     <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/01-Welcome.png</image>
-      <caption>Welcome screen</caption>
-    </screenshot>
-    <screenshot type="default">
-      <image height="650" width="1196">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/02-Application.png</image>
+      <image height="642" width="1056">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/screenshot1.png</image>
       <caption>Previewing an Application icon</caption>
     </screenshot>
   </screenshots>

@@ -1,19 +1,24 @@
+<a href="https://flathub.org/apps/details/org.gnome.design.AppIconPreview">
+<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
+</a>
+
 # App Icon Preview
 
-A simple utility for testing out icons
+<img src="https://gitlab.gnome.org/World/design/symbolic-preview/raw/master/data/icons/org.gnome.design.AppIconPreview.svg" width="128" height="128" />
+<p>Tool for designing applications icons.</p>
 
-Originally created to help debug a problem in Hammond, Icon Preview aims to make it easier to assess how well an icon fits in
+## Screenshots
 
-## Building
+<div align="center">
+![screenshot](data/screenshots/screenshot1.png)
+</div>
 
-A flatpak manifest is provided so cloning in Builder and hitting play should Just Work™.
+## Hack on App Icon Preview
+To build the development version of App Icon Preview and hack on the code
+see the [general guide](https://wiki.gnome.org/Newcomers/BuildProject)
+for building GNOME apps with Flatpak and GNOME Builder.
 
-Running as a flatpak has the downside that only the named icons provided by the runtime will be available.
+You are expected to follow the GNOME Code of Conduct when participating in project
+spaces.
 
-You can still build the old fasioned way with meson:
 
-```
-meson builddir
-ninja -C builddir
-ninja -C builddir install
-```
