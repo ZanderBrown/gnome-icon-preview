@@ -23,6 +23,12 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.0.0" date="2019-12-18">
+      <description>
+        <p>Add the possiblity to export the symbolic, normal and nightly version of the icons</p>
+        <p>Migrate the symbolics functionalities to a seperate application, Symbolic Preview</p>
+      </description>
+    </release>
     <release version="0.9.4" date="2019-04-27">
       <description>
         <p>Alter colour icon view, now has smaller icons and fewer of them</p>
