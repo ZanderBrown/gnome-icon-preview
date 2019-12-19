@@ -25,8 +25,8 @@
   <releases>
     <release version="1.0.0" date="2019-12-18">
       <description>
-        <p>Add the possiblity to export the symbolic, normal and nightly version of the icons</p>
-        <p>Migrate the symbolics functionalities to a seperate application, Symbolic Preview</p>
+        <p>Add the possibility to export the symbolic, normal and nightly version of the icons</p>
+        <p>Migrate the symbolic icons functionalities to a separate application, Symbolic Preview</p>
       </description>
     </release>
     <release version="0.9.4" date="2019-04-27">
