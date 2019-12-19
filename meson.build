@@ -6,12 +6,13 @@ datadir = join_paths(get_option('prefix'), get_option('datadir'))
 bindir = join_paths(get_option('prefix'), get_option('bindir'))
 localedir = join_paths(get_option('prefix'), get_option('localedir'))
 
+application_id = 'org.gnome.design.AppIconPreview'
 if get_option('profile') == 'development'
   profile = 'Devel'
+  application_id += '.Devel'
 else
   profile = ''
 endif
-application_id = 'org.gnome.design.AppIconPreview@0@'.format('.' + profile)
 
 conf = configuration_data()
 conf.set_quoted('G_LOG_DOMAIN', application_id)
