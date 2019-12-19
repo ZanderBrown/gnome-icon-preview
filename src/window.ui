@@ -108,6 +108,7 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="valign">center</property>
             <property name="border_width">48</property>
             <property name="orientation">vertical</property>
             <property name="spacing">24</property>
@@ -116,9 +117,13 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Make a new App Icon</property>
+                <property name="justify">center</property>
+                <property name="wrap">True</property>
+                <property name="ellipsize">end</property>
+                <property name="lines">2</property>
                 <attributes>
-                  <attribute name="font-desc" value="Cantarell 24"/>
-                  <attribute name="weight" value="semilight"/>
+                  <attribute name="weight" value="light"/>
+                  <attribute name="scale" value="3.5"/>
                 </attributes>
               </object>
               <packing>
@@ -128,18 +133,139 @@
               </packing>
             </child>
             <child>
-              <object class="GtkImage">
+              <object class="GtkGrid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="pixel_size">128</property>
-                <property name="icon_name">org.gnome.Maps</property>
-                <style>
-                  <class name="shadow-icon"/>
-                </style>
+                <property name="halign">center</property>
+                <property name="row_spacing">24</property>
+                <property name="column_spacing">24</property>
+                <property name="row_homogeneous">True</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Maps</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Logs</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Podcasts</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Photos</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.SystemMonitor</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Nautilus</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">2</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Passwords</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">3</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="pixel_size">96</property>
+                    <property name="icon_name">org.gnome.Weather</property>
+                    <style>
+                      <class name="icon-dropshadow"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
+                <property name="padding">24</property>
                 <property name="position">1</property>
               </packing>
             </child>
