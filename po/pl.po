@@ -1,16 +1,16 @@
-# Polish translation for icon-tool.
-# Copyright © 2019 the icon-tool authors.
-# This file is distributed under the same license as the icon-tool package.
+# Polish translation for app-icon-preview.
+# Copyright © 2019 the app-icon-preview authors.
+# This file is distributed under the same license as the app-icon-preview package.
 # Piotr Drąg <piotrdrag@gmail.com>, 2019.
 # Aviary.pl <community-poland@mozilla.org>, 2019.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: icon-tool\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"Project-Id-Version: app-icon-preview\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-09-20 12:28+0000\n"
-"PO-Revision-Date: 2019-09-22 13:58+0200\n"
+"POT-Creation-Date: 2019-12-17 13:10+0000\n"
+"PO-Revision-Date: 2019-12-25 16:55+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,52 +20,51 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:8
-#: data/org.gnome.IconPreview.desktop.in:3 src/main.vala:118 src/saver.vala:60
-#: src/views/colour.vala:97 src/window.vala:153 src/window.vala:327
-msgid "Icon Preview"
-msgstr "Podgląd ikon"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/window.ui:13 src/window.vala:152 src/window.vala:321
+msgid "App Icon Preview"
+msgstr "Podgląd ikon dla programów"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:9
-msgid "Tool for designing icons"
-msgstr "Narzędzie do projektowania ikon"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Narzędzie do projektowania ikon dla programów"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
-"Icon Preview is a tool for designing icons which target the GNOME desktop."
-msgstr "Podgląd ikon to narzędzie do projektowania ikon dla środowiska GNOME."
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"Podgląd ikon dla programów to narzędzie do projektowania ikon dla środowiska "
+"GNOME."
 
-#: data/org.gnome.IconPreview.appdata.xml.in:22
-msgid "Welcome screen"
-msgstr "Ekran powitalny"
-
-#: data/org.gnome.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
 msgstr "Podgląd ikony programu"
 
-#: data/org.gnome.IconPreview.appdata.xml.in:48
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:47
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.IconPreview.desktop.in:4
-msgid "Preview icons"
-msgstr "Podgląd ikon"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Podgląd ikon dla programów"
 
-#: src/common.vala:14
+#: src/common.vala:36
 msgid "Copyright © 2018-19 Zander Brown"
 msgstr "Copyright © 2018-2019 Zander Brown"
 
-#: src/common.vala:18
+#: src/common.vala:40
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2019\n"
 "Aviary.pl <community-poland@mozilla.org>, 2019"
 
-#: src/common.vala:20
+#: src/common.vala:42
 msgid "Repository"
 msgstr "Repozytorium"
 
-#: src/common.vala:22
+#: src/common.vala:44
 msgid "Kept sane by"
 msgstr "Pomocnicy:"
 
@@ -77,7 +76,7 @@ msgstr ""
 "Eksport ikony do użytku. Obiekty poza płótnem są usuwane, a rozmiar pliku "
 "SVG jest optymalizowany"
 
-#: src/exporter/exporter.ui:68 src/window.vala:239
+#: src/exporter/exporter.ui:68
 msgid "Regular"
 msgstr "Zwykła"
 
@@ -85,7 +84,7 @@ msgstr "Zwykła"
 msgid "Save Regular As…"
 msgstr "Zapisz zwykłą jako…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:243
+#: src/exporter/exporter.ui:144
 msgid "Nightly"
 msgstr "Nightly"
 
@@ -97,7 +96,7 @@ msgstr "Zapisz Nightly jako…"
 msgid "Save Symbolic As…"
 msgstr "Zapisz symboliczną jako…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:249
+#: src/exporter/exporter.ui:217
 msgid "Symbolic"
 msgstr "Symboliczna"
 
@@ -166,7 +165,7 @@ msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Przełączenie pełnego ekranu"
 
-#: src/main.vala:50
+#: src/main.vala:49
 msgid "no longer supported"
 msgstr "nie jest już obsługiwane"
 
@@ -200,7 +199,7 @@ msgid "_Keyboard Shortcuts"
 msgstr "_Skróty klawiszowe"
 
 #: src/menus.ui:33
-msgid "_About Icon Preview"
+msgid "_About App Icon Preview"
 msgstr "_O programie"
 
 #: src/saver.ui:50
@@ -219,7 +218,7 @@ msgstr "Skopiuj do schowka"
 msgid "Save Screenshot"
 msgstr "Zapis zrzutu ekranu"
 
-#: src/saver.vala:48 src/window.vala:256
+#: src/saver.vala:48 src/window.vala:250
 msgid "_Save"
 msgstr "_Zapisz"
 
@@ -239,78 +238,43 @@ msgstr "JPEG"
 msgid "Failed to save screenshot"
 msgstr "Zapisanie zrzutu ekranu się nie powiodło"
 
-#: src/views/symbolicpane.ui:443
-msgid "Button"
-msgstr "Przycisk"
+#: src/views/colour.vala:97
+msgid "Icon Preview"
+msgstr "Podgląd ikon"
 
-#: src/views/symbolicpane.ui:465
-msgid "Insensitive"
-msgstr "Nieaktywny"
-
-#: src/views/symbolicpane.ui:486
-msgid "Suggested"
-msgstr "Sugerowany"
-
-#: src/views/symbolicpane.ui:510
-msgid "Destructive"
-msgstr "Destrukcyjny"
-
-#: src/views/symbolic.vala:58
-msgid "Rename"
-msgstr "Zmień nazwę"
-
-#: src/views/symbolic.vala:74
-msgid ""
-"The icon is not recoloring because the file name needs to end in “-symbolic”"
-msgstr ""
-"Ikona nie jest przekoloryzowywana, ponieważ nazwa pliku musi kończyć się „-"
-"symbolic”"
-
-#: src/window.ui:39
-msgid "Make a new GNOME Icon"
-msgstr "Utworzenie nowej ikony GNOME"
-
-#: src/window.ui:79 src/wizard.vala:39
-msgid "New App Icon"
-msgstr "Nowa ikona programu"
-
-#: src/window.ui:94 src/wizard.vala:35
-msgid "New Symbolic Icon"
-msgstr "Nowa ikona symboliczna"
-
-#: src/window.ui:115
-msgid "An application’s identity"
-msgstr "Tożsamość programu"
-
-#: src/window.ui:130
-msgid "For actions, status and other things needed in apps"
-msgstr "Dla działań, stanu i innych rzeczy potrzebnych w programach"
-
-#: src/window.ui:162
+#: src/window.ui:21
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/window.ui:166
+#: src/window.ui:25
 msgid "Open an icon"
 msgstr "Otwiera ikonę"
 
-#: src/window.ui:180
+#: src/window.ui:39
 msgid "Recent"
 msgstr "Ostatnio używane"
 
-#: src/window.ui:208
+#: src/window.ui:67
 msgid "Menu"
 msgstr "Menu"
 
-#: src/window.ui:231
+#: src/window.ui:83
 msgid "Export"
 msgstr "Wyeksportuj"
 
-#: src/window.vala:144
+#: src/window.ui:118
+msgid "Make a new App Icon"
+msgstr "Utworzenie nowej ikony dla programu"
+
+#: src/window.ui:148
+msgid "New App Icon"
+msgstr "Nowa ikona programu"
+
+#: src/window.vala:143
 msgid "This file is defective"
 msgstr "Ten plik jest wadliwy"
 
-#: src/window.vala:145
+#: src/window.vala:144
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -318,79 +282,74 @@ msgstr ""
 "Proszę zacząć od szablonu, aby zapewnić, że plik będzie działał jako ikona "
 "GNOME"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "Select Icon"
 msgstr "Wybór ikony"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/window.vala:191
+#: src/window.vala:186
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: src/window.vala:189
 msgid "Icons"
 msgstr "Ikony"
 
-#: src/window.vala:256
-msgid "Save"
-msgstr "Zapis"
+#: src/window.vala:232
+msgid "Save Regular"
+msgstr "Zapis zwykłej"
 
-#: src/window.vala:263
+#: src/window.vala:237
+msgid "Save Symbolic"
+msgstr "Zapis symbolicznej"
+
+#: src/window.vala:243
+msgid "Save Nightly"
+msgstr "Zapis Nightly"
+
+#: src/window.vala:257
 msgid "Icon"
 msgstr "Ikona"
 
-#: src/window.vala:269
+#: src/window.vala:263
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:279
+#: src/window.vala:273
 msgid "Failed to save exported file"
 msgstr "Zapisanie eksportowanego pliku się nie powiodło"
 
-#: src/wizard.ui:56
-msgid "Icon Location"
-msgstr "Położenie ikony"
-
-#: src/wizard.ui:77
-msgid "Save Icon"
-msgstr "Zapis ikony"
-
-#: src/wizard.ui:92
-msgid "label"
-msgstr "etykieta"
-
-#: src/wizard.ui:108
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Plik SVG ikony zostanie zapisany w tym katalogu"
-
-#: src/wizard.ui:157
-msgid "_Cancel"
-msgstr "_Anuluj"
-
-#: src/wizard.ui:163
-msgid "_Create"
-msgstr "_Utwórz"
-
-#: src/wizard.vala:36
-msgid "Icon Name"
-msgstr "Nazwa ikony"
-
-#: src/wizard.vala:37
-msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr "Małe znaki z myślnikami między wyrazami, np. „list-add”"
-
-#: src/wizard.vala:40
+#: src/wizard.ui:46
 msgid "App Name"
 msgstr "Nazwa programu"
 
-#. Hmm
-#: src/wizard.vala:42
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Położenie ikony"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Zapis ikony"
+
+#: src/wizard.ui:94
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Odwrotna notacja nazwy domeny, np. „org.inkscape.Inkscape”"
 
-#: src/wizard.vala:49
-msgid "Expecting at least one “-”"
-msgstr "Oczekiwano co najmniej jednego znaku „-”"
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Plik SVG ikony zostanie zapisany w tym katalogu"
 
-#: src/wizard.vala:52
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Utwórz"
+
+#: src/wizard.vala:31
 msgid "Expecting at least one “.”"
 msgstr "Oczekiwano co najmniej jednego znaku „.”"
