@@ -94,7 +94,7 @@ namespace IconPreview {
 				critical (e.message);
 				logo = new Gdk.Pixbuf (RGB, false, 1, 2, 2);
 			}
-			var layout = create_pango_layout (_("Icon Preview"));
+			var layout = create_pango_layout (_("App Icon Preview"));
 
 			var padding = 6;
 
