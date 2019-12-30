@@ -226,23 +226,25 @@ namespace IconPreview {
 		private void save_export(GLib.Action _act, Variant? arg) {
 			string title = "";
 			string filename = exporter.name;
+			filename = filename.substring(0, filename.last_index_of(".svg"));
+			filename = filename.substring(0, filename.last_index_of(".Source"));
 			File file = null;
 			switch (arg as string){
 				case "regular": {
 					title = _("Save Regular");
+					filename = filename + ".svg";
 					file = exporter.get_regular();
 					break;
 				}
 				case "symbolic": {
 					title = _("Save Symbolic");
-					filename = filename.substring(0, filename.length - 4) + "-symbolic.svg";
+					filename = filename + "-symbolic.svg";
 					file = exporter.get_symbolic();
 					break;
 				}
 				case "nightly": {
 					title = _("Save Nightly");
-					// FIXME: this could go wrong if the string doesn't end with .svg
-					filename = filename.substring(0, filename.length - 4) + ".Devel.svg";
+					filename = filename + ".Devel.svg";
 					file = exporter.get_nightly();
 					break;
 				}
