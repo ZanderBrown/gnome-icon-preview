@@ -22,7 +22,7 @@ namespace IconPreview {
 			// Why is this int? Why is this not automatic?
 			use_header_bar = (int) Gtk.Settings.get_default().gtk_dialogs_use_header;
 			// $HOME/Projects/Icons
-			location.file = File.new_for_path(Path.build_filename(Environment.get_home_dir(), "Projects", "Icons"));
+			location.file = File.new_for_path(Path.build_filename(Environment.get_home_dir(), "Projects"));
 
 			icon_title.notify["text"].connect(() => {
 				accept_button.sensitive = icon_title.text.length > 0;
