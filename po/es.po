@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-09-22 12:00+0000\n"
-"PO-Revision-Date: 2019-10-01 15:17+0200\n"
+"POT-Creation-Date: 2019-12-29 23:42+0000\n"
+"PO-Revision-Date: 2019-12-30 15:04+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -19,53 +19,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Gtranslator 3.34.0\n"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:8
-#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.vala:153
-#: src/window.vala:327
-msgid "Icon Preview"
-msgstr "Vista previa de iconos"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:13
+#: src/window.vala:152 src/window.vala:321
+#| msgid "Icon Preview"
+msgid "App Icon Preview"
+msgstr "Aplicación de vista previa de iconos"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:9
-msgid "Tool for designing icons"
-msgstr "Herramienta para diseñar iconos"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+#| msgid "Tool for designing icons"
+msgid "Tool for designing applications icons"
+msgstr "Herramienta para diseñar iconos de aplicaciones"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+#| msgid ""
+#| "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgid ""
-"Icon Preview is a tool for designing icons which target the GNOME desktop."
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
 msgstr ""
-"Vista previa de iconos es una herramienta para diseñar iconos cuyo objetivo "
-"es el escritorio GNOME."
+"La aplicación de vista previa de iconos es una herramienta para diseñar "
+"iconos para el escritorio GNOME."
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:22
-msgid "Welcome screen"
-msgstr "Pantalla de bienvenida"
-
-#: data/org.gnome.design.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
 msgstr "Vista previa del icono de una aplicación"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:51
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:54
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.design.IconPreview.desktop.in:4
-msgid "Preview icons"
-msgstr "Vista previa de iconos"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#| msgid "Previewing an Application icon"
+msgid "Preview applications icons"
+msgstr "Vista previa de iconos de aplicaciones"
 
-#: src/common.vala:14
+#: src/common.vala:36
 msgid "Copyright © 2018-19 Zander Brown"
 msgstr "Copyright © 2018-19 Zander Brown"
 
-#: src/common.vala:18
+#: src/common.vala:40
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2019"
 
-#: src/common.vala:20
+#: src/common.vala:42
 msgid "Repository"
 msgstr "Repositorio"
 
-#: src/common.vala:22
+#: src/common.vala:44
 msgid "Kept sane by"
 msgstr "Mantenido por"
 
@@ -77,7 +79,7 @@ msgstr ""
 "Exportar el icono para usar en producción. Los objetos de fuera del lienzo "
 "se eliminan y se optimiza el tamaño del SVG"
 
-#: src/exporter/exporter.ui:68 src/window.vala:239
+#: src/exporter/exporter.ui:68
 msgid "Regular"
 msgstr "Regular"
 
@@ -85,7 +87,7 @@ msgstr "Regular"
 msgid "Save Regular As…"
 msgstr "Guardar regular como…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:243
+#: src/exporter/exporter.ui:144
 msgid "Nightly"
 msgstr "Nocturno"
 
@@ -97,7 +99,7 @@ msgstr "Guardar nocturno como…"
 msgid "Save Symbolic As…"
 msgstr "Guardar simbólico como…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:249
+#: src/exporter/exporter.ui:217
 msgid "Symbolic"
 msgstr "Simbólico"
 
@@ -157,7 +159,6 @@ msgid "Take screenshot"
 msgstr "Capturar la pantalla"
 
 #: src/help-overlay.ui:88
-#| msgid "Copy to Clipboard"
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Copiar una captura de pantalla al portapapeles"
@@ -167,7 +168,7 @@ msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Alternar la vista de pantalla completa"
 
-#: src/main.vala:50
+#: src/main.vala:49
 msgid "no longer supported"
 msgstr "ya no esta soportado"
 
@@ -201,8 +202,9 @@ msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
 #: src/menus.ui:33
-msgid "_About Icon Preview"
-msgstr "_Acerca de Vista previa de iconos"
+#| msgid "_About Icon Preview"
+msgid "_About App Icon Preview"
+msgstr "_Acerca de la aplicación de vista previa de iconos"
 
 #: src/saver.ui:50
 msgid "Close"
@@ -220,7 +222,7 @@ msgstr "Copiar al portapapeles"
 msgid "Save Screenshot"
 msgstr "Guardar captura"
 
-#: src/saver.vala:48 src/window.vala:256
+#: src/saver.vala:48 src/window.vala:250
 msgid "_Save"
 msgstr "_Guardar"
 
@@ -240,78 +242,40 @@ msgstr "JPEG"
 msgid "Failed to save screenshot"
 msgstr "Falló al guardar la captura"
 
-#: src/views/symbolicpane.ui:443
-msgid "Button"
-msgstr "Botón"
-
-#: src/views/symbolicpane.ui:465
-msgid "Insensitive"
-msgstr "No sensible"
-
-#: src/views/symbolicpane.ui:486
-msgid "Suggested"
-msgstr "Sugerido"
-
-#: src/views/symbolicpane.ui:510
-msgid "Destructive"
-msgstr "Destructivo"
-
-#: src/views/symbolic.vala:58
-msgid "Rename"
-msgstr "Renombrar"
-
-#: src/views/symbolic.vala:74
-msgid ""
-"The icon is not recoloring because the file name needs to end in “-symbolic”"
-msgstr ""
-"El icono no se vuelve a colorear porque el nombre del archivo necesita "
-"termina con «-symbolic»"
-
-#: src/window.ui:39
-msgid "Make a new GNOME Icon"
-msgstr "Crear un icono de GNOME nuevo"
-
-#: src/window.ui:79 src/wizard.vala:39
-msgid "New App Icon"
-msgstr "Nuevo icono de aplicación"
-
-#: src/window.ui:94 src/wizard.vala:35
-msgid "New Symbolic Icon"
-msgstr "Nuevo icono simbólico"
-
-#: src/window.ui:115
-msgid "An application’s identity"
-msgstr "La identidad de una aplicación"
-
-#: src/window.ui:130
-msgid "For actions, status and other things needed in apps"
-msgstr "Para acciones, estado y otras necesarias en las aplicaciones"
-
-#: src/window.ui:162
+#: src/window.ui:21
 msgid "Open"
 msgstr "Abierta"
 
-#: src/window.ui:166
+#: src/window.ui:25
 msgid "Open an icon"
 msgstr "Abrir un icono"
 
-#: src/window.ui:180
+#: src/window.ui:39
 msgid "Recent"
 msgstr "Recientes"
 
-#: src/window.ui:208
+#: src/window.ui:67
 msgid "Menu"
 msgstr "Menú"
 
-#: src/window.ui:231
+#: src/window.ui:83
 msgid "Export"
 msgstr "Exportar"
 
-#: src/window.vala:144
+#: src/window.ui:119
+#| msgid "Make a new GNOME Icon"
+msgid "Make a new App Icon"
+msgstr "Crear un icono de aplicación nuevo"
+
+#: src/window.ui:274
+msgid "New App Icon"
+msgstr "Nuevo icono de aplicación"
+
+#: src/window.vala:143
 msgid "This file is defective"
 msgstr "El archivo está corrupto"
 
-#: src/window.vala:145
+#: src/window.vala:144
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -319,82 +283,133 @@ msgstr ""
 "Inicie desde una plantilla para asegurarse de que su archivo funcionará como "
 "un icono de GNOME"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "Select Icon"
 msgstr "Seleccionar icono"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/window.vala:191
+#: src/window.vala:186
+#| msgid "_Cancel"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/window.vala:189
 msgid "Icons"
 msgstr "Iconos"
 
-#: src/window.vala:256
-msgid "Save"
-msgstr "Guardar"
+#: src/window.vala:232
+#| msgid "Save Regular As…"
+msgid "Save Regular"
+msgstr "Guardar regular"
 
-#: src/window.vala:263
+#: src/window.vala:237
+#| msgid "Save Symbolic As…"
+msgid "Save Symbolic"
+msgstr "Guardar simbólico"
+
+#: src/window.vala:243
+#| msgid "Save Nightly As…"
+msgid "Save Nightly"
+msgstr "Guardar nocturno"
+
+#: src/window.vala:257
 msgid "Icon"
 msgstr "Icono"
 
-#: src/window.vala:269
+#: src/window.vala:263
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:279
+#: src/window.vala:273
 msgid "Failed to save exported file"
 msgstr "Falló al guardar el archivo exportado"
 
-#: src/wizard.ui:56
-msgid "Icon Location"
-msgstr "Ubicación del icono"
-
-#: src/wizard.ui:77
-msgid "Save Icon"
-msgstr "Guardar icono"
-
-#: src/wizard.ui:92
-msgid "label"
-msgstr "etiqueta"
-
-#: src/wizard.ui:108
-msgid "The icon SVG file will be stored in this directory"
-msgstr "El icono en SVG se guardará en esta carpeta"
-
-#: src/wizard.ui:157
-msgid "_Cancel"
-msgstr "C_ancelar"
-
-#: src/wizard.ui:163
-msgid "_Create"
-msgstr "_Crear"
-
-#: src/wizard.vala:36
-msgid "Icon Name"
-msgstr "Nombre del icono"
-
-#: src/wizard.vala:37
-msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr "Permitir minúsculas con guiones entre palabras, ej. list-add"
-
-#: src/wizard.vala:40
+#: src/wizard.ui:46
 msgid "App Name"
 msgstr "Nombre de la aplicación"
 
-#. Hmm
-#: src/wizard.vala:42
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Ubicación del icono"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Guardar icono"
+
+#: src/wizard.ui:94
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "El nombre en notación de dominio inverso, ej. org.inkscape.Inkscape"
 
-#: src/wizard.vala:49
-msgid "Expecting at least one “-”"
-msgstr "Se esperaba al menos un «-»"
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "El icono en SVG se guardará en esta carpeta"
 
-#: src/wizard.vala:52
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "C_ancelar"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Crear"
+
+#: src/wizard.vala:31
 msgid "Expecting at least one “.”"
 msgstr "Se esperaba al menos un «.»"
+
+#~ msgid "Welcome screen"
+#~ msgstr "Pantalla de bienvenida"
+
+#~ msgid "Preview icons"
+#~ msgstr "Vista previa de iconos"
+
+#~ msgid "Button"
+#~ msgstr "Botón"
+
+#~ msgid "Insensitive"
+#~ msgstr "No sensible"
+
+#~ msgid "Suggested"
+#~ msgstr "Sugerido"
+
+#~ msgid "Destructive"
+#~ msgstr "Destructivo"
+
+#~ msgid "Rename"
+#~ msgstr "Renombrar"
+
+#~ msgid ""
+#~ "The icon is not recoloring because the file name needs to end in “-"
+#~ "symbolic”"
+#~ msgstr ""
+#~ "El icono no se vuelve a colorear porque el nombre del archivo necesita "
+#~ "termina con «-symbolic»"
+
+#~ msgid "New Symbolic Icon"
+#~ msgstr "Nuevo icono simbólico"
+
+#~ msgid "An application’s identity"
+#~ msgstr "La identidad de una aplicación"
+
+#~ msgid "For actions, status and other things needed in apps"
+#~ msgstr "Para acciones, estado y otras necesarias en las aplicaciones"
+
+#~ msgid "Save"
+#~ msgstr "Guardar"
+
+#~ msgid "label"
+#~ msgstr "etiqueta"
+
+#~ msgid "Icon Name"
+#~ msgstr "Nombre del icono"
+
+#~ msgid "All lowercase with dashes between words, e.g. list-add"
+#~ msgstr "Permitir minúsculas con guiones entre palabras, ej. list-add"
+
+#~ msgid "Expecting at least one “-”"
+#~ msgstr "Se esperaba al menos un «-»"
 
 #~ msgid "<b>Regular</b> (34 kB)"
 #~ msgstr "<b>Regular</b> (34 kB)"
