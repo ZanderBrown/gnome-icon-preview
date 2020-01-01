@@ -111,6 +111,12 @@ namespace IconPreview {
 
 			draw(context);
 
+			context.set_source_rgb(1.0, 1.0, 1.0);
+			context.move_to(0, content_h);
+			context.rectangle(0, content_h, w, content_h + bottom_bar);
+			context.fill();
+			context.set_source_rgb(0.0, 0.0, 0.0);
+
 			var img_x = 0;
 			var txt_x = img_width + padding;
 			if (get_direction () == RTL) {
