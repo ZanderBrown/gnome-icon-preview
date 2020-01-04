@@ -24,9 +24,11 @@ namespace IconPreview {
 			bind_property("size", image, "pixel_size");
 			notify["file"].connect((s, p) => {
 				if (name != null) {
-					var parts = name.split(".");
-					label.label = parts[parts.length - 2];
-					label.tooltip_text = name;
+					var filename = name.substring(0, name.last_index_of(".svg"));
+					filename = filename.substring(0, name.last_index_of(".Source"));
+					var filename_parts = filename.split(".");
+					label.label = filename_parts[filename_parts.length - 1];
+					label.tooltip_text = filename;
 					image.gicon = new FileIcon(file);
 				}
 			});
