@@ -1,4 +1,4 @@
-project('app-icon-preview', 'vala', 'c', version: '1.0.0')
+project('app-icon-preview', 'vala', 'c', version: '1.0.1')
 
 i18n = import('i18n')
 

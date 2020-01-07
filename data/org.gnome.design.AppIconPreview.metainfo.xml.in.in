@@ -23,6 +23,13 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.0.1" date="2020-01-07">
+      <description>
+        <p>Wizard: Don't default to ~/Projects/Icons</p>
+        <p>Wider default size</p>
+        <p>Other bug fixes and translations updates</p>
+      </description>
+    </release>
     <release version="1.0.0" date="2019-12-18">
       <description>
         <p>Add the possibility to export the symbolic, normal and nightly version of the icons</p>
