@@ -1,0 +1,348 @@
+# Indonesian translation for app-icon-preview.
+# Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2020-02-02 12:39+0000\n"
+"PO-Revision-Date: 2020-02-04 15:35+0700\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
+"X-Generator: Poedit 2.3\n"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:15
+#: src/window.vala:152 src/window.vala:323
+msgid "App Icon Preview"
+msgstr "Pratinjau Ikon Aplikasi"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Alat untuk merancang ikon aplikasi"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"Pratinjau Ikon Aplikasi adalah alat untuk merancang ikon yang menargetkan "
+"destop GNOME."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Pratinjau ikon Aplikasi"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:61
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Pratinjau ikon aplikasi"
+
+#: src/common.vala:36
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Hak Cipta © 2018-19 Zander Brown"
+
+#: src/common.vala:40
+msgid "translator-credits"
+msgstr "Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020."
+
+#: src/common.vala:42
+msgid "Repository"
+msgstr "Repositori"
+
+#: src/common.vala:44
+msgid "Kept sane by"
+msgstr "Tetap waras"
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Ekspor ikon untuk penggunaan produksi. Objek di luar kanvas dihapus dan SVG "
+"dioptimalkan untuk ukuran"
+
+#: src/exporter/exporter.ui:68
+msgid "Regular"
+msgstr "Reguler"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Simpan Reguler Sebagai…"
+
+#: src/exporter/exporter.ui:144
+msgid "Nightly"
+msgstr "Malam"
+
+#: src/exporter/exporter.ui:164
+msgid "Save Nightly As…"
+msgstr "Simpan Malam Sebagai…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Simpan Simbolik Sebagai…"
+
+#: src/exporter/exporter.ui:217
+msgid "Symbolic"
+msgstr "Simbolik"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Aplikasi"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Jendela Baru"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Buka ikon"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Buka daftar terkini"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Buka menu"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Keluar aplikasi"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Lihat"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Muat ulang ikon"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Ekspor ikon"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Acak ikon"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Ambil cuplikan layar"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Salin cuplikan layar ke papan klip"
+
+#: src/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Jungkitkan layar penuh"
+
+#: src/main.vala:49
+msgid "no longer supported"
+msgstr "tidak lagi didukung"
+
+#. If opening the palette directly
+#: src/main.vala:97
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Palet sudah tumbuh!\n"
+"Sekarang tersedia secara terpisah sebagai org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "Je_ndela Baru"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "Muat _Ulang"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "Ambil _cuplikan layar"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "Acak Contoh Ikon"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan Ti_k"
+
+#: src/menus.ui:33
+msgid "_About App Icon Preview"
+msgstr "Tent_ang Pratinjau Ikon Aplikasi"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Tutup"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Simpan…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Salin ke Papan Klip"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Simpan Cuplikan Layar"
+
+#: src/saver.vala:48 src/window.vala:252
+msgid "_Save"
+msgstr "_Simpan"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Pratinjau"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Gagal menyimpan cuplikan layar"
+
+#: src/window.ui:23
+msgid "Open"
+msgstr "Buka"
+
+#: src/window.ui:27
+msgid "Open an icon"
+msgstr "Buka ikon"
+
+#: src/window.ui:41
+msgid "Recent"
+msgstr "Terkini"
+
+#: src/window.ui:69
+msgid "Menu"
+msgstr "Menu"
+
+#: src/window.ui:85
+msgid "Export"
+msgstr "Ekspor"
+
+#: src/window.ui:121
+msgid "Make a new App Icon"
+msgstr "Buat Ikon Aplikasi baru"
+
+#: src/window.ui:276
+msgid "New App Icon"
+msgstr "Ikon Aplikasi Baru"
+
+#: src/window.vala:143
+msgid "This file is defective"
+msgstr "Berkas ini rusak"
+
+#: src/window.vala:144
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Silakan mulai dari templat untuk memastikan bahwa berkas Anda akan berfungsi "
+"sebagai ikon GNOME"
+
+#: src/window.vala:184
+msgid "Select Icon"
+msgstr "Pilih Ikon"
+
+#: src/window.vala:184
+msgid "_Open"
+msgstr "Bu_ka"
+
+#: src/window.vala:186
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/window.vala:189
+msgid "Icons"
+msgstr "Ikon"
+
+#: src/window.vala:234
+msgid "Save Regular"
+msgstr "Simpan Reguler"
+
+#: src/window.vala:240
+msgid "Save Symbolic"
+msgstr "Simpan Simbolik"
+
+#: src/window.vala:246
+msgid "Save Nightly"
+msgstr "Simpan Malam"
+
+#: src/window.vala:259
+msgid "Icon"
+msgstr "Ikon"
+
+#: src/window.vala:265
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:275
+msgid "Failed to save exported file"
+msgstr "Gagal menyimpan berkas yang diekspor"
+
+#: src/wizard.ui:46
+msgid "App Name"
+msgstr "Nama Aplikasi"
+
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Lokasi Ikon"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Simpan Ikon"
+
+#: src/wizard.ui:94
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Nama notasi domain terbalik, mis. org.inkscape.Inkscape"
+
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Ikon berkas SVG akan disimpan di direktori ini"
+
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Buat"
+
+#: src/wizard.vala:31
+msgid "Expecting at least one “.”"
+msgstr "Mengharapkan setidaknya satu \".\""
