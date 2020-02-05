@@ -33,6 +33,8 @@ namespace IconPreview {
 				}
 			});
 
+			image.get_style_context().add_class("icon-dropshadow");
+
 			pack_start(image);
 			pack_end(label);
 		}
