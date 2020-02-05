@@ -48,8 +48,7 @@ configure_file(input: 'org.gnome.design.AppIconPreview.service.in',
                configuration: service_conf,
                install_dir: join_paths([datadir,'dbus-1/services']))
 
-install_data('org.gnome.design.AppIconPreview.svg',
-             rename: '@0@.svg'.format(application_id),
+install_data('@0@.svg'.format(application_id),
              install_dir: join_paths([datadir,'icons/hicolor/scalable/apps']))
 
 install_data('org.gnome.design.AppIconPreview-symbolic.svg',
