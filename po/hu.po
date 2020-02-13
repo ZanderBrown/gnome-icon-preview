@@ -1,14 +1,15 @@
 # Hungarian translation for icon-tool.
-# Copyright (C) 2019 Free Software Foundation, Inc.
+# Copyright (C) 2019, 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the icon-tool package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2019.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/issues\n"
-"POT-Creation-Date: 2019-09-22 12:00+0000\n"
-"PO-Revision-Date: 2019-09-27 21:51+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/i"
+"ssues\n"
+"POT-Creation-Date: 2019-12-29 23:42+0000\n"
+"PO-Revision-Date: 2020-02-13 20:10+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -16,55 +17,57 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 19.04.3\n"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:8
-#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.vala:153
-#: src/window.vala:327
-msgid "Icon Preview"
-msgstr "Ikonelőnézet"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:13
+#: src/window.vala:152 src/window.vala:321
+#| msgid "Icon Preview"
+msgid "App Icon Preview"
+msgstr "Alkalmazásikon-előnézet"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:9
-msgid "Tool for designing icons"
-msgstr "Egy eszköz ikonok tervezéséhez"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+#| msgid "Tool for designing icons"
+msgid "Tool for designing applications icons"
+msgstr "Egy eszköz alkalmazások ikonjainak tervezéséhez"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+#| msgid ""
+#| "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgid ""
-"Icon Preview is a tool for designing icons which target the GNOME desktop."
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
 msgstr ""
-"Az Ikonelőnézet olyan ikonok tervezéséhez készült eszköz, amelyek a GNOME "
-"asztal számára készülnek."
+"Az Alkalmazásikon-előnézet olyan ikonok tervezéséhez készült eszköz, amelyek"
+" a GNOME asztal számára készülnek."
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:22
-msgid "Welcome screen"
-msgstr "Üdvözlő képernyő"
-
-#: data/org.gnome.design.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:51
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:54
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.design.IconPreview.desktop.in:4
-msgid "Preview icons"
-msgstr "Ikonok előnézete"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#| msgid "Previewing an Application icon"
+msgid "Preview applications icons"
+msgstr "Alkalmazások ikonjainak előnézete"
 
-#: src/common.vala:14
+#: src/common.vala:36
 msgid "Copyright © 2018-19 Zander Brown"
 msgstr "Copyright © 2018-19 Zander Brown"
 
-#: src/common.vala:18
+#: src/common.vala:40
 msgid "translator-credits"
-msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019."
+msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019, 2020."
 
-#: src/common.vala:20
+#: src/common.vala:42
 msgid "Repository"
 msgstr "Tároló"
 
-#: src/common.vala:22
+#: src/common.vala:44
 msgid "Kept sane by"
 msgstr "Fenntartják az észszerűséget"
 
@@ -76,7 +79,7 @@ msgstr ""
 "Az ikon exportálása produktív használathoz. A vásznon kívüli objektumok "
 "eltávolításra kerülnek, és az SVG optimalizálva lesz a mérethez"
 
-#: src/exporter/exporter.ui:68 src/window.vala:239
+#: src/exporter/exporter.ui:68
 msgid "Regular"
 msgstr "Szabályos"
 
@@ -84,7 +87,7 @@ msgstr "Szabályos"
 msgid "Save Regular As…"
 msgstr "Szabályos mentése másként…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:243
+#: src/exporter/exporter.ui:144
 msgid "Nightly"
 msgstr "Éjszakai"
 
@@ -96,7 +99,7 @@ msgstr "Éjszakai mentése másként…"
 msgid "Save Symbolic As…"
 msgstr "Szimbolikus mentése másként…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:249
+#: src/exporter/exporter.ui:217
 msgid "Symbolic"
 msgstr "Szimbolikus"
 
@@ -156,7 +159,6 @@ msgid "Take screenshot"
 msgstr "Képernyőkép készítése"
 
 #: src/help-overlay.ui:88
-#| msgid "Copy to Clipboard"
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Képernyőkép másolása a vágólapra"
@@ -166,7 +168,7 @@ msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Teljes képernyő átváltása"
 
-#: src/main.vala:50
+#: src/main.vala:49
 msgid "no longer supported"
 msgstr "többé nem támogatott"
 
@@ -200,8 +202,9 @@ msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
 #: src/menus.ui:33
-msgid "_About Icon Preview"
-msgstr "Az Ikonelőnézet _névjegye"
+#| msgid "_About Icon Preview"
+msgid "_About App Icon Preview"
+msgstr "Az Alkalmazásikon-előnézet _névjegye"
 
 #: src/saver.ui:50
 msgid "Close"
@@ -219,7 +222,7 @@ msgstr "Másolás a vágólapra"
 msgid "Save Screenshot"
 msgstr "Képernyőkép mentése"
 
-#: src/saver.vala:48 src/window.vala:256
+#: src/saver.vala:48 src/window.vala:250
 msgid "_Save"
 msgstr "_Mentés"
 
@@ -239,79 +242,40 @@ msgstr "JPEG"
 msgid "Failed to save screenshot"
 msgstr "A képernyőkép mentése sikertelen"
 
-#: src/views/symbolicpane.ui:443
-msgid "Button"
-msgstr "Gomb"
-
-#: src/views/symbolicpane.ui:465
-msgid "Insensitive"
-msgstr "Érzéketlen"
-
-#: src/views/symbolicpane.ui:486
-msgid "Suggested"
-msgstr "Javasolt"
-
-#: src/views/symbolicpane.ui:510
-msgid "Destructive"
-msgstr "Romboló"
-
-#: src/views/symbolic.vala:58
-msgid "Rename"
-msgstr "Átnevezés"
-
-#: src/views/symbolic.vala:74
-msgid ""
-"The icon is not recoloring because the file name needs to end in “-symbolic”"
-msgstr ""
-"Az ikon nincs újraszínezve, mert a fájlnévnek „-symbolic” végződésűnek kell "
-"lennie"
-
-#: src/window.ui:39
-msgid "Make a new GNOME Icon"
-msgstr "Új GNOME ikon készítése"
-
-#: src/window.ui:79 src/wizard.vala:39
-msgid "New App Icon"
-msgstr "Új alkalmazásikon"
-
-#: src/window.ui:94 src/wizard.vala:35
-msgid "New Symbolic Icon"
-msgstr "Új szimbolikus ikon"
-
-#: src/window.ui:115
-msgid "An application’s identity"
-msgstr "Egy alkalmazás személyazonossága"
-
-#: src/window.ui:130
-msgid "For actions, status and other things needed in apps"
-msgstr ""
-"Az alkalmazásokban szükséges műveletekhez, állapothoz és egyéb dolgokhoz"
-
-#: src/window.ui:162
+#: src/window.ui:21
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/window.ui:166
+#: src/window.ui:25
 msgid "Open an icon"
 msgstr "Egy ikon megnyitása"
 
-#: src/window.ui:180
+#: src/window.ui:39
 msgid "Recent"
 msgstr "Legutóbbi"
 
-#: src/window.ui:208
+#: src/window.ui:67
 msgid "Menu"
 msgstr "Menü"
 
-#: src/window.ui:231
+#: src/window.ui:83
 msgid "Export"
 msgstr "Exportálás"
 
-#: src/window.vala:144
+#: src/window.ui:119
+#| msgid "Make a new GNOME Icon"
+msgid "Make a new App Icon"
+msgstr "Új alkalmazásikon készítése"
+
+#: src/window.ui:274
+msgid "New App Icon"
+msgstr "Új alkalmazásikon"
+
+#: src/window.vala:143
 msgid "This file is defective"
 msgstr "Ez a fájl hiányos"
 
-#: src/window.vala:145
+#: src/window.vala:144
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -319,81 +283,78 @@ msgstr ""
 "Kezdjen egy sablonból, annak biztosításához hogy a fájl működjön GNOME "
 "ikonként"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "Select Icon"
 msgstr "Ikon kiválasztása"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "_Open"
 msgstr "_Megnyitás"
 
-#: src/window.vala:191
+#: src/window.vala:186
+#| msgid "_Cancel"
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/window.vala:189
 msgid "Icons"
 msgstr "Ikonok"
 
-#: src/window.vala:256
-msgid "Save"
-msgstr "Mentés"
+#: src/window.vala:232
+#| msgid "Save Regular As…"
+msgid "Save Regular"
+msgstr "Szabályos mentése"
 
-#: src/window.vala:263
+#: src/window.vala:237
+#| msgid "Save Symbolic As…"
+msgid "Save Symbolic"
+msgstr "Szimbolikus mentése"
+
+#: src/window.vala:243
+#| msgid "Save Nightly As…"
+msgid "Save Nightly"
+msgstr "Éjszakai mentése"
+
+#: src/window.vala:257
 msgid "Icon"
 msgstr "Ikon"
 
-#: src/window.vala:269
+#: src/window.vala:263
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:279
+#: src/window.vala:273
 msgid "Failed to save exported file"
 msgstr "Nem sikerült elmenteni az exportált fájlt"
 
-#: src/wizard.ui:56
-msgid "Icon Location"
-msgstr "Ikon helye"
-
-#: src/wizard.ui:77
-msgid "Save Icon"
-msgstr "Ikon mentése"
-
-#: src/wizard.ui:92
-msgid "label"
-msgstr "címke"
-
-#: src/wizard.ui:108
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Az ikon SVG-fájl ebben a könyvtárban lesz eltárolva"
-
-#: src/wizard.ui:157
-msgid "_Cancel"
-msgstr "_Mégse"
-
-#: src/wizard.ui:163
-msgid "_Create"
-msgstr "_Létrehozás"
-
-#: src/wizard.vala:36
-msgid "Icon Name"
-msgstr "Ikonnév"
-
-#: src/wizard.vala:37
-msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr ""
-"Csak ékezet nélküli kisbetűk, kötőjellel a szavak között, például lista-"
-"hozzaadas"
-
-#: src/wizard.vala:40
+#: src/wizard.ui:46
 msgid "App Name"
 msgstr "Alkalmazásnév"
 
-#. Hmm
-#: src/wizard.vala:42
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Ikon helye"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Ikon mentése"
+
+#: src/wizard.ui:94
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "A fordított tartományjelölés neve, például org.inkscape.Inkscape"
 
-#: src/wizard.vala:49
-msgid "Expecting at least one “-”"
-msgstr "Legalább egy „-” elvárt"
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Az ikon SVG-fájl ebben a könyvtárban lesz eltárolva"
 
-#: src/wizard.vala:52
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Létrehozás"
+
+#: src/wizard.vala:31
 msgid "Expecting at least one “.”"
 msgstr "Legalább egy „.” elvárt"
