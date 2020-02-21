@@ -16,5 +16,5 @@ lint:
   image: valalang/lint:latest
   stage: .pre
   script:
-    - io.elementary.vala-lint src
+    - io.elementary.vala-lint -c .vala-lint.conf src
 
