@@ -2,77 +2,74 @@
 # Copyright (C) 2019 icon tool'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon tool package.
 #
-# Sabri Ünal <libreajans@gmail.com>, 2019.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2019.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2019-2020.
+# Sabri Ünal <libreajans@gmail.com>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-11-10 18:38+0000\n"
-"PO-Revision-Date: 2019-11-18 17:57+0300\n"
+"POT-Creation-Date: 2020-02-13 19:12+0000\n"
+"PO-Revision-Date: 2020-02-21 14:13+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 3.32.1\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 # Uygulama adı olduğu için çevrilmedi
-#: data/org.gnome.design.IconPreview.appdata.xml.in:8
-#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:154
-#: src/window.vala:153 src/window.vala:327
-msgid "Icon Preview"
-msgstr "Icon Preview"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:15
+#: src/window.vala:152 src/window.vala:323
+msgid "App Icon Preview"
+msgstr "App Icon Preview"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:9
-msgid "Tool for designing icons"
-msgstr "Simge tasarlamak için uygulama"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Uygulama simgeleri tasarlamak için uygulama"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
-"Icon Preview is a tool for designing icons which target the GNOME desktop."
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
 msgstr ""
-"Icon Preview, GNOME masaüstü ortamını hedefleyen simge tasarlama "
+"App Icon Preview, GNOME masaüstü ortamını hedefleyen simge tasarlama "
 "uygulamasıdır."
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:22
-msgid "Welcome screen"
-msgstr "Hoş geldiniz ekranı"
-
-#: data/org.gnome.design.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
 msgstr "Uygulama simgesini önizleme"
 
 # Şahıs adı olduğu için çevrilmedi
-#: data/org.gnome.design.IconPreview.appdata.xml.in:51
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:61
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
-#: data/org.gnome.design.IconPreview.desktop.in:4
-msgid "Preview icons"
-msgstr "Simgeleri önizle"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Uygulama simgelerini önizleme"
 
-#: src/common.vala:14
+#: src/common.vala:36
 msgid "Copyright © 2018-19 Zander Brown"
 msgstr "Telif Hakkı © 2018-19 Zander Brown"
 
 # Header bilgileriyle uyumlu olmasına özen gösterelim.
-#: src/common.vala:18
+#: src/common.vala:40
 msgid "translator-credits"
 msgstr ""
 "Sabri Ünal <libreajans@gmail.com>\n"
 "Emin Tufan Çetin <etcetin@gmail.com>"
 
-#: src/common.vala:20
+#: src/common.vala:42
 msgid "Repository"
 msgstr "Depo"
 
-#: src/common.vala:22
+#: src/common.vala:44
 msgid "Kept sane by"
 msgstr "Bakım yapan"
 
@@ -84,7 +81,7 @@ msgstr ""
 "Simgeyi genel kullanım için aktar. Tuval dışı nesneler silinir ve SVG boyutu "
 "eniyilenir"
 
-#: src/exporter/exporter.ui:68 src/window.vala:239
+#: src/exporter/exporter.ui:68
 msgid "Regular"
 msgstr "Sıradan"
 
@@ -92,7 +89,7 @@ msgstr "Sıradan"
 msgid "Save Regular As…"
 msgstr "Sıradanı Farklı Kaydet…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:243
+#: src/exporter/exporter.ui:144
 msgid "Nightly"
 msgstr "Gecelik"
 
@@ -104,7 +101,7 @@ msgstr "Geceliği Farklı Kaydet…"
 msgid "Save Symbolic As…"
 msgstr "Semboliği Farklı Kaydet…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:249
+#: src/exporter/exporter.ui:217
 msgid "Symbolic"
 msgstr "Sembolik"
 
@@ -173,7 +170,7 @@ msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Tam ekranı aç/kapat"
 
-#: src/main.vala:50
+#: src/main.vala:49
 msgid "no longer supported"
 msgstr "artık desteklenmiyor"
 
@@ -207,8 +204,8 @@ msgid "_Keyboard Shortcuts"
 msgstr "_Klavye Kısayolları"
 
 #: src/menus.ui:33
-msgid "_About Icon Preview"
-msgstr "Icon Preview _Hakkında"
+msgid "_About App Icon Preview"
+msgstr "App Icon Preview _Hakkında"
 
 #: src/saver.ui:50
 msgid "Close"
@@ -226,7 +223,7 @@ msgstr "Panoya Kopyala"
 msgid "Save Screenshot"
 msgstr "Ekran Görüntüsünü Kaydet"
 
-#: src/saver.vala:48 src/window.vala:256
+#: src/saver.vala:48 src/window.vala:252
 msgid "_Save"
 msgstr "_Kaydet"
 
@@ -246,78 +243,39 @@ msgstr "JPEG"
 msgid "Failed to save screenshot"
 msgstr "Ekran görüntüsü kaydedilemedi"
 
-#: src/views/symbolicpane.ui:443
-msgid "Button"
-msgstr "Düğme"
-
-#: src/views/symbolicpane.ui:465
-msgid "Insensitive"
-msgstr "Duyarsız"
-
-#: src/views/symbolicpane.ui:486
-msgid "Suggested"
-msgstr "Önerilen"
-
-#: src/views/symbolicpane.ui:510
-msgid "Destructive"
-msgstr "Yıkıcı"
-
-#: src/views/symbolic.vala:58
-msgid "Rename"
-msgstr "Yeniden Adlandır"
-
-#: src/views/symbolic.vala:74
-msgid ""
-"The icon is not recoloring because the file name needs to end in “-symbolic”"
-msgstr ""
-"Simge yeniden renklendirilemiyor çünkü dosya adının “-symbolic” olarak "
-"bitmesi gerekiyor"
-
-#: src/window.ui:39
-msgid "Make a new GNOME Icon"
-msgstr "Yeni GNOME Simgesi Oluştur"
-
-#: src/window.ui:79 src/wizard.vala:39
-msgid "New App Icon"
-msgstr "Yeni Uygulama Simgesi"
-
-#: src/window.ui:94 src/wizard.vala:35
-msgid "New Symbolic Icon"
-msgstr "Yeni Sembolik Simge"
-
-#: src/window.ui:115
-msgid "An application’s identity"
-msgstr "Uygulamanın kimliği"
-
-#: src/window.ui:130
-msgid "For actions, status and other things needed in apps"
-msgstr "Eylemler, durumlar ve uygulama içinde gereksinilen diğer şeyler için"
-
-#: src/window.ui:162
+#: src/window.ui:23
 msgid "Open"
 msgstr "Aç"
 
-#: src/window.ui:166
+#: src/window.ui:27
 msgid "Open an icon"
 msgstr "Simge aç"
 
-#: src/window.ui:180
+#: src/window.ui:41
 msgid "Recent"
 msgstr "Son Kullanılan"
 
-#: src/window.ui:208
+#: src/window.ui:69
 msgid "Menu"
 msgstr "Menü"
 
-#: src/window.ui:227
+#: src/window.ui:85
 msgid "Export"
 msgstr "Dışa Aktar"
 
-#: src/window.vala:144
+#: src/window.ui:121
+msgid "Make a new App Icon"
+msgstr "Yeni Uygulama Simgesi oluştur"
+
+#: src/window.ui:276
+msgid "New App Icon"
+msgstr "Yeni Uygulama Simgesi"
+
+#: src/window.vala:143
 msgid "This file is defective"
 msgstr "Bu dosya kusurlu"
 
-#: src/window.vala:145
+#: src/window.vala:144
 msgid ""
 "Please start from a template to ensure that your file will work as a GNOME "
 "icon"
@@ -325,78 +283,127 @@ msgstr ""
 "Dosyanızın GNOME simgesi olarak çalışacağından emin olmak için şablondan "
 "başlayın"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "Select Icon"
 msgstr "Simge Seç"
 
-#: src/window.vala:188
+#: src/window.vala:184
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/window.vala:191
+#: src/window.vala:186
+msgid "Cancel"
+msgstr "İptal Et"
+
+#: src/window.vala:189
 msgid "Icons"
 msgstr "Simgeler"
 
-#: src/window.vala:256
-msgid "Save"
-msgstr "Kaydet"
+#: src/window.vala:234
+msgid "Save Regular"
+msgstr "Sıradan Kaydet"
 
-#: src/window.vala:263
+#: src/window.vala:240
+msgid "Save Symbolic"
+msgstr "Sembolik Kaydet"
+
+#: src/window.vala:246
+msgid "Save Nightly"
+msgstr "Gecelik Kaydet"
+
+#: src/window.vala:259
 msgid "Icon"
 msgstr "Simge"
 
-#: src/window.vala:269
+#: src/window.vala:265
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:279
+#: src/window.vala:275
 msgid "Failed to save exported file"
 msgstr "Dışa aktarılan dosya kaydedilemedi"
 
-#: src/wizard.ui:56
-msgid "Icon Location"
-msgstr "Simge Konumu"
-
-#: src/wizard.ui:77
-msgid "Save Icon"
-msgstr "Simgeyi Kaydet"
-
-#: src/wizard.ui:108
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Simge SVG dosyası bu dizinde saklanacak"
-
-#: src/wizard.ui:157
-msgid "_Cancel"
-msgstr "İptal _Et"
-
-#: src/wizard.ui:163
-msgid "_Create"
-msgstr "_Oluştur"
-
-#: src/wizard.vala:36
-msgid "Icon Name"
-msgstr "Simge Adı"
-
-#: src/wizard.vala:37
-msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr "Tümü küçük harf, arasında kısa çizgi olacak biçimde, örn.: list-add"
-
-#: src/wizard.vala:40
+#: src/wizard.ui:46
 msgid "App Name"
 msgstr "Uygulama Adı"
 
-#. Hmm
-#: src/wizard.vala:42
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Simge Konumu"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Simgeyi Kaydet"
+
+#: src/wizard.ui:94
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Ters alan adı gösterim adı, örneğin: org.inscape.Inkscape"
 
-#: src/wizard.vala:49
-msgid "Expecting at least one “-”"
-msgstr "En az bir “-” bekleniyor"
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Simge SVG dosyası bu dizinde saklanacak"
 
-#: src/wizard.vala:52
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "İptal _Et"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Oluştur"
+
+#: src/wizard.vala:31
 msgid "Expecting at least one “.”"
 msgstr "En az bir “.” bekleniyor"
+
+#~ msgid "Welcome screen"
+#~ msgstr "Hoş geldiniz ekranı"
+
+#~ msgid "Preview icons"
+#~ msgstr "Simgeleri önizle"
+
+#~ msgid "Button"
+#~ msgstr "Düğme"
+
+#~ msgid "Insensitive"
+#~ msgstr "Duyarsız"
+
+#~ msgid "Suggested"
+#~ msgstr "Önerilen"
+
+#~ msgid "Destructive"
+#~ msgstr "Yıkıcı"
+
+#~ msgid "Rename"
+#~ msgstr "Yeniden Adlandır"
+
+#~ msgid ""
+#~ "The icon is not recoloring because the file name needs to end in “-"
+#~ "symbolic”"
+#~ msgstr ""
+#~ "Simge yeniden renklendirilemiyor çünkü dosya adının “-symbolic” olarak "
+#~ "bitmesi gerekiyor"
+
+#~ msgid "New Symbolic Icon"
+#~ msgstr "Yeni Sembolik Simge"
+
+#~ msgid "An application’s identity"
+#~ msgstr "Uygulamanın kimliği"
+
+#~ msgid "For actions, status and other things needed in apps"
+#~ msgstr ""
+#~ "Eylemler, durumlar ve uygulama içinde gereksinilen diğer şeyler için"
+
+#~ msgid "Save"
+#~ msgstr "Kaydet"
+
+#~ msgid "Icon Name"
+#~ msgstr "Simge Adı"
+
+#~ msgid "All lowercase with dashes between words, e.g. list-add"
+#~ msgstr "Tümü küçük harf, arasında kısa çizgi olacak biçimde, örn.: list-add"
+
+#~ msgid "Expecting at least one “-”"
+#~ msgstr "En az bir “-” bekleniyor"
 
 #~ msgid "label"
 #~ msgstr "etiket"
