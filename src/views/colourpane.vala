@@ -2,14 +2,14 @@ using Gtk;
 
 namespace IconPreview {
 	public class DemoIcon : Box {
-		private Image image = new Image();
-		private Label label = new Label(null);
+		private Image image = new Image ();
+		private Label label = new Label (null);
 		public File ?file { get; construct set; }
 		public string ?name { get; set; }
 
 		public int size { get; construct set; default = 96; }
 		class construct {
-			set_css_name("demo-icon");
+			set_css_name ("demo-icon");
 		}
 
 		construct {
@@ -21,22 +21,22 @@ namespace IconPreview {
 			label.ellipsize = END;
 			label.max_width_chars = 30;
 
-			bind_property("size", image, "pixel_size");
-			notify["file"].connect((s, p) => {
+			bind_property ("size", image, "pixel_size");
+			notify["file"].connect ((s, p) => {
 				if (name != null) {
-					var filename = name.substring(0, name.last_index_of(".svg"));
-					filename = filename.substring(0, name.last_index_of(".Source"));
-					var filename_parts = filename.split(".");
+					var filename = name.substring (0, name.last_index_of (".svg"));
+					filename = filename.substring (0, name.last_index_of (".Source"));
+					var filename_parts = filename.split (".");
 					label.label = filename_parts[filename_parts.length - 1];
 					label.tooltip_text = filename;
-					image.gicon = new FileIcon(file);
+					image.gicon = new FileIcon (file);
 				}
 			});
 
-			image.get_style_context().add_class("icon-dropshadow");
+			image.get_style_context ().add_class ("icon-dropshadow");
 
-			pack_start(image);
-			pack_end(label);
+			pack_start (image);
+			pack_end (label);
 		}
 
 		public DemoIcon (int size) {
@@ -70,106 +70,105 @@ namespace IconPreview {
 			}
 
 			set {
-				var context = get_style_context();
-				context.remove_class("theme-" + _theme);
+				var context = get_style_context ();
+				context.remove_class ("theme-" + _theme);
 				_theme = value;
-				context.add_class("theme-" + _theme);
-				var parts = _theme.split("-");
+				context.add_class ("theme-" + _theme);
+				var parts = _theme.split ("-");
 				if (parts.length > 1 && parts[1] == "dark") {
-					provider = CssProvider.get_named(parts[0], "dark");
+					provider = CssProvider.get_named (parts[0], "dark");
 				} else {
-					provider = CssProvider.get_named(_theme, null);
+					provider = CssProvider.get_named (_theme, null);
 				}
-				apply_css(this, provider);
+				apply_css (this, provider);
 			}
 		}
 
 		class construct {
-			set_css_name("pane");
+			set_css_name ("pane");
 		}
 
 		construct {
 			DemoIcon ico;
 
-			notify["hicolor"].connect(() => {
+			notify["hicolor"].connect (() => {
 				if (symbolic == null) {
 					//hide the symbolic icon in the preview
-					sizes.get_child_at(0, 0).hide();
-					sizes.get_child_at(0, 1).hide();
+					sizes.get_child_at (0, 0).hide ();
+					sizes.get_child_at (0, 1).hide ();
 				}
-				FileIcon icon = new FileIcon(hicolor);
+				FileIcon icon = new FileIcon (hicolor);
 				// Three different sizes {32, 64, 128};
 				for (var i = 0; i < 3; i++) {
-					var image = sizes.get_child_at(i + 1, 0) as Image;
-					image.set_from_gicon(icon, BUTTON);
+					var image = sizes.get_child_at (i + 1, 0) as Image;
+					image.set_from_gicon (icon, BUTTON);
 				}
 			});
 
-			notify["symbolic"].connect(() => {
+			notify["symbolic"].connect (() => {
 				if (symbolic != null) {
-					sizes.get_child_at(0, 1).show();
-					var image = sizes.get_child_at(0, 0) as Image;
-					image.show();
-					FileIcon icon = new FileIcon(symbolic);
-					image.set_from_gicon(icon, BUTTON);
+					sizes.get_child_at (0, 1).show ();
+					var image = sizes.get_child_at (0, 0) as Image;
+					image.show ();
+					FileIcon icon = new FileIcon (symbolic);
+					image.set_from_gicon (icon, BUTTON);
 				} else {
 					//hide the symbolic icon in the preview
-					sizes.get_child_at(0, 0).hide();
-					sizes.get_child_at(0, 1).hide();
+					sizes.get_child_at (0, 0).hide ();
+					sizes.get_child_at (0, 1).hide ();
 				}
 			});
 
 			/* 64px                            */
 			for (var i = 0; i < 2; i++) {
-				ico = new DemoIcon(64);
-				small.add(ico);
-				randoms.append(ico);
+				ico = new DemoIcon (64);
+				small.add (ico);
+				randoms.append (ico);
 			}
 
 			/* add 64x64 users icon preivew */
-			ico = new DemoIcon(64);
-			bind_property("hicolor", ico, "file");
-			bind_property("name", ico, "name");
-			small.add(ico);
+			ico = new DemoIcon (64);
+			bind_property ("hicolor", ico, "file");
+			bind_property ("name", ico, "name");
+			small.add (ico);
 
 			for (var i = 3; i < 5; i++) {
-				ico = new DemoIcon(64);
-				small.add(ico);
-				randoms.append(ico);
+				ico = new DemoIcon (64);
+				small.add (ico);
+				randoms.append (ico);
 			}
 
-			small.show_all();
+			small.show_all ();
 			/* 64px                            */
 
 			/* 96px                            */
-			ico = new DemoIcon(96);
-			grid.add(ico);
-			randoms.append(ico);
+			ico = new DemoIcon (96);
+			grid.add (ico);
+			randoms.append (ico);
 
 			/* add 96x96 users icon preivew */
-			ico = new DemoIcon(96);
-			bind_property("hicolor", ico, "file");
-			bind_property("name", ico, "name");
-			grid.add(ico);
+			ico = new DemoIcon (96);
+			bind_property ("hicolor", ico, "file");
+			bind_property ("name", ico, "name");
+			grid.add (ico);
 
-			ico = new DemoIcon(96);
-			grid.add(ico);
-			randoms.append(ico);
-			grid.show_all();
+			ico = new DemoIcon (96);
+			grid.add (ico);
+			randoms.append (ico);
+			grid.show_all ();
 			/* 96px                            */
 
 			theme = theme;
 		}
 
-		public void load_samples (File[] samples) requires (samples.length == randoms.length()) {
+		public void load_samples (File[] samples) requires (samples.length == randoms.length ()) {
 			// Don't like how much of this is hardcoded
 			var idx = 0;
 			foreach (var sample in randoms) {
-				sample.name = samples[idx].get_basename();
+				sample.name = samples[idx].get_basename ();
 				sample.file = samples[idx];
 				idx++;
 			}
 		}
 	}
 }
-

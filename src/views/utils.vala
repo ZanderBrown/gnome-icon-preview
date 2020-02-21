@@ -11,7 +11,7 @@ namespace IconPreview {
 		var require_unique = end >= len;
 		var i = 0;
 		while (i < len) {
-			var pos = Random.int_range(0, end);
+			var pos = Random.int_range (0, end);
 			var proposed = input[pos];
 			if (proposed in selection && require_unique) {
 				continue;

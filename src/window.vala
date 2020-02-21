@@ -16,7 +16,7 @@ namespace IconPreview {
 
 		Exporter exporter;
 
-		const GLib.ActionEntry[] entries = {
+		const GLib.ActionEntry[] ACTION_ENTRIES = {
 			{ "open", open },
 			{ "new-icon", new_icon },
 			{ "screenshot", screenshot },
@@ -24,27 +24,27 @@ namespace IconPreview {
 			{ "recents", open_recent },
 			{ "refresh", refresh },
 			{ "shuffle", shuffle },
-			{ "menu",  open_menu },
+			{ "menu", open_menu },
 			{ "export", open_export },
 			{ "export-save", save_export, "s" },
 			{ "about", about }
 		};
 
 		FileMonitor monitor = null;
-		Recents recents = new Recents();
+		Recents recents = new Recents ();
 
 		private File _file;
 		public File file {
 			set {
 				try {
 					// Hopefully this doesn't render the SVG?
-					var svg = new Rsvg.Handle.from_gfile_sync(value, FLAGS_NONE);
+					var svg = new Rsvg.Handle.from_gfile_sync (value, FLAGS_NONE);
 
 					Rsvg.Rectangle hicolor = { 0.0, 0.0, svg.width, svg.height };
 
-					if (svg.has_sub("#hicolor")) {
-            Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
-						svg.get_geometry_for_layer("#hicolor", viewport, null, out hicolor);
+					if (svg.has_sub ("#hicolor")) {
+            			Rsvg.Rectangle viewport = { 0.0, 0.0, svg.width, svg.height };
+						svg.get_geometry_for_layer ( "#hicolor", viewport, null, out hicolor);
 					}
 
 					// Colour (App) icons must be 128 by 128 and
@@ -55,35 +55,35 @@ namespace IconPreview {
 					} else {
 						// We are very specific about what we like
 						_file = null;
-						_load_failed();
+						_load_failed ();
 						// Give up now
 						return;
 					}
 				} catch (Error e) {
 					// rsvg didn't like it (not an SVG?)
-					critical("Failed to load %s: %s", value.get_basename(), e.message);
+					critical ("Failed to load %s: %s", value.get_basename (), e.message);
 					_file = null;
-					_load_failed();
+					_load_failed ();
 					return;
 				}
 				// Tell the recents popover we opened this
-				recents.opened(value);
+				recents.opened (value);
 				try {
 					// If we are already monitoring an open file
 					if (monitor != null) {
 						// Stop doing that
-						monitor.cancel();
+						monitor.cancel ();
 					}
 					// Watch for updates
-					monitor = value.monitor_file(NONE, null);
-					monitor.changed.connect(file_updated);
+					monitor = value.monitor_file (NONE, null);
+					monitor.changed.connect (file_updated);
 				} catch (Error e) {
 					// Failed to watch the file
-					critical("Unable to watch icon: %s", e.message);
+					critical ("Unable to watch icon: %s", e.message);
 				}
 				_file = value;
 				// Actually display the thing
-				refresh();
+				refresh ();
 			}
 
 			get {
@@ -105,83 +105,83 @@ namespace IconPreview {
 		}
 
 		public Window (Application app) {
-			Object(app: app);
+			Object (app: app);
 			if (PROFILE == "Devel") {
-				get_style_context().add_class("devel");
+				get_style_context ().add_class ("devel");
 			}
 		}
 
 		construct {
 			// Bind the actions
-			add_action_entries(entries, this);
+			add_action_entries (ACTION_ENTRIES, this);
 
-			add_action(new PropertyAction("fullscreen", this, "fullscreen"));
+			add_action (new PropertyAction ("fullscreen", this, "fullscreen"));
 
 			// Connect the recent button and recent popover
 			recent.popover = recents;
 			// Load files selected in the popover
-			recents.open.connect(recent => file = recent);
+			recents.open.connect (recent => file = recent);
 
 			// Listen for changes to the mode
-			notify["mode"].connect(mode_changed);
+			notify["mode"].connect (mode_changed);
 			// Manually trigger a change
-			mode_changed();
+			mode_changed ();
 
 			// For some reason MenuButton doesn't have a menu_id property
-			menu.menu_model = application.get_menu_by_id("win-menu");
+			menu.menu_model = application.get_menu_by_id ("win-menu");
 
 			// Connect exporter popover to button
-			exporter = new Exporter();
-			exportbtn.set_popover(exporter);
+			exporter = new Exporter ();
+			exportbtn.set_popover (exporter);
 
 			// Bind export action state to button visibility
-			var action = lookup_action("export");
-			action.bind_property("enabled", exportbtn, "visible", GLib.BindingFlags.SYNC_CREATE);
+			var action = lookup_action ("export");
+			action.bind_property ("enabled", exportbtn, "visible", GLib.BindingFlags.SYNC_CREATE);
 		}
 
 		private void _load_failed () {
-			var dlg = new MessageDialog(this, MODAL, WARNING, CANCEL, _("This file is defective"));
+			var dlg = new MessageDialog (this, MODAL, WARNING, CANCEL, _("This file is defective"));
 			dlg.secondary_text = _("Please start from a template to ensure that your file will work as a GNOME icon");
-			dlg.response.connect(() => dlg.destroy());
-			dlg.show();
+			dlg.response.connect (() => dlg.destroy ());
+			dlg.show ();
 		}
 
 		private void mode_changed () {
 			switch (mode) {
 				case INITIAL:
 					title = _("App Icon Preview");
-					(lookup_action("refresh") as SimpleAction).set_enabled(false);
-					(lookup_action("shuffle") as SimpleAction).set_enabled(false);
-					(lookup_action("export") as SimpleAction).set_enabled(false);
-					(lookup_action("screenshot") as SimpleAction).set_enabled(false);
-					(lookup_action("copy-screenshot") as SimpleAction).set_enabled(false);
+					(lookup_action ("refresh") as SimpleAction).set_enabled (false);
+					(lookup_action ("shuffle") as SimpleAction).set_enabled (false);
+					(lookup_action ("export") as SimpleAction).set_enabled (false);
+					(lookup_action ("screenshot") as SimpleAction).set_enabled (false);
+					(lookup_action ("copy-screenshot") as SimpleAction).set_enabled (false);
 					break;
 				case COLOUR:
-					_mode_changed(new Colour(exporter));
+					_mode_changed (new Colour (exporter));
 					break;
 			}
 		}
 
 		private void _mode_changed (Previewer view) {
 			var old = content.visible_child;
-			view.show();
-			content.add(view);
+			view.show ();
+			content.add (view);
 			content.visible_child = view;
 			if (old is Previewer) {
 				// Effectively close the old previewer
-				old.destroy();
+				old.destroy ();
 			} else {
 				// We have an open file now
-				(lookup_action("refresh") as SimpleAction).set_enabled(true);
-				(lookup_action("shuffle") as SimpleAction).set_enabled(true);
-				(lookup_action("export") as SimpleAction).set_enabled(true);
-				(lookup_action("screenshot") as SimpleAction).set_enabled(true);
-				(lookup_action("copy-screenshot") as SimpleAction).set_enabled(true);
+				(lookup_action ("refresh") as SimpleAction).set_enabled (true);
+				(lookup_action ("shuffle") as SimpleAction).set_enabled (true);
+				(lookup_action ("export") as SimpleAction).set_enabled (true);
+				(lookup_action ("screenshot") as SimpleAction).set_enabled (true);
+				(lookup_action ("copy-screenshot") as SimpleAction).set_enabled (true);
 			}
 		}
 
 		private void open () {
-			var dlg = new FileChooserDialog(_("Select Icon"), this, OPEN, _("_Open"),
+			var dlg = new FileChooserDialog (_("Select Icon"), this, OPEN, _("_Open"),
 		                                             Gtk.ResponseType.ACCEPT,
 		                                             _("Cancel"), Gtk.ResponseType.CANCEL);
 			dlg.modal = true;
@@ -190,104 +190,104 @@ namespace IconPreview {
 			filter.add_pattern ("*.svg");
 			filter.add_mime_type ("image/svg+xml");
 			dlg.add_filter (filter);
-			dlg.response.connect(res => {
+			dlg.response.connect (res => {
 				if (res == ResponseType.ACCEPT) {
-					file = dlg.get_file();
+					file = dlg.get_file ();
 				}
-				dlg.close();
+				dlg.close ();
 			});
-			dlg.show();
+			dlg.show ();
 		}
 
 		// win.new always expects an argument
 		private void new_icon () {
-			var wiz = new Wizard(this);
-			wiz.open.connect(@new => file = @new);
-			wiz.run();
+			var wiz = new Wizard (this);
+			wiz.open.connect (@new => file = @new);
+			wiz.run ();
 		}
 
 		// Screenshot the previewer
 		private void screenshot () requires (content.visible_child is Previewer) {
-			var buf = (content.visible_child as Previewer).screenshot();
+			var buf = (content.visible_child as Previewer).screenshot ();
 
-			var s = new ScreenshotSaver(this, buf);
-			s.show();
+			var s = new ScreenshotSaver (this, buf);
+			s.show ();
 		}
 
 		// Screenshot the previewer
 		private void copy_screenshot () requires (content.visible_child is Previewer) {
-			var buf = (content.visible_child as Previewer).screenshot();
+			var buf = (content.visible_child as Previewer).screenshot ();
 
-			var s = new ScreenshotSaver(this, buf);
-			s.copy();
+			var s = new ScreenshotSaver (this, buf);
+			s.copy ();
 		}
 
 		// Open file chooser for exporting
-		private void save_export(GLib.Action _act, Variant? arg) {
+		private void save_export (GLib.Action _act, Variant? arg) {
 			string title = "";
 			string filename = exporter.name;
-			filename = filename.substring(0, filename.last_index_of(".svg"));
-			filename = filename.substring(0, filename.last_index_of(".Source"));
+			filename = filename.substring (0, filename.last_index_of (".svg"));
+			filename = filename.substring (0, filename.last_index_of (".Source"));
 			File file = null;
-			switch (arg as string){
+			switch (arg as string) {
 				case "regular": {
 					title = _("Save Regular");
 					filename = filename + ".svg";
-					file = exporter.get_regular();
+					file = exporter.get_regular ();
 					break;
 				}
 				case "symbolic": {
 					title = _("Save Symbolic");
 					filename = filename + "-symbolic.svg";
-					file = exporter.get_symbolic();
+					file = exporter.get_symbolic ();
 					break;
 				}
 				case "nightly": {
 					title = _("Save Nightly");
 					filename = filename + ".Devel.svg";
-					file = exporter.get_nightly();
+					file = exporter.get_nightly ();
 					break;
 				}
 			}
-			var dlg = new FileChooserNative(title, this, SAVE, _("_Save"), null);
+			var dlg = new FileChooserNative (title, this, SAVE, _("_Save"), null);
 			dlg.modal = true;
 			dlg.do_overwrite_confirmation = true;
-			dlg.set_current_folder(Environment.get_home_dir());
-			dlg.set_current_name(filename);
+			dlg.set_current_folder (Environment.get_home_dir ());
+			dlg.set_current_name (filename);
 
-			var any = new Gtk.FileFilter();
-			any.set_filter_name(title + " " + _("Icon"));
-			any.add_pattern("*.svg");
-			any.add_mime_type("image/svg");
-			dlg.add_filter(any);
+			var any = new Gtk.FileFilter ();
+			any.set_filter_name (title + " " + _("Icon"));
+			any.add_pattern ("*.svg");
+			any.add_mime_type ("image/svg");
+			dlg.add_filter (any);
 
-			var svg = new Gtk.FileFilter();
-			svg.set_filter_name(_("SVG"));
-			svg.add_pattern("*.svg");
-			svg.add_mime_type("image/svg");
-			dlg.add_filter(svg);
+			var svg = new Gtk.FileFilter ();
+			svg.set_filter_name (_("SVG"));
+			svg.add_pattern ("*.svg");
+			svg.add_mime_type ("image/svg");
+			dlg.add_filter (svg);
 
-			if (dlg.run() == ResponseType.ACCEPT) {
-				var dest = dlg.get_file();
+			if (dlg.run () == ResponseType.ACCEPT) {
+				var dest = dlg.get_file ();
 				try {
 					file.copy (dest, FileCopyFlags.OVERWRITE);
 				} catch (Error e) {
-					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save exported file"));
+					var msg = new MessageDialog (this, MODAL, ERROR, CANCEL, _("Failed to save exported file"));
 					msg.secondary_text = e.message;
-					msg.response.connect(() => msg.destroy());
-					msg.show();
+					msg.response.connect (() => msg.destroy ());
+					msg.show ();
 				}
 			}
 		}
 
 		// Open the recent popover (win.recents)
 		private void open_recent () {
-			recent.clicked();
+			recent.clicked ();
 		}
 
 		// Open the export popover (win.export)
 		private void open_export () {
-			exportbtn.clicked();
+			exportbtn.clicked ();
 		}
 
 		// Manually reload the current icon (win.refresh)
@@ -295,14 +295,14 @@ namespace IconPreview {
 		//     The must be an open file to reload
 		private void refresh () requires (file != null) {
 			// Trigger a dummy changed event
-			file_updated(file, null, CHANGED);
+			file_updated (file, null, CHANGED);
 		}
 
 		// Change the random comparison icons (win.shuffle)
 		// Requires:
 		//     The should be an open previewer to shuffle
 		private void shuffle () requires (content.visible_child is Previewer) {
-			(content.visible_child as Previewer).shuffle();
+			(content.visible_child as Previewer).shuffle ();
 		}
 
 		// The currently open file was modified
@@ -317,21 +317,21 @@ namespace IconPreview {
 			(content.visible_child as Previewer).previewing = src;
 			try {
 				var info = src.query_info ("standard::display-name", NONE);
-				title = info.get_display_name();
+				title = info.get_display_name ();
 			} catch (Error e) {
-				critical("Failed to fetch icon name: %s", e.message);
+				critical ("Failed to fetch icon name: %s", e.message);
 				title = _("App Icon Preview");
 			}
 		}
 
 		// Wrapper for win.menu
 		private void open_menu () {
-			menu.clicked();
+			menu.clicked ();
 		}
 
 		// Show the about dialog, triggered by win.about
 		private void about () {
-			about_app(this);
+			about_app (this);
 		}
 	}
 

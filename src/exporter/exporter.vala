@@ -32,39 +32,39 @@ namespace IconPreview {
     [GtkChild]
     Label symbolic_size;
 
-    public void update_regolar(File? source) {
+    public void update_regolar (File? source) {
       if (source != null) {
-        regular_box.show();
-        FileIcon icon = new FileIcon(source);
-        regular_image.set_from_gicon(icon, BUTTON);
+        regular_box.show ();
+        FileIcon icon = new FileIcon (source);
+        regular_image.set_from_gicon (icon, BUTTON);
         regular_size.set_label (get_file_size (source));
     	regular_size.hide ();
       } else {
-        regular_box.hide();
+        regular_box.hide ();
       }
     }
 
-    public void update_nightly(File? source) {
+    public void update_nightly (File? source) {
       if (source != null) {
-        nightly_box.show();
-        FileIcon icon = new FileIcon(source);
-        nightly_image.set_from_gicon(icon, BUTTON);
+        nightly_box.show ();
+        FileIcon icon = new FileIcon (source);
+        nightly_image.set_from_gicon (icon, BUTTON);
         nightly_size.set_label (get_file_size (source));
         nightly_size.hide ();
       } else {
-        nightly_box.hide();
+        nightly_box.hide ();
       }
     }
 
-    public void update_symbolic(File? source) {
+    public void update_symbolic (File? source) {
       if (source != null) {
-        symbolic_box.show();
-        FileIcon icon = new FileIcon(source);
-        symbolic_image.set_from_gicon(icon, BUTTON);
+        symbolic_box.show ();
+        FileIcon icon = new FileIcon (source);
+        symbolic_image.set_from_gicon (icon, BUTTON);
         symbolic_size.set_label (get_file_size (source));
         symbolic_size.hide ();
       } else {
-        symbolic_box.hide();
+        symbolic_box.hide ();
       }
     }
 
@@ -79,16 +79,16 @@ namespace IconPreview {
       return result;
     }
 
-    public File get_regular() {
-      return (regular_image.gicon as FileIcon).get_file();
+    public File get_regular () {
+      return (regular_image.gicon as FileIcon).get_file ();
     }
 
-    public File get_nightly() {
-      return (nightly_image.gicon as FileIcon).get_file();
+    public File get_nightly () {
+      return (nightly_image.gicon as FileIcon).get_file ();
     }
 
-    public File get_symbolic() {
-      return (symbolic_image.gicon as FileIcon).get_file();
+    public File get_symbolic () {
+      return (symbolic_image.gicon as FileIcon).get_file ();
     }
 
   }

@@ -6,8 +6,8 @@ namespace IconPreview {
 		const string BASE_THEME = "Adwaita";
 		static string[] colours;
 
-		private ColourPane light = new ColourPane();
-		private ColourPane dark = new ColourPane();
+		private ColourPane light = new ColourPane ();
+		private ColourPane dark = new ColourPane ();
 		private Exporter exporter;
 
 		private File _icon;
@@ -17,18 +17,18 @@ namespace IconPreview {
 			}
 			set {
 				_icon = value;
-				var svg = new Rsvg.Handle.from_gfile_sync(_icon, FLAGS_NONE);
+				var svg = new Rsvg.Handle.from_gfile_sync (_icon, FLAGS_NONE);
 				var hicolor = create_tmp_file ("#hicolor");
-				render_by_id(svg, "#hicolor", hicolor, 128);
+				render_by_id (svg, "#hicolor", hicolor, 128);
 
 				var nightly = create_tmp_file ("#nightly");
-				var nightly_surface = render_by_id(svg, "#hicolor", nightly, 128);
-				make_nightly(nightly_surface, 128);
+				var nightly_surface = render_by_id (svg, "#hicolor", nightly, 128);
+				make_nightly (nightly_surface, 128);
 
 				var symbolic = create_tmp_file ("#symbolic");
-        render_by_id(svg, "#symbolic", symbolic, 16);
+    			render_by_id (svg, "#symbolic", symbolic, 16);
 
-				light.name = dark.name = _icon.get_basename();
+				light.name = dark.name = _icon.get_basename ();
 
 				if (hicolor != null) {
 					light.hicolor = dark.hicolor = hicolor;
@@ -36,27 +36,27 @@ namespace IconPreview {
 					light.hicolor = dark.hicolor = _icon;
 				}
 
-				exporter.update_regolar(light.hicolor);
-				exporter.update_nightly(nightly);
-				exporter.update_symbolic(symbolic);
+				exporter.update_regolar (light.hicolor);
+				exporter.update_nightly (nightly);
+				exporter.update_symbolic (symbolic);
 				exporter.name = light.name;
 				light.symbolic = dark.symbolic = symbolic;
 			}
 		}
 
-		public Colour(Exporter e) {
+		public Colour (Exporter e) {
 			exporter = e;
 		}
 
 		class construct {
-			set_css_name("colour-view");
+			set_css_name ("colour-view");
 		}
 
 		static construct {
 			try {
-				colours = resources_enumerate_children(RES_PATH, NONE);
+				colours = resources_enumerate_children (RES_PATH, NONE);
 			} catch (Error e) {
-				critical("Failed to load sample icons: %s", e.message);
+				critical ("Failed to load sample icons: %s", e.message);
 			}
 		}
 
@@ -65,27 +65,27 @@ namespace IconPreview {
 			dark.theme = BASE_THEME + "-dark";
 
 			homogeneous = true;
-			add(light);
-			add(dark);
+			add (light);
+			add (dark);
 
-			shuffle();
+			shuffle ();
 		}
 
 		public void shuffle () {
-			var samples_names = random_selection(colours, 6);
+			var samples_names = random_selection (colours, 6);
 			var samples = new File[6];
 
 			for (var j = 0; j < 6; j++) {
-				samples[j] = File.new_for_uri("resource:/" + RES_PATH + samples_names[j]);
+				samples[j] = File.new_for_uri ("resource:/" + RES_PATH + samples_names[j]);
 			}
 
-			light.load_samples(samples);
-			dark.load_samples(samples);
+			light.load_samples (samples);
+			dark.load_samples (samples);
 		}
 
 		public Gdk.Pixbuf screenshot () {
-			var w = get_allocated_width();
-			var content_h = get_allocated_height();
+			var w = get_allocated_width ();
+			var content_h = get_allocated_height ();
 
 			Gdk.Pixbuf logo;
 			try {
@@ -98,24 +98,24 @@ namespace IconPreview {
 
 			var padding = 6;
 
-			var img_height = logo.get_height();
-			var img_width = logo.get_width();
+			var img_height = logo.get_height ();
+			var img_width = logo.get_width ();
 			Pango.Rectangle txt_extents;
 
-			layout.get_pixel_extents(null, out txt_extents);
+			layout.get_pixel_extents (null, out txt_extents);
 
-			var bottom_bar = int.max(img_height, txt_extents.height) + (padding * 2);
+			var bottom_bar = int.max (img_height, txt_extents.height) + (padding * 2);
 
 			var surface = new Cairo.ImageSurface (ARGB32, w, content_h + bottom_bar);
 			var context = new Cairo.Context (surface);
 
-			draw(context);
+			draw (context);
 
-			context.set_source_rgb(1.0, 1.0, 1.0);
-			context.move_to(0, content_h);
-			context.rectangle(0, content_h, w, content_h + bottom_bar);
-			context.fill();
-			context.set_source_rgb(0.0, 0.0, 0.0);
+			context.set_source_rgb (1.0, 1.0, 1.0);
+			context.move_to (0, content_h);
+			context.rectangle (0, content_h, w, content_h + bottom_bar);
+			context.fill ();
+			context.set_source_rgb (0.0, 0.0, 0.0);
 
 			var img_x = 0;
 			var txt_x = img_width + padding;
@@ -132,13 +132,13 @@ namespace IconPreview {
 				img_y = content_h + (txt_extents.height - img_height) / 2;
 			}
 
-			context.save();
+			context.save ();
 			Gdk.cairo_set_source_pixbuf (context, logo,
 										 padding + img_x, padding + img_y);
 			context.rectangle (padding + img_x, padding + img_y,
 							   img_width, img_height);
-			context.fill();
-			context.restore();
+			context.fill ();
+			context.restore ();
 
 			context.move_to (padding + txt_x, padding + txt_y);
 			Pango.cairo_show_layout (context, layout);
@@ -151,25 +151,25 @@ namespace IconPreview {
     private void make_nightly (Cairo.Surface? hicolor, int output_size) {
       if (hicolor != null) {
         debug ("Add nightly stripes");
-        var cr = new Cairo.Context(hicolor);
-        cr.set_source_surface(get_overlay(), 0.0, 0.0);
+        var cr = new Cairo.Context (hicolor);
+        cr.set_source_surface (get_overlay (), 0.0, 0.0);
         var mask = new Cairo.Surface.similar (hicolor, Cairo.Content.ALPHA, output_size, output_size);
         var cr_mask = new Cairo.Context (mask);
-        cr_mask.set_source_surface(hicolor, 0.0, 0.0);
-        cr_mask.paint();
-        cr.mask_surface(mask, 0.0, 0.0);
+        cr_mask.set_source_surface (hicolor, 0.0, 0.0);
+        cr_mask.paint ();
+        cr.mask_surface (mask, 0.0, 0.0);
       }
     }
 
-    private Cairo.Surface get_overlay() {
+    private Cairo.Surface get_overlay () {
       var stripes = File.new_for_uri ("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
       var handle = new Rsvg.Handle.from_gfile_sync (stripes, FLAGS_NONE);
       FileIOStream stream;
-      var temp_file = File.new_tmp("XXXXXX-strips.svg", out stream);
+      var temp_file = File.new_tmp ("XXXXXX-strips.svg", out stream);
       //FIXME: Vala doesn't allow us to use null for a new SvgSurface
-      var surface = new Cairo.SvgSurface(temp_file.get_path(), 128, 128);
-      var cr = new Cairo.Context(surface);
-      handle.render_cairo(cr);
+      var surface = new Cairo.SvgSurface (temp_file.get_path (), 128, 128);
+      var cr = new Cairo.Context (surface);
+      handle.render_cairo (cr);
       return surface;
     }
   }

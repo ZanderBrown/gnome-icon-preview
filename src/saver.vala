@@ -8,7 +8,7 @@ namespace IconPreview {
 
 		public Gdk.Pixbuf pixbuf { get; set; }
 
-		const GLib.ActionEntry[] entries = {
+		const GLib.ActionEntry[] ACTION_ENTRIES = {
 			{ "close", _close },
 			{ "copy", copy },
 			{ "save", save },
@@ -18,42 +18,42 @@ namespace IconPreview {
 
 		construct {
 			// Why is this int? Why is this not automatic?
-			use_header_bar = (int) Gtk.Settings.get_default().gtk_dialogs_use_header;
+			use_header_bar = (int) Gtk.Settings.get_default ().gtk_dialogs_use_header;
 
-			bind_property("pixbuf", preview, "pixbuf", DEFAULT, (binding, srcval, ref targetval) => {
+			bind_property ("pixbuf", preview, "pixbuf", DEFAULT, (binding, srcval, ref targetval) => {
 				var src = (Gdk.Pixbuf) srcval;
 				var ratio = ((double) src.width) / WIDTH;
-				targetval.set_object (src.scale_simple(WIDTH, (int) (src.height / ratio), BILINEAR));
+				targetval.set_object (src.scale_simple (WIDTH, (int) (src.height / ratio), BILINEAR));
 				return true;
 			});
 
-			var actions = new SimpleActionGroup();
-			actions.add_action_entries(entries, this);
-			insert_action_group("dlg", actions);
+			var actions = new SimpleActionGroup ();
+			actions.add_action_entries (ACTION_ENTRIES, this);
+			insert_action_group ("dlg", actions);
 		}
 
 		public ScreenshotSaver (Window parent, Gdk.Pixbuf pixbuf) {
-			Object(transient_for: parent, pixbuf: pixbuf);
+			Object (transient_for: parent, pixbuf: pixbuf);
 		}
 
 		private void _close () {
-			destroy();
+			destroy ();
 		}
 
 		public void copy () {
-			Clipboard.get_default(get_display()).set_image(pixbuf);
+			Clipboard.get_default (get_display ()).set_image (pixbuf);
 		}
 
 		public void save () {
-			var dlg = new FileChooserNative(_("Save Screenshot"), this, SAVE, _("_Save"), null);
+			var dlg = new FileChooserNative (_("Save Screenshot"), this, SAVE, _("_Save"), null);
 			dlg.modal = true;
 			dlg.do_overwrite_confirmation = true;
 			try {
-				var name = "%.png".printf(_("Preview"));
-				var file = File.new_build_filename(Environment.get_home_dir(), "Projects", "Icons", name, null);
-				dlg.set_file(file);
+				var name = "%.png".printf (_("Preview"));
+				var file = File.new_build_filename (Environment.get_home_dir (), "Projects", "Icons", name, null);
+				dlg.set_file (file);
 			} catch (Error e) {
-				warning("Can't set initial file: %s", e.message);
+				warning ("Can't set initial file: %s", e.message);
 			}
 
 			var any = new Gtk.FileFilter ();
@@ -78,20 +78,19 @@ namespace IconPreview {
 			jpeg.add_mime_type ("image/jpeg");
 			dlg.add_filter (jpeg);
 
-			if (dlg.run() == ResponseType.ACCEPT) {
-				var file = dlg.get_filename();
+			if (dlg.run () == ResponseType.ACCEPT) {
+				var file = dlg.get_filename ();
 				try {
-					pixbuf.save(dlg.get_filename(), file.reverse().split(".", 2)[0].reverse());
+					pixbuf.save (dlg.get_filename (), file.reverse ().split (".", 2)[0].reverse ());
 				} catch (Error e) {
-					var msg = new MessageDialog(this, MODAL, ERROR, CANCEL, _("Failed to save screenshot"));
+					var msg = new MessageDialog (this, MODAL, ERROR, CANCEL, _("Failed to save screenshot"));
 					msg.secondary_text = e.message;
-					msg.response.connect(() => msg.destroy());
-					msg.show();
+					msg.response.connect (() => msg.destroy ());
+					msg.show ();
 				}
 			}
 
-			destroy();
+			destroy ();
 		}
 	}
 }
-
