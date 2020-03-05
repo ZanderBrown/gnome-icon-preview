@@ -89,12 +89,16 @@ namespace IconPreview {
 
 			Gdk.Pixbuf logo;
 			try {
-				logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/design/AppIconPreview/badge.svg", 32, -1, true);
+				logo = new Gdk.Pixbuf.from_resource_at_scale ("/org/gnome/design/AppIconPreview/badge.svg", 16, -1, true);
 			} catch (Error e) {
 				critical (e.message);
 				logo = new Gdk.Pixbuf (RGB, false, 1, 2, 2);
 			}
 			var layout = create_pango_layout (_("App Icon Preview"));
+			var font_description = new Pango.FontDescription ();
+			font_description.set_weight (Pango.Weight.SEMIBOLD);
+			font_description.set_size (Pango.SCALE * 10);
+			layout.set_font_description (font_description);
 
 			var padding = 6;
 
@@ -104,18 +108,10 @@ namespace IconPreview {
 
 			layout.get_pixel_extents (null, out txt_extents);
 
-			var bottom_bar = int.max (img_height, txt_extents.height) + (padding * 2);
-
-			var surface = new Cairo.ImageSurface (ARGB32, w, content_h + bottom_bar);
+			var surface = new Cairo.ImageSurface (ARGB32, w, content_h);
 			var context = new Cairo.Context (surface);
 
 			draw (context);
-
-			context.set_source_rgb (1.0, 1.0, 1.0);
-			context.move_to (0, content_h);
-			context.rectangle (0, content_h, w, content_h + bottom_bar);
-			context.fill ();
-			context.set_source_rgb (0.0, 0.0, 0.0);
 
 			var img_x = 0;
 			var txt_x = img_width + padding;
@@ -124,26 +120,25 @@ namespace IconPreview {
 				txt_x = 0;
 			}
 
-			var img_y = content_h;
+			var img_y = 0;
 			var txt_y = 0;
 			if (txt_extents.height < img_height) {
-				txt_y = content_h + (img_height - txt_extents.height) / 2;
+				txt_y = (img_height - txt_extents.height) / 2;
 			} else {
-				img_y = content_h + (txt_extents.height - img_height) / 2;
+				img_y = (txt_extents.height - img_height) / 2;
 			}
 
 			context.save ();
 			Gdk.cairo_set_source_pixbuf (context, logo,
 										 padding + img_x, padding + img_y);
-			context.rectangle (padding + img_x, padding + img_y,
-							   img_width, img_height);
+			context.rectangle (padding + img_x, padding + img_y, img_width, img_height);
 			context.fill ();
 			context.restore ();
 
 			context.move_to (padding + txt_x, padding + txt_y);
 			Pango.cairo_show_layout (context, layout);
 
-			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, content_h + bottom_bar);
+			return Gdk.pixbuf_get_from_surface (surface, 0, 0, w, content_h);
 		}
 
 
