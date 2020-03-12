@@ -100,7 +100,7 @@ namespace IconPreview {
 			font_description.set_size (Pango.SCALE * 10);
 			layout.set_font_description (font_description);
 
-			var padding = 6;
+			var padding = 12;
 
 			var img_height = logo.get_height ();
 			var img_width = logo.get_width ();
