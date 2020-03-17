@@ -279,6 +279,11 @@
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
                 <property name="action_name">win.new-icon</property>
+                <property name="margin_top">24</property>
+                <property name="width_request">200</property>
+                <style>
+                  <class name="suggested-action" />
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
