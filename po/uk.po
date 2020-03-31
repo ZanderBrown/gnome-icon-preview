@@ -1,0 +1,350 @@
+# Ukrainian translation for app-icon-preview.
+# Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/i"
+"ssues\n"
+"POT-Creation-Date: 2020-03-21 21:45+0000\n"
+"PO-Revision-Date: 2020-03-31 21:44+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:15
+#: src/window.vala:152 src/window.vala:323
+msgid "App Icon Preview"
+msgstr "Перегляд піктограм програми"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Інструмент для створення піктограм програм"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"«Перегляд піктограм програм» — програма для розробки піктограм, яку"
+" призначено для стільничного середовища GNOME."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Попередній перегляд піктограми програми"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:61
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Перегляд піктограм програм"
+
+#: src/common.vala:36
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "© Zander Brown, 2018–2019"
+
+#: src/common.vala:40
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>"
+
+#: src/common.vala:42
+msgid "Repository"
+msgstr "Сховище"
+
+#: src/common.vala:44
+msgid "Kept sane by"
+msgstr "Збережено у здоровому глузді"
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Експортувати піктограму для використання. Об'єкти поза полотном буде"
+" вилучено, а SVG буде оптимізовано за розміром."
+
+#: src/exporter/exporter.ui:68
+msgid "Regular"
+msgstr "Звичайна"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Зберегти звичайну як…"
+
+#: src/exporter/exporter.ui:144
+msgid "Nightly"
+msgstr "Нічна"
+
+#: src/exporter/exporter.ui:164
+msgid "Save Nightly As…"
+msgstr "Зберегти нічну як…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Зберегти символічну як…"
+
+#: src/exporter/exporter.ui:217
+msgid "Symbolic"
+msgstr "Символічна"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Програма"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Нове вікно"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Відкрити піктограму"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Відкрити список нещодавніх"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Відкрити меню"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Вийти з програми"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Перегляд"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Перезавантажити піктограму"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Експортувати піктограму"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Перемішати піктограми"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Зробити знімок вікна"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Копіювати знімок до буфера"
+
+#: src/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Увімкнути/вимкнути повноекранний режим"
+
+#: src/main.vala:49
+msgid "no longer supported"
+msgstr "більше не підтримується"
+
+#. If opening the palette directly
+#: src/main.vala:97
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"Палітра розрослася!\n"
+"Тепер вона живе окремо як org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "_Нове вікно"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "Перезаванта_жити"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "З_робити знімок"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "П_еремішати приклади піктограм"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: src/menus.ui:33
+msgid "_About App Icon Preview"
+msgstr "_Про «Перегляд піктограм програми»"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Закрити"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Зберегти…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Скопіювати до буфера"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Зберегти знімок екрана"
+
+#: src/saver.vala:48 src/window.vala:252
+msgid "_Save"
+msgstr "З_берегти"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Перегляд"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Не вдалося зберегти знімок вікна"
+
+#: src/window.ui:23
+msgid "Open"
+msgstr "Відкрити"
+
+#: src/window.ui:27
+msgid "Open an icon"
+msgstr "Відкрити піктограму"
+
+#: src/window.ui:41
+msgid "Recent"
+msgstr "Нещодавні"
+
+#: src/window.ui:69
+msgid "Menu"
+msgstr "Меню"
+
+#: src/window.ui:85
+msgid "Export"
+msgstr "Експортувати"
+
+#: src/window.ui:121
+msgid "Make a new App Icon"
+msgstr "Створити піктограму програми"
+
+#: src/window.ui:276
+msgid "New App Icon"
+msgstr "Нова піктограма програми"
+
+#: src/window.vala:143
+msgid "This file is defective"
+msgstr "Цей файл пошкоджено"
+
+#: src/window.vala:144
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Будь ласка, розпочніть з шаблона, щоб забезпечити можливість використання"
+" вашого файла як піктограми GNOME"
+
+#: src/window.vala:184
+msgid "Select Icon"
+msgstr "Виберіть піктограму"
+
+#: src/window.vala:184
+msgid "_Open"
+msgstr "_Відкрити"
+
+#: src/window.vala:186
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/window.vala:189
+msgid "Icons"
+msgstr "Піктограми"
+
+#: src/window.vala:234
+msgid "Save Regular"
+msgstr "Зберегти звичайну"
+
+#: src/window.vala:240
+msgid "Save Symbolic"
+msgstr "Зберегти символічну"
+
+#: src/window.vala:246
+msgid "Save Nightly"
+msgstr "ЗБерегти нічну"
+
+#: src/window.vala:259
+msgid "Icon"
+msgstr "Піктограма"
+
+#: src/window.vala:265
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:275
+msgid "Failed to save exported file"
+msgstr "Не вдалося зберегти експортований файл"
+
+#: src/wizard.ui:46
+msgid "App Name"
+msgstr "Назва програми"
+
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Розташування піктограми"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Зберегти піктограму"
+
+#: src/wizard.ui:94
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Назва в оберненому записі доменів. Приклад: org.inkscape.Inkscape"
+
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Файл піктограми у форматі SVG буде збережено до цього каталогу"
+
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "С_творити"
+
+#: src/wizard.vala:31
+msgid "Expecting at least one “.”"
+msgstr "Мало бути вказано хоча б одну крапку («.»)"
