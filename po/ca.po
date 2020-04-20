@@ -1,0 +1,349 @@
+# Catalan translation for app-icon-preview.
+# Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+# Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2020-04-06 21:08+0000\n"
+"PO-Revision-Date: 2020-04-20 17:15+0200\n"
+"Language-Team: Catalan <gnome@llistes.softcatala.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Carles Ferrando Garcia <carles.ferrando@gmail.com>\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:15
+#: src/window.vala:152 src/window.vala:323
+msgid "App Icon Preview"
+msgstr "App Icon Preview"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Eina per dissenyar icones d'aplicacions"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"Vista prèvia d'icona d'aplicació és una eina per dissenyar icones que usaràs "
+"a l'escriptori GNOME."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Previsualitza una icona d'aplicació"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:61
+msgid "Zander Brown"
+msgstr "Zander Brown"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Previsualitza icones d'aplicacions"
+
+#: src/common.vala:36
+msgid "Copyright © 2018-19 Zander Brown"
+msgstr "Copyright © 2018-19 Zander Brown"
+
+#: src/common.vala:40
+msgid "translator-credits"
+msgstr "Carles Ferrando Garcia <carles.ferrando@gmail.com>."
+
+#: src/common.vala:42
+msgid "Repository"
+msgstr "Dipòsit"
+
+#: src/common.vala:44
+msgid "Kept sane by"
+msgstr "Conservat adequat per"
+
+#: src/exporter/exporter.ui:18
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Exporta la icona per ús i producció. El objectes fora del llenç es "
+"suprimiran i el SVG s'optimitza per mida"
+
+#: src/exporter/exporter.ui:68
+msgid "Regular"
+msgstr "Regular"
+
+#: src/exporter/exporter.ui:88
+msgid "Save Regular As…"
+msgstr "Desa regular com…"
+
+#: src/exporter/exporter.ui:144
+msgid "Nightly"
+msgstr "Diari"
+
+#: src/exporter/exporter.ui:164
+msgid "Save Nightly As…"
+msgstr "Desa cada nit com…"
+
+#: src/exporter/exporter.ui:195
+msgid "Save Symbolic As…"
+msgstr "Desa simbòlic com…"
+
+#: src/exporter/exporter.ui:217
+msgid "Symbolic"
+msgstr "Simbòlic"
+
+#: src/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Aplicació"
+
+#: src/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Finestra nova"
+
+#: src/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Obre una icona"
+
+#: src/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Obre una llista recent"
+
+#: src/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Obre el menú"
+
+#: src/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Surt de l'aplicació"
+
+#: src/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Visualització"
+
+#: src/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Torna a carregar la icona"
+
+#: src/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Exporta la icona"
+
+#: src/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Icones aleatòries"
+
+#: src/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Fes una captura de pantalla"
+
+#: src/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Copia una captura de pantalla al porta-retalls"
+
+#: src/help-overlay.ui:95
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Commuta pantalla completa"
+
+#: src/main.vala:49
+msgid "no longer supported"
+msgstr "No està suportat"
+
+#. If opening the palette directly
+#: src/main.vala:97
+msgid ""
+"Palette is all grown up!\n"
+"It’s now available separately as org.gnome.zbrown.Palette"
+msgstr ""
+"La paleta està tota gran!\n"
+"Està ara disponible de forma separada com org.gnome.zbrown.Palette"
+
+#: src/menus.ui:6
+msgid "_New Window"
+msgstr "Finestra _nova"
+
+#: src/menus.ui:12
+msgid "_Reload"
+msgstr "_Torna a carregar"
+
+#: src/menus.ui:17
+msgid "_Take Screenshot"
+msgstr "_Fes una captura de pantalla"
+
+#: src/menus.ui:22
+msgid "_Shuffle Example Icons"
+msgstr "_Icones d'exemple aleatòries"
+
+#: src/menus.ui:29
+msgid "_Keyboard Shortcuts"
+msgstr "_Dreceres de teclat"
+
+#: src/menus.ui:33
+msgid "_About App Icon Preview"
+msgstr "_Quant a «App Icon Preview»"
+
+#: src/saver.ui:50
+msgid "Close"
+msgstr "Tanca"
+
+#: src/saver.ui:59
+msgid "Save…"
+msgstr "Desa…"
+
+#: src/saver.ui:77
+msgid "Copy to Clipboard"
+msgstr "Copia al porta-retalls"
+
+#: src/saver.vala:48
+msgid "Save Screenshot"
+msgstr "Desa la captura"
+
+#: src/saver.vala:48 src/window.vala:252
+msgid "_Save"
+msgstr "_Desa"
+
+#: src/saver.vala:52
+msgid "Preview"
+msgstr "Visualització prèvia"
+
+#: src/saver.vala:69
+msgid "PNG"
+msgstr "PNG"
+
+#: src/saver.vala:75
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/saver.vala:86
+msgid "Failed to save screenshot"
+msgstr "Error en desar la captura de pantalla"
+
+#: src/window.ui:23
+msgid "Open"
+msgstr "Obre"
+
+#: src/window.ui:27
+msgid "Open an icon"
+msgstr "Obre una icona"
+
+#: src/window.ui:41
+msgid "Recent"
+msgstr "Recents"
+
+#: src/window.ui:69
+msgid "Menu"
+msgstr "Menú"
+
+#: src/window.ui:85
+msgid "Export"
+msgstr "Exporta"
+
+#: src/window.ui:121
+msgid "Make a new App Icon"
+msgstr "Fes una icona d'aplicació nova"
+
+#: src/window.ui:276
+msgid "New App Icon"
+msgstr "Icona d'aplicació nova"
+
+#: src/window.vala:143
+msgid "This file is defective"
+msgstr "Aquest fitxer no funciona correctament"
+
+#: src/window.vala:144
+msgid ""
+"Please start from a template to ensure that your file will work as a GNOME "
+"icon"
+msgstr ""
+"Inicia com una plantilla per assegurar-vos que el vostre fitxer funciona com "
+"una icona GNOME"
+
+#: src/window.vala:184
+msgid "Select Icon"
+msgstr "Tria una icona"
+
+#: src/window.vala:184
+msgid "_Open"
+msgstr "_Obre"
+
+#: src/window.vala:186
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: src/window.vala:189
+msgid "Icons"
+msgstr "Icones"
+
+#: src/window.vala:234
+msgid "Save Regular"
+msgstr "Desa regular"
+
+#: src/window.vala:240
+msgid "Save Symbolic"
+msgstr "Desa simbòlic"
+
+#: src/window.vala:246
+msgid "Save Nightly"
+msgstr "Desa cada nit"
+
+#: src/window.vala:259
+msgid "Icon"
+msgstr "Icona"
+
+#: src/window.vala:265
+msgid "SVG"
+msgstr "SVG"
+
+#: src/window.vala:275
+msgid "Failed to save exported file"
+msgstr "Error en desar el fitxer exportat"
+
+#: src/wizard.ui:46
+msgid "App Name"
+msgstr "Nom de l'aplicació"
+
+#: src/wizard.ui:58
+msgid "Icon Location"
+msgstr "Ubicació de la icona"
+
+#: src/wizard.ui:79
+msgid "Save Icon"
+msgstr "Desa icona"
+
+#: src/wizard.ui:94
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr ""
+"El nom del domini en notació invertida, per exemple  org.inkscape.Inkscape"
+
+#: src/wizard.ui:110
+msgid "The icon SVG file will be stored in this directory"
+msgstr "El fitxer SVG de la icona s'emmagatzemarà en aquest directori"
+
+#: src/wizard.ui:159
+msgid "_Cancel"
+msgstr "_Cancel·la"
+
+#: src/wizard.ui:165
+msgid "_Create"
+msgstr "_Crea"
+
+#: src/wizard.vala:31
+msgid "Expecting at least one “.”"
+msgstr "S'espera com a mínim un  “.”"
