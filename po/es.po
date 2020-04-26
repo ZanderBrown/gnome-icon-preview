@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-12-29 23:42+0000\n"
-"PO-Revision-Date: 2019-12-30 15:04+0100\n"
+"POT-Creation-Date: 2020-03-21 20:42+0000\n"
+"PO-Revision-Date: 2020-04-26 11:44+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -17,24 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 3.34.0\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:13
-#: src/window.vala:152 src/window.vala:321
-#| msgid "Icon Preview"
+#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:15
+#: src/window.vala:152 src/window.vala:323
 msgid "App Icon Preview"
 msgstr "Aplicación de vista previa de iconos"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-#| msgid "Tool for designing icons"
 msgid "Tool for designing applications icons"
 msgstr "Herramienta para diseñar iconos de aplicaciones"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
-#| msgid ""
-#| "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgid ""
 "App Icon Preview is a tool for designing icons which target the GNOME "
 "desktop."
@@ -46,12 +42,11 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Vista previa del icono de una aplicación"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:54
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:61
 msgid "Zander Brown"
 msgstr "Zander Brown"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
-#| msgid "Previewing an Application icon"
 msgid "Preview applications icons"
 msgstr "Vista previa de iconos de aplicaciones"
 
@@ -202,7 +197,6 @@ msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
 #: src/menus.ui:33
-#| msgid "_About Icon Preview"
 msgid "_About App Icon Preview"
 msgstr "_Acerca de la aplicación de vista previa de iconos"
 
@@ -222,7 +216,7 @@ msgstr "Copiar al portapapeles"
 msgid "Save Screenshot"
 msgstr "Guardar captura"
 
-#: src/saver.vala:48 src/window.vala:250
+#: src/saver.vala:48 src/window.vala:252
 msgid "_Save"
 msgstr "_Guardar"
 
@@ -242,32 +236,31 @@ msgstr "JPEG"
 msgid "Failed to save screenshot"
 msgstr "Falló al guardar la captura"
 
-#: src/window.ui:21
+#: src/window.ui:23
 msgid "Open"
-msgstr "Abierta"
+msgstr "Abrir"
 
-#: src/window.ui:25
+#: src/window.ui:27
 msgid "Open an icon"
 msgstr "Abrir un icono"
 
-#: src/window.ui:39
+#: src/window.ui:41
 msgid "Recent"
 msgstr "Recientes"
 
-#: src/window.ui:67
+#: src/window.ui:69
 msgid "Menu"
 msgstr "Menú"
 
-#: src/window.ui:83
+#: src/window.ui:85
 msgid "Export"
 msgstr "Exportar"
 
-#: src/window.ui:119
-#| msgid "Make a new GNOME Icon"
+#: src/window.ui:121
 msgid "Make a new App Icon"
 msgstr "Crear un icono de aplicación nuevo"
 
-#: src/window.ui:274
+#: src/window.ui:276
 msgid "New App Icon"
 msgstr "Nuevo icono de aplicación"
 
@@ -292,7 +285,6 @@ msgid "_Open"
 msgstr "_Abrir"
 
 #: src/window.vala:186
-#| msgid "_Cancel"
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -300,30 +292,27 @@ msgstr "Cancelar"
 msgid "Icons"
 msgstr "Iconos"
 
-#: src/window.vala:232
-#| msgid "Save Regular As…"
+#: src/window.vala:234
 msgid "Save Regular"
 msgstr "Guardar regular"
 
-#: src/window.vala:237
-#| msgid "Save Symbolic As…"
+#: src/window.vala:240
 msgid "Save Symbolic"
 msgstr "Guardar simbólico"
 
-#: src/window.vala:243
-#| msgid "Save Nightly As…"
+#: src/window.vala:246
 msgid "Save Nightly"
 msgstr "Guardar nocturno"
 
-#: src/window.vala:257
+#: src/window.vala:259
 msgid "Icon"
 msgstr "Icono"
 
-#: src/window.vala:263
+#: src/window.vala:265
 msgid "SVG"
 msgstr "SVG"
 
-#: src/window.vala:273
+#: src/window.vala:275
 msgid "Failed to save exported file"
 msgstr "Falló al guardar el archivo exportado"
 
