@@ -4,7 +4,7 @@
 
 # App Icon Preview
 
-<img src="https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/org.gnome.design.AppIconPreview.svg" width="128" height="128" />
+<img src="https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/icons/org.gnome.design.AppIconPreview.svg" width="128" height="128" />
 <p>Tool for designing applications icons.</p>
 
 ## Screenshots
