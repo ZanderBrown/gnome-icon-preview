@@ -16,13 +16,13 @@
   <bug-database rdf:resource="https://gitlab.gnome.org/World/design/app-icon-preview" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
-  <programming-language>Vala</programming-language>
+  <programming-language>Rust</programming-language>
 
   <maintainer>
     <foaf:Person>
-      <foaf:name>Zander Brown</foaf:name>
-      <foaf:mbox rdf:resource="mailto:zbrown@gnome.org" />
-      <gnome:userid>zbrown</gnome:userid>
+      <foaf:name>Bilal Elmoussaoui</foaf:name>
+      <foaf:mbox rdf:resource="mailto:bilal.elmoussaoui@gnome.org" />
+      <gnome:userid>bilelmoussaoui</gnome:userid>
     </foaf:Person>
   </maintainer>
 </Project>

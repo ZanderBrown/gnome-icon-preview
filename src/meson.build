@@ -1,42 +1,79 @@
-deps = [
-	dependency('gtk+-3.0'),
-	dependency('librsvg-2.0', version: '>= 2.46'),
-	dependency('libdazzle-1.0'),
-	dependency('libhandy-0.0')
-]
-
-config = configure_file(input: 'config.vala.in', output: 'config.vala', configuration: conf)
-
-sources = [
-	config,
-	'recents.vala',
-	'views/utils.vala',
-	'views/utils.vala',
-	'views/colourpane.vala',
-	'views/colour.vala',
-	'exporter/exporter.vala',
-	'wizard.vala',
-	'saver.vala',
-	'common.vala',
-	'window.vala',
-	'main.vala'
-]
-
-gnome = import('gnome')
-
-sources += gnome.compile_resources('resources',
-  'resource.gresource.xml'
+global_conf = configuration_data()
+global_conf.set_quoted('APP_ID', application_id)
+global_conf.set_quoted('PKGDATADIR', pkgdatadir)
+global_conf.set_quoted('PROFILE', profile)
+global_conf.set_quoted('NAME_SUFFIX', name_suffix)
+global_conf.set_quoted('VERSION', version + version_suffix)
+global_conf.set_quoted('GETTEXT_PACKAGE', gettext_package)
+global_conf.set_quoted('LOCALEDIR', localedir)
+config = configure_file(
+  input: 'config.rs.in',
+  output: 'config.rs',
+  configuration: global_conf
+)
+# Copy the config.rs output to the source directory.
+run_command(
+  'cp',
+  meson.build_root() / 'src' / 'config.rs',
+  meson.source_root() /  'src' / 'config.rs',
+  check: true
 )
 
-sources += gnome.compile_resources('icons',
-  'icons/icons.gresource.xml',
-  source_dir: 'icons/'
+# include_bytes! only takes a string literal
+resource_conf = configuration_data()
+resource_conf.set_quoted('RESOURCEFILE', resources.full_path())
+resource_rs = configure_file(
+  input: 'static_resources.rs.in',
+  output: 'static_resources.rs',
+  configuration: resource_conf
 )
 
-sources += gnome.compile_resources('wallpapers',
-  'wallpapers/wallpapers.gresource.xml',
-  source_dir: 'wallpapers/'
+run_command(
+  'cp',
+  resource_rs,
+  meson.current_source_dir(),
+  check: true
 )
 
-executable(meson.project_name(), sources, dependencies: deps, install: true)
+sources = files(
+  'widgets/recents/item.rs',
+  'widgets/recents/mod.rs',
+  'widgets/recents/popover.rs',
+  'widgets/colour_pane.rs',
+  'widgets/export.rs',
+  'widgets/icon.rs',
+  'widgets/mod.rs',
+  'widgets/new_project.rs',
+  'widgets/project_previewer.rs',
+  'widgets/screenshot_dialog.rs',
+  'widgets/window.rs',
+  'application.rs',
+  'common.rs',
+  'config.rs',
+  'main.rs',
+  'object_wrapper.rs',
+  'project.rs',
+  'recents.rs',
+  'settings.rs',
+  'static_resources.rs',
+)
+
+custom_target(
+  'cargo-build',
+  build_by_default: true,
+  input: sources,
+  output: meson.project_name(),
+  console: true,
+  install: true,
+  install_dir: bindir,
+  depends: resources,
+  command: [
+    cargo_script,
+    meson.build_root(),
+    meson.source_root(),
+    '@OUTPUT@',
+    profile,
+    meson.project_name(),
+  ]
+)
 

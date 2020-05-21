@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/design/AppIconPreview/">
+    <file compressed="true" preprocess="xml-stripblanks">about_dialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">window.ui</file>
+
+    <file compressed="true" preprocess="xml-stripblanks" alias="colourpane.ui">resources/ui/colourpane.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="export.ui">resources/ui/export.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="help-overlay.ui">resources/ui/help-overlay.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="menus.ui">resources/ui/menus.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="new_project.ui">resources/ui/new_project.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="recents_popover.ui">resources/ui/recents_popover.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="screenshot_dialog.ui">resources/ui/screenshot_dialog.ui</file>
+
+    <file compressed="true" alias="style.css">resources/style.css</file>
+
+    <file alias="wallpapers/Adwaita.jpg">resources/wallpapers/Adwaita.jpg</file>
+    <file alias="wallpapers/Adwaita-dark.jpg">resources/wallpapers/Adwaita-dark.jpg</file>
+    <file alias="templates/empty_project.svg">resources/templates/empty_project.svg</file>
+    <file alias="templates/stripes.svg">resources/templates/stripes.svg</file>
+    <file alias="badge.svg">icons/org.gnome.design.AppIconPreview-symbolic.svg</file>
+  </gresource>
+
+  <gresource prefix="/org/gnome/design/AppIconPreview/icons/">
+    <file compressed="true" preprocess="xml-stripblanks" alias="com.github.bilelmoussaoui.Authenticator.svg">resources/icons/com.github.bilelmoussaoui.Authenticator.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.AppIconPreview.svg">icons/org.gnome.design.AppIconPreview.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.AppIconPreview-symbolic.svg">icons/org.gnome.design.AppIconPreview-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="de.haeckerfelix.Shortwave.svg">resources/icons/de.haeckerfelix.Shortwave.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Aisleriot.svg">resources/icons/org.gnome.Aisleriot.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Backups.svg">resources/icons/org.gnome.Backups.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Books.svg">resources/icons/org.gnome.Books.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Boxes.svg">resources/icons/org.gnome.Boxes.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Calculator.svg">resources/icons/org.gnome.Calculator.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Camera.svg">resources/icons/org.gnome.Camera.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Characters.svg">resources/icons/org.gnome.Characters.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Clocks.svg">resources/icons/org.gnome.Clocks.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Contacts.svg">resources/icons/org.gnome.Contacts.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Fonts.svg">resources/icons/org.gnome.Fonts.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Games.svg">resources/icons/org.gnome.Games.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Logs.svg">resources/icons/org.gnome.Logs.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Maps.svg">resources/icons/org.gnome.Maps.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Messages.svg">resources/icons/org.gnome.Messages.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Music.svg">resources/icons/org.gnome.Music.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Nautilus.svg">resources/icons/org.gnome.Nautilus.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Passwords.svg">resources/icons/org.gnome.Passwords.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Photos.svg">resources/icons/org.gnome.Photos.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Podcasts.svg">resources/icons/org.gnome.Podcasts.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Settings.svg">resources/icons/org.gnome.Settings.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.SystemMonitor.svg">resources/icons/org.gnome.SystemMonitor.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Videos.svg">resources/icons/org.gnome.Videos.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Weather.svg">resources/icons/org.gnome.Weather.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Web.svg">resources/icons/org.gnome.Web.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.Contrast.svg">resources/icons/org.gnome.design.Contrast.svg</file>
+  </gresource>
+</gresources>

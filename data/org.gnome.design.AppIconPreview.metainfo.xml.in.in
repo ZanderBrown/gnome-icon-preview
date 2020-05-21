@@ -23,6 +23,14 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="2.0.0" date="2020-05-21">
+      <description>
+        <p>Rewrite in Rust</p>
+        <p>Support previewing exported icons</p>
+        <p>Hide the template baseplate/grid layers</p>
+        <p>Optimize SVG when exporting</p>
+      </description>
+    </release>
     <release version="1.0.1" date="2020-01-07">
       <description>
         <p>Wizard: Don't default to ~/Projects/Icons</p>
@@ -55,8 +63,8 @@
   <url type="homepage">https://gitlab.gnome.org/World/design/app-icon-preview</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/design/app-icon-preview/issues</url>
   <url type="translate">https://l10n.gnome.org/module/app-icon-preview/</url>
-  <update_contact>zbrown@gnome.org</update_contact>
+  <update_contact>bil.elmoussaoui@gmail.com</update_contact>
   <translation type="gettext">app-icon-preview</translation>
   <content_rating type="oars-1.1" />
-  <developer_name>Zander Brown</developer_name>
+  <developer_name>Bilal Elmoussaoui & Zander Brown</developer_name>
 </component>

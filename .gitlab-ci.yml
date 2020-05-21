@@ -1,19 +1,28 @@
-include: "https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml"
-
-variables:
-    BUNDLE: "app-icon-preview.flatpak"
-    GIT_SUBMODULE_STRATEGY: normal
+include:
+  - project: 'gnome/citemplates'
+    file: 'flatpak/flatpak-ci-initiative-sdk-extensions.yml'
 
 flatpak:
-    variables:
-        MANIFEST_PATH: "org.gnome.design.AppIconPreview.json"
-        FLATPAK_MODULE: "app-icon-preview"
-        RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
-        APP_ID: "org.gnome.design.AppIconPreview.Devel"
-    extends: .flatpak
+  image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/rust_bundle:3.36'
+  variables:
+    BUNDLE: "app-icon-preview-nightly.flatpak"
+    MANIFEST_PATH: "build-aux/org.gnome.design.AppIconPreviewDevel.json"
+    FLATPAK_MODULE: "app-icon-preview"
+    MESON_ARGS: "-Dprofile=development"
+    APP_ID: "org.gnome.design.AppIconPreviewDevel"
+    RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
+  extends: '.flatpak'
 
-lint:
-  image: valalang/lint:latest
+# Configure and run rustfmt
+# Exits and builds fails if on bad format
+rustfmt:
+  image: "rust:slim"
   script:
-    - io.elementary.vala-lint -c .vala-lint.conf src
-
+    - rustup component add rustfmt
+    # Create blank versions of our configured files
+    # so rustfmt does not yell about non-existent files or completely empty files
+    - echo -e "" >> src/config.rs
+    - echo -e "" >> src/static_resources.rs
+    - rustc -Vv && cargo -Vv
+    - cargo fmt --version
+    - cargo fmt --all -- --color=always --check

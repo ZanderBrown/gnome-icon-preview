@@ -1,57 +1,109 @@
+subdir('icons')
+# Desktop file
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
-desktop_file = i18n.merge_file(
+desktop_file = i18n.merge_file (
+  type: 'desktop',
   input: configure_file(
-    input: 'org.gnome.design.AppIconPreview.desktop.in.in',
+    input: '@0@.desktop.in.in'.format(base_id),
     output: '@BASENAME@',
     configuration: desktop_conf
   ),
   output: '@0@.desktop'.format(application_id),
-  type: 'desktop',
-  po_dir: '../po',
+  po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'applications'),
+  install_dir: datadir / 'applications'
 )
-
-desktop_utils = find_program('desktop-file-validate', required: false)
-if desktop_utils.found()
-  test('Validate desktop file', desktop_utils,
-    args: [desktop_file]
+# Validate Desktop file
+if desktop_file_validate.found()
+  test(
+    'validate-desktop',
+    desktop_file_validate,
+    args: [
+      desktop_file.full_path()
+    ]
   )
 endif
 
+# Appdata
 appdata_conf = configuration_data()
 appdata_conf.set('app-id', application_id)
-appdata_file = i18n.merge_file(
+appdata_conf.set('gettext-package', gettext_package)
+appdata_file = i18n.merge_file (
   input: configure_file(
-    input: 'org.gnome.design.AppIconPreview.metainfo.xml.in.in',
+    input: '@0@.metainfo.xml.in.in'.format(base_id),
     output: '@BASENAME@',
     configuration: appdata_conf
   ),
   output: '@0@.metainfo.xml'.format(application_id),
-  po_dir: '../po',
+  po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'metainfo'),
+  install_dir: datadir / 'metainfo'
+)
+# Validate Appdata
+if appstream_util.found()
+  test(
+    'validate-appdata', appstream_util,
+    args: [
+      'validate', '--nonet', appdata_file.full_path()
+    ]
+  )
+endif
+
+# GSchema
+gschema_conf = configuration_data()
+gschema_conf.set('app-id', application_id)
+gschema_conf.set('gettext-package', gettext_package)
+configure_file(
+    input: '@0@.gschema.xml.in'.format(base_id),
+    output: '@0@.gschema.xml'.format(application_id),
+    configuration: gschema_conf,
+    install: true,
+    install_dir: datadir / 'glib-2.0' / 'schemas'
 )
 
-appstream_util = find_program('appstream-util', required: false)
-if appstream_util.found()
-  validate_args = ['validate', appdata_file, '--nonet']
-  test('Validate appstream file', appstream_util, args: validate_args)
+# Validata GSchema
+if glib_compile_schemas.found()
+  test(
+    'validate-gschema', glib_compile_schemas,
+    args: [
+      '--strict', '--dry-run', meson.current_source_dir()
+    ]
+  )
 endif
+
+# Resources
+ui_config = configuration_data()
+ui_config.set('app-id', application_id)
+ui_config.set('version', meson.project_version() + version_suffix)
+ui_preconfigured_files = files(
+  'resources/ui/about_dialog.ui.in',
+  'resources/ui/window.ui.in',
+)
+ui_dependencies = []
+foreach ui_file: ui_preconfigured_files
+  ui_dependencies += configure_file(
+    input:  ui_file,
+    output: '@BASENAME@',
+    configuration: ui_config
+  )
+endforeach
+
+resources = gnome.compile_resources(
+  'resources',
+  'resources.gresource.xml',
+  gresource_bundle: true,
+  source_dir: meson.current_build_dir(),
+  dependencies: ui_dependencies
+)
+
 
 service_conf = configuration_data()
 service_conf.set('app-id', application_id)
 service_conf.set('bindir', bindir)
-configure_file(input: 'org.gnome.design.AppIconPreview.service.in',
-               output: '@0@.service'.format(application_id),
-               configuration: service_conf,
-               install_dir: join_paths([datadir,'dbus-1/services']))
-
-install_data('@0@.svg'.format(application_id),
-             install_dir: join_paths([datadir,'icons/hicolor/scalable/apps']))
-
-install_data('org.gnome.design.AppIconPreview-symbolic.svg',
-             rename: '@0@-symbolic.svg'.format(application_id),
-             install_dir: join_paths([datadir,'icons/hicolor/symbolic/apps']))
-
+configure_file(
+  input: '@0@.service.in'.format(base_id),
+  output: '@0@.service'.format(application_id),
+  configuration: service_conf,
+  install_dir: datadir / 'dbus-1' / 'services'
+)
