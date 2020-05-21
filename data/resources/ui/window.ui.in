@@ -5,7 +5,7 @@
   <object class="GtkApplicationWindow" id="window">
     <property name="can_focus">False</property>
     <property name="default_width">960</property>
-    <property name="default_height">620</property>
+    <property name="default_height">550</property>
     <property name="icon_name">org.gnome.design.AppIconPreview</property>
     <property name="show_menubar">False</property>
     <child type="titlebar">
@@ -108,7 +108,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="valign">center</property>
-            <property name="border_width">48</property>
+            <property name="border_width">42</property>
             <property name="orientation">vertical</property>
             <property name="spacing">24</property>
             <child>
@@ -121,8 +121,8 @@
                 <property name="ellipsize">end</property>
                 <property name="lines">2</property>
                 <attributes>
-                  <attribute name="weight" value="light"/>
-                  <attribute name="scale" value="3.5"/>
+                  <attribute name="weight" value="ultrabold"/>
+                  <attribute name="scale" value="2"/>
                 </attributes>
               </object>
               <packing>
@@ -276,10 +276,11 @@
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
                 <property name="action_name">win.new-project</property>
-                <property name="margin_top">24</property>
+                <property name="margin_top">0</property>
                 <property name="width_request">200</property>
                 <style>
                   <class name="suggested-action" />
+                  <class name="new-icon-button" />
                 </style>
               </object>
               <packing>
