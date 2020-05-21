@@ -147,7 +147,6 @@
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="valign">start</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
@@ -210,6 +209,9 @@
                 <property name="position">0</property>
               </packing>
             </child>
+            <style>
+              <class name="backdrop"/>
+            </style>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -219,7 +221,7 @@
         </child>
         <style>
           <class name="wallpaper"/>
-          <class name="background"/>
+          <class name="background" />
         </style>
       </object>
       <packing>
@@ -229,8 +231,7 @@
       </packing>
     </child>
     <style>
-      <class name="background"/>
-      <class name="backdrop"/>
+      <class name="background" />
     </style>
   </object>
 </interface>
