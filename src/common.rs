@@ -3,14 +3,14 @@ use glib::Cast;
 use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
 use std::path::PathBuf;
 
-pub fn create_tmp(filename: &str) -> Result<PathBuf, failure::Error> {
+pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
     let mut temp_path = glib::get_user_cache_dir().unwrap().join("app-icon-preview");
     std::fs::create_dir_all(&temp_path)?;
     temp_path.push(filename);
     Ok(temp_path)
 }
 
-pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> Result<(gio::File, cairo::SvgSurface), failure::Error> {
+pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
 
@@ -36,7 +36,7 @@ pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> Resu
     Ok((gio::File::new_for_path(dest), surface))
 }
 
-pub fn render_by_id(file: &gio::File, id: &str, output_size: f64, dest: Option<PathBuf>) -> Result<(gio::File, cairo::SvgSurface), failure::Error> {
+pub fn render_by_id(file: &gio::File, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let mut handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
 
@@ -67,10 +67,10 @@ pub fn render_by_id(file: &gio::File, id: &str, output_size: f64, dest: Option<P
 
         return Ok((gio::File::new_for_path(dest), surface));
     }
-    failure::bail!("failed")
+    anyhow::bail!("failed")
 }
 
-pub fn get_overlay(output_size: f64) -> Result<cairo::SvgSurface, failure::Error> {
+pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
     let stripes = gio::File::new_for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
     let stream = stripes.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
@@ -95,7 +95,7 @@ pub fn get_overlay(output_size: f64) -> Result<cairo::SvgSurface, failure::Error
     Ok(surface)
 }
 
-pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> Result<(), failure::Error> {
+pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::Result<()> {
     let context = cairo::Context::new(&source);
 
     let overlay = get_overlay(output_size)?;
@@ -114,7 +114,7 @@ pub fn is_valid_app_id(app_id: &str) -> bool {
     app_id.contains('.') && !app_id.ends_with('.') && !app_id.starts_with('.')
 }
 
-pub fn clean_svg(file: PathBuf) -> Result<(), failure::Error> {
+pub fn clean_svg(file: PathBuf) -> anyhow::Result<()> {
     let options = svgcleaner::CleaningOptions {
         remove_unused_defs: true,
         convert_shapes: false,

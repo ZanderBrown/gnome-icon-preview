@@ -1,4 +1,5 @@
 use super::common;
+use anyhow::anyhow;
 use gettextrs::gettext;
 use gio::prelude::FileExt;
 use gtk::prelude::*;
@@ -18,15 +19,15 @@ pub struct Project {
 }
 
 impl Project {
-    pub fn from_template(dest: gio::File) -> Result<Self, failure::Error> {
+    pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
         let template = gio::File::new_for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
         template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
 
         Ok(Project::parse(dest)?)
     }
 
-    pub fn parse(file: gio::File) -> Result<Self, failure::Error> {
-        let path = file.get_path().ok_or_else(|| failure::err_msg("Failed to get the path"))?;
+    pub fn parse(file: gio::File) -> anyhow::Result<Self> {
+        let path = file.get_path().ok_or_else(|| anyhow!("Failed to get the path"))?;
 
         let handle = Loader::new().read_path(&path)?;
         let renderer = CairoRenderer::new(&handle);
@@ -47,7 +48,7 @@ impl Project {
                 project_type: ProjectType::Icon,
             });
         }
-        failure::bail!("not found")
+        anyhow::bail!("not found")
     }
 
     pub fn name(&self) -> String {
@@ -70,7 +71,7 @@ impl Project {
         });
     }
 
-    pub fn export(&self, icon_type: &str, parent: &gtk::Window) -> Result<(), failure::Error> {
+    pub fn export(&self, icon_type: &str, parent: &gtk::Window) -> anyhow::Result<()> {
         let mut icon_name: String = self.name();
         let mut gicon: Option<gio::File> = None;
         match icon_type {
@@ -108,7 +109,7 @@ impl Project {
             if response == gtk::ResponseType::Accept {
                 let dest = dialog.get_file().unwrap();
                 if let Some(source) = &gicon {
-                    let save = move ||  -> Result<(), failure::Error> {
+                    let save = move ||  -> anyhow::Result<()> {
                         source.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
                         common::clean_svg(dest.get_path().unwrap())?;
                         Ok(())
@@ -124,24 +125,24 @@ impl Project {
         Ok(())
     }
 
-    pub fn get_hicolor(&self, dest: Option<std::path::PathBuf>) -> Result<(gio::File, cairo::SvgSurface), failure::Error> {
+    pub fn get_hicolor(&self, dest: Option<std::path::PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
             ProjectType::Icon => common::render_by_id(&self.file, "#hicolor", 128.0, dest),
             ProjectType::Preview => common::render(&self.file, 128.0, dest),
         }
     }
 
-    pub fn get_symbolic(&self) -> Result<(gio::File, cairo::SvgSurface), failure::Error> {
+    pub fn get_symbolic(&self) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
             ProjectType::Icon => {
                 let dest = common::create_tmp(&format!("#symblic-16-{}-symbolic.svg", self.name()))?;
                 common::render_by_id(&self.file, "#symbolic", 16.0, Some(dest))
             }
-            ProjectType::Preview => failure::bail!("No symbolic support for Preview icons"),
+            ProjectType::Preview => anyhow::bail!("No symbolic support for Preview icons"),
         }
     }
 
-    pub fn get_nightly(&self) -> Result<gio::File, failure::Error> {
+    pub fn get_nightly(&self) -> anyhow::Result<gio::File> {
         let dest_path = common::create_tmp(&format!("#nightly-{}-{}", 128.0, self.name()))?;
         let dest = gio::File::new_for_path(&dest_path.clone());
 
@@ -159,17 +160,17 @@ mod tests {
     fn parsing() {
         let project = Project::parse(gio::File::new_for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Icon);
-        assert_ne!(project.get_symbolic(), None);
-        assert_ne!(project.get_hicolor(), None);
+        assert_eq!(project.get_symbolic().is_err(), false);
+        assert_ne!(project.get_hicolor(None).is_err(), false);
 
         let project = Project::parse(gio::File::new_for_path("./tests/com.belmoussaoui.ReadItLater.Source.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Icon);
-        assert_ne!(project.get_symbolic(), None);
-        assert_ne!(project.get_hicolor(), None);
+        assert_eq!(project.get_symbolic().is_err(), false);
+        assert_ne!(project.get_hicolor(None).is_err(), false);
 
         let project = Project::parse(gio::File::new_for_path("./tests/org.gnome.design.BannerViewer.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Preview);
-        assert_eq!(project.get_symbolic(), None);
-        assert_ne!(project.get_hicolor(), None);
+        assert_eq!(project.get_symbolic().is_err(), false);
+        assert_ne!(project.get_hicolor(None).is_err(), false);
     }
 }
