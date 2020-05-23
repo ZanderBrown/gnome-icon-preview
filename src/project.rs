@@ -21,9 +21,11 @@ pub struct Project {
 impl Project {
     pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
         let template = gio::File::new_for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
-        template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
+        // Creates the parent directory tree if it does not already exist
+        dest.get_parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
 
-        Ok(Project::parse(dest)?)
+        template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
+        Project::parse(dest)
     }
 
     pub fn parse(file: gio::File) -> anyhow::Result<Self> {
