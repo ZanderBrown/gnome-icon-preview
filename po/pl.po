@@ -1,16 +1,16 @@
 # Polish translation for app-icon-preview.
-# Copyright © 2019 the app-icon-preview authors.
+# Copyright © 2019-2020 the app-icon-preview authors.
 # This file is distributed under the same license as the app-icon-preview package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2019.
-# Aviary.pl <community-poland@mozilla.org>, 2019.
+# Piotr Drąg <piotrdrag@gmail.com>, 2019-2020.
+# Aviary.pl <community-poland@mozilla.org>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-12-17 13:10+0000\n"
-"PO-Revision-Date: 2019-12-25 16:55+0100\n"
+"POT-Creation-Date: 2020-05-21 12:54+0000\n"
+"PO-Revision-Date: 2020-05-24 14:12+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,10 +20,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
-#: src/saver.vala:60 src/window.ui:13 src/window.vala:152 src/window.vala:321
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
+#: src/widgets/project_previewer.rs:45
 msgid "App Icon Preview"
+msgstr "Podgląd ikon dla programów"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
 msgstr "Podgląd ikon dla programów"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
@@ -42,33 +47,17 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Podgląd ikony programu"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:47
-msgid "Zander Brown"
-msgstr "Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui i Zander Brown"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
-msgid "Preview applications icons"
-msgstr "Podgląd ikon dla programów"
-
-#: src/common.vala:36
-msgid "Copyright © 2018-19 Zander Brown"
-msgstr "Copyright © 2018-2019 Zander Brown"
-
-#: src/common.vala:40
+#: data/resources/ui/about_dialog.ui.in:15
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2019\n"
-"Aviary.pl <community-poland@mozilla.org>, 2019"
+"Piotr Drąg <piotrdrag@gmail.com>, 2019-2020\n"
+"Aviary.pl <community-poland@mozilla.org>, 2019-2020"
 
-#: src/common.vala:42
-msgid "Repository"
-msgstr "Repozytorium"
-
-#: src/common.vala:44
-msgid "Kept sane by"
-msgstr "Pomocnicy:"
-
-#: src/exporter/exporter.ui:18
+#: data/resources/ui/export.ui:19
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -76,280 +65,223 @@ msgstr ""
 "Eksport ikony do użytku. Obiekty poza płótnem są usuwane, a rozmiar pliku "
 "SVG jest optymalizowany"
 
-#: src/exporter/exporter.ui:68
+#: data/resources/ui/export.ui:69
 msgid "Regular"
 msgstr "Zwykła"
 
-#: src/exporter/exporter.ui:88
+#: data/resources/ui/export.ui:89
 msgid "Save Regular As…"
 msgstr "Zapisz zwykłą jako…"
 
-#: src/exporter/exporter.ui:144
+#: data/resources/ui/export.ui:145
 msgid "Nightly"
 msgstr "Nightly"
 
-#: src/exporter/exporter.ui:164
+#: data/resources/ui/export.ui:165
 msgid "Save Nightly As…"
 msgstr "Zapisz Nightly jako…"
 
-#: src/exporter/exporter.ui:195
+#: data/resources/ui/export.ui:196
 msgid "Save Symbolic As…"
 msgstr "Zapisz symboliczną jako…"
 
-#: src/exporter/exporter.ui:217
+#: data/resources/ui/export.ui:218
 msgid "Symbolic"
 msgstr "Symboliczna"
 
-#: src/help-overlay.ui:13
+#: data/resources/ui/help-overlay.ui:13
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: src/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:19
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nowe okno"
 
-#: src/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Open an icon"
 msgstr "Otwarcie ikony"
 
-#: src/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Open the recent list"
 msgstr "Otwarcie listy ostatnio używanych"
 
-#: src/help-overlay.ui:40
+#: data/resources/ui/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Open the menu"
 msgstr "Otwarcie menu"
 
-#: src/help-overlay.ui:47
+#: data/resources/ui/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Quit the application"
 msgstr "Zakończenie działania programu"
 
-#: src/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Widok"
 
-#: src/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:60
 msgctxt "shortcut window"
 msgid "Reload the icon"
 msgstr "Ponowne wczytanie ikony"
 
-#: src/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Export the icon"
 msgstr "Eksport ikony"
 
-#: src/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Shuffle icons"
 msgstr "Wymieszanie ikon"
 
-#: src/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Take screenshot"
 msgstr "Wykonanie zrzutu ekranu"
 
-#: src/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Skopiowanie zrzutu ekranu do schowka"
 
-#: src/help-overlay.ui:95
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Przełączenie pełnego ekranu"
-
-#: src/main.vala:49
-msgid "no longer supported"
-msgstr "nie jest już obsługiwane"
-
-#. If opening the palette directly
-#: src/main.vala:97
-msgid ""
-"Palette is all grown up!\n"
-"It’s now available separately as org.gnome.zbrown.Palette"
-msgstr ""
-"Paleta się usamodzielniła!\n"
-"Jest teraz dostępna jako program org.gnome.zbrown.Palette"
-
-#: src/menus.ui:6
+#: data/resources/ui/menus.ui:19
 msgid "_New Window"
 msgstr "_Nowe okno"
 
-#: src/menus.ui:12
-msgid "_Reload"
-msgstr "_Wczytaj ponownie"
+#: data/resources/ui/menus.ui:44
+msgid "Reload"
+msgstr "Wczytaj ponownie"
 
-#: src/menus.ui:17
+#: data/resources/ui/menus.ui:58
 msgid "_Take Screenshot"
 msgstr "Wykonaj _zrzut ekranu"
 
-#: src/menus.ui:22
+#: data/resources/ui/menus.ui:72
 msgid "_Shuffle Example Icons"
 msgstr "Wy_mieszaj przykładowe ikony"
 
-#: src/menus.ui:29
+#: data/resources/ui/menus.ui:97
 msgid "_Keyboard Shortcuts"
 msgstr "_Skróty klawiszowe"
 
-#: src/menus.ui:33
+#: data/resources/ui/menus.ui:111
 msgid "_About App Icon Preview"
 msgstr "_O programie"
 
-#: src/saver.ui:50
-msgid "Close"
-msgstr "Zamknij"
-
-#: src/saver.ui:59
-msgid "Save…"
-msgstr "Zapisz…"
-
-#: src/saver.ui:77
-msgid "Copy to Clipboard"
-msgstr "Skopiuj do schowka"
-
-#: src/saver.vala:48
-msgid "Save Screenshot"
-msgstr "Zapis zrzutu ekranu"
-
-#: src/saver.vala:48 src/window.vala:250
-msgid "_Save"
-msgstr "_Zapisz"
-
-#: src/saver.vala:52
-msgid "Preview"
-msgstr "Podgląd"
-
-#: src/saver.vala:69
-msgid "PNG"
-msgstr "PNG"
-
-#: src/saver.vala:75
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/saver.vala:86
-msgid "Failed to save screenshot"
-msgstr "Zapisanie zrzutu ekranu się nie powiodło"
-
-#: src/views/colour.vala:97
-msgid "Icon Preview"
-msgstr "Podgląd ikon"
-
-#: src/window.ui:21
-msgid "Open"
-msgstr "Otwórz"
-
-#: src/window.ui:25
-msgid "Open an icon"
-msgstr "Otwiera ikonę"
-
-#: src/window.ui:39
-msgid "Recent"
-msgstr "Ostatnio używane"
-
-#: src/window.ui:67
-msgid "Menu"
-msgstr "Menu"
-
-#: src/window.ui:83
-msgid "Export"
-msgstr "Wyeksportuj"
-
-#: src/window.ui:118
-msgid "Make a new App Icon"
-msgstr "Utworzenie nowej ikony dla programu"
-
-#: src/window.ui:148
-msgid "New App Icon"
-msgstr "Nowa ikona programu"
-
-#: src/window.vala:143
-msgid "This file is defective"
-msgstr "Ten plik jest wadliwy"
-
-#: src/window.vala:144
-msgid ""
-"Please start from a template to ensure that your file will work as a GNOME "
-"icon"
-msgstr ""
-"Proszę zacząć od szablonu, aby zapewnić, że plik będzie działał jako ikona "
-"GNOME"
-
-#: src/window.vala:184
-msgid "Select Icon"
-msgstr "Wybór ikony"
-
-#: src/window.vala:184
-msgid "_Open"
-msgstr "_Otwórz"
-
-#: src/window.vala:186
-msgid "Cancel"
-msgstr "Anuluj"
-
-#: src/window.vala:189
-msgid "Icons"
-msgstr "Ikony"
-
-#: src/window.vala:232
-msgid "Save Regular"
-msgstr "Zapis zwykłej"
-
-#: src/window.vala:237
-msgid "Save Symbolic"
-msgstr "Zapis symbolicznej"
-
-#: src/window.vala:243
-msgid "Save Nightly"
-msgstr "Zapis Nightly"
-
-#: src/window.vala:257
-msgid "Icon"
-msgstr "Ikona"
-
-#: src/window.vala:263
-msgid "SVG"
-msgstr "SVG"
-
-#: src/window.vala:273
-msgid "Failed to save exported file"
-msgstr "Zapisanie eksportowanego pliku się nie powiodło"
-
-#: src/wizard.ui:46
+#: data/resources/ui/new_project.ui:45
 msgid "App Name"
 msgstr "Nazwa programu"
 
-#: src/wizard.ui:58
+#: data/resources/ui/new_project.ui:57
 msgid "Icon Location"
 msgstr "Położenie ikony"
 
-#: src/wizard.ui:79
-msgid "Save Icon"
-msgstr "Zapis ikony"
-
-#: src/wizard.ui:94
+#: data/resources/ui/new_project.ui:80
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Odwrotna notacja nazwy domeny, np. „org.inkscape.Inkscape”"
 
-#: src/wizard.ui:110
+#: data/resources/ui/new_project.ui:96
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Plik SVG ikony zostanie zapisany w tym katalogu"
 
-#: src/wizard.ui:159
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekty"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Przeglądaj…"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
+#: src/project.rs:96
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/wizard.ui:165
+#: data/resources/ui/new_project.ui:189
 msgid "_Create"
 msgstr "_Utwórz"
 
-#: src/wizard.vala:31
-msgid "Expecting at least one “.”"
-msgstr "Oczekiwano co najmniej jednego znaku „.”"
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Zamknij"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Zapisz…"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Skopiuj do schowka"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Otwórz"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Otwiera ikonę"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Ostatnio używane"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Menu"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:93
+msgid "Export"
+msgstr "Wyeksportuj"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr "Utworzenie nowej ikony dla programu"
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Nowa ikona programu"
+
+#: src/widgets/new_project.rs:50
+msgid "Select"
+msgstr "Wybierz"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Zapis zrzutu ekranu"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:96
+msgid "_Save"
+msgstr "_Zapisz"
+
+#: src/widgets/screenshot_dialog.rs:46
+msgid "Preview"
+msgstr "Podgląd"
+
+#: src/widgets/screenshot_dialog.rs:61
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:67
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:229
+msgid "Open File"
+msgstr "Otwarcie pliku"
+
+#: src/widgets/window.rs:234
+msgid "SVG images"
+msgstr "Obrazy SVG"
+
+#: src/project.rs:102
+msgid "SVG"
+msgstr "SVG"
