@@ -25,6 +25,7 @@ impl RecentItemRow {
 
         if let Ok((hicolor, _)) = self.project.get_hicolor(None) {
             let image = gtk::Image::new_from_gicon(&gio::FileIcon::new(&hicolor), gtk::IconSize::Dnd);
+            image.get_style_context().add_class("icon-dropshadow");
             container.pack_start(&image, false, false, 0);
         }
         let project_name = self.project.name();
