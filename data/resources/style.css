@@ -50,7 +50,7 @@
 
 
 .recents-listbox{
-	background:white;
+	background: @theme_bg_color;
 	border: 1px solid mix(@theme_fg_color, @theme_bg_color, 0.8);
 }
 .recents-listbox row {

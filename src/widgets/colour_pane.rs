@@ -97,13 +97,18 @@ impl ColourPane {
     }
 
     fn init(&self) {
-        if self.style == PaneStyle::Dark {
-            if let Some(dark_provider) = gtk::CssProvider::get_named("Adwaita", Some("dark")) {
-                self.widget.get_style_context().add_provider(&dark_provider, 600);
-                get_widget!(self.builder, gtk::Image, @symbolic_img).get_style_context().add_provider(&dark_provider, 600);
+        let css_provider = match self.style {
+            PaneStyle::Dark => {
                 self.widget.get_style_context().add_class("dark");
+                gtk::CssProvider::get_named("Adwaita", Some("dark"))
             }
+            PaneStyle::Light => gtk::CssProvider::get_named("Adwaita", None),
+        };
+        if let Some(provider) = css_provider {
+            self.widget.get_style_context().add_provider(&provider, 600);
+            get_widget!(self.builder, gtk::Image, @symbolic_img).get_style_context().add_provider(&provider, 600);
         }
+
         // Small container is composed of 5 icons, 4 samples & the previewed project
         get_widget!(self.builder, gtk::Box, small);
         let small_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Horizontal);
