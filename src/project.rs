@@ -63,6 +63,7 @@ impl Project {
         self.file.get_path().unwrap()
     }
 
+    #[allow(dead_code)]
     pub fn open(&self) {
         let uri = self.file.get_uri();
         gtk::idle_add(move || {

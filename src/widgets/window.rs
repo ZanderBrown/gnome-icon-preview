@@ -59,7 +59,6 @@ impl Window {
 
         self.monitor.borrow_mut().replace(monitor);
         self.open_project.borrow_mut().replace(project.clone());
-        project.open();
 
         self.monitor
             .borrow()

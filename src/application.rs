@@ -26,7 +26,7 @@ pub struct Application {
 
 impl Application {
     pub fn new() -> Rc<Self> {
-        let app = gtk::Application::new(Some(config::APP_ID), gio::ApplicationFlags::FLAGS_NONE).unwrap();
+        let app = gtk::Application::new(Some(config::APP_ID), gio::ApplicationFlags::HANDLES_OPEN).unwrap();
 
         let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
         let receiver = RefCell::new(Some(r));
