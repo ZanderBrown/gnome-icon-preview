@@ -67,13 +67,12 @@ impl ProjectPreviewer {
         };
 
         let mut img_y = 0.0;
-        let mut txt_y = 0.0;
-
-        if txt_extents.height < logo_height {
-            txt_y = (logo_height - txt_extents.height) as f64 / 2.0;
+        let txt_y = if txt_extents.height < logo_height {
+            (logo_height - txt_extents.height) as f64 / 2.0
         } else {
             img_y = (txt_extents.height - logo_height) as f64 / 2.0;
-        }
+            0.0
+        };
         context.save();
 
         context.set_source_pixbuf(&logo, padding + img_x, padding + img_y);
