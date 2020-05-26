@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2019-12-17 13:10+0000\n"
-"PO-Revision-Date: 2019-12-17 17:38+0100\n"
+"POT-Creation-Date: 2020-05-21 12:54+0000\n"
+"PO-Revision-Date: 2020-05-27 00:50+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,13 +17,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3.1\n"
 
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
-#: src/saver.vala:60 src/window.ui:13 src/window.vala:152 src/window.vala:321
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
+#: src/widgets/project_previewer.rs:45
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Förhandsgranska programikoner"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -41,19 +46,11 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Förhandsgranska en programikon"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:47
-msgid "Zander Brown"
-msgstr "Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
-msgid "Preview applications icons"
-msgstr "Förhandsgranska programikoner"
-
-#: src/common.vala:36
-msgid "Copyright © 2018-19 Zander Brown"
-msgstr "Copyright © 2018-19 Zander Brown"
-
-#: src/common.vala:40
+#: data/resources/ui/about_dialog.ui.in:15
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -61,15 +58,7 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
 
-#: src/common.vala:42
-msgid "Repository"
-msgstr "Arkiv"
-
-#: src/common.vala:44
-msgid "Kept sane by"
-msgstr "Hålls vettigt av"
-
-#: src/exporter/exporter.ui:18
+#: data/resources/ui/export.ui:19
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -77,283 +66,295 @@ msgstr ""
 "Exportera ikonen för skarp användning. Objekt utanför ritytan tas bort och "
 "SVG-filen optimeras för storlek"
 
-#: src/exporter/exporter.ui:68
+#: data/resources/ui/export.ui:69
 msgid "Regular"
 msgstr "Vanlig"
 
-#: src/exporter/exporter.ui:88
+#: data/resources/ui/export.ui:89
 msgid "Save Regular As…"
 msgstr "Spara vanlig som…"
 
-#: src/exporter/exporter.ui:144
+#: data/resources/ui/export.ui:145
 msgid "Nightly"
 msgstr "Nattlig"
 
-#: src/exporter/exporter.ui:164
+#: data/resources/ui/export.ui:165
 msgid "Save Nightly As…"
 msgstr "Spara nattlig som…"
 
-#: src/exporter/exporter.ui:195
+#: data/resources/ui/export.ui:196
 msgid "Save Symbolic As…"
 msgstr "Spara symbolisk som…"
 
-#: src/exporter/exporter.ui:217
+#: data/resources/ui/export.ui:218
 msgid "Symbolic"
 msgstr "Symbolisk"
 
-#: src/help-overlay.ui:13
+#: data/resources/ui/help-overlay.ui:13
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: src/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:19
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: src/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Open an icon"
 msgstr "Öppna en ikon"
 
-#: src/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Open the recent list"
 msgstr "Öppna lista över senaste"
 
-#: src/help-overlay.ui:40
+#: data/resources/ui/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Open the menu"
 msgstr "Öppna menyn"
 
-#: src/help-overlay.ui:47
+#: data/resources/ui/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Quit the application"
 msgstr "Avsluta programmet"
 
-#: src/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Visa"
 
-#: src/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:60
 msgctxt "shortcut window"
 msgid "Reload the icon"
 msgstr "Läs om ikonen"
 
-#: src/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Export the icon"
 msgstr "Exportera ikonen"
 
-#: src/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Shuffle icons"
 msgstr "Blanda ikoner"
 
-#: src/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Take screenshot"
 msgstr "Ta skärmbild"
 
-#: src/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Kopiera en skärmbild till urklipp"
 
-#: src/help-overlay.ui:95
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Växla helskärm"
-
-#: src/main.vala:49
-msgid "no longer supported"
-msgstr "stöds inte längre"
-
-#. If opening the palette directly
-#: src/main.vala:97
-msgid ""
-"Palette is all grown up!\n"
-"It’s now available separately as org.gnome.zbrown.Palette"
-msgstr ""
-"Palett har vuxit upp!\n"
-"Det är nu tillgängligt separat som org.gnome.zbrown.Palette"
-
-#: src/menus.ui:6
+#: data/resources/ui/menus.ui:19
 msgid "_New Window"
 msgstr "_Nytt fönster"
 
-#: src/menus.ui:12
-msgid "_Reload"
-msgstr "_Läs om"
+#: data/resources/ui/menus.ui:44
+msgid "Reload"
+msgstr "Läs om"
 
-#: src/menus.ui:17
+#: data/resources/ui/menus.ui:58
 msgid "_Take Screenshot"
 msgstr "_Ta skärmbild"
 
-#: src/menus.ui:22
+#: data/resources/ui/menus.ui:72
 msgid "_Shuffle Example Icons"
 msgstr "_Blanda exempelikoner"
 
-#: src/menus.ui:29
+#: data/resources/ui/menus.ui:97
 msgid "_Keyboard Shortcuts"
 msgstr "Tan_gentbordsgenvägar"
 
-#: src/menus.ui:33
+#: data/resources/ui/menus.ui:111
 msgid "_About App Icon Preview"
 msgstr "_Om Programikonförhandsgranskning"
 
-#: src/saver.ui:50
-msgid "Close"
-msgstr "Stäng"
-
-#: src/saver.ui:59
-msgid "Save…"
-msgstr "Spara…"
-
-#: src/saver.ui:77
-msgid "Copy to Clipboard"
-msgstr "Kopiera till urklipp"
-
-#: src/saver.vala:48
-msgid "Save Screenshot"
-msgstr "Spara skärmbild"
-
-#: src/saver.vala:48 src/window.vala:250
-msgid "_Save"
-msgstr "_Spara"
-
-#: src/saver.vala:52
-msgid "Preview"
-msgstr "Förhandsgranskning"
-
-#: src/saver.vala:69
-msgid "PNG"
-msgstr "PNG"
-
-#: src/saver.vala:75
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/saver.vala:86
-msgid "Failed to save screenshot"
-msgstr "Misslyckades med att spara skärmbild"
-
-#: src/views/colour.vala:97
-msgid "Icon Preview"
-msgstr "Ikonförhandsgranskning"
-
-#: src/window.ui:21
-msgid "Open"
-msgstr "Öppna"
-
-#: src/window.ui:25
-msgid "Open an icon"
-msgstr "Öppna en ikon"
-
-#: src/window.ui:39
-msgid "Recent"
-msgstr "Senaste"
-
-#: src/window.ui:67
-msgid "Menu"
-msgstr "Meny"
-
-#: src/window.ui:83
-msgid "Export"
-msgstr "Exportera"
-
-#: src/window.ui:118
-msgid "Make a new App Icon"
-msgstr "Gör en ny programikon"
-
-#: src/window.ui:148
-msgid "New App Icon"
-msgstr "Ny programikon"
-
-#: src/window.vala:143
-msgid "This file is defective"
-msgstr "Denna fil är felaktig"
-
-#: src/window.vala:144
-msgid ""
-"Please start from a template to ensure that your file will work as a GNOME "
-"icon"
-msgstr ""
-"Starta från en mall för att säkerställa att din fil kommer att fungera som "
-"en GNOME-ikon"
-
-#: src/window.vala:184
-msgid "Select Icon"
-msgstr "Välj ikon"
-
-#: src/window.vala:184
-msgid "_Open"
-msgstr "Ö_ppna"
-
-#: src/window.vala:186
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: src/window.vala:189
-msgid "Icons"
-msgstr "Ikoner"
-
-#: src/window.vala:232
-msgid "Save Regular"
-msgstr "Spara vanlig"
-
-#: src/window.vala:237
-msgid "Save Symbolic"
-msgstr "Spara symbolisk"
-
-#: src/window.vala:243
-msgid "Save Nightly"
-msgstr "Spara nattlig"
-
-#: src/window.vala:257
-msgid "Icon"
-msgstr "Ikon"
-
-#: src/window.vala:263
-msgid "SVG"
-msgstr "SVG"
-
-#: src/window.vala:273
-msgid "Failed to save exported file"
-msgstr "Misslyckades med att spara exporterad fil"
-
-#: src/wizard.ui:46
+#: data/resources/ui/new_project.ui:45
 msgid "App Name"
 msgstr "Programnamn"
 
-#: src/wizard.ui:58
+#: data/resources/ui/new_project.ui:57
 msgid "Icon Location"
 msgstr "Ikonplats"
 
-#: src/wizard.ui:79
-msgid "Save Icon"
-msgstr "Spara ikon"
-
-#: src/wizard.ui:94
+#: data/resources/ui/new_project.ui:80
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Det omvända domännotationsnamnet, t.ex. org.inkscape.Inkscape"
 
-#: src/wizard.ui:110
+#: data/resources/ui/new_project.ui:96
 msgid "The icon SVG file will be stored in this directory"
 msgstr "SVG-filen för ikonen kommer lagras i denna katalog"
 
-#: src/wizard.ui:159
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekt"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Bläddra…"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
+#: src/project.rs:96
 msgid "_Cancel"
 msgstr "A_vbryt"
 
-#: src/wizard.ui:165
+#: data/resources/ui/new_project.ui:189
 msgid "_Create"
 msgstr "_Skapa"
 
-#: src/wizard.vala:31
-msgid "Expecting at least one “.”"
-msgstr "Förväntade minst en ”.”"
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Stäng"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Spara…"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiera till urklipp"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Öppna"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Öppna en ikon"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Senaste"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Meny"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:93
+msgid "Export"
+msgstr "Exportera"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr "Gör en ny programikon"
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Ny programikon"
+
+#: src/widgets/new_project.rs:50
+msgid "Select"
+msgstr "Välj"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Spara skärmbild"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:96
+msgid "_Save"
+msgstr "_Spara"
+
+#: src/widgets/screenshot_dialog.rs:46
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: src/widgets/screenshot_dialog.rs:61
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:67
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:229
+msgid "Open File"
+msgstr "Öppna fil"
+
+#: src/widgets/window.rs:234
+msgid "SVG images"
+msgstr "SVG-bilder"
+
+#: src/project.rs:102
+msgid "SVG"
+msgstr "SVG"
+
+#~ msgid "Zander Brown"
+#~ msgstr "Zander Brown"
+
+#~ msgid "Copyright © 2018-19 Zander Brown"
+#~ msgstr "Copyright © 2018-19 Zander Brown"
+
+#~ msgid "Repository"
+#~ msgstr "Arkiv"
+
+#~ msgid "Kept sane by"
+#~ msgstr "Hålls vettigt av"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Toggle fullscreen"
+#~ msgstr "Växla helskärm"
+
+#~ msgid "no longer supported"
+#~ msgstr "stöds inte längre"
+
+#~ msgid ""
+#~ "Palette is all grown up!\n"
+#~ "It’s now available separately as org.gnome.zbrown.Palette"
+#~ msgstr ""
+#~ "Palett har vuxit upp!\n"
+#~ "Det är nu tillgängligt separat som org.gnome.zbrown.Palette"
+
+#~ msgid "Failed to save screenshot"
+#~ msgstr "Misslyckades med att spara skärmbild"
+
+#~ msgid "Icon Preview"
+#~ msgstr "Ikonförhandsgranskning"
+
+#~ msgid "This file is defective"
+#~ msgstr "Denna fil är felaktig"
+
+#~ msgid ""
+#~ "Please start from a template to ensure that your file will work as a "
+#~ "GNOME icon"
+#~ msgstr ""
+#~ "Starta från en mall för att säkerställa att din fil kommer att fungera "
+#~ "som en GNOME-ikon"
+
+#~ msgid "_Open"
+#~ msgstr "Ö_ppna"
+
+#~ msgid "Icons"
+#~ msgstr "Ikoner"
+
+#~ msgid "Save Regular"
+#~ msgstr "Spara vanlig"
+
+#~ msgid "Save Symbolic"
+#~ msgstr "Spara symbolisk"
+
+#~ msgid "Save Nightly"
+#~ msgstr "Spara nattlig"
+
+#~ msgid "Icon"
+#~ msgstr "Ikon"
+
+#~ msgid "Failed to save exported file"
+#~ msgstr "Misslyckades med att spara exporterad fil"
+
+#~ msgid "Save Icon"
+#~ msgstr "Spara ikon"
+
+#~ msgid "Expecting at least one “.”"
+#~ msgstr "Förväntade minst en ”.”"
 
 #~ msgid "Welcome screen"
 #~ msgstr "Välkomstskärm"
