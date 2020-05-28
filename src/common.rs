@@ -114,7 +114,7 @@ pub fn is_valid_app_id(app_id: &str) -> bool {
     app_id.contains('.') && !app_id.ends_with('.') && !app_id.starts_with('.')
 }
 
-pub fn clean_svg(file: PathBuf) -> anyhow::Result<()> {
+pub fn clean_svg(svg: &str) -> anyhow::Result<Vec<u8>> {
     let options = svgcleaner::CleaningOptions {
         remove_unused_defs: true,
         convert_shapes: false,
@@ -155,14 +155,10 @@ pub fn clean_svg(file: PathBuf) -> anyhow::Result<()> {
         paths_coordinates_precision: 8,
         transforms_precision: 8,
     };
-    let data = svgcleaner::cleaner::load_file(file.to_str().unwrap())?;
-
-    let mut document = svgcleaner::cleaner::parse_data(&data, &svgcleaner::ParseOptions::default()).unwrap();
+    let mut document = svgcleaner::cleaner::parse_data(svg, &svgcleaner::ParseOptions::default()).unwrap();
     let _ = svgcleaner::cleaner::clean_doc(&mut document, &options, &svgcleaner::WriteOptions::default());
     let mut buf = vec![];
     svgcleaner::cleaner::write_buffer(&document, &svgcleaner::WriteOptions::default(), &mut buf);
 
-    svgcleaner::cleaner::save_file(&buf, file.to_str().unwrap())?;
-
-    Ok(())
+    Ok(buf)
 }

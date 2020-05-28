@@ -93,12 +93,7 @@ impl Project {
             _ => (),
         };
 
-        let dialog = gtk::FileChooserDialog::with_buttons(
-            Some(&gettext("Export")),
-            Some(parent),
-            gtk::FileChooserAction::Save,
-            &[(&gettext("_Save"), gtk::ResponseType::Accept), (&gettext("_Cancel"), gtk::ResponseType::Cancel)],
-        );
+        let dialog = gtk::FileChooserNative::new(Some(&gettext("Export")), Some(parent), gtk::FileChooserAction::Save, Some(&gettext("_Save")), Some(&gettext("_Cancel")));
         dialog.set_modal(true);
         dialog.set_current_name(&icon_name);
 
@@ -108,13 +103,17 @@ impl Project {
         svg_filter.add_mime_type("image/svg+xml");
         dialog.add_filter(&svg_filter);
 
-        dialog.connect_response(clone!(@strong gicon => move |dialog, response| {
+        dialog.connect_response(clone!(@strong gicon, @strong dialog => move |_, response| {
             if response == gtk::ResponseType::Accept {
                 let dest = dialog.get_file().unwrap();
                 if let Some(source) = &gicon {
                     let save = move ||  -> anyhow::Result<()> {
-                        source.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
-                        common::clean_svg(dest.get_path().unwrap())?;
+                        let (svg, _) = source.load_contents(gio::NONE_CANCELLABLE)?;
+                        let cleaned_svg = common::clean_svg(std::str::from_utf8(&svg)?)?;
+
+                        dest.replace_contents(&cleaned_svg, None, false,
+                                                gio::FileCreateFlags::REPLACE_DESTINATION,
+                                                gio::NONE_CANCELLABLE)?;
                         Ok(())
                     };
                     if save().is_err() {
