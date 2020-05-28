@@ -61,4 +61,5 @@
 .new-icon-button {
 	padding: 10px;
 	border-radius: 9999px;
+	-gtk-outline-radius: 9999px;
 }
