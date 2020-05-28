@@ -36,11 +36,12 @@ impl ScreenshotDialog {
     }
 
     pub fn save(&self) {
-        let dialog = gtk::FileChooserDialog::with_buttons(
+        let dialog = gtk::FileChooserNative::new(
             Some(&gettext("Save Screenshot")),
             Some(&self.widget),
             gtk::FileChooserAction::Save,
-            &[(&gettext("_Save"), gtk::ResponseType::Accept), (&gettext("_Cancel"), gtk::ResponseType::Cancel)],
+            Some(&gettext("_Save")),
+            Some(&gettext("_Cancel")),
         );
         dialog.set_modal(true);
         dialog.set_current_name(&gettext("Preview"));
@@ -70,14 +71,19 @@ impl ScreenshotDialog {
         jpeg_filter.add_mime_type("image/jpeg");
         dialog.add_filter(&jpeg_filter);
 
-        dialog.connect_response(clone!(@strong self.pixbuf as pixbuf => move |dialog, response| {
+        dialog.connect_response(clone!(@strong self.pixbuf as pixbuf, @strong dialog => move |_, response| {
             if response == gtk::ResponseType::Accept {
                 let filename: PathBuf = dialog.get_filename().unwrap();
                 let ext = match filename.extension() {
                     Some(ext) => ext.to_str().unwrap(),
                     None => "png"
                 };
-                pixbuf.savev(filename.clone(), ext,  &[]).unwrap();
+                let file = dialog.get_file().unwrap();
+                let stream = file.replace(None, false,
+                                          gio::FileCreateFlags::REPLACE_DESTINATION,
+                                          gio::NONE_CANCELLABLE).unwrap();
+
+                pixbuf.save_to_streamv(&stream, ext, &[], gio::NONE_CANCELLABLE).unwrap();
             }
             dialog.destroy();
         }));
@@ -93,14 +99,14 @@ impl ScreenshotDialog {
         action!(
             self.actions,
             "copy",
-            clone!(@weak rc_s as screenshot =>  move |_, _| {
+            clone!(@strong rc_s as screenshot =>  move |_, _| {
                 screenshot.copy();
             })
         );
         action!(
             self.actions,
             "save",
-            clone!(@weak rc_s as screenshot =>  move |_, _| {
+            clone!(@strong rc_s as screenshot =>  move |_, _| {
                 screenshot.save();
             })
         );

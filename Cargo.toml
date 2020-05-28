@@ -7,7 +7,7 @@ edition = "2018"
 [dependencies]
 gtk = { version = "0.8", features = ["v3_22"] }
 glib = "0.9"
-gdk-pixbuf = "0.8"
+gdk-pixbuf = { version = "0.8", features = ["v2_36"] }
 gio = { version = "0.8", features = ["v2_46"] }
 gdk = "0.12"
 log = "0.4"
