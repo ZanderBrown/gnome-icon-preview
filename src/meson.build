@@ -53,7 +53,6 @@ sources = files(
   'main.rs',
   'object_wrapper.rs',
   'project.rs',
-  'recents.rs',
   'settings.rs',
   'static_resources.rs',
 )

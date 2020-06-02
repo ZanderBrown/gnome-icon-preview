@@ -4,7 +4,6 @@ use gettextrs::gettext;
 use gio::prelude::FileExt;
 use gtk::prelude::*;
 use librsvg::{CairoRenderer, Loader};
-use std::path::PathBuf;
 
 #[derive(PartialEq, Debug, Clone)]
 pub enum ProjectType {
@@ -59,8 +58,8 @@ impl Project {
         filename.to_string()
     }
 
-    pub fn path(&self) -> PathBuf {
-        self.file.get_path().unwrap()
+    pub fn uri(&self) -> String {
+        self.file.get_uri().to_string()
     }
 
     #[allow(dead_code)]

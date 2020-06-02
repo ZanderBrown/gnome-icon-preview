@@ -2,7 +2,6 @@ use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover, S
 use crate::application::Action;
 use crate::config::PROFILE;
 use crate::project::Project;
-use crate::recents::RecentManager;
 use crate::settings::{Key, SettingsManager};
 
 use gettextrs::gettext;
@@ -28,7 +27,7 @@ pub struct Window {
 }
 
 impl Window {
-    pub fn new(history: &RecentManager, sender: glib::Sender<Action>) -> Rc<Self> {
+    pub fn new(sender: glib::Sender<Action>) -> Rc<Self> {
         let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/window.ui");
         get_widget!(builder, gtk::ApplicationWindow, window);
         let previewer = ProjectPreviewer::new();
@@ -44,7 +43,7 @@ impl Window {
         });
 
         window_widget.init();
-        window_widget.setup_widgets(history);
+        window_widget.setup_widgets();
         window_widget.setup_actions();
         window_widget.set_view(View::Initial);
         window_widget
@@ -54,6 +53,10 @@ impl Window {
         self.set_view(View::Previewer);
         self.previewer.preview(&project);
         self.exporter.set_project(&project);
+
+        if let Some(recent_manager) = gtk::RecentManager::get_default() {
+            recent_manager.add_item(&project.uri());
+        }
 
         let monitor = project.file.monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
 
@@ -96,7 +99,7 @@ impl Window {
         };
     }
 
-    fn setup_widgets(&self, history: &RecentManager) {
+    fn setup_widgets(&self) {
         get_widget!(self.builder, gtk::MenuButton, open_menu_btn);
 
         let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/help-overlay.ui");
@@ -112,7 +115,7 @@ impl Window {
 
         // Recents Popover
         get_widget!(self.builder, gtk::MenuButton, recents_btn);
-        let recents_popover = RecentsPopover::new(&history.model, self.sender.clone());
+        let recents_popover = RecentsPopover::new(self.sender.clone());
         recents_btn.set_popover(Some(&recents_popover.widget));
 
         // Export Popover

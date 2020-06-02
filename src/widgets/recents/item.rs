@@ -2,6 +2,11 @@ use gtk::prelude::*;
 
 use crate::project::Project;
 
+#[derive(Clone, Serialize, Deserialize)]
+pub struct RecentItem {
+    pub uri: String,
+}
+
 pub struct RecentItemRow {
     pub widget: gtk::FlowBoxChild,
     pub event_box: gtk::EventBox,

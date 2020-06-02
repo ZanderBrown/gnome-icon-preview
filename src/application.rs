@@ -8,7 +8,6 @@ use std::env;
 use std::rc::Rc;
 
 use crate::config;
-use crate::recents::RecentManager;
 use crate::widgets::Window;
 
 pub enum Action {
@@ -21,7 +20,6 @@ pub struct Application {
     windows: Rc<RefCell<HashMap<gtk::Window, Rc<Window>>>>,
     sender: Sender<Action>,
     receiver: RefCell<Option<Receiver<Action>>>,
-    history: RecentManager,
 }
 
 impl Application {
@@ -36,7 +34,6 @@ impl Application {
             windows: Rc::new(RefCell::new(HashMap::new())),
             sender,
             receiver,
-            history: RecentManager::new(),
         });
 
         application.setup_signals(application.clone());
@@ -50,7 +47,7 @@ impl Application {
     }
 
     fn create_window(&self) -> Rc<Window> {
-        let window = Window::new(&self.history, self.sender.clone());
+        let window = Window::new(self.sender.clone());
 
         window.widget.set_application(Some(&self.app));
         self.app.add_window(&window.widget);
@@ -132,7 +129,6 @@ impl Application {
     fn do_action(&self, action: Action) -> glib::Continue {
         match action {
             Action::OpenProject(project) => {
-                self.history.add(project.path());
                 self.get_window().set_open_project(project);
             }
             Action::NewProject(project_dest) => match Project::from_template(project_dest) {

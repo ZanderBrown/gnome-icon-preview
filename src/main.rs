@@ -16,7 +16,6 @@ mod common;
 mod config;
 mod object_wrapper;
 mod project;
-mod recents;
 mod settings;
 mod static_resources;
 mod widgets;

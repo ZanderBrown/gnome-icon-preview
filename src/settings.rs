@@ -8,14 +8,7 @@ pub enum Key {
     WindowHeight,
     WindowX,
     WindowY,
-    RecentFiles,
     IsMaximized,
-}
-
-impl PartialEq<&str> for Key {
-    fn eq(&self, other: &&str) -> bool {
-        other == &self.to_string().as_str()
-    }
 }
 
 pub struct SettingsManager {}
@@ -24,19 +17,6 @@ impl SettingsManager {
     pub fn get_settings() -> gio::Settings {
         let app_id = config::APP_ID.trim_end_matches(".Devel");
         gio::Settings::new(app_id)
-    }
-
-    pub fn get_string(key: Key) -> String {
-        let settings = Self::get_settings();
-        settings.get_string(&key.to_string()).unwrap().to_string()
-    }
-
-    pub fn set_string(key: Key, value: String) {
-        let settings = Self::get_settings();
-
-        if let Err(err) = settings.set_string(&key.to_string(), &value) {
-            warn!("Failed to set {} to {} due to {}", key.to_string(), value, err);
-        }
     }
 
     pub fn get_boolean(key: Key) -> bool {
