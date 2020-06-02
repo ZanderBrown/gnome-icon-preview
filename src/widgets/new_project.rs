@@ -50,8 +50,8 @@ impl NewProjectDialog {
                 (&gettext("Select"), gtk::ResponseType::Accept),
                 (&gettext("Cancel"), gtk::ResponseType::Cancel)
             ]);
-
-            dialog.connect_response(clone!(@strong builder => move |dialog, response| {
+            dialog.set_current_folder(glib::get_home_dir().unwrap());
+            dialog.connect_response(clone!(@strong builder, @strong dialog => move |_, response| {
 
                 if response == gtk::ResponseType::Accept {
                     get_widget!(builder, gtk::Entry, project_path);
@@ -64,9 +64,9 @@ impl NewProjectDialog {
 
                     project_path.set_text(&dest);
                 }
-
+                dialog.destroy();
             }));
-            dialog.show();
+            dialog.run();
         }));
 
         get_widget!(self.builder, gtk::Entry, project_name);
