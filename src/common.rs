@@ -3,6 +3,34 @@ use glib::Cast;
 use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
 use std::path::PathBuf;
 
+pub fn format_name(name: &str) -> String {
+    let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
+    let mut formatted_chars = vec![];
+
+    let mut chars = name.chars().into_iter();
+    name.chars().into_iter().for_each(|c| {
+        if c.is_uppercase() && !chars.next().unwrap_or(' ').is_uppercase() {
+            formatted_chars.push(' ');
+        }
+        formatted_chars.push(c);
+    });
+    let formatted_name: String = formatted_chars.iter().collect();
+    formatted_name
+}
+
+#[cfg(test)]
+mod tests {
+    use super::format_name;
+
+    #[test]
+    fn test_format_name() {
+        assert_eq!(format_name("org.gnome.design.AppIconPreview"), "App Icon Preview".to_string());
+        assert_eq!(format_name("org.gnome.GTG"), "GTG".to_string());
+        assert_eq!(format_name("org.gnome.design.BannerViewer"), "Banner Viewer".to_string());
+        assert_eq!(format_name("org.gnome.design.Contrast"), "Contrast".to_string());
+    }
+}
+
 pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
     let mut temp_path = glib::get_user_cache_dir().unwrap().join("app-icon-preview");
     std::fs::create_dir_all(&temp_path)?;
@@ -14,7 +42,7 @@ pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> anyh
     let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
 
-    let dest = dest.unwrap_or({ create_tmp(&format!("#hicolor-{}-{}", output_size, file.get_basename().unwrap().to_str().unwrap()))? });
+    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}", output_size, file.get_basename().unwrap().to_str().unwrap()))?);
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
@@ -40,7 +68,7 @@ pub fn render_by_id(file: &gio::File, id: &str, output_size: f64, dest: Option<P
     let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let mut handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
 
-    let dest = dest.unwrap_or({ create_tmp(&format!("{}-{}-{}", id, output_size, file.get_basename().unwrap().to_str().unwrap()))? });
+    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}", id, output_size, file.get_basename().unwrap().to_str().unwrap()))?);
 
     handle.set_stylesheet("#layer3,#layer2 {visibility: hidden}")?;
     if handle.has_sub(id)? {

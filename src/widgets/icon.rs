@@ -1,3 +1,4 @@
+use crate::common;
 use gio::prelude::*;
 use gtk::prelude::*;
 
@@ -24,9 +25,7 @@ impl Icon {
     pub fn set_file(&self, file: &gio::File) {
         let filename = file.get_basename().unwrap();
 
-        let filename = filename.to_str().unwrap().trim_end_matches(".svg").trim_end_matches(".Source").split('.').last();
-
-        self.label.set_text(filename.unwrap());
+        self.label.set_text(&common::format_name(filename.to_str().unwrap()));
 
         let gicon = gio::FileIcon::new(file);
         self.image.set_from_gicon(&gicon, gtk::IconSize::Dialog);
