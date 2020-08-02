@@ -21,7 +21,7 @@ pub struct Window {
     builder: gtk::Builder,
     sender: glib::Sender<Action>,
     previewer: ProjectPreviewer,
-    open_project: Rc<RefCell<Option<Project>>>,
+    open_project: RefCell<Option<Rc<Project>>>,
     exporter: ExportPopover,
     monitor: RefCell<Option<gio::FileMonitor>>,
 }
@@ -38,7 +38,7 @@ impl Window {
             sender,
             previewer,
             exporter: ExportPopover::new(),
-            open_project: Rc::new(RefCell::new(None)),
+            open_project: RefCell::new(None),
             monitor: RefCell::new(None),
         });
 
@@ -49,7 +49,7 @@ impl Window {
         window_widget
     }
 
-    pub fn set_open_project(&self, project: Project) {
+    pub fn set_open_project(&self, project: Rc<Project>) {
         self.set_view(View::Previewer);
         self.previewer.preview(&project);
         self.exporter.set_project(&project);

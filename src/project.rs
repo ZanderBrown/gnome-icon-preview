@@ -1,9 +1,9 @@
 use super::common;
-use anyhow::anyhow;
 use gettextrs::gettext;
 use gio::prelude::FileExt;
 use gtk::prelude::*;
-use librsvg::{CairoRenderer, Loader};
+use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
+use std::rc::Rc;
 
 #[derive(PartialEq, Debug, Clone)]
 pub enum ProjectType {
@@ -11,14 +11,14 @@ pub enum ProjectType {
     Preview, // A 128px SVG found
 }
 
-#[derive(Debug, Clone)]
 pub struct Project {
     pub file: gio::File,
     pub project_type: ProjectType,
+    handle: Handle,
 }
 
 impl Project {
-    pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
+    pub fn from_template(dest: gio::File) -> anyhow::Result<Rc<Self>> {
         let template = gio::File::new_for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
         // Creates the parent directory tree if it does not already exist
         dest.get_parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
@@ -27,27 +27,30 @@ impl Project {
         Project::parse(dest)
     }
 
-    pub fn parse(file: gio::File) -> anyhow::Result<Self> {
-        let path = file.get_path().ok_or_else(|| anyhow!("Failed to get the path"))?;
+    pub fn parse(file: gio::File) -> anyhow::Result<Rc<Self>> {
+        let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
+        let mut handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
+        handle.set_stylesheet("#layer3,#layer2 {visibility: hidden}")?;
 
-        let handle = Loader::new().read_path(&path)?;
-        let renderer = CairoRenderer::new(&handle);
-        let dimensions = renderer.intrinsic_dimensions();
-        let width = dimensions.width.unwrap().length;
-        let height = dimensions.height.unwrap().length;
+        let dimensions = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
+
+        let width = dimensions.width as f64;
+        let height = dimensions.height as f64;
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
-            return Ok(Self {
+            return Ok(Rc::new(Self {
                 project_type: ProjectType::Preview,
                 file,
-            });
+                handle,
+            }));
         }
 
-        if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
-            return Ok(Self {
+        if handle.has_sub("#hicolor")? && handle.has_sub("#symbolic")? {
+            return Ok(Rc::new(Self {
                 file,
                 project_type: ProjectType::Icon,
-            });
+                handle,
+            }));
         }
         anyhow::bail!("not found")
     }
@@ -128,8 +131,8 @@ impl Project {
 
     pub fn get_hicolor(&self, dest: Option<std::path::PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
-            ProjectType::Icon => common::render_by_id(&self.file, "#hicolor", 128.0, dest),
-            ProjectType::Preview => common::render(&self.file, 128.0, dest),
+            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), "#hicolor", 128.0, dest),
+            ProjectType::Preview => common::render(&self.handle, &self.name(), 128.0, dest),
         }
     }
 
@@ -137,7 +140,7 @@ impl Project {
         match self.project_type {
             ProjectType::Icon => {
                 let dest = common::create_tmp(&format!("#symblic-16-{}-symbolic.svg", self.name()))?;
-                common::render_by_id(&self.file, "#symbolic", 16.0, Some(dest))
+                common::render_by_id(&self.handle, &self.name(), "#symbolic", 16.0, Some(dest))
             }
             ProjectType::Preview => anyhow::bail!("No symbolic support for Preview icons"),
         }

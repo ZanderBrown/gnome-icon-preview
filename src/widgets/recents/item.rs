@@ -1,6 +1,7 @@
 use gtk::prelude::*;
 
 use crate::project::Project;
+use std::rc::Rc;
 
 #[derive(Clone, Serialize, Deserialize)]
 pub struct RecentItem {
@@ -10,11 +11,11 @@ pub struct RecentItem {
 pub struct RecentItemRow {
     pub widget: gtk::FlowBoxChild,
     pub event_box: gtk::EventBox,
-    project: Project,
+    project: Rc<Project>,
 }
 
 impl RecentItemRow {
-    pub fn new(project: Project) -> Self {
+    pub fn new(project: Rc<Project>) -> Self {
         let widget = gtk::FlowBoxChild::new();
         let event_box = gtk::EventBox::new();
 

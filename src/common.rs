@@ -38,11 +38,8 @@ pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
     Ok(temp_path)
 }
 
-pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-    let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-    let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
-
-    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}", output_size, file.get_basename().unwrap().to_str().unwrap()))?);
+pub fn render(handle: &Handle, basename: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}", output_size, basename))?);
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
@@ -64,13 +61,9 @@ pub fn render(file: &gio::File, output_size: f64, dest: Option<PathBuf>) -> anyh
     Ok((gio::File::new_for_path(dest), surface))
 }
 
-pub fn render_by_id(file: &gio::File, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-    let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-    let mut handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
+pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}", id, output_size, basename))?);
 
-    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}", id, output_size, file.get_basename().unwrap().to_str().unwrap()))?);
-
-    handle.set_stylesheet("#layer3,#layer2 {visibility: hidden}")?;
     if handle.has_sub(id)? {
         let viewport = {
             let doc = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;

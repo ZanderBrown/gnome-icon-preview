@@ -11,7 +11,7 @@ use crate::config;
 use crate::widgets::Window;
 
 pub enum Action {
-    OpenProject(Project),
+    OpenProject(Rc<Project>),
     NewProject(gio::File),
 }
 
