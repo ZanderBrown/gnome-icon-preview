@@ -27,9 +27,6 @@ serde_derive = "1.0"
 svgcleaner = "0.9"
 anyhow = "1.0"
 
-[dependencies.librsvg]
-git = "https://gitlab.gnome.org/gnome/librsvg"
-tag = "2.48.4"
 [dependencies.rsvg_internals]
 git = "https://gitlab.gnome.org/gnome/librsvg"
 tag = "2.48.4"

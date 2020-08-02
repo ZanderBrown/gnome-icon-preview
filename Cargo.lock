@@ -37,7 +37,6 @@ dependencies = [
  "gtk 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "gtk-macros 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "libhandy 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "librsvg 2.48.4 (git+https://gitlab.gnome.org/gnome/librsvg?tag=2.48.4)",
  "log 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "pango 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "pangocairo 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -759,18 +758,6 @@ dependencies = [
 name = "libm"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[[package]]
-name = "librsvg"
-version = "2.48.4"
-source = "git+https://gitlab.gnome.org/gnome/librsvg?tag=2.48.4#02b95cbc15643716372be53bb2982966c2fbd7b6"
-dependencies = [
- "cairo-rs 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "gio 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "glib 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rsvg_internals 0.0.1 (git+https://gitlab.gnome.org/gnome/librsvg?tag=2.48.4)",
- "url 2.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
 
 [[package]]
 name = "locale_config"
@@ -1696,7 +1683,6 @@ dependencies = [
 "checksum libhandy 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "2aa9f5620e4143358bcd645fe7d7d27b974ed9148cbdd490bc811813899afa07"
 "checksum libhandy-sys 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "d707af842e918719b71af0ac6cf31d1843f6e8a4d1e9c733b998d8d482e60446"
 "checksum libm 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c7d73b3f436185384286bd8098d17ec07c9a7d2388a6599f824d8502b529702a"
-"checksum librsvg 2.48.4 (git+https://gitlab.gnome.org/gnome/librsvg?tag=2.48.4)" = "<none>"
 "checksum locale_config 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "73ac19ebe45489e5d53b4346d8b90bb3dd03275c5fdf2ce22a982516d86b535c"
 "checksum log 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)" = "c275b6ad54070ac2d665eef9197db647b32239c9d244bfb6f041a766d00da5b3"
 "checksum mac 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "c41e0c4fef86961ac6d6f8a82609f55f31b05e4fce149ac5710e439df7619ba4"
