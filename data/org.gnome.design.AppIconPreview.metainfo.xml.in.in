@@ -23,6 +23,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="2.1.0" date="2020-08-02">
+      <description>
+        <p>Reduce IO operations</p>
+        <p>Format app names</p>
+        <p>Use portals when possible</p>
+        <p>Properly support Adwaita-dark</p>
+        <p>Translations updates</p>
+      </description>
+    </release>
     <release version="2.0.0" date="2020-05-21">
       <description>
         <p>Rewrite in Rust</p>
