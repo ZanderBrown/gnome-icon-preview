@@ -1,6 +1,6 @@
 project('app-icon-preview',
         'rust',
-        version: '2.1.0',
+        version: '2.1.1',
         license: 'GPL3',
 	meson_version : '>= 0.50')
 

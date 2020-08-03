@@ -1,6 +1,6 @@
 [package]
 name = "app-icon-preview"
-version = "2.1.0"
+version = "2.1.1"
 authors = ["Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>"]
 edition = "2018"
 

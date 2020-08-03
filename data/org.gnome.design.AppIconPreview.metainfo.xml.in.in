@@ -18,11 +18,17 @@
   </kudos>
   <screenshots>
     <screenshot type="default">
-      <image height="610" width="1087">https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/screenshot1.png</image>
+      <image>https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/screenshot1.png</image>
       <caption>Previewing an Application icon</caption>
     </screenshot>
   </screenshots>
   <releases>
+    <release version="2.1.1" date="2020-08-03">
+      <description>
+        <p>Properly center the wallpapers</p>
+        <p>Fix opening a file from the file browser opening two windows of App Icon Preview</p>
+      </description>
+    </release>
     <release version="2.1.0" date="2020-08-02">
       <description>
         <p>Reduce IO operations</p>
