@@ -7,8 +7,8 @@ pub fn format_name(name: &str) -> String {
     let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
     let mut formatted_chars = vec![];
 
-    let mut chars = name.chars().into_iter();
-    name.chars().into_iter().for_each(|c| {
+    let mut chars = name.chars();
+    name.chars().for_each(|c| {
         if c.is_uppercase() && !chars.next().unwrap_or(' ').is_uppercase() {
             formatted_chars.push(' ');
         }

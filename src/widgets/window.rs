@@ -21,7 +21,7 @@ pub struct Window {
     builder: gtk::Builder,
     sender: glib::Sender<Action>,
     previewer: ProjectPreviewer,
-    open_project: RefCell<Option<Rc<Project>>>,
+    open_project: Rc<RefCell<Option<Rc<Project>>>>,
     exporter: ExportPopover,
     monitor: RefCell<Option<gio::FileMonitor>>,
 }
@@ -38,7 +38,7 @@ impl Window {
             sender,
             previewer,
             exporter: ExportPopover::new(),
-            open_project: RefCell::new(None),
+            open_project: Rc::new(RefCell::new(None)),
             monitor: RefCell::new(None),
         });
 
@@ -61,15 +61,16 @@ impl Window {
         let monitor = project.file.monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
 
         self.monitor.borrow_mut().replace(monitor);
-        self.open_project.borrow_mut().replace(project.clone());
+        self.open_project.borrow_mut().replace(project);
 
         self.monitor
             .borrow()
             .as_ref()
             .unwrap()
-            .connect_changed(clone!(@strong self.sender as sender => move |monitor, _, _, event| {
+            .connect_changed(clone!(@strong self.sender as sender, @strong self.open_project as project => move |monitor, _, _, event| {
                 if event == gio::FileMonitorEvent::Changed {
-                    match Project::parse(project.file.clone()) {
+                    let file = project.borrow().as_ref().unwrap().file.clone();
+                    match Project::parse(file) {
                         Ok(project) => {
                             monitor.cancel();
                             send!(sender, Action::OpenProject(project));
@@ -140,13 +141,13 @@ impl Window {
             self.widget,
             "export-save",
             Some(&glib::VariantTy::new("s").unwrap()),
-            clone!(@strong self.open_project as project, @weak self.widget as parent => move |_, target| {
-                if let Some(ref project) = * project.borrow() {
+            clone!(@weak self.open_project as project, @weak self.widget as parent => move |_, target| {
+                if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get_str().unwrap();
                     if project.export(project_type, &parent.upcast::<gtk::Window>()).is_err() {
                         warn!("Failed to export the project");
                     }
-                }
+                };
             })
         );
 
@@ -165,13 +166,17 @@ impl Window {
         action!(
             self.widget,
             "refresh",
-            clone!(@strong self.sender as sender, @strong self.open_project as project => move |_, _| {
-                if let Some(ref project) = * project.borrow() {
+            clone!(@strong self.sender as sender, @weak self.open_project as project,
+            @strong self.exporter as exporter, @strong self.previewer as previewer => move |_, _| {
+                if let Some(project) = project.borrow().as_ref() {
                    match Project::parse(project.file.clone()) {
-                        Ok(project) => send!(sender, Action::OpenProject(project)),
+                        Ok(project) => {
+                            previewer.preview(&project);
+                            exporter.set_project(&project);
+                        },
                         Err(err) => warn!("Failed to parse the project {}", err),
                     }
-                }
+                };
             })
         );
 

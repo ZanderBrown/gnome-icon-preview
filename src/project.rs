@@ -148,7 +148,7 @@ impl Project {
 
     pub fn get_nightly(&self) -> anyhow::Result<gio::File> {
         let dest_path = common::create_tmp(&format!("#nightly-{}-{}", 128.0, self.name()))?;
-        let dest = gio::File::new_for_path(&dest_path.clone());
+        let dest = gio::File::new_for_path(&dest_path);
 
         let (_, hicolor) = self.get_hicolor(Some(dest_path))?;
 
