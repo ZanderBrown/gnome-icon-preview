@@ -90,6 +90,7 @@ impl Application {
 
     fn setup_signals(&self, app: Rc<Self>) {
         self.app.connect_activate(clone!(@weak app => move |_| {
+            app.create_window();
             app.get_window().widget.present();
         }));
 
@@ -98,7 +99,6 @@ impl Application {
         }));
 
         self.app.connect_startup(clone!(@weak app => move |_| {
-            app.create_window();
             app.setup_gactions(app.clone());
         }));
 
