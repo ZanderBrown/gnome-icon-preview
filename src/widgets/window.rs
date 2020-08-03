@@ -63,22 +63,20 @@ impl Window {
         self.monitor.borrow_mut().replace(monitor);
         self.open_project.borrow_mut().replace(project);
 
-        self.monitor
-            .borrow()
-            .as_ref()
-            .unwrap()
-            .connect_changed(clone!(@strong self.sender as sender, @strong self.open_project as project => move |monitor, _, _, event| {
-                if event == gio::FileMonitorEvent::Changed {
-                    let file = project.borrow().as_ref().unwrap().file.clone();
-                    match Project::parse(file) {
-                        Ok(project) => {
-                            monitor.cancel();
-                            send!(sender, Action::OpenProject(project));
-                        }
-                        Err(err) => warn!("Failed to parse the project {}", err),
+        self.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong self.open_project as project,
+        @strong self.exporter as exporter, @strong self.previewer as previewer  => move |monitor, _, _, event| {
+            if event == gio::FileMonitorEvent::Changed {
+                let file = project.borrow().as_ref().unwrap().file.clone();
+                match Project::parse(file) {
+                    Ok(project) => {
+                        monitor.cancel();
+                        previewer.preview(&project);
+                        exporter.set_project(&project);
                     }
+                    Err(err) => warn!("Failed to parse the project {}", err),
                 }
-            }));
+            }
+        }));
     }
 
     pub fn set_view(&self, view: View) {
