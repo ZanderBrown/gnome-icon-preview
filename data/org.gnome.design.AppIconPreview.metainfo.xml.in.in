@@ -23,6 +23,11 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="2.1.2" date="2020-08-21">
+      <description>
+        <p>Fix the export button doing nothing</p>
+      </description>
+    </release>
     <release version="2.1.1" date="2020-08-03">
       <description>
         <p>Properly center the wallpapers</p>
