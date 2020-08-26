@@ -44,7 +44,7 @@ impl ScreenshotDialog {
             Some(&gettext("_Cancel")),
         );
         dialog.set_modal(true);
-        dialog.set_current_name(&gettext("Preview"));
+        dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
 
         let xdg_pictures_dir = glib::get_user_special_dir(glib::UserDirectory::Pictures).unwrap();
         dialog.set_current_folder(&xdg_pictures_dir);
