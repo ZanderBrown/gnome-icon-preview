@@ -1,0 +1,283 @@
+# Slovenian translation for app-icon-preview.
+# Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+#
+# Matej Urbančič <mateju@svn.gnome.org>, 2020–.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2020-06-04 08:37+0000\n"
+"PO-Revision-Date: 2020-06-16 21:37+0200\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 2.3\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
+#: src/widgets/project_previewer.rs:45
+msgid "App Icon Preview"
+msgstr ""
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr ""
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr ""
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr ""
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui in Zander Brown"
+
+#: data/resources/ui/about_dialog.ui.in:15
+msgid "translator-credits"
+msgstr "Matej Urbančič <mateju@svn.gnome.org>"
+
+#: data/resources/ui/export.ui:19
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+
+#: data/resources/ui/export.ui:69
+msgid "Regular"
+msgstr "Navadna"
+
+#: data/resources/ui/export.ui:89
+msgid "Save Regular As…"
+msgstr ""
+
+#: data/resources/ui/export.ui:145
+msgid "Nightly"
+msgstr "Večerne različice"
+
+#: data/resources/ui/export.ui:165
+msgid "Save Nightly As…"
+msgstr ""
+
+#: data/resources/ui/export.ui:196
+msgid "Save Symbolic As…"
+msgstr ""
+
+#: data/resources/ui/export.ui:218
+msgid "Symbolic"
+msgstr ""
+
+#: data/resources/ui/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Program"
+
+#: data/resources/ui/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Odpre novo okno"
+
+#: data/resources/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Odpre ikono"
+
+#: data/resources/ui/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Odpre seznam nedavnih"
+
+#: data/resources/ui/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Odpre meni"
+
+#: data/resources/ui/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Konča izvajanje programa"
+
+#: data/resources/ui/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Spremeni pogled"
+
+#: data/resources/ui/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Ponovno naloži ikono"
+
+#: data/resources/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Izvozi ikono"
+
+#: data/resources/ui/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Premeša ikone"
+
+#: data/resources/ui/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Zajame zaslonsko sliko"
+
+#: data/resources/ui/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Kopira zaslonsko sliko v odložišče"
+
+#: data/resources/ui/menus.ui:19
+msgid "_New Window"
+msgstr "_Novo okno"
+
+#: data/resources/ui/menus.ui:44
+msgid "Reload"
+msgstr "Znova naloži"
+
+#: data/resources/ui/menus.ui:58
+msgid "_Take Screenshot"
+msgstr "_Zajemi zaslonsko sliko"
+
+#: data/resources/ui/menus.ui:72
+msgid "_Shuffle Example Icons"
+msgstr ""
+
+#: data/resources/ui/menus.ui:97
+msgid "_Keyboard Shortcuts"
+msgstr "_Tipkovne bližnjice"
+
+#: data/resources/ui/menus.ui:111
+msgid "_About App Icon Preview"
+msgstr ""
+
+#: data/resources/ui/new_project.ui:45
+msgid "App Name"
+msgstr "Ime programa"
+
+#: data/resources/ui/new_project.ui:57
+msgid "Icon Location"
+msgstr "Mesto ikone"
+
+#: data/resources/ui/new_project.ui:80
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr ""
+
+#: data/resources/ui/new_project.ui:96
+msgid "The icon SVG file will be stored in this directory"
+msgstr ""
+
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekti"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Prebrskaj …"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
+#: src/project.rs:95
+msgid "_Cancel"
+msgstr "_Prekliči"
+
+#: data/resources/ui/new_project.ui:189
+msgid "_Create"
+msgstr "_Ustvari"
+
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Zapri"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Shrani …"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiraj v odložišče"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Odpri"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Odpri ikono"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Nedavno"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Meni"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:95
+msgid "Export"
+msgstr "Izvoz"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr ""
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Nova ikona programa"
+
+#: src/widgets/new_project.rs:50
+msgid "Select"
+msgstr "Izberi"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Shrani zajeto sliko"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:95
+msgid "_Save"
+msgstr "_Shrani"
+
+#: src/widgets/screenshot_dialog.rs:47
+msgid "Preview"
+msgstr "Predogled"
+
+#: src/widgets/screenshot_dialog.rs:62
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:68
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:231
+msgid "Open File"
+msgstr "Odpri datoteko"
+
+#: src/widgets/window.rs:236
+msgid "SVG images"
+msgstr "Slike SVG"
+
+#: src/project.rs:100
+msgid "SVG"
+msgstr "SVG"
