@@ -1,0 +1,285 @@
+# Croatian translation for app-icon-preview.
+# Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+# Milo Ivir <mail@milotype.de>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2020-06-02 18:55+0000\n"
+"PO-Revision-Date: 2020-07-29 13:02+0200\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.4\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
+#: src/widgets/project_previewer.rs:45
+msgid "App Icon Preview"
+msgstr "Pregled ikona programa"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Pregledaj ikone programa"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Alat za dizajniranje ikona programa"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"„Pregled ikona programa” je alat za dizajniranje ikona za GNOME-ovu radnu "
+"površinu."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Pregled ikone programa"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui i Zander Brown"
+
+#: data/resources/ui/about_dialog.ui.in:15
+msgid "translator-credits"
+msgstr "Milo Ivir <mail@milotype.de>, 2020."
+
+#: data/resources/ui/export.ui:19
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Izvezi ikonu za upotrebu u proizvodnji. Objekti izvan platna se uklanjaju, "
+"veličina SVG-a se optimira"
+
+#: data/resources/ui/export.ui:69
+msgid "Regular"
+msgstr "Normalna"
+
+#: data/resources/ui/export.ui:89
+msgid "Save Regular As…"
+msgstr "Spremi normalnu kao …"
+
+#: data/resources/ui/export.ui:145
+msgid "Nightly"
+msgstr "Noćna"
+
+#: data/resources/ui/export.ui:165
+msgid "Save Nightly As…"
+msgstr "Spremi noćnu kao …"
+
+#: data/resources/ui/export.ui:196
+msgid "Save Symbolic As…"
+msgstr "Spremi simboličnu kao …"
+
+#: data/resources/ui/export.ui:218
+msgid "Symbolic"
+msgstr "Simbolična"
+
+#: data/resources/ui/help-overlay.ui:13
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Program"
+
+#: data/resources/ui/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Novi prozor"
+
+#: data/resources/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Open an icon"
+msgstr "Otvori jednu ikonu"
+
+#: data/resources/ui/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Open the recent list"
+msgstr "Otvori popis nedavnih"
+
+#: data/resources/ui/help-overlay.ui:40
+msgctxt "shortcut window"
+msgid "Open the menu"
+msgstr "Otvori izbornik"
+
+#: data/resources/ui/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Quit the application"
+msgstr "Zatvori program"
+
+#: data/resources/ui/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Prikaz"
+
+#: data/resources/ui/help-overlay.ui:60
+msgctxt "shortcut window"
+msgid "Reload the icon"
+msgstr "Ponovo učitaj ikonu"
+
+#: data/resources/ui/help-overlay.ui:67
+msgctxt "shortcut window"
+msgid "Export the icon"
+msgstr "Izvezi ikonu"
+
+#: data/resources/ui/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Shuffle icons"
+msgstr "Promiješaj ikone"
+
+#: data/resources/ui/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Take screenshot"
+msgstr "Uslikaj ekran"
+
+#: data/resources/ui/help-overlay.ui:88
+msgctxt "shortcut window"
+msgid "Copy a screenshot to clipboard"
+msgstr "Kopiraj sliku ekrana u međuspremnik"
+
+#: data/resources/ui/menus.ui:19
+msgid "_New Window"
+msgstr "_Novi prozor"
+
+#: data/resources/ui/menus.ui:44
+msgid "Reload"
+msgstr "Učitaj ponovo"
+
+#: data/resources/ui/menus.ui:58
+msgid "_Take Screenshot"
+msgstr "_Uslikaj ekran"
+
+#: data/resources/ui/menus.ui:72
+msgid "_Shuffle Example Icons"
+msgstr "_Promiješaj primjere ikona"
+
+#: data/resources/ui/menus.ui:97
+msgid "_Keyboard Shortcuts"
+msgstr "_Tipkovnički prečaci"
+
+#: data/resources/ui/menus.ui:111
+msgid "_About App Icon Preview"
+msgstr "_Informacije o „Pregled ikona programa”"
+
+#: data/resources/ui/new_project.ui:45
+msgid "App Name"
+msgstr "Ime programa"
+
+#: data/resources/ui/new_project.ui:57
+msgid "Icon Location"
+msgstr "Mjesto ikone"
+
+#: data/resources/ui/new_project.ui:80
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Obrnuto ime domene, npr. org.inkscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:96
+msgid "The icon SVG file will be stored in this directory"
+msgstr "SVG datoteka ikone spremit će se u ovu mapu"
+
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekti"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Pregledaj …"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
+#: src/project.rs:95
+msgid "_Cancel"
+msgstr "_Odustani"
+
+#: data/resources/ui/new_project.ui:189
+msgid "_Create"
+msgstr "St_vori"
+
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Zatvori"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Spremi …"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiraj u međuspremnik"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Otvori"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Otvori jednu ikonu"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Nedavne"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Izbornik"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:95
+msgid "Export"
+msgstr "Izvezi"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr "Stvori novu ikonu programa"
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Nova ikona programa"
+
+#: src/widgets/new_project.rs:50
+msgid "Select"
+msgstr "Odaberi"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Odustani"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Spremi sliku ekrana"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:95
+msgid "_Save"
+msgstr "_Spremi"
+
+#: src/widgets/screenshot_dialog.rs:47
+msgid "Preview"
+msgstr "Pregled"
+
+#: src/widgets/screenshot_dialog.rs:62
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:68
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:231
+msgid "Open File"
+msgstr "Otvori datoteku"
+
+#: src/widgets/window.rs:236
+msgid "SVG images"
+msgstr "SVG slike"
+
+#: src/project.rs:100
+msgid "SVG"
+msgstr "SVG"
