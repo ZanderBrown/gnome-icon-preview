@@ -28,7 +28,7 @@
     </key>
     <key name="recent-files" type="s">
       <default>''</default>
-      <summary>The latest opened files seperated by a comma</summary>
+      <summary>The latest opened files separated by a comma</summary>
     </key>
   </schema>
 </schemalist>
