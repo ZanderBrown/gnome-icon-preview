@@ -2,14 +2,13 @@
 # Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
 # scootergrisen, 2019-2020.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview/issues\n"
-"POT-Creation-Date: 2019-12-29 23:42+0000\n"
-"PO-Revision-Date: 2020-03-09 00:00+0200\n"
+"POT-Creation-Date: 2020-05-26 22:51+0000\n"
+"PO-Revision-Date: 2020-10-10 00:00+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -20,24 +19,24 @@ msgstr ""
 
 # scootergrisen: forslag "Programikonforhåndsvisning", "Forhåndsvisning af programikon"
 # scootergrisen: måske bedst at starte programnavnet med det vigtige først
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.ui:13
-#: src/window.vala:152 src/window.vala:321
-#| msgid "Icon Preview"
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
+#: src/widgets/project_previewer.rs:45
 msgid "App Icon Preview"
 msgstr "Forhåndsvisning af programikon"
 
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Forhåndsvisning af programikoner"
+
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-#| msgid "Tool for designing icons"
 msgid "Tool for designing applications icons"
 msgstr "Værktøj til at designe programikoner"
 
 # scootergrisen: forslag "Programikonforhåndsvisning", "Forhåndsvisning af programikon"
 # scootergrisen: måske bedst at starte programnavnet med det vigtige først
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
-#| msgid ""
-#| "Icon Preview is a tool for designing icons which target the GNOME desktop."
 msgid ""
 "App Icon Preview is a tool for designing icons which target the GNOME "
 "desktop."
@@ -49,35 +48,15 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Forhåndsvisning af et programikon"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:54
-msgid "Zander Brown"
-msgstr "Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
-#| msgid "Previewing an Application icon"
-msgid "Preview applications icons"
-msgstr "Forhåndsvisning af programikoner"
-
-#: src/common.vala:36
-msgid "Copyright © 2018-19 Zander Brown"
-msgstr "Ophavsret © 2018-19 Zander Brown"
-
-#: src/common.vala:40
+#: data/resources/ui/about_dialog.ui.in:15
 msgid "translator-credits"
 msgstr "scootergrisen"
 
-#: src/common.vala:42
-msgid "Repository"
-msgstr "Arkiv"
-
-#: src/common.vala:44
-msgid "Kept sane by"
-msgstr "Med hjælp fra"
-
-#: src/exporter/exporter.ui:18
-#| msgid ""
-#| "Export the icon for production use.\n"
-#| "Off-canvas objects are removed and the SVG is optimised for size"
+#: data/resources/ui/export.ui:19
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -85,288 +64,228 @@ msgstr ""
 "Eksportér ikonet til færdig brug. Objekter, som er udenfor lærredet, fjernes "
 "og SVG'en optimeres for at holde filstørrelsen nede"
 
-#: src/exporter/exporter.ui:68
+#: data/resources/ui/export.ui:69
 msgid "Regular"
 msgstr "Almindelig"
 
-#: src/exporter/exporter.ui:88
+#: data/resources/ui/export.ui:89
 msgid "Save Regular As…"
 msgstr "Gem almindelig som …"
 
-#: src/exporter/exporter.ui:144
+#: data/resources/ui/export.ui:145
 msgid "Nightly"
 msgstr "Natlig"
 
-#: src/exporter/exporter.ui:164
+#: data/resources/ui/export.ui:165
 msgid "Save Nightly As…"
 msgstr "Gem natlig som …"
 
-#: src/exporter/exporter.ui:195
+#: data/resources/ui/export.ui:196
 msgid "Save Symbolic As…"
 msgstr "Gem symbolsk som …"
 
-#: src/exporter/exporter.ui:217
-#| msgid "New Symbolic Icon"
+#: data/resources/ui/export.ui:218
 msgid "Symbolic"
 msgstr "Symbolsk"
 
-#: src/help-overlay.ui:13
+#: data/resources/ui/help-overlay.ui:13
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: src/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:19
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nyt vindue"
 
-#: src/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Open an icon"
 msgstr "Åbn et ikon"
 
-#: src/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Open the recent list"
 msgstr "Åbn listen oven seneste"
 
-#: src/help-overlay.ui:40
+#: data/resources/ui/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Open the menu"
 msgstr "Åbn menuen"
 
-#: src/help-overlay.ui:47
+#: data/resources/ui/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Quit the application"
 msgstr "Afslut programmet"
 
-#: src/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Vis"
 
-#: src/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:60
 msgctxt "shortcut window"
 msgid "Reload the icon"
 msgstr "Genindlæs ikonet"
 
-#: src/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Export the icon"
 msgstr "Eksportér ikonet"
 
-#: src/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Shuffle icons"
 msgstr "Bland ikoner"
 
-#: src/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Take screenshot"
 msgstr "Tag skærmbillede"
 
-#: src/help-overlay.ui:88
-#| msgid "Copy to Clipboard"
+#: data/resources/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Kopiér et skærmbillede til udklipsholder"
 
-#: src/help-overlay.ui:95
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Fuldskærm til/fra"
-
-#: src/main.vala:49
-msgid "no longer supported"
-msgstr "understøttes ikke længere"
-
-#. If opening the palette directly
-#: src/main.vala:97
-msgid ""
-"Palette is all grown up!\n"
-"It’s now available separately as org.gnome.zbrown.Palette"
-msgstr ""
-"Palet er blevet voksen!\n"
-"Den er nu tilgængelig seperat som org.gnome.zbrown.Palette"
-
-#: src/menus.ui:6
+#: data/resources/ui/menus.ui:19
 msgid "_New Window"
 msgstr "_Nyt vindue"
 
-#: src/menus.ui:12
-msgid "_Reload"
-msgstr "_Genindlæs"
+#: data/resources/ui/menus.ui:44
+#| msgid "_Reload"
+msgid "Reload"
+msgstr "Genindlæs"
 
-#: src/menus.ui:17
+#: data/resources/ui/menus.ui:58
 msgid "_Take Screenshot"
 msgstr "_Tag skærmbillede"
 
-#: src/menus.ui:22
+#: data/resources/ui/menus.ui:72
 msgid "_Shuffle Example Icons"
 msgstr "_Bland eksempelikoner"
 
-#: src/menus.ui:29
+#: data/resources/ui/menus.ui:97
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastaturgenveje"
 
 # scootergrisen: forslag "Programikonforhåndsvisning", "Forhåndsvisning af programikon"
 # scootergrisen: måske bedst at starte programnavnet med det vigtige først
-#: src/menus.ui:33
-#| msgid "_About Icon Preview"
+#: data/resources/ui/menus.ui:111
 msgid "_About App Icon Preview"
 msgstr "_Om Forhåndsvisning af programikon"
 
-#: src/saver.ui:50
-msgid "Close"
-msgstr "Luk"
-
-#: src/saver.ui:59
-msgid "Save…"
-msgstr "Gem …"
-
-#: src/saver.ui:77
-msgid "Copy to Clipboard"
-msgstr "Kopiér til udklipsholder"
-
-#: src/saver.vala:48
-msgid "Save Screenshot"
-msgstr "Gem skærmbillede"
-
-#: src/saver.vala:48 src/window.vala:250
-msgid "_Save"
-msgstr "_Gem"
-
-#: src/saver.vala:52
-msgid "Preview"
-msgstr "Forhåndsvisning"
-
-#: src/saver.vala:69
-msgid "PNG"
-msgstr "PNG"
-
-#: src/saver.vala:75
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/saver.vala:86
-msgid "Failed to save screenshot"
-msgstr "Kunne ikke gemme skærmbillede"
-
-#: src/window.ui:21
-msgid "Open"
-msgstr "Åbn"
-
-#: src/window.ui:25
-msgid "Open an icon"
-msgstr "Åbn et ikon"
-
-#: src/window.ui:39
-msgid "Recent"
-msgstr "Seneste"
-
-#: src/window.ui:67
-msgid "Menu"
-msgstr "Menu"
-
-#: src/window.ui:83
-msgid "Export"
-msgstr "Eksportér"
-
-#: src/window.ui:119
-#| msgid "Make a new GNOME Icon"
-msgid "Make a new App Icon"
-msgstr "Skab et nyt programikon"
-
-#: src/window.ui:274
-msgid "New App Icon"
-msgstr "Nyt programikon"
-
-#: src/window.vala:143
-msgid "This file is defective"
-msgstr "Filen er defekt"
-
-#: src/window.vala:144
-msgid ""
-"Please start from a template to ensure that your file will work as a GNOME "
-"icon"
-msgstr ""
-"Start venligst fra en skabelon, for at sikre, at din fil virker som et "
-"GNOME-ikon"
-
-#: src/window.vala:184
-msgid "Select Icon"
-msgstr "Vælg ikon"
-
-#: src/window.vala:184
-msgid "_Open"
-msgstr "_Åbn"
-
-#: src/window.vala:186
-#| msgid "_Cancel"
-msgid "Cancel"
-msgstr "Annullér"
-
-#: src/window.vala:189
-msgid "Icons"
-msgstr "Ikoner"
-
-#: src/window.vala:232
-#| msgid "Save Regular As…"
-msgid "Save Regular"
-msgstr "Gem almindelig"
-
-#: src/window.vala:237
-#| msgid "Save Symbolic As…"
-msgid "Save Symbolic"
-msgstr "Gem symbolsk"
-
-#: src/window.vala:243
-#| msgid "Save Nightly As…"
-msgid "Save Nightly"
-msgstr "Gem natlig"
-
-#: src/window.vala:257
-#| msgid "Icons"
-msgid "Icon"
-msgstr "Ikon"
-
-#: src/window.vala:263
-msgid "SVG"
-msgstr "SVG"
-
-#: src/window.vala:273
-#| msgid "Failed to save screenshot"
-msgid "Failed to save exported file"
-msgstr "Kunne ikke gemme eksporteret fil"
-
-#: src/wizard.ui:46
+#: data/resources/ui/new_project.ui:45
 msgid "App Name"
 msgstr "Programnavn"
 
-#: src/wizard.ui:58
+#: data/resources/ui/new_project.ui:57
 msgid "Icon Location"
 msgstr "Placering af ikon"
 
-#: src/wizard.ui:79
-msgid "Save Icon"
-msgstr "Gem ikon"
-
-#: src/wizard.ui:94
+#: data/resources/ui/new_project.ui:80
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Navnet som omvendte domænenotering, f.eks. org.inkscape.Inkscape"
 
-#: src/wizard.ui:110
+#: data/resources/ui/new_project.ui:96
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Mappe hvor ikonets SVG-fil gemmes"
 
-#: src/wizard.ui:159
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekter"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Gennemse …"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
+#: src/project.rs:100
 msgid "_Cancel"
 msgstr "_Annullér"
 
-#: src/wizard.ui:165
+#: data/resources/ui/new_project.ui:189
 msgid "_Create"
 msgstr "_Opret"
 
-#: src/wizard.vala:31
-msgid "Expecting at least one “.”"
-msgstr "Forventer mindst ét “.”"
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Luk"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Gem …"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Kopiér til udklipsholder"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Åbn"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Åbn et ikon"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Seneste"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Menu"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:97
+msgid "Export"
+msgstr "Eksportér"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr "Skab et nyt programikon"
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Nyt programikon"
+
+#: src/widgets/new_project.rs:50
+#| msgid "Select Icon"
+msgid "Select"
+msgstr "Vælg"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Annullér"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Gem skærmbillede"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:100
+msgid "_Save"
+msgstr "_Gem"
+
+#: src/widgets/screenshot_dialog.rs:46
+msgid "Preview"
+msgstr "Forhåndsvisning"
+
+#: src/widgets/screenshot_dialog.rs:61
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:67
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:228
+#| msgid "Open"
+msgid "Open File"
+msgstr "Åbn fil"
+
+#: src/widgets/window.rs:233
+msgid "SVG images"
+msgstr "SVG-billeder"
+
+#: src/project.rs:106
+msgid "SVG"
+msgstr "SVG"
