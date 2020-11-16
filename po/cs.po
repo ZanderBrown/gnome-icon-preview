@@ -1,15 +1,14 @@
 # Czech translation for icon-tool.
 # Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
-# Marek Černocký <marek@manet.cz>, 2019.
+# Marek Černocký <marek@manet.cz>, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/icon-tool/"
-"issues\n"
-"POT-Creation-Date: 2019-09-22 12:00+0000\n"
-"PO-Revision-Date: 2019-10-02 07:44+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
+"POT-Creation-Date: 2020-05-26 22:51+0000\n"
+"PO-Revision-Date: 2020-11-16 20:56+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,57 +18,42 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 "X-Generator: Gtranslator 3.34.0\n"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:8
-#: data/org.gnome.design.IconPreview.desktop.in:3 src/main.vala:118
-#: src/saver.vala:60 src/views/colour.vala:97 src/window.vala:153
-#: src/window.vala:327
-msgid "Icon Preview"
-msgstr "Náhled ikon"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
+#: src/widgets/project_previewer.rs:45
+msgid "App Icon Preview"
+msgstr "Náhled ikon aplikací"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:9
-msgid "Tool for designing icons"
-msgstr "Nástroj pro návrh ikon"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Prohlížejte si náhledy ikon aplikací"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:11
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Nástroj pro návrh ikon aplikací"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
-"Icon Preview is a tool for designing icons which target the GNOME desktop."
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
 msgstr ""
-"Náhled ikon je nástroj pro návrh ikon zamýšlených pro uživatelské prostředí "
-"GNOME."
+"Náhled ikon aplikací je nástroj pro návrh ikon zamýšlených pro uživatelské "
+"prostředí GNOME."
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:22
-msgid "Welcome screen"
-msgstr "Uvítací obrazovka"
-
-#: data/org.gnome.design.IconPreview.appdata.xml.in:26
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
 msgstr "Prohlížení ikony aplikace v různých situacích"
 
-#: data/org.gnome.design.IconPreview.appdata.xml.in:51
-msgid "Zander Brown"
-msgstr "Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui a Zander Brown"
 
-#: data/org.gnome.design.IconPreview.desktop.in:4
-msgid "Preview icons"
-msgstr "Zobrazte si náhledy ikon v různých situacích"
-
-#: src/common.vala:14
-msgid "Copyright © 2018-19 Zander Brown"
-msgstr "Copyright © 2018 - 2019 Zander Brown"
-
-#: src/common.vala:18
+#: data/resources/ui/about_dialog.ui.in:15
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: src/common.vala:20
-msgid "Repository"
-msgstr "Repozitář"
-
-#: src/common.vala:22
-msgid "Kept sane by"
-msgstr "Organizoval"
-
-#: src/exporter/exporter.ui:18
+#: data/resources/ui/export.ui:19
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -77,319 +61,223 @@ msgstr ""
 "Export ikony pro produkční použití. Objekty mimo plátno budou odstraněny a "
 "SVG optimalizováno na velikost."
 
-#: src/exporter/exporter.ui:68 src/window.vala:239
+#: data/resources/ui/export.ui:69
 msgid "Regular"
 msgstr "Běžná"
 
-#: src/exporter/exporter.ui:88
+#: data/resources/ui/export.ui:89
 msgid "Save Regular As…"
 msgstr "Uložit běžnou jako…"
 
-#: src/exporter/exporter.ui:144 src/window.vala:243
+#: data/resources/ui/export.ui:145
 msgid "Nightly"
 msgstr "Noční"
 
-#: src/exporter/exporter.ui:164
+#: data/resources/ui/export.ui:165
 msgid "Save Nightly As…"
 msgstr "Uložit noční jako…"
 
-#: src/exporter/exporter.ui:195
+#: data/resources/ui/export.ui:196
 msgid "Save Symbolic As…"
 msgstr "Uložit symbolickou jako…"
 
-#: src/exporter/exporter.ui:217 src/window.vala:249
+#: data/resources/ui/export.ui:218
 msgid "Symbolic"
 msgstr "Symbolická"
 
-#: src/help-overlay.ui:13
+#: data/resources/ui/help-overlay.ui:13
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Aplikace"
 
-#: src/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:19
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nové okno"
 
-#: src/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Open an icon"
 msgstr "Otevřít ikonu"
 
-#: src/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Open the recent list"
 msgstr "Otevřít seznam nedávných"
 
-#: src/help-overlay.ui:40
+#: data/resources/ui/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Open the menu"
 msgstr "Otevřít nabídku"
 
-#: src/help-overlay.ui:47
+#: data/resources/ui/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Quit the application"
 msgstr "Ukončit aplikaci"
 
-#: src/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Zobrazení"
 
-#: src/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:60
 msgctxt "shortcut window"
 msgid "Reload the icon"
 msgstr "Znovu načíst ikonu"
 
-#: src/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:67
 msgctxt "shortcut window"
 msgid "Export the icon"
 msgstr "Exportovat ikonu"
 
-#: src/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:74
 msgctxt "shortcut window"
 msgid "Shuffle icons"
 msgstr "Zamíchat ikony"
 
-#: src/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:81
 msgctxt "shortcut window"
 msgid "Take screenshot"
 msgstr "Pořídit snímek obrazovky"
 
-#: src/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:88
 msgctxt "shortcut window"
 msgid "Copy a screenshot to clipboard"
 msgstr "Zkopírovat snímek obrazovky do schránky"
 
-#: src/help-overlay.ui:95
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Přepnout celou obrazovku"
-
-#: src/main.vala:50
-msgid "no longer supported"
-msgstr "Nadále již není podporováno"
-
-#. If opening the palette directly
-#: src/main.vala:97
-msgid ""
-"Palette is all grown up!\n"
-"It’s now available separately as org.gnome.zbrown.Palette"
-msgstr ""
-"Paleta již dospěla!\n"
-"Nyní je k dispozici zvlášť, jako org.gnome.zbrown.Palette"
-
-#: src/menus.ui:6
+#: data/resources/ui/menus.ui:19
 msgid "_New Window"
 msgstr "_Nové okno"
 
-#: src/menus.ui:12
-msgid "_Reload"
-msgstr "_Znovu načíst"
+#: data/resources/ui/menus.ui:44
+msgid "Reload"
+msgstr "Znovu načíst"
 
-#: src/menus.ui:17
+#: data/resources/ui/menus.ui:58
 msgid "_Take Screenshot"
 msgstr "_Pořídit snímek obrazovky"
 
-#: src/menus.ui:22
+#: data/resources/ui/menus.ui:72
 msgid "_Shuffle Example Icons"
 msgstr "Za_míchat ukázkové ikony"
 
-#: src/menus.ui:29
+#: data/resources/ui/menus.ui:97
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: src/menus.ui:33
-msgid "_About Icon Preview"
-msgstr "O _aplikaci Náhled ikon"
+#: data/resources/ui/menus.ui:111
+msgid "_About App Icon Preview"
+msgstr "O _aplikaci Náhled ikon aplikací"
 
-#: src/saver.ui:50
-msgid "Close"
-msgstr "Zavřít"
-
-#: src/saver.ui:59
-msgid "Save…"
-msgstr "Uložit…"
-
-#: src/saver.ui:77
-msgid "Copy to Clipboard"
-msgstr "Zkopírovat do schránky"
-
-#: src/saver.vala:48
-msgid "Save Screenshot"
-msgstr "Uložení snímku obrazovky"
-
-#: src/saver.vala:48 src/window.vala:256
-msgid "_Save"
-msgstr "_Uložit"
-
-#: src/saver.vala:52
-msgid "Preview"
-msgstr "Náhled"
-
-#: src/saver.vala:69
-msgid "PNG"
-msgstr "PNG"
-
-#: src/saver.vala:75
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/saver.vala:86
-msgid "Failed to save screenshot"
-msgstr "Selhalo uložení snímku obrazovky"
-
-#: src/views/symbolicpane.ui:443
-msgid "Button"
-msgstr "Normální tlačítko"
-
-#: src/views/symbolicpane.ui:465
-msgid "Insensitive"
-msgstr "Nepřístupné tlačítko"
-
-#: src/views/symbolicpane.ui:486
-msgid "Suggested"
-msgstr "Výchozí tlačítko"
-
-#: src/views/symbolicpane.ui:510
-msgid "Destructive"
-msgstr "Destruktivní tlačítko"
-
-#: src/views/symbolic.vala:58
-msgid "Rename"
-msgstr "Přejmenovat"
-
-#: src/views/symbolic.vala:74
-msgid ""
-"The icon is not recoloring because the file name needs to end in “-symbolic”"
-msgstr ""
-"Ikona není přebarvená, protože název souboru má správně končit „-symbolic“."
-
-#: src/window.ui:39
-msgid "Make a new GNOME Icon"
-msgstr "Vytvořit novou ikonu do GNOME"
-
-#: src/window.ui:79 src/wizard.vala:39
-msgid "New App Icon"
-msgstr "Nová ikona aplikace"
-
-#: src/window.ui:94 src/wizard.vala:35
-msgid "New Symbolic Icon"
-msgstr "Nová symbolická ikona"
-
-#: src/window.ui:115
-msgid "An application’s identity"
-msgstr "Představuje totožnost aplikace"
-
-#: src/window.ui:130
-msgid "For actions, status and other things needed in apps"
-msgstr "Pro činnosti, stavy a další věci potřebné v aplikacích"
-
-#: src/window.ui:162
-msgid "Open"
-msgstr "Otevřít"
-
-#: src/window.ui:166
-msgid "Open an icon"
-msgstr "Otevřít ikonu"
-
-#: src/window.ui:180
-msgid "Recent"
-msgstr "Nedávné"
-
-#: src/window.ui:208
-msgid "Menu"
-msgstr "Nabídka"
-
-#: src/window.ui:231
-msgid "Export"
-msgstr "Export"
-
-#: src/window.vala:144
-msgid "This file is defective"
-msgstr "Tento soubor je poškozený"
-
-#: src/window.vala:145
-msgid ""
-"Please start from a template to ensure that your file will work as a GNOME "
-"icon"
-msgstr ""
-"Vyjděte prosím ze šablony, aby bylo zaručeno, že soubor bude funkční jako "
-"ikona GNOME."
-
-#: src/window.vala:188
-msgid "Select Icon"
-msgstr "Výběr ikony"
-
-#: src/window.vala:188
-msgid "_Open"
-msgstr "_Otevřít"
-
-#: src/window.vala:191
-msgid "Icons"
-msgstr "Ikony"
-
-#: src/window.vala:256
-msgid "Save"
-msgstr "Uložení"
-
-#: src/window.vala:263
-msgid "Icon"
-msgstr "Ikona"
-
-#: src/window.vala:269
-msgid "SVG"
-msgstr "SVG"
-
-#: src/window.vala:279
-msgid "Failed to save exported file"
-msgstr "Selhalo uložení exportovaného souboru"
-
-#: src/wizard.ui:56
-msgid "Icon Location"
-msgstr "Umístění ikony"
-
-#: src/wizard.ui:77
-msgid "Save Icon"
-msgstr "Uložení ikony"
-
-#: src/wizard.ui:92
-msgid "label"
-msgstr ""
-
-#: src/wizard.ui:108
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Soubor SVG s ikonou bude uložen v této složce"
-
-#: src/wizard.ui:157
-msgid "_Cancel"
-msgstr "_Zrušit"
-
-#: src/wizard.ui:163
-msgid "_Create"
-msgstr "_Vytvořit"
-
-#: src/wizard.vala:36
-msgid "Icon Name"
-msgstr "Název ikony"
-
-#: src/wizard.vala:37
-msgid "All lowercase with dashes between words, e.g. list-add"
-msgstr "Všechna malá písmena bez diakritiky a pomlčky, například list-add"
-
-#: src/wizard.vala:40
+#: data/resources/ui/new_project.ui:45
 msgid "App Name"
 msgstr "Název aplikace"
 
-#. Hmm
-#: src/wizard.vala:42
+#: data/resources/ui/new_project.ui:57
+msgid "Icon Location"
+msgstr "Umístění ikony"
+
+#: data/resources/ui/new_project.ui:80
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Název v podobě reverzní notace domény, například org.inkscape.Inkscape"
 
-#: src/wizard.vala:49
-msgid "Expecting at least one “-”"
-msgstr "Je očekávána nejméně jedna „-“"
+#: data/resources/ui/new_project.ui:96
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Soubor SVG s ikonou bude uložen v této složce"
 
-#: src/wizard.vala:52
-msgid "Expecting at least one “.”"
-msgstr "Je očekávána nejméně jedna „.“"
+#: data/resources/ui/new_project.ui:114
+msgid "~/Projects"
+msgstr "~/Projekty"
+
+#: data/resources/ui/new_project.ui:124
+msgid "Browse…"
+msgstr "Procházet…"
+
+#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
+#: src/project.rs:100
+msgid "_Cancel"
+msgstr "_Zrušit"
+
+#: data/resources/ui/new_project.ui:189
+msgid "_Create"
+msgstr "_Vytvořit"
+
+#: data/resources/ui/screenshot_dialog.ui:50
+msgid "Close"
+msgstr "Zavřít"
+
+#: data/resources/ui/screenshot_dialog.ui:59
+msgid "Save…"
+msgstr "Uložit…"
+
+#: data/resources/ui/screenshot_dialog.ui:77
+msgid "Copy to Clipboard"
+msgstr "Zkopírovat do schránky"
+
+#: data/resources/ui/window.ui.in:23
+msgid "Open"
+msgstr "Otevřít"
+
+#: data/resources/ui/window.ui.in:27
+msgid "Open an icon"
+msgstr "Otevřít ikonu"
+
+#: data/resources/ui/window.ui.in:41
+msgid "Recent"
+msgstr "Nedávné"
+
+#: data/resources/ui/window.ui.in:69
+msgid "Menu"
+msgstr "Nabídka"
+
+#: data/resources/ui/window.ui.in:85 src/project.rs:97
+msgid "Export"
+msgstr "Export"
+
+#: data/resources/ui/window.ui.in:118
+msgid "Make a new App Icon"
+msgstr "Vytvořit novou ikonu aplikace"
+
+#: data/resources/ui/window.ui.in:273
+msgid "New App Icon"
+msgstr "Nová ikona aplikace"
+
+#: src/widgets/new_project.rs:50
+msgid "Select"
+msgstr "Vybrat"
+
+#: src/widgets/new_project.rs:51
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: src/widgets/screenshot_dialog.rs:40
+msgid "Save Screenshot"
+msgstr "Uložení snímku obrazovky"
+
+#: src/widgets/screenshot_dialog.rs:43 src/project.rs:100
+msgid "_Save"
+msgstr "_Uložit"
+
+#: src/widgets/screenshot_dialog.rs:46
+msgid "Preview"
+msgstr "Náhled"
+
+#: src/widgets/screenshot_dialog.rs:61
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:67
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:228
+msgid "Open File"
+msgstr "Otevření souboru"
+
+#: src/widgets/window.rs:233
+msgid "SVG images"
+msgstr "Obrázky SVG"
+
+#: src/project.rs:106
+msgid "SVG"
+msgstr "SVG"
