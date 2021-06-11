@@ -7,7 +7,7 @@ use std::iter::FromIterator;
 use std::path::PathBuf;
 
 pub struct NewProjectDialog {
-    pub widget: libhandy::Dialog,
+    pub widget: gtk::Dialog,
     builder: gtk::Builder,
     sender: glib::Sender<Action>,
 }
@@ -15,7 +15,7 @@ pub struct NewProjectDialog {
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
         let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/new_project.ui");
-        get_widget!(builder, libhandy::Dialog, dialog);
+        get_widget!(builder, gtk::Dialog, dialog);
 
         let new_project = Self { widget: dialog, builder, sender };
         new_project.init();

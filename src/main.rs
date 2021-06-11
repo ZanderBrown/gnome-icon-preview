@@ -35,7 +35,6 @@ fn main() {
     glib::set_prgname(Some("app-icon-preview"));
 
     gtk::init().expect("Unable to start GTK3");
-    libhandy::Column::new();
 
     static_resources::init().expect("Failed to initialize the resource file.");
 

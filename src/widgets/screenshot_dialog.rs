@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use std::rc::Rc;
 
 pub struct ScreenshotDialog {
-    pub widget: libhandy::Dialog,
+    pub widget: gtk::Dialog,
     builder: gtk::Builder,
     actions: gio::SimpleActionGroup,
     pixbuf: gdk_pixbuf::Pixbuf,
@@ -14,7 +14,7 @@ pub struct ScreenshotDialog {
 impl ScreenshotDialog {
     pub fn new(pixbuf: gdk_pixbuf::Pixbuf) -> Rc<Self> {
         let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/screenshot_dialog.ui");
-        get_widget!(builder, libhandy::Dialog, screenshot_dialog);
+        get_widget!(builder, gtk::Dialog, screenshot_dialog);
 
         let previewer = Rc::new(Self {
             widget: screenshot_dialog,
