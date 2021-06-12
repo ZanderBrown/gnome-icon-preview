@@ -3,7 +3,7 @@ include:
     file: "flatpak/flatpak_ci_initiative.yml"
 
 flatpak:
-  image: "registry.gitlab.gnome.org/gnome/gnome-runtime-images/rust_bundle:3.36"
+  image: "registry.gitlab.gnome.org/gnome/gnome-runtime-images/rust_bundle:master"
   variables:
     BUNDLE: "app-icon-preview-nightly.flatpak"
     MANIFEST_PATH: "build-aux/org.gnome.design.AppIconPreviewDevel.json"
