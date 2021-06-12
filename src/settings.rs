@@ -6,8 +6,6 @@ use gio::prelude::*;
 pub enum Key {
     WindowWidth,
     WindowHeight,
-    WindowX,
-    WindowY,
     IsMaximized,
 }
 

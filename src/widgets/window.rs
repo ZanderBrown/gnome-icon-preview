@@ -266,20 +266,15 @@ impl Window {
         if width > -1 && height > -1 {
             self.widget.resize(width, height);
         }
-        let x = SettingsManager::get_integer(Key::WindowX);
-        let y = SettingsManager::get_integer(Key::WindowY);
         let is_maximized = SettingsManager::get_boolean(Key::IsMaximized);
 
-        if x > -1 && y > -1 {
-            self.widget.move_(x, y);
-        } else if is_maximized {
+        if is_maximized {
             self.widget.maximize();
         }
 
         // save window state on delete event
         self.widget.connect_delete_event(move |window, _| {
             let size = window.get_size();
-            let position = window.get_position();
 
             SettingsManager::set_integer(Key::WindowWidth, size.0);
             SettingsManager::set_integer(Key::WindowHeight, size.1);
