@@ -94,7 +94,9 @@ resources = gnome.compile_resources(
   'resources.gresource.xml',
   gresource_bundle: true,
   source_dir: meson.current_build_dir(),
-  dependencies: ui_dependencies
+  dependencies: ui_dependencies,
+  install: true,
+  install_dir: pkgdatadir
 )
 
 

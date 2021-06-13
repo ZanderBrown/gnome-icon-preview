@@ -6,7 +6,7 @@ extern crate gtk_macros;
 extern crate serde_derive;
 
 use gettextrs::*;
-use gtk::glib;
+use gtk::{gio, glib};
 
 mod application;
 mod common;
@@ -14,7 +14,6 @@ mod config;
 mod object_wrapper;
 mod project;
 mod settings;
-mod static_resources;
 mod widgets;
 
 use application::Application;
@@ -32,7 +31,8 @@ fn main() {
 
     gtk::init().expect("Unable to start GTK 4");
 
-    static_resources::init().expect("Failed to initialize the resource file.");
+    let res = gio::Resource::load(config::PKGDATADIR.to_owned() + "/resources.gresource").expect("Failed to initialize the resource file.");
+    gio::resources_register(&res);
 
     Application::run();
 }
