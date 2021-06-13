@@ -2,149 +2,156 @@ use crate::config;
 use crate::project::Project;
 use crate::widgets::Window;
 
-use std::cell::RefCell;
-use std::collections::HashMap;
 use std::rc::Rc;
 
 use gtk::glib::{clone, Receiver, Sender};
-use gtk::{gdk, gio, glib, prelude::*};
+use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
 
 pub enum Action {
     OpenProject(Rc<Project>),
     NewProject(gio::File),
 }
 
-pub struct Application {
-    app: gtk::Application,
-    windows: Rc<RefCell<HashMap<gtk::Window, Rc<Window>>>>,
-    sender: Sender<Action>,
-    receiver: RefCell<Option<Receiver<Action>>>,
+mod imp {
+    use super::*;
+
+    use std::cell::RefCell;
+
+    pub struct Application {
+        pub windows: gtk::WindowGroup,
+        pub sender: Sender<Action>,
+        pub receiver: RefCell<Option<Receiver<Action>>>,
+    }
+
+    #[glib::object_subclass]
+    impl ObjectSubclass for Application {
+        const NAME: &'static str = "Application";
+        type ParentType = gtk::Application;
+        type Type = super::Application;
+
+        fn new() -> Self {
+            let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
+            let receiver = RefCell::new(Some(r));
+
+            Self {
+                windows: gtk::WindowGroup::new(),
+                sender,
+                receiver,
+            }
+        }
+    }
+    impl ObjectImpl for Application {}
+    impl GtkApplicationImpl for Application {
+        fn window_removed(&self, application: &Self::Type, window: &gtk::Window) {
+            self.parent_window_removed(application, window);
+            self.windows.remove_window(window);
+        }
+    }
+    impl ApplicationImpl for Application {
+        fn startup(&self, application: &Self::Type) {
+            self.parent_startup(application);
+
+            adw::init();
+
+            // setup css
+            let p = gtk::CssProvider::new();
+            gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
+            if let Some(display) = gdk::Display::default() {
+                gtk::StyleContext::add_provider_for_display(&display, &p, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
+                let theme = gtk::IconTheme::for_display(&display).unwrap();
+                theme.add_resource_path("/org/gnome/design/IconLibrary/icons/");
+            }
+
+            action!(
+                application,
+                "new-window",
+                clone!(@weak application => move |_, _| {
+                    let window = application.create_window();
+                    window.present();
+                })
+            );
+
+            action!(
+                application,
+                "quit",
+                clone!(@weak application => move |_, _| {
+                    application.quit();
+                })
+            );
+        }
+        fn activate(&self, application: &Self::Type) {
+            let window = application.create_window();
+            window.present();
+
+            // Accelerators
+            application.set_accels_for_action("win.open", &["<primary>o"]);
+            application.set_accels_for_action("win.refresh", &["<primary>r"]);
+            application.set_accels_for_action("win.shuffle", &["<primary>s"]);
+            application.set_accels_for_action("win.export", &["<primary>e"]);
+            application.set_accels_for_action("win.screenshot", &["<primary><alt>s"]);
+            application.set_accels_for_action("win.copy-screenshot", &["<primary><alt>c"]);
+            application.set_accels_for_action("win.show-help-overlay", &["<primary>comma"]);
+            application.set_accels_for_action("app.quit", &["<primary>q"]);
+            application.set_accels_for_action("app.new-window", &["<primary>n"]);
+
+            // Setup action channel
+            let receiver = self.receiver.borrow_mut().take().unwrap();
+            receiver.attach(None, clone!(@strong application => move |action| application.do_action(action)));
+        }
+
+        fn open(&self, application: &Self::Type, files: &[gio::File], _hint: &str) {
+            for file in files.iter() {
+                if let Ok(project) = Project::parse(file.clone()) {
+                    let window = application.create_window();
+                    window.set_open_project(project);
+                    window.present();
+                }
+            }
+        }
+    }
+}
+
+glib::wrapper! {
+    pub struct Application(ObjectSubclass<imp::Application>) @extends gio::Application, gtk::Application, gio::ActionMap;
 }
 
 impl Application {
-    pub fn new() -> Rc<Self> {
-        let app = gtk::Application::new(Some(config::APP_ID), gio::ApplicationFlags::HANDLES_OPEN);
-
-        let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
-        let receiver = RefCell::new(Some(r));
-
-        let application = Rc::new(Self {
-            app,
-            windows: Rc::new(RefCell::new(HashMap::new())),
-            sender,
-            receiver,
-        });
-
-        application.setup_signals(application.clone());
-        application.setup_css();
-        application
-    }
-
-    fn get_window(&self) -> Rc<Window> {
-        let gtk_window = self.app.active_window().expect("Failed to get a GtkWindow");
-        self.windows.borrow().get(&gtk_window).expect("Failed to get a Window").clone()
-    }
-
-    fn create_window(&self) -> Rc<Window> {
-        let window = Window::new(self.sender.clone());
-
-        window.widget.set_application(Some(&self.app));
-        self.app.add_window(&window.widget);
-
-        let gtk_window = window.widget.clone();
-
-        // TODO: fix this once we have subclasses
-        self.windows.borrow_mut().insert(gtk_window.upcast::<gtk::Window>(), window.clone());
-        window
-    }
-
-    fn setup_gactions(&self, app: Rc<Self>) {
-        action!(
-            self.app,
-            "new-window",
-            clone!(@weak app => move |_, _| {
-                let window = app.create_window();
-                window.widget.present();
-            })
-        );
-
-        // Quit
-        action!(
-            self.app,
-            "quit",
-            clone!(@weak app => move |_, _| {
-               app.get_window().widget.destroy();
-            })
-        );
-        self.app.set_accels_for_action("win.open", &["<primary>o"]);
-        self.app.set_accels_for_action("win.refresh", &["<primary>r"]);
-        self.app.set_accels_for_action("win.shuffle", &["<primary>s"]);
-        self.app.set_accels_for_action("win.export", &["<primary>e"]);
-        self.app.set_accels_for_action("win.screenshot", &["<primary><alt>s"]);
-        self.app.set_accels_for_action("win.copy-screenshot", &["<primary><alt>c"]);
-        self.app.set_accels_for_action("win.show-help-overlay", &["<primary>comma"]);
-        self.app.set_accels_for_action("app.quit", &["<primary>q"]);
-        self.app.set_accels_for_action("app.new-window", &["<primary>n"]);
-    }
-
-    fn setup_signals(&self, app: Rc<Self>) {
-        self.app.connect_activate(clone!(@weak app => move |_| {
-            app.create_window();
-            app.get_window().widget.present();
-        }));
-
-        self.app.connect_window_removed(clone!(@weak app => move |_, window| {
-            app.windows.borrow_mut().remove(window);
-        }));
-
-        self.app.connect_startup(clone!(@weak app => move |_| {
-            app.setup_gactions(app.clone());
-        }));
-
-        self.app.connect_open(clone!(@weak app => move |_, files, _| {
-            for file in files.iter() {
-                if let Ok(project) = Project::parse(file.clone()) {
-                    let window = app.create_window();
-                    window.set_open_project(project);
-                    window.widget.present();
-                }
-            }
-        }));
-    }
-
-    fn setup_css(&self) {
-        self.app.set_resource_base_path(Some("/org/gnome/design/AppIconPreview/"));
-
-        let p = gtk::CssProvider::new();
-        gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
-        if let Some(screen) = gdk::Display::default() {
-            gtk::StyleContext::add_provider_for_display(&screen, &p, 500);
-        }
-        let theme = gtk::IconTheme::default();
-        theme.add_resource_path("/org/gnome/design/AppIconPreview/icons");
-    }
-
-    fn do_action(&self, action: Action) -> glib::Continue {
-        match action {
-            Action::OpenProject(project) => {
-                self.get_window().set_open_project(project);
-            }
-            Action::NewProject(project_dest) => match Project::from_template(project_dest) {
-                Ok(project) => send!(self.sender, Action::OpenProject(project)),
-                Err(err) => println!("{:#?}", err),
-            },
-        };
-        glib::Continue(true)
-    }
-
-    pub fn run(&self, app: Rc<Self>) {
+    pub fn run() {
         info!("App Icon Preview{} ({})", config::NAME_SUFFIX, config::APP_ID);
         info!("Version: {} ({})", config::VERSION, config::PROFILE);
         info!("Datadir: {}", config::PKGDATADIR);
 
-        let receiver = self.receiver.borrow_mut().take().unwrap();
-        receiver.attach(None, move |action| app.do_action(action));
+        let app = glib::Object::new::<Self>(&[
+            ("application-id", &config::APP_ID),
+            ("flags", &gio::ApplicationFlags::FLAGS_NONE),
+            ("resource-base-path", &Some("/org/gnome/design/AppIconPreview")),
+        ])
+        .unwrap();
 
-        ApplicationExtManual::run(&self.app);
+        ApplicationExtManual::run(&app);
+    }
+
+    fn create_window(&self) -> Window {
+        let self_ = imp::Application::from_instance(self);
+        let window = Window::new(self_.sender.clone(), self);
+
+        self_.windows.add_window(&window);
+        window
+    }
+
+    fn do_action(&self, action: Action) -> glib::Continue {
+        let self_ = imp::Application::from_instance(self);
+
+        match action {
+            Action::OpenProject(project) => {
+                let window = self.active_window().unwrap().downcast::<Window>().unwrap();
+                window.set_open_project(project);
+            }
+            Action::NewProject(project_dest) => match Project::from_template(project_dest) {
+                Ok(project) => send!(self_.sender, Action::OpenProject(project)),
+                Err(err) => log::debug!("{:#?}", err),
+            },
+        };
+        glib::Continue(true)
     }
 }

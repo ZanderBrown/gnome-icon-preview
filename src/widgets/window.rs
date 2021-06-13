@@ -1,17 +1,17 @@
 use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover, ScreenshotDialog};
-use crate::application::Action;
+use crate::application::{Action, Application};
 use crate::config::PROFILE;
 use crate::project::Project;
 use crate::settings::{Key, SettingsManager};
 
 use gettextrs::gettext;
-use std::cell::RefCell;
 use std::rc::Rc;
 
 use gtk::gio::prelude::*;
 use gtk::glib::clone;
 use gtk::prelude::*;
-use gtk::{gio, glib};
+use gtk::subclass::prelude::*;
+use gtk::{gio, glib, CompositeTemplate};
 use gtk_macros::action;
 
 #[derive(Debug, PartialEq)]
@@ -20,54 +20,107 @@ pub enum View {
     Previewer,
 }
 
-pub struct Window {
-    pub widget: gtk::ApplicationWindow,
-    builder: gtk::Builder,
-    sender: glib::Sender<Action>,
-    previewer: ProjectPreviewer,
-    open_project: Rc<RefCell<Option<Rc<Project>>>>,
-    exporter: ExportPopover,
-    monitor: RefCell<Option<gio::FileMonitor>>,
+mod imp {
+    use super::*;
+
+    use once_cell::sync::OnceCell;
+    use std::cell::RefCell;
+
+    use adw::subclass::prelude::AdwApplicationWindowImpl;
+
+    #[derive(CompositeTemplate)]
+    #[template(resource = "/org/gnome/design/AppIconPreview/window.ui")]
+    pub struct Window {
+        pub sender: OnceCell<glib::Sender<Action>>,
+        pub previewer: ProjectPreviewer,
+        pub open_project: Rc<RefCell<Option<Rc<Project>>>>,
+        pub exporter: ExportPopover,
+        pub monitor: RefCell<Option<gio::FileMonitor>>,
+
+        #[template_child]
+        pub content: TemplateChild<gtk::Stack>,
+        #[template_child]
+        pub export_btn: TemplateChild<gtk::MenuButton>,
+        #[template_child]
+        pub open_menu_btn: TemplateChild<gtk::MenuButton>,
+        #[template_child]
+        pub recents_btn: TemplateChild<gtk::MenuButton>,
+    }
+
+    #[glib::object_subclass]
+    impl ObjectSubclass for Window {
+        const NAME: &'static str = "Window";
+        type Type = super::Window;
+        type ParentType = adw::ApplicationWindow;
+
+        fn new() -> Self {
+            Self {
+                sender: OnceCell::new(),
+                previewer: ProjectPreviewer::new(),
+                open_project: Rc::new(RefCell::new(None)),
+                exporter: ExportPopover::new(),
+                monitor: RefCell::new(None),
+
+                content: TemplateChild::default(),
+                export_btn: TemplateChild::default(),
+                open_menu_btn: TemplateChild::default(),
+                recents_btn: TemplateChild::default(),
+            }
+        }
+        fn class_init(klass: &mut Self::Class) {
+            Self::bind_template(klass);
+        }
+        fn instance_init(obj: &gtk::glib::subclass::InitializingObject<Self>) {
+            obj.init_template();
+        }
+    }
+    impl ObjectImpl for Window {}
+    impl WidgetImpl for Window {}
+    impl WindowImpl for Window {}
+    impl ApplicationWindowImpl for Window {}
+    impl AdwApplicationWindowImpl for Window {}
+}
+
+glib::wrapper! {
+    pub struct Window(ObjectSubclass<imp::Window>)
+        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow, gio::ActionMap;
 }
 
 impl Window {
-    pub fn new(sender: glib::Sender<Action>) -> Rc<Self> {
-        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/window.ui");
-        get_widget!(builder, gtk::ApplicationWindow, window);
-        let previewer = ProjectPreviewer::new();
+    pub fn new(sender: glib::Sender<Action>, app: &Application) -> Self {
+        let window = glib::Object::new::<Self>(&[("application", app)]).unwrap();
+        let self_ = imp::Window::from_instance(&window);
+        self_.sender.set(sender);
+        app.add_window(&window);
 
-        let window_widget = Rc::new(Window {
-            widget: window,
-            builder,
-            sender,
-            previewer,
-            exporter: ExportPopover::new(),
-            open_project: Rc::new(RefCell::new(None)),
-            monitor: RefCell::new(None),
-        });
+        if PROFILE == "Devel" {
+            window.add_css_class("devel");
+        }
 
-        window_widget.init();
-        window_widget.setup_widgets();
-        window_widget.setup_actions();
-        window_widget.set_view(View::Initial);
-        window_widget
+        window.init();
+        window.setup_widgets();
+        window.setup_actions();
+        window.set_view(View::Initial);
+        window
     }
 
     pub fn set_open_project(&self, project: Rc<Project>) {
+        let self_ = imp::Window::from_instance(self);
+
         self.set_view(View::Previewer);
-        self.previewer.preview(&project);
-        self.exporter.set_project(&project);
+        self_.previewer.preview(&project);
+        self_.exporter.set_project(&project);
 
         let recent_manager = gtk::RecentManager::default();
         recent_manager.add_item(&project.uri());
 
         let monitor = project.file.monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
 
-        self.monitor.borrow_mut().replace(monitor);
-        self.open_project.borrow_mut().replace(project);
+        self_.monitor.borrow_mut().replace(monitor);
+        self_.open_project.borrow_mut().replace(project);
 
-        self.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong self.open_project as project,
-        @strong self.exporter as exporter, @strong self.previewer as previewer  => move |monitor, _, _, event| {
+        self_.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong self_.open_project as project,
+        @strong self_.exporter as exporter, @strong self_.previewer as previewer  => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
                 let file = project.borrow().as_ref().unwrap().file.clone();
                 match Project::parse(file) {
@@ -83,65 +136,63 @@ impl Window {
     }
 
     pub fn set_view(&self, view: View) {
-        get_widget!(self.builder, gtk::Stack, content);
-        get_widget!(self.builder, gtk::MenuButton, export_btn);
+        let self_ = imp::Window::from_instance(self);
 
-        get_action!(self.widget, @shuffle).set_enabled(view == View::Previewer);
-        get_action!(self.widget, @refresh).set_enabled(view == View::Previewer);
-        get_action!(self.widget, @screenshot).set_enabled(view == View::Previewer);
+        get_action!(self, @shuffle).set_enabled(view == View::Previewer);
+        get_action!(self, @refresh).set_enabled(view == View::Previewer);
+        get_action!(self, @screenshot).set_enabled(view == View::Previewer);
 
         match view {
             View::Previewer => {
-                content.set_visible_child_name("previewer");
-                export_btn.show();
+                self_.content.set_visible_child_name("previewer");
+                self_.export_btn.show();
             }
             View::Initial => {
-                export_btn.hide();
+                self_.export_btn.hide();
             }
         };
     }
 
     fn setup_widgets(&self) {
-        get_widget!(self.builder, gtk::MenuButton, open_menu_btn);
+        let self_ = imp::Window::from_instance(self);
 
         let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/help-overlay.ui");
         get_widget!(builder, gtk::ShortcutsWindow, help_overlay);
-        self.widget.set_help_overlay(Some(&help_overlay));
+        self.set_help_overlay(Some(&help_overlay));
 
         let menu_builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/menus.ui");
-        get_widget!(menu_builder, gtk::PopoverMenu, popover_menu);
-        open_menu_btn.set_popover(Some(&popover_menu));
+        get_widget!(menu_builder, gio::MenuModel, popover_menu);
+        self_.open_menu_btn.set_menu_model(Some(&popover_menu));
 
-        get_widget!(self.builder, gtk::Stack, content);
-        content.add_named(&self.previewer.widget, Some("previewer"));
+        self_.content.add_named(&self_.previewer.widget, Some("previewer"));
 
         // Recents Popover
-        get_widget!(self.builder, gtk::MenuButton, recents_btn);
-        let recents_popover = RecentsPopover::new(self.sender.clone());
-        recents_btn.set_popover(Some(&recents_popover.widget));
+        let recents_popover = RecentsPopover::new(self_.sender.get().unwrap().clone());
+        self_.recents_btn.set_popover(Some(&recents_popover.widget));
 
-        // Export Popover
-        get_widget!(self.builder, gtk::MenuButton, export_btn);
         // TODO
-        // self.exporter.widget.set_relative_to(Some(&export_btn));
-        export_btn.set_popover(Some(&self.exporter.widget));
+        // self_.exporter.widget.set_relative_to(Some(&export_btn));
+        self_.export_btn.set_popover(Some(&self_.exporter.widget));
     }
 
     fn setup_actions(&self) {
+        let self_ = imp::Window::from_instance(self);
+        let sender = self_.sender.get().unwrap().clone();
+
         // Export icon
         action!(
-            self.widget,
+            self,
             "export",
-            clone!(@strong self.exporter as exporter => move |_, _| {
+            clone!(@strong self_.exporter as exporter => move |_, _| {
                 exporter.widget.popup();
             })
         );
 
         action!(
-            self.widget,
+            self,
             "export-save",
             Some(&glib::VariantTy::new("s").unwrap()),
-            clone!(@weak self.open_project as project, @weak self.widget as parent => move |_, target| {
+            clone!(@weak self_.open_project as project, @weak self as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();
                     if project.export(&project_type, &parent.upcast::<gtk::Window>()).is_err() {
@@ -153,9 +204,9 @@ impl Window {
 
         // New Project
         action!(
-            self.widget,
+            self,
             "new-project",
-            clone!(@weak self.widget as window, @strong self.sender as sender => move |_, _| {
+            clone!(@weak self as window, @strong sender => move |_, _| {
                 let dialog = NewProjectDialog::new(sender.clone());
                 dialog.widget.set_transient_for(Some(&window));
                 dialog.widget.show();
@@ -164,10 +215,10 @@ impl Window {
 
         // Refresh
         action!(
-            self.widget,
+            self,
             "refresh",
-            clone!(@strong self.sender as sender, @weak self.open_project as project,
-            @strong self.exporter as exporter, @strong self.previewer as previewer => move |_, _| {
+            clone!(@strong sender, @weak self_.open_project as project,
+            @strong self_.exporter as exporter, @strong self_.previewer as previewer => move |_, _| {
                 if let Some(project) = project.borrow().as_ref() {
                    match Project::parse(project.file.clone()) {
                         Ok(project) => {
@@ -182,18 +233,18 @@ impl Window {
 
         // Shuffle sample icons
         action!(
-            self.widget,
+            self,
             "shuffle",
-            clone!(@strong self.previewer as previewer => move |_, _| {
+            clone!(@strong self_.previewer as previewer => move |_, _| {
                 previewer.shuffle_samples();
             })
         );
 
         // Screenshot
         action!(
-            self.widget,
+            self,
             "screenshot",
-            clone!(@weak self.widget as window, @strong self.previewer as previewer => move |_, _| {
+            clone!(@weak self as window, @strong self_.previewer as previewer => move |_, _| {
                 // TODO
                 // if let Some(pixbuf) = previewer.screenshot() {
                 //     let dialog = ScreenshotDialog::new(pixbuf);
@@ -204,9 +255,9 @@ impl Window {
 
         // Screenshot
         action!(
-            self.widget,
+            self,
             "copy-screenshot",
-            clone!(@strong self.previewer as previewer => move |_, _| {
+            clone!(@strong self_.previewer as previewer => move |_, _| {
                 // TODO
                 // if let Some(pixbuf) = previewer.screenshot() {
                 //     let dialog = ScreenshotDialog::new(pixbuf);
@@ -217,9 +268,9 @@ impl Window {
 
         // About
         action!(
-            self.widget,
+            self,
             "about",
-            clone!(@weak self.widget as window => move |_, _| {
+            clone!(@weak self as window => move |_, _| {
                 let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/about_dialog.ui");
                 get_widget!(builder, gtk::AboutDialog, about_dialog);
                 about_dialog.set_transient_for(Some(&window));
@@ -230,9 +281,9 @@ impl Window {
         );
         // Open file
         action!(
-            self.widget,
+            self,
             "open",
-            clone!(@weak self.widget as window, @strong self.sender as sender => move |_, _| {
+            clone!(@weak self as window, @strong sender => move |_, _| {
                 let file_chooser = gtk::FileChooserNative::new(Some(&gettext("Open File")),
                                         Some(&window), gtk::FileChooserAction::Open,
                                         None, None);
@@ -251,33 +302,28 @@ impl Window {
                                 Err(err) => warn!("Failed to open file {}", err),
                             }
                         }
-                }
-                }));
-                file_chooser.destroy();
+                    file_chooser.destroy();
+                }}));
+                file_chooser.show()
             })
         );
     }
 
     fn init(&self) {
-        // Devel Profile
-        if PROFILE == "Devel" {
-            self.widget.add_css_class("devel");
-        }
-
         // load latest window state
         let width = SettingsManager::get_integer(Key::WindowWidth);
         let height = SettingsManager::get_integer(Key::WindowHeight);
         if width > -1 && height > -1 {
-            self.widget.set_default_size(width, height);
+            self.set_default_size(width, height);
         }
         let is_maximized = SettingsManager::get_boolean(Key::IsMaximized);
 
         if is_maximized {
-            self.widget.maximize();
+            self.maximize();
         }
 
         // Save window state on close request
-        self.widget.connect_close_request(move |window| {
+        self.connect_close_request(move |window| {
             let size = window.default_size();
 
             SettingsManager::set_integer(Key::WindowWidth, size.0);
