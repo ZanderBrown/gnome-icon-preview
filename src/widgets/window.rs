@@ -76,7 +76,19 @@ mod imp {
     }
     impl ObjectImpl for Window {}
     impl WidgetImpl for Window {}
-    impl WindowImpl for Window {}
+    impl WindowImpl for Window {
+        fn close_request(&self, window: &Self::Type) -> glib::signal::Inhibit {
+            log::debug!("Saving window geometry.");
+
+            let (width, height) = window.default_size();
+
+            SettingsManager::set_integer(Key::WindowWidth, width);
+            SettingsManager::set_integer(Key::WindowHeight, height);
+            SettingsManager::set_boolean(Key::IsMaximized, window.is_maximized());
+
+            self.parent_close_request(window)
+        }
+    }
     impl ApplicationWindowImpl for Window {}
     impl AdwApplicationWindowImpl for Window {}
 }
@@ -321,16 +333,5 @@ impl Window {
         if is_maximized {
             self.maximize();
         }
-
-        // Save window state on close request
-        self.connect_close_request(move |window| {
-            let size = window.default_size();
-
-            SettingsManager::set_integer(Key::WindowWidth, size.0);
-            SettingsManager::set_integer(Key::WindowHeight, size.1);
-            SettingsManager::set_boolean(Key::IsMaximized, window.is_maximized());
-
-            gtk::Inhibit(false)
-        });
     }
 }
