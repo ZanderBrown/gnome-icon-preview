@@ -1,9 +1,13 @@
 use super::colour_pane::{ColourPane, PaneStyle};
 use crate::project::Project;
-use gdk::prelude::*;
+
 use gettextrs::gettext;
-use gtk::prelude::*;
 use rand::seq::SliceRandom;
+
+use cairo;
+use gtk::prelude::*;
+use gtk::{gdk, gio, pango};
+use pangocairo;
 // A struct that represents a widget to render a Project
 //
 #[derive(Clone)]
@@ -111,7 +115,7 @@ impl ProjectPreviewer {
             .choose_multiple(&mut rng, 6)
             .map(|sample_name| {
                 let resource_uri = format!("resource://org/gnome/design/AppIconPreview/icons/{}", sample_name);
-                gio::File::new_for_uri(&resource_uri)
+                gio::File::for_uri(&resource_uri)
             })
             .collect::<Vec<gio::File>>();
 
@@ -120,10 +124,10 @@ impl ProjectPreviewer {
     }
 
     fn init(&self) {
-        self.widget.pack_start(&self.light_panel.widget, true, true, 0);
-        self.widget.pack_start(&self.dark_panel.widget, true, true, 0);
+        self.widget.prepend(&self.light_panel.widget);
+        self.widget.prepend(&self.dark_panel.widget);
 
-        self.widget.get_style_context().add_class("previewer");
+        self.widget.add_css_class("previewer");
         self.shuffle_samples();
     }
 }

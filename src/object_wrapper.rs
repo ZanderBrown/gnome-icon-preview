@@ -5,42 +5,27 @@
 // https://github.com/gtk-rs/examples/blob/master/src/bin/listbox_model.rs
 // Source https://gitlab.gnome.org/World/Shortwave/blob/master/src/model/object_wrapper.rs
 
-use gtk::prelude::*;
 use serde::de::DeserializeOwned;
 
-use glib::subclass;
-use glib::subclass::prelude::*;
-use glib::translate::*;
+use gtk::glib;
+use gtk::glib::subclass::prelude::*;
+use gtk::prelude::*;
 
 mod imp {
     use super::*;
+
+    use once_cell::sync::Lazy;
     use std::cell::RefCell;
 
     pub struct ObjectWrapper {
         data: RefCell<Option<String>>,
     }
 
-    static PROPERTIES: [subclass::Property; 1] = [subclass::Property("data", |name| {
-        glib::ParamSpec::string(
-            name,
-            "Data",
-            "Data",
-            None, // Default value
-            glib::ParamFlags::READWRITE,
-        )
-    })];
-
+    #[glib::object_subclass]
     impl ObjectSubclass for ObjectWrapper {
         const NAME: &'static str = "ObjectWrapper";
         type ParentType = glib::Object;
-        type Instance = subclass::simple::InstanceStruct<Self>;
-        type Class = subclass::simple::ClassStruct<Self>;
-
-        glib_object_subclass!();
-
-        fn class_init(klass: &mut Self::Class) {
-            klass.install_properties(&PROPERTIES);
-        }
+        type Type = super::ObjectWrapper;
 
         fn new() -> Self {
             Self { data: RefCell::new(None) }
@@ -48,13 +33,14 @@ mod imp {
     }
 
     impl ObjectImpl for ObjectWrapper {
-        glib_object_impl!();
+        fn properties() -> &'static [glib::ParamSpec] {
+            static PROPERTIES: Lazy<Vec<glib::ParamSpec>> = Lazy::new(|| vec![glib::ParamSpec::new_string("data", "Data", "Data", None, glib::ParamFlags::READWRITE)]);
+            PROPERTIES.as_ref()
+        }
 
-        fn set_property(&self, _obj: &glib::Object, id: usize, value: &glib::Value) {
-            let prop = &PROPERTIES[id];
-
-            match *prop {
-                subclass::Property("data", ..) => {
+        fn set_property(&self, _obj: &Self::Type, _id: usize, value: &glib::Value, pspec: &glib::ParamSpec) {
+            match pspec.name() {
+                "data" => {
                     let data = value.get().expect("ObjectWrapper `data` getter");
                     self.data.replace(data);
                 }
@@ -62,23 +48,17 @@ mod imp {
             }
         }
 
-        fn get_property(&self, _obj: &glib::Object, id: usize) -> Result<glib::Value, ()> {
-            let prop = &PROPERTIES[id];
-
-            match *prop {
-                subclass::Property("data", ..) => Ok(self.data.borrow().to_value()),
+        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &glib::ParamSpec) -> glib::Value {
+            match pspec.name() {
+                "data" => self.data.borrow().to_value(),
                 _ => unimplemented!(),
             }
         }
     }
 }
 
-glib_wrapper! {
-    pub struct ObjectWrapper(Object<subclass::simple::InstanceStruct<imp::ObjectWrapper>, subclass::simple::ClassStruct<imp::ObjectWrapper>, ObjectWrapperClass>);
-
-    match fn {
-        get_type => || imp::ObjectWrapper::get_type().to_glib(),
-    }
+glib::wrapper! {
+    pub struct ObjectWrapper(ObjectSubclass<imp::ObjectWrapper>);
 }
 
 impl ObjectWrapper {
@@ -86,17 +66,14 @@ impl ObjectWrapper {
     where
         O: serde::ser::Serialize,
     {
-        glib::Object::new(Self::static_type(), &[("data", &serde_json::to_string(&object).unwrap())])
-            .unwrap()
-            .downcast()
-            .unwrap()
+        glib::Object::new(&[("data", &serde_json::to_string(&object).unwrap())]).unwrap()
     }
 
     pub fn deserialize<O>(&self) -> O
     where
         O: DeserializeOwned,
     {
-        let data = self.get_property("data").unwrap().get::<String>().unwrap();
-        serde_json::from_str(&data.expect("`data` property")).unwrap()
+        let data = self.property("data").unwrap().get::<String>().unwrap();
+        serde_json::from_str(&data).unwrap()
     }
 }

@@ -1,9 +1,13 @@
 use super::common;
+
 use gettextrs::gettext;
-use gio::prelude::FileExt;
-use gtk::prelude::*;
 use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
 use std::rc::Rc;
+
+use gtk::gio::prelude::*;
+use gtk::glib::clone;
+use gtk::prelude::*;
+use gtk::{gio, glib};
 
 #[derive(PartialEq, Debug, Clone)]
 pub enum ProjectType {
@@ -19,9 +23,9 @@ pub struct Project {
 
 impl Project {
     pub fn from_template(dest: gio::File) -> anyhow::Result<Rc<Self>> {
-        let template = gio::File::new_for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
+        let template = gio::File::for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
         // Creates the parent directory tree if it does not already exist
-        dest.get_parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
+        dest.parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
 
         template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
         Project::parse(dest)
@@ -56,19 +60,19 @@ impl Project {
     }
 
     pub fn name(&self) -> String {
-        let filename = self.file.get_basename().unwrap();
+        let filename = self.file.basename().unwrap();
         let filename = filename.to_str().unwrap().trim_end_matches(".svg").trim_end_matches(".Source");
         filename.to_string()
     }
 
     pub fn uri(&self) -> String {
-        self.file.get_uri().to_string()
+        self.file.uri().to_string()
     }
 
     #[allow(dead_code)]
     pub fn open(&self) {
-        let uri = self.file.get_uri();
-        gtk::idle_add(move || {
+        let uri = self.file.uri();
+        glib::idle_add(move || {
             if let Err(err) = gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>) {
                 error!("Failed to open the project in Inkscape {}", err);
             }
@@ -107,7 +111,7 @@ impl Project {
 
         dialog.connect_response(clone!(@strong gicon, @strong dialog => move |_, response| {
             if response == gtk::ResponseType::Accept {
-                let dest = dialog.get_file().unwrap();
+                let dest = dialog.file().unwrap();
                 if let Some(source) = &gicon {
                     let save = move ||  -> anyhow::Result<()> {
                         let (svg, _) = source.load_contents(gio::NONE_CANCELLABLE)?;
@@ -148,7 +152,7 @@ impl Project {
 
     pub fn get_nightly(&self) -> anyhow::Result<gio::File> {
         let dest_path = common::create_tmp(&format!("#nightly-{}-{}", 128.0, self.name()))?;
-        let dest = gio::File::new_for_path(&dest_path);
+        let dest = gio::File::for_path(&dest_path);
 
         let (_, hicolor) = self.get_hicolor(Some(dest_path))?;
 
@@ -162,17 +166,17 @@ mod tests {
     use super::{Project, ProjectType};
     #[test]
     fn parsing() {
-        let project = Project::parse(gio::File::new_for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
+        let project = Project::parse(gio::File::for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Icon);
         assert_eq!(project.get_symbolic().is_err(), false);
         assert_ne!(project.get_hicolor(None).is_err(), false);
 
-        let project = Project::parse(gio::File::new_for_path("./tests/com.belmoussaoui.ReadItLater.Source.svg")).unwrap();
+        let project = Project::parse(gio::File::for_path("./tests/com.belmoussaoui.ReadItLater.Source.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Icon);
         assert_eq!(project.get_symbolic().is_err(), false);
         assert_ne!(project.get_hicolor(None).is_err(), false);
 
-        let project = Project::parse(gio::File::new_for_path("./tests/org.gnome.design.BannerViewer.svg")).unwrap();
+        let project = Project::parse(gio::File::for_path("./tests/org.gnome.design.BannerViewer.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Preview);
         assert_eq!(project.get_symbolic().is_err(), false);
         assert_ne!(project.get_hicolor(None).is_err(), false);

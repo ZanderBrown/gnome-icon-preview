@@ -1,15 +1,12 @@
 #[macro_use]
 extern crate log;
 #[macro_use]
-extern crate glib;
-#[macro_use]
 extern crate gtk_macros;
-#[macro_use]
-extern crate strum_macros;
 #[macro_use]
 extern crate serde_derive;
 
 use gettextrs::*;
+use gtk::glib;
 
 mod application;
 mod common;
@@ -32,9 +29,8 @@ fn main() {
     textdomain(GETTEXT_PACKAGE);
 
     glib::set_application_name(&format!("App Icon Preview{}", config::NAME_SUFFIX));
-    glib::set_prgname(Some("app-icon-preview"));
 
-    gtk::init().expect("Unable to start GTK3");
+    gtk::init().expect("Unable to start GTK 4");
 
     static_resources::init().expect("Failed to initialize the resource file.");
 

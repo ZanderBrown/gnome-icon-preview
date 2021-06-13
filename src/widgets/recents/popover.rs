@@ -1,12 +1,11 @@
 use super::item::RecentItemRow;
-use gio::prelude::*;
-use glib::Sender;
-use gtk::prelude::*;
-
 use crate::application::Action;
 use crate::object_wrapper::ObjectWrapper;
 use crate::project::Project;
 use crate::widgets::recents::RecentItem;
+
+use gtk::glib::{clone, Sender};
+use gtk::{gio, glib, prelude::*};
 
 pub struct RecentsPopover {
     pub widget: gtk::Popover,
@@ -17,7 +16,7 @@ pub struct RecentsPopover {
 
 impl RecentsPopover {
     pub fn new(sender: Sender<Action>) -> Self {
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/recents_popover.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/recents_popover.ui");
         get_widget!(builder, gtk::Popover, recents_popover);
 
         let model = gio::ListStore::new(ObjectWrapper::static_type());
@@ -38,42 +37,42 @@ impl RecentsPopover {
             Some(&self.model),
             clone!(@strong self.sender as sender, @strong self.widget as popover => move |item| {
                 let item: RecentItem = item.downcast_ref::<ObjectWrapper>().unwrap().deserialize();
-                let project = Project::parse(gio::File::new_for_uri(&item.uri)).unwrap();
+                let project = Project::parse(gio::File::for_uri(&item.uri)).unwrap();
                 let row = RecentItemRow::new(project.clone());
 
-                row.event_box.connect_button_press_event(clone!(@strong project, @strong sender, @strong popover => move |_, _| {
+                let gesture = gtk::GestureClick::new();
+                gesture.connect_pressed(clone!(@strong project, @strong sender, @weak popover => move |_, _, _, _| {
                     send!(sender, Action::OpenProject(project.clone()));
                     popover.popdown();
-                    gtk::Inhibit(false)
                 }));
+                row.widget.add_controller(&gesture);
                 row.widget.upcast::<gtk::Widget>()
             }),
         );
 
-        if let Some(manager) = gtk::RecentManager::get_default() {
-            let model = self.model.clone();
-            let on_manager_changed = move |manager: &gtk::RecentManager| {
-                manager.get_items().into_iter().for_each(clone!(@strong model => move |item| {
-                    let uri = item.get_uri().unwrap().to_string();
-                    let file = gio::File::new_for_uri(&uri);
-                    let mut exist_already = false;
-                    for i in 0..model.get_n_items() {
-                        let current_item: RecentItem = model.get_object(i).unwrap()
-                                                        .downcast_ref::<ObjectWrapper>().unwrap().deserialize();
-                        if current_item.uri == uri {
-                            exist_already = true;
-                            break;
-                        }
+        let manager = gtk::RecentManager::default();
+        let model = self.model.clone();
+        let on_manager_changed = move |manager: &gtk::RecentManager| {
+            manager.items().into_iter().for_each(clone!(@strong model => move |item| {
+                let uri = item.uri().to_string();
+                let file = gio::File::for_uri(&uri);
+                let mut exist_already = false;
+                for i in 0..model.n_items() {
+                    let current_item: RecentItem = model.item(i).unwrap()
+                                                    .downcast_ref::<ObjectWrapper>().unwrap().deserialize();
+                    if current_item.uri == uri {
+                        exist_already = true;
+                        break;
                     }
-                    if  !exist_already && Project::parse(file).is_ok() {
-                        let object = ObjectWrapper::new(Box::new(RecentItem { uri }));
-                        model.append(&object);
-                    }
-                }));
-            };
+                }
+                if  !exist_already && Project::parse(file).is_ok() {
+                    let object = ObjectWrapper::new(Box::new(RecentItem { uri: uri.to_string() }));
+                    model.append(&object);
+                }
+            }));
+        };
 
-            on_manager_changed(&manager);
-            manager.connect_changed(on_manager_changed);
-        }
+        on_manager_changed(&manager);
+        manager.connect_changed(on_manager_changed);
     }
 }

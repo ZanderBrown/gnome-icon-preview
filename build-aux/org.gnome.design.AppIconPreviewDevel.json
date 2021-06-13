@@ -16,6 +16,7 @@
         "--filesystem=~/.config/dconf:ro",
         "--talk-name=ca.desrt.dconf",
         "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        "--env=RUST_BACKTRACE=1",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
@@ -31,7 +32,46 @@
             "CARGO_HOME" : "/run/build/app-icon-preview/cargo"
         }
     },
-    "modules" : [
+    "modules" : [{
+            "name" : "libadwaita",
+            "buildsystem" : "meson",
+            "config-opts": [
+                "-Dintrospection=disabled",
+                "-Dgtk_doc=false",
+                "-Dtests=false",
+                "-Dexamples=false",
+                "-Dvapi=false"
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/pkgconfig"
+             ],
+            "sources" : [{
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
+                    "branch": "main"
+            }],
+            "modules" : [
+                {
+                    "name" : "libsass",
+                    "buildsystem" : "meson",
+                    "sources" : [{
+                        "type" : "git",
+                        "url" : "https://github.com/lazka/libsass.git",
+                        "branch" : "meson"
+                    }]
+                },
+                {
+                    "name" : "sassc",
+                    "buildsystem" : "meson",
+                    "sources" : [{
+                        "type" : "git",
+                        "url" : "https://github.com/lazka/sassc.git",
+                        "branch" : "meson"
+                    }]
+                }
+            ]
+        },
         {
             "name" : "app-icon-preview",
             "buildsystem" : "meson",

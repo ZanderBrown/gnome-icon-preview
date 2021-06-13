@@ -1,14 +1,13 @@
+use crate::config;
 use crate::project::Project;
-use gio::prelude::*;
-use glib::{Receiver, Sender};
-use gtk::prelude::*;
+use crate::widgets::Window;
+
 use std::cell::RefCell;
 use std::collections::HashMap;
-use std::env;
 use std::rc::Rc;
 
-use crate::config;
-use crate::widgets::Window;
+use gtk::glib::{clone, Receiver, Sender};
+use gtk::{gdk, gio, glib, prelude::*};
 
 pub enum Action {
     OpenProject(Rc<Project>),
@@ -24,7 +23,7 @@ pub struct Application {
 
 impl Application {
     pub fn new() -> Rc<Self> {
-        let app = gtk::Application::new(Some(config::APP_ID), gio::ApplicationFlags::HANDLES_OPEN).unwrap();
+        let app = gtk::Application::new(Some(config::APP_ID), gio::ApplicationFlags::HANDLES_OPEN);
 
         let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
         let receiver = RefCell::new(Some(r));
@@ -42,7 +41,7 @@ impl Application {
     }
 
     fn get_window(&self) -> Rc<Window> {
-        let gtk_window = self.app.get_active_window().expect("Failed to get a GtkWindow");
+        let gtk_window = self.app.active_window().expect("Failed to get a GtkWindow");
         self.windows.borrow().get(&gtk_window).expect("Failed to get a Window").clone()
     }
 
@@ -118,12 +117,11 @@ impl Application {
 
         let p = gtk::CssProvider::new();
         gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
-        if let Some(screen) = gdk::Screen::get_default() {
-            gtk::StyleContext::add_provider_for_screen(&screen, &p, 500);
+        if let Some(screen) = gdk::Display::default() {
+            gtk::StyleContext::add_provider_for_display(&screen, &p, 500);
         }
-        if let Some(theme) = gtk::IconTheme::get_default() {
-            theme.add_resource_path("/org/gnome/design/AppIconPreview/icons");
-        }
+        let theme = gtk::IconTheme::default();
+        theme.add_resource_path("/org/gnome/design/AppIconPreview/icons");
     }
 
     fn do_action(&self, action: Action) -> glib::Continue {
@@ -147,7 +145,6 @@ impl Application {
         let receiver = self.receiver.borrow_mut().take().unwrap();
         receiver.attach(None, move |action| app.do_action(action));
 
-        let args: Vec<String> = env::args().collect();
-        self.app.run(&args);
+        ApplicationExtManual::run(&self.app);
     }
 }

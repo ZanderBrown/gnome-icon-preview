@@ -1,6 +1,6 @@
-use gtk::prelude::*;
-
 use crate::project::Project;
+
+use gtk::{gio, prelude::*};
 
 #[derive(Clone)]
 pub struct ExportPopover {
@@ -10,7 +10,7 @@ pub struct ExportPopover {
 
 impl ExportPopover {
     pub fn new() -> Self {
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/export.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/export.ui");
         get_widget!(builder, gtk::Popover, export_popover);
         Self { builder, widget: export_popover }
     }
@@ -19,7 +19,7 @@ impl ExportPopover {
         match project.get_hicolor(None) {
             Ok((hicolor, _)) => {
                 get_widget!(self.builder, gtk::Image, regular_image);
-                regular_image.set_from_gicon(&gio::FileIcon::new(&hicolor), gtk::IconSize::Dialog);
+                regular_image.set_from_gicon(&gio::FileIcon::new(&hicolor));
                 get_widget!(self.builder, gtk::Box, @regular_box).show();
             }
             Err(_) => get_widget!(self.builder, gtk::Box, @regular_box).hide(),
@@ -28,7 +28,7 @@ impl ExportPopover {
         match project.get_symbolic() {
             Ok((symbolic, _)) => {
                 get_widget!(self.builder, gtk::Image, symbolic_image);
-                symbolic_image.set_from_gicon(&gio::FileIcon::new(&symbolic), gtk::IconSize::Dialog);
+                symbolic_image.set_from_gicon(&gio::FileIcon::new(&symbolic));
                 get_widget!(self.builder, gtk::Box, @symbolic_box).show();
             }
             Err(_) => get_widget!(self.builder, gtk::Box, @symbolic_box).hide(),
@@ -37,7 +37,7 @@ impl ExportPopover {
         match project.get_nightly() {
             Ok(nightly) => {
                 get_widget!(self.builder, gtk::Image, nightly_image);
-                nightly_image.set_from_gicon(&gio::FileIcon::new(&nightly), gtk::IconSize::Dialog);
+                nightly_image.set_from_gicon(&gio::FileIcon::new(&nightly));
                 get_widget!(self.builder, gtk::Box, @nightly_box).show();
             }
             Err(_) => get_widget!(self.builder, gtk::Box, @nightly_box).hide(),

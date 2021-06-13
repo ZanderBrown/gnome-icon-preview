@@ -1,6 +1,7 @@
 use crate::common;
-use gio::prelude::*;
+
 use gtk::prelude::*;
+use gtk::{gio, pango};
 
 #[derive(Clone)]
 pub struct Icon {
@@ -23,25 +24,28 @@ impl Icon {
     }
 
     pub fn set_file(&self, file: &gio::File) {
-        let filename = file.get_basename().unwrap();
+        let filename = file.basename().unwrap();
 
         self.label.set_text(&common::format_name(filename.to_str().unwrap()));
 
         let gicon = gio::FileIcon::new(file);
-        self.image.set_from_gicon(&gicon, gtk::IconSize::Dialog);
+        self.image.set_from_gicon(&gicon);
     }
 
     fn init(&self) {
         self.widget.set_valign(gtk::Align::Center);
-        self.widget.set_property_margin(15);
+        self.widget.set_margin_start(15);
+        self.widget.set_margin_end(15);
+        self.widget.set_margin_top(15);
+        self.widget.set_margin_bottom(15);
 
         self.image.set_pixel_size(self.size);
-        self.image.get_style_context().add_class("icon-dropshadow");
+        self.image.add_css_class("icon-dropshadow");
 
         self.label.set_ellipsize(pango::EllipsizeMode::End);
         self.label.set_max_width_chars(30);
 
-        self.widget.pack_start(&self.image, false, false, 0);
-        self.widget.pack_end(&self.label, false, false, 0);
+        self.widget.prepend(&self.image);
+        self.widget.append(&self.label);
     }
 }

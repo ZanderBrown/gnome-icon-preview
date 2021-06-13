@@ -1,6 +1,10 @@
 use super::icon::Icon;
-use gtk::prelude::*;
+
 use std::cell::RefCell;
+
+use gtk::gio;
+use gtk::prelude::*;
+use gtk_macros::get_widget;
 
 #[derive(PartialEq, Clone)]
 pub enum PaneStyle {
@@ -19,7 +23,7 @@ pub struct ColourPane {
 
 impl ColourPane {
     pub fn new(style: PaneStyle) -> Self {
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/colourpane.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/colourpane.ui");
         get_widget!(builder, gtk::Box, colour_pane);
 
         let pane = Self {
@@ -46,9 +50,9 @@ impl ColourPane {
         get_widget!(self.builder, gtk::Image, hicolor_64);
         get_widget!(self.builder, gtk::Image, hicolor_32);
 
-        hicolor_128.set_from_gicon(&gicon, gtk::IconSize::Dialog);
-        hicolor_64.set_from_gicon(&gicon, gtk::IconSize::Dialog);
-        hicolor_32.set_from_gicon(&gicon, gtk::IconSize::Dialog);
+        hicolor_128.set_from_gicon(&gicon);
+        hicolor_64.set_from_gicon(&gicon);
+        hicolor_32.set_from_gicon(&gicon);
     }
 
     pub fn set_symbolic(&self, symbolic: Option<&gio::File>) {
@@ -57,7 +61,7 @@ impl ColourPane {
 
         match symbolic {
             Some(symbolic_file) => {
-                symbolic_img.set_from_gicon(&gio::FileIcon::new(symbolic_file), gtk::IconSize::Button);
+                symbolic_img.set_from_gicon(&gio::FileIcon::new(symbolic_file));
                 symbolic_img.show();
                 symbolic_label.show();
             }
@@ -97,17 +101,16 @@ impl ColourPane {
     }
 
     fn init(&self) {
-        let css_provider = match self.style {
+        let css_provider = gtk::CssProvider::new();
+        match self.style {
             PaneStyle::Dark => {
-                self.widget.get_style_context().add_class("dark");
-                gtk::CssProvider::get_named("Adwaita", Some("dark"))
+                self.widget.add_css_class("dark");
+                css_provider.load_named("Adwaita", Some("dark"));
             }
-            PaneStyle::Light => gtk::CssProvider::get_named("Adwaita", None),
+            PaneStyle::Light => css_provider.load_named("Adwaita", None),
         };
-        if let Some(provider) = css_provider {
-            self.widget.get_style_context().add_provider(&provider, 600);
-            get_widget!(self.builder, gtk::Image, @symbolic_img).get_style_context().add_provider(&provider, 600);
-        }
+        self.widget.style_context().add_provider(&css_provider, 600);
+        get_widget!(self.builder, gtk::Image, @symbolic_img).style_context().add_provider(&css_provider, 600);
 
         // Small container is composed of 5 icons, 4 samples & the previewed project
         get_widget!(self.builder, gtk::Box, small);
@@ -115,8 +118,8 @@ impl ColourPane {
         for _ in 0..5 {
             let demo_icon = Icon::new(None, 64);
             small_group.add_widget(&demo_icon.widget);
-            demo_icon.label.get_style_context().add_class("caption");
-            small.add(&demo_icon.widget);
+            demo_icon.label.add_css_class("caption");
+            small.append(&demo_icon.widget);
             self.small_icons.borrow_mut().push(demo_icon);
         }
 
@@ -126,7 +129,7 @@ impl ColourPane {
         for _ in 0..3 {
             let demo_icon = Icon::new(None, 96);
             grid_group.add_widget(&demo_icon.widget);
-            grid.add(&demo_icon.widget);
+            grid.append(&demo_icon.widget);
             self.grid_icons.borrow_mut().push(demo_icon);
         }
     }

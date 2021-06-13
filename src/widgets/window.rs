@@ -5,10 +5,14 @@ use crate::project::Project;
 use crate::settings::{Key, SettingsManager};
 
 use gettextrs::gettext;
-use gio::prelude::*;
-use gtk::prelude::*;
 use std::cell::RefCell;
 use std::rc::Rc;
+
+use gtk::gio::prelude::*;
+use gtk::glib::clone;
+use gtk::prelude::*;
+use gtk::{gio, glib};
+use gtk_macros::action;
 
 #[derive(Debug, PartialEq)]
 pub enum View {
@@ -28,7 +32,7 @@ pub struct Window {
 
 impl Window {
     pub fn new(sender: glib::Sender<Action>) -> Rc<Self> {
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/window.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/window.ui");
         get_widget!(builder, gtk::ApplicationWindow, window);
         let previewer = ProjectPreviewer::new();
 
@@ -54,9 +58,8 @@ impl Window {
         self.previewer.preview(&project);
         self.exporter.set_project(&project);
 
-        if let Some(recent_manager) = gtk::RecentManager::get_default() {
-            recent_manager.add_item(&project.uri());
-        }
+        let recent_manager = gtk::RecentManager::default();
+        recent_manager.add_item(&project.uri());
 
         let monitor = project.file.monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
 
@@ -101,16 +104,16 @@ impl Window {
     fn setup_widgets(&self) {
         get_widget!(self.builder, gtk::MenuButton, open_menu_btn);
 
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/help-overlay.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/help-overlay.ui");
         get_widget!(builder, gtk::ShortcutsWindow, help_overlay);
         self.widget.set_help_overlay(Some(&help_overlay));
 
-        let menu_builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/menus.ui");
+        let menu_builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/menus.ui");
         get_widget!(menu_builder, gtk::PopoverMenu, popover_menu);
         open_menu_btn.set_popover(Some(&popover_menu));
 
         get_widget!(self.builder, gtk::Stack, content);
-        content.add_named(&self.previewer.widget, "previewer");
+        content.add_named(&self.previewer.widget, Some("previewer"));
 
         // Recents Popover
         get_widget!(self.builder, gtk::MenuButton, recents_btn);
@@ -119,10 +122,9 @@ impl Window {
 
         // Export Popover
         get_widget!(self.builder, gtk::MenuButton, export_btn);
-        self.exporter.widget.set_relative_to(Some(&export_btn));
+        // TODO
+        // self.exporter.widget.set_relative_to(Some(&export_btn));
         export_btn.set_popover(Some(&self.exporter.widget));
-
-        self.widget.show_all();
     }
 
     fn setup_actions(&self) {
@@ -141,8 +143,8 @@ impl Window {
             Some(&glib::VariantTy::new("s").unwrap()),
             clone!(@weak self.open_project as project, @weak self.widget as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
-                    let project_type = target.unwrap().get_str().unwrap();
-                    if project.export(project_type, &parent.upcast::<gtk::Window>()).is_err() {
+                    let project_type = target.unwrap().get::<String>().unwrap();
+                    if project.export(&project_type, &parent.upcast::<gtk::Window>()).is_err() {
                         warn!("Failed to export the project");
                     }
                 };
@@ -192,11 +194,11 @@ impl Window {
             self.widget,
             "screenshot",
             clone!(@weak self.widget as window, @strong self.previewer as previewer => move |_, _| {
-                if let Some(pixbuf) = previewer.screenshot() {
-                    let dialog = ScreenshotDialog::new(pixbuf);
-                    dialog.widget.set_transient_for(Some(&window));
-                    dialog.widget.show_all();
-                }
+                // TODO
+                // if let Some(pixbuf) = previewer.screenshot() {
+                //     let dialog = ScreenshotDialog::new(pixbuf);
+                //     dialog.widget.set_transient_for(Some(&window));
+                // }
             })
         );
 
@@ -205,10 +207,11 @@ impl Window {
             self.widget,
             "copy-screenshot",
             clone!(@strong self.previewer as previewer => move |_, _| {
-                if let Some(pixbuf) = previewer.screenshot() {
-                    let dialog = ScreenshotDialog::new(pixbuf);
-                    dialog.copy();
-                }
+                // TODO
+                // if let Some(pixbuf) = previewer.screenshot() {
+                //     let dialog = ScreenshotDialog::new(pixbuf);
+                //     dialog.copy();
+                // }
             })
         );
 
@@ -217,11 +220,10 @@ impl Window {
             self.widget,
             "about",
             clone!(@weak self.widget as window => move |_, _| {
-                let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/about_dialog.ui");
+                let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/about_dialog.ui");
                 get_widget!(builder, gtk::AboutDialog, about_dialog);
                 about_dialog.set_transient_for(Some(&window));
 
-                about_dialog.connect_response(|dialog, _| dialog.destroy());
                 about_dialog.show();
 
             })
@@ -241,14 +243,16 @@ impl Window {
 
                 file_chooser.add_filter(&svg_filter);
 
-                if file_chooser.run() == gtk::ResponseType::Accept {
-                    if let Some(file) = file_chooser.get_file() {
-                        match Project::parse(file) {
-                            Ok(project) => send!(sender, Action::OpenProject(project)),
-                            Err(err) => warn!("Failed to open file {}", err),
+                file_chooser.connect_response(clone!(@strong file_chooser, @strong sender => move |_, response| {
+                    if response == gtk::ResponseType::Accept {
+                        if let Some(file) = file_chooser.file() {
+                            match Project::parse(file) {
+                                Ok(project) => send!(sender, Action::OpenProject(project)),
+                                Err(err) => warn!("Failed to open file {}", err),
+                            }
                         }
-                    }
                 }
+                }));
                 file_chooser.destroy();
             })
         );
@@ -257,14 +261,14 @@ impl Window {
     fn init(&self) {
         // Devel Profile
         if PROFILE == "Devel" {
-            self.widget.get_style_context().add_class("devel");
+            self.widget.add_css_class("devel");
         }
 
         // load latest window state
         let width = SettingsManager::get_integer(Key::WindowWidth);
         let height = SettingsManager::get_integer(Key::WindowHeight);
         if width > -1 && height > -1 {
-            self.widget.resize(width, height);
+            self.widget.set_default_size(width, height);
         }
         let is_maximized = SettingsManager::get_boolean(Key::IsMaximized);
 
@@ -272,17 +276,15 @@ impl Window {
             self.widget.maximize();
         }
 
-        // save window state on delete event
-        self.widget.connect_delete_event(move |window, _| {
-            let size = window.get_size();
+        // Save window state on close request
+        self.widget.connect_close_request(move |window| {
+            let size = window.default_size();
 
             SettingsManager::set_integer(Key::WindowWidth, size.0);
             SettingsManager::set_integer(Key::WindowHeight, size.1);
             SettingsManager::set_boolean(Key::IsMaximized, window.is_maximized());
-            SettingsManager::set_integer(Key::WindowX, position.0);
-            SettingsManager::set_integer(Key::WindowY, position.1);
 
-            Inhibit(false)
+            gtk::Inhibit(false)
         });
     }
 }

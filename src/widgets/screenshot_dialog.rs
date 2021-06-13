@@ -1,8 +1,13 @@
 use gettextrs::gettext;
-use gio::prelude::*;
-use gtk::prelude::*;
 use std::path::PathBuf;
 use std::rc::Rc;
+
+use gdk_pixbuf;
+use gtk::gio::prelude::*;
+use gtk::glib::clone;
+use gtk::prelude::*;
+use gtk::{gdk, gio, glib};
+use gtk_macros::action;
 
 pub struct ScreenshotDialog {
     pub widget: gtk::Dialog,
@@ -13,7 +18,7 @@ pub struct ScreenshotDialog {
 
 impl ScreenshotDialog {
     pub fn new(pixbuf: gdk_pixbuf::Pixbuf) -> Rc<Self> {
-        let builder = gtk::Builder::new_from_resource("/org/gnome/design/AppIconPreview/screenshot_dialog.ui");
+        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/screenshot_dialog.ui");
         get_widget!(builder, gtk::Dialog, screenshot_dialog);
 
         let previewer = Rc::new(Self {
@@ -28,10 +33,11 @@ impl ScreenshotDialog {
     }
 
     pub fn copy(&self) -> Option<()> {
-        let display = gdk::Display::get_default()?;
-        let clipboard = gtk::Clipboard::get_default(&display)?;
+        let display = gdk::Display::default()?;
+        let clipboard = display.clipboard();
 
-        clipboard.set_image(&self.pixbuf);
+        let texture = gdk::Texture::for_pixbuf(&self.pixbuf);
+        clipboard.set_texture(&texture);
         Some(())
     }
 
@@ -46,8 +52,9 @@ impl ScreenshotDialog {
         dialog.set_modal(true);
         dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
 
-        let xdg_pictures_dir = glib::get_user_special_dir(glib::UserDirectory::Pictures).unwrap();
-        dialog.set_current_folder(&xdg_pictures_dir);
+        let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures);
+        let gdir = gio::File::for_path(&xdg_pictures_dir);
+        dialog.set_current_folder(&gdir);
 
         let any_filter = gtk::FileFilter::new();
         any_filter.set_name(Some(&gettext("App Icon Preview")));
@@ -73,12 +80,12 @@ impl ScreenshotDialog {
 
         dialog.connect_response(clone!(@strong self.pixbuf as pixbuf, @strong dialog => move |_, response| {
             if response == gtk::ResponseType::Accept {
-                let filename: PathBuf = dialog.get_filename().unwrap();
+                let filename: PathBuf = dialog.file().unwrap().basename().unwrap();
                 let ext = match filename.extension() {
                     Some(ext) => ext.to_str().unwrap(),
                     None => "png"
                 };
-                let file = dialog.get_file().unwrap();
+                let file = dialog.file().unwrap();
                 let stream = file.replace(None, false,
                                           gio::FileCreateFlags::REPLACE_DESTINATION,
                                           gio::NONE_CANCELLABLE).unwrap();
@@ -91,8 +98,8 @@ impl ScreenshotDialog {
     }
 
     fn init(&self, rc_s: Rc<Self>) {
-        let ratio = self.pixbuf.get_width() / 450;
-        let height = (self.pixbuf.get_height() / ratio) as i32;
+        let ratio = self.pixbuf.width() / 450;
+        let height = (self.pixbuf.height() / ratio) as i32;
         let scaled_pixbuf = self.pixbuf.scale_simple(450, height, gdk_pixbuf::InterpType::Bilinear);
         get_widget!(self.builder, gtk::Image, @preview).set_from_pixbuf(scaled_pixbuf.as_ref());
 

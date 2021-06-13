@@ -1,7 +1,8 @@
-use gio::prelude::FileExt;
-use glib::Cast;
-use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
 use std::path::PathBuf;
+
+use cairo;
+use gtk::{gio, glib, prelude::*};
+use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
 
 pub fn format_name(name: &str) -> String {
     let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
@@ -32,7 +33,7 @@ mod tests {
 }
 
 pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
-    let mut temp_path = glib::get_user_cache_dir().unwrap().join("app-icon-preview");
+    let mut temp_path = glib::user_cache_dir().join("app-icon-preview");
     std::fs::create_dir_all(&temp_path)?;
     temp_path.push(filename);
     Ok(temp_path)
@@ -43,7 +44,7 @@ pub fn render(handle: &Handle, basename: &str, output_size: f64, dest: Option<Pa
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
-    let cr = cairo::Context::new(&surface);
+    let cr = cairo::Context::new(&surface)?;
     let dimensions = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
     handle.render_layer(
         &cr,
@@ -58,7 +59,7 @@ pub fn render(handle: &Handle, basename: &str, output_size: f64, dest: Option<Pa
         false,
     )?;
 
-    Ok((gio::File::new_for_path(dest), surface))
+    Ok((gio::File::for_path(dest), surface))
 }
 
 pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
@@ -79,20 +80,20 @@ pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64,
 
         let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest.clone())).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
-        let cr = cairo::Context::new(&surface);
+        let cr = cairo::Context::new(&surface)?;
 
         cr.scale(output_size / rect.width, output_size / rect.height);
         cr.translate(-rect.x, -rect.y);
 
         handle.render_cairo_sub(&cr, None, Dpi::default(), &SizeCallback::default(), false)?;
 
-        return Ok((gio::File::new_for_path(dest), surface));
+        return Ok((gio::File::for_path(dest), surface));
     }
     anyhow::bail!("failed")
 }
 
 pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
-    let stripes = gio::File::new_for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
+    let stripes = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
     let stream = stripes.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
     let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
 
@@ -100,7 +101,7 @@ pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
 
     let surface = cairo::SvgSurface::new(output_size, output_size, None::<&std::path::Path>).unwrap();
 
-    let context = cairo::Context::new(&surface);
+    let context = cairo::Context::new(&surface)?;
     handle.render_layer(
         &context,
         None,
@@ -117,13 +118,13 @@ pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
 }
 
 pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::Result<()> {
-    let context = cairo::Context::new(&source);
+    let context = cairo::Context::new(&source)?;
 
     let overlay = get_overlay(output_size)?;
     context.set_source_surface(&overlay, 0.0, 0.0);
 
     let mask = source.create_similar(cairo::Content::Alpha, output_size as i32, output_size as i32).unwrap();
-    let cr_mask = cairo::Context::new(&mask);
+    let cr_mask = cairo::Context::new(&mask)?;
     cr_mask.set_source_surface(&source, 0.0, 0.0);
     cr_mask.paint();
     context.mask_surface(&mask, 0.0, 0.0);

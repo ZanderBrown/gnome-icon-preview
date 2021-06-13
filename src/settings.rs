@@ -1,5 +1,9 @@
 use crate::config;
-use gio::prelude::*;
+
+use strum_macros::{Display, EnumString};
+
+use gtk::gio;
+use gtk::gio::prelude::*;
 
 #[derive(Display, Debug, Clone, EnumString, PartialEq)]
 #[strum(serialize_all = "kebab_case")]
@@ -19,7 +23,7 @@ impl SettingsManager {
 
     pub fn get_boolean(key: Key) -> bool {
         let settings = Self::get_settings();
-        settings.get_boolean(&key.to_string())
+        settings.boolean(&key.to_string())
     }
 
     pub fn set_boolean(key: Key, value: bool) {
@@ -31,7 +35,7 @@ impl SettingsManager {
 
     pub fn get_integer(key: Key) -> i32 {
         let settings = Self::get_settings();
-        settings.get_int(&key.to_string())
+        settings.int(&key.to_string())
     }
 
     pub fn set_integer(key: Key, value: i32) {
