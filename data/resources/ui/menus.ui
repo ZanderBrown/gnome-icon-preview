@@ -1,124 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkPopoverMenu" id="popover_menu">
-    <property name="can_focus">False</property>
-    <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="margin">10</property>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">app.new-window</property>
-            <property name="text" translatable="yes">_New Window</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkSeparator">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">win.refresh</property>
-            <property name="text" translatable="yes">Reload</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">win.screenshot</property>
-            <property name="text" translatable="yes">_Take Screenshot</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">win.shuffle</property>
-            <property name="text" translatable="yes">_Shuffle Example Icons</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkSeparator">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">5</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">win.show-help-overlay</property>
-            <property name="text" translatable="yes">_Keyboard Shortcuts</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">6</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="action_name">win.about</property>
-            <property name="text" translatable="yes">_About App Icon Preview</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">7</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="submenu">main</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
-  </object>
+  <menu id="popover_menu">
+    <section>
+      <item>
+        <attribute name='action'>app.new-window</attribute>
+        <attribute name='label' translatable='yes'>_New Window</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name='action'>win.refresh</attribute>
+        <attribute name='label' translatable='yes'>_Reload</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.screenshot</attribute>
+        <attribute name='label' translatable='yes'>_Take Screenshot</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.shuffle</attribute>
+        <attribute name='label' translatable='yes'>_Shuffle Example Icons</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name='action'>win.show-help-overlay</attribute>
+        <attribute name='label' translatable='yes'>_Keyboard Shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.about</attribute>
+        <attribute name='label' translatable='yes'>_About App Icon Preview</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>

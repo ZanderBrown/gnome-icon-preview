@@ -6,42 +6,35 @@
       <object class="GtkShortcutsSection">
         <property name="section-name">shortcuts</property>
         <property name="max-height">12</property>
-        <property name="visible">True</property>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes" context="shortcut window">Application</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;n</property>
                 <property name="title" translatable="yes" context="shortcut window">New Window</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;o</property>
                 <property name="title" translatable="yes" context="shortcut window">Open an icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;&lt;shift&gt;o</property>
                 <property name="title" translatable="yes" context="shortcut window">Open the recent list</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">F10</property>
                 <property name="title" translatable="yes" context="shortcut window">Open the menu</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;q</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit the application</property>
               </object>
@@ -51,38 +44,32 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes" context="shortcut window">View</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;r</property>
                 <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;e</property>
                 <property name="title" translatable="yes" context="shortcut window">Export the icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;s</property>
                 <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;&lt;alt&gt;s</property>
                 <property name="title" translatable="yes" context="shortcut window">Take screenshot</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="accelerator">&lt;primary&gt;&lt;alt&gt;c</property>
                 <property name="title" translatable="yes" context="shortcut window">Copy a screenshot to clipboard</property>
               </object>

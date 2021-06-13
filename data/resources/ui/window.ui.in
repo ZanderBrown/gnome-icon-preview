@@ -1,291 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkApplicationWindow" id="window">
-    <property name="can_focus">False</property>
+  <template parent="AdwApplicationWindow" class="Window">
     <property name="default_width">960</property>
     <property name="default_height">550</property>
     <property name="icon_name">org.gnome.design.AppIconPreview</property>
-    <property name="show_menubar">False</property>
-    <child type="titlebar">
-      <object class="GtkHeaderBar">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="title" translatable="yes">App Icon Preview</property>
-        <property name="show_close_button">True</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
+          <object class="AdwHeaderBar">
             <child>
-              <object class="GtkButton">
-                <property name="label" translatable="yes">Open</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="tooltip_text" translatable="yes">Open an icon</property>
-                <property name="action_name">win.open</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkMenuButton" id="recents_btn">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="tooltip_text" translatable="yes">Recent</property>
+              <object class="GtkBox">
                 <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">Open</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Open an icon</property>
+                    <property name="action_name">win.open</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="recents_btn">
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Recent</property>
                     <property name="icon_name">pan-down-symbolic</property>
                   </object>
                 </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <style>
-              <class name="linked"/>
-            </style>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="open_menu_btn">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="tooltip_text" translatable="yes">Menu</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">open-menu-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="export_btn">
-            <property name="label" translatable="yes">Export</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <style>
-          <class name="titlebar"/>
-        </style>
-      </object>
-    </child>
-    <child>
-      <object class="GtkStack" id="content">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="hhomogeneous">False</property>
-        <property name="vhomogeneous">False</property>
-        <property name="interpolate_size">True</property>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="valign">center</property>
-            <property name="border_width">42</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">24</property>
-            <child>
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Make a new App Icon</property>
-                <property name="justify">center</property>
-                <property name="wrap">True</property>
-                <property name="ellipsize">end</property>
-                <property name="lines">2</property>
-                <attributes>
-                  <attribute name="weight" value="ultrabold"/>
-                  <attribute name="scale" value="2"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkGrid">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="row_spacing">24</property>
-                <property name="column_spacing">24</property>
-                <property name="row_homogeneous">True</property>
-                <property name="column_homogeneous">True</property>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Maps</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Logs</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Podcasts</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Photos</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.SystemMonitor</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Nautilus</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Passwords</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="pixel_size">96</property>
-                    <property name="icon_name">org.gnome.Weather</property>
-                    <style>
-                      <class name="icon-dropshadow"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="padding">24</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton">
-                <property name="label" translatable="yes">New App Icon</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="halign">center</property>
-                <property name="action_name">win.new-project</property>
-                <property name="margin_top">0</property>
-                <property name="width_request">200</property>
                 <style>
-                  <class name="suggested-action" />
-                  <class name="new-icon-button" />
+                  <class name="linked"/>
                 </style>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">2</property>
-              </packing>
+            </child>
+            <child type="end">
+              <object class="GtkBox">
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkMenuButton" id="export_btn">
+                    <property name="label" translatable="yes">Export</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="open_menu_btn">
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Menu</property>
+                    <property name="icon_name">open-menu-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <style>
+              <class name="titlebar"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="content">
+            <property name="hhomogeneous">False</property>
+            <property name="vhomogeneous">False</property>
+            <property name="interpolate_size">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="valign">center</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">24</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Make a new App Icon</property>
+                    <property name="justify">center</property>
+                    <property name="wrap">True</property>
+                    <property name="ellipsize">end</property>
+                    <property name="lines">2</property>
+                    <attributes>
+                      <attribute name="weight" value="ultrabold"/>
+                      <attribute name="scale" value="2"/>
+                    </attributes>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkGrid">
+                    <property name="halign">center</property>
+                    <property name="row_spacing">24</property>
+                    <property name="column_spacing">24</property>
+                    <property name="row_homogeneous">True</property>
+                    <property name="column_homogeneous">True</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Maps</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Logs</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Podcasts</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Photos</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.SystemMonitor</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">1</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Nautilus</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="row">1</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Passwords</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="row">1</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="pixel_size">96</property>
+                        <property name="icon_name">org.gnome.Weather</property>
+                        <style>
+                          <class name="icon-dropshadow"/>
+                        </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">1</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="label" translatable="yes">New App Icon</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="action_name">win.new-project</property>
+                    <property name="margin_top">0</property>
+                    <property name="width_request">200</property>
+                    <style>
+                      <class name="suggested-action" />
+                      <class name="new-icon-button" />
+                    </style>
+                  </object>
+                </child>
+              </object>
             </child>
           </object>
         </child>
