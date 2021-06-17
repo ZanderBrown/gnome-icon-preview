@@ -54,10 +54,10 @@ impl NewProjectDialog {
                 &[(&gettext("Select"), gtk::ResponseType::Accept),
                 (&gettext("Cancel"), gtk::ResponseType::Cancel)]
             );
+            dialog.set_modal(true);
             let home_dir = gio::File::for_path(&glib::home_dir());
             dialog.set_current_folder(&home_dir);
             dialog.connect_response(clone!(@strong builder, @strong dialog => move |_, response| {
-
                 if response == gtk::ResponseType::Accept {
                     get_widget!(builder, gtk::Entry, project_path);
                     let home = glib::home_dir();

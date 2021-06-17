@@ -40,55 +40,58 @@ impl ProjectPreviewer {
         previewer
     }
 
-    pub fn screenshot(&self) -> Option<gdk_pixbuf::Pixbuf> {
-        let width = self.widget.get_allocated_width();
-        let height = self.widget.get_allocated_height();
+    // TODO
+    // pub fn screenshot(&self) -> Option<gtk::Image> {
+    //     let width = self.widget.allocated_width();
+    //     let height = self.widget.allocated_height();
 
-        let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width, height).unwrap();
-        let logo = gdk_pixbuf::Pixbuf::new_from_resource_at_scale("/org/gnome/design/AppIconPreview/badge.svg", 16, -1, true).unwrap();
-        let layout = self.widget.create_pango_layout(Some(&gettext("App Icon Preview")))?;
-        let mut font_description = pango::FontDescription::new();
-        font_description.set_weight(pango::Weight::Semibold);
-        font_description.set_size(pango::SCALE * 10);
-        layout.set_font_description(Some(&font_description));
+    //     let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width, height).unwrap();
+    //     let logo = gdk::Texture::from_resource("/org/gnome/design/AppIconPreview/badge.svg");
+    //     let layout = self.widget.create_pango_layout(Some(&gettext("App Icon Preview")));
+    //     let mut font_description = pango::FontDescription::new();
+    //     font_description.set_weight(pango::Weight::Semibold);
+    //     font_description.set_size(pango::SCALE * 10);
+    //     layout.set_font_description(Some(&font_description));
 
-        let logo_width = logo.get_width();
-        let logo_height = logo.get_height();
-        let padding = 12.0;
+    //     let logo_width = logo.get_width();
+    //     let logo_height = logo.get_height();
+    //     let padding = 12.0;
 
-        let (_, txt_extents) = layout.get_pixel_extents();
+    //     let (_, txt_extents) = layout.pixel_extents();
 
-        let context = cairo::Context::new(&surface);
+    //     // TODO Revisit unwrap
+    //     let context = cairo::Context::new(&surface).unwrap();
 
-        self.widget.draw(&context);
+    //     // TODO
+    //     // self.widget.draw(&context);
 
-        let mut img_x = 0.0;
-        let txt_x = if self.widget.get_direction() == gtk::TextDirection::Rtl {
-            img_x = txt_extents.width as f64 + padding;
-            0.0
-        } else {
-            logo_width as f64 + padding
-        };
+    //     let mut img_x = 0.0;
+    //     let txt_x = if self.widget.direction() == gtk::TextDirection::Rtl {
+    //         img_x = txt_extents.width as f64 + padding;
+    //         0.0
+    //     } else {
+    //         logo_width as f64 + padding
+    //     };
 
-        let mut img_y = 0.0;
-        let txt_y = if txt_extents.height < logo_height {
-            (logo_height - txt_extents.height) as f64 / 2.0
-        } else {
-            img_y = (txt_extents.height - logo_height) as f64 / 2.0;
-            0.0
-        };
-        context.save();
+    //     let mut img_y = 0.0;
+    //     let txt_y = if txt_extents.height < logo_height {
+    //         (logo_height - txt_extents.height) as f64 / 2.0
+    //     } else {
+    //         img_y = (txt_extents.height - logo_height) as f64 / 2.0;
+    //         0.0
+    //     };
+    //     context.save();
 
-        context.set_source_pixbuf(&logo, padding + img_x, padding + img_y);
-        context.rectangle(padding + img_x, padding + img_y, logo_width as f64, logo_height as f64);
-        context.fill();
-        context.restore();
+    //     context.set_source_pixbuf(&logo, padding + img_x, padding + img_y);
+    //     context.rectangle(padding + img_x, padding + img_y, logo_width as f64, logo_height as f64);
+    //     context.fill();
+    //     context.restore();
 
-        context.move_to(padding + txt_x, padding + txt_y);
-        pangocairo::show_layout(&context, &layout);
+    //     context.move_to(padding + txt_x, padding + txt_y);
+    //     pangocairo::show_layout(&context, &layout);
 
-        gdk::pixbuf_get_from_surface(&surface, 0, 0, width, height)
-    }
+    //     gdk::pixbuf_get_from_surface(&surface, 0, 0, width, height)
+    // }
 
     pub fn preview(&self, project: &Project) {
         if let Ok((hicolor, _)) = project.get_hicolor(None) {
