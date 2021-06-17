@@ -2,7 +2,9 @@ use std::path::PathBuf;
 
 use cairo;
 use gtk::{gio, glib, prelude::*};
-use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
+use rsvg::{CairoRenderer, Loader, SvgHandle};
+
+use anyhow::anyhow;
 
 pub fn format_name(name: &str) -> String {
     let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
@@ -39,44 +41,35 @@ pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
     Ok(temp_path)
 }
 
-pub fn render(handle: &Handle, basename: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+    let renderer = CairoRenderer::new(handle);
     let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}", output_size, basename))?);
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
     let cr = cairo::Context::new(&surface)?;
-    let dimensions = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
-    handle.render_layer(
-        &cr,
-        None,
-        &cairo::Rectangle {
-            x: 0.0,
-            y: 0.0,
-            width: f64::from(dimensions.width),
-            height: f64::from(dimensions.height),
-        },
-        Dpi::default(),
-        false,
-    )?;
+    let dimensions = renderer.intrinsic_dimensions();
+    let width = dimensions.width.ok_or(anyhow!("Failed to read size"))?.length;
+    let height = dimensions.height.ok_or(anyhow!("Failed to read size"))?.length;
+
+    renderer.render_layer(&cr, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
 
     Ok((gio::File::for_path(dest), surface))
 }
 
-pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render_by_id(handle: &SvgHandle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}", id, output_size, basename))?);
 
-    if handle.has_sub(id)? {
+    if handle.has_element_with_id(id)? {
+        let renderer = CairoRenderer::new(handle);
         let viewport = {
-            let doc = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
+            let doc = renderer.intrinsic_dimensions();
+            let width = doc.width.unwrap().length;
+            let height = doc.height.unwrap().length;
 
-            cairo::Rectangle {
-                x: 0.0,
-                y: 0.0,
-                width: doc.width as f64,
-                height: doc.height as f64,
-            }
+            cairo::Rectangle { x: 0.0, y: 0.0, width, height }
         };
-        let (rect, _) = handle.get_geometry_for_layer(Some(&id), &viewport, Dpi::default(), false)?;
+        let (rect, _) = renderer.geometry_for_layer(Some(&id), &viewport)?;
 
         let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest.clone())).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
@@ -85,7 +78,7 @@ pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64,
         cr.scale(output_size / rect.width, output_size / rect.height);
         cr.translate(-rect.x, -rect.y);
 
-        handle.render_cairo_sub(&cr, None, Dpi::default(), &SizeCallback::default(), false)?;
+        renderer.render_layer(&cr, None, &viewport)?;
 
         return Ok((gio::File::for_path(dest), surface));
     }
@@ -95,25 +88,18 @@ pub fn render_by_id(handle: &Handle, basename: &str, id: &str, output_size: f64,
 pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
     let stripes = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
     let stream = stripes.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-    let handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
+    let handle = Loader::new().read_stream(&stream, Some(&stripes), gio::NONE_CANCELLABLE)?;
 
-    let dimensions = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
+    let renderer = CairoRenderer::new(&handle);
+    let dimensions = renderer.intrinsic_dimensions();
 
     let surface = cairo::SvgSurface::new(output_size, output_size, None::<&std::path::Path>).unwrap();
 
     let context = cairo::Context::new(&surface)?;
-    handle.render_layer(
-        &context,
-        None,
-        &cairo::Rectangle {
-            x: 0.0,
-            y: 0.0,
-            width: f64::from(dimensions.width),
-            height: f64::from(dimensions.height),
-        },
-        Dpi::default(),
-        false,
-    )?;
+    let width = dimensions.width.unwrap().length;
+    let height = dimensions.height.unwrap().length;
+
+    renderer.render_layer(&context, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
     Ok(surface)
 }
 

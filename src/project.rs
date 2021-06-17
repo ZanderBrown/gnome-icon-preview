@@ -1,7 +1,7 @@
 use super::common;
 
 use gettextrs::gettext;
-use rsvg_internals::{Dpi, Handle, LoadOptions, SizeCallback};
+use rsvg::{CairoRenderer, Loader, SvgHandle};
 use std::rc::Rc;
 
 use gtk::gio::prelude::*;
@@ -18,7 +18,7 @@ pub enum ProjectType {
 pub struct Project {
     pub file: gio::File,
     pub project_type: ProjectType,
-    handle: Handle,
+    handle: SvgHandle,
 }
 
 impl Project {
@@ -33,13 +33,14 @@ impl Project {
 
     pub fn parse(file: gio::File) -> anyhow::Result<Rc<Self>> {
         let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-        let mut handle = Handle::from_stream(&LoadOptions::new(None), &stream, gio::NONE_CANCELLABLE)?;
+        let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
         handle.set_stylesheet("#layer3,#layer2 {visibility: hidden}")?;
+        let renderer = CairoRenderer::new(&handle);
 
-        let dimensions = handle.get_dimensions(Dpi::default(), &SizeCallback::default(), false)?;
+        let dimensions = renderer.intrinsic_dimensions();
 
-        let width = dimensions.width as f64;
-        let height = dimensions.height as f64;
+        let width = dimensions.width.unwrap().length;
+        let height = dimensions.height.unwrap().length;
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
             return Ok(Rc::new(Self {
@@ -49,7 +50,7 @@ impl Project {
             }));
         }
 
-        if handle.has_sub("#hicolor")? && handle.has_sub("#symbolic")? {
+        if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
             return Ok(Rc::new(Self {
                 file,
                 project_type: ProjectType::Icon,
