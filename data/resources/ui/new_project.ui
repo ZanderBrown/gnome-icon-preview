@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkDialog" id="dialog">
-    <property name="title">New App Icon</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="type_hint">dialog</property>
-    <property name="use_header_bar">1</property>
-    <child internal-child="vbox">
+  <object class="AdwWindow" id="dialog">
+    <property name="modal">True</property>
+    <child>
       <object class="GtkBox">
-        <property name="halign">center</property>
-        <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="AdwHeaderBar">
@@ -39,134 +34,124 @@
           </object>
         </child>
         <child>
-          <object class="GtkOverlay">
+          <object class="GtkBox">
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">2</property>
             <child>
-              <object class="GtkGrid">
-                <property name="row_spacing">5</property>
-                <property name="column_spacing">15</property>
-                <property name="row_homogeneous">True</property>
+              <object class="GtkOverlay">
                 <child>
-                  <object class="GtkLabel">
-                    <property name="halign">end</property>
-                    <property name="label" translatable="yes">App Name</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="row">0</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">end</property>
-                    <property name="label" translatable="yes">Icon Location</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="row">2</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="project_name">
-                    <layout>
-                      <property name="column">1</property>
-                      <property name="row">0</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="valign">start</property>
-                    <property name="label" translatable="yes">The reverse domain notation name, e.g. org.inkscape.Inkscape</property>
-                    <style>
-                      <class name="dim-label"/>
-                    </style>
-                    <layout>
-                      <property name="column">1</property>
-                      <property name="row">1</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="halign">start</property>
-                    <property name="valign">start</property>
-                    <property name="label" translatable="yes">The icon SVG file will be stored in this directory</property>
-                    <style>
-                      <class name="dim-label"/>
-                    </style>
-                    <layout>
-                      <property name="column">1</property>
-                      <property name="row">3</property>
-                    </layout>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkBox">
+                  <object class="GtkGrid">
+                    <property name="row_spacing">5</property>
+                    <property name="column_spacing">15</property>
+                    <property name="row_homogeneous">True</property>
                     <child>
-                      <object class="GtkEntry" id="project_path">
-                        <property name="text" translatable="yes">~/Projects</property>
+                      <object class="GtkLabel">
+                        <property name="halign">end</property>
+                        <property name="label" translatable="yes">App Name</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkButton" id="browse_button">
-                        <property name="label" translatable="yes">Browse…</property>
-                        <property name="receives_default">True</property>
+                      <object class="GtkLabel">
+                        <property name="halign">end</property>
+                        <property name="label" translatable="yes">Icon Location</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">2</property>
+                        </layout>
                       </object>
                     </child>
-                    <style>
-                      <class name="linked"/>
-                    </style>
-                    <layout>
-                      <property name="column">1</property>
-                      <property name="row">2</property>
-                    </layout>
+                    <child>
+                      <object class="GtkEntry" id="project_name">
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="valign">start</property>
+                        <property name="label" translatable="yes">The reverse domain notation name, e.g. org.inkscape.Inkscape</property>
+                        <style>
+                          <class name="dim-label"/>
+                        </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">1</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="valign">start</property>
+                        <property name="label" translatable="yes">The icon SVG file will be stored in this directory</property>
+                        <style>
+                          <class name="dim-label"/>
+                        </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <child>
+                          <object class="GtkEntry" id="project_path">
+                            <property name="hexpand">True</property>
+                            <property name="text" translatable="yes">~/Projects</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton" id="browse_button">
+                            <property name="label" translatable="yes">Browse…</property>
+                            <property name="receives_default">True</property>
+                          </object>
+                        </child>
+                        <style>
+                          <class name="linked"/>
+                        </style>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">2</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                 </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
+                <child type="overlay">
+                  <object class="GtkSpinner" id="spin">
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="hexpand">True</property>
+                    <style>
+                      <class name="osd"/>
+                      <class name="working-spin"/>
+                    </style>
+                  </object>
                 </child>
               </object>
             </child>
-            <child type="overlay">
-              <object class="GtkSpinner" id="spin">
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
-                <style>
-                  <class name="osd"/>
-                  <class name="working-spin"/>
-                </style>
-              </object>
-            </child>
+            <style>
+              <class name="margins"/>
+            </style>
           </object>
         </child>
-        <style>
-          <class name="margins"/>
-        </style>
       </object>
     </child>
-    <child type="action">
-      <object class="GtkButton" id="cancel_button">
-        <property name="use-underline">1</property>
-        <property name="label" translatable="yes">_Cancel</property>
-      </object>
-    </child>
-    <child type="action">
-      <object class="GtkButton" id="accept_button">
-        <property name="label" translatable="yes">_Create</property>
-        <property name="use-underline">1</property>
-        <property name="can-default">1</property>
-        <property name="sensitive">False</property>
-      </object>
-    </child>
-    <action-widgets>
-      <action-widget response="cancel">cancel_button</action-widget>
-      <action-widget response="accept" default="true">accept_button</action-widget>
-    </action-widgets>
   </object>
 </interface>

@@ -11,7 +11,7 @@ use gtk::{gio, glib};
 use gtk_macros::get_widget;
 
 pub struct NewProjectDialog {
-    pub widget: gtk::Dialog,
+    pub widget: adw::Window,
     builder: gtk::Builder,
     sender: glib::Sender<Action>,
 }
@@ -19,7 +19,7 @@ pub struct NewProjectDialog {
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
         let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/new_project.ui");
-        get_widget!(builder, gtk::Dialog, dialog);
+        get_widget!(builder, adw::Window, dialog);
 
         let new_project = Self { widget: dialog, builder, sender };
         new_project.init();
