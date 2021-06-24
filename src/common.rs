@@ -43,7 +43,7 @@ pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
 
 pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let renderer = CairoRenderer::new(handle);
-    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}", output_size, basename))?);
+    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}.svg", output_size, basename))?);
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
@@ -58,7 +58,7 @@ pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option
 }
 
 pub fn render_by_id(handle: &SvgHandle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}", id, output_size, basename))?);
+    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}.svg", id, output_size, basename))?);
 
     if handle.has_element_with_id(id)? {
         let renderer = CairoRenderer::new(handle);
