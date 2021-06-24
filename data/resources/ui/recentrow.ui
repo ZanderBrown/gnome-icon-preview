@@ -3,6 +3,7 @@
   <template class="IconPreviewRecentRow" parent="GtkListBoxRow">
     <child>
       <object class="GtkBox">
+        <property name="halign">center</property>
         <child>
           <object class="GtkImage" id="image">
             <property name="pixel_size">32</property>

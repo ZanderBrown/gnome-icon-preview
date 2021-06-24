@@ -27,9 +27,12 @@ impl RecentItemRow {
     fn init(&self) {
         let container = gtk::Box::new(gtk::Orientation::Horizontal, 12);
         container.set_height_request(50);
+        container.set_margin_start(12);
+        container.set_margin_end(12);
 
         if let Ok((hicolor, _)) = self.project.get_hicolor(None) {
             let image = gtk::Image::from_gicon(&gio::FileIcon::new(&hicolor));
+            image.set_icon_size(gtk::IconSize::Large);
             image.add_css_class("icon-dropshadow");
             container.append(&image);
         }
