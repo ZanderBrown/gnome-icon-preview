@@ -165,21 +165,22 @@ impl Project {
 #[cfg(test)]
 mod tests {
     use super::{Project, ProjectType};
+    use gtk::gio;
     #[test]
     fn parsing() {
-        let project = Project::parse(gio::File::for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
-        assert_eq!(project.project_type, ProjectType::Icon);
-        assert_eq!(project.get_symbolic().is_err(), false);
-        assert_ne!(project.get_hicolor(None).is_err(), false);
-
         let project = Project::parse(gio::File::for_path("./tests/com.belmoussaoui.ReadItLater.Source.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Icon);
         assert_eq!(project.get_symbolic().is_err(), false);
-        assert_ne!(project.get_hicolor(None).is_err(), false);
+        assert_eq!(project.get_hicolor(None).is_err(), false);
+
+        let project = Project::parse(gio::File::for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
+        assert_eq!(project.project_type, ProjectType::Icon);
+        assert_eq!(project.get_symbolic().is_err(), false);
+        assert_eq!(project.get_hicolor(None).is_err(), false);
 
         let project = Project::parse(gio::File::for_path("./tests/org.gnome.design.BannerViewer.svg")).unwrap();
         assert_eq!(project.project_type, ProjectType::Preview);
-        assert_eq!(project.get_symbolic().is_err(), false);
-        assert_ne!(project.get_hicolor(None).is_err(), false);
+        assert_ne!(project.get_symbolic().is_err(), false);
+        assert_eq!(project.get_hicolor(None).is_err(), false);
     }
 }
