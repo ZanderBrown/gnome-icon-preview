@@ -176,7 +176,7 @@ impl Window {
         get_widget!(menu_builder, gio::MenuModel, popover_menu);
         self_.open_menu_btn.set_menu_model(Some(&popover_menu));
 
-        self_.content.add_named(&self_.previewer.widget, Some("previewer"));
+        self_.content.add_named(&self_.previewer, Some("previewer"));
 
         // Recents Popover
         let recents_popover = RecentsPopover::new(self_.sender.get().unwrap().clone());
@@ -257,11 +257,11 @@ impl Window {
             self,
             "screenshot",
             clone!(@weak self as window, @strong self_.previewer as previewer => move |_, _| {
-                // TODO
-                // if let Some(pixbuf) = previewer.screenshot() {
-                //     let dialog = ScreenshotDialog::new(pixbuf);
-                //     dialog.widget.set_transient_for(Some(&window));
-                // }
+                if let Some(pixbuf) = previewer.screenshot() {
+                    let dialog = ScreenshotDialog::new(pixbuf);
+                    dialog.widget.set_transient_for(Some(&window));
+                    dialog.widget.present();
+                }
             })
         );
 
@@ -270,11 +270,10 @@ impl Window {
             self,
             "copy-screenshot",
             clone!(@strong self_.previewer as previewer => move |_, _| {
-                // TODO
-                // if let Some(pixbuf) = previewer.screenshot() {
-                //     let dialog = ScreenshotDialog::new(pixbuf);
-                //     dialog.copy();
-                // }
+                if let Some(pixbuf) = previewer.screenshot() {
+                    let dialog = ScreenshotDialog::new(pixbuf);
+                    dialog.copy();
+                }
             })
         );
 
