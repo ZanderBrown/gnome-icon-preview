@@ -112,8 +112,8 @@
                         </child>
                         <child>
                           <object class="GtkButton" id="browse_button">
-                            <property name="label" translatable="yes">Browse…</property>
-                            <property name="receives_default">True</property>
+                            <property name="label" translatable="yes">_Browse…</property>
+                            <property name="use_underline">True</property>
                           </object>
                         </child>
                         <style>

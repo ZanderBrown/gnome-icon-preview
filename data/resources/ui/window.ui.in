@@ -13,7 +13,8 @@
               <object class="GtkBox">
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Open</property>
+                    <property name="label" translatable="yes">_Open</property>
+                    <property name="use_underline">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Open an icon</property>
                     <property name="action_name">win.open</property>
@@ -36,7 +37,8 @@
                 <property name="spacing">6</property>
                 <child>
                   <object class="GtkMenuButton" id="export_btn">
-                    <property name="label" translatable="yes">Export</property>
+                    <property name="label" translatable="yes">_Export</property>
+                    <property name="use_underline">True</property>
                     <property name="receives_default">True</property>
                   </object>
                 </child>
@@ -192,8 +194,8 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">New App Icon</property>
-                    <property name="receives_default">True</property>
+                    <property name="label" translatable="yes">_New App Icon</property>
+                    <property name="use_underline">True</property>
                     <property name="halign">center</property>
                     <property name="action_name">win.new-project</property>
                     <property name="margin_top">0</property>
