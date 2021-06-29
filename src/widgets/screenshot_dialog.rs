@@ -10,7 +10,7 @@ use gtk::{gdk, gio, glib};
 use gtk_macros::action;
 
 pub struct ScreenshotDialog {
-    pub widget: gtk::Dialog,
+    pub widget: adw::Window,
     builder: gtk::Builder,
     actions: gio::SimpleActionGroup,
     pixbuf: gdk_pixbuf::Pixbuf,
@@ -19,7 +19,7 @@ pub struct ScreenshotDialog {
 impl ScreenshotDialog {
     pub fn new(pixbuf: gdk_pixbuf::Pixbuf) -> Rc<Self> {
         let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/screenshot_dialog.ui");
-        get_widget!(builder, gtk::Dialog, screenshot_dialog);
+        get_widget!(builder, adw::Window, screenshot_dialog);
 
         let previewer = Rc::new(Self {
             widget: screenshot_dialog,
@@ -101,7 +101,7 @@ impl ScreenshotDialog {
         let ratio = self.pixbuf.width() / 450;
         let height = (self.pixbuf.height() / ratio) as i32;
         let scaled_pixbuf = self.pixbuf.scale_simple(450, height, gdk_pixbuf::InterpType::Bilinear);
-        get_widget!(self.builder, gtk::Image, @preview).set_from_pixbuf(scaled_pixbuf.as_ref());
+        get_widget!(self.builder, gtk::Picture, @preview).set_pixbuf(scaled_pixbuf.as_ref());
 
         action!(
             self.actions,
@@ -115,14 +115,6 @@ impl ScreenshotDialog {
             "save",
             clone!(@strong rc_s as screenshot =>  move |_, _| {
                 screenshot.save();
-            })
-        );
-
-        action!(
-            self.actions,
-            "close",
-            clone!(@weak self.widget as dialog => move |_, _| {
-                dialog.destroy();
             })
         );
 

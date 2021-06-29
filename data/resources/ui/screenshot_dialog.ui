@@ -1,49 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkMessageDialog" id="screenshot_dialog">
+  <object class="AdwWindow" id="screenshot_dialog">
+    <property name="modal">True</property>
     <property name="resizable">False</property>
-    <child internal-child="content_area">
+    <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox">
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="orientation">vertical</property>
+          <object class="AdwHeaderBar">
+            <property name="title-widget">
+              <object class="AdwWindowTitle"/>
+            </property>
             <child>
-              <object class="GtkImage" id="preview">
-                <property name="pixel_size">256</property>
-                <property name="icon_name">image-x-generic-symbolic</property>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">_Save…</property>
+                <property name="use_underline">True</property>
+                <property name="action_name">screenshot.save</property>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
               </object>
             </child>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child type="titlebar">
-      <object class="GtkHeaderBar">
-        <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">Close</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">screenshot.close</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">Save…</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">screenshot.save</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">_Copy to Clipboard</property>
+                <property name="use_underline">True</property>
+                <property name="action_name">screenshot.copy</property>
+              </object>
+            </child>
             <style>
-              <class name="suggested-action"/>
+              <class name="titlebar"/>
             </style>
           </object>
         </child>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">Copy to Clipboard</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">screenshot.copy</property>
+          <object class="GtkPicture" id="preview">
+            <property name="keep_aspect_ratio">False</property>
+            <property name="vexpand">True</property>
+            <property name="hexpand">True</property>
           </object>
         </child>
       </object>
