@@ -90,7 +90,6 @@ mod imp {
             application.set_accels_for_action("win.export", &["<primary>e"]);
             application.set_accels_for_action("win.screenshot", &["<primary><alt>s"]);
             application.set_accels_for_action("win.copy-screenshot", &["<primary><alt>c"]);
-            application.set_accels_for_action("win.show-help-overlay", &["<primary>comma"]);
             application.set_accels_for_action("app.quit", &["<primary>q"]);
             application.set_accels_for_action("app.new-window", &["<primary>n"]);
 

@@ -168,10 +168,6 @@ impl Window {
     fn setup_widgets(&self) {
         let self_ = imp::Window::from_instance(self);
 
-        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/help-overlay.ui");
-        get_widget!(builder, gtk::ShortcutsWindow, help_overlay);
-        self.set_help_overlay(Some(&help_overlay));
-
         let menu_builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/menus.ui");
         get_widget!(menu_builder, gio::MenuModel, popover_menu);
         self_.open_menu_btn.set_menu_model(Some(&popover_menu));
