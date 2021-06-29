@@ -109,8 +109,10 @@ impl ColourPane {
             }
             PaneStyle::Light => css_provider.load_named("Adwaita", None),
         };
-        self.widget.style_context().add_provider(&css_provider, 600);
-        get_widget!(self.builder, gtk::Image, @symbolic_img).style_context().add_provider(&css_provider, 600);
+        self.widget.style_context().add_provider(&css_provider, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
+        get_widget!(self.builder, gtk::Image, @symbolic_img)
+            .style_context()
+            .add_provider(&css_provider, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         // Small container is composed of 5 icons, 4 samples & the previewed project
         get_widget!(self.builder, gtk::Box, small);
