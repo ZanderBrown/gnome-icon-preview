@@ -80,13 +80,12 @@
             "config-opts" : [
                 "-Dprofile=development"
             ],
-            "sources" : [
+            "sources": [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/World/design/app-icon-preview.git"
+                    "type": "dir",
+                    "path": "../"
                 }
             ]
         }
     ]
 }
-

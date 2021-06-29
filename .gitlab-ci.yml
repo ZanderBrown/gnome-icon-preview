@@ -1,9 +1,12 @@
-include:
-  - project: "gnome/citemplates"
-    file: "flatpak/flatpak_ci_initiative.yml"
+stages:
+  - check
+  - test
 
 flatpak:
   image: "registry.gitlab.gnome.org/gnome/gnome-runtime-images/rust_bundle:master"
+  stage: test
+  tags:
+    - flatpak
   variables:
     BUNDLE: "app-icon-preview-nightly.flatpak"
     MANIFEST_PATH: "build-aux/org.gnome.design.AppIconPreviewDevel.json"
@@ -11,11 +14,25 @@ flatpak:
     MESON_ARGS: "-Dprofile=development"
     APP_ID: "org.gnome.design.AppIconPreviewDevel"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
-  extends: ".flatpak"
+  script:
+    - >
+      xvfb-run -a -s "-screen 0 1024x768x24"
+      flatpak-builder --keep-build-dirs --user --disable-rofiles-fuse flatpak_app --repo=repo ${BRANCH:+--default-branch=$BRANCH} ${MANIFEST_PATH}
+    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} ${APP_ID} ${BRANCH}
+  artifacts:
+    name: 'Flatpak artifacts'
+    expose_as: 'Get Flatpak bundle here'
+    when: 'always'
+    paths:
+      - "${BUNDLE}"
+      - '.flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-logs/meson-log.txt'
+      - '.flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-logs/testlog.txt'
+    expire_in: 14 days
 
 # Configure and run rustfmt
 # Exits and builds fails if on bad format
 rustfmt:
+  stage: check
   image: "rust:slim"
   script:
     - rustup component add rustfmt
@@ -27,6 +44,7 @@ rustfmt:
     - cargo fmt --all -- --color=always --check
 
 codespell:
+  stage: check
   image: "docker.io/bilelmoussaoui/codespell"
   script:
     - codespell -S "*.png,*.po,.git,*.jpg" -L "ser"
