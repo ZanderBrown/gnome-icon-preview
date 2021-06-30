@@ -58,8 +58,6 @@ mod imp {
             gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
             if let Some(display) = gdk::Display::default() {
                 gtk::StyleContext::add_provider_for_display(&display, &p, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
-                let theme = gtk::IconTheme::for_display(&display).unwrap();
-                theme.add_resource_path("/org/gnome/design/IconLibrary/icons/");
             }
 
             action!(
