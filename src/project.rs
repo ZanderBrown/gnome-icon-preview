@@ -144,7 +144,7 @@ impl Project {
     pub fn get_symbolic(&self) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
             ProjectType::Icon => {
-                let dest = common::create_tmp(&format!("#symblic-16-{}-symbolic.svg", self.name()))?;
+                let dest = common::create_tmp(&format!("#symbolic-16-{}-symbolic.svg", self.name()))?;
                 common::render_by_id(&self.handle, &self.name(), "#symbolic", 16.0, Some(dest))
             }
             ProjectType::Preview => anyhow::bail!("No symbolic support for Preview icons"),
