@@ -1,7 +1,7 @@
 project('app-icon-preview',
         'rust',
         version: '2.1.2',
-        license: 'GPL3',
+        license: 'GPL-3.0-or-later',
 	meson_version : '>= 0.50')
 
 i18n = import('i18n')
