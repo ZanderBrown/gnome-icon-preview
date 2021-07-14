@@ -30,13 +30,12 @@ impl ScreenshotDialog {
         previewer
     }
 
-    pub fn copy(&self) -> Option<()> {
-        let display = gdk::Display::default()?;
+    pub fn copy(&self) {
+        let display = gdk::Display::default().unwrap();
         let clipboard = display.clipboard();
 
         let texture = gdk::Texture::for_pixbuf(&self.pixbuf);
         clipboard.set_texture(&texture);
-        Some(())
     }
 
     pub fn save(&self) {
