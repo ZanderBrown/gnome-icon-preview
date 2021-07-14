@@ -112,7 +112,6 @@ impl ProjectPreviewer {
 
     fn setup_widgets(&self) {
         let self_ = imp::ProjectPreviewer::from_instance(self);
-        self.set_spacing(0);
         self.append(&self_.light_panel.widget);
         self.append(&self_.dark_panel.widget);
 
