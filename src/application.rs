@@ -2,10 +2,12 @@ use crate::config;
 use crate::project::Project;
 use crate::widgets::Window;
 
+use log::error;
 use std::rc::Rc;
 
 use gtk::glib::{clone, Receiver, Sender};
 use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
+use gtk_macros::{action, send};
 
 pub enum Action {
     OpenProject(Rc<Project>),
@@ -114,9 +116,9 @@ glib::wrapper! {
 
 impl Application {
     pub fn run() {
-        info!("App Icon Preview{} ({})", config::NAME_SUFFIX, config::APP_ID);
-        info!("Version: {} ({})", config::VERSION, config::PROFILE);
-        info!("Datadir: {}", config::PKGDATADIR);
+        log::info!("App Icon Preview{} ({})", config::NAME_SUFFIX, config::APP_ID);
+        log::info!("Version: {} ({})", config::VERSION, config::PROFILE);
+        log::info!("Datadir: {}", config::PKGDATADIR);
 
         let app = glib::Object::new::<Self>(&[
             ("application-id", &config::APP_ID),

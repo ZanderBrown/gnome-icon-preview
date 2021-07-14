@@ -1,5 +1,6 @@
 use crate::project::Project;
 
+use serde_derive::{Deserialize, Serialize};
 use std::rc::Rc;
 
 use gtk::prelude::*;

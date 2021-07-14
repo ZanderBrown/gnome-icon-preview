@@ -1,10 +1,3 @@
-#[macro_use]
-extern crate log;
-#[macro_use]
-extern crate gtk_macros;
-#[macro_use]
-extern crate serde_derive;
-
 use gettextrs::*;
 use gtk::{gio, glib};
 

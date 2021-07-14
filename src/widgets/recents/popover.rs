@@ -4,8 +4,11 @@ use crate::object_wrapper::ObjectWrapper;
 use crate::project::Project;
 use crate::widgets::recents::RecentItem;
 
+use log::error;
+
 use gtk::glib::{clone, Sender};
 use gtk::{gio, glib, prelude::*};
+use gtk_macros::{get_widget, send};
 
 pub struct RecentsPopover {
     pub widget: gtk::Popover,

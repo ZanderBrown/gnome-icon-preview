@@ -2,13 +2,14 @@ use crate::application::Action;
 use crate::common;
 
 use gettextrs::gettext;
+use log::error;
 use std::iter::FromIterator;
 use std::path::PathBuf;
 
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::{gio, glib};
-use gtk_macros::get_widget;
+use gtk_macros::{get_widget, send};
 
 pub struct NewProjectDialog {
     pub widget: adw::Window,

@@ -7,7 +7,7 @@ use gtk::gio::prelude::*;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::{gdk, gio, glib};
-use gtk_macros::action;
+use gtk_macros::{action, get_widget};
 
 pub struct ScreenshotDialog {
     pub widget: adw::Window,

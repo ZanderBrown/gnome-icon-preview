@@ -75,7 +75,7 @@ impl Project {
         let uri = self.file.uri();
         glib::idle_add(move || {
             if let Err(err) = gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>) {
-                error!("Failed to open the project in Inkscape {}", err);
+                log::error!("Failed to open the project in Inkscape {}", err);
             }
             glib::Continue(false)
         });
@@ -124,7 +124,7 @@ impl Project {
                         Ok(())
                     };
                     if save().is_err() {
-                        warn!("Failed to save/clean the SVG file");
+                        log::warn!("Failed to save/clean the SVG file");
                     }
                 }
             }

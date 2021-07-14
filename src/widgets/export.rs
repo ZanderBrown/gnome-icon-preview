@@ -1,6 +1,7 @@
 use crate::project::Project;
 
 use gtk::{gio, prelude::*};
+use gtk_macros::get_widget;
 
 #[derive(Clone)]
 pub struct ExportPopover {

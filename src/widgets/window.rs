@@ -4,6 +4,7 @@ use crate::config::{APP_ID, PROFILE};
 use crate::project::Project;
 
 use gettextrs::gettext;
+use log::error;
 use std::rc::Rc;
 
 use gtk::gio::prelude::*;
@@ -11,7 +12,7 @@ use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib, CompositeTemplate};
-use gtk_macros::action;
+use gtk_macros::{action, get_action, get_widget, send};
 
 #[derive(Debug, PartialEq)]
 pub enum View {
@@ -142,7 +143,7 @@ impl Window {
                         previewer.preview(&project);
                         exporter.set_project(&project);
                     }
-                    Err(err) => warn!("Failed to parse the project {}", err),
+                    Err(err) => log::warn!("Failed to parse the project {}", err),
                 }
             }
         }));
@@ -205,7 +206,7 @@ impl Window {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();
                     if project.export(&project_type, &parent.upcast::<gtk::Window>()).is_err() {
-                        warn!("Failed to export the project");
+                        log::warn!("Failed to export the project");
                     }
                 };
             })
@@ -234,7 +235,7 @@ impl Window {
                             previewer.preview(&project);
                             exporter.set_project(&project);
                         },
-                        Err(err) => warn!("Failed to parse the project {}", err),
+                        Err(err) => log::warn!("Failed to parse the project {}", err),
                     }
                 };
             })
@@ -307,7 +308,7 @@ impl Window {
                         if let Some(file) = file_chooser.file() {
                             match Project::parse(file) {
                                 Ok(project) => send!(sender, Action::OpenProject(project)),
-                                Err(err) => warn!("Failed to open file {}", err),
+                                Err(err) => log::warn!("Failed to open file {}", err),
                             }
                         }
                     file_chooser.destroy();
