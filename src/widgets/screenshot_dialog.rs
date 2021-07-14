@@ -2,8 +2,6 @@ use gettextrs::gettext;
 use std::path::PathBuf;
 use std::rc::Rc;
 
-use gdk_pixbuf;
-use gtk::gio::prelude::*;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::{gdk, gio, glib};

@@ -4,7 +4,6 @@ use gettextrs::gettext;
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 use std::rc::Rc;
 
-use gtk::gio::prelude::*;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::{gio, glib};

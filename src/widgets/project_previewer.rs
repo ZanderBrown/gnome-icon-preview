@@ -1,15 +1,12 @@
 use super::colour_pane::{ColourPane, PaneStyle};
 use crate::project::Project;
 
-use cairo::glib::clone::Downgrade;
 use gettextrs::gettext;
 use rand::seq::SliceRandom;
 
-use cairo;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib, pango};
-use pangocairo;
 // A struct that represents a widget to render a Project
 mod imp {
     use super::*;

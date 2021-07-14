@@ -1,6 +1,5 @@
 use std::path::PathBuf;
 
-use cairo;
 use gtk::{gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 

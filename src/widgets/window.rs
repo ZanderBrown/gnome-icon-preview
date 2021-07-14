@@ -7,7 +7,6 @@ use gettextrs::gettext;
 use log::error;
 use std::rc::Rc;
 
-use gtk::gio::prelude::*;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
@@ -26,7 +25,7 @@ mod imp {
     use once_cell::sync::OnceCell;
     use std::cell::RefCell;
 
-    use adw::subclass::prelude::AdwApplicationWindowImpl;
+    use adw::subclass::prelude::*;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/window.ui")]
