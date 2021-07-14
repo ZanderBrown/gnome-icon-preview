@@ -18,13 +18,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.open</property>
-                <property name="title" translatable="yes" context="shortcut window">Open an icon</property>
+                <property name="title" translatable="yes" context="shortcut window">Open an Icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">app.quit</property>
-                <property name="title" translatable="yes" context="shortcut window">Quit the application</property>
+                <property name="title" translatable="yes" context="shortcut window">Quit the Application</property>
               </object>
             </child>
           </object>
@@ -35,31 +35,31 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.refresh</property>
-                <property name="title" translatable="yes" context="shortcut window">Reload the icon</property>
+                <property name="title" translatable="yes" context="shortcut window">Reload the Icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.export</property>
-                <property name="title" translatable="yes" context="shortcut window">Export the icon</property>
+                <property name="title" translatable="yes" context="shortcut window">Export the Icon</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.shuffle</property>
-                <property name="title" translatable="yes" context="shortcut window">Shuffle icons</property>
+                <property name="title" translatable="yes" context="shortcut window">Shuffle Icons</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.screenshot</property>
-                <property name="title" translatable="yes" context="shortcut window">Take screenshot</property>
+                <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="action_name">win.copy-screenshot</property>
-                <property name="title" translatable="yes" context="shortcut window">Copy a screenshot to clipboard</property>
+                <property name="title" translatable="yes" context="shortcut window">Copy a Screenshot to Clipboard</property>
               </object>
             </child>
           </object>
