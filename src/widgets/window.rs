@@ -297,12 +297,11 @@ impl Window {
 
                 file_chooser.connect_response(clone!(@strong file_chooser, @strong sender => move |_, response| {
                     if response == gtk::ResponseType::Accept {
-                        if let Some(file) = file_chooser.file() {
-                            match Project::parse(file) {
-                                Ok(project) => send!(sender, Action::OpenProject(project)),
-                                Err(err) => log::warn!("Failed to open file {}", err),
-                            }
-                        }
+                        let file = file_chooser.file().unwrap();
+                        match Project::parse(file) {
+                            Ok(project) => send!(sender, Action::OpenProject(project)),
+                            Err(err) => log::warn!("Failed to open file {}", err),
+                        };
                     file_chooser.destroy();
                 }}));
                 file_chooser.show()
