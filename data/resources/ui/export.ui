@@ -3,8 +3,6 @@
   <object class="GtkPopover" id="export_popover">
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
         <property name="orientation">vertical</property>
         <property name="margin_start">10</property>
         <property name="margin_end">10</property>
@@ -14,8 +12,6 @@
         <property name="width_request">450</property>
         <child>
           <object class="GtkLabel">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="margin_bottom">10</property>
             <property name="label" translatable="yes">Export the icon for production use. Off-canvas objects are removed and the SVG is optimised for size</property>
             <property name="justify">center</property>
@@ -25,22 +21,16 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="spacing">15</property>
             <property name="halign">center</property>
             <child>
               <object class="GtkBox" id="regular_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkImage" id="regular_image">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">128</property>
                     <property name="icon_name">start-here-symbolic</property>
@@ -51,12 +41,10 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
                     <property name="halign">center</property>
                     <property name="spacing">3</property>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
                         <property name="label" translatable="yes">Regular</property>
                         <attributes>
                           <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
@@ -65,7 +53,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="regular_size">
-                        <property name="visible">True</property>
                       </object>
                     </child>
                   </object>
@@ -73,8 +60,6 @@
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">Save Regular As…</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>
@@ -86,16 +71,12 @@
             </child>
             <child>
               <object class="GtkBox" id="nightly_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkImage" id="nightly_image">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">128</property>
                     <property name="icon_name">start-here-symbolic</property>
@@ -106,12 +87,10 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
                     <property name="halign">center</property>
                     <property name="spacing">3</property>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
                         <property name="label" translatable="yes">Nightly</property>
                         <attributes>
                           <attribute name="weight" value="PANGO_WEIGHT_BOLD"/>
@@ -120,7 +99,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="nightly_size">
-                        <property name="visible">True</property>
                       </object>
                     </child>
                   </object>
@@ -128,8 +106,6 @@
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">Save Nightly As…</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>
@@ -141,8 +117,6 @@
             </child>
             <child>
               <object class="GtkBox" id="symbolic_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">fill</property>
                 <property name="orientation">vertical</property>
@@ -179,8 +153,6 @@
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">Save Symbolic As…</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>

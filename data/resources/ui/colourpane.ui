@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <object class="GtkBox" id="colour_pane">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <child>
       <object class="GtkGrid" id="sizes">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">end</property>
         <property name="vexpand">True</property>
@@ -17,7 +13,6 @@
         <property name="column_spacing">30</property>
         <child>
           <object class="GtkImage" id="hicolor_128">
-            <property name="visible">True</property>
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">128</property>
