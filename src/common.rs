@@ -117,10 +117,6 @@ pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::R
     Ok(())
 }
 
-pub fn is_valid_app_id(app_id: &str) -> bool {
-    app_id.contains('.') && !app_id.ends_with('.') && !app_id.starts_with('.')
-}
-
 pub fn clean_svg(svg: &str) -> anyhow::Result<Vec<u8>> {
     let options = svgcleaner::CleaningOptions {
         remove_unused_defs: true,

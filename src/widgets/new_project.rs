@@ -1,5 +1,4 @@
 use crate::application::Action;
-use crate::common;
 
 use gettextrs::gettext;
 use log::error;
@@ -79,7 +78,7 @@ impl NewProjectDialog {
         project_name.connect_changed(clone!(@strong self.builder as builder => move |entry| {
             get_widget!(builder, gtk::Button, accept_button);
             let app_id = entry.text().to_string();
-            accept_button.set_sensitive(common::is_valid_app_id(&app_id));
+            accept_button.set_sensitive(gio::Application::id_is_valid(&app_id));
         }));
     }
 }
