@@ -13,7 +13,6 @@ mod common;
 mod config;
 mod object_wrapper;
 mod project;
-mod settings;
 mod widgets;
 
 use application::Application;

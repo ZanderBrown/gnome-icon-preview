@@ -1,8 +1,7 @@
 use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover, ScreenshotDialog};
 use crate::application::{Action, Application};
-use crate::config::PROFILE;
+use crate::config::{APP_ID, PROFILE};
 use crate::project::Project;
-use crate::settings::{Key, SettingsManager};
 
 use gettextrs::gettext;
 use std::rc::Rc;
@@ -36,6 +35,7 @@ mod imp {
         pub open_project: Rc<RefCell<Option<Rc<Project>>>>,
         pub exporter: ExportPopover,
         pub monitor: RefCell<Option<gio::FileMonitor>>,
+        pub settings: gio::Settings,
 
         #[template_child]
         pub content: TemplateChild<gtk::Stack>,
@@ -60,6 +60,7 @@ mod imp {
                 open_project: Rc::new(RefCell::new(None)),
                 exporter: ExportPopover::new(),
                 monitor: RefCell::new(None),
+                settings: gio::Settings::new(APP_ID),
 
                 content: TemplateChild::default(),
                 export_btn: TemplateChild::default(),
@@ -82,9 +83,9 @@ mod imp {
 
             let (width, height) = window.default_size();
 
-            SettingsManager::set_integer(Key::WindowWidth, width);
-            SettingsManager::set_integer(Key::WindowHeight, height);
-            SettingsManager::set_boolean(Key::IsMaximized, window.is_maximized());
+            let _ = self.settings.set_int("window-width", width);
+            let _ = self.settings.set_int("window-height", height);
+            let _ = self.settings.set_boolean("is-maximized", window.is_maximized());
 
             self.parent_close_request(window)
         }
@@ -318,12 +319,14 @@ impl Window {
 
     fn init(&self) {
         // load latest window state
-        let width = SettingsManager::get_integer(Key::WindowWidth);
-        let height = SettingsManager::get_integer(Key::WindowHeight);
+        let self_ = imp::Window::from_instance(self);
+
+        let width = self_.settings.int("window-width");
+        let height = self_.settings.int("window-height");
         if width > -1 && height > -1 {
             self.set_default_size(width, height);
         }
-        let is_maximized = SettingsManager::get_boolean(Key::IsMaximized);
+        let is_maximized = self_.settings.boolean("is-maximized");
 
         if is_maximized {
             self.maximize();

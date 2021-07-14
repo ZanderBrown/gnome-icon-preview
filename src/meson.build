@@ -37,7 +37,6 @@ sources = files(
   'main.rs',
   'object_wrapper.rs',
   'project.rs',
-  'settings.rs',
 )
 
 custom_target(
