@@ -43,8 +43,6 @@ mod imp {
         #[template_child]
         pub export_btn: TemplateChild<gtk::MenuButton>,
         #[template_child]
-        pub open_menu_btn: TemplateChild<gtk::MenuButton>,
-        #[template_child]
         pub recents_btn: TemplateChild<gtk::MenuButton>,
     }
 
@@ -65,7 +63,6 @@ mod imp {
 
                 content: TemplateChild::default(),
                 export_btn: TemplateChild::default(),
-                open_menu_btn: TemplateChild::default(),
                 recents_btn: TemplateChild::default(),
             }
         }
@@ -169,10 +166,6 @@ impl Window {
 
     fn setup_widgets(&self) {
         let self_ = imp::Window::from_instance(self);
-
-        let menu_builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/menus.ui");
-        get_widget!(menu_builder, gio::MenuModel, popover_menu);
-        self_.open_menu_btn.set_menu_model(Some(&popover_menu));
 
         self_.content.add_named(&self_.previewer, Some("previewer"));
 
