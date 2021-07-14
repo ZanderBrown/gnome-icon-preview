@@ -6,7 +6,7 @@ data/resources/ui/gtk/help-overlay.ui
 data/resources/ui/menus.ui
 data/resources/ui/new_project.ui
 data/resources/ui/screenshot_dialog.ui
-data/resources/ui/window.ui.in
+data/resources/ui/window.ui
 src/project.rs
 src/widgets/new_project.rs
 src/widgets/project_previewer.rs

@@ -3,7 +3,6 @@
   <template parent="AdwApplicationWindow" class="Window">
     <property name="default_width">960</property>
     <property name="default_height">550</property>
-    <property name="icon_name">org.gnome.design.AppIconPreview</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -43,10 +42,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkMenuButton" id="open_menu_btn">
+                  <object class="GtkMenuButton">
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Menu</property>
                     <property name="icon_name">open-menu-symbolic</property>
+                    <property name="menu_model">menu_model</property>
                   </object>
                 </child>
               </object>
@@ -213,4 +213,36 @@
       </object>
     </child>
   </template>
+  <menu id="menu_model">
+    <section>
+      <item>
+        <attribute name='action'>app.new-window</attribute>
+        <attribute name='label' translatable='yes'>_New Window</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name='action'>win.refresh</attribute>
+        <attribute name='label' translatable='yes'>_Reload</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.screenshot</attribute>
+        <attribute name='label' translatable='yes'>_Take Screenshot</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.shuffle</attribute>
+        <attribute name='label' translatable='yes'>_Shuffle Example Icons</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name='action'>win.show-help-overlay</attribute>
+        <attribute name='label' translatable='yes'>_Keyboard Shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.about</attribute>
+        <attribute name='label' translatable='yes'>_About App Icon Preview</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
