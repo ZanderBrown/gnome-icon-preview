@@ -148,7 +148,7 @@ impl Application {
             }
             Action::NewProject(project_dest) => match Project::from_template(project_dest) {
                 Ok(project) => send!(self_.sender, Action::OpenProject(project)),
-                Err(err) => log::debug!("{:#?}", err),
+                Err(err) => error!("{:#?}", err),
             },
         };
         glib::Continue(true)
