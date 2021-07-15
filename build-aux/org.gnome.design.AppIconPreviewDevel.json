@@ -10,7 +10,6 @@
     "tags" : [
         "nightly"
     ],
-    "desktop-file-name-suffix" : " (Devel)",
     "finish-args" : [
         "--talk-name=org.a11y.Bus",
         "--env=RUST_BACKTRACE=1",
