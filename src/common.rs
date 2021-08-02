@@ -3,8 +3,6 @@ use std::path::PathBuf;
 use gtk::{gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
-use anyhow::anyhow;
-
 pub fn format_name(name: &str) -> String {
     let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
     let mut formatted_chars = vec![];
@@ -48,8 +46,8 @@ pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option
     surface.set_document_unit(cairo::SvgUnit::Px);
     let cr = cairo::Context::new(&surface)?;
     let dimensions = renderer.intrinsic_dimensions();
-    let width = dimensions.width.ok_or(anyhow!("Failed to read size"))?.length;
-    let height = dimensions.height.ok_or(anyhow!("Failed to read size"))?.length;
+    let width = dimensions.width.unwrap().length;
+    let height = dimensions.height.unwrap().length;
 
     renderer.render_layer(&cr, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
 
