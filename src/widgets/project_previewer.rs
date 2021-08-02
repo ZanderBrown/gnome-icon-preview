@@ -38,7 +38,12 @@ mod imp {
     }
     impl ObjectImpl for ProjectPreviewer {
         fn constructed(&self, obj: &Self::Type) {
-            obj.setup_widgets();
+            obj.append(&self.light_panel.widget);
+            obj.append(&self.dark_panel.widget);
+
+            obj.add_css_class("previewer");
+            obj.shuffle_samples();
+
             self.parent_constructed(obj);
         }
     }
@@ -110,14 +115,6 @@ impl ProjectPreviewer {
         gdk::pixbuf_get_from_surface(&surface, 0, 0, width, height)
     }
 
-    fn setup_widgets(&self) {
-        let self_ = imp::ProjectPreviewer::from_instance(self);
-        self.append(&self_.light_panel.widget);
-        self.append(&self_.dark_panel.widget);
-
-        self.add_css_class("previewer");
-        self.shuffle_samples();
-    }
     pub fn preview(&self, project: &Project) {
         let self_ = imp::ProjectPreviewer::from_instance(self);
 
