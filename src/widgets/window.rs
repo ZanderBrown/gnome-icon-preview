@@ -72,7 +72,24 @@ mod imp {
             obj.init_template();
         }
     }
-    impl ObjectImpl for Window {}
+    impl ObjectImpl for Window {
+        fn constructed(&self, obj: &Self::Type) {
+            let app = gio::Application::default().unwrap().downcast::<Application>().unwrap();
+
+            self.sender.set(app.sender()).unwrap();
+
+            if PROFILE == "Devel" {
+                obj.add_css_class("devel");
+            }
+
+            obj.init();
+            obj.setup_widgets();
+            obj.setup_actions();
+            obj.set_view(View::Initial);
+
+            self.parent_constructed(obj);
+        }
+    }
     impl WidgetImpl for Window {}
     impl WindowImpl for Window {
         fn close_request(&self, window: &Self::Type) -> glib::signal::Inhibit {
@@ -97,21 +114,8 @@ glib::wrapper! {
 }
 
 impl Window {
-    pub fn new(sender: glib::Sender<Action>, app: &Application) -> Self {
-        let window = glib::Object::new::<Self>(&[("application", app)]).unwrap();
-        let self_ = imp::Window::from_instance(&window);
-        self_.sender.set(sender);
-        app.add_window(&window);
-
-        if PROFILE == "Devel" {
-            window.add_css_class("devel");
-        }
-
-        window.init();
-        window.setup_widgets();
-        window.setup_actions();
-        window.set_view(View::Initial);
-        window
+    pub fn new(app: &Application) -> Self {
+        glib::Object::new(&[("application", app)]).unwrap()
     }
 
     pub fn set_open_project(&self, project: Rc<Project>) {

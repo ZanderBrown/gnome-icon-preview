@@ -132,7 +132,7 @@ impl Application {
 
     fn create_window(&self) -> Window {
         let self_ = imp::Application::from_instance(self);
-        let window = Window::new(self_.sender.clone(), self);
+        let window = Window::new(self);
 
         self_.windows.add_window(&window);
         window
@@ -152,5 +152,10 @@ impl Application {
             },
         };
         glib::Continue(true)
+    }
+
+    pub fn sender(&self) -> Sender<Action> {
+        let self_ = imp::Application::from_instance(self);
+        self_.sender.clone()
     }
 }
