@@ -19,7 +19,7 @@ fn main() {
     bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
     textdomain(GETTEXT_PACKAGE);
 
-    glib::set_application_name(&format!("App Icon Preview{}", config::NAME_SUFFIX));
+    glib::set_application_name(&gettext("App Icon Preview"));
 
     gtk::init().expect("Unable to start GTK 4");
 

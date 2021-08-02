@@ -116,7 +116,7 @@ glib::wrapper! {
 
 impl Application {
     pub fn run() {
-        log::info!("App Icon Preview{} ({})", config::NAME_SUFFIX, config::APP_ID);
+        log::info!("App Icon Preview ({})", config::APP_ID);
         log::info!("Version: {} ({})", config::VERSION, config::PROFILE);
         log::info!("Datadir: {}", config::PKGDATADIR);
 

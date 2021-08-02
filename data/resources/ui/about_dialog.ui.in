@@ -2,7 +2,6 @@
 <interface>
   <object class="GtkAboutDialog" id="about_dialog">
     <property name="modal">True</property>
-    <property name="program_name">App Icon Preview</property>
     <property name="version">@version@</property>
     <property name="website">https://gitlab.gnome.org/World/design/app-icon-preview/</property>
     <property name="authors">Bilal Elmoussaoui
