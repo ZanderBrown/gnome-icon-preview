@@ -95,9 +95,11 @@ impl ScreenshotDialog {
     }
 
     fn init(&self, rc_s: Rc<Self>) {
-        let ratio = self.pixbuf.width() / 450;
-        let height = (self.pixbuf.height() / ratio) as i32;
-        let scaled_pixbuf = self.pixbuf.scale_simple(450, height, gdk_pixbuf::InterpType::Bilinear);
+        let aspect_ratio = self.pixbuf.width() as f32 / self.pixbuf.height() as f32;
+        let width = 600;
+        let height = (width as f32 / aspect_ratio) as i32;
+        let scaled_pixbuf = self.pixbuf.scale_simple(width, height, gdk_pixbuf::InterpType::Bilinear);
+
         get_widget!(self.builder, gtk::Picture, @preview).set_pixbuf(scaled_pixbuf.as_ref());
 
         action!(

@@ -34,11 +34,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkPicture" id="preview">
-            <property name="keep_aspect_ratio">False</property>
-            <property name="vexpand">True</property>
-            <property name="hexpand">True</property>
-          </object>
+          <object class="GtkPicture" id="preview" />
         </child>
       </object>
     </child>
