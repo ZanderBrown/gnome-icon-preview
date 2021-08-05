@@ -104,13 +104,13 @@ pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::R
     let context = cairo::Context::new(&source)?;
 
     let overlay = get_overlay(output_size)?;
-    context.set_source_surface(&overlay, 0.0, 0.0);
+    context.set_source_surface(&overlay, 0.0, 0.0)?;
 
-    let mask = source.create_similar(cairo::Content::Alpha, output_size as i32, output_size as i32).unwrap();
+    let mask = source.create_similar(cairo::Content::Alpha, output_size as i32, output_size as i32)?;
     let cr_mask = cairo::Context::new(&mask)?;
-    cr_mask.set_source_surface(&source, 0.0, 0.0);
-    cr_mask.paint();
-    context.mask_surface(&mask, 0.0, 0.0);
+    cr_mask.set_source_surface(&source, 0.0, 0.0)?;
+    cr_mask.paint()?;
+    context.mask_surface(&mask, 0.0, 0.0)?;
 
     Ok(())
 }

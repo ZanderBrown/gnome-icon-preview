@@ -102,12 +102,12 @@ impl ProjectPreviewer {
             img_y = (txt_extents.height - logo_height) as f64 / 2.0;
             0.0
         };
-        context.save();
+        context.save().ok()?;
 
         context.set_source_pixbuf(&logo, padding + img_x, padding + img_y);
         context.rectangle(padding + img_x, padding + img_y, logo_width as f64, logo_height as f64);
-        context.fill();
-        context.restore();
+        context.fill().ok()?;
+        context.restore().ok()?;
 
         context.move_to(padding + txt_x, padding + txt_y);
         pangocairo::show_layout(&context, &layout);

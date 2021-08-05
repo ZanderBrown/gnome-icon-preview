@@ -16,8 +16,8 @@ fn main() {
 
     // Prepare i18n
     setlocale(LocaleCategory::LcAll, "");
-    bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
-    textdomain(GETTEXT_PACKAGE);
+    bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR).expect("Could not bind text domain");
+    textdomain(GETTEXT_PACKAGE).expect("Could not bind text domain");
 
     glib::set_application_name(&gettext("App Icon Preview"));
 
