@@ -33,7 +33,7 @@ impl Project {
     pub fn parse(file: gio::File) -> anyhow::Result<Rc<Self>> {
         let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
         let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
-        handle.set_stylesheet("#layer3,#layer2 {visibility: hidden}")?;
+        handle.set_stylesheet("#layer3,#layer2 {opacity: 0}")?;
         let renderer = CairoRenderer::new(&handle);
 
         let dimensions = renderer.intrinsic_dimensions();
