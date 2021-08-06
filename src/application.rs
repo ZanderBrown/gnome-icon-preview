@@ -15,6 +15,8 @@ pub enum Action {
 }
 
 mod imp {
+    use once_cell::sync::OnceCell;
+
     use super::*;
 
     use std::cell::RefCell;
@@ -22,6 +24,7 @@ mod imp {
     pub struct Application {
         pub sender: Sender<Action>,
         pub receiver: RefCell<Option<Receiver<Action>>>,
+        pub icon_theme: OnceCell<gtk::IconTheme>,
     }
 
     #[glib::object_subclass]
@@ -34,7 +37,11 @@ mod imp {
             let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
             let receiver = RefCell::new(Some(r));
 
-            Self { sender, receiver }
+            Self {
+                sender,
+                receiver,
+                icon_theme: OnceCell::new(),
+            }
         }
     }
     impl ObjectImpl for Application {}
@@ -50,9 +57,11 @@ mod imp {
             gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
             if let Some(display) = gdk::Display::default() {
                 gtk::StyleContext::add_provider_for_display(&display, &p, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
-                if let Err(err) = crate::common::init_tmp(&display) {
+                let icon_theme = gtk::IconTheme::for_display(&display).unwrap();
+                if let Err(err) = crate::common::init_tmp(&icon_theme) {
                     log::error!("Failed to load icon theme: {}", err);
                 };
+                self.icon_theme.set(icon_theme).unwrap();
             }
 
             action!(
@@ -151,5 +160,10 @@ impl Application {
     pub fn sender(&self) -> Sender<Action> {
         let self_ = imp::Application::from_instance(self);
         self_.sender.clone()
+    }
+
+    pub fn icon_theme(&self) -> gtk::IconTheme {
+        let self_ = imp::Application::from_instance(self);
+        self_.icon_theme.get().unwrap().clone()
     }
 }

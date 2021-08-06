@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use gtk::{gdk, gio, glib, prelude::*};
+use gtk::{gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -77,9 +77,7 @@ pub fn create_tmp(icon: Icon, icon_name: &str) -> anyhow::Result<PathBuf> {
     Ok(temp_path)
 }
 
-pub fn init_tmp(display: &gdk::Display) -> anyhow::Result<()> {
-    let icon_theme = gtk::IconTheme::for_display(display).unwrap();
-
+pub fn init_tmp(icon_theme: &gtk::IconTheme) -> anyhow::Result<()> {
     // Symbolic dir: icons/hicolor/symbolic/apps
     // App icon dir: icons/hicolor/scalable/apps
     let temp_path = glib::user_cache_dir().join("app-icon-preview").join("icons");
