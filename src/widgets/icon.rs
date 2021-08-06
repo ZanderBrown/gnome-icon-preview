@@ -32,6 +32,11 @@ impl Icon {
         self.image.set_from_gicon(&gicon);
     }
 
+    pub fn set_icon_name(&self, icon_name: &str) {
+        self.label.set_text(&common::format_name(icon_name));
+        self.image.set_icon_name(Some(icon_name));
+    }
+
     fn init(&self) {
         self.widget.set_valign(gtk::Align::Center);
         self.widget.set_margin_start(15);

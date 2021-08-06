@@ -118,14 +118,14 @@ impl ProjectPreviewer {
     pub fn preview(&self, project: &Project) {
         let self_ = imp::ProjectPreviewer::from_instance(self);
 
-        if let Ok((hicolor, _)) = project.get_hicolor(None) {
-            self_.dark_panel.set_hicolor(&hicolor);
-            self_.light_panel.set_hicolor(&hicolor);
+        if let Ok(_) = project.get_hicolor(None) {
+            self_.dark_panel.set_hicolor(&project.name());
+            self_.light_panel.set_hicolor(&project.name());
         }
         match project.get_symbolic() {
-            Ok((symbolic, _)) => {
-                self_.light_panel.set_symbolic(Some(&symbolic));
-                self_.dark_panel.set_symbolic(Some(&symbolic));
+            Ok(_) => {
+                self_.light_panel.set_symbolic(Some(&project.name()));
+                self_.dark_panel.set_symbolic(Some(&project.name()));
             }
             Err(_) => {
                 self_.light_panel.set_symbolic(None);

@@ -1,7 +1,21 @@
 use std::path::PathBuf;
 
-use gtk::{gio, glib, prelude::*};
+use gtk::{gdk, gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
+
+pub enum Icon {
+    Symbolic,
+    Scalable,
+}
+
+impl Icon {
+    pub fn path(self) -> PathBuf {
+        match self {
+            Icon::Symbolic => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/symbolic/apps"),
+            Icon::Scalable => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/scalable/apps"),
+        }
+    }
+}
 
 pub fn format_name(name: &str) -> String {
     let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
@@ -31,16 +45,30 @@ mod tests {
     }
 }
 
-pub fn create_tmp(filename: &str) -> anyhow::Result<PathBuf> {
-    let mut temp_path = glib::user_cache_dir().join("app-icon-preview");
+pub fn create_tmp<P: AsRef<str>>(icon: Icon, basename: P) -> anyhow::Result<PathBuf> {
+    let mut temp_path = icon.path();
     std::fs::create_dir_all(&temp_path)?;
-    temp_path.push(filename);
+    temp_path.push(basename.as_ref());
     Ok(temp_path)
+}
+
+pub fn init_tmp(display: &gdk::Display) -> anyhow::Result<()> {
+    let icon_theme = gtk::IconTheme::for_display(display).unwrap();
+
+    // Symbolic dir: icons/hicolor/symbolic/apps
+    // App icon dir: icons/hicolor/scalable/apps
+    let temp_path = glib::user_cache_dir().join("app-icon-preview").join("icons");
+
+    std::fs::create_dir_all(Icon::Scalable.path())?;
+    std::fs::create_dir_all(Icon::Symbolic.path())?;
+
+    icon_theme.add_search_path(&temp_path);
+    Ok(())
 }
 
 pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let renderer = CairoRenderer::new(handle);
-    let dest = dest.unwrap_or(create_tmp(&format!("#hicolor-{}-{}.svg", output_size, basename))?);
+    let dest = dest.unwrap_or(create_tmp(Icon::Scalable, basename)?);
 
     let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
@@ -55,7 +83,7 @@ pub fn render(handle: &SvgHandle, basename: &str, output_size: f64, dest: Option
 }
 
 pub fn render_by_id(handle: &SvgHandle, basename: &str, id: &str, output_size: f64, dest: Option<PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-    let dest = dest.unwrap_or(create_tmp(&format!("{}-{}-{}.svg", id, output_size, basename))?);
+    let dest = dest.unwrap_or(create_tmp(Icon::Scalable, basename)?);
 
     if handle.has_element_with_id(id)? {
         let renderer = CairoRenderer::new(handle);

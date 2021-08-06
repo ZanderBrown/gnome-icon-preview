@@ -3,8 +3,8 @@ use crate::project::Project;
 use serde_derive::{Deserialize, Serialize};
 use std::rc::Rc;
 
+use gtk::pango;
 use gtk::prelude::*;
-use gtk::{gio, pango};
 
 #[derive(Clone, Serialize, Deserialize)]
 pub struct RecentItem {
@@ -28,13 +28,14 @@ impl RecentItemRow {
     fn init(&self) {
         let container = gtk::Box::new(gtk::Orientation::Horizontal, 12);
 
-        if let Ok((hicolor, _)) = self.project.get_hicolor(None) {
-            let image = gtk::Image::from_gicon(&gio::FileIcon::new(&hicolor));
+        let project_name = self.project.name();
+
+        if let Ok(_) = self.project.get_hicolor(None) {
+            let image = gtk::Image::from_icon_name(Some(&project_name));
             image.set_icon_size(gtk::IconSize::Large);
             image.add_css_class("icon-dropshadow");
             container.append(&image);
         }
-        let project_name = self.project.name();
 
         let item_label = gtk::Label::new(Some(&project_name));
         item_label.set_xalign(0.0);

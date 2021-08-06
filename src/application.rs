@@ -50,6 +50,9 @@ mod imp {
             gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
             if let Some(display) = gdk::Display::default() {
                 gtk::StyleContext::add_provider_for_display(&display, &p, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
+                if let Err(err) = crate::common::init_tmp(&display) {
+                    log::error!("Failed to load icon theme: {}", err);
+                };
             }
 
             action!(

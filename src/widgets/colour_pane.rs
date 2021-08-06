@@ -37,31 +37,31 @@ impl ColourPane {
         pane
     }
 
-    pub fn set_hicolor(&self, hicolor: &gio::File) {
+    pub fn set_hicolor(&self, icon_name: &str) {
         if let Some(icon) = self.small_icons.borrow_mut().get(2) {
-            icon.set_file(hicolor);
+            icon.set_icon_name(icon_name);
         }
         if let Some(icon) = self.grid_icons.borrow_mut().get(1) {
-            icon.set_file(hicolor);
+            icon.set_icon_name(icon_name);
         }
-        let gicon = gio::FileIcon::new(hicolor);
 
         get_widget!(self.builder, gtk::Image, hicolor_128);
         get_widget!(self.builder, gtk::Image, hicolor_64);
         get_widget!(self.builder, gtk::Image, hicolor_32);
 
-        hicolor_128.set_from_gicon(&gicon);
-        hicolor_64.set_from_gicon(&gicon);
-        hicolor_32.set_from_gicon(&gicon);
+        hicolor_128.set_icon_name(Some(icon_name));
+        hicolor_64.set_icon_name(Some(icon_name));
+        hicolor_32.set_icon_name(Some(icon_name));
     }
 
-    pub fn set_symbolic(&self, symbolic: Option<&gio::File>) {
+    pub fn set_symbolic(&self, basename: Option<&str>) {
         get_widget!(self.builder, gtk::Image, symbolic_img);
         get_widget!(self.builder, gtk::Label, symbolic_label);
 
-        match symbolic {
-            Some(symbolic_file) => {
-                symbolic_img.set_from_gicon(&gio::FileIcon::new(symbolic_file));
+        match basename {
+            Some(basename) => {
+                let icon_name = format!("{}-symbolic", basename.trim_end_matches(".svg"));
+                symbolic_img.set_icon_name(Some(&icon_name));
                 symbolic_img.show();
                 symbolic_label.show();
             }
