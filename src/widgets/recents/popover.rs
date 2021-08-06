@@ -40,7 +40,7 @@ impl RecentsPopover {
             Some(&self.model),
             clone!(@strong self.sender as sender, @strong self.widget as popover => move |item| {
                 let item: RecentItem = item.downcast_ref::<ObjectWrapper>().unwrap().deserialize();
-                let project = Project::parse(gio::File::for_uri(&item.uri)).unwrap();
+                let project = Project::parse(gio::File::for_uri(&item.uri), false).unwrap();
                 let row = RecentItemRow::new(project.clone());
 
                 let gesture = gtk::GestureClick::new();
@@ -69,7 +69,7 @@ impl RecentsPopover {
                         break;
                     }
                 }
-                if  !exist_already && Project::parse(file).is_ok() {
+                if  !exist_already && Project::parse(file, false).is_ok() {
                     let object = ObjectWrapper::new(Box::new(RecentItem { uri: uri.to_string() }));
                     model.append(&object);
                 }

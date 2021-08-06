@@ -30,14 +30,16 @@ impl RecentItemRow {
 
         let project_name = self.project.name();
 
-        if self.project.has_cache_icons() {
-            let image = gtk::Image::from_icon_name(Some(&project_name));
-            image.set_icon_size(gtk::IconSize::Large);
-            image.add_css_class("icon-dropshadow");
-            container.append(&image);
-        } else {
-            self.project.cache_icons();
+        if !self.project.has_cache_icons() {
+            if let Err(err) = self.project.cache_icons() {
+                log::error!("Failed to cache icons for {}: {}", self.project.name(), err);
+            }
         }
+
+        let image = gtk::Image::from_icon_name(Some(&project_name));
+        image.set_icon_size(gtk::IconSize::Large);
+        image.add_css_class("icon-dropshadow");
+        container.append(&image);
 
         let item_label = gtk::Label::new(Some(&project_name));
         item_label.set_xalign(0.0);

@@ -27,7 +27,7 @@ impl Project {
         dest.parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
 
         template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
-        Project::parse(dest)
+        Project::parse(dest, true)
     }
 
     pub fn cache_icons(&self) -> anyhow::Result<()> {
@@ -51,7 +51,7 @@ impl Project {
         Ok(())
     }
 
-    pub fn parse(file: gio::File) -> anyhow::Result<Rc<Self>> {
+    pub fn parse(file: gio::File, cache_icons: bool) -> anyhow::Result<Rc<Self>> {
         let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
         let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
         handle.set_stylesheet("#layer3,#layer2 {opacity: 0}")?;
@@ -68,7 +68,9 @@ impl Project {
                 file,
                 handle,
             };
-            project.cache_icons()?;
+            if cache_icons {
+                project.cache_icons()?;
+            }
             return Ok(Rc::new(project));
         }
 
@@ -78,7 +80,9 @@ impl Project {
                 project_type: ProjectType::Icon,
                 handle,
             };
-            project.cache_icons()?;
+            if cache_icons {
+                project.cache_icons()?;
+            }
             return Ok(Rc::new(project));
         }
 

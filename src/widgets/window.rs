@@ -137,7 +137,7 @@ impl Window {
         @strong self_.exporter as exporter, @strong self_.previewer as previewer  => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
                 let file = project.borrow().as_ref().unwrap().file.clone();
-                match Project::parse(file) {
+                match Project::parse(file, true) {
                     Ok(project) => {
                         monitor.cancel();
                         previewer.preview(&project);
@@ -229,7 +229,7 @@ impl Window {
             clone!(@strong sender, @weak self_.open_project as project,
             @strong self_.exporter as exporter, @strong self_.previewer as previewer => move |_, _| {
                 if let Some(project) = project.borrow().as_ref() {
-                   match Project::parse(project.file.clone()) {
+                   match Project::parse(project.file.clone(), true) {
                         Ok(project) => {
                             previewer.preview(&project);
                             exporter.set_project(&project);
@@ -305,7 +305,7 @@ impl Window {
                 file_chooser.connect_response(clone!(@strong file_chooser, @strong sender => move |_, response| {
                     if response == gtk::ResponseType::Accept {
                         let file = file_chooser.file().unwrap();
-                        match Project::parse(file) {
+                        match Project::parse(file, true) {
                             Ok(project) => send!(sender, Action::OpenProject(project)),
                             Err(err) => log::warn!("Failed to open file {}", err),
                         };

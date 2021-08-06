@@ -102,7 +102,7 @@ mod imp {
 
         fn open(&self, application: &Self::Type, files: &[gio::File], _hint: &str) {
             for file in files.iter() {
-                if let Ok(project) = Project::parse(file.clone()) {
+                if let Ok(project) = Project::parse(file.clone(), true) {
                     let window = application.create_window();
                     window.set_open_project(project);
                     window.present();
