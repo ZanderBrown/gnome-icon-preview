@@ -201,8 +201,9 @@ impl Window {
             clone!(@weak self_.open_project as project, @weak self as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();
+                    let icon = crate::common::Icon::from(project_type);
                     let fut = clone!(@weak project, @weak parent => async move {
-                        if project.export(&project_type, &parent.upcast::<gtk::Window>()).await.is_err() {
+                        if project.export(icon, &parent.upcast::<gtk::Window>()).await.is_err() {
                             log::warn!("Failed to export the project");
                         }
                     });

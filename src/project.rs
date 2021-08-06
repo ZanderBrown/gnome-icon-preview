@@ -110,12 +110,11 @@ impl Project {
         });
     }
 
-    pub async fn export(&self, icon_type: &str, parent: &gtk::Window) -> anyhow::Result<()> {
-        let (basename, icon) = match icon_type {
-            "nightly" => (format!("{}.Devel.svg", self.name()), Icon::Devel),
-            "regular" => (format!("{}.svg", self.name()), Icon::Scalable),
-            "symbolic" => (format!("{}-symbolic.svg", self.name()), Icon::Symbolic),
-            _ => unimplemented!(),
+    pub async fn export(&self, icon: Icon, parent: &gtk::Window) -> anyhow::Result<()> {
+        let basename = match icon {
+            Icon::Devel => format!("{}.Devel.svg", self.name()),
+            Icon::Scalable => format!("{}.svg", self.name()),
+            Icon::Symbolic => format!("{}-symbolic.svg", self.name()),
         };
 
         let gfile = gio::File::for_path(icon.path().join(&basename));

@@ -10,6 +10,23 @@ pub enum Icon {
     Devel,
 }
 
+impl Default for Icon {
+    fn default() -> Self {
+        Self::Scalable
+    }
+}
+
+impl<T: AsRef<str>> From<T> for Icon {
+    fn from(name: T) -> Self {
+        match name.as_ref() {
+            "nightly" => Self::Devel,
+            "regular" => Self::Scalable,
+            "symbolic" => Self::Symbolic,
+            _ => Self::default(),
+        }
+    }
+}
+
 impl Icon {
     pub fn path(self) -> PathBuf {
         match self {
