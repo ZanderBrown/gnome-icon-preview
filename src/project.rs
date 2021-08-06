@@ -134,33 +134,30 @@ impl Project {
         Ok(())
     }
 
-    pub fn get_hicolor(&self, dest: Option<std::path::PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-        let basename = format!("{}.svg", self.name());
+    pub fn get_hicolor(&self, _dest: Option<std::path::PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
-            ProjectType::Icon => common::render_by_id(&self.handle, &basename, "#hicolor", 128.0, dest),
-            ProjectType::Preview => common::render(&self.handle, &basename, 128.0, dest),
+            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Scalable, "#hicolor", 128.0),
+            ProjectType::Preview => common::render(&self.handle, &self.name(), Icon::Scalable, 128.0),
         }
     }
 
     pub fn get_symbolic(&self) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
         match self.project_type {
-            ProjectType::Icon => {
-                let basename = format!("{}-symbolic.svg", self.name());
-                let dest = common::create_tmp(Icon::Symbolic, &basename)?;
-                common::render_by_id(&self.handle, &basename, "#symbolic", 16.0, Some(dest))
-            }
+            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Symbolic, "#symbolic", 16.0),
             ProjectType::Preview => anyhow::bail!("No symbolic support for Preview icons"),
         }
     }
 
     pub fn get_nightly(&self) -> anyhow::Result<gio::File> {
-        let basename = format!("{}.Devel.svg", self.name());
-        let dest_path = common::create_tmp(Icon::Scalable, &basename)?;
+        let dest_path = common::create_tmp(Icon::Devel, &self.name())?;
         let dest = gio::File::for_path(&dest_path);
 
-        let (_, hicolor) = self.get_hicolor(Some(dest_path))?;
-
-        common::render_stripes(&hicolor, 128.0)?;
+        let source = match self.project_type {
+            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Devel, "#hicolor", 128.0),
+            ProjectType::Preview => common::render(&self.handle, &self.name(), Icon::Devel, 128.0),
+        }?
+        .1;
+        common::render_stripes(&source, 128.0)?;
         Ok(dest)
     }
 }
