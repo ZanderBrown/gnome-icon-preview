@@ -93,7 +93,7 @@ pub fn init_tmp(icon_theme: &gtk::IconTheme) -> anyhow::Result<()> {
     Ok(())
 }
 
-pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<()> {
     let output_size = icon.size();
 
     let renderer = CairoRenderer::new(handle);
@@ -112,10 +112,10 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result
         render_stripes(&surface, icon.size())?
     }
 
-    Ok((gio::File::for_path(dest), surface))
+    Ok(())
 }
 
-pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<()> {
     let dest = create_tmp(icon, icon_name)?;
     let id = icon.id();
     let output_size = icon.size();
@@ -144,7 +144,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
             render_stripes(&surface, icon.size())?
         }
 
-        return Ok((gio::File::for_path(dest), surface));
+        return Ok(());
     }
     anyhow::bail!("failed")
 }
