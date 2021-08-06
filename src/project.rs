@@ -46,7 +46,7 @@ impl Project {
         let app = gio::Application::default().unwrap().downcast::<crate::Application>().unwrap();
 
         // We need to refresh the search path after caching icons.
-        app.icon_theme().add_search_path(glib::user_cache_dir().join("app-icon-preview").join("icons"));
+        app.icon_theme().add_search_path(common::icon_theme_path());
 
         Ok(())
     }

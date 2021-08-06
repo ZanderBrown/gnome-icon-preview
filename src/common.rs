@@ -13,9 +13,9 @@ pub enum Icon {
 impl Icon {
     pub fn path(self) -> PathBuf {
         match self {
-            Icon::Symbolic => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/symbolic/apps"),
-            Icon::Scalable => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/scalable/apps"),
-            Icon::Devel => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/scalable/apps"),
+            Icon::Symbolic => icon_theme_path().join("hicolor/symbolic/apps"),
+            Icon::Scalable => icon_theme_path().join("hicolor/scalable/apps"),
+            Icon::Devel => icon_theme_path().join("hicolor/scalable/apps"),
         }
     }
 
@@ -35,6 +35,10 @@ impl Icon {
             Icon::Symbolic => 16.0,
         }
     }
+}
+
+pub fn icon_theme_path() -> PathBuf {
+    glib::user_cache_dir().join("app-icon-preview").join("icons")
 }
 
 pub fn format_name(name: &str) -> String {
@@ -80,7 +84,7 @@ pub fn create_tmp(icon: Icon, icon_name: &str) -> anyhow::Result<PathBuf> {
 pub fn init_tmp(icon_theme: &gtk::IconTheme) -> anyhow::Result<()> {
     // Symbolic dir: icons/hicolor/symbolic/apps
     // App icon dir: icons/hicolor/scalable/apps
-    let temp_path = glib::user_cache_dir().join("app-icon-preview").join("icons");
+    let temp_path = icon_theme_path();
 
     std::fs::create_dir_all(Icon::Scalable.path())?;
     std::fs::create_dir_all(Icon::Symbolic.path())?;
