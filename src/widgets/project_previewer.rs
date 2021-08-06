@@ -1,5 +1,5 @@
 use super::colour_pane::{ColourPane, PaneStyle};
-use crate::project::Project;
+use crate::project::{Project, ProjectType};
 
 use gettextrs::gettext;
 use rand::seq::SliceRandom;
@@ -118,21 +118,18 @@ impl ProjectPreviewer {
     pub fn preview(&self, project: &Project) {
         let self_ = imp::ProjectPreviewer::from_instance(self);
 
-        if let Ok(_) = project.get_hicolor(None) {
-            self_.dark_panel.set_hicolor(&project.name());
-            self_.light_panel.set_hicolor(&project.name());
-        }
-        match project.get_symbolic() {
-            Ok(_) => {
-                self_.light_panel.set_symbolic(Some(&project.name()));
-                self_.dark_panel.set_symbolic(Some(&project.name()));
-            }
-            Err(_) => {
-                self_.light_panel.set_symbolic(None);
-                self_.dark_panel.set_symbolic(None);
-            }
-        }
+        self_.dark_panel.set_hicolor(&project.name());
+        self_.light_panel.set_hicolor(&project.name());
+
+        let symbolic = match project.project_type {
+            ProjectType::Icon => Some(project.name()),
+            ProjectType::Preview => None,
+        };
+
+        self_.light_panel.set_symbolic(symbolic.as_deref());
+        self_.dark_panel.set_symbolic(symbolic.as_deref());
     }
+
     pub fn shuffle_samples(&self) {
         let self_ = imp::ProjectPreviewer::from_instance(self);
         let mut rng = &mut rand::thread_rng();

@@ -30,11 +30,13 @@ impl RecentItemRow {
 
         let project_name = self.project.name();
 
-        if let Ok(_) = self.project.get_hicolor(None) {
+        if self.project.has_cache_icons() {
             let image = gtk::Image::from_icon_name(Some(&project_name));
             image.set_icon_size(gtk::IconSize::Large);
             image.add_css_class("icon-dropshadow");
             container.append(&image);
+        } else {
+            self.project.cache_icons();
         }
 
         let item_label = gtk::Label::new(Some(&project_name));

@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use gtk::{gdk, gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub enum Icon {
     Symbolic,
     Scalable,
@@ -16,6 +16,23 @@ impl Icon {
             Icon::Symbolic => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/symbolic/apps"),
             Icon::Scalable => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/scalable/apps"),
             Icon::Devel => glib::user_cache_dir().join("app-icon-preview").join("icons/hicolor/scalable/apps"),
+        }
+    }
+
+    pub fn id(self) -> String {
+        match self {
+            Icon::Scalable => "#hicolor",
+            Icon::Devel => "#hicolor",
+            Icon::Symbolic => "#symbolic",
+        }
+        .to_string()
+    }
+
+    pub fn size(self) -> f64 {
+        match self {
+            Icon::Scalable => 128.0,
+            Icon::Devel => 128.0,
+            Icon::Symbolic => 16.0,
         }
     }
 }
@@ -74,7 +91,9 @@ pub fn init_tmp(display: &gdk::Display) -> anyhow::Result<()> {
     Ok(())
 }
 
-pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon, output_size: f64) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+    let output_size = icon.size();
+
     let renderer = CairoRenderer::new(handle);
     let dest = create_tmp(icon, icon_name)?;
 
@@ -87,13 +106,19 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon, output_size: f64)
 
     renderer.render_layer(&cr, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
 
+    if icon == Icon::Devel {
+        render_stripes(&surface, icon.size())?
+    }
+
     Ok((gio::File::for_path(dest), surface))
 }
 
-pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon, id: &str, output_size: f64) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
+pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
     let dest = create_tmp(icon, icon_name)?;
+    let id = icon.id();
+    let output_size = icon.size();
 
-    if handle.has_element_with_id(id)? {
+    if handle.has_element_with_id(&id)? {
         let renderer = CairoRenderer::new(handle);
         let viewport = {
             let doc = renderer.intrinsic_dimensions();
@@ -112,6 +137,10 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon, id: &str, o
         cr.translate(-rect.x, -rect.y);
 
         renderer.render_layer(&cr, None, &viewport)?;
+
+        if icon == Icon::Devel {
+            render_stripes(&surface, icon.size())?
+        }
 
         return Ok((gio::File::for_path(dest), surface));
     }

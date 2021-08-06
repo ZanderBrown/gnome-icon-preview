@@ -5,9 +5,8 @@ use gettextrs::gettext;
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 use std::rc::Rc;
 
-use gtk::glib::clone;
 use gtk::prelude::*;
-use gtk::{gio, glib};
+use gtk::{gdk, gio, glib};
 
 #[derive(PartialEq, Debug, Clone)]
 pub enum ProjectType {
@@ -31,6 +30,21 @@ impl Project {
         Project::parse(dest)
     }
 
+    pub fn cache_icons(&self) -> anyhow::Result<()> {
+        match self.project_type {
+            ProjectType::Icon => {
+                common::render_by_id(&self.handle, &self.name(), Icon::Scalable)?;
+                common::render_by_id(&self.handle, &self.name(), Icon::Devel)?;
+                common::render_by_id(&self.handle, &self.name(), Icon::Symbolic)?;
+            }
+            ProjectType::Preview => {
+                common::render(&self.handle, &self.name(), Icon::Scalable)?;
+                common::render(&self.handle, &self.name(), Icon::Devel)?;
+            }
+        }
+        Ok(())
+    }
+
     pub fn parse(file: gio::File) -> anyhow::Result<Rc<Self>> {
         let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
         let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
@@ -43,20 +57,25 @@ impl Project {
         let height = dimensions.height.unwrap().length;
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
-            return Ok(Rc::new(Self {
+            let project = Self {
                 project_type: ProjectType::Preview,
                 file,
                 handle,
-            }));
+            };
+            project.cache_icons()?;
+            return Ok(Rc::new(project));
         }
 
         if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
-            return Ok(Rc::new(Self {
+            let project = Self {
                 file,
                 project_type: ProjectType::Icon,
                 handle,
-            }));
+            };
+            project.cache_icons()?;
+            return Ok(Rc::new(project));
         }
+
         anyhow::bail!("not found")
     }
 
@@ -81,28 +100,19 @@ impl Project {
         });
     }
 
-    pub fn export(&self, icon_type: &str, parent: &gtk::Window) -> anyhow::Result<()> {
-        let mut icon_name: String = self.name();
-        let mut gicon: Option<gio::File> = None;
-        match icon_type {
-            "nightly" => {
-                icon_name = format!("{}.Devel.svg", self.name());
-                gicon = Some(self.get_nightly()?);
-            }
-            "regular" => {
-                icon_name = format!("{}.svg", self.name());
-                gicon = Some(self.get_hicolor(None)?.0);
-            }
-            "symbolic" => {
-                icon_name = format!("{}-symbolic.svg", self.name());
-                gicon = Some(self.get_symbolic()?.0);
-            }
-            _ => (),
+    pub async fn export(&self, icon_type: &str, parent: &gtk::Window) -> anyhow::Result<()> {
+        let (basename, icon) = match icon_type {
+            "nightly" => (format!("{}.Devel.svg", self.name()), Icon::Devel),
+            "regular" => (format!("{}.svg", self.name()), Icon::Scalable),
+            "symbolic" => (format!("{}-symbolic.svg", self.name()), Icon::Symbolic),
+            _ => unimplemented!(),
         };
+
+        let gfile = gio::File::for_path(icon.path().join(&basename));
 
         let dialog = gtk::FileChooserNative::new(Some(&gettext("Export")), Some(parent), gtk::FileChooserAction::Save, Some(&gettext("_Save")), Some(&gettext("_Cancel")));
         dialog.set_modal(true);
-        dialog.set_current_name(&icon_name);
+        dialog.set_current_name(&basename);
 
         let svg_filter = gtk::FileFilter::new();
         svg_filter.set_name(Some(&gettext("SVG")));
@@ -110,77 +120,27 @@ impl Project {
         svg_filter.add_mime_type("image/svg+xml");
         dialog.add_filter(&svg_filter);
 
-        dialog.connect_response(clone!(@strong gicon, @strong dialog => move |_, response| {
-            if response == gtk::ResponseType::Accept {
-                let dest = dialog.file().unwrap();
-                if let Some(source) = &gicon {
-                    let save = move ||  -> anyhow::Result<()> {
-                        let (svg, _) = source.load_contents(gio::NONE_CANCELLABLE)?;
-                        let cleaned_svg = common::clean_svg(std::str::from_utf8(&svg)?)?;
+        if dialog.run_future().await == gtk::ResponseType::Accept {
+            let dest = dialog.file().unwrap();
+            let (bytes, _) = gfile.load_contents_async_future().await?;
+            let cleaned_svg = common::clean_svg(std::str::from_utf8(&bytes)?)?;
 
-                        dest.replace_contents(&cleaned_svg, None, false,
-                                                gio::FileCreateFlags::REPLACE_DESTINATION,
-                                                gio::NONE_CANCELLABLE)?;
-                        Ok(())
-                    };
-                    if save().is_err() {
-                        log::warn!("Failed to save/clean the SVG file");
-                    }
-                }
-            }
-            dialog.destroy();
-        }));
-        dialog.show();
+            if let Err(err) = dest.replace_contents_async_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
+                log::error!("Failed to export icon {:?}", err);
+            };
+        }
+
         Ok(())
     }
 
-    pub fn get_hicolor(&self, _dest: Option<std::path::PathBuf>) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-        match self.project_type {
-            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Scalable, "#hicolor", 128.0),
-            ProjectType::Preview => common::render(&self.handle, &self.name(), Icon::Scalable, 128.0),
-        }
-    }
+    pub fn has_cache_icons(&self) -> bool {
+        let display = gdk::Display::default().unwrap();
+        let icon_theme = gtk::IconTheme::for_display(&display).unwrap();
 
-    pub fn get_symbolic(&self) -> anyhow::Result<(gio::File, cairo::SvgSurface)> {
-        match self.project_type {
-            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Symbolic, "#symbolic", 16.0),
-            ProjectType::Preview => anyhow::bail!("No symbolic support for Preview icons"),
-        }
-    }
+        let has_scalable = icon_theme.has_icon(&self.name());
+        let has_devel = icon_theme.has_icon(&format!("{}.Devel", self.name()));
+        let has_symbolic = icon_theme.has_icon(&format!("{}-symbolic", self.name()));
 
-    pub fn get_nightly(&self) -> anyhow::Result<gio::File> {
-        let dest_path = common::create_tmp(Icon::Devel, &self.name())?;
-        let dest = gio::File::for_path(&dest_path);
-
-        let source = match self.project_type {
-            ProjectType::Icon => common::render_by_id(&self.handle, &self.name(), Icon::Devel, "#hicolor", 128.0),
-            ProjectType::Preview => common::render(&self.handle, &self.name(), Icon::Devel, 128.0),
-        }?
-        .1;
-        common::render_stripes(&source, 128.0)?;
-        Ok(dest)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::{Project, ProjectType};
-    use gtk::gio;
-    #[test]
-    fn parsing() {
-        let project = Project::parse(gio::File::for_path("./tests/com.belmoussaoui.ReadItLater.Source.svg")).unwrap();
-        assert_eq!(project.project_type, ProjectType::Icon);
-        assert_eq!(project.get_symbolic().is_err(), false);
-        assert_eq!(project.get_hicolor(None).is_err(), false);
-
-        let project = Project::parse(gio::File::for_path("./tests/org.gnome.Test.Source.svg")).unwrap();
-        assert_eq!(project.project_type, ProjectType::Icon);
-        assert_eq!(project.get_symbolic().is_err(), false);
-        assert_eq!(project.get_hicolor(None).is_err(), false);
-
-        let project = Project::parse(gio::File::for_path("./tests/org.gnome.design.BannerViewer.svg")).unwrap();
-        assert_eq!(project.project_type, ProjectType::Preview);
-        assert_ne!(project.get_symbolic().is_err(), false);
-        assert_eq!(project.get_hicolor(None).is_err(), false);
+        has_scalable && has_devel && (has_symbolic || self.project_type == ProjectType::Preview)
     }
 }

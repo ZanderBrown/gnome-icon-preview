@@ -201,9 +201,12 @@ impl Window {
             clone!(@weak self_.open_project as project, @weak self as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();
-                    if project.export(&project_type, &parent.upcast::<gtk::Window>()).is_err() {
-                        log::warn!("Failed to export the project");
-                    }
+                    let fut = clone!(@weak project, @weak parent => async move {
+                        if project.export(&project_type, &parent.upcast::<gtk::Window>()).await.is_err() {
+                            log::warn!("Failed to export the project");
+                        }
+                    });
+                    gtk_macros::spawn!(fut);
                 };
             })
         );

@@ -1,4 +1,4 @@
-use crate::project::Project;
+use crate::project::{Project, ProjectType};
 
 use gtk::prelude::*;
 use gtk_macros::get_widget;
@@ -17,31 +17,19 @@ impl ExportPopover {
     }
 
     pub fn set_project(&self, project: &Project) {
-        match project.get_hicolor(None) {
-            Ok(_) => {
-                get_widget!(self.builder, gtk::Image, regular_image);
-                regular_image.set_icon_name(Some(&project.name()));
-                get_widget!(self.builder, gtk::Box, @regular_box).show();
-            }
-            Err(_) => get_widget!(self.builder, gtk::Box, @regular_box).hide(),
-        };
+        get_widget!(self.builder, gtk::Image, regular_image);
+        get_widget!(self.builder, gtk::Image, symbolic_image);
+        get_widget!(self.builder, gtk::Image, nightly_image);
 
-        match project.get_symbolic() {
-            Ok(_) => {
-                get_widget!(self.builder, gtk::Image, symbolic_image);
-                symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
-                get_widget!(self.builder, gtk::Box, @symbolic_box).show();
-            }
-            Err(_) => get_widget!(self.builder, gtk::Box, @symbolic_box).hide(),
-        };
+        get_widget!(self.builder, gtk::Box, symbolic_box);
 
-        match project.get_nightly() {
-            Ok(_) => {
-                get_widget!(self.builder, gtk::Image, nightly_image);
-                nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
-                get_widget!(self.builder, gtk::Box, @nightly_box).show();
-            }
-            Err(_) => get_widget!(self.builder, gtk::Box, @nightly_box).hide(),
-        };
+        regular_image.set_icon_name(Some(&project.name()));
+        nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
+
+        let has_symbolic = project.project_type == ProjectType::Icon;
+        symbolic_box.set_visible(has_symbolic);
+        if has_symbolic {
+            symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
+        }
     }
 }
