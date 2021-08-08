@@ -1,4 +1,7 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
 data/org.gnome.design.AppIconPreview.desktop.in.in
+data/org.gnome.design.AppIconPreview.gschema.xml.in
 data/org.gnome.design.AppIconPreview.metainfo.xml.in.in
 data/resources/ui/about_dialog.ui.in
 data/resources/ui/export.ui
@@ -6,6 +9,7 @@ data/resources/ui/gtk/help-overlay.ui
 data/resources/ui/new_project.ui
 data/resources/ui/screenshot_dialog.ui
 data/resources/ui/window.ui
+src/main.rs
 src/project.rs
 src/widgets/new_project.rs
 src/widgets/project_previewer.rs
