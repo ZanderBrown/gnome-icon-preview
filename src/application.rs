@@ -20,7 +20,6 @@ mod imp {
     use std::cell::RefCell;
 
     pub struct Application {
-        pub windows: gtk::WindowGroup,
         pub sender: Sender<Action>,
         pub receiver: RefCell<Option<Receiver<Action>>>,
     }
@@ -35,20 +34,11 @@ mod imp {
             let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
             let receiver = RefCell::new(Some(r));
 
-            Self {
-                windows: gtk::WindowGroup::new(),
-                sender,
-                receiver,
-            }
+            Self { sender, receiver }
         }
     }
     impl ObjectImpl for Application {}
-    impl GtkApplicationImpl for Application {
-        fn window_removed(&self, application: &Self::Type, window: &gtk::Window) {
-            self.parent_window_removed(application, window);
-            self.windows.remove_window(window);
-        }
-    }
+    impl GtkApplicationImpl for Application {}
     impl ApplicationImpl for Application {
         fn startup(&self, application: &Self::Type) {
             self.parent_startup(application);
@@ -131,10 +121,11 @@ impl Application {
     }
 
     fn create_window(&self) -> Window {
-        let self_ = imp::Application::from_instance(self);
+        let group = gtk::WindowGroup::new();
         let window = Window::new(self);
 
-        self_.windows.add_window(&window);
+        group.add_window(&window);
+
         window
     }
 
