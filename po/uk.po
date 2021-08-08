@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
-"POT-Creation-Date: 2021-08-05 20:46+0000\n"
-"PO-Revision-Date: 2021-08-06 20:53+0300\n"
+"POT-Creation-Date: 2021-08-08 11:29+0000\n"
+"PO-Revision-Date: 2021-08-08 20:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Lokalize 20.12.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
 #: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
@@ -27,6 +27,28 @@ msgstr "Перегляд піктограм програми"
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Перегляд піктограм програм"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr ""
+"Типова ширина вікна програми"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr ""
+"Типова висота вікна програми"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr ""
+"Типова поведінка щодо максимізації вікна"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr ""
+"Останні відкриті файли, записи відокремлено комами"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -95,15 +117,11 @@ msgid "New Window"
 msgstr "Нове вікно"
 
 #: data/resources/ui/gtk/help-overlay.ui:21
-#| msgctxt "shortcut window"
-#| msgid "Open an icon"
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Відкрити піктограму"
 
 #: data/resources/ui/gtk/help-overlay.ui:27
-#| msgctxt "shortcut window"
-#| msgid "Quit the application"
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Вийти з програми"
@@ -114,35 +132,26 @@ msgid "View"
 msgstr "Перегляд"
 
 #: data/resources/ui/gtk/help-overlay.ui:38
-#| msgctxt "shortcut window"
-#| msgid "Reload the icon"
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Перезавантажити піктограму"
 
 #: data/resources/ui/gtk/help-overlay.ui:44
-#| msgctxt "shortcut window"
-#| msgid "Export the icon"
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Експортувати піктограму"
 
 #: data/resources/ui/gtk/help-overlay.ui:50
-#| msgctxt "shortcut window"
-#| msgid "Shuffle icons"
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Перемішати піктограми"
 
 #: data/resources/ui/gtk/help-overlay.ui:56
-#| msgid "_Take Screenshot"
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Зробити знімок"
 
 #: data/resources/ui/gtk/help-overlay.ui:62
-#| msgctxt "shortcut window"
-#| msgid "Copy a screenshot to clipboard"
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копіювати знімок до буфера"
@@ -181,17 +190,14 @@ msgid "~/Projects"
 msgstr "~/Проєкти"
 
 #: data/resources/ui/new_project.ui:115
-#| msgid "Browse…"
 msgid "_Browse…"
 msgstr "Ви_брати…"
 
 #: data/resources/ui/screenshot_dialog.ui:16
-#| msgid "Save…"
 msgid "_Save…"
 msgstr "_Зберегти…"
 
 #: data/resources/ui/screenshot_dialog.ui:26
-#| msgid "Copy to Clipboard"
 msgid "_Copy to Clipboard"
 msgstr "Ск_опіювати до буфера"
 
@@ -208,7 +214,6 @@ msgid "Recent"
 msgstr "Нещодавні"
 
 #: data/resources/ui/window.ui:39
-#| msgid "Export"
 msgid "_Export"
 msgstr "_Експортувати"
 
@@ -221,7 +226,6 @@ msgid "Make a new App Icon"
 msgstr "Створити піктограму програми"
 
 #: data/resources/ui/window.ui:197
-#| msgid "New App Icon"
 msgid "_New App Icon"
 msgstr "_Нова піктограма програми"
 
@@ -230,7 +234,6 @@ msgid "_New Window"
 msgstr "_Нове вікно"
 
 #: data/resources/ui/window.ui:226
-#| msgid "Reload"
 msgid "_Reload"
 msgstr "Пе_резавантажити"
 
