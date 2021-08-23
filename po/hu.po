@@ -1,15 +1,15 @@
 # Hungarian translation for icon-tool.
-# Copyright (C) 2019, 2020 Free Software Foundation, Inc.
+# Copyright (C) 2019, 2020, 2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the icon-tool package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/i"
 "ssues\n"
-"POT-Creation-Date: 2020-05-26 22:51+0000\n"
-"PO-Revision-Date: 2020-09-05 01:19+0200\n"
+"POT-Creation-Date: 2021-08-08 11:29+0000\n"
+"PO-Revision-Date: 2021-08-23 08:01+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -20,15 +20,32 @@ msgstr ""
 "X-Generator: Lokalize 19.12.3\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
 msgid "App Icon Preview"
 msgstr "Alkalmazásikon-előnézet"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Alkalmazások ikonjainak előnézete"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr "Alapértelmezett ablakszélesség"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr "Alapértelmezett ablakmagasság"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr "Maximalizált ablak alapértelmezett viselkedése"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr "A legutóbb megnyitott fájlok vesszővel elválasztva"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -46,15 +63,15 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui és Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
+#: data/resources/ui/about_dialog.ui.in:10
 msgid "translator-credits"
 msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019, 2020."
 
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -62,295 +79,236 @@ msgstr ""
 "Az ikon exportálása produktív használathoz. A vásznon kívüli objektumok "
 "eltávolításra kerülnek, és az SVG optimalizálva lesz a mérethez"
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:48
 msgid "Regular"
 msgstr "Szabályos"
 
-#: data/resources/ui/export.ui:89
+#: data/resources/ui/export.ui:62
 msgid "Save Regular As…"
 msgstr "Szabályos mentése másként…"
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:94
 msgid "Nightly"
 msgstr "Éjszakai"
 
-#: data/resources/ui/export.ui:165
+#: data/resources/ui/export.ui:108
 msgid "Save Nightly As…"
 msgstr "Éjszakai mentése másként…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Szimbolikus mentése másként…"
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:142
 msgid "Symbolic"
 msgstr "Szimbolikus"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Szimbolikus mentése másként…"
+
+#: data/resources/ui/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Alkalmazás"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Új ablak"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/gtk/help-overlay.ui:21
+#| msgctxt "shortcut window"
+#| msgid "Open an icon"
 msgctxt "shortcut window"
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Egy ikon megnyitása"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/gtk/help-overlay.ui:27
+#| msgctxt "shortcut window"
+#| msgid "Quit the application"
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "A legutóbbi lista megnyitása"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "A menü megnyitása"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
+msgid "Quit the Application"
 msgstr "Kilépés az alkalmazásból"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/gtk/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Nézet"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/gtk/help-overlay.ui:38
+#| msgctxt "shortcut window"
+#| msgid "Reload the icon"
 msgctxt "shortcut window"
-msgid "Reload the icon"
+msgid "Reload the Icon"
 msgstr "Az ikon újratöltése"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/gtk/help-overlay.ui:44
+#| msgctxt "shortcut window"
+#| msgid "Export the icon"
 msgctxt "shortcut window"
-msgid "Export the icon"
+msgid "Export the Icon"
 msgstr "Az ikon exportálása"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/gtk/help-overlay.ui:50
+#| msgctxt "shortcut window"
+#| msgid "Shuffle icons"
 msgctxt "shortcut window"
-msgid "Shuffle icons"
+msgid "Shuffle Icons"
 msgstr "Ikonok megkeverése"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/gtk/help-overlay.ui:56
+#| msgid "_Take Screenshot"
 msgctxt "shortcut window"
-msgid "Take screenshot"
+msgid "Take Screenshot"
 msgstr "Képernyőkép készítése"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/gtk/help-overlay.ui:62
+#| msgctxt "shortcut window"
+#| msgid "Copy a screenshot to clipboard"
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
+msgid "Copy a Screenshot to Clipboard"
 msgstr "Képernyőkép másolása a vágólapra"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "Ú_j ablak"
-
-#: data/resources/ui/menus.ui:44
-#| msgid "_Reload"
-msgid "Reload"
-msgstr "Újratöltés"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Képernyőkép készítése"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "_Példaikonok megkeverése"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "_Gyorsbillentyűk"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "Az Alkalmazásikon-előnézet _névjegye"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Alkalmazásnév"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Ikon helye"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "A fordított tartományjelölés neve, például org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Az ikon SVG-fájl ebben a könyvtárban lesz eltárolva"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Projektek"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Tallózás…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
-#: src/project.rs:100
-msgid "_Cancel"
-msgstr "_Mégse"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Létrehozás"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Bezárás"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Mentés…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Másolás a vágólapra"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Megnyitás"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Egy ikon megnyitása"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Legutóbbi"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Menü"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:97
-msgid "Export"
-msgstr "Exportálás"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Új alkalmazásikon készítése"
-
-#: data/resources/ui/window.ui.in:273
+#: data/resources/ui/new_project.ui:12
 msgid "New App Icon"
 msgstr "Új alkalmazásikon"
 
-#: src/widgets/new_project.rs:50
-#| msgid "Select Icon"
-msgid "Select"
-msgstr "Kiválasztás"
+#: data/resources/ui/new_project.ui:18 src/project.rs:102
+#: src/widgets/screenshot_dialog.rs:47
+msgid "_Cancel"
+msgstr "_Mégse"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Mégse"
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Létrehozás"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Képernyőkép mentése"
+#: data/resources/ui/new_project.ui:52
+msgid "App Name"
+msgstr "Alkalmazásnév"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:100
+#: data/resources/ui/new_project.ui:62
+msgid "Icon Location"
+msgstr "Ikon helye"
+
+#: data/resources/ui/new_project.ui:81
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "A fordított tartományjelölés neve, például org.inkscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:95
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Az ikon SVG-fájl ebben a könyvtárban lesz eltárolva"
+
+#: data/resources/ui/new_project.ui:110
+msgid "~/Projects"
+msgstr "~/Projektek"
+
+#: data/resources/ui/new_project.ui:115
+#| msgid "Browse…"
+msgid "_Browse…"
+msgstr "_Tallózás…"
+
+#: data/resources/ui/screenshot_dialog.ui:16
+#| msgid "Save…"
+msgid "_Save…"
+msgstr "_Mentés…"
+
+#: data/resources/ui/screenshot_dialog.ui:26
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "_Másolás a vágólapra"
+
+#: data/resources/ui/window.ui:15
+msgid "_Open"
+msgstr "_Megnyitás"
+
+#: data/resources/ui/window.ui:18
+msgid "Open an icon"
+msgstr "Egy ikon megnyitása"
+
+#: data/resources/ui/window.ui:25
+msgid "Recent"
+msgstr "Legutóbbi"
+
+#: data/resources/ui/window.ui:39
+#| msgid "Export"
+msgid "_Export"
+msgstr "_Exportálás"
+
+#: data/resources/ui/window.ui:47
+msgid "Menu"
+msgstr "Menü"
+
+#: data/resources/ui/window.ui:71
+msgid "Make a new App Icon"
+msgstr "Új alkalmazásikon készítése"
+
+#: data/resources/ui/window.ui:197
+#| msgid "New App Icon"
+msgid "_New App Icon"
+msgstr "Ú_j alkalmazásikon"
+
+#: data/resources/ui/window.ui:220
+msgid "_New Window"
+msgstr "Ú_j ablak"
+
+#: data/resources/ui/window.ui:226
+#| msgid "Reload"
+msgid "_Reload"
+msgstr "Új_ratöltés"
+
+#: data/resources/ui/window.ui:230
+msgid "_Take Screenshot"
+msgstr "_Képernyőkép készítése"
+
+#: data/resources/ui/window.ui:234
+msgid "_Shuffle Example Icons"
+msgstr "_Példaikonok megkeverése"
+
+#: data/resources/ui/window.ui:240
+msgid "_Keyboard Shortcuts"
+msgstr "_Gyorsbillentyűk"
+
+#: data/resources/ui/window.ui:244
+msgid "_About App Icon Preview"
+msgstr "Az Alkalmazásikon-előnézet _névjegye"
+
+#: src/project.rs:102
+msgid "Export"
+msgstr "Exportálás"
+
+#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
 msgid "_Save"
 msgstr "_Mentés"
 
-#: src/widgets/screenshot_dialog.rs:46
-msgid "Preview"
-msgstr "Előnézet"
-
-#: src/widgets/screenshot_dialog.rs:61
-msgid "PNG"
-msgstr "PNG"
-
-#: src/widgets/screenshot_dialog.rs:67
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:228
-#| msgid "Open"
-msgid "Open File"
-msgstr "Fájl megnyitása"
-
-#: src/widgets/window.rs:233
-msgid "SVG images"
-msgstr "SVG-képek"
-
-#: src/project.rs:106
+#: src/project.rs:107
 msgid "SVG"
 msgstr "SVG"
 
-#~ msgid "Zander Brown"
-#~ msgstr "Zander Brown"
+#: src/widgets/new_project.rs:54
+msgid "Select"
+msgstr "Kiválasztás"
 
-#~ msgid "Copyright © 2018-19 Zander Brown"
-#~ msgstr "Copyright © 2018-19 Zander Brown"
+#: src/widgets/new_project.rs:55
+msgid "Cancel"
+msgstr "Mégse"
 
-#~ msgid "Repository"
-#~ msgstr "Tároló"
+#: src/widgets/screenshot_dialog.rs:43
+msgid "Save Screenshot"
+msgstr "Képernyőkép mentése"
 
-#~ msgid "Kept sane by"
-#~ msgstr "Fenntartják az észszerűséget"
+#: src/widgets/screenshot_dialog.rs:50
+msgid "Preview"
+msgstr "Előnézet"
 
-#~ msgctxt "shortcut window"
-#~ msgid "Toggle fullscreen"
-#~ msgstr "Teljes képernyő átváltása"
+#: src/widgets/screenshot_dialog.rs:66
+msgid "PNG"
+msgstr "PNG"
 
-#~ msgid "no longer supported"
-#~ msgstr "többé nem támogatott"
+#: src/widgets/screenshot_dialog.rs:72
+msgid "JPEG"
+msgstr "JPEG"
 
-#~ msgid ""
-#~ "Palette is all grown up!\n"
-#~ "It’s now available separately as org.gnome.zbrown.Palette"
-#~ msgstr ""
-#~ "A paletta teljesen felnőtt!\n"
-#~ "Mostantól különállóan érhető el org.gnome.zbrown.Palette objektumként"
+#: src/widgets/window.rs:292
+msgid "Open File"
+msgstr "Fájl megnyitása"
 
-#~ msgid "Failed to save screenshot"
-#~ msgstr "A képernyőkép mentése sikertelen"
-
-#~ msgid "This file is defective"
-#~ msgstr "Ez a fájl hiányos"
-
-#~ msgid ""
-#~ "Please start from a template to ensure that your file will work as a "
-#~ "GNOME icon"
-#~ msgstr ""
-#~ "Kezdjen egy sablonból, annak biztosításához hogy a fájl működjön GNOME "
-#~ "ikonként"
-
-#~ msgid "_Open"
-#~ msgstr "_Megnyitás"
-
-#~ msgid "Icons"
-#~ msgstr "Ikonok"
-
-#~| msgid "Save Regular As…"
-#~ msgid "Save Regular"
-#~ msgstr "Szabályos mentése"
-
-#~| msgid "Save Symbolic As…"
-#~ msgid "Save Symbolic"
-#~ msgstr "Szimbolikus mentése"
-
-#~| msgid "Save Nightly As…"
-#~ msgid "Save Nightly"
-#~ msgstr "Éjszakai mentése"
-
-#~ msgid "Icon"
-#~ msgstr "Ikon"
-
-#~ msgid "Failed to save exported file"
-#~ msgstr "Nem sikerült elmenteni az exportált fájlt"
-
-#~ msgid "Save Icon"
-#~ msgstr "Ikon mentése"
-
-#~ msgid "Expecting at least one “.”"
-#~ msgstr "Legalább egy „.” elvárt"
+#: src/widgets/window.rs:297
+msgid "SVG images"
+msgstr "SVG-képek"
