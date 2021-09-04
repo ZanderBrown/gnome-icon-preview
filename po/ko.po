@@ -1,0 +1,294 @@
+# Korean translation for app-icon-preview.
+# Copyright (C) 2021 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+# Seong-ho Cho <shcho@gnome.org>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2021-08-26 14:58+0000\n"
+"PO-Revision-Date: 2021-09-02 02:35+0900\n"
+"Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"X-Generator: Poedit 2.3.1\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
+msgid "App Icon Preview"
+msgstr "앱 아이콘 미리 보기"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "프로그램 아이콘을 미리 봅니다"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr "기본 창 너비"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr "기본 창 높이"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr "기본 창 최대화 동작"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr "최근 연 파일을 쉼표로 구분합니다"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "프로그램 아이콘 디자인 도구"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"앱 아이콘 미리 보기는 그놈 데스크톱 대상 아이콘을 디자인하는 도구입니다."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "프로그램 아이콘 미리 보기 중"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+
+#: data/resources/ui/about_dialog.ui.in:10
+msgid "translator-credits"
+msgstr "조성호 <shcho@gnome.org>, 2021."
+
+#: data/resources/ui/export.ui:16
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"출시 제품에 사용할 아이콘을 내보냅니다. 캔바스 밖의 그림은 잘리며, SVG는 크기"
+"에 맞춰 최적화합니다"
+
+#: data/resources/ui/export.ui:48
+msgid "Regular"
+msgstr "일반테마"
+
+#: data/resources/ui/export.ui:62
+msgid "Save Regular As…"
+msgstr "다른 이름으로 일반테마 저장…"
+
+#: data/resources/ui/export.ui:94
+msgid "Nightly"
+msgstr "야간테마"
+
+#: data/resources/ui/export.ui:108
+msgid "Save Nightly As…"
+msgstr "다른 이름으로 야간테마 저장…"
+
+#: data/resources/ui/export.ui:142
+msgid "Symbolic"
+msgstr "심볼릭"
+
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "다른 이름으로 심볼릭 저장…"
+
+#: data/resources/ui/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "프로그램"
+
+#: data/resources/ui/gtk/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "새 창"
+
+#: data/resources/ui/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open an Icon"
+msgstr "아이콘 열기"
+
+#: data/resources/ui/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Quit the Application"
+msgstr "프로그램 끝내기"
+
+#: data/resources/ui/gtk/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "View"
+msgstr "보기"
+
+#: data/resources/ui/gtk/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Reload the Icon"
+msgstr "아이콘 다시 읽기"
+
+#: data/resources/ui/gtk/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Export the Icon"
+msgstr "아이콘 내보내기"
+
+#: data/resources/ui/gtk/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "Shuffle Icons"
+msgstr "아이콘 뒤섞기"
+
+#: data/resources/ui/gtk/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Take Screenshot"
+msgstr "스크린샷 찍기"
+
+#: data/resources/ui/gtk/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "클립보드로 스크린샷 복사"
+
+#: data/resources/ui/new_project.ui:12
+msgid "New App Icon"
+msgstr "새 프로그램 아이콘"
+
+#: data/resources/ui/new_project.ui:18 src/project.rs:102
+#: src/widgets/screenshot_dialog.rs:47
+msgid "_Cancel"
+msgstr "취소(_C)"
+
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "만들기(_C)"
+
+#: data/resources/ui/new_project.ui:52
+msgid "App Name"
+msgstr "앱 이름"
+
+#: data/resources/ui/new_project.ui:62
+msgid "Icon Location"
+msgstr "아이콘 위치"
+
+#: data/resources/ui/new_project.ui:81
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "역 도메인 표기 이름, 예: org.inkscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:95
+msgid "The icon SVG file will be stored in this directory"
+msgstr "아이콘 SVG 파일을 이 디렉터리에 저장합니다"
+
+#: data/resources/ui/new_project.ui:110
+msgid "~/Projects"
+msgstr "~/Projects"
+
+#: data/resources/ui/new_project.ui:115
+msgid "_Browse…"
+msgstr "찾아보기(_B)…"
+
+#: data/resources/ui/screenshot_dialog.ui:16
+msgid "_Save…"
+msgstr "저장(_S)…"
+
+#: data/resources/ui/screenshot_dialog.ui:26
+msgid "_Copy to Clipboard"
+msgstr "클립보드에 복사(_C)"
+
+#: data/resources/ui/window.ui:15
+msgid "_Open"
+msgstr "열기(_O)"
+
+#: data/resources/ui/window.ui:18
+msgid "Open an icon"
+msgstr "아이콘 열기"
+
+#: data/resources/ui/window.ui:25
+msgid "Recent"
+msgstr "최근"
+
+#: data/resources/ui/window.ui:39
+msgid "_Export"
+msgstr "내보내기(_E)"
+
+#: data/resources/ui/window.ui:47
+msgid "Menu"
+msgstr "메뉴"
+
+#: data/resources/ui/window.ui:71
+msgid "Make a new App Icon"
+msgstr "새 아이콘을 만들기"
+
+#: data/resources/ui/window.ui:197
+msgid "_New App Icon"
+msgstr "새 앱 아이콘(_N)"
+
+#: data/resources/ui/window.ui:220
+msgid "_New Window"
+msgstr "새 창(_N)"
+
+#: data/resources/ui/window.ui:226
+msgid "_Reload"
+msgstr "다시 읽기(_R)"
+
+#: data/resources/ui/window.ui:230
+msgid "_Take Screenshot"
+msgstr "스크린샷 찍기(_T)"
+
+#: data/resources/ui/window.ui:234
+msgid "_Shuffle Example Icons"
+msgstr "예제 아이콘 뒤섞기(_S)"
+
+#: data/resources/ui/window.ui:240
+msgid "_Keyboard Shortcuts"
+msgstr "키보드 바로 가기 키(_K)"
+
+#: data/resources/ui/window.ui:244
+msgid "_About App Icon Preview"
+msgstr "앱 아이콘 미리보기 정보(_A)"
+
+#: src/project.rs:102
+msgid "Export"
+msgstr "내보내기"
+
+#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
+msgid "_Save"
+msgstr "저장(_S)"
+
+#: src/project.rs:107
+msgid "SVG"
+msgstr "SVG"
+
+#: src/widgets/new_project.rs:54
+msgid "Select"
+msgstr "선택"
+
+#: src/widgets/new_project.rs:55
+msgid "Cancel"
+msgstr "취소"
+
+#: src/widgets/screenshot_dialog.rs:43
+msgid "Save Screenshot"
+msgstr "스크린샷 저장"
+
+#: src/widgets/screenshot_dialog.rs:50
+msgid "Preview"
+msgstr "미리보기"
+
+#: src/widgets/screenshot_dialog.rs:66
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/screenshot_dialog.rs:72
+msgid "JPEG"
+msgstr "JPEG"
+
+#: src/widgets/window.rs:292
+msgid "Open File"
+msgstr "파일 열기"
+
+#: src/widgets/window.rs:297
+msgid "SVG images"
+msgstr "SVG 그림"
