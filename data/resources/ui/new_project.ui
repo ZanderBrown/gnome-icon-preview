@@ -2,16 +2,13 @@
 <interface>
   <object class="AdwWindow" id="dialog">
     <property name="modal">True</property>
+    <property name="title" translatable="yes">New App Icon</property>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="AdwHeaderBar">
-            <property name="title-widget">
-              <object class="AdwWindowTitle">
-                <property name="title" translatable="yes">New App Icon</property>
-              </object>
-            </property>
+          <object class="GtkHeaderBar">
+            <property name="show-title-buttons">False</property>
             <child>
               <object class="GtkButton" id="cancel_button">
                 <property name="use-underline">True</property>
@@ -28,9 +25,6 @@
                 </style>
               </object>
             </child>
-            <style>
-              <class name="titlebar"/>
-            </style>
           </object>
         </child>
         <child>

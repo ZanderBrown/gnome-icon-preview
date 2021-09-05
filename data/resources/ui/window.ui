@@ -7,21 +7,19 @@
       <object class="GtkBox">
         <property name="orientation">vertical</property>
         <child>
-          <object class="AdwHeaderBar">
+          <object class="GtkHeaderBar">
             <child>
               <object class="GtkBox">
                 <child>
                   <object class="GtkButton">
                     <property name="label" translatable="yes">_Open</property>
                     <property name="use_underline">True</property>
-                    <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Open an icon</property>
                     <property name="action_name">win.open</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkMenuButton" id="recents_btn">
-                    <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Recent</property>
                     <property name="icon_name">pan-down-symbolic</property>
                   </object>
@@ -32,28 +30,19 @@
               </object>
             </child>
             <child type="end">
-              <object class="GtkBox">
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkMenuButton" id="export_btn">
-                    <property name="label" translatable="yes">_Export</property>
-                    <property name="use_underline">True</property>
-                    <property name="receives_default">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuButton">
-                    <property name="receives_default">True</property>
-                    <property name="tooltip_text" translatable="yes">Menu</property>
-                    <property name="icon_name">open-menu-symbolic</property>
-                    <property name="menu_model">menu_model</property>
-                  </object>
-                </child>
+              <object class="GtkMenuButton">
+                <property name="tooltip_text" translatable="yes">Menu</property>
+                <property name="icon_name">open-menu-symbolic</property>
+                <property name="menu_model">menu_model</property>
               </object>
             </child>
-            <style>
-              <class name="titlebar"/>
-            </style>
+            <child type="end">
+              <object class="GtkMenuButton" id="export_btn">
+                <property name="label" translatable="yes">_Export</property>
+                <property name="use_underline">True</property>
+                <property name="receives_default">True</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
