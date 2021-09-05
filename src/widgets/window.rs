@@ -42,7 +42,7 @@ mod imp {
         #[template_child]
         pub export_btn: TemplateChild<gtk::MenuButton>,
         #[template_child]
-        pub recents_btn: TemplateChild<gtk::MenuButton>,
+        pub open_btn: TemplateChild<adw::SplitButton>,
     }
 
     #[glib::object_subclass]
@@ -62,7 +62,7 @@ mod imp {
 
                 content: TemplateChild::default(),
                 export_btn: TemplateChild::default(),
-                recents_btn: TemplateChild::default(),
+                open_btn: TemplateChild::default(),
             }
         }
         fn class_init(klass: &mut Self::Class) {
@@ -174,7 +174,7 @@ impl Window {
 
         // Recents Popover
         let recents_popover = RecentsPopover::new(self_.sender.get().unwrap().clone());
-        self_.recents_btn.set_popover(Some(&recents_popover.widget));
+        self_.open_btn.set_popover(Some(&recents_popover.widget));
 
         // TODO
         // self_.exporter.widget.set_relative_to(Some(&export_btn));

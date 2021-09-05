@@ -9,24 +9,11 @@
         <child>
           <object class="GtkHeaderBar">
             <child>
-              <object class="GtkBox">
-                <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">_Open</property>
-                    <property name="use_underline">True</property>
-                    <property name="tooltip_text" translatable="yes">Open an icon</property>
-                    <property name="action_name">win.open</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkMenuButton" id="recents_btn">
-                    <property name="tooltip_text" translatable="yes">Recent</property>
-                    <property name="icon_name">pan-down-symbolic</property>
-                  </object>
-                </child>
-                <style>
-                  <class name="linked"/>
-                </style>
+              <object class="AdwSplitButton" id="open_btn">
+                <property name="label" translatable="yes">_Open</property>
+                <property name="use_underline">True</property>
+                <property name="tooltip_text" translatable="yes">Open an icon</property>
+                <property name="action_name">win.open</property>
               </object>
             </child>
             <child type="end">
