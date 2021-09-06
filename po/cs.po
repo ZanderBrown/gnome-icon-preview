@@ -1,14 +1,15 @@
 # Czech translation for icon-tool.
 # Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
-# Marek Černocký <marek@manet.cz>, 2019, 2020.
+# Marek Černocký <marek@manet.cz>, 2019, 2020, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
-"POT-Creation-Date: 2020-05-26 22:51+0000\n"
-"PO-Revision-Date: 2020-11-16 20:56+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2021-08-08 11:29+0000\n"
+"PO-Revision-Date: 2021-09-06 12:35+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,15 +20,32 @@ msgstr ""
 "X-Generator: Gtranslator 3.34.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
 msgid "App Icon Preview"
 msgstr "Náhled ikon aplikací"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Prohlížejte si náhledy ikon aplikací"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr "Výchozí šířka okna"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr "Výchozí výška okna"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr "Výchozí stav maximalizace okna"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr "Poslední otevřené soubory oddělené čárkami"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -45,15 +63,15 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Prohlížení ikony aplikace v různých situacích"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui a Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
+#: data/resources/ui/about_dialog.ui.in:10
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -61,223 +79,218 @@ msgstr ""
 "Export ikony pro produkční použití. Objekty mimo plátno budou odstraněny a "
 "SVG optimalizováno na velikost."
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:48
 msgid "Regular"
 msgstr "Běžná"
 
-#: data/resources/ui/export.ui:89
+#: data/resources/ui/export.ui:62
 msgid "Save Regular As…"
 msgstr "Uložit běžnou jako…"
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:94
 msgid "Nightly"
 msgstr "Noční"
 
-#: data/resources/ui/export.ui:165
+#: data/resources/ui/export.ui:108
 msgid "Save Nightly As…"
 msgstr "Uložit noční jako…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Uložit symbolickou jako…"
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:142
 msgid "Symbolic"
 msgstr "Symbolická"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Uložit symbolickou jako…"
+
+#: data/resources/ui/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Aplikace"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nové okno"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Otevřít ikonu"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Otevřít seznam nedávných"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Otevřít nabídku"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
+msgid "Quit the Application"
 msgstr "Ukončit aplikaci"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/gtk/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Zobrazení"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/gtk/help-overlay.ui:38
 msgctxt "shortcut window"
-msgid "Reload the icon"
+msgid "Reload the Icon"
 msgstr "Znovu načíst ikonu"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/gtk/help-overlay.ui:44
 msgctxt "shortcut window"
-msgid "Export the icon"
-msgstr "Exportovat ikonu"
+msgid "Export the Icon"
+msgstr "Vyexportovat ikonu"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/gtk/help-overlay.ui:50
 msgctxt "shortcut window"
-msgid "Shuffle icons"
+msgid "Shuffle Icons"
 msgstr "Zamíchat ikony"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/gtk/help-overlay.ui:56
 msgctxt "shortcut window"
-msgid "Take screenshot"
+msgid "Take Screenshot"
 msgstr "Pořídit snímek obrazovky"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/gtk/help-overlay.ui:62
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
+msgid "Copy a Screenshot to Clipboard"
 msgstr "Zkopírovat snímek obrazovky do schránky"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "_Nové okno"
-
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Znovu načíst"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Pořídit snímek obrazovky"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "Za_míchat ukázkové ikony"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "_Klávesové zkratky"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "O _aplikaci Náhled ikon aplikací"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Název aplikace"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Umístění ikony"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Název v podobě reverzní notace domény, například org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Soubor SVG s ikonou bude uložen v této složce"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Projekty"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Procházet…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
-#: src/project.rs:100
-msgid "_Cancel"
-msgstr "_Zrušit"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Vytvořit"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Zavřít"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Uložit…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Zkopírovat do schránky"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Otevřít"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Otevřít ikonu"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Nedávné"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Nabídka"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:97
-msgid "Export"
-msgstr "Export"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Vytvořit novou ikonu aplikace"
-
-#: data/resources/ui/window.ui.in:273
+#: data/resources/ui/new_project.ui:12
 msgid "New App Icon"
 msgstr "Nová ikona aplikace"
 
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Vybrat"
+#: data/resources/ui/new_project.ui:18 src/project.rs:102
+#: src/widgets/screenshot_dialog.rs:47
+msgid "_Cancel"
+msgstr "_Zrušit"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Zrušit"
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Vytvořit"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Uložení snímku obrazovky"
+#: data/resources/ui/new_project.ui:52
+msgid "App Name"
+msgstr "Název aplikace"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:100
+#: data/resources/ui/new_project.ui:62
+msgid "Icon Location"
+msgstr "Umístění ikony"
+
+#: data/resources/ui/new_project.ui:81
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Název v podobě reverzní notace domény, například org.inkscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:95
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Soubor SVG s ikonou bude uložen v této složce"
+
+#: data/resources/ui/new_project.ui:110
+msgid "~/Projects"
+msgstr "~/Projekty"
+
+#: data/resources/ui/new_project.ui:115
+msgid "_Browse…"
+msgstr "_Procházet…"
+
+#: data/resources/ui/screenshot_dialog.ui:16
+msgid "_Save…"
+msgstr "_Uložit…"
+
+#: data/resources/ui/screenshot_dialog.ui:26
+msgid "_Copy to Clipboard"
+msgstr "Z_kopírovat do schránky"
+
+#: data/resources/ui/window.ui:15
+msgid "_Open"
+msgstr "_Otevřít"
+
+#: data/resources/ui/window.ui:18
+msgid "Open an icon"
+msgstr "Otevřít ikonu"
+
+#: data/resources/ui/window.ui:25
+msgid "Recent"
+msgstr "Nedávné"
+
+#: data/resources/ui/window.ui:39
+msgid "_Export"
+msgstr "_Export"
+
+#: data/resources/ui/window.ui:47
+msgid "Menu"
+msgstr "Nabídka"
+
+#: data/resources/ui/window.ui:71
+msgid "Make a new App Icon"
+msgstr "Vytvořit novou ikonu aplikace"
+
+#: data/resources/ui/window.ui:197
+msgid "_New App Icon"
+msgstr "_Nová ikona aplikace"
+
+#: data/resources/ui/window.ui:220
+msgid "_New Window"
+msgstr "_Nové okno"
+
+#: data/resources/ui/window.ui:226
+msgid "_Reload"
+msgstr "_Znovu načíst"
+
+#: data/resources/ui/window.ui:230
+msgid "_Take Screenshot"
+msgstr "_Pořídit snímek obrazovky"
+
+#: data/resources/ui/window.ui:234
+msgid "_Shuffle Example Icons"
+msgstr "Za_míchat ukázkové ikony"
+
+#: data/resources/ui/window.ui:240
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové zkratky"
+
+#: data/resources/ui/window.ui:244
+msgid "_About App Icon Preview"
+msgstr "O _aplikaci Náhled ikon aplikací"
+
+#: src/project.rs:102
+msgid "Export"
+msgstr "Export"
+
+#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
 msgid "_Save"
 msgstr "_Uložit"
 
-#: src/widgets/screenshot_dialog.rs:46
+#: src/project.rs:107
+msgid "SVG"
+msgstr "SVG"
+
+#: src/widgets/new_project.rs:54
+msgid "Select"
+msgstr "Vybrat"
+
+#: src/widgets/new_project.rs:55
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: src/widgets/screenshot_dialog.rs:43
+msgid "Save Screenshot"
+msgstr "Uložení snímku obrazovky"
+
+#: src/widgets/screenshot_dialog.rs:50
 msgid "Preview"
 msgstr "Náhled"
 
-#: src/widgets/screenshot_dialog.rs:61
+#: src/widgets/screenshot_dialog.rs:66
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:67
+#: src/widgets/screenshot_dialog.rs:72
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:228
+#: src/widgets/window.rs:292
 msgid "Open File"
 msgstr "Otevření souboru"
 
-#: src/widgets/window.rs:233
+#: src/widgets/window.rs:297
 msgid "SVG images"
 msgstr "Obrázky SVG"
 
-#: src/project.rs:106
-msgid "SVG"
-msgstr "SVG"
