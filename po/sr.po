@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-01-09 14:33+0000\n"
-"PO-Revision-Date: 2021-02-03 09:30+0200\n"
+"POT-Creation-Date: 2021-08-08 11:29+0000\n"
+"PO-Revision-Date: 2021-09-18 20:45+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
@@ -19,15 +19,32 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
 msgid "App Icon Preview"
 msgstr "Претпреглед иконице програма"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Прикажите преглед иконица програма"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr "Основна ширина прозора"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr "Основна висина прозора"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr "Основно понашање увећаног прозора"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr "Последње отворене датотеке раздвојене зарезом"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -49,14 +66,14 @@ msgstr "Прикажите преглед иконице програма"
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Билал Елмусауи и Зандер Браун"
 
-#: data/resources/ui/about_dialog.ui.in:15
+#: data/resources/ui/about_dialog.ui.in:10
 msgid "translator-credits"
 msgstr ""
 "Мирослав Николић <miroslavnikolic@rocketmail.com>  \n"
 "\n"
 "http://prevod.org — превод на српски језик"
 
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -64,223 +81,252 @@ msgstr ""
 "Извезите иконицу за коришћење. Објекти ван платна се уклањају а СВГ је "
 "прилагођено за величину"
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:48
 msgid "Regular"
 msgstr "Обична"
 
-#: data/resources/ui/export.ui:89
+#: data/resources/ui/export.ui:62
 msgid "Save Regular As…"
 msgstr "Сачувај обучну као…"
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:94
 msgid "Nightly"
 msgstr "Ноћна"
 
-#: data/resources/ui/export.ui:165
+#: data/resources/ui/export.ui:108
 msgid "Save Nightly As…"
 msgstr "Сачувај ноћну као…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Сачувај симболичку као…"
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:142
 msgid "Symbolic"
 msgstr "Симболичка"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Сачувај симболичку као…"
+
+#: data/resources/ui/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Програм"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Нови прозор"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/gtk/help-overlay.ui:21
+#| msgctxt "shortcut window"
+#| msgid "Open an icon"
 msgctxt "shortcut window"
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Отворите иконицу"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/gtk/help-overlay.ui:27
+#| msgctxt "shortcut window"
+#| msgid "Quit the application"
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Отворите скорашњи списак"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Отворите изборник"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
+msgid "Quit the Application"
 msgstr "Изађите из програма"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/gtk/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Преглед"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/gtk/help-overlay.ui:38
+#| msgctxt "shortcut window"
+#| msgid "Reload the icon"
 msgctxt "shortcut window"
-msgid "Reload the icon"
+msgid "Reload the Icon"
 msgstr "Поново учитајте иконицу"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/gtk/help-overlay.ui:44
+#| msgctxt "shortcut window"
+#| msgid "Export the icon"
 msgctxt "shortcut window"
-msgid "Export the icon"
+msgid "Export the Icon"
 msgstr "Извезите иконицу"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/gtk/help-overlay.ui:50
+#| msgctxt "shortcut window"
+#| msgid "Shuffle icons"
 msgctxt "shortcut window"
-msgid "Shuffle icons"
+msgid "Shuffle Icons"
 msgstr "Измешајте иконице"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/gtk/help-overlay.ui:56
+#| msgid "_Take Screenshot"
 msgctxt "shortcut window"
-msgid "Take screenshot"
-msgstr "Направите снимак екрана"
+msgid "Take Screenshot"
+msgstr "Направите снимк екрана"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/gtk/help-overlay.ui:62
+#| msgctxt "shortcut window"
+#| msgid "Copy a screenshot to clipboard"
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
+msgid "Copy a Screenshot to Clipboard"
 msgstr "Умножите снимак у оставу"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "_Нови прозор"
-
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Освежи"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Направи снимк екрана"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "_Измешај иконице примера"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "Пречице _тастатуре"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "_О програму"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Назив програма"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Место иконице"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Обрнути назив домена записивања, нпр. „org.inkscape.Inkscape“"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "СВГ датотека иконице биће сачувана у овом директоријуму"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Пројекти"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Разгледај…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
-#: src/project.rs:98
-msgid "_Cancel"
-msgstr "_Откажи"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Направи"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Затвори"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Сачувај…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Умножи у оставу"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Отвори"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Отворите иконицу"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Скорашње"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Изборник"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:98
-msgid "Export"
-msgstr "Извези"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Направите нову иконицу програма"
-
-#: data/resources/ui/window.ui.in:273
+#: data/resources/ui/new_project.ui:12
 msgid "New App Icon"
 msgstr "Нова иконица програма"
 
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Изабери"
+#: data/resources/ui/new_project.ui:18 src/project.rs:102
+#: src/widgets/screenshot_dialog.rs:47
+msgid "_Cancel"
+msgstr "_Откажи"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Откажи"
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Направи"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Сачувајте снимак екрана"
+#: data/resources/ui/new_project.ui:52
+msgid "App Name"
+msgstr "Назив програма"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:98
+#: data/resources/ui/new_project.ui:62
+msgid "Icon Location"
+msgstr "Место иконице"
+
+#: data/resources/ui/new_project.ui:81
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Обрнути назив домена записивања, нпр. „org.inkscape.Inkscape“"
+
+#: data/resources/ui/new_project.ui:95
+msgid "The icon SVG file will be stored in this directory"
+msgstr "СВГ датотека иконице биће сачувана у овом директоријуму"
+
+#: data/resources/ui/new_project.ui:110
+msgid "~/Projects"
+msgstr "~/Пројекти"
+
+#: data/resources/ui/new_project.ui:115
+#| msgid "Browse…"
+msgid "_Browse…"
+msgstr "_Разгледај…"
+
+#: data/resources/ui/screenshot_dialog.ui:16
+#| msgid "Save…"
+msgid "_Save…"
+msgstr "_Сачувај…"
+
+#: data/resources/ui/screenshot_dialog.ui:26
+#| msgid "Copy to Clipboard"
+msgid "_Copy to Clipboard"
+msgstr "_Умножи у оставу"
+
+#: data/resources/ui/window.ui:15
+#| msgid "Open"
+msgid "_Open"
+msgstr "_Отвори"
+
+#: data/resources/ui/window.ui:18
+msgid "Open an icon"
+msgstr "Отворите иконицу"
+
+#: data/resources/ui/window.ui:25
+msgid "Recent"
+msgstr "Скорашње"
+
+#: data/resources/ui/window.ui:39
+#| msgid "Export"
+msgid "_Export"
+msgstr "_Извези"
+
+#: data/resources/ui/window.ui:47
+msgid "Menu"
+msgstr "Изборник"
+
+#: data/resources/ui/window.ui:71
+msgid "Make a new App Icon"
+msgstr "Направите нову иконицу програма"
+
+#: data/resources/ui/window.ui:197
+#| msgid "New App Icon"
+msgid "_New App Icon"
+msgstr "_Нова иконица програма"
+
+#: data/resources/ui/window.ui:220
+msgid "_New Window"
+msgstr "_Нови прозор"
+
+#: data/resources/ui/window.ui:226
+#| msgid "Reload"
+msgid "_Reload"
+msgstr "_Освежи"
+
+#: data/resources/ui/window.ui:230
+msgid "_Take Screenshot"
+msgstr "_Направи снимк екрана"
+
+#: data/resources/ui/window.ui:234
+msgid "_Shuffle Example Icons"
+msgstr "_Измешај иконице примера"
+
+#: data/resources/ui/window.ui:240
+msgid "_Keyboard Shortcuts"
+msgstr "Пречице _тастатуре"
+
+#: data/resources/ui/window.ui:244
+msgid "_About App Icon Preview"
+msgstr "_О програму"
+
+#: src/project.rs:102
+msgid "Export"
+msgstr "Извези"
+
+#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
 msgid "_Save"
 msgstr "_Сачувај"
 
-#: src/widgets/screenshot_dialog.rs:47
+#: src/project.rs:107
+msgid "SVG"
+msgstr "СВГ"
+
+#: src/widgets/new_project.rs:54
+msgid "Select"
+msgstr "Изабери"
+
+#: src/widgets/new_project.rs:55
+msgid "Cancel"
+msgstr "Откажи"
+
+#: src/widgets/screenshot_dialog.rs:43
+msgid "Save Screenshot"
+msgstr "Сачувајте снимак екрана"
+
+#: src/widgets/screenshot_dialog.rs:50
 msgid "Preview"
 msgstr "Преглед"
 
-#: src/widgets/screenshot_dialog.rs:62
+#: src/widgets/screenshot_dialog.rs:66
 msgid "PNG"
 msgstr "ПНГ"
 
-#: src/widgets/screenshot_dialog.rs:68
+#: src/widgets/screenshot_dialog.rs:72
 msgid "JPEG"
 msgstr "ЈПЕГ"
 
-#: src/widgets/window.rs:234
+#: src/widgets/window.rs:292
 msgid "Open File"
 msgstr "Отворите датотеку"
 
-#: src/widgets/window.rs:239
+#: src/widgets/window.rs:297
 msgid "SVG images"
 msgstr "SVG слике"
 
-#: src/project.rs:103
-msgid "SVG"
-msgstr "СВГ"
+#~ msgctxt "shortcut window"
+#~ msgid "Open the recent list"
+#~ msgstr "Отворите скорашњи списак"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open the menu"
+#~ msgstr "Отворите изборник"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Take screenshot"
+#~ msgstr "Направите снимак екрана"
+
+#~ msgid "Close"
+#~ msgstr "Затвори"
