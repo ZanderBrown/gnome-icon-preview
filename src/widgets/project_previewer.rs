@@ -66,15 +66,21 @@ impl ProjectPreviewer {
         let height = self.allocated_height();
 
         let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width, height).unwrap();
-        let logo = gdk_pixbuf::Pixbuf::from_resource_at_scale("/org/gnome/design/AppIconPreview/badge.svg", 16, -1, true).unwrap();
+
+        let logo = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/badge.svg");
+        let handle = rsvg::Loader::new().read_file(&logo, gio::NONE_CANCELLABLE).ok()?;
+        let renderer = rsvg::CairoRenderer::new(&handle);
+
         let layout = self.create_pango_layout(Some(&gettext("App Icon Preview")));
         let mut font_description = pango::FontDescription::new();
         font_description.set_weight(pango::Weight::Semibold);
         font_description.set_size(pango::SCALE * 10);
         layout.set_font_description(Some(&font_description));
 
-        let logo_width = logo.width();
-        let logo_height = logo.height();
+        let dimensions = renderer.intrinsic_dimensions();
+        let logo_width = dimensions.width.unwrap().length as i32;
+        let logo_height = dimensions.height.unwrap().length as i32;
+
         let padding = 12.0;
 
         let (_, txt_extents) = layout.pixel_extents();
@@ -103,9 +109,17 @@ impl ProjectPreviewer {
             0.0
         };
         context.save().ok()?;
-
-        context.set_source_pixbuf(&logo, padding + img_x, padding + img_y);
-        context.rectangle(padding + img_x, padding + img_y, logo_width as f64, logo_height as f64);
+        renderer
+            .render_document(
+                &context,
+                &cairo::Rectangle {
+                    x: padding + img_x,
+                    y: padding + img_y,
+                    width: logo_width as f64,
+                    height: logo_height as f64,
+                },
+            )
+            .ok()?;
         context.fill().ok()?;
         context.restore().ok()?;
 
