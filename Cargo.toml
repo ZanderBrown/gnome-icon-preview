@@ -6,12 +6,12 @@ edition = "2018"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-gtk = { package = "gtk4", version = "0.2" }
+gtk = { package = "gtk4", version = "0.3" }
 gdk_pixbuf = { package = "gdk-pixbuf", version = "0.14", features = ["v2_36"]}
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 gtk-macros = "0.3"
-adw = { package = "libadwaita", version = "0.1.0-alpha" }
+adw = { package = "libadwaita", version = "0.1.0-alpha-5" }
 pangocairo = "0.14"
 pretty_env_logger = "0.3"
 cairo = { package = "cairo-rs", version = "0.14", features = ["svg", "v1_16"]}
