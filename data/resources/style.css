@@ -17,6 +17,16 @@
 	margin-top: 10px;
 }
 
+.previewer .light {
+	background: #fafafa;
+	color: alpha(black, .8);
+}
+
+.previewer .dark {
+	background: #242424;
+	color: white;
+}
+
 .previewer .wallpaper .backdrop {
 	background: rgba(0, 0, 0, 0.25);
 }
