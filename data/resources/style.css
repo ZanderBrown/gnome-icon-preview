@@ -47,10 +47,3 @@
 	background: @theme_base_color;
 	border-radius: 3px;
 }
-
-.recents-listbox{
-	background: @theme_bg_color;
-}
-.recents-listbox row {
-  	border-bottom: 1px solid mix(@theme_fg_color, @theme_bg_color, 0.9);
-}
