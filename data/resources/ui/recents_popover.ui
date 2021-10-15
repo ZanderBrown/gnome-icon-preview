@@ -11,6 +11,7 @@
         </style>
         <child>
           <object class="GtkViewport">
+            <property name="scroll-to-focus">True</property>
             <child>
               <object class="GtkListBox" id="items_listbox">
                 <property name="selection_mode">none</property>
