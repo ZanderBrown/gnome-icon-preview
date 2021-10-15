@@ -44,9 +44,10 @@ impl RecentsPopover {
                 let row = RecentItemRow::new(project.clone());
 
                 let gesture = gtk::GestureClick::new();
-                gesture.connect_pressed(clone!(@strong project, @strong sender, @weak popover => move |_, _, _, _| {
+                gesture.connect_released(clone!(@strong project, @strong sender, @weak popover => move |gesture, _, _, _| {
                     send!(sender, Action::OpenProject(project.clone()));
                     popover.popdown();
+                    gesture.set_state(gtk::EventSequenceState::Claimed);
                 }));
                 row.widget.add_controller(&gesture);
                 row.widget.upcast::<gtk::Widget>()
