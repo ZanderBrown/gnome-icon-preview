@@ -3,14 +3,13 @@ use crate::project::Project;
 use crate::widgets::Window;
 
 use log::error;
-use std::rc::Rc;
 
 use gtk::glib::{clone, Receiver, Sender};
 use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
 use gtk_macros::{action, send};
 
 pub enum Action {
-    OpenProject(Rc<Project>),
+    OpenProject(Project),
     NewProject(gio::File),
 }
 

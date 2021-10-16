@@ -26,7 +26,7 @@ impl ExportPopover {
         regular_image.set_icon_name(Some(&project.name()));
         nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
 
-        let has_symbolic = project.project_type == ProjectType::Icon;
+        let has_symbolic = project.project_type() == ProjectType::Icon;
         symbolic_box.set_visible(has_symbolic);
         if has_symbolic {
             symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));

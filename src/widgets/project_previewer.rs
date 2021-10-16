@@ -135,7 +135,7 @@ impl ProjectPreviewer {
         self_.dark_panel.set_hicolor(&project.name());
         self_.light_panel.set_hicolor(&project.name());
 
-        let symbolic = match project.project_type {
+        let symbolic = match project.project_type() {
             ProjectType::Icon => Some(project.name()),
             ProjectType::Preview => None,
         };

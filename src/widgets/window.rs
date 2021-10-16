@@ -32,7 +32,7 @@ mod imp {
     pub struct Window {
         pub sender: OnceCell<glib::Sender<Action>>,
         pub previewer: ProjectPreviewer,
-        pub open_project: Rc<RefCell<Option<Rc<Project>>>>,
+        pub open_project: Rc<RefCell<Option<Project>>>,
         pub exporter: ExportPopover,
         pub monitor: RefCell<Option<gio::FileMonitor>>,
         pub settings: gio::Settings,
@@ -118,7 +118,7 @@ impl Window {
         glib::Object::new(&[("application", app)]).unwrap()
     }
 
-    pub fn set_open_project(&self, project: Rc<Project>) {
+    pub fn set_open_project(&self, project: Project) {
         let self_ = imp::Window::from_instance(self);
 
         self.set_view(View::Previewer);
@@ -128,7 +128,7 @@ impl Window {
         let recent_manager = gtk::RecentManager::default();
         recent_manager.add_item(&project.uri());
 
-        let monitor = project.file.monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
+        let monitor = project.file().monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
 
         self_.monitor.borrow_mut().replace(monitor);
         self_.open_project.borrow_mut().replace(project);
@@ -136,7 +136,7 @@ impl Window {
         self_.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong self_.open_project as project,
         @strong self_.exporter as exporter, @strong self_.previewer as previewer  => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
-                let file = project.borrow().as_ref().unwrap().file.clone();
+                let file = project.borrow().as_ref().unwrap().file();
                 match Project::parse(file, true) {
                     Ok(project) => {
                         monitor.cancel();
@@ -230,7 +230,7 @@ impl Window {
             clone!(@strong sender, @weak self_.open_project as project,
             @strong self_.exporter as exporter, @strong self_.previewer as previewer => move |_, _| {
                 if let Some(project) = project.borrow().as_ref() {
-                   match Project::parse(project.file.clone(), true) {
+                   match Project::parse(project.file(), true) {
                         Ok(project) => {
                             previewer.preview(&project);
                             exporter.set_project(&project);

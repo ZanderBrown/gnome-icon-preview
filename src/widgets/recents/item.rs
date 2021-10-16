@@ -1,7 +1,6 @@
 use crate::project::Project;
 
 use serde_derive::{Deserialize, Serialize};
-use std::rc::Rc;
 
 use gtk::pango;
 use gtk::prelude::*;
@@ -13,11 +12,11 @@ pub struct RecentItem {
 
 pub struct RecentItemRow {
     pub widget: gtk::FlowBoxChild,
-    project: Rc<Project>,
+    project: Project,
 }
 
 impl RecentItemRow {
-    pub fn new(project: Rc<Project>) -> Self {
+    pub fn new(project: Project) -> Self {
         let widget = gtk::FlowBoxChild::new();
 
         let recent_item = Self { widget, project };

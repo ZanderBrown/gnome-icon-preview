@@ -3,25 +3,59 @@ use crate::common::Icon;
 
 use gettextrs::gettext;
 use rsvg::{CairoRenderer, Loader, SvgHandle};
-use std::rc::Rc;
 
 use gtk::prelude::*;
+use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
 
-#[derive(PartialEq, Debug, Clone)]
+#[derive(PartialEq, Debug, Clone, Copy)]
 pub enum ProjectType {
     Icon,    // A #hicolor & #symbolic found
     Preview, // A 128px SVG found
 }
 
-pub struct Project {
-    pub file: gio::File,
-    pub project_type: ProjectType,
-    handle: SvgHandle,
+mod imp {
+    use super::*;
+
+    use once_cell::sync::OnceCell;
+    use std::cell::Cell;
+
+    pub struct Project {
+        pub file: OnceCell<gio::File>,
+        pub project_type: Cell<ProjectType>,
+        pub handle: OnceCell<SvgHandle>,
+    }
+
+    #[glib::object_subclass]
+    impl ObjectSubclass for Project {
+        const NAME: &'static str = "Project";
+        type Type = super::Project;
+        type ParentType = glib::Object;
+
+        fn new() -> Self {
+            Self {
+                file: OnceCell::new(),
+                project_type: Cell::new(ProjectType::Icon),
+                handle: OnceCell::new(),
+            }
+        }
+    }
+
+    impl ObjectImpl for Project {}
+}
+
+glib::wrapper! {
+    pub struct Project(ObjectSubclass<imp::Project>);
+}
+
+impl Default for Project {
+    fn default() -> Self {
+        glib::Object::new(&[]).unwrap()
+    }
 }
 
 impl Project {
-    pub fn from_template(dest: gio::File) -> anyhow::Result<Rc<Self>> {
+    pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
         let template = gio::File::for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
         // Creates the parent directory tree if it does not already exist
         dest.parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
@@ -31,15 +65,20 @@ impl Project {
     }
 
     pub fn cache_icons(&self) -> anyhow::Result<()> {
-        match self.project_type {
+        let self_ = imp::Project::from_instance(self);
+
+        let name = self.name();
+        let handle = self_.handle.get().unwrap();
+
+        match self.project_type() {
             ProjectType::Icon => {
-                common::render_by_id(&self.handle, &self.name(), Icon::Scalable)?;
-                common::render_by_id(&self.handle, &self.name(), Icon::Devel)?;
-                common::render_by_id(&self.handle, &self.name(), Icon::Symbolic)?;
+                common::render_by_id(&handle, &name, Icon::Scalable).unwrap();
+                common::render_by_id(&handle, &name, Icon::Devel).unwrap();
+                common::render_by_id(&handle, &name, Icon::Symbolic).unwrap();
             }
             ProjectType::Preview => {
-                common::render(&self.handle, &self.name(), Icon::Scalable)?;
-                common::render(&self.handle, &self.name(), Icon::Devel)?;
+                common::render(&handle, &name, Icon::Scalable).unwrap();
+                common::render(&handle, &name, Icon::Devel).unwrap();
             }
         }
 
@@ -51,7 +90,7 @@ impl Project {
         Ok(())
     }
 
-    pub fn parse(file: gio::File, cache_icons: bool) -> anyhow::Result<Rc<Self>> {
+    pub fn parse(file: gio::File, cache_icons: bool) -> anyhow::Result<Self> {
         let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
         let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
         handle.set_stylesheet("#layer3,#layer2 {opacity: 0}")?;
@@ -63,45 +102,45 @@ impl Project {
         let height = dimensions.height.unwrap().length;
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
-            let project = Self {
-                project_type: ProjectType::Preview,
-                file,
-                handle,
-            };
+            let project: Self = glib::Object::new(&[]).unwrap();
+            let self_ = imp::Project::from_instance(&project);
+            self_.project_type.set(ProjectType::Preview);
+            self_.file.set(file).unwrap();
+            let _ = self_.handle.set(handle);
             if cache_icons {
                 project.cache_icons()?;
             }
-            return Ok(Rc::new(project));
+            return Ok(project);
         }
 
         if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
-            let project = Self {
-                file,
-                project_type: ProjectType::Icon,
-                handle,
-            };
+            let project: Self = glib::Object::new(&[]).unwrap();
+            let self_ = imp::Project::from_instance(&project);
+            self_.project_type.set(ProjectType::Icon);
+            self_.file.set(file).unwrap();
+            let _ = self_.handle.set(handle);
             if cache_icons {
                 project.cache_icons()?;
             }
-            return Ok(Rc::new(project));
+            return Ok(project);
         }
 
         anyhow::bail!("not found")
     }
 
     pub fn name(&self) -> String {
-        let filename = self.file.basename().unwrap();
+        let filename = self.file().basename().unwrap();
         let filename = filename.to_str().unwrap().trim_end_matches(".svg").trim_end_matches(".Source");
         filename.to_string()
     }
 
     pub fn uri(&self) -> String {
-        self.file.uri().to_string()
+        self.file().uri().to_string()
     }
 
     #[allow(dead_code)]
     pub fn open(&self) {
-        let uri = self.file.uri();
+        let uri = self.file().uri();
         glib::idle_add(move || {
             if let Err(err) = gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>) {
                 log::error!("Failed to open the project in Inkscape {}", err);
@@ -150,6 +189,18 @@ impl Project {
         let has_devel = icon_theme.has_icon(&format!("{}.Devel", self.name()));
         let has_symbolic = icon_theme.has_icon(&format!("{}-symbolic", self.name()));
 
-        has_scalable && has_devel && (has_symbolic || self.project_type == ProjectType::Preview)
+        has_scalable && has_devel && (has_symbolic || self.project_type() == ProjectType::Preview)
+    }
+
+    pub fn file(&self) -> gio::File {
+        let self_ = imp::Project::from_instance(self);
+
+        self_.file.get().unwrap().clone()
+    }
+
+    pub fn project_type(&self) -> ProjectType {
+        let self_ = imp::Project::from_instance(self);
+
+        self_.project_type.get()
     }
 }
