@@ -30,16 +30,14 @@ impl<T: AsRef<str>> From<T> for Icon {
 impl Icon {
     pub fn path(self) -> PathBuf {
         match self {
-            Icon::Symbolic => icon_theme_path().join("hicolor/symbolic/apps"),
-            Icon::Scalable => icon_theme_path().join("hicolor/scalable/apps"),
+            Icon::Symbolic | Icon::Scalable => icon_theme_path().join("hicolor/symbolic/apps"),
             Icon::Devel => icon_theme_path().join("hicolor/scalable/apps"),
         }
     }
 
     pub fn id(self) -> String {
         match self {
-            Icon::Scalable => "#hicolor",
-            Icon::Devel => "#hicolor",
+            Icon::Scalable | Icon::Devel => "#hicolor",
             Icon::Symbolic => "#symbolic",
         }
         .to_string()
@@ -47,8 +45,7 @@ impl Icon {
 
     pub fn size(self) -> f64 {
         match self {
-            Icon::Scalable => 128.0,
-            Icon::Devel => 128.0,
+            Icon::Scalable | Icon::Devel => 128.0,
             Icon::Symbolic => 16.0,
         }
     }
