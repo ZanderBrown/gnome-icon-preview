@@ -1,47 +1,126 @@
 use gettextrs::gettext;
 use std::path::PathBuf;
-use std::rc::Rc;
 
-use gtk::glib::clone;
 use gtk::prelude::*;
-use gtk::{gdk, gio, glib};
-use gtk_macros::{action, get_widget};
+use gtk::subclass::prelude::*;
+use gtk::{
+    gdk, gio,
+    glib::{self, clone},
+};
 
-pub struct ScreenshotDialog {
-    pub widget: adw::Window,
-    builder: gtk::Builder,
-    actions: gio::SimpleActionGroup,
-    pixbuf: gdk_pixbuf::Pixbuf,
+mod imp {
+    use super::*;
+    use adw::subclass::prelude::*;
+    use glib::{ParamSpec, Value};
+    use once_cell::sync::{Lazy, OnceCell};
+
+    #[derive(Default, Debug, gtk::CompositeTemplate)]
+    #[template(resource = "/org/gnome/design/AppIconPreview/screenshot_dialog.ui")]
+    pub struct ScreenshotDialog {
+        pub pixbuf: OnceCell<gdk_pixbuf::Pixbuf>,
+        #[template_child]
+        pub preview: TemplateChild<gtk::Picture>,
+    }
+
+    #[glib::object_subclass]
+    impl ObjectSubclass for ScreenshotDialog {
+        const NAME: &'static str = "ScreenshotDialog";
+        type Type = super::ScreenshotDialog;
+        type ParentType = adw::Window;
+
+        fn class_init(klass: &mut Self::Class) {
+            klass.install_action("screenshot.copy", None, |widget, _, _| {
+                widget.copy();
+            });
+            klass.install_action("screenshot.save", None, |widget, _, _| {
+                widget.save();
+            });
+            Self::bind_template(klass);
+        }
+
+        fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
+            obj.init_template();
+        }
+    }
+
+    impl ObjectImpl for ScreenshotDialog {
+        fn properties() -> &'static [ParamSpec] {
+            static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
+                vec![ParamSpec::new_object(
+                    "pixbuf",
+                    "Pixbuf",
+                    "The widget's pixbuf",
+                    gdk_pixbuf::Pixbuf::static_type(),
+                    glib::ParamFlags::READWRITE,
+                )]
+            });
+            PROPERTIES.as_ref()
+        }
+
+        fn set_property(&self, _obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+            match pspec.name() {
+                "pixbuf" => {
+                    let pixbuf = value.get().unwrap();
+                    self.pixbuf.set(pixbuf).unwrap();
+                }
+                _ => unimplemented!(),
+            }
+        }
+
+        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+            match pspec.name() {
+                "pixbuf" => self.pixbuf.get().to_value(),
+                _ => unimplemented!(),
+            }
+        }
+    }
+    impl WidgetImpl for ScreenshotDialog {}
+    impl WindowImpl for ScreenshotDialog {}
+    impl AdwWindowImpl for ScreenshotDialog {}
+}
+
+glib::wrapper! {
+    pub struct ScreenshotDialog(ObjectSubclass<imp::ScreenshotDialog>)
+        @extends gtk::Widget, gtk::Window, adw::Window;
 }
 
 impl ScreenshotDialog {
-    pub fn new(pixbuf: gdk_pixbuf::Pixbuf) -> Rc<Self> {
-        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/screenshot_dialog.ui");
-        get_widget!(builder, adw::Window, screenshot_dialog);
+    pub fn new(pixbuf: gdk_pixbuf::Pixbuf) -> Self {
+        let dialog = glib::Object::new::<Self>(&[("pixbuf", &pixbuf)]).unwrap();
+        dialog.init();
+        dialog
+    }
 
-        let previewer = Rc::new(Self {
-            widget: screenshot_dialog,
-            builder,
-            pixbuf,
-            actions: gio::SimpleActionGroup::new(),
-        });
+    fn init(&self) {
+        let self_ = imp::ScreenshotDialog::from_instance(self);
+        let pixbuf = self_.pixbuf.get().unwrap();
 
-        previewer.init(previewer.clone());
-        previewer
+        let aspect_ratio = pixbuf.width() as f32 / pixbuf.height() as f32;
+        let width = 600;
+        let height = (width as f32 / aspect_ratio) as i32;
+        let scaled_pixbuf = pixbuf.scale_simple(width, height, gdk_pixbuf::InterpType::Bilinear);
+
+        self_.preview.set_pixbuf(scaled_pixbuf.as_ref());
     }
 
     pub fn copy(&self) {
         let display = gdk::Display::default().unwrap();
         let clipboard = display.clipboard();
 
-        let texture = gdk::Texture::for_pixbuf(&self.pixbuf);
+        let self_ = imp::ScreenshotDialog::from_instance(self);
+        let pixbuf = self_.pixbuf.get().unwrap();
+
+        let texture = gdk::Texture::for_pixbuf(&pixbuf);
         clipboard.set_texture(&texture);
     }
 
-    pub fn save(&self) {
+    fn save(&self) {
+        let self_ = imp::ScreenshotDialog::from_instance(self);
+        let pixbuf = self_.pixbuf.get().unwrap();
+
         let dialog = gtk::FileChooserNative::new(
             Some(&gettext("Save Screenshot")),
-            Some(&self.widget),
+            Some(self),
             gtk::FileChooserAction::Save,
             Some(&gettext("_Save")),
             Some(&gettext("_Cancel")),
@@ -75,7 +154,7 @@ impl ScreenshotDialog {
         jpeg_filter.add_mime_type("image/jpeg");
         dialog.add_filter(&jpeg_filter);
 
-        dialog.connect_response(clone!(@strong self.pixbuf as pixbuf, @strong dialog => move |_, response| {
+        dialog.connect_response(clone!(@strong pixbuf, @strong dialog => move |_, response| {
             if response == gtk::ResponseType::Accept {
                 let filename: PathBuf = dialog.file().unwrap().basename().unwrap();
                 let ext = match filename.extension() {
@@ -92,31 +171,5 @@ impl ScreenshotDialog {
             dialog.destroy();
         }));
         dialog.show();
-    }
-
-    fn init(&self, rc_s: Rc<Self>) {
-        let aspect_ratio = self.pixbuf.width() as f32 / self.pixbuf.height() as f32;
-        let width = 600;
-        let height = (width as f32 / aspect_ratio) as i32;
-        let scaled_pixbuf = self.pixbuf.scale_simple(width, height, gdk_pixbuf::InterpType::Bilinear);
-
-        get_widget!(self.builder, gtk::Picture, @preview).set_pixbuf(scaled_pixbuf.as_ref());
-
-        action!(
-            self.actions,
-            "copy",
-            clone!(@strong rc_s as screenshot =>  move |_, _| {
-                screenshot.copy();
-            })
-        );
-        action!(
-            self.actions,
-            "save",
-            clone!(@strong rc_s as screenshot =>  move |_, _| {
-                screenshot.save();
-            })
-        );
-
-        self.widget.insert_action_group("screenshot", Some(&self.actions));
     }
 }

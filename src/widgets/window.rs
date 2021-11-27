@@ -257,8 +257,8 @@ impl Window {
             clone!(@weak self as window, @strong self_.previewer as previewer => move |_, _| {
                 if let Some(pixbuf) = previewer.screenshot() {
                     let dialog = ScreenshotDialog::new(pixbuf);
-                    dialog.widget.set_transient_for(Some(&window));
-                    dialog.widget.present();
+                    dialog.set_transient_for(Some(&window));
+                    dialog.present();
                 }
             })
         );

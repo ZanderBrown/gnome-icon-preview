@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="AdwWindow" id="screenshot_dialog">
+  <template class="ScreenshotDialog" parent="AdwWindow">
     <property name="modal">True</property>
     <property name="resizable">False</property>
     <child>
@@ -28,9 +28,6 @@
                 <property name="action_name">screenshot.copy</property>
               </object>
             </child>
-            <style>
-              <class name="titlebar"/>
-            </style>
           </object>
         </child>
         <child>
@@ -38,5 +35,5 @@
         </child>
       </object>
     </child>
-  </object>
+  </template>
 </interface>
