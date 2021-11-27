@@ -2,11 +2,11 @@ use crate::config;
 use crate::project::Project;
 use crate::widgets::Window;
 
-use log::error;
-
+use adw::prelude::*;
 use gtk::glib::{clone, Receiver, Sender};
-use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
+use gtk::{gdk, gio, glib, subclass::prelude::*};
 use gtk_macros::{action, send};
+use log::error;
 
 pub enum Action {
     OpenProject(Project),
@@ -14,10 +14,9 @@ pub enum Action {
 }
 
 mod imp {
-    use once_cell::sync::OnceCell;
-
     use super::*;
-
+    use adw::subclass::prelude::*;
+    use once_cell::sync::OnceCell;
     use std::cell::RefCell;
 
     pub struct Application {
@@ -29,7 +28,7 @@ mod imp {
     #[glib::object_subclass]
     impl ObjectSubclass for Application {
         const NAME: &'static str = "Application";
-        type ParentType = gtk::Application;
+        type ParentType = adw::Application;
         type Type = super::Application;
 
         fn new() -> Self {
@@ -44,18 +43,12 @@ mod imp {
         }
     }
     impl ObjectImpl for Application {}
-    impl GtkApplicationImpl for Application {}
     impl ApplicationImpl for Application {
         fn startup(&self, application: &Self::Type) {
             self.parent_startup(application);
 
-            adw::init();
-
-            // setup css
-            let p = gtk::CssProvider::new();
-            gtk::CssProvider::load_from_resource(&p, "/org/gnome/design/AppIconPreview/style.css");
+            // setup icon theme cache
             if let Some(display) = gdk::Display::default() {
-                gtk::StyleContext::add_provider_for_display(&display, &p, gtk::STYLE_PROVIDER_PRIORITY_APPLICATION);
                 let icon_theme = gtk::IconTheme::for_display(&display).unwrap();
                 if let Err(err) = crate::common::init_tmp(&icon_theme) {
                     log::error!("Failed to load icon theme: {}", err);
@@ -109,6 +102,9 @@ mod imp {
             }
         }
     }
+
+    impl GtkApplicationImpl for Application {}
+    impl AdwApplicationImpl for Application {}
 }
 
 glib::wrapper! {
