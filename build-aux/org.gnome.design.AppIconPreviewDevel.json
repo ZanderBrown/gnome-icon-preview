@@ -7,12 +7,7 @@
         "org.freedesktop.Sdk.Extension.rust-stable"
     ],
     "command" : "app-icon-preview",
-    "tags" : [
-        "nightly"
-    ],
     "finish-args" : [
-        "--talk-name=org.a11y.Bus",
-        "--env=RUST_BACKTRACE=1",
         "--env=RUST_LOG=app_icon_preview=debug",
         "--share=ipc",
         "--socket=fallback-x11",
@@ -24,10 +19,7 @@
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
         "build-args" : [
             "--share=network"
-        ],
-        "env" : {
-            "CARGO_HOME" : "/run/build/app-icon-preview/cargo"
-        }
+        ]
     },
     "modules" : [
         {
