@@ -160,8 +160,6 @@
                     <property name="action_target">'symbolic'</property>
                   </object>
                 </child>
-                <child type="end">
-                </child>
               </object>
             </child>
           </object>
