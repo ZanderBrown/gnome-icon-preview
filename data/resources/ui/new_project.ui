@@ -102,6 +102,7 @@
                     </child>
                     <child>
                       <object class="GtkBox">
+                        <property name="spacing">6</property>
                         <child>
                           <object class="GtkEntry" id="project_path">
                             <property name="hexpand">True</property>
@@ -115,20 +116,11 @@
                             <property name="use_underline">True</property>
                           </object>
                         </child>
-                        <style>
-                          <class name="linked"/>
-                        </style>
                         <layout>
                           <property name="column">1</property>
                           <property name="row">2</property>
                         </layout>
                       </object>
-                    </child>
-                    <child>
-                      <placeholder/>
-                    </child>
-                    <child>
-                      <placeholder/>
                     </child>
                   </object>
                 </child>
