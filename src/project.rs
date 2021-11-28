@@ -72,13 +72,13 @@ impl Project {
 
         match self.project_type() {
             ProjectType::Icon => {
-                common::render_by_id(&handle, &name, Icon::Scalable).unwrap();
-                common::render_by_id(&handle, &name, Icon::Devel).unwrap();
-                common::render_by_id(&handle, &name, Icon::Symbolic).unwrap();
+                common::render_by_id(handle, &name, Icon::Scalable).unwrap();
+                common::render_by_id(handle, &name, Icon::Devel).unwrap();
+                common::render_by_id(handle, &name, Icon::Symbolic).unwrap();
             }
             ProjectType::Preview => {
-                common::render(&handle, &name, Icon::Scalable).unwrap();
-                common::render(&handle, &name, Icon::Devel).unwrap();
+                common::render(handle, &name, Icon::Scalable).unwrap();
+                common::render(handle, &name, Icon::Devel).unwrap();
             }
         }
 

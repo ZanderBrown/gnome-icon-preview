@@ -110,7 +110,7 @@ impl ScreenshotDialog {
         let self_ = imp::ScreenshotDialog::from_instance(self);
         let pixbuf = self_.pixbuf.get().unwrap();
 
-        let texture = gdk::Texture::for_pixbuf(&pixbuf);
+        let texture = gdk::Texture::for_pixbuf(pixbuf);
         clipboard.set_texture(&texture);
     }
 

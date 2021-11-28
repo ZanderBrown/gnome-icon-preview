@@ -38,7 +38,7 @@ mod imp {
                 widget.destroy();
             });
             klass.install_action("project.create", None, |widget, _, _| {
-                let self_ = imp::NewProjectDialog::from_instance(&widget);
+                let self_ = imp::NewProjectDialog::from_instance(widget);
 
                 let project_name = format!("{}.Source.svg", self_.project_name.text());
                 let project_path = self_.project_path.text().replacen("~", glib::home_dir().to_str().unwrap(), 1);

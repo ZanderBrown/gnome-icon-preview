@@ -70,7 +70,7 @@ impl RecentsPopover {
                     }
                 }
                 if  !exist_already && Project::parse(file, false).is_ok() {
-                    let object = ObjectWrapper::new(Box::new(RecentItem { uri: uri.to_string() }));
+                    let object = ObjectWrapper::new(Box::new(RecentItem { uri }));
                     model.append(&object);
                 }
             }));

@@ -197,7 +197,7 @@ impl Window {
         action!(
             self,
             "export-save",
-            Some(&glib::VariantTy::new("s").unwrap()),
+            Some(glib::VariantTy::new("s").unwrap()),
             clone!(@weak self_.open_project as project, @weak self as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();

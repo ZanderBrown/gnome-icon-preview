@@ -113,7 +113,7 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result
     let renderer = CairoRenderer::new(handle);
     let dest = create_tmp(icon, icon_name)?;
 
-    let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest.clone())).unwrap();
+    let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest)).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
     let cr = cairo::Context::new(&surface)?;
     let dimensions = renderer.intrinsic_dimensions();
@@ -145,7 +145,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
         };
         let (rect, _) = renderer.geometry_for_layer(Some(&id), &viewport)?;
 
-        let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest.clone())).unwrap();
+        let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest)).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
         let cr = cairo::Context::new(&surface)?;
 
@@ -182,14 +182,14 @@ pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
 }
 
 pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::Result<()> {
-    let context = cairo::Context::new(&source)?;
+    let context = cairo::Context::new(source)?;
 
     let overlay = get_overlay(output_size)?;
     context.set_source_surface(&overlay, 0.0, 0.0)?;
 
     let mask = source.create_similar(cairo::Content::Alpha, output_size as i32, output_size as i32)?;
     let cr_mask = cairo::Context::new(&mask)?;
-    cr_mask.set_source_surface(&source, 0.0, 0.0)?;
+    cr_mask.set_source_surface(source, 0.0, 0.0)?;
     cr_mask.paint()?;
     context.mask_surface(&mask, 0.0, 0.0)?;
 

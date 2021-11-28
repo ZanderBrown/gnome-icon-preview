@@ -10,6 +10,7 @@ pub struct ExportPopover {
 }
 
 impl ExportPopover {
+    #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
         let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/export.ui");
         get_widget!(builder, gtk::Popover, export_popover);
