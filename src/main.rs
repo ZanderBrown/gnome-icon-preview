@@ -4,7 +4,6 @@ use gtk::{gio, glib};
 mod application;
 mod common;
 mod config;
-mod object_wrapper;
 mod project;
 mod widgets;
 

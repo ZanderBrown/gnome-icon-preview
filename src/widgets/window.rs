@@ -174,7 +174,7 @@ impl Window {
 
         // Recents Popover
         let recents_popover = RecentsPopover::new(self_.sender.get().unwrap().clone());
-        self_.open_btn.set_popover(Some(&recents_popover.widget));
+        self_.open_btn.set_popover(Some(&recents_popover));
 
         // TODO
         // self_.exporter.widget.set_relative_to(Some(&export_btn));

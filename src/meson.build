@@ -34,7 +34,6 @@ sources = files(
   'common.rs',
   'config.rs',
   'main.rs',
-  'object_wrapper.rs',
   'project.rs',
 )
 

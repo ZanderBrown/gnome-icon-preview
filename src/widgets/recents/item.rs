@@ -1,15 +1,8 @@
 use crate::project::Project;
 
-use serde_derive::{Deserialize, Serialize};
-
 use gtk::prelude::*;
-use gtk::{glib, pango};
-
-#[derive(Clone, Serialize, Deserialize)]
-pub struct RecentItem {
-    pub uri: String,
-}
 use gtk::subclass::prelude::*;
+use gtk::{glib, pango};
 
 mod imp {
     use super::*;
