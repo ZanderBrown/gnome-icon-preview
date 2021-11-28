@@ -53,7 +53,7 @@ mod imp {
             });
             klass.install_action("project.browse", None, |parent, _, _| {
                 let dialog = gtk::FileChooserDialog::new(
-                    None,
+                    Some(&gettext("Select Icon Location")),
                     Some(parent),
                     gtk::FileChooserAction::SelectFolder,
                     &[(&gettext("Select"), gtk::ResponseType::Accept), (&gettext("Cancel"), gtk::ResponseType::Cancel)],
