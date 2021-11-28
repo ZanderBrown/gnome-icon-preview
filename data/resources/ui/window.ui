@@ -3,6 +3,9 @@
   <template parent="AdwApplicationWindow" class="Window">
     <property name="default_width">960</property>
     <property name="default_height">550</property>
+    <style>
+      <class name="transparent-window"/>
+    </style>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -36,148 +39,154 @@
           <object class="GtkStack" id="content">
             <property name="hhomogeneous">False</property>
             <property name="vhomogeneous">False</property>
-            <property name="interpolate_size">True</property>
             <child>
-              <object class="GtkBox">
-                <property name="valign">center</property>
-                <property name="orientation">vertical</property>
-                <property name="spacing">24</property>
+              <object class="AdwBin">
+                <style>
+                  <class name="background"/>
+                </style>
                 <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Make a new App Icon</property>
-                    <property name="justify">center</property>
-                    <property name="wrap">True</property>
-                    <property name="ellipsize">end</property>
-                    <property name="lines">2</property>
-                    <attributes>
-                      <attribute name="weight" value="ultrabold"/>
-                      <attribute name="scale" value="2"/>
-                    </attributes>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkGrid">
-                    <property name="halign">center</property>
-                    <property name="row_spacing">24</property>
-                    <property name="column_spacing">24</property>
-                    <property name="row_homogeneous">True</property>
-                    <property name="column_homogeneous">True</property>
+                  <object class="GtkBox">
+                    <property name="valign">center</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">24</property>
                     <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Maps</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">0</property>
-                        </layout>
+                      <object class="GtkLabel">
+                        <property name="label" translatable="yes">Make a new App Icon</property>
+                        <property name="justify">center</property>
+                        <property name="wrap">True</property>
+                        <property name="ellipsize">end</property>
+                        <property name="lines">2</property>
+                        <attributes>
+                          <attribute name="weight" value="ultrabold"/>
+                          <attribute name="scale" value="2"/>
+                        </attributes>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Logs</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="row">0</property>
-                        </layout>
+                      <object class="GtkGrid">
+                        <property name="halign">center</property>
+                        <property name="row_spacing">24</property>
+                        <property name="column_spacing">24</property>
+                        <property name="row_homogeneous">True</property>
+                        <property name="column_homogeneous">True</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Maps</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Logs</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Podcasts</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Photos</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">3</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.SystemMonitor</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Nautilus</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Passwords</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">3</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="pixel_size">96</property>
+                            <property name="icon_name">org.gnome.Weather</property>
+                            <style>
+                              <class name="icon-dropshadow"/>
+                            </style>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Podcasts</property>
+                      <object class="GtkButton">
+                        <property name="label" translatable="yes">_New App Icon</property>
+                        <property name="use_underline">True</property>
+                        <property name="halign">center</property>
+                        <property name="action_name">win.new-project</property>
                         <style>
-                          <class name="icon-dropshadow"/>
+                          <class name="suggested-action" />
+                          <class name="pill" />
                         </style>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="row">0</property>
-                        </layout>
                       </object>
                     </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Photos</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.SystemMonitor</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Nautilus</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Passwords</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="pixel_size">96</property>
-                        <property name="icon_name">org.gnome.Weather</property>
-                        <style>
-                          <class name="icon-dropshadow"/>
-                        </style>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="label" translatable="yes">_New App Icon</property>
-                    <property name="use_underline">True</property>
-                    <property name="halign">center</property>
-                    <property name="action_name">win.new-project</property>
-                    <style>
-                      <class name="suggested-action" />
-                      <class name="pill" />
-                    </style>
                   </object>
                 </child>
               </object>

@@ -167,12 +167,8 @@
         </child>
         <style>
           <class name="wallpaper"/>
-          <class name="background" />
         </style>
       </object>
     </child>
-    <style>
-      <class name="background" />
-    </style>
   </template>
 </interface>

@@ -3,6 +3,9 @@
   <template class="ScreenshotDialog" parent="AdwWindow">
     <property name="modal">True</property>
     <property name="resizable">False</property>
+    <style>
+      <class name="transparent-window"/>
+    </style>
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
