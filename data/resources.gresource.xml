@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/design/AppIconPreview/">
-    <file compressed="true" preprocess="xml-stripblanks">about_dialog.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="window.ui">resources/ui/window.ui</file>
 
     <file compressed="true" preprocess="xml-stripblanks" alias="colourpane.ui">resources/ui/colourpane.ui</file>

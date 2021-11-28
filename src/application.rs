@@ -3,6 +3,7 @@ use crate::project::Project;
 use crate::widgets::Window;
 
 use adw::prelude::*;
+use gettextrs::gettext;
 use gtk::glib::{clone, Receiver, Sender};
 use gtk::{gdk, gio, glib, subclass::prelude::*};
 use gtk_macros::{action, send};
@@ -70,6 +71,14 @@ mod imp {
                 "quit",
                 clone!(@weak application => move |_, _| {
                     application.quit();
+                })
+            );
+
+            action!(
+                application,
+                "about",
+                clone!(@weak application => move |_, _| {
+                    application.show_about_dialog();
                 })
             );
         }
@@ -150,6 +159,24 @@ impl Application {
             },
         };
         glib::Continue(true)
+    }
+
+    fn show_about_dialog(&self) {
+        let window = self.active_window().unwrap().downcast::<Window>().unwrap();
+        let dialog = gtk::AboutDialogBuilder::new()
+            .program_name("App Icon Preview")
+            .logo_icon_name(config::APP_ID)
+            .license_type(gtk::License::Gpl30)
+            .website("https://gitlab.gnome.org/World/design/app-icon-preview/")
+            .version(config::VERSION)
+            .transient_for(&window)
+            .translator_credits(&gettext("translator-credits"))
+            .modal(true)
+            .authors(vec!["Bilal Elmoussaoui".into(), "Zander Brown".into()])
+            .artists(vec!["Tobias Bernard".into()])
+            .build();
+
+        dialog.show();
     }
 
     pub fn sender(&self) -> Sender<Action> {

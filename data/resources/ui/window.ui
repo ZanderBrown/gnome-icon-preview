@@ -214,7 +214,7 @@
         <attribute name='label' translatable='yes'>_Keyboard Shortcuts</attribute>
       </item>
       <item>
-        <attribute name='action'>win.about</attribute>
+        <attribute name='action'>app.about</attribute>
         <attribute name='label' translatable='yes'>_About App Icon Preview</attribute>
       </item>
     </section>

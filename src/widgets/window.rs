@@ -11,7 +11,7 @@ use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib, CompositeTemplate};
-use gtk_macros::{action, get_action, get_widget, send};
+use gtk_macros::{action, get_action, send};
 
 #[derive(Debug, PartialEq)]
 pub enum View {
@@ -275,19 +275,6 @@ impl Window {
             })
         );
 
-        // About
-        action!(
-            self,
-            "about",
-            clone!(@weak self as window => move |_, _| {
-                let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/about_dialog.ui");
-                get_widget!(builder, gtk::AboutDialog, about_dialog);
-                about_dialog.set_transient_for(Some(&window));
-
-                about_dialog.show();
-
-            })
-        );
         // Open file
         action!(
             self,
