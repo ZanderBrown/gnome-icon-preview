@@ -49,8 +49,8 @@ impl RecentsPopover {
                     popover.popdown();
                     gesture.set_state(gtk::EventSequenceState::Claimed);
                 }));
-                row.widget.add_controller(&gesture);
-                row.widget.upcast::<gtk::Widget>()
+                row.add_controller(&gesture);
+                row.upcast::<gtk::Widget>()
             }),
         );
 
