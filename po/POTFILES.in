@@ -3,12 +3,12 @@
 data/org.gnome.design.AppIconPreview.desktop.in.in
 data/org.gnome.design.AppIconPreview.gschema.xml.in
 data/org.gnome.design.AppIconPreview.metainfo.xml.in.in
-data/resources/ui/about_dialog.ui.in
 data/resources/ui/export.ui
-data/resources/ui/gtk/help-overlay.ui
+data/resources/ui/help-overlay.ui
 data/resources/ui/new_project.ui
 data/resources/ui/screenshot_dialog.ui
 data/resources/ui/window.ui
+src/application.rs
 src/main.rs
 src/project.rs
 src/widgets/new_project.rs
