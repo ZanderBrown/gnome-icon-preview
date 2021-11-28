@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-08-08 11:29+0000\n"
-"PO-Revision-Date: 2021-08-08 21:32+0200\n"
+"POT-Creation-Date: 2021-11-28 14:40+0000\n"
+"PO-Revision-Date: 2021-11-28 20:10+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
+#: src/widgets/project_previewer.rs:77 src/widgets/screenshot_dialog.rs:134
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
 
@@ -67,14 +67,6 @@ msgstr "Förhandsgranska en programikon"
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:10
-msgid "translator-credits"
-msgstr ""
-"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"\n"
-"Skicka synpunkter på översättningen till\n"
-"<tp-sv@listor.tp-sv.se>"
-
 #: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
@@ -107,62 +99,62 @@ msgstr "Symbolisk"
 msgid "Save Symbolic As…"
 msgstr "Spara symbolisk som…"
 
-#: data/resources/ui/gtk/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: data/resources/ui/gtk/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: data/resources/ui/gtk/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Öppna en ikon"
 
-#: data/resources/ui/gtk/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Avsluta programmet"
 
-#: data/resources/ui/gtk/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Visa"
 
-#: data/resources/ui/gtk/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Läs om ikonen"
 
-#: data/resources/ui/gtk/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Exportera ikonen"
 
-#: data/resources/ui/gtk/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Blanda ikoner"
 
-#: data/resources/ui/gtk/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Ta skärmbild"
 
-#: data/resources/ui/gtk/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Kopiera en skärmbild till urklipp"
 
-#: data/resources/ui/new_project.ui:12
+#: data/resources/ui/new_project.ui:7
 msgid "New App Icon"
 msgstr "Ny programikon"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:102
-#: src/widgets/screenshot_dialog.rs:47
+#: data/resources/ui/new_project.ui:18 src/project.rs:161
+#: src/widgets/screenshot_dialog.rs:124
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -170,39 +162,39 @@ msgstr "A_vbryt"
 msgid "_Create"
 msgstr "_Skapa"
 
-#: data/resources/ui/new_project.ui:52
+#: data/resources/ui/new_project.ui:48
 msgid "App Name"
 msgstr "Programnamn"
 
-#: data/resources/ui/new_project.ui:62
+#: data/resources/ui/new_project.ui:58
 msgid "Icon Location"
 msgstr "Ikonplats"
 
-#: data/resources/ui/new_project.ui:81
+#: data/resources/ui/new_project.ui:77
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Det omvända domännotationsnamnet, t.ex. org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:95
+#: data/resources/ui/new_project.ui:91
 msgid "The icon SVG file will be stored in this directory"
 msgstr "SVG-filen för ikonen kommer lagras i denna katalog"
 
-#: data/resources/ui/new_project.ui:110
+#: data/resources/ui/new_project.ui:107
 msgid "~/Projects"
 msgstr "~/Projekt"
 
-#: data/resources/ui/new_project.ui:115
+#: data/resources/ui/new_project.ui:113
 msgid "_Browse…"
 msgstr "_Bläddra…"
 
-#: data/resources/ui/screenshot_dialog.ui:16
+#: data/resources/ui/screenshot_dialog.ui:19
 msgid "_Save…"
 msgstr "_Spara…"
 
-#: data/resources/ui/screenshot_dialog.ui:26
+#: data/resources/ui/screenshot_dialog.ui:29
 msgid "_Copy to Clipboard"
 msgstr "_Kopiera till urklipp"
 
-#: data/resources/ui/window.ui:15
+#: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "Ö_ppna"
 
@@ -210,90 +202,98 @@ msgstr "Ö_ppna"
 msgid "Open an icon"
 msgstr "Öppna en ikon"
 
-#: data/resources/ui/window.ui:25
-msgid "Recent"
-msgstr "Senaste"
-
-#: data/resources/ui/window.ui:39
-msgid "_Export"
-msgstr "_Exportera"
-
-#: data/resources/ui/window.ui:47
+#: data/resources/ui/window.ui:24
 msgid "Menu"
 msgstr "Meny"
 
-#: data/resources/ui/window.ui:71
+#: data/resources/ui/window.ui:31
+msgid "_Export"
+msgstr "_Exportera"
+
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "Gör en ny programikon"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:180
 msgid "_New App Icon"
 msgstr "_Ny programikon"
 
-#: data/resources/ui/window.ui:220
+#: data/resources/ui/window.ui:203
 msgid "_New Window"
 msgstr "_Nytt fönster"
 
-#: data/resources/ui/window.ui:226
+#: data/resources/ui/window.ui:209
 msgid "_Reload"
 msgstr "Läs _om"
 
-#: data/resources/ui/window.ui:230
+#: data/resources/ui/window.ui:213
 msgid "_Take Screenshot"
 msgstr "_Ta skärmbild"
 
-#: data/resources/ui/window.ui:234
+#: data/resources/ui/window.ui:217
 msgid "_Shuffle Example Icons"
 msgstr "_Blanda exempelikoner"
 
-#: data/resources/ui/window.ui:240
+#: data/resources/ui/window.ui:223
 msgid "_Keyboard Shortcuts"
 msgstr "Tan_gentbordsgenvägar"
 
-#: data/resources/ui/window.ui:244
+#: data/resources/ui/window.ui:227
 msgid "_About App Icon Preview"
 msgstr "_Om Programikonförhandsgranskning"
 
-#: src/project.rs:102
+#: src/application.rs:173
+msgid "translator-credits"
+msgstr ""
+"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>"
+
+#: src/project.rs:161
 msgid "Export"
 msgstr "Exportera"
 
-#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
+#: src/project.rs:161 src/widgets/screenshot_dialog.rs:123
 msgid "_Save"
 msgstr "_Spara"
 
-#: src/project.rs:107
+#: src/project.rs:166
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:54
+#: src/widgets/new_project.rs:56
+msgid "Select Icon Location"
+msgstr "Välj ikonplats"
+
+#: src/widgets/new_project.rs:59
 msgid "Select"
 msgstr "Välj"
 
-#: src/widgets/new_project.rs:55
+#: src/widgets/new_project.rs:59
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/widgets/screenshot_dialog.rs:43
+#: src/widgets/screenshot_dialog.rs:120
 msgid "Save Screenshot"
 msgstr "Spara skärmbild"
 
-#: src/widgets/screenshot_dialog.rs:50
+#: src/widgets/screenshot_dialog.rs:127
 msgid "Preview"
 msgstr "Förhandsgranskning"
 
-#: src/widgets/screenshot_dialog.rs:66
+#: src/widgets/screenshot_dialog.rs:143
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:72
+#: src/widgets/screenshot_dialog.rs:149
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:292
+#: src/widgets/window.rs:283
 msgid "Open File"
 msgstr "Öppna fil"
 
-#: src/widgets/window.rs:297
+#: src/widgets/window.rs:288
 msgid "SVG images"
 msgstr "SVG-bilder"
