@@ -1,4 +1,4 @@
-use super::icon::Icon;
+use super::icon::{Icon, IconSize};
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib};
@@ -152,19 +152,18 @@ impl ColourPane {
         // Small container is composed of 5 icons, 4 samples & the previewed project
         let small_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Horizontal);
         for _ in 0..5 {
-            let demo_icon = Icon::new(None, 64);
-            small_group.add_widget(&demo_icon.widget);
-            demo_icon.label.add_css_class("caption");
-            self_.small.append(&demo_icon.widget);
+            let demo_icon = Icon::new(IconSize::Small);
+            small_group.add_widget(&demo_icon);
+            self_.small.append(&demo_icon);
             self_.small_icons.borrow_mut().push(demo_icon);
         }
 
         // Grid container is composed of 3 icons, 2 samples & the previewed project
         let grid_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Horizontal);
         for _ in 0..3 {
-            let demo_icon = Icon::new(None, 96);
-            grid_group.add_widget(&demo_icon.widget);
-            self_.grid.append(&demo_icon.widget);
+            let demo_icon = Icon::new(IconSize::Large);
+            grid_group.add_widget(&demo_icon);
+            self_.grid.append(&demo_icon);
             self_.grid_icons.borrow_mut().push(demo_icon);
         }
     }
