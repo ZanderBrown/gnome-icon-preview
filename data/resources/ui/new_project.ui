@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="AdwWindow" id="dialog">
+  <template class="NewProjectDialog" parent="AdwWindow">
+    <property name="default-width">550</property>
+    <property name="default-height">250</property>
     <property name="modal">True</property>
     <property name="title" translatable="yes">New App Icon</property>
     <child>
@@ -10,15 +12,17 @@
           <object class="GtkHeaderBar">
             <property name="show-title-buttons">False</property>
             <child>
-              <object class="GtkButton" id="cancel_button">
+              <object class="GtkButton">
                 <property name="use-underline">True</property>
+                <property name="action-name">project.cancel</property>
                 <property name="label" translatable="yes">_Cancel</property>
               </object>
             </child>
             <child type="end">
-              <object class="GtkButton" id="accept_button">
+              <object class="GtkButton">
                 <property name="label" translatable="yes">_Create</property>
                 <property name="use-underline">True</property>
+                <property name="action-name">project.create</property>
                 <property name="sensitive">False</property>
                 <style>
                   <class name="suggested-action"/>
@@ -105,7 +109,8 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkButton" id="browse_button">
+                          <object class="GtkButton">
+                            <property name="action-name">project.browse</property>
                             <property name="label" translatable="yes">_Browse…</property>
                             <property name="use_underline">True</property>
                           </object>
@@ -147,5 +152,5 @@
         </child>
       </object>
     </child>
-  </object>
+  </template>
 </interface>

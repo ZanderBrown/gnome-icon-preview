@@ -218,8 +218,8 @@ impl Window {
             "new-project",
             clone!(@weak self as window, @strong sender => move |_, _| {
                 let dialog = NewProjectDialog::new(sender.clone());
-                dialog.widget.set_transient_for(Some(&window));
-                dialog.widget.show();
+                dialog.set_transient_for(Some(&window));
+                dialog.show();
             })
         );
 
