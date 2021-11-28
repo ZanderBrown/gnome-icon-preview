@@ -38,13 +38,15 @@
 .previewer .wallpaper {
 	/* Try again with gtk4 background-size: cover; */
 	background-position: center;
-	background-image: url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita.jpg");
+	background-image: -gtk-scaled(url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita.jpg"),
+	                              url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita@2.jpg"));
 	color: white;
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dark .wallpaper {
-	background-image: url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita-dark.jpg");
+	background-image: -gtk-scaled(url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita-dark.jpg"),
+	                              url("resource://org/gnome/design/AppIconPreview/wallpapers/Adwaita-dark@2.jpg"));
 }
 
 .exporter {

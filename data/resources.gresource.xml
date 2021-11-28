@@ -13,7 +13,9 @@
     <file compressed="true" alias="style.css">resources/style.css</file>
 
     <file alias="wallpapers/Adwaita.jpg">resources/wallpapers/Adwaita.jpg</file>
+    <file alias="wallpapers/Adwaita@2.jpg">resources/wallpapers/Adwaita@2.jpg</file>
     <file alias="wallpapers/Adwaita-dark.jpg">resources/wallpapers/Adwaita-dark.jpg</file>
+    <file alias="wallpapers/Adwaita-dark@2.jpg">resources/wallpapers/Adwaita-dark@2.jpg</file>
     <file alias="templates/empty_project.svg">resources/templates/empty_project.svg</file>
     <file alias="templates/stripes.svg">resources/templates/stripes.svg</file>
     <file alias="badge.svg">icons/org.gnome.design.AppIconPreview-symbolic.svg</file>
