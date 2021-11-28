@@ -8,7 +8,7 @@ use std::path::PathBuf;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib};
+use gtk::{gdk, gio, glib};
 use gtk_macros::send;
 
 mod imp {
@@ -77,6 +77,7 @@ mod imp {
                 }));
                 dialog.show();
             });
+            klass.add_binding_action(gdk::keys::constants::Escape, gdk::ModifierType::empty(), "window.close", None);
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {

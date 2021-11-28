@@ -36,6 +36,7 @@ mod imp {
                 widget.save();
             });
             Self::bind_template(klass);
+            klass.add_binding_action(gdk::keys::constants::Escape, gdk::ModifierType::empty(), "window.close", None);
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
