@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
-"POT-Creation-Date: 2021-08-08 11:29+0000\n"
-"PO-Revision-Date: 2021-08-08 20:56+0300\n"
+"POT-Creation-Date: 2021-11-28 14:40+0000\n"
+"PO-Revision-Date: 2021-11-28 18:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Lokalize 20.12.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
+#: src/widgets/project_previewer.rs:77 src/widgets/screenshot_dialog.rs:134
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
 
@@ -31,24 +31,20 @@ msgstr "Перегляд піктограм програм"
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
 msgid "Default window width"
-msgstr ""
-"Типова ширина вікна програми"
+msgstr "Типова ширина вікна програми"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
 msgid "Default window height"
-msgstr ""
-"Типова висота вікна програми"
+msgstr "Типова висота вікна програми"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
 msgid "Default window maximized behaviour"
-msgstr ""
-"Типова поведінка щодо максимізації вікна"
+msgstr "Типова поведінка щодо максимізації вікна"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
 msgid "The latest opened files separated by a comma"
-msgstr ""
-"Останні відкриті файли, записи відокремлено комами"
+msgstr "Останні відкриті файли, записи відокремлено комами"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -69,10 +65,6 @@ msgstr "Попередній перегляд піктограми програ�
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui та Zander Brown"
-
-#: data/resources/ui/about_dialog.ui.in:10
-msgid "translator-credits"
-msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -106,62 +98,62 @@ msgstr "Символічна"
 msgid "Save Symbolic As…"
 msgstr "Зберегти символічну як…"
 
-#: data/resources/ui/gtk/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Програма"
 
-#: data/resources/ui/gtk/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Нове вікно"
 
-#: data/resources/ui/gtk/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Відкрити піктограму"
 
-#: data/resources/ui/gtk/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Вийти з програми"
 
-#: data/resources/ui/gtk/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Перегляд"
 
-#: data/resources/ui/gtk/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Перезавантажити піктограму"
 
-#: data/resources/ui/gtk/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Експортувати піктограму"
 
-#: data/resources/ui/gtk/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Перемішати піктограми"
 
-#: data/resources/ui/gtk/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Зробити знімок"
 
-#: data/resources/ui/gtk/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копіювати знімок до буфера"
 
-#: data/resources/ui/new_project.ui:12
+#: data/resources/ui/new_project.ui:7
 msgid "New App Icon"
 msgstr "Нова піктограма програми"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:102
-#: src/widgets/screenshot_dialog.rs:47
+#: data/resources/ui/new_project.ui:18 src/project.rs:161
+#: src/widgets/screenshot_dialog.rs:124
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -169,39 +161,39 @@ msgstr "_Скасувати"
 msgid "_Create"
 msgstr "С_творити"
 
-#: data/resources/ui/new_project.ui:52
+#: data/resources/ui/new_project.ui:48
 msgid "App Name"
 msgstr "Назва програми"
 
-#: data/resources/ui/new_project.ui:62
+#: data/resources/ui/new_project.ui:58
 msgid "Icon Location"
 msgstr "Розташування піктограми"
 
-#: data/resources/ui/new_project.ui:81
+#: data/resources/ui/new_project.ui:77
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Назва в оберненому записі доменів. Приклад: org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:95
+#: data/resources/ui/new_project.ui:91
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Файл піктограми у форматі SVG буде збережено до цього каталогу"
 
-#: data/resources/ui/new_project.ui:110
+#: data/resources/ui/new_project.ui:107
 msgid "~/Projects"
 msgstr "~/Проєкти"
 
-#: data/resources/ui/new_project.ui:115
+#: data/resources/ui/new_project.ui:113
 msgid "_Browse…"
 msgstr "Ви_брати…"
 
-#: data/resources/ui/screenshot_dialog.ui:16
+#: data/resources/ui/screenshot_dialog.ui:19
 msgid "_Save…"
 msgstr "_Зберегти…"
 
-#: data/resources/ui/screenshot_dialog.ui:26
+#: data/resources/ui/screenshot_dialog.ui:29
 msgid "_Copy to Clipboard"
 msgstr "Ск_опіювати до буфера"
 
-#: data/resources/ui/window.ui:15
+#: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_Відкрити"
 
@@ -209,93 +201,101 @@ msgstr "_Відкрити"
 msgid "Open an icon"
 msgstr "Відкрити піктограму"
 
-#: data/resources/ui/window.ui:25
-msgid "Recent"
-msgstr "Нещодавні"
-
-#: data/resources/ui/window.ui:39
-msgid "_Export"
-msgstr "_Експортувати"
-
-#: data/resources/ui/window.ui:47
+#: data/resources/ui/window.ui:24
 msgid "Menu"
 msgstr "Меню"
 
-#: data/resources/ui/window.ui:71
+#: data/resources/ui/window.ui:31
+msgid "_Export"
+msgstr "_Експортувати"
+
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "Створити піктограму програми"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:180
 msgid "_New App Icon"
 msgstr "_Нова піктограма програми"
 
-#: data/resources/ui/window.ui:220
+#: data/resources/ui/window.ui:203
 msgid "_New Window"
 msgstr "_Нове вікно"
 
-#: data/resources/ui/window.ui:226
+#: data/resources/ui/window.ui:209
 msgid "_Reload"
 msgstr "Пе_резавантажити"
 
-#: data/resources/ui/window.ui:230
+#: data/resources/ui/window.ui:213
 msgid "_Take Screenshot"
 msgstr "З_робити знімок"
 
-#: data/resources/ui/window.ui:234
+#: data/resources/ui/window.ui:217
 msgid "_Shuffle Example Icons"
 msgstr "П_еремішати приклади піктограм"
 
-#: data/resources/ui/window.ui:240
+#: data/resources/ui/window.ui:223
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/resources/ui/window.ui:244
+#: data/resources/ui/window.ui:227
 msgid "_About App Icon Preview"
 msgstr "_Про «Перегляд піктограм програми»"
 
-#: src/project.rs:102
+#: src/application.rs:173
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>"
+
+#: src/project.rs:161
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
+#: src/project.rs:161 src/widgets/screenshot_dialog.rs:123
 msgid "_Save"
 msgstr "З_берегти"
 
-#: src/project.rs:107
+#: src/project.rs:166
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:54
+#: src/widgets/new_project.rs:56
+#| msgid "Icon Location"
+msgid "Select Icon Location"
+msgstr "Виберіть розташування піктограми"
+
+#: src/widgets/new_project.rs:59
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/widgets/new_project.rs:55
+#: src/widgets/new_project.rs:59
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/widgets/screenshot_dialog.rs:43
+#: src/widgets/screenshot_dialog.rs:120
 msgid "Save Screenshot"
 msgstr "Зберегти знімок екрана"
 
-#: src/widgets/screenshot_dialog.rs:50
+#: src/widgets/screenshot_dialog.rs:127
 msgid "Preview"
 msgstr "Перегляд"
 
-#: src/widgets/screenshot_dialog.rs:66
+#: src/widgets/screenshot_dialog.rs:143
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:72
+#: src/widgets/screenshot_dialog.rs:149
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:292
+#: src/widgets/window.rs:283
 msgid "Open File"
 msgstr "Відкрити файл"
 
-#: src/widgets/window.rs:297
+#: src/widgets/window.rs:288
 msgid "SVG images"
 msgstr "зображення SVG"
+
+#~ msgid "Recent"
+#~ msgstr "Нещодавні"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Open the recent list"
