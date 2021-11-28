@@ -178,7 +178,7 @@ impl Window {
 
         // TODO
         // self_.exporter.widget.set_relative_to(Some(&export_btn));
-        self_.export_btn.set_popover(Some(&self_.exporter.widget));
+        self_.export_btn.set_popover(Some(&self_.exporter));
     }
 
     fn setup_actions(&self) {
@@ -190,7 +190,7 @@ impl Window {
             self,
             "export",
             clone!(@strong self_.exporter as exporter => move |_, _| {
-                exporter.widget.popup();
+                exporter.popup();
             })
         );
 

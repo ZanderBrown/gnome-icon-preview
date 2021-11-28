@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkPopover" id="export_popover">
+  <template class="ExportPopover" parent="GtkPopover">
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
@@ -171,5 +171,5 @@
     <style>
       <class name="exporter"/>
     </style>
-  </object>
+  </template>
 </interface>
