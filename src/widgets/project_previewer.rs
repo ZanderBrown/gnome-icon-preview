@@ -65,8 +65,10 @@ impl ProjectPreviewer {
     pub fn screenshot(&self) -> Option<gdk_pixbuf::Pixbuf> {
         let width = self.allocated_width();
         let height = self.allocated_height();
+        let scale = self.scale_factor();
 
-        let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width, height).unwrap();
+        let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width * scale, height * scale).unwrap();
+        surface.set_device_scale(scale as f64, scale as f64);
 
         let logo = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/badge.svg");
         let handle = rsvg::Loader::new().read_file(&logo, gio::NONE_CANCELLABLE).ok()?;
@@ -127,7 +129,7 @@ impl ProjectPreviewer {
         context.move_to(padding + txt_x, padding + txt_y);
         pangocairo::show_layout(&context, &layout);
 
-        gdk::pixbuf_get_from_surface(&surface, 0, 0, width, height)
+        gdk::pixbuf_get_from_surface(&surface, 0, 0, width * scale, height * scale)
     }
 
     pub fn preview(&self, project: &Project) {

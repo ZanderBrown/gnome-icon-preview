@@ -96,12 +96,9 @@ impl ScreenshotDialog {
         let self_ = imp::ScreenshotDialog::from_instance(self);
         let pixbuf = self_.pixbuf.get().unwrap();
 
-        let aspect_ratio = pixbuf.width() as f32 / pixbuf.height() as f32;
-        let width = 600;
-        let height = (width as f32 / aspect_ratio) as i32;
-        let scaled_pixbuf = pixbuf.scale_simple(width, height, gdk_pixbuf::InterpType::Bilinear);
+        let texture = gdk::Texture::for_pixbuf(pixbuf);
 
-        self_.preview.set_pixbuf(scaled_pixbuf.as_ref());
+        self_.preview.set_paintable(Some(&texture));
     }
 
     pub fn copy(&self) {
