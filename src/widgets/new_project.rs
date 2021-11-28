@@ -58,6 +58,7 @@ mod imp {
                     gtk::FileChooserAction::SelectFolder,
                     &[(&gettext("Select"), gtk::ResponseType::Accept), (&gettext("Cancel"), gtk::ResponseType::Cancel)],
                 );
+                dialog.set_default_response(gtk::ResponseType::Accept);
                 dialog.set_modal(true);
                 let home_dir = gio::File::for_path(&glib::home_dir());
                 dialog.set_current_folder(&home_dir).unwrap();
