@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkBox" id="colour_pane">
+  <template class="ColourPane" parent="GtkBox">
     <property name="orientation">vertical</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
@@ -84,7 +84,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkImage" id="symbolic_img">
+          <object class="GtkImage" id="symbolic_image">
             <property name="halign">center</property>
             <property name="valign">end</property>
             <property name="pixel_size">16</property>
@@ -174,5 +174,5 @@
     <style>
       <class name="background" />
     </style>
-  </object>
+  </template>
 </interface>

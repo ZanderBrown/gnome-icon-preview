@@ -38,8 +38,8 @@ mod imp {
     }
     impl ObjectImpl for ProjectPreviewer {
         fn constructed(&self, obj: &Self::Type) {
-            obj.append(&self.light_panel.widget);
-            obj.append(&self.dark_panel.widget);
+            obj.append(&self.light_panel);
+            obj.append(&self.dark_panel);
 
             obj.add_css_class("previewer");
             obj.shuffle_samples();

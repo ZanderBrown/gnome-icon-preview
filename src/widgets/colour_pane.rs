@@ -1,78 +1,116 @@
 use super::icon::Icon;
-
-use std::cell::RefCell;
-
-use gtk::gio;
 use gtk::prelude::*;
-use gtk_macros::get_widget;
+use gtk::subclass::prelude::*;
+use gtk::{gio, glib};
 
-#[derive(PartialEq, Clone)]
+#[derive(Debug, Copy, PartialEq, Clone)]
 pub enum PaneStyle {
     Light,
     Dark,
 }
 
-#[derive(Clone)]
-pub struct ColourPane {
-    pub widget: gtk::Box,
-    builder: gtk::Builder,
-    style: PaneStyle,
-    small_icons: RefCell<Vec<Icon>>,
-    grid_icons: RefCell<Vec<Icon>>,
+impl Default for PaneStyle {
+    fn default() -> Self {
+        Self::Light
+    }
+}
+
+mod imp {
+    use super::*;
+
+    use std::cell::{Cell, RefCell};
+
+    #[derive(Debug, Default, gtk::CompositeTemplate)]
+    #[template(resource = "/org/gnome/design/AppIconPreview/colourpane.ui")]
+    pub struct ColourPane {
+        pub style: Cell<PaneStyle>,
+        pub small_icons: RefCell<Vec<Icon>>,
+        pub grid_icons: RefCell<Vec<Icon>>,
+
+        #[template_child]
+        pub symbolic_image: TemplateChild<gtk::Image>,
+        #[template_child]
+        pub symbolic_label: TemplateChild<gtk::Label>,
+        #[template_child]
+        pub hicolor_128: TemplateChild<gtk::Image>,
+        #[template_child]
+        pub hicolor_64: TemplateChild<gtk::Image>,
+        #[template_child]
+        pub hicolor_32: TemplateChild<gtk::Image>,
+        #[template_child]
+        pub grid: TemplateChild<gtk::Box>,
+        #[template_child]
+        pub small: TemplateChild<gtk::Box>,
+    }
+
+    #[glib::object_subclass]
+    impl ObjectSubclass for ColourPane {
+        const NAME: &'static str = "ColourPane";
+        type Type = super::ColourPane;
+        type ParentType = gtk::Box;
+
+        fn class_init(klass: &mut Self::Class) {
+            Self::bind_template(klass);
+        }
+
+        fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
+            obj.init_template();
+        }
+    }
+
+    impl ObjectImpl for ColourPane {}
+    impl WidgetImpl for ColourPane {}
+    impl BoxImpl for ColourPane {}
+}
+
+glib::wrapper! {
+    pub struct ColourPane(ObjectSubclass<imp::ColourPane>)
+        @extends gtk::Widget, gtk::Box;
 }
 
 impl ColourPane {
     pub fn new(style: PaneStyle) -> Self {
-        let builder = gtk::Builder::from_resource("/org/gnome/design/AppIconPreview/colourpane.ui");
-        get_widget!(builder, gtk::Box, colour_pane);
-
-        let pane = Self {
-            widget: colour_pane,
-            builder,
-            style,
-            small_icons: RefCell::new(Vec::new()),
-            grid_icons: RefCell::new(Vec::new()),
-        };
+        let pane = glib::Object::new::<Self>(&[]).unwrap();
+        let self_ = imp::ColourPane::from_instance(&pane);
+        self_.style.set(style);
         pane.init();
         pane
     }
 
     pub fn set_hicolor(&self, icon_name: &str) {
-        if let Some(icon) = self.small_icons.borrow_mut().get(2) {
+        let self_ = imp::ColourPane::from_instance(self);
+
+        if let Some(icon) = self_.small_icons.borrow_mut().get(2) {
             icon.set_icon_name(icon_name);
         }
-        if let Some(icon) = self.grid_icons.borrow_mut().get(1) {
+        if let Some(icon) = self_.grid_icons.borrow_mut().get(1) {
             icon.set_icon_name(icon_name);
         }
 
-        get_widget!(self.builder, gtk::Image, hicolor_128);
-        get_widget!(self.builder, gtk::Image, hicolor_64);
-        get_widget!(self.builder, gtk::Image, hicolor_32);
-
-        hicolor_128.set_icon_name(Some(icon_name));
-        hicolor_64.set_icon_name(Some(icon_name));
-        hicolor_32.set_icon_name(Some(icon_name));
+        self_.hicolor_128.set_icon_name(Some(icon_name));
+        self_.hicolor_64.set_icon_name(Some(icon_name));
+        self_.hicolor_32.set_icon_name(Some(icon_name));
     }
 
     pub fn set_symbolic(&self, basename: Option<&str>) {
-        get_widget!(self.builder, gtk::Image, symbolic_img);
-        get_widget!(self.builder, gtk::Label, symbolic_label);
+        let self_ = imp::ColourPane::from_instance(self);
 
         match basename {
             Some(basename) => {
                 let icon_name = format!("{}-symbolic", basename.trim_end_matches(".svg"));
-                symbolic_img.set_icon_name(Some(&icon_name));
-                symbolic_img.show();
-                symbolic_label.show();
+                self_.symbolic_image.set_icon_name(Some(&icon_name));
+                self_.symbolic_image.show();
+                self_.symbolic_label.show();
             }
             None => {
-                symbolic_img.hide();
-                symbolic_label.hide();
+                self_.symbolic_image.hide();
+                self_.symbolic_label.hide();
             }
         }
     }
 
     pub fn load_samples(&self, samples: &[gio::File]) {
+        let self_ = imp::ColourPane::from_instance(self);
         // We fill the small icons
         assert_eq!(samples.len(), 6);
         let mut sample_idx = 0;
@@ -81,7 +119,7 @@ impl ColourPane {
                 continue;
             }
             let file = samples.get(sample_idx).unwrap();
-            if let Some(icon) = self.small_icons.borrow_mut().get(i) {
+            if let Some(icon) = self_.small_icons.borrow_mut().get(i) {
                 icon.set_file(file);
             }
             sample_idx += 1;
@@ -93,7 +131,7 @@ impl ColourPane {
                 continue;
             }
             let file = samples.get(sample_idx).unwrap();
-            if let Some(icon) = self.grid_icons.borrow_mut().get(i) {
+            if let Some(icon) = self_.grid_icons.borrow_mut().get(i) {
                 icon.set_file(file);
             }
             sample_idx += 1;
@@ -101,34 +139,33 @@ impl ColourPane {
     }
 
     fn init(&self) {
-        match self.style {
+        let self_ = imp::ColourPane::from_instance(self);
+        match self_.style.get() {
             PaneStyle::Dark => {
-                self.widget.add_css_class("dark");
+                self.add_css_class("dark");
             }
             PaneStyle::Light => {
-                self.widget.add_css_class("light");
+                self.add_css_class("light");
             }
         };
 
         // Small container is composed of 5 icons, 4 samples & the previewed project
-        get_widget!(self.builder, gtk::Box, small);
         let small_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Horizontal);
         for _ in 0..5 {
             let demo_icon = Icon::new(None, 64);
             small_group.add_widget(&demo_icon.widget);
             demo_icon.label.add_css_class("caption");
-            small.append(&demo_icon.widget);
-            self.small_icons.borrow_mut().push(demo_icon);
+            self_.small.append(&demo_icon.widget);
+            self_.small_icons.borrow_mut().push(demo_icon);
         }
 
         // Grid container is composed of 3 icons, 2 samples & the previewed project
-        get_widget!(self.builder, gtk::Box, grid);
         let grid_group = gtk::SizeGroup::new(gtk::SizeGroupMode::Horizontal);
         for _ in 0..3 {
             let demo_icon = Icon::new(None, 96);
             grid_group.add_widget(&demo_icon.widget);
-            grid.append(&demo_icon.widget);
-            self.grid_icons.borrow_mut().push(demo_icon);
+            self_.grid.append(&demo_icon.widget);
+            self_.grid_icons.borrow_mut().push(demo_icon);
         }
     }
 }

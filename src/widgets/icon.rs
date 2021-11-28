@@ -3,7 +3,7 @@ use crate::common;
 use gtk::prelude::*;
 use gtk::{gio, pango};
 
-#[derive(Clone)]
+#[derive(Debug, Clone)]
 pub struct Icon {
     pub widget: gtk::Box,
     image: gtk::Image,
