@@ -128,7 +128,7 @@ impl Application {
 
         let app = glib::Object::new::<Self>(&[
             ("application-id", &config::APP_ID),
-            ("flags", &gio::ApplicationFlags::FLAGS_NONE),
+            ("flags", &gio::ApplicationFlags::HANDLES_OPEN),
             ("resource-base-path", &Some("/org/gnome/design/AppIconPreview")),
         ])
         .unwrap();

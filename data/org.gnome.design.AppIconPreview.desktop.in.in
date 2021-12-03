@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=App Icon Preview
 Comment=Preview applications icons
-Exec=app-icon-preview %f
+Exec=app-icon-preview %U
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=@icon@
 Terminal=false
