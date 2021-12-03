@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
-"POT-Creation-Date: 2021-11-28 14:40+0000\n"
-"PO-Revision-Date: 2021-11-28 18:42+0200\n"
+"POT-Creation-Date: 2021-12-03 07:36+0000\n"
+"PO-Revision-Date: 2021-12-03 17:31+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
-#: src/widgets/project_previewer.rs:77 src/widgets/screenshot_dialog.rs:134
+#: src/widgets/project_previewer.rs:96 src/widgets/project_previewer.rs:222
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
 
@@ -153,7 +153,7 @@ msgid "New App Icon"
 msgstr "Нова піктограма програми"
 
 #: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/screenshot_dialog.rs:124
+#: src/widgets/project_previewer.rs:212
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -185,59 +185,57 @@ msgstr "~/Проєкти"
 msgid "_Browse…"
 msgstr "Ви_брати…"
 
-#: data/resources/ui/screenshot_dialog.ui:19
-msgid "_Save…"
-msgstr "_Зберегти…"
-
-#: data/resources/ui/screenshot_dialog.ui:29
-msgid "_Copy to Clipboard"
-msgstr "Ск_опіювати до буфера"
-
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Відкрити"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an icon"
 msgstr "Відкрити піктограму"
 
-#: data/resources/ui/window.ui:24
+#: data/resources/ui/window.ui:25
 msgid "Menu"
 msgstr "Меню"
 
-#: data/resources/ui/window.ui:31
+#: data/resources/ui/window.ui:32
 msgid "_Export"
 msgstr "_Експортувати"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Створити піктограму програми"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Нова піктограма програми"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:204
 msgid "_New Window"
 msgstr "_Нове вікно"
 
-#: data/resources/ui/window.ui:209
+#: data/resources/ui/window.ui:210
 msgid "_Reload"
 msgstr "Пе_резавантажити"
 
-#: data/resources/ui/window.ui:213
-msgid "_Take Screenshot"
-msgstr "З_робити знімок"
+#: data/resources/ui/window.ui:214
+#| msgid "_Take Screenshot"
+msgid "_Copy Screenshot"
+msgstr "_Копіювати знімок"
 
-#: data/resources/ui/window.ui:217
+#: data/resources/ui/window.ui:218
+#| msgid "Save Screenshot"
+msgid "_Save Screenshot"
+msgstr "З_берегти знімок"
+
+#: data/resources/ui/window.ui:222
 msgid "_Shuffle Example Icons"
 msgstr "П_еремішати приклади піктограм"
 
-#: data/resources/ui/window.ui:223
+#: data/resources/ui/window.ui:228
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/resources/ui/window.ui:227
+#: data/resources/ui/window.ui:232
 msgid "_About App Icon Preview"
 msgstr "_Про «Перегляд піктограм програми»"
 
@@ -249,7 +247,7 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/project.rs:161 src/widgets/screenshot_dialog.rs:123
+#: src/project.rs:161 src/widgets/project_previewer.rs:211
 msgid "_Save"
 msgstr "З_берегти"
 
@@ -258,7 +256,6 @@ msgid "SVG"
 msgstr "SVG"
 
 #: src/widgets/new_project.rs:56
-#| msgid "Icon Location"
 msgid "Select Icon Location"
 msgstr "Виберіть розташування піктограми"
 
@@ -270,29 +267,35 @@ msgstr "Вибрати"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/widgets/screenshot_dialog.rs:120
+#: src/widgets/project_previewer.rs:208
 msgid "Save Screenshot"
 msgstr "Зберегти знімок екрана"
 
-#: src/widgets/screenshot_dialog.rs:127
+#: src/widgets/project_previewer.rs:215
 msgid "Preview"
 msgstr "Перегляд"
 
-#: src/widgets/screenshot_dialog.rs:143
+#: src/widgets/project_previewer.rs:231
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:149
+#: src/widgets/project_previewer.rs:237
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:283
+#: src/widgets/window.rs:277
 msgid "Open File"
 msgstr "Відкрити файл"
 
-#: src/widgets/window.rs:288
+#: src/widgets/window.rs:282
 msgid "SVG images"
 msgstr "зображення SVG"
+
+#~ msgid "_Save…"
+#~ msgstr "_Зберегти…"
+
+#~ msgid "_Copy to Clipboard"
+#~ msgstr "Ск_опіювати до буфера"
 
 #~ msgid "Recent"
 #~ msgstr "Нещодавні"
