@@ -8,26 +8,43 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-03-08 15:09+0000\n"
-"PO-Revision-Date: 2021-05-28 22:30+0200\n"
+"POT-Creation-Date: 2021-12-03 07:36+0000\n"
+"PO-Revision-Date: 2021-12-03 22:22+0100\n"
+"Last-Translator: Quentin PAGÈS\n"
 "Language-Team: \n"
+"Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
-"Last-Translator: Quentin PAGÈS\n"
-"Language: oc\n"
+"X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
+#: src/widgets/project_previewer.rs:96 src/widgets/project_previewer.rs:222
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Previsualisar las icònas de las aplicacions"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
+msgid "Default window width"
+msgstr "Largor per defaut de la fenèstra"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
+msgid "Default window height"
+msgstr "Nautor per defaut de la fenèstra"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
+msgid "Default window maximized behaviour"
+msgstr "Compòrtament per defaut de la fenèstra maximizada"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
+msgid "The latest opened files separated by a comma"
+msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -45,235 +62,249 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr ""
+msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
-msgid "translator-credits"
-msgstr ""
-
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
 msgstr ""
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:48
 msgid "Regular"
-msgstr ""
+msgstr "Normala"
 
-#: data/resources/ui/export.ui:89
+#: data/resources/ui/export.ui:62
 msgid "Save Regular As…"
 msgstr ""
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:94
 msgid "Nightly"
 msgstr ""
 
-#: data/resources/ui/export.ui:165
+#: data/resources/ui/export.ui:108
 msgid "Save Nightly As…"
 msgstr ""
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr ""
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:142
 msgid "Symbolic"
-msgstr ""
+msgstr "Simbolica"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Enregistrar simbolica jos…"
+
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Aplicacion"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Fenèstra novèla"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Dobrir una icòna"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Dobrir la lista delsrecents"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Dobrís lo menú"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
+msgid "Quit the Application"
 msgstr "Quitar l'aplicacion"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Veire"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
-msgid "Reload the icon"
+msgid "Reload the Icon"
 msgstr "Recargar l'icòna"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
-msgid "Export the icon"
+msgid "Export the Icon"
 msgstr "Exportar l'icòna"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
-msgid "Shuffle icons"
+msgid "Shuffle Icons"
 msgstr "Icònas aleatòrias"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
-msgid "Take screenshot"
+msgid "Take Screenshot"
 msgstr "Prendre una captura d’ecran"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
+msgid "Copy a Screenshot to Clipboard"
 msgstr "Copiar una captura d'ecran cap al quichapapièr"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "Fenèstra _novèla"
-
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Recargar"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Prendre una còpia d'ecran"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr ""
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "A_corchis de clavièr"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "_A prepaus d'App Icon Preview"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Nom de l'aplicacion"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Emplaçament de l'icòna"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr ""
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr ""
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Projects"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Percórrer…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
-#: src/project.rs:98
-msgid "_Cancel"
-msgstr "_Anullar"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Crear"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Tampar"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Enregistrar…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Copiar cap al quichapapièrs"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Dobrir"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Dobrir una icòna"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Recents"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Menú"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:98
-msgid "Export"
-msgstr "Exportar"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Far una icòna d'App novèla"
-
-#: data/resources/ui/window.ui.in:273
+#: data/resources/ui/new_project.ui:7
 msgid "New App Icon"
 msgstr "Icòna d'App novèla"
 
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Causir"
+#: data/resources/ui/new_project.ui:18 src/project.rs:161
+#: src/widgets/project_previewer.rs:212
+msgid "_Cancel"
+msgstr "_Anullar"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Anullar"
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Crear"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Enregistrar captura d'ecran"
+#: data/resources/ui/new_project.ui:48
+msgid "App Name"
+msgstr "Nom de l'aplicacion"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:98
+#: data/resources/ui/new_project.ui:58
+msgid "Icon Location"
+msgstr "Emplaçament de l'icòna"
+
+#: data/resources/ui/new_project.ui:77
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr ""
+
+#: data/resources/ui/new_project.ui:91
+msgid "The icon SVG file will be stored in this directory"
+msgstr ""
+
+#: data/resources/ui/new_project.ui:107
+msgid "~/Projects"
+msgstr "~/Projects"
+
+#: data/resources/ui/new_project.ui:113
+msgid "_Browse…"
+msgstr "_Percórrer..."
+
+#: data/resources/ui/window.ui:17
+msgid "_Open"
+msgstr "_Dobrir"
+
+#: data/resources/ui/window.ui:19
+msgid "Open an icon"
+msgstr "Dobrir una icòna"
+
+#: data/resources/ui/window.ui:25
+msgid "Menu"
+msgstr "Menú"
+
+#: data/resources/ui/window.ui:32
+msgid "_Export"
+msgstr "_Exportar"
+
+#: data/resources/ui/window.ui:55
+msgid "Make a new App Icon"
+msgstr "Far una icòna d'App novèla"
+
+#: data/resources/ui/window.ui:181
+msgid "_New App Icon"
+msgstr "_Icòna d'App novèla"
+
+#: data/resources/ui/window.ui:204
+msgid "_New Window"
+msgstr "Fenèstra _novèla"
+
+#: data/resources/ui/window.ui:210
+msgid "_Reload"
+msgstr "_Recargar"
+
+#: data/resources/ui/window.ui:214
+msgid "_Copy Screenshot"
+msgstr "_Prendre una còpia d'ecran"
+
+#: data/resources/ui/window.ui:218
+msgid "_Save Screenshot"
+msgstr "_Enregistrar captura d'ecran"
+
+#: data/resources/ui/window.ui:222
+msgid "_Shuffle Example Icons"
+msgstr "Icònas d’exemple aleatòrias"
+
+#: data/resources/ui/window.ui:228
+msgid "_Keyboard Shortcuts"
+msgstr "A_corchis de clavièr"
+
+#: data/resources/ui/window.ui:232
+msgid "_About App Icon Preview"
+msgstr "_A prepaus d'App Icon Preview"
+
+#: src/application.rs:173
+msgid "translator-credits"
+msgstr "Quentin PAGÈS"
+
+#: src/project.rs:161
+msgid "Export"
+msgstr "Exportar"
+
+#: src/project.rs:161 src/widgets/project_previewer.rs:211
 msgid "_Save"
 msgstr "_Enregistrar"
 
-#: src/widgets/screenshot_dialog.rs:47
+#: src/project.rs:166
+msgid "SVG"
+msgstr "SVG"
+
+#: src/widgets/new_project.rs:56
+msgid "Select Icon Location"
+msgstr "Seleccionar emplaçament de l'icòna"
+
+#: src/widgets/new_project.rs:59
+msgid "Select"
+msgstr "Causir"
+
+#: src/widgets/new_project.rs:59
+msgid "Cancel"
+msgstr "Anullar"
+
+#: src/widgets/project_previewer.rs:208
+msgid "Save Screenshot"
+msgstr "Enregistrar captura d'ecran"
+
+#: src/widgets/project_previewer.rs:215
 msgid "Preview"
 msgstr "Previsualizacion"
 
-#: src/widgets/screenshot_dialog.rs:62
+#: src/widgets/project_previewer.rs:231
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:68
+#: src/widgets/project_previewer.rs:237
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:234
+#: src/widgets/window.rs:277
 msgid "Open File"
 msgstr "Dobrir fichièr"
 
-#: src/widgets/window.rs:239
+#: src/widgets/window.rs:282
 msgid "SVG images"
 msgstr "imatges SVG"
 
-#: src/project.rs:103
-msgid "SVG"
-msgstr "SVG"
+#~ msgctxt "shortcut window"
+#~ msgid "Open the recent list"
+#~ msgstr "Dobrir la lista delsrecents"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open the menu"
+#~ msgstr "Dobrís lo menú"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Take screenshot"
+#~ msgstr "Prendre una captura d’ecran"
+
+#~ msgid "Close"
+#~ msgstr "Tampar"
+
+#~ msgid "Save…"
+#~ msgstr "Enregistrar…"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Copiar cap al quichapapièrs"
+
+#~ msgid "Recent"
+#~ msgstr "Recents"
