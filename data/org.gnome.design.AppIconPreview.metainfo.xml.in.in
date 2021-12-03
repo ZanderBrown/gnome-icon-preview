@@ -23,6 +23,11 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.0.0" date="2021-12-03">
+      <description>
+        <p>Port to GTK 4</p>
+      </description>
+    </release>
     <release version="2.1.2" date="2020-08-21">
       <description>
         <p>Fix the export button doing nothing</p>
