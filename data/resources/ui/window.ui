@@ -3,6 +3,7 @@
   <template parent="AdwApplicationWindow" class="Window">
     <property name="default_width">960</property>
     <property name="default_height">550</property>
+    <property name="resizable">False</property>
     <style>
       <class name="transparent-window"/>
     </style>
