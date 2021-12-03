@@ -3,10 +3,16 @@ use crate::project::{Project, ProjectType};
 
 use gettextrs::gettext;
 use rand::seq::SliceRandom;
+use std::path::PathBuf;
 
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gdk, gio, glib, pango};
+use gtk::{
+    gdk, gio,
+    glib::{self, clone},
+    pango,
+};
+
 // A struct that represents a widget to render a Project
 mod imp {
     use super::*;
@@ -62,7 +68,7 @@ impl ProjectPreviewer {
         glib::Object::new(&[]).unwrap()
     }
 
-    pub fn screenshot(&self) -> Option<gdk_pixbuf::Pixbuf> {
+    fn screenshot(&self) -> Option<gdk_pixbuf::Pixbuf> {
         let width = self.allocated_width();
         let height = self.allocated_height();
         let scale = self.scale_factor();
@@ -162,5 +168,74 @@ impl ProjectPreviewer {
 
         self_.light_panel.load_samples(&samples);
         self_.dark_panel.load_samples(&samples);
+    }
+
+    pub fn copy_screenshot(&self) {
+        let display = gdk::Display::default().unwrap();
+        let clipboard = display.clipboard();
+
+        let pixbuf = self.screenshot().unwrap();
+
+        let texture = gdk::Texture::for_pixbuf(&pixbuf);
+        clipboard.set_texture(&texture);
+    }
+
+    pub fn save_screenshot(&self) {
+        let pixbuf = self.screenshot().unwrap();
+        let root = self.root().unwrap();
+
+        let dialog = gtk::FileChooserNative::new(
+            Some(&gettext("Save Screenshot")),
+            root.downcast_ref::<gtk::Window>(),
+            gtk::FileChooserAction::Save,
+            Some(&gettext("_Save")),
+            Some(&gettext("_Cancel")),
+        );
+        dialog.set_modal(true);
+        dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
+
+        let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures);
+        let gdir = gio::File::for_path(&xdg_pictures_dir);
+        dialog.set_current_folder(&gdir).unwrap();
+
+        let any_filter = gtk::FileFilter::new();
+        any_filter.set_name(Some(&gettext("App Icon Preview")));
+        any_filter.add_pattern("*.png");
+        any_filter.add_mime_type("image/png");
+        any_filter.add_pattern("*.jpg");
+        any_filter.add_pattern("*.jpeg");
+        any_filter.add_mime_type("image/jpeg");
+        dialog.add_filter(&any_filter);
+
+        let png_filter = gtk::FileFilter::new();
+        png_filter.set_name(Some(&gettext("PNG")));
+        png_filter.add_pattern("*.png");
+        png_filter.add_mime_type("image/png");
+        dialog.add_filter(&png_filter);
+
+        let jpeg_filter = gtk::FileFilter::new();
+        jpeg_filter.set_name(Some(&gettext("JPEG")));
+        jpeg_filter.add_pattern("*.jpg");
+        jpeg_filter.add_pattern("*.jpeg");
+        jpeg_filter.add_mime_type("image/jpeg");
+        dialog.add_filter(&jpeg_filter);
+
+        dialog.connect_response(clone!(@strong pixbuf, @strong dialog => move |_, response| {
+            if response == gtk::ResponseType::Accept {
+                let filename: PathBuf = dialog.file().unwrap().basename().unwrap();
+                let ext = match filename.extension() {
+                    Some(ext) => ext.to_str().unwrap(),
+                    None => "png"
+                };
+                let file = dialog.file().unwrap();
+                let stream = file.replace(None, false,
+                                          gio::FileCreateFlags::REPLACE_DESTINATION,
+                                          gio::NONE_CANCELLABLE).unwrap();
+
+                pixbuf.save_to_streamv(&stream, ext, &[], gio::NONE_CANCELLABLE).unwrap();
+            }
+            dialog.destroy();
+        }));
+        dialog.show();
     }
 }

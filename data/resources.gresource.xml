@@ -8,7 +8,6 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">resources/ui/help-overlay.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="new_project.ui">resources/ui/new_project.ui</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="recents_popover.ui">resources/ui/recents_popover.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="screenshot_dialog.ui">resources/ui/screenshot_dialog.ui</file>
 
     <file compressed="true" alias="style.css">resources/style.css</file>
 

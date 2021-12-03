@@ -1,4 +1,4 @@
-use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover, ScreenshotDialog};
+use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover};
 use crate::application::{Action, Application};
 use crate::config::{APP_ID, PROFILE};
 use crate::project::Project;
@@ -154,7 +154,8 @@ impl Window {
 
         get_action!(self, @shuffle).set_enabled(view == View::Previewer);
         get_action!(self, @refresh).set_enabled(view == View::Previewer);
-        get_action!(self, @screenshot).set_enabled(view == View::Previewer);
+        get_action!(self, @save_screenshot).set_enabled(view == View::Previewer);
+        get_action!(self, @copy_screenshot).set_enabled(view == View::Previewer);
 
         match view {
             View::Previewer => {
@@ -250,28 +251,21 @@ impl Window {
             })
         );
 
-        // Screenshot
+        // Save Screenshot
         action!(
             self,
-            "screenshot",
+            "save_screenshot",
             clone!(@weak self as window, @strong self_.previewer as previewer => move |_, _| {
-                if let Some(pixbuf) = previewer.screenshot() {
-                    let dialog = ScreenshotDialog::new(pixbuf);
-                    dialog.set_transient_for(Some(&window));
-                    dialog.present();
-                }
+                previewer.save_screenshot();
             })
         );
 
-        // Screenshot
+        // Copy Screenshot
         action!(
             self,
-            "copy-screenshot",
+            "copy_screenshot",
             clone!(@strong self_.previewer as previewer => move |_, _| {
-                if let Some(pixbuf) = previewer.screenshot() {
-                    let dialog = ScreenshotDialog::new(pixbuf);
-                    dialog.copy();
-                }
+                previewer.copy_screenshot();
             })
         );
 

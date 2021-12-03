@@ -209,8 +209,12 @@
         <attribute name='label' translatable='yes'>_Reload</attribute>
       </item>
       <item>
-        <attribute name='action'>win.screenshot</attribute>
-        <attribute name='label' translatable='yes'>_Take Screenshot</attribute>
+        <attribute name='action'>win.copy_screenshot</attribute>
+        <attribute name='label' translatable='yes'>_Copy Screenshot</attribute>
+      </item>
+      <item>
+        <attribute name='action'>win.save_screenshot</attribute>
+        <attribute name='label' translatable='yes'>_Save Screenshot</attribute>
       </item>
       <item>
         <attribute name='action'>win.shuffle</attribute>

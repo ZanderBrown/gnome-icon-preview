@@ -28,7 +28,6 @@ sources = files(
   'widgets/mod.rs',
   'widgets/new_project.rs',
   'widgets/project_previewer.rs',
-  'widgets/screenshot_dialog.rs',
   'widgets/window.rs',
   'application.rs',
   'common.rs',

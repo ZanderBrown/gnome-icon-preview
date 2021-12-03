@@ -91,8 +91,8 @@ mod imp {
             application.set_accels_for_action("win.refresh", &["<primary>r"]);
             application.set_accels_for_action("win.shuffle", &["<primary>s"]);
             application.set_accels_for_action("win.export", &["<primary>e"]);
-            application.set_accels_for_action("win.screenshot", &["<primary><alt>s"]);
-            application.set_accels_for_action("win.copy-screenshot", &["<primary><alt>c"]);
+            application.set_accels_for_action("win.save_screenshot", &["<primary><alt>s"]);
+            application.set_accels_for_action("win.copy_screenshot", &["<primary><alt>c"]);
             application.set_accels_for_action("app.quit", &["<primary>q"]);
             application.set_accels_for_action("app.new-window", &["<primary>n"]);
 
