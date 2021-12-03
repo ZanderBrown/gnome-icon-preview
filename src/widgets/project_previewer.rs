@@ -5,7 +5,7 @@ use gettextrs::gettext;
 use rand::seq::SliceRandom;
 use std::path::PathBuf;
 
-use gtk::prelude::*;
+use adw::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{
     gdk, gio,
@@ -16,22 +16,25 @@ use gtk::{
 // A struct that represents a widget to render a Project
 mod imp {
     use super::*;
+    use adw::subclass::prelude::*;
 
     pub struct ProjectPreviewer {
         pub light_panel: ColourPane,
         pub dark_panel: ColourPane,
         pub samples: Vec<String>,
+        // pub toast_overlay: adw::ToastOverlay,
     }
 
     #[glib::object_subclass]
     impl ObjectSubclass for ProjectPreviewer {
         const NAME: &'static str = "ProjectPreviewer";
-        type ParentType = gtk::Box;
+        type ParentType = adw::Bin;
         type Type = super::ProjectPreviewer;
 
         fn new() -> Self {
             let light_panel = ColourPane::new(PaneStyle::Light);
             let dark_panel = ColourPane::new(PaneStyle::Dark);
+            //let toast_overlay = adw::ToastOverlay::new();
             let samples = gio::resources_enumerate_children("/org/gnome/design/AppIconPreview/icons/", gio::ResourceLookupFlags::NONE)
                 .unwrap()
                 .iter()
@@ -39,13 +42,23 @@ mod imp {
                 .filter(|sample| !sample.contains("-symbolic"))
                 .collect::<Vec<String>>();
 
-            Self { light_panel, dark_panel, samples }
+            Self {
+                light_panel,
+                dark_panel,
+                samples,
+                // toast_overlay,
+            }
         }
     }
     impl ObjectImpl for ProjectPreviewer {
         fn constructed(&self, obj: &Self::Type) {
-            obj.append(&self.light_panel);
-            obj.append(&self.dark_panel);
+            let container = gtk::Box::new(gtk::Orientation::Horizontal, 0);
+            container.append(&self.light_panel);
+            container.append(&self.dark_panel);
+
+            //self.toast_overlay.set_parent(self);
+            // container.set_parent(self.toast_overlay);
+            container.set_parent(obj);
 
             obj.add_css_class("previewer");
             obj.shuffle_samples();
@@ -54,12 +67,12 @@ mod imp {
         }
     }
     impl WidgetImpl for ProjectPreviewer {}
-    impl BoxImpl for ProjectPreviewer {}
+    impl BinImpl for ProjectPreviewer {}
 }
 
 glib::wrapper! {
     pub struct ProjectPreviewer(ObjectSubclass<imp::ProjectPreviewer>)
-        @extends gtk::Box, gtk::Widget;
+        @extends adw::Bin, gtk::Widget;
 }
 
 impl ProjectPreviewer {
@@ -178,6 +191,13 @@ impl ProjectPreviewer {
 
         let texture = gdk::Texture::for_pixbuf(&pixbuf);
         clipboard.set_texture(&texture);
+        /* Uncomment once we have a new release of libadwaita-rs
+        let self_ = imp::ProjectPreviewer::from_instance(self);
+
+        let toast = adw::Toast::new(&gettext("Screenshot copied to clipboard"));
+        toast.set_timeout(3);
+        self_.toast_overlay.add_toast(&toast);
+        */
     }
 
     pub fn save_screenshot(&self) {
