@@ -2,15 +2,16 @@
 # Copyright © 2019-2021 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
 # Anders Jonsson <anders.jonsson@norsjovallen.se>, 2019, 2021.
+# Luna Jernberg <droidbittin@gmail.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-11-28 14:40+0000\n"
-"PO-Revision-Date: 2021-11-28 20:10+0100\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"POT-Creation-Date: 2021-12-03 07:36+0000\n"
+"PO-Revision-Date: 2021-12-03 19:13+0100\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
-#: src/widgets/project_previewer.rs:77 src/widgets/screenshot_dialog.rs:134
+#: src/widgets/project_previewer.rs:96 src/widgets/project_previewer.rs:222
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
 
@@ -154,7 +155,7 @@ msgid "New App Icon"
 msgstr "Ny programikon"
 
 #: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/screenshot_dialog.rs:124
+#: src/widgets/project_previewer.rs:212
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -186,59 +187,55 @@ msgstr "~/Projekt"
 msgid "_Browse…"
 msgstr "_Bläddra…"
 
-#: data/resources/ui/screenshot_dialog.ui:19
-msgid "_Save…"
-msgstr "_Spara…"
-
-#: data/resources/ui/screenshot_dialog.ui:29
-msgid "_Copy to Clipboard"
-msgstr "_Kopiera till urklipp"
-
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "Ö_ppna"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an icon"
 msgstr "Öppna en ikon"
 
-#: data/resources/ui/window.ui:24
+#: data/resources/ui/window.ui:25
 msgid "Menu"
 msgstr "Meny"
 
-#: data/resources/ui/window.ui:31
+#: data/resources/ui/window.ui:32
 msgid "_Export"
 msgstr "_Exportera"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Gör en ny programikon"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Ny programikon"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:204
 msgid "_New Window"
 msgstr "_Nytt fönster"
 
-#: data/resources/ui/window.ui:209
+#: data/resources/ui/window.ui:210
 msgid "_Reload"
 msgstr "Läs _om"
 
-#: data/resources/ui/window.ui:213
-msgid "_Take Screenshot"
-msgstr "_Ta skärmbild"
+#: data/resources/ui/window.ui:214
+msgid "_Copy Screenshot"
+msgstr "_Kopiera skärmbild"
 
-#: data/resources/ui/window.ui:217
+#: data/resources/ui/window.ui:218
+msgid "_Save Screenshot"
+msgstr "_Spara skärmbild"
+
+#: data/resources/ui/window.ui:222
 msgid "_Shuffle Example Icons"
 msgstr "_Blanda exempelikoner"
 
-#: data/resources/ui/window.ui:223
+#: data/resources/ui/window.ui:228
 msgid "_Keyboard Shortcuts"
 msgstr "Tan_gentbordsgenvägar"
 
-#: data/resources/ui/window.ui:227
+#: data/resources/ui/window.ui:232
 msgid "_About App Icon Preview"
 msgstr "_Om Programikonförhandsgranskning"
 
@@ -246,6 +243,7 @@ msgstr "_Om Programikonförhandsgranskning"
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Luna Jernberg <droidbittin@gmail.com>\n"
 "\n"
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
@@ -254,7 +252,7 @@ msgstr ""
 msgid "Export"
 msgstr "Exportera"
 
-#: src/project.rs:161 src/widgets/screenshot_dialog.rs:123
+#: src/project.rs:161 src/widgets/project_previewer.rs:211
 msgid "_Save"
 msgstr "_Spara"
 
@@ -274,26 +272,32 @@ msgstr "Välj"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/widgets/screenshot_dialog.rs:120
+#: src/widgets/project_previewer.rs:208
 msgid "Save Screenshot"
 msgstr "Spara skärmbild"
 
-#: src/widgets/screenshot_dialog.rs:127
+#: src/widgets/project_previewer.rs:215
 msgid "Preview"
 msgstr "Förhandsgranskning"
 
-#: src/widgets/screenshot_dialog.rs:143
+#: src/widgets/project_previewer.rs:231
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:149
+#: src/widgets/project_previewer.rs:237
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:283
+#: src/widgets/window.rs:277
 msgid "Open File"
 msgstr "Öppna fil"
 
-#: src/widgets/window.rs:288
+#: src/widgets/window.rs:282
 msgid "SVG images"
 msgstr "SVG-bilder"
+
+#~ msgid "_Save…"
+#~ msgstr "_Spara…"
+
+#~ msgid "_Copy to Clipboard"
+#~ msgstr "_Kopiera till urklipp"
