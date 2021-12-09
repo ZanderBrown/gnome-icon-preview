@@ -10,6 +10,7 @@
       <object class="GtkScrolledWindow">
         <property name="hscrollbar-policy">never</property>
         <property name="propagate-natural-height">True</property>
+        <property name="max-content-height">400</property>
         <child>
           <object class="GtkViewport">
             <property name="scroll-to-focus">True</property>
@@ -24,4 +25,3 @@
     </child>
   </template>
 </interface>
-
