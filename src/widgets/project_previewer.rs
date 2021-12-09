@@ -22,7 +22,7 @@ mod imp {
         pub light_panel: ColourPane,
         pub dark_panel: ColourPane,
         pub samples: Vec<String>,
-        // pub toast_overlay: adw::ToastOverlay,
+        pub toast_overlay: adw::ToastOverlay,
     }
 
     #[glib::object_subclass]
@@ -34,7 +34,7 @@ mod imp {
         fn new() -> Self {
             let light_panel = ColourPane::new(PaneStyle::Light);
             let dark_panel = ColourPane::new(PaneStyle::Dark);
-            //let toast_overlay = adw::ToastOverlay::new();
+            let toast_overlay = adw::ToastOverlay::new();
             let samples = gio::resources_enumerate_children("/org/gnome/design/AppIconPreview/icons/", gio::ResourceLookupFlags::NONE)
                 .unwrap()
                 .iter()
@@ -46,24 +46,23 @@ mod imp {
                 light_panel,
                 dark_panel,
                 samples,
-                // toast_overlay,
+                toast_overlay,
             }
         }
     }
     impl ObjectImpl for ProjectPreviewer {
         fn constructed(&self, obj: &Self::Type) {
+            self.parent_constructed(obj);
+
             let container = gtk::Box::new(gtk::Orientation::Horizontal, 0);
             container.append(&self.light_panel);
             container.append(&self.dark_panel);
 
-            //self.toast_overlay.set_parent(self);
-            // container.set_parent(self.toast_overlay);
-            container.set_parent(obj);
+            obj.set_child(Some(&self.toast_overlay));
+            self.toast_overlay.set_child(Some(&container));
 
             obj.add_css_class("previewer");
             obj.shuffle_samples();
-
-            self.parent_constructed(obj);
         }
     }
     impl WidgetImpl for ProjectPreviewer {}
@@ -191,13 +190,11 @@ impl ProjectPreviewer {
 
         let texture = gdk::Texture::for_pixbuf(&pixbuf);
         clipboard.set_texture(&texture);
-        /* Uncomment once we have a new release of libadwaita-rs
         let self_ = imp::ProjectPreviewer::from_instance(self);
 
         let toast = adw::Toast::new(&gettext("Screenshot copied to clipboard"));
         toast.set_timeout(3);
         self_.toast_overlay.add_toast(&toast);
-        */
     }
 
     pub fn save_screenshot(&self) {
