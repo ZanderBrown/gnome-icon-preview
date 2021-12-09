@@ -74,6 +74,8 @@ mod imp {
     }
     impl ObjectImpl for Window {
         fn constructed(&self, obj: &Self::Type) {
+            self.parent_constructed(obj);
+
             let app = gio::Application::default().unwrap().downcast::<Application>().unwrap();
 
             self.sender.set(app.sender()).unwrap();
@@ -82,28 +84,13 @@ mod imp {
                 obj.add_css_class("devel");
             }
 
-            obj.init();
             obj.setup_widgets();
             obj.setup_actions();
             obj.set_view(View::Initial);
-
-            self.parent_constructed(obj);
         }
     }
     impl WidgetImpl for Window {}
-    impl WindowImpl for Window {
-        fn close_request(&self, window: &Self::Type) -> glib::signal::Inhibit {
-            log::debug!("Saving window geometry.");
-
-            let (width, height) = window.default_size();
-
-            let _ = self.settings.set_int("window-width", width);
-            let _ = self.settings.set_int("window-height", height);
-            let _ = self.settings.set_boolean("is-maximized", window.is_maximized());
-
-            self.parent_close_request(window)
-        }
-    }
+    impl WindowImpl for Window {}
     impl ApplicationWindowImpl for Window {}
     impl AdwApplicationWindowImpl for Window {}
 }
@@ -296,21 +283,5 @@ impl Window {
                 file_chooser.show()
             })
         );
-    }
-
-    fn init(&self) {
-        // load latest window state
-        let self_ = imp::Window::from_instance(self);
-
-        let width = self_.settings.int("window-width");
-        let height = self_.settings.int("window-height");
-        if width > -1 && height > -1 {
-            self.set_default_size(width, height);
-        }
-        let is_maximized = self_.settings.boolean("is-maximized");
-
-        if is_maximized {
-            self.maximize();
-        }
     }
 }
