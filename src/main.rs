@@ -3,6 +3,7 @@ use gtk::{gio, glib};
 
 mod application;
 mod common;
+#[rustfmt::skip]
 mod config;
 mod project;
 mod widgets;
