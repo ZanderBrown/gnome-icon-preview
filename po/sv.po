@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-12-03 07:36+0000\n"
-"PO-Revision-Date: 2021-12-03 19:13+0100\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
+"POT-Creation-Date: 2021-12-10 07:15+0000\n"
+"PO-Revision-Date: 2021-12-10 22:58+0100\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
-#: src/widgets/project_previewer.rs:96 src/widgets/project_previewer.rs:222
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:95 src/widgets/project_previewer.rs:219
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
 
@@ -31,20 +31,6 @@ msgid "Preview applications icons"
 msgstr "Förhandsgranska programikoner"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
-msgid "Default window width"
-msgstr "Standardbredd för fönster"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
-msgid "Default window height"
-msgstr "Standardhöjd för fönster"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
-msgid "Default window maximized behaviour"
-msgstr "Maximeringsbeteende för standardfönster"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
 msgid "The latest opened files separated by a comma"
 msgstr "De senast öppnade filerna separerade av kommatecken"
 
@@ -64,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Förhandsgranska en programikon"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -155,7 +141,7 @@ msgid "New App Icon"
 msgstr "Ny programikon"
 
 #: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/project_previewer.rs:212
+#: src/widgets/project_previewer.rs:209
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -203,39 +189,39 @@ msgstr "Meny"
 msgid "_Export"
 msgstr "_Exportera"
 
-#: data/resources/ui/window.ui:55
+#: data/resources/ui/window.ui:50
 msgid "Make a new App Icon"
 msgstr "Gör en ny programikon"
 
-#: data/resources/ui/window.ui:181
+#: data/resources/ui/window.ui:176
 msgid "_New App Icon"
 msgstr "_Ny programikon"
 
-#: data/resources/ui/window.ui:204
+#: data/resources/ui/window.ui:197
 msgid "_New Window"
 msgstr "_Nytt fönster"
 
-#: data/resources/ui/window.ui:210
+#: data/resources/ui/window.ui:203
 msgid "_Reload"
 msgstr "Läs _om"
 
-#: data/resources/ui/window.ui:214
+#: data/resources/ui/window.ui:207
 msgid "_Copy Screenshot"
 msgstr "_Kopiera skärmbild"
 
-#: data/resources/ui/window.ui:218
+#: data/resources/ui/window.ui:211
 msgid "_Save Screenshot"
 msgstr "_Spara skärmbild"
 
-#: data/resources/ui/window.ui:222
+#: data/resources/ui/window.ui:215
 msgid "_Shuffle Example Icons"
 msgstr "_Blanda exempelikoner"
 
-#: data/resources/ui/window.ui:228
+#: data/resources/ui/window.ui:221
 msgid "_Keyboard Shortcuts"
 msgstr "Tan_gentbordsgenvägar"
 
-#: data/resources/ui/window.ui:232
+#: data/resources/ui/window.ui:225
 msgid "_About App Icon Preview"
 msgstr "_Om Programikonförhandsgranskning"
 
@@ -252,7 +238,7 @@ msgstr ""
 msgid "Export"
 msgstr "Exportera"
 
-#: src/project.rs:161 src/widgets/project_previewer.rs:211
+#: src/project.rs:161 src/widgets/project_previewer.rs:208
 msgid "_Save"
 msgstr "_Spara"
 
@@ -272,29 +258,42 @@ msgstr "Välj"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/widgets/project_previewer.rs:208
+#: src/widgets/project_previewer.rs:195
+msgid "Screenshot copied to clipboard"
+msgstr "Skärmbild kopierad till urklipp"
+
+#: src/widgets/project_previewer.rs:205
 msgid "Save Screenshot"
 msgstr "Spara skärmbild"
 
-#: src/widgets/project_previewer.rs:215
+#: src/widgets/project_previewer.rs:212
 msgid "Preview"
 msgstr "Förhandsgranskning"
 
-#: src/widgets/project_previewer.rs:231
+#: src/widgets/project_previewer.rs:228
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:237
+#: src/widgets/project_previewer.rs:234
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:277
+#: src/widgets/window.rs:262
 msgid "Open File"
 msgstr "Öppna fil"
 
-#: src/widgets/window.rs:282
+#: src/widgets/window.rs:267
 msgid "SVG images"
 msgstr "SVG-bilder"
+
+#~ msgid "Default window width"
+#~ msgstr "Standardbredd för fönster"
+
+#~ msgid "Default window height"
+#~ msgstr "Standardhöjd för fönster"
+
+#~ msgid "Default window maximized behaviour"
+#~ msgstr "Maximeringsbeteende för standardfönster"
 
 #~ msgid "_Save…"
 #~ msgstr "_Spara…"
