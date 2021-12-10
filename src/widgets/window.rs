@@ -10,7 +10,7 @@ use std::rc::Rc;
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib, CompositeTemplate};
+use gtk::{gdk, gio, glib, CompositeTemplate};
 use gtk_macros::{action, get_action, send};
 
 #[derive(Debug, PartialEq)]
@@ -87,6 +87,7 @@ mod imp {
             obj.setup_widgets();
             obj.setup_actions();
             obj.set_view(View::Initial);
+            obj.setup_drop();
         }
     }
     impl WidgetImpl for Window {}
@@ -281,5 +282,25 @@ impl Window {
                 file_chooser.show()
             })
         );
+    }
+
+    fn setup_drop(&self) {
+        let target = gtk::DropTarget::new(gio::File::static_type(), gdk::DragAction::COPY | gdk::DragAction::MOVE);
+
+        target.connect_drop(glib::clone!(@weak self as obj => @default-return false, move |_, value, _, _| {
+            if let Ok(file) = value.get::<gio::File>() {
+                match Project::parse(file, true) {
+                    Ok(project) => {
+                        obj.set_open_project(project);
+                        return true
+                    },
+                    Err(err) => log::warn!("Failed to parse the project {}", err),
+                }
+            }
+
+            false
+        }));
+
+        self.add_controller(&target);
     }
 }
