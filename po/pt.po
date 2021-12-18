@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-11-28 14:40+0000\n"
-"PO-Revision-Date: 2021-11-30 11:58+0000\n"
+"POT-Creation-Date: 2021-12-10 07:15+0000\n"
+"PO-Revision-Date: 2021-12-18 14:13+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.gnome.org/teams/pt/>\n"
 "Language: pt\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:21
-#: src/widgets/project_previewer.rs:77 src/widgets/screenshot_dialog.rs:134
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:95 src/widgets/project_previewer.rs:219
 msgid "App Icon Preview"
 msgstr "Pré-visualização de ícone da aplicação"
 
@@ -32,20 +32,6 @@ msgid "Preview applications icons"
 msgstr "Pré-visualiza ícones de aplicações"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
-msgid "Default window width"
-msgstr "Largura predefinida da janela"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
-msgid "Default window height"
-msgstr "Altura predefinida da janela"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
-msgid "Default window maximized behaviour"
-msgstr "Comportamento predefinido da janela maximizada"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
 msgid "The latest opened files separated by a comma"
 msgstr "Os últimos ficheiros abertos separados por uma vírgula"
 
@@ -65,7 +51,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "A pré-visualizar um ícone de aplicação"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -156,7 +142,7 @@ msgid "New App Icon"
 msgstr "Novo ícone de aplicação"
 
 #: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/screenshot_dialog.rs:124
+#: src/widgets/project_previewer.rs:209
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -189,59 +175,55 @@ msgstr "~/Projetos"
 msgid "_Browse…"
 msgstr "Explorar…"
 
-#: data/resources/ui/screenshot_dialog.ui:19
-msgid "_Save…"
-msgstr "Guardar…"
-
-#: data/resources/ui/screenshot_dialog.ui:29
-msgid "_Copy to Clipboard"
-msgstr "Copiar para a área de transferência"
-
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Abrir"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an icon"
 msgstr "Abrir um ícone"
 
-#: data/resources/ui/window.ui:24
+#: data/resources/ui/window.ui:25
 msgid "Menu"
 msgstr "Menu"
 
-#: data/resources/ui/window.ui:31
+#: data/resources/ui/window.ui:32
 msgid "_Export"
 msgstr "_Exportar"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:50
 msgid "Make a new App Icon"
 msgstr "Criar um novo ícone de aplicação"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:176
 msgid "_New App Icon"
 msgstr "Novo ícone de aplicação"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:197
 msgid "_New Window"
 msgstr "_Nova janela"
 
-#: data/resources/ui/window.ui:209
+#: data/resources/ui/window.ui:203
 msgid "_Reload"
 msgstr "_Recarregar"
 
-#: data/resources/ui/window.ui:213
-msgid "_Take Screenshot"
-msgstr "_Capturar"
+#: data/resources/ui/window.ui:207
+msgid "_Copy Screenshot"
+msgstr "_Copiar capturar de ecrã"
 
-#: data/resources/ui/window.ui:217
+#: data/resources/ui/window.ui:211
+msgid "_Save Screenshot"
+msgstr "_Guardar captura de ecrã"
+
+#: data/resources/ui/window.ui:215
 msgid "_Shuffle Example Icons"
 msgstr "_Baralhar ícones de exemplos"
 
-#: data/resources/ui/window.ui:223
+#: data/resources/ui/window.ui:221
 msgid "_Keyboard Shortcuts"
 msgstr "_Teclas de atalho"
 
-#: data/resources/ui/window.ui:227
+#: data/resources/ui/window.ui:225
 msgid "_About App Icon Preview"
 msgstr "_Acerca da Pré-visualização de ícone da aplicação"
 
@@ -255,7 +237,7 @@ msgstr ""
 msgid "Export"
 msgstr "Exportar"
 
-#: src/project.rs:161 src/widgets/screenshot_dialog.rs:123
+#: src/project.rs:161 src/widgets/project_previewer.rs:208
 msgid "_Save"
 msgstr "_Guardar"
 
@@ -275,29 +257,48 @@ msgstr "Selecionar"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/widgets/screenshot_dialog.rs:120
+#: src/widgets/project_previewer.rs:195
+msgid "Screenshot copied to clipboard"
+msgstr "Captura de ecrã copiada para a área de transferência"
+
+#: src/widgets/project_previewer.rs:205
 msgid "Save Screenshot"
 msgstr "Guardar captura de ecrã"
 
-#: src/widgets/screenshot_dialog.rs:127
+#: src/widgets/project_previewer.rs:212
 msgid "Preview"
 msgstr "Pré-visualização"
 
-#: src/widgets/screenshot_dialog.rs:143
+#: src/widgets/project_previewer.rs:228
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:149
+#: src/widgets/project_previewer.rs:234
 msgid "JPEG"
 msgstr "JPEG"
 
-#: src/widgets/window.rs:283
+#: src/widgets/window.rs:262
 msgid "Open File"
 msgstr "Abrir Ficheiro"
 
-#: src/widgets/window.rs:288
+#: src/widgets/window.rs:267
 msgid "SVG images"
 msgstr "Imagens SVG"
+
+#~ msgid "Default window width"
+#~ msgstr "Largura predefinida da janela"
+
+#~ msgid "Default window height"
+#~ msgstr "Altura predefinida da janela"
+
+#~ msgid "Default window maximized behaviour"
+#~ msgstr "Comportamento predefinido da janela maximizada"
+
+#~ msgid "_Save…"
+#~ msgstr "Guardar…"
+
+#~ msgid "_Copy to Clipboard"
+#~ msgstr "Copiar para a área de transferência"
 
 #~ msgid "Recent"
 #~ msgstr "Recentes"
