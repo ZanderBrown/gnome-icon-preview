@@ -94,8 +94,8 @@ impl Project {
 
         let dimensions = renderer.intrinsic_dimensions();
 
-        let width = dimensions.width.unwrap().length;
-        let height = dimensions.height.unwrap().length;
+        let width = dimensions.width.map(|w| w.length).unwrap_or(-1.0);
+        let height = dimensions.height.map(|h| h.length).unwrap_or(-1.0);
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
             let project: Self = glib::Object::new(&[]).unwrap();
