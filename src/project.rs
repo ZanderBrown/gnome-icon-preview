@@ -97,7 +97,7 @@ impl Project {
         let width = dimensions.width.map(|w| w.length).unwrap_or(-1.0);
         let height = dimensions.height.map(|h| h.length).unwrap_or(-1.0);
 
-        if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
+        if (width - Icon::Scalable.size()).abs() < std::f64::EPSILON && (height - Icon::Scalable.size()).abs() < std::f64::EPSILON {
             let project: Self = glib::Object::new(&[]).unwrap();
             let imp = project.imp();
             imp.project_type.set(ProjectType::Preview);
@@ -109,7 +109,7 @@ impl Project {
             return Ok(project);
         }
 
-        if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
+        if handle.has_element_with_id(Icon::Scalable.id())? && handle.has_element_with_id(Icon::Symbolic.id())? {
             let project: Self = glib::Object::new(&[]).unwrap();
             let imp = project.imp();
             imp.project_type.set(ProjectType::Icon);

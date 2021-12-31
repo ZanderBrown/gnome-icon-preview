@@ -35,12 +35,11 @@ impl Icon {
         }
     }
 
-    pub fn id(self) -> String {
+    pub fn id(self) -> &'static str {
         match self {
             Icon::Scalable | Icon::Devel => "#hicolor",
             Icon::Symbolic => "#symbolic",
         }
-        .to_string()
     }
 
     pub fn size(self) -> f64 {
@@ -56,7 +55,7 @@ pub fn icon_theme_path() -> PathBuf {
 }
 
 pub fn format_name(name: &str) -> String {
-    let name = name.trim_end_matches(".svg").trim_end_matches(".Source").split('.').last().unwrap();
+    let name = name.trim_end_matches(".svg").trim_end_matches(".Devel").trim_end_matches(".Source").split('.').last().unwrap();
     let mut formatted_chars = vec![];
 
     let mut chars = name.chars();
@@ -66,8 +65,7 @@ pub fn format_name(name: &str) -> String {
         }
         formatted_chars.push(c);
     });
-    let formatted_name: String = formatted_chars.iter().collect();
-    formatted_name
+    formatted_chars.iter().collect()
 }
 
 #[cfg(test)]
@@ -134,7 +132,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
     let id = icon.id();
     let output_size = icon.size();
 
-    if handle.has_element_with_id(&id)? {
+    if handle.has_element_with_id(id)? {
         let renderer = CairoRenderer::new(handle);
         let viewport = {
             let doc = renderer.intrinsic_dimensions();
@@ -143,7 +141,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
 
             cairo::Rectangle { x: 0.0, y: 0.0, width, height }
         };
-        let (rect, _) = renderer.geometry_for_layer(Some(&id), &viewport)?;
+        let (rect, _) = renderer.geometry_for_layer(Some(id), &viewport)?;
 
         let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest)).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
