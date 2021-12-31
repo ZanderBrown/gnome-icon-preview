@@ -6,7 +6,7 @@ use gtk::{glib, pango};
 
 mod imp {
     use super::*;
-    use glib::{ParamFlags, ParamSpec, Value};
+    use glib::{ParamFlags, ParamSpec, ParamSpecObject, Value};
     use once_cell::sync::{Lazy, OnceCell};
 
     pub struct RecentItemRow {
@@ -49,7 +49,7 @@ mod imp {
 
         fn properties() -> &'static [ParamSpec] {
             static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpec::new_object(
+                vec![ParamSpecObject::new(
                     "project",
                     "Project",
                     "The associated recent project",
@@ -93,7 +93,7 @@ impl RecentItemRow {
     }
 
     fn set_project(&self, project: &Project) {
-        let self_ = imp::RecentItemRow::from_instance(self);
+        let imp = self.imp();
         let project_name = project.name();
 
         if !project.has_cache_icons() {
@@ -102,8 +102,8 @@ impl RecentItemRow {
             }
         }
 
-        self_.image.set_icon_name(Some(&project_name));
-        self_.label.set_label(&project_name);
-        self_.label.set_tooltip_text(Some(&project_name));
+        imp.image.set_icon_name(Some(&project_name));
+        imp.label.set_label(&project_name);
+        imp.label.set_tooltip_text(Some(&project_name));
     }
 }

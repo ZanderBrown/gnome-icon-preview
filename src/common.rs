@@ -165,8 +165,8 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
 
 pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
     let stripes = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
-    let stream = stripes.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-    let handle = Loader::new().read_stream(&stream, Some(&stripes), gio::NONE_CANCELLABLE)?;
+    let stream = stripes.read(gio::Cancellable::NONE)?.upcast::<gio::InputStream>();
+    let handle = Loader::new().read_stream(&stream, Some(&stripes), gio::Cancellable::NONE)?;
 
     let renderer = CairoRenderer::new(&handle);
     let dimensions = renderer.intrinsic_dimensions();

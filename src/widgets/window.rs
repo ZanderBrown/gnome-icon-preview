@@ -107,22 +107,22 @@ impl Window {
     }
 
     pub fn set_open_project(&self, project: Project) {
-        let self_ = imp::Window::from_instance(self);
+        let imp = self.imp();
 
         self.set_view(View::Previewer);
-        self_.previewer.preview(&project);
-        self_.exporter.set_project(&project);
+        imp.previewer.preview(&project);
+        imp.exporter.set_project(&project);
 
         let recent_manager = gtk::RecentManager::default();
         recent_manager.add_item(&project.uri());
 
-        let monitor = project.file().monitor_file(gio::FileMonitorFlags::all(), gio::NONE_CANCELLABLE).unwrap();
+        let monitor = project.file().monitor_file(gio::FileMonitorFlags::all(), gio::Cancellable::NONE).unwrap();
 
-        self_.monitor.borrow_mut().replace(monitor);
-        self_.open_project.borrow_mut().replace(project);
+        imp.monitor.borrow_mut().replace(monitor);
+        imp.open_project.borrow_mut().replace(project);
 
-        self_.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong self_.open_project as project,
-        @strong self_.exporter as exporter, @strong self_.previewer as previewer  => move |monitor, _, _, event| {
+        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong imp.open_project as project,
+        @strong imp.exporter as exporter, @strong imp.previewer as previewer  => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
                 let file = project.borrow().as_ref().unwrap().file();
                 match Project::parse(file, true) {
@@ -138,7 +138,7 @@ impl Window {
     }
 
     pub fn set_view(&self, view: View) {
-        let self_ = imp::Window::from_instance(self);
+        let imp = self.imp();
 
         get_action!(self, @shuffle).set_enabled(view == View::Previewer);
         get_action!(self, @refresh).set_enabled(view == View::Previewer);
@@ -147,36 +147,36 @@ impl Window {
 
         match view {
             View::Previewer => {
-                self_.content.set_visible_child_name("previewer");
-                self_.export_btn.show();
+                imp.content.set_visible_child_name("previewer");
+                imp.export_btn.show();
             }
             View::Initial => {
-                self_.export_btn.hide();
+                imp.export_btn.hide();
             }
         };
     }
 
     fn setup_widgets(&self) {
-        let self_ = imp::Window::from_instance(self);
+        let imp = self.imp();
 
-        self_.content.add_named(&self_.previewer, Some("previewer"));
+        imp.content.add_named(&imp.previewer, Some("previewer"));
 
         // Recents Popover
-        let recents_popover = RecentsPopover::new(self_.sender.get().unwrap().clone());
-        self_.open_btn.set_popover(Some(&recents_popover));
+        let recents_popover = RecentsPopover::new(imp.sender.get().unwrap().clone());
+        imp.open_btn.set_popover(Some(&recents_popover));
 
-        self_.export_btn.set_popover(Some(&self_.exporter));
+        imp.export_btn.set_popover(Some(&imp.exporter));
     }
 
     fn setup_actions(&self) {
-        let self_ = imp::Window::from_instance(self);
-        let sender = self_.sender.get().unwrap().clone();
+        let imp = self.imp();
+        let sender = imp.sender.get().unwrap().clone();
 
         // Export icon
         action!(
             self,
             "export",
-            clone!(@strong self_.exporter as exporter => move |_, _| {
+            clone!(@strong imp.exporter as exporter => move |_, _| {
                 exporter.popup();
             })
         );
@@ -185,7 +185,7 @@ impl Window {
             self,
             "export-save",
             Some(glib::VariantTy::new("s").unwrap()),
-            clone!(@weak self_.open_project as project, @weak self as parent => move |_, target| {
+            clone!(@weak imp.open_project as project, @weak self as parent => move |_, target| {
                 if let Some(project) = project.borrow().as_ref() {
                     let project_type = target.unwrap().get::<String>().unwrap();
                     let icon = crate::common::Icon::from(project_type);
@@ -214,8 +214,8 @@ impl Window {
         action!(
             self,
             "refresh",
-            clone!(@strong sender, @weak self_.open_project as project,
-            @strong self_.exporter as exporter, @strong self_.previewer as previewer => move |_, _| {
+            clone!(@strong sender, @weak imp.open_project as project,
+            @strong imp.exporter as exporter, @strong imp.previewer as previewer => move |_, _| {
                 if let Some(project) = project.borrow().as_ref() {
                    match Project::parse(project.file(), true) {
                         Ok(project) => {
@@ -232,7 +232,7 @@ impl Window {
         action!(
             self,
             "shuffle",
-            clone!(@strong self_.previewer as previewer => move |_, _| {
+            clone!(@strong imp.previewer as previewer => move |_, _| {
                 previewer.shuffle_samples();
             })
         );
@@ -241,7 +241,7 @@ impl Window {
         action!(
             self,
             "save_screenshot",
-            clone!(@weak self as window, @strong self_.previewer as previewer => move |_, _| {
+            clone!(@weak self as window, @strong imp.previewer as previewer => move |_, _| {
                 previewer.save_screenshot();
             })
         );
@@ -250,7 +250,7 @@ impl Window {
         action!(
             self,
             "copy_screenshot",
-            clone!(@strong self_.previewer as previewer => move |_, _| {
+            clone!(@strong imp.previewer as previewer => move |_, _| {
                 previewer.copy_screenshot();
             })
         );

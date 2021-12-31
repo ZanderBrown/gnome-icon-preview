@@ -38,16 +38,16 @@ mod imp {
                 widget.destroy();
             });
             klass.install_action("project.create", None, |widget, _, _| {
-                let self_ = imp::NewProjectDialog::from_instance(widget);
+                let imp = widget.imp();
 
-                let project_name = format!("{}.Source.svg", self_.project_name.text());
-                let project_path = self_.project_path.text().replacen("~", glib::home_dir().to_str().unwrap(), 1);
+                let project_name = format!("{}.Source.svg", imp.project_name.text());
+                let project_path = imp.project_path.text().replacen("~", glib::home_dir().to_str().unwrap(), 1);
 
                 let dest_path = PathBuf::from_iter(&[project_path, project_name]);
 
                 let project_file = gio::File::for_path(&dest_path);
 
-                let sender = self_.sender.get().unwrap();
+                let sender = imp.sender.get().unwrap();
                 send!(sender, Action::NewProject(project_file));
                 widget.destroy();
             });
@@ -64,7 +64,6 @@ mod imp {
                 dialog.set_current_folder(&home_dir).unwrap();
                 dialog.connect_response(clone!(@weak dialog, @weak parent => move |_, response| {
                     if response == gtk::ResponseType::Accept {
-                        let self_ = imp::NewProjectDialog::from_instance(&parent);
                         let home = glib::home_dir();
                         let home = home.to_str().unwrap();
 
@@ -72,13 +71,13 @@ mod imp {
                         let dest = dest.to_str().unwrap();
                         let dest = dest.replacen(&home, "~", 1);
 
-                        self_.project_path.set_text(&dest);
+                        parent.imp().project_path.set_text(&dest);
                     }
                     dialog.destroy();
                 }));
                 dialog.show();
             });
-            klass.add_binding_action(gdk::keys::constants::Escape, gdk::ModifierType::empty(), "window.close", None);
+            klass.add_binding_action(gdk::Key::Escape, gdk::ModifierType::empty(), "window.close", None);
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
@@ -100,17 +99,14 @@ glib::wrapper! {
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
         let dialog = glib::Object::new::<Self>(&[]).unwrap();
-        let self_ = imp::NewProjectDialog::from_instance(&dialog);
-        self_.sender.set(sender).unwrap();
+        dialog.imp().sender.set(sender).unwrap();
         dialog.init();
         dialog
     }
 
     fn init(&self) {
         self.action_set_enabled("project.create", false);
-
-        let self_ = imp::NewProjectDialog::from_instance(self);
-        self_.project_name.connect_changed(clone!(@weak self as dialog => move |entry| {
+        self.imp().project_name.connect_changed(clone!(@weak self as dialog => move |entry| {
             let app_id = entry.text().to_string();
             dialog.action_set_enabled("project.create", gio::Application::id_is_valid(&app_id));
         }));

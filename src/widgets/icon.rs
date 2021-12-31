@@ -66,33 +66,33 @@ impl Icon {
     pub fn new(size: IconSize) -> Self {
         let icon = glib::Object::new::<Self>(&[("orientation", &gtk::Orientation::Vertical), ("spacing", &6)]).unwrap();
 
-        let self_ = imp::Icon::from_instance(&icon);
+        let imp = icon.imp();
         match size {
             IconSize::Small => {
-                self_.label.add_css_class("caption");
-                self_.image.set_pixel_size(64);
+                imp.label.add_css_class("caption");
+                imp.image.set_pixel_size(64);
             }
             IconSize::Large => {
-                self_.image.set_pixel_size(96);
+                imp.image.set_pixel_size(96);
             }
         };
         icon
     }
 
     pub fn set_file(&self, file: &gio::File) {
-        let self_ = imp::Icon::from_instance(self);
+        let imp = self.imp();
         let filename = file.basename().unwrap();
 
-        self_.label.set_text(&common::format_name(filename.to_str().unwrap()));
+        imp.label.set_text(&common::format_name(filename.to_str().unwrap()));
 
         let gicon = gio::FileIcon::new(file);
-        self_.image.set_from_gicon(&gicon);
+        imp.image.set_from_gicon(&gicon);
     }
 
     pub fn set_icon_name(&self, icon_name: &str) {
-        let self_ = imp::Icon::from_instance(self);
+        let imp = self.imp();
 
-        self_.label.set_text(&common::format_name(icon_name));
-        self_.image.set_icon_name(Some(icon_name));
+        imp.label.set_text(&common::format_name(icon_name));
+        imp.image.set_icon_name(Some(icon_name));
     }
 }

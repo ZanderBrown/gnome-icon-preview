@@ -52,15 +52,15 @@ impl ExportPopover {
     }
 
     pub fn set_project(&self, project: &Project) {
-        let self_ = imp::ExportPopover::from_instance(self);
+        let imp = self.imp();
 
-        self_.regular_image.set_icon_name(Some(&project.name()));
-        self_.nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
+        imp.regular_image.set_icon_name(Some(&project.name()));
+        imp.nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
 
         let has_symbolic = project.project_type() == ProjectType::Icon;
-        self_.symbolic_box.set_visible(has_symbolic);
+        imp.symbolic_box.set_visible(has_symbolic);
         if has_symbolic {
-            self_.symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
+            imp.symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
         }
     }
 }

@@ -56,9 +56,7 @@ mod imp {
 
                     let gesture = gtk::GestureClick::new();
                     gesture.connect_released(clone!(@weak project, @weak popover => move |gesture, _, _, _| {
-                        let self_ = imp::RecentsPopover::from_instance(&popover);
-
-                        send!(self_.sender.get().unwrap(), Action::OpenProject(project));
+                        send!(popover.imp().sender.get().unwrap(), Action::OpenProject(project));
                         popover.popdown();
                         gesture.set_state(gtk::EventSequenceState::Claimed);
                     }));
@@ -106,8 +104,7 @@ glib::wrapper! {
 impl RecentsPopover {
     pub fn new(sender: Sender<Action>) -> Self {
         let popover = glib::Object::new::<Self>(&[]).unwrap();
-        let self_ = imp::RecentsPopover::from_instance(&popover);
-        self_.sender.set(sender).unwrap();
+        popover.imp().sender.set(sender).unwrap();
         popover
     }
 }

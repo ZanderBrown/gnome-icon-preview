@@ -17,7 +17,6 @@ impl Default for PaneStyle {
 
 mod imp {
     use super::*;
-
     use std::cell::{Cell, RefCell};
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
@@ -71,46 +70,45 @@ glib::wrapper! {
 impl ColourPane {
     pub fn new(style: PaneStyle) -> Self {
         let pane = glib::Object::new::<Self>(&[]).unwrap();
-        let self_ = imp::ColourPane::from_instance(&pane);
-        self_.style.set(style);
+        pane.imp().style.set(style);
         pane.init();
         pane
     }
 
     pub fn set_hicolor(&self, icon_name: &str) {
-        let self_ = imp::ColourPane::from_instance(self);
+        let imp = self.imp();
 
-        if let Some(icon) = self_.small_icons.borrow_mut().get(2) {
+        if let Some(icon) = imp.small_icons.borrow_mut().get(2) {
             icon.set_icon_name(icon_name);
         }
-        if let Some(icon) = self_.grid_icons.borrow_mut().get(1) {
+        if let Some(icon) = imp.grid_icons.borrow_mut().get(1) {
             icon.set_icon_name(icon_name);
         }
 
-        self_.hicolor_128.set_icon_name(Some(icon_name));
-        self_.hicolor_64.set_icon_name(Some(icon_name));
-        self_.hicolor_32.set_icon_name(Some(icon_name));
+        imp.hicolor_128.set_icon_name(Some(icon_name));
+        imp.hicolor_64.set_icon_name(Some(icon_name));
+        imp.hicolor_32.set_icon_name(Some(icon_name));
     }
 
     pub fn set_symbolic(&self, basename: Option<&str>) {
-        let self_ = imp::ColourPane::from_instance(self);
+        let imp = self.imp();
 
         match basename {
             Some(basename) => {
                 let icon_name = format!("{}-symbolic", basename.trim_end_matches(".svg"));
-                self_.symbolic_image.set_icon_name(Some(&icon_name));
-                self_.symbolic_image.show();
-                self_.symbolic_label.show();
+                imp.symbolic_image.set_icon_name(Some(&icon_name));
+                imp.symbolic_image.show();
+                imp.symbolic_label.show();
             }
             None => {
-                self_.symbolic_image.hide();
-                self_.symbolic_label.hide();
+                imp.symbolic_image.hide();
+                imp.symbolic_label.hide();
             }
         }
     }
 
     pub fn load_samples(&self, samples: &[gio::File]) {
-        let self_ = imp::ColourPane::from_instance(self);
+        let imp = self.imp();
         // We fill the small icons
         assert_eq!(samples.len(), 6);
         let mut sample_idx = 0;
@@ -119,7 +117,7 @@ impl ColourPane {
                 continue;
             }
             let file = samples.get(sample_idx).unwrap();
-            if let Some(icon) = self_.small_icons.borrow_mut().get(i) {
+            if let Some(icon) = imp.small_icons.borrow_mut().get(i) {
                 icon.set_file(file);
             }
             sample_idx += 1;
@@ -131,7 +129,7 @@ impl ColourPane {
                 continue;
             }
             let file = samples.get(sample_idx).unwrap();
-            if let Some(icon) = self_.grid_icons.borrow_mut().get(i) {
+            if let Some(icon) = imp.grid_icons.borrow_mut().get(i) {
                 icon.set_file(file);
             }
             sample_idx += 1;
@@ -139,8 +137,8 @@ impl ColourPane {
     }
 
     fn init(&self) {
-        let self_ = imp::ColourPane::from_instance(self);
-        match self_.style.get() {
+        let imp = self.imp();
+        match imp.style.get() {
             PaneStyle::Dark => {
                 self.add_css_class("dark");
             }
@@ -154,8 +152,8 @@ impl ColourPane {
         for _ in 0..5 {
             let demo_icon = Icon::new(IconSize::Small);
             small_group.add_widget(&demo_icon);
-            self_.small.append(&demo_icon);
-            self_.small_icons.borrow_mut().push(demo_icon);
+            imp.small.append(&demo_icon);
+            imp.small_icons.borrow_mut().push(demo_icon);
         }
 
         // Grid container is composed of 3 icons, 2 samples & the previewed project
@@ -163,8 +161,8 @@ impl ColourPane {
         for _ in 0..3 {
             let demo_icon = Icon::new(IconSize::Large);
             grid_group.add_widget(&demo_icon);
-            self_.grid.append(&demo_icon);
-            self_.grid_icons.borrow_mut().push(demo_icon);
+            imp.grid.append(&demo_icon);
+            imp.grid_icons.borrow_mut().push(demo_icon);
         }
     }
 }

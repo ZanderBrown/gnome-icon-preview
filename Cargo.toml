@@ -6,21 +6,21 @@ edition = "2021"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-gtk = { package = "gtk4", version = "0.3" }
-gdk_pixbuf = { package = "gdk-pixbuf", version = "0.14", features = ["v2_36"]}
+gtk = { package = "gtk4", git = "https://github.com/gtk-rs/gtk4-rs" }
+gdk_pixbuf = { package = "gdk-pixbuf", git = "https://github.com/gtk-rs/gtk-rs-core", features = ["v2_36"]}
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 gtk-macros = "0.3"
-adw = { package = "libadwaita", version = "0.1.0-beta" }
-pangocairo = "0.14"
+adw = { package = "libadwaita", git = "https://gitlab.gnome.org/World/Rust/libadwaita-rs" }
+pangocairo = {git = "https://github.com/gtk-rs/gtk-rs-core"}
 pretty_env_logger = "0.3"
-cairo = { package = "cairo-rs", version = "0.14", features = ["svg", "v1_16"]}
+cairo = { package = "cairo-rs", git = "https://github.com/gtk-rs/gtk-rs-core", features = ["svg", "v1_16"]}
 rand = "0.7"
 svgcleaner = "0.9"
 anyhow = "1.0"
-once_cell = "1.8"
+once_cell = "1.9"
 
 [dependencies.rsvg]
 package = "librsvg"
 git = "https://gitlab.gnome.org/gnome/librsvg"
-version = "2.52"
+branch = "bilelmoussaoui/new-gtk-rs-stack"

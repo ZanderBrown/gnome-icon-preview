@@ -146,15 +146,13 @@ impl Application {
     }
 
     fn do_action(&self, action: Action) -> glib::Continue {
-        let self_ = imp::Application::from_instance(self);
-
         match action {
             Action::OpenProject(project) => {
                 let window = self.active_window().unwrap().downcast::<Window>().unwrap();
                 window.set_open_project(project);
             }
             Action::NewProject(project_dest) => match Project::from_template(project_dest) {
-                Ok(project) => send!(self_.sender, Action::OpenProject(project)),
+                Ok(project) => send!(self.imp().sender, Action::OpenProject(project)),
                 Err(err) => error!("{:#?}", err),
             },
         };
@@ -163,7 +161,7 @@ impl Application {
 
     fn show_about_dialog(&self) {
         let window = self.active_window().unwrap().downcast::<Window>().unwrap();
-        let dialog = gtk::AboutDialogBuilder::new()
+        let dialog = gtk::AboutDialog::builder()
             .program_name("App Icon Preview")
             .logo_icon_name(config::APP_ID)
             .license_type(gtk::License::Gpl30)
@@ -180,12 +178,10 @@ impl Application {
     }
 
     pub fn sender(&self) -> Sender<Action> {
-        let self_ = imp::Application::from_instance(self);
-        self_.sender.clone()
+        self.imp().sender.clone()
     }
 
     pub fn icon_theme(&self) -> gtk::IconTheme {
-        let self_ = imp::Application::from_instance(self);
-        self_.icon_theme.get().unwrap().clone()
+        self.imp().icon_theme.get().unwrap().clone()
     }
 }

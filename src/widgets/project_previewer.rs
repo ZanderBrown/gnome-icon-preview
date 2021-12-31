@@ -89,7 +89,7 @@ impl ProjectPreviewer {
         surface.set_device_scale(scale as f64, scale as f64);
 
         let logo = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/badge.svg");
-        let handle = rsvg::Loader::new().read_file(&logo, gio::NONE_CANCELLABLE).ok()?;
+        let handle = rsvg::Loader::new().read_file(&logo, gio::Cancellable::NONE).ok()?;
         let renderer = rsvg::CairoRenderer::new(&handle);
 
         let layout = self.create_pango_layout(Some(&gettext("App Icon Preview")));
@@ -111,22 +111,22 @@ impl ProjectPreviewer {
         let snap = gtk::Snapshot::new();
         let paintable = gtk::WidgetPaintable::new(Some(self)).current_image().unwrap();
         paintable.snapshot(snap.upcast_ref::<gdk::Snapshot>(), width as f64, height as f64);
-        let node = snap.free_to_node()?;
+        let node = snap.to_node()?;
         node.draw(&context);
 
         let mut img_x = 0.0;
         let txt_x = if self.direction() == gtk::TextDirection::Rtl {
-            img_x = txt_extents.width as f64 + padding;
+            img_x = txt_extents.width() as f64 + padding;
             0.0
         } else {
             logo_width as f64 + padding
         };
 
         let mut img_y = 0.0;
-        let txt_y = if txt_extents.height < logo_height {
-            (logo_height - txt_extents.height) as f64 / 2.0
+        let txt_y = if txt_extents.height() < logo_height {
+            (logo_height - txt_extents.height()) as f64 / 2.0
         } else {
-            img_y = (txt_extents.height - logo_height) as f64 / 2.0;
+            img_y = (txt_extents.height() - logo_height) as f64 / 2.0;
             0.0
         };
         context.save().ok()?;
@@ -151,25 +151,25 @@ impl ProjectPreviewer {
     }
 
     pub fn preview(&self, project: &Project) {
-        let self_ = imp::ProjectPreviewer::from_instance(self);
+        let imp = self.imp();
 
-        self_.dark_panel.set_hicolor(&project.name());
-        self_.light_panel.set_hicolor(&project.name());
+        imp.dark_panel.set_hicolor(&project.name());
+        imp.light_panel.set_hicolor(&project.name());
 
         let symbolic = match project.project_type() {
             ProjectType::Icon => Some(project.name()),
             ProjectType::Preview => None,
         };
 
-        self_.light_panel.set_symbolic(symbolic.as_deref());
-        self_.dark_panel.set_symbolic(symbolic.as_deref());
+        imp.light_panel.set_symbolic(symbolic.as_deref());
+        imp.dark_panel.set_symbolic(symbolic.as_deref());
     }
 
     pub fn shuffle_samples(&self) {
-        let self_ = imp::ProjectPreviewer::from_instance(self);
+        let imp = self.imp();
         let mut rng = &mut rand::thread_rng();
 
-        let samples = self_
+        let samples = imp
             .samples
             .choose_multiple(&mut rng, 6)
             .map(|sample_name| {
@@ -178,8 +178,8 @@ impl ProjectPreviewer {
             })
             .collect::<Vec<gio::File>>();
 
-        self_.light_panel.load_samples(&samples);
-        self_.dark_panel.load_samples(&samples);
+        imp.light_panel.load_samples(&samples);
+        imp.dark_panel.load_samples(&samples);
     }
 
     pub fn copy_screenshot(&self) {
@@ -190,11 +190,10 @@ impl ProjectPreviewer {
 
         let texture = gdk::Texture::for_pixbuf(&pixbuf);
         clipboard.set_texture(&texture);
-        let self_ = imp::ProjectPreviewer::from_instance(self);
 
         let toast = adw::Toast::new(&gettext("Screenshot copied to clipboard"));
         toast.set_timeout(3);
-        self_.toast_overlay.add_toast(&toast);
+        self.imp().toast_overlay.add_toast(&toast);
     }
 
     pub fn save_screenshot(&self) {
@@ -211,7 +210,7 @@ impl ProjectPreviewer {
         dialog.set_modal(true);
         dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
 
-        let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures);
+        let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures).unwrap();
         let gdir = gio::File::for_path(&xdg_pictures_dir);
         dialog.set_current_folder(&gdir).unwrap();
 
@@ -247,9 +246,9 @@ impl ProjectPreviewer {
                 let file = dialog.file().unwrap();
                 let stream = file.replace(None, false,
                                           gio::FileCreateFlags::REPLACE_DESTINATION,
-                                          gio::NONE_CANCELLABLE).unwrap();
+                                          gio::Cancellable::NONE).unwrap();
 
-                pixbuf.save_to_streamv(&stream, ext, &[], gio::NONE_CANCELLABLE).unwrap();
+                pixbuf.save_to_streamv(&stream, ext, &[], gio::Cancellable::NONE).unwrap();
             }
             dialog.destroy();
         }));

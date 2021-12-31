@@ -58,17 +58,15 @@ impl Project {
     pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
         let template = gio::File::for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
         // Creates the parent directory tree if it does not already exist
-        dest.parent().map(|parent| parent.make_directory_with_parents(gio::NONE_CANCELLABLE));
+        dest.parent().map(|parent| parent.make_directory_with_parents(gio::Cancellable::NONE));
 
-        template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::NONE_CANCELLABLE, None)?;
+        template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::Cancellable::NONE, None)?;
         Project::parse(dest, true)
     }
 
     pub fn cache_icons(&self) -> anyhow::Result<()> {
-        let self_ = imp::Project::from_instance(self);
-
         let name = self.name();
-        let handle = self_.handle.get().unwrap();
+        let handle = self.imp().handle.get().unwrap();
 
         match self.project_type() {
             ProjectType::Icon => {
@@ -91,8 +89,8 @@ impl Project {
     }
 
     pub fn parse(file: gio::File, cache_icons: bool) -> anyhow::Result<Self> {
-        let stream = file.read(gio::NONE_CANCELLABLE)?.upcast::<gio::InputStream>();
-        let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::NONE_CANCELLABLE)?;
+        let stream = file.read(gio::Cancellable::NONE)?.upcast::<gio::InputStream>();
+        let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::Cancellable::NONE)?;
         handle.set_stylesheet("#layer3,#layer2 {opacity: 0}")?;
         let renderer = CairoRenderer::new(&handle);
 
@@ -103,10 +101,10 @@ impl Project {
 
         if (width - 128.0).abs() < std::f64::EPSILON && (height - 128.0).abs() < std::f64::EPSILON {
             let project: Self = glib::Object::new(&[]).unwrap();
-            let self_ = imp::Project::from_instance(&project);
-            self_.project_type.set(ProjectType::Preview);
-            self_.file.set(file).unwrap();
-            let _ = self_.handle.set(handle);
+            let imp = project.imp();
+            imp.project_type.set(ProjectType::Preview);
+            imp.file.set(file).unwrap();
+            let _ = imp.handle.set(handle);
             if cache_icons {
                 project.cache_icons()?;
             }
@@ -115,10 +113,10 @@ impl Project {
 
         if handle.has_element_with_id("#hicolor")? && handle.has_element_with_id("#symbolic")? {
             let project: Self = glib::Object::new(&[]).unwrap();
-            let self_ = imp::Project::from_instance(&project);
-            self_.project_type.set(ProjectType::Icon);
-            self_.file.set(file).unwrap();
-            let _ = self_.handle.set(handle);
+            let imp = project.imp();
+            imp.project_type.set(ProjectType::Icon);
+            imp.file.set(file).unwrap();
+            let _ = imp.handle.set(handle);
             if cache_icons {
                 project.cache_icons()?;
             }
@@ -170,10 +168,10 @@ impl Project {
 
         if dialog.run_future().await == gtk::ResponseType::Accept {
             let dest = dialog.file().unwrap();
-            let (bytes, _) = gfile.load_contents_async_future().await?;
+            let (bytes, _) = gfile.load_contents_future().await?;
             let cleaned_svg = common::clean_svg(std::str::from_utf8(&bytes)?)?;
 
-            if let Err(err) = dest.replace_contents_async_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
+            if let Err(err) = dest.replace_contents_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
                 log::error!("Failed to export icon {:?}", err);
             };
         }
@@ -193,14 +191,10 @@ impl Project {
     }
 
     pub fn file(&self) -> gio::File {
-        let self_ = imp::Project::from_instance(self);
-
-        self_.file.get().unwrap().clone()
+        self.imp().file.get().unwrap().clone()
     }
 
     pub fn project_type(&self) -> ProjectType {
-        let self_ = imp::Project::from_instance(self);
-
-        self_.project_type.get()
+        self.imp().project_type.get()
     }
 }
