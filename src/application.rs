@@ -89,10 +89,10 @@ mod imp {
             // Accelerators
             application.set_accels_for_action("win.open", &["<Control>o"]);
             application.set_accels_for_action("win.refresh", &["<Control>r"]);
-            application.set_accels_for_action("win.shuffle", &["<Control>s"]);
+            application.set_accels_for_action("win.shuffle", &["<Control>x"]);
             application.set_accels_for_action("win.export", &["<Control>e"]);
-            application.set_accels_for_action("win.save_screenshot", &["<Control><Shift>s"]);
-            application.set_accels_for_action("win.copy_screenshot", &["<Control><Shift>c"]);
+            application.set_accels_for_action("win.save_screenshot", &["<Control>s"]);
+            application.set_accels_for_action("win.copy_screenshot", &["<Control>c"]);
             application.set_accels_for_action("app.quit", &["<Control>q"]);
             application.set_accels_for_action("app.new-window", &["<Control>n"]);
 
