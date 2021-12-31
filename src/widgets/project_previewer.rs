@@ -200,14 +200,14 @@ impl ProjectPreviewer {
         let pixbuf = self.screenshot().unwrap();
         let root = self.root().unwrap();
 
-        let dialog = gtk::FileChooserNative::new(
-            Some(&gettext("Save Screenshot")),
-            root.downcast_ref::<gtk::Window>(),
-            gtk::FileChooserAction::Save,
-            Some(&gettext("_Save")),
-            Some(&gettext("_Cancel")),
-        );
-        dialog.set_modal(true);
+        let dialog = gtk::FileChooserNative::builder()
+            .title(&gettext("Save Screenshot"))
+            .modal(true)
+            .accept_label(&gettext("_Save"))
+            .cancel_label(&gettext("_Cancel"))
+            .action(gtk::FileChooserAction::Save)
+            .transient_for(root.downcast_ref::<gtk::Window>().unwrap())
+            .build();
         dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
 
         let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures).unwrap();

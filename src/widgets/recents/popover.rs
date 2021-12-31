@@ -13,7 +13,7 @@ mod imp {
     use super::*;
     use once_cell::sync::OnceCell;
 
-    #[derive(Debug, gtk::CompositeTemplate)]
+    #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/recents_popover.ui")]
     pub struct RecentsPopover {
         pub sender: OnceCell<Sender<Action>>,
@@ -27,14 +27,6 @@ mod imp {
         const NAME: &'static str = "RecentsPopover";
         type Type = super::RecentsPopover;
         type ParentType = gtk::Popover;
-
-        fn new() -> Self {
-            Self {
-                model: gtk::StringList::new(&[]),
-                items_listbox: Default::default(),
-                sender: Default::default(),
-            }
-        }
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);

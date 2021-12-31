@@ -9,6 +9,7 @@ mod imp {
     use glib::{ParamFlags, ParamSpec, ParamSpecObject, Value};
     use once_cell::sync::{Lazy, OnceCell};
 
+    #[derive(Debug, Default)]
     pub struct RecentItemRow {
         project: OnceCell<Project>,
         pub image: gtk::Image,
@@ -20,14 +21,6 @@ mod imp {
         const NAME: &'static str = "RecentItemRow";
         type Type = super::RecentItemRow;
         type ParentType = gtk::FlowBoxChild;
-
-        fn new() -> Self {
-            Self {
-                project: Default::default(),
-                image: gtk::Image::new(),
-                label: gtk::Label::new(None),
-            }
-        }
     }
 
     impl ObjectImpl for RecentItemRow {

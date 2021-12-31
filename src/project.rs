@@ -14,12 +14,19 @@ pub enum ProjectType {
     Preview, // A 128px SVG found
 }
 
+impl Default for ProjectType {
+    fn default() -> Self {
+        Self::Icon
+    }
+}
+
 mod imp {
     use super::*;
 
     use once_cell::sync::OnceCell;
     use std::cell::Cell;
 
+    #[derive(Default)]
     pub struct Project {
         pub file: OnceCell<gio::File>,
         pub project_type: Cell<ProjectType>,
@@ -30,15 +37,6 @@ mod imp {
     impl ObjectSubclass for Project {
         const NAME: &'static str = "Project";
         type Type = super::Project;
-        type ParentType = glib::Object;
-
-        fn new() -> Self {
-            Self {
-                file: OnceCell::new(),
-                project_type: Cell::new(ProjectType::Icon),
-                handle: OnceCell::new(),
-            }
-        }
     }
 
     impl ObjectImpl for Project {}
