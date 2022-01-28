@@ -179,7 +179,7 @@ impl Project {
 
     pub fn has_cache_icons(&self) -> bool {
         let display = gdk::Display::default().unwrap();
-        let icon_theme = gtk::IconTheme::for_display(&display).unwrap();
+        let icon_theme = gtk::IconTheme::for_display(&display);
 
         let has_scalable = icon_theme.has_icon(&self.name());
         let has_devel = icon_theme.has_icon(&format!("{}.Devel", self.name()));

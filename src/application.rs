@@ -50,7 +50,7 @@ mod imp {
 
             // setup icon theme cache
             if let Some(display) = gdk::Display::default() {
-                let icon_theme = gtk::IconTheme::for_display(&display).unwrap();
+                let icon_theme = gtk::IconTheme::for_display(&display);
                 if let Err(err) = crate::common::init_tmp(&icon_theme) {
                     log::error!("Failed to load icon theme: {}", err);
                 };

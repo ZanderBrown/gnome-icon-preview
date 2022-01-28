@@ -109,7 +109,7 @@ impl ProjectPreviewer {
         let context = cairo::Context::new(&surface).ok()?;
 
         let snap = gtk::Snapshot::new();
-        let paintable = gtk::WidgetPaintable::new(Some(self)).current_image().unwrap();
+        let paintable = gtk::WidgetPaintable::new(Some(self)).current_image();
         paintable.snapshot(snap.upcast_ref::<gdk::Snapshot>(), width as f64, height as f64);
         let node = snap.to_node()?;
         node.draw(&context);
