@@ -6,13 +6,11 @@ edition = "2021"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-gtk = { version = "0.4", package = "gtk4" }
-gdk_pixbuf = { version = "0.15", package = "gdk-pixbuf", features = ["v2_36"] }
+gtk = { version = "0.4", package = "gtk4", features = ["v4_6"] }
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 gtk-macros = "0.3"
 adw = { version = "0.1.0", package = "libadwaita" }
-pangocairo = "0.15"
 pretty_env_logger = "0.3"
 cairo = { version = "0.15", package = "cairo-rs", features = ["svg", "v1_16"] }
 rand = "0.7"

@@ -32,7 +32,6 @@ version = "3.0.0"
 dependencies = [
  "anyhow",
  "cairo-rs",
- "gdk-pixbuf",
  "gettext-rs",
  "gtk-macros",
  "gtk4",
@@ -40,7 +39,6 @@ dependencies = [
  "librsvg",
  "log",
  "once_cell",
- "pangocairo",
  "pretty_env_logger",
  "rand",
  "svgcleaner",

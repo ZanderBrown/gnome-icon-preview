@@ -3,15 +3,10 @@ use crate::project::{Project, ProjectType};
 
 use gettextrs::gettext;
 use rand::seq::SliceRandom;
-use std::path::PathBuf;
 
 use adw::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{
-    gdk, gio,
-    glib::{self, clone},
-    pango,
-};
+use gtk::{gdk, gio, glib, graphene, gsk, pango};
 
 // A struct that represents a widget to render a Project
 mod imp {
@@ -80,17 +75,17 @@ impl ProjectPreviewer {
         glib::Object::new(&[]).unwrap()
     }
 
-    fn screenshot(&self) -> Option<gdk_pixbuf::Pixbuf> {
-        let width = self.allocated_width();
-        let height = self.allocated_height();
-        let scale = self.scale_factor();
+    fn screenshot(&self) -> Option<gdk::Texture> {
+        let width = self.allocated_width() as f32;
+        let height = self.allocated_height() as f32;
 
-        let surface = cairo::ImageSurface::create(cairo::Format::ARgb32, width * scale, height * scale).unwrap();
-        surface.set_device_scale(scale as f64, scale as f64);
+        let padding: f32 = 12.0;
+        let margin: f32 = 6.0;
 
-        let logo = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/badge.svg");
-        let handle = rsvg::Loader::new().read_file(&logo, gio::Cancellable::NONE).ok()?;
-        let renderer = rsvg::CairoRenderer::new(&handle);
+        let logo = gdk::Texture::from_resource("/org/gnome/design/AppIconPreview/badge.svg");
+
+        let logo_width = logo.intrinsic_width() as f32;
+        let logo_height = logo.intrinsic_height() as f32;
 
         let layout = self.create_pango_layout(Some(&gettext("App Icon Preview")));
         let mut font_description = pango::FontDescription::new();
@@ -98,56 +93,52 @@ impl ProjectPreviewer {
         font_description.set_size(pango::SCALE * 10);
         layout.set_font_description(Some(&font_description));
 
-        let dimensions = renderer.intrinsic_dimensions();
-        let logo_width = dimensions.width.unwrap().length as i32;
-        let logo_height = dimensions.height.unwrap().length as i32;
-
-        let padding = 12.0;
-
         let (_, txt_extents) = layout.pixel_extents();
-
-        let context = cairo::Context::new(&surface).ok()?;
+        let text_width = txt_extents.width() as f32;
+        let text_height = txt_extents.height() as f32;
 
         let snap = gtk::Snapshot::new();
+
+        // Compute relative positions.
+        let logo_x = if self.direction() == gtk::TextDirection::Ltr { 0.0 } else { text_width + margin };
+        let logo_y = 0.0;
+
+        let txt_x = if self.direction() == gtk::TextDirection::Ltr { logo_width + margin } else { 0.0 };
+        let txt_y = if text_height < logo_height { (logo_height - text_height) / 2.0 } else { 0.0 };
+
+        // Snapshot previewer.
         let paintable = gtk::WidgetPaintable::new(Some(self)).current_image();
         paintable.snapshot(snap.upcast_ref::<gdk::Snapshot>(), width as f64, height as f64);
+
+        // Snapshot logo.
+        let origin = if self.direction() == gtk::TextDirection::Ltr {
+            graphene::Point::new(padding, padding)
+        } else {
+            graphene::Point::new(width - padding - logo_width - margin - text_width, padding)
+        };
+        snap.translate(&origin);
+
+        let point = graphene::Point::new(logo_x, logo_y);
+
+        snap.save();
+        snap.translate(&point);
+        logo.snapshot(snap.upcast_ref::<gdk::Snapshot>(), logo_width as f64, logo_height as f64);
+        snap.restore();
+
+        // Snapshot text.
+        let point = graphene::Point::new(txt_x, txt_y);
+        snap.translate(&point);
+
+        snap.append_layout(&layout, &gdk::RGBA::BLACK);
+
+        // To texture
         let node = snap.to_node()?;
-        node.draw(&context);
+        let renderer = gsk::GLRenderer::new();
+        renderer.realize(gdk::Surface::NONE).ok()?;
+        let texture = renderer.render_texture(&node, None);
+        renderer.unrealize();
 
-        let mut img_x = 0.0;
-        let txt_x = if self.direction() == gtk::TextDirection::Rtl {
-            img_x = txt_extents.width() as f64 + padding;
-            0.0
-        } else {
-            logo_width as f64 + padding
-        };
-
-        let mut img_y = 0.0;
-        let txt_y = if txt_extents.height() < logo_height {
-            (logo_height - txt_extents.height()) as f64 / 2.0
-        } else {
-            img_y = (txt_extents.height() - logo_height) as f64 / 2.0;
-            0.0
-        };
-        context.save().ok()?;
-        renderer
-            .render_document(
-                &context,
-                &cairo::Rectangle {
-                    x: padding + img_x,
-                    y: padding + img_y,
-                    width: logo_width as f64,
-                    height: logo_height as f64,
-                },
-            )
-            .ok()?;
-        context.fill().ok()?;
-        context.restore().ok()?;
-
-        context.move_to(padding + txt_x, padding + txt_y);
-        pangocairo::show_layout(&context, &layout);
-
-        gdk::pixbuf_get_from_surface(&surface, 0, 0, width * scale, height * scale)
+        Some(texture)
     }
 
     pub fn preview(&self, project: &Project) {
@@ -186,9 +177,8 @@ impl ProjectPreviewer {
         let display = gdk::Display::default().unwrap();
         let clipboard = display.clipboard();
 
-        let pixbuf = self.screenshot().unwrap();
+        let texture = self.screenshot().unwrap();
 
-        let texture = gdk::Texture::for_pixbuf(&pixbuf);
         clipboard.set_texture(&texture);
 
         let toast = adw::Toast::new(&gettext("Screenshot copied to clipboard"));
@@ -196,8 +186,9 @@ impl ProjectPreviewer {
         self.imp().toast_overlay.add_toast(&toast);
     }
 
-    pub fn save_screenshot(&self) {
-        let pixbuf = self.screenshot().unwrap();
+    pub async fn save_screenshot(&self) -> anyhow::Result<()> {
+        let texture = self.screenshot().unwrap();
+        let bytes = texture.save_to_png_bytes();
         let root = self.root().unwrap();
 
         let dialog = gtk::FileChooserNative::builder()
@@ -229,29 +220,14 @@ impl ProjectPreviewer {
         png_filter.add_mime_type("image/png");
         dialog.add_filter(&png_filter);
 
-        let jpeg_filter = gtk::FileFilter::new();
-        jpeg_filter.set_name(Some(&gettext("JPEG")));
-        jpeg_filter.add_pattern("*.jpg");
-        jpeg_filter.add_pattern("*.jpeg");
-        jpeg_filter.add_mime_type("image/jpeg");
-        dialog.add_filter(&jpeg_filter);
+        if dialog.run_future().await == gtk::ResponseType::Accept {
+            let file = dialog.file().unwrap();
 
-        dialog.connect_response(clone!(@strong pixbuf, @strong dialog => move |_, response| {
-            if response == gtk::ResponseType::Accept {
-                let filename: PathBuf = dialog.file().unwrap().basename().unwrap();
-                let ext = match filename.extension() {
-                    Some(ext) => ext.to_str().unwrap(),
-                    None => "png"
-                };
-                let file = dialog.file().unwrap();
-                let stream = file.replace(None, false,
-                                          gio::FileCreateFlags::REPLACE_DESTINATION,
-                                          gio::Cancellable::NONE).unwrap();
+            let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::PRIORITY_DEFAULT).await?;
+            stream.write_bytes_future(&bytes, glib::PRIORITY_DEFAULT).await?;
+        };
+        dialog.destroy();
 
-                pixbuf.save_to_streamv(&stream, ext, &[], gio::Cancellable::NONE).unwrap();
-            }
-            dialog.destroy();
-        }));
-        dialog.show();
+        Ok(())
     }
 }

@@ -241,8 +241,13 @@ impl Window {
         action!(
             self,
             "save_screenshot",
-            clone!(@weak self as window, @strong imp.previewer as previewer => move |_, _| {
-                previewer.save_screenshot();
+            clone!(@strong imp.previewer as previewer => move |_, _| {
+                let ctx = glib::MainContext::default();
+                ctx.spawn_local(clone!(@weak previewer => async move {
+                    previewer.save_screenshot()
+                             .await
+                             .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
+                }));
             })
         );
 
