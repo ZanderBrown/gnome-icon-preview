@@ -121,15 +121,14 @@ impl Window {
         imp.monitor.borrow_mut().replace(monitor);
         imp.open_project.borrow_mut().replace(project);
 
-        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@strong imp.open_project as project,
-        @strong imp.exporter as exporter, @strong imp.previewer as previewer  => move |monitor, _, _, event| {
+        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@weak imp.open_project as project,
+        @weak self as this => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
                 let file = project.borrow().as_ref().unwrap().file();
                 match Project::parse(file, true) {
                     Ok(project) => {
                         monitor.cancel();
-                        previewer.preview(&project);
-                        exporter.set_project(&project);
+                        this.set_open_project(project);
                     }
                     Err(err) => log::warn!("Failed to parse the project {}", err),
                 }
