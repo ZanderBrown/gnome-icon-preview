@@ -2,7 +2,7 @@ project('app-icon-preview',
         'rust',
         version: '3.1.0',
         license: 'GPL-3.0-or-later',
-	meson_version : '>= 0.50')
+        meson_version : '>= 0.59')
 
 i18n = import('i18n')
 gnome = import('gnome')
@@ -37,7 +37,7 @@ localedir = prefix / get_option('localedir')
 datadir = prefix / get_option('datadir')
 pkgdatadir = datadir / meson.project_name()
 iconsdir = datadir / 'icons'
-podir =meson.source_root () / 'po'
+podir = meson.project_source_root () / 'po'
 gettext_package = meson.project_name()
 
 
@@ -61,8 +61,8 @@ application_id = '@0@@1@'.format(base_id, profile)
 
 meson.add_dist_script(
   'build-aux/dist-vendor.sh',
-  meson.build_root() / 'meson-dist' / meson.project_name() + '-' + version,
-  meson.source_root()
+  meson.project_build_root() / 'meson-dist' / meson.project_name() + '-' + version,
+  meson.project_source_root()
 )
 
 if get_option('profile') == 'development'
