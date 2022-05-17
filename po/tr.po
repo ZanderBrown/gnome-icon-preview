@@ -3,35 +3,38 @@
 # This file is distributed under the same license as the icon tool package.
 #
 # Emin Tufan Çetin <etcetin@gmail.com>, 2019-2020.
-# Sabri Ünal <libreajans@gmail.com>, 2019-2020.
+# Sabri Ünal <libreajans@gmail.com>, 2019, 2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2020-05-25 06:34+0000\n"
-"PO-Revision-Date: 2020-05-26 19:34+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2022-01-28 21:28+0000\n"
+"PO-Revision-Date: 2022-04-24 02:42+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
 
 # Uygulama adı olduğu için çevrilmedi
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Uygulama simgelerini önizleme"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Virgülle ayrılmış olarak en son açılan dosyalar"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
 msgid "Tool for designing applications icons"
@@ -49,18 +52,11 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Uygulama simgesini önizleme"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-# Header bilgileriyle uyumlu olmasına özen gösterelim.
-#: data/resources/ui/about_dialog.ui.in:15
-msgid "translator-credits"
-msgstr ""
-"Sabri Ünal <libreajans@gmail.com>\n"
-"Emin Tufan Çetin <etcetin@gmail.com>"
-
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -68,226 +64,253 @@ msgstr ""
 "Simgeyi genel kullanım için aktar. Tuval dışı nesneler silinir ve SVG boyutu "
 "eniyilenir"
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:48
 msgid "Regular"
 msgstr "Sıradan"
 
-#: data/resources/ui/export.ui:89
+#: data/resources/ui/export.ui:62
 msgid "Save Regular As…"
 msgstr "Sıradanı Farklı Kaydet…"
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:94
 msgid "Nightly"
 msgstr "Gecelik"
 
-#: data/resources/ui/export.ui:165
+#: data/resources/ui/export.ui:108
 msgid "Save Nightly As…"
 msgstr "Geceliği Farklı Kaydet…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Semboliği Farklı Kaydet…"
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:142
 msgid "Symbolic"
 msgstr "Sembolik"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Semboliği Farklı Kaydet…"
+
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Uygulama"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Yeni Pencere"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open an icon"
-msgstr "Simge aç"
+msgid "Open an Icon"
+msgstr "Simge Aç"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Son kullanılanlar listesini aç"
+msgid "Quit the Application"
+msgstr "Uygulamadan Çık"
 
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Menüyü aç"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
-msgstr "Uygulamadan çık"
-
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Görünüm"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
-msgid "Reload the icon"
-msgstr "Simgeyi yeniden yükle"
+msgid "Reload the Icon"
+msgstr "Simgeyi Yeniden Yükle"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
-msgid "Export the icon"
-msgstr "Simgeyi dışa aktar"
+msgid "Export the Icon"
+msgstr "Simgeyi Dışa Aktar"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
-msgid "Shuffle icons"
-msgstr "Simgeleri karıştır"
+msgid "Shuffle Icons"
+msgstr "Simgeleri Karıştır"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
-msgid "Take screenshot"
-msgstr "Ekran görüntüsü al"
+msgid "Take Screenshot"
+msgstr "Ekran Görüntüsü Al"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
-msgstr "Ekran görüntüsünü panoya kopyala"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "Ekran Görüntüsünü Panoya Kopyala"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "_Yeni Pencere"
-
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Yeniden Yükle"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "Ekran Görün_tüsü Al"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "Örnek _Simgeleri Karıştır"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "_Klavye Kısayolları"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "App Icon Preview _Hakkında"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Uygulama Adı"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Simge Konumu"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Ters alan adı gösterim adı, örneğin: org.inscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Simge SVG dosyası bu dizinde saklanacak"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Projeler"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Göz At…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
-#: src/project.rs:100
-msgid "_Cancel"
-msgstr "İptal _Et"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Oluştur"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Kapat"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Kaydet…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Panoya Kopyala"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Aç"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Simge aç"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Son Kullanılan"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Menü"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:97
-msgid "Export"
-msgstr "Dışa Aktar"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Yeni Uygulama Simgesi oluştur"
-
-#: data/resources/ui/window.ui.in:273
+#: data/resources/ui/new_project.ui:7
 msgid "New App Icon"
 msgstr "Yeni Uygulama Simgesi"
 
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Seç"
+#: data/resources/ui/new_project.ui:18 src/project.rs:157
+#: src/widgets/project_previewer.rs:198
+msgid "_Cancel"
+msgstr "İptal _Et"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "İptal Et"
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Oluştur"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Ekran Görüntüsünü Kaydet"
+#: data/resources/ui/new_project.ui:48
+msgid "App Name"
+msgstr "Uygulama Adı"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:100
+#: data/resources/ui/new_project.ui:58
+msgid "Icon Location"
+msgstr "Simge Konumu"
+
+#: data/resources/ui/new_project.ui:77
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Ters alan adı gösterim adı, örneğin: org.inscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:91
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Simge SVG dosyası bu dizinde saklanacak"
+
+#: data/resources/ui/new_project.ui:107
+msgid "~/Projects"
+msgstr "~/Projeler"
+
+#: data/resources/ui/new_project.ui:113
+msgid "_Browse…"
+msgstr "_Göz At…"
+
+#: data/resources/ui/window.ui:17
+msgid "_Open"
+msgstr "_Aç"
+
+#: data/resources/ui/window.ui:19
+msgid "Open an icon"
+msgstr "Simge aç"
+
+#: data/resources/ui/window.ui:25
+msgid "Menu"
+msgstr "Menü"
+
+#: data/resources/ui/window.ui:32
+msgid "_Export"
+msgstr "_Dışa Aktar"
+
+#: data/resources/ui/window.ui:50
+msgid "Make a new App Icon"
+msgstr "Yeni Uygulama Simgesi oluştur"
+
+#: data/resources/ui/window.ui:176
+msgid "_New App Icon"
+msgstr "_Yeni Uygulama Simgesi"
+
+#: data/resources/ui/window.ui:197
+msgid "_New Window"
+msgstr "_Yeni Pencere"
+
+#: data/resources/ui/window.ui:203
+msgid "_Reload"
+msgstr "_Yeniden Yükle"
+
+#: data/resources/ui/window.ui:207
+msgid "_Copy Screenshot"
+msgstr "_Ekran Görüntüsünü Kopyala"
+
+#: data/resources/ui/window.ui:211
+msgid "_Save Screenshot"
+msgstr "_Ekran Görüntüsünü Kaydet"
+
+#: data/resources/ui/window.ui:215
+msgid "_Shuffle Example Icons"
+msgstr "Örnek _Simgeleri Karıştır"
+
+#: data/resources/ui/window.ui:221
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavye Kısayolları"
+
+#: data/resources/ui/window.ui:225
+msgid "_About App Icon Preview"
+msgstr "App Icon Preview _Hakkında"
+
+# Header bilgileriyle uyumlu olmasına özen gösterelim.
+#: src/application.rs:171
+msgid "translator-credits"
+msgstr ""
+"Sabri Ünal <libreajans@gmail.com>\n"
+"Emin Tufan Çetin <etcetin@gmail.com>"
+
+#: src/project.rs:157
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: src/project.rs:157 src/widgets/project_previewer.rs:197
 msgid "_Save"
 msgstr "_Kaydet"
 
-#: src/widgets/screenshot_dialog.rs:46
+#: src/project.rs:162
+msgid "SVG"
+msgstr "SVG"
+
+#: src/widgets/new_project.rs:56
+msgid "Select Icon Location"
+msgstr "Simge Konumu Seç"
+
+#: src/widgets/new_project.rs:59
+msgid "Select"
+msgstr "Seç"
+
+#: src/widgets/new_project.rs:59
+msgid "Cancel"
+msgstr "İptal Et"
+
+#: src/widgets/project_previewer.rs:184
+msgid "Screenshot copied to clipboard"
+msgstr "Ekran görüntüsü panoya kopyalandı"
+
+#: src/widgets/project_previewer.rs:195
+msgid "Save Screenshot"
+msgstr "Ekran Görüntüsünü Kaydet"
+
+#: src/widgets/project_previewer.rs:202
 msgid "Preview"
 msgstr "Önizleme"
 
-#: src/widgets/screenshot_dialog.rs:61
+#: src/widgets/project_previewer.rs:218
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:67
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:228
+#: src/widgets/window.rs:268
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/widgets/window.rs:233
+#: src/widgets/window.rs:273
 msgid "SVG images"
 msgstr "SVG görüntüler"
 
-#: src/project.rs:106
-msgid "SVG"
-msgstr "SVG"
+#~ msgctxt "shortcut window"
+#~ msgid "Open the recent list"
+#~ msgstr "Son kullanılanlar listesini aç"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open the menu"
+#~ msgstr "Menüyü aç"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Take screenshot"
+#~ msgstr "Ekran görüntüsü al"
+
+#~ msgid "Close"
+#~ msgstr "Kapat"
+
+#~ msgid "Save…"
+#~ msgstr "Kaydet…"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Panoya Kopyala"
+
+#~ msgid "Open"
+#~ msgstr "Aç"
+
+#~ msgid "Recent"
+#~ msgstr "Son Kullanılan"
+
+#~ msgid "JPEG"
+#~ msgstr "JPEG"
 
 # Şahıs adı olduğu için çevrilmedi
 #~ msgid "Zander Brown"
@@ -328,9 +351,6 @@ msgstr "SVG"
 #~ msgstr ""
 #~ "Dosyanızın GNOME simgesi olarak çalışacağından emin olmak için şablondan "
 #~ "başlayın"
-
-#~ msgid "_Open"
-#~ msgstr "_Aç"
 
 #~ msgid "Icons"
 #~ msgstr "Simgeler"
