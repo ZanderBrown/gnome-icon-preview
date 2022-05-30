@@ -1,0 +1,280 @@
+# Russian translation for app-icon-preview.
+# Copyright (C) 2022 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: app-icon-preview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
+"issues\n"
+"POT-Creation-Date: 2022-05-17 11:19+0000\n"
+"PO-Revision-Date: 2022-05-26 23:06+1000\n"
+"Last-Translator: Ser82-png <sw@atrus.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.3\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+msgid "App Icon Preview"
+msgstr "App Icon Preview"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Просмотр значков приложений"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Последние открытые файлы, разделённые запятой"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Tool for designing applications icons"
+msgstr "Инструмент для создания значков приложений"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"App Icon Preview — это инструмент для создания значков в стиле рабочего "
+"окружения GNOME."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Предварительный просмотр значка приложения"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:99
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+
+#: data/resources/ui/export.ui:16
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Экспортировать значок для использования. Объекты вне холста будут удалены, а "
+"размер SVG оптимизирован"
+
+#: data/resources/ui/export.ui:48
+msgid "Regular"
+msgstr "Обычный"
+
+#: data/resources/ui/export.ui:62
+msgid "Save Regular As…"
+msgstr "Сохранить «обычный» как…"
+
+#: data/resources/ui/export.ui:94
+msgid "Nightly"
+msgstr "Ночной"
+
+#: data/resources/ui/export.ui:108
+msgid "Save Nightly As…"
+msgstr "Сохранить «ночной» как…"
+
+#: data/resources/ui/export.ui:142
+msgid "Symbolic"
+msgstr "Символический"
+
+#: data/resources/ui/export.ui:155
+msgid "Save Symbolic As…"
+msgstr "Сохранить «символический» как…"
+
+#: data/resources/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Приложение"
+
+#: data/resources/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Новое окно"
+
+#: data/resources/ui/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open an Icon"
+msgstr "Открыть значок"
+
+#: data/resources/ui/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Quit the Application"
+msgstr "Закрыть приложение"
+
+#: data/resources/ui/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Вид"
+
+#: data/resources/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Reload the Icon"
+msgstr "Перезагрузить значок"
+
+#: data/resources/ui/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Export the Icon"
+msgstr "Экспортировать значок"
+
+#: data/resources/ui/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "Shuffle Icons"
+msgstr "Перемешать значки"
+
+#: data/resources/ui/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Take Screenshot"
+msgstr "Сделать снимок экрана"
+
+#: data/resources/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "Копировать снимок экрана в буфер обмена"
+
+#: data/resources/ui/new_project.ui:7
+msgid "New App Icon"
+msgstr "Новый значок приложения"
+
+#: data/resources/ui/new_project.ui:18 src/project.rs:157
+#: src/widgets/project_previewer.rs:198
+msgid "_Cancel"
+msgstr "_Отмена"
+
+#: data/resources/ui/new_project.ui:23
+msgid "_Create"
+msgstr "_Создать"
+
+#: data/resources/ui/new_project.ui:48
+msgid "App Name"
+msgstr "Название приложения"
+
+#: data/resources/ui/new_project.ui:58
+msgid "Icon Location"
+msgstr "Расположение значка"
+
+#: data/resources/ui/new_project.ui:77
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr "Обратная запись доменного имени, например org.inkscape.Inkscape"
+
+#: data/resources/ui/new_project.ui:91
+msgid "The icon SVG file will be stored in this directory"
+msgstr "Файл значка SVG будет храниться в этом каталоге"
+
+#: data/resources/ui/new_project.ui:107
+msgid "~/Projects"
+msgstr "~/Проекты"
+
+#: data/resources/ui/new_project.ui:113
+msgid "_Browse…"
+msgstr "_Обзор…"
+
+#: data/resources/ui/window.ui:17
+msgid "_Open"
+msgstr "_Открыть"
+
+#: data/resources/ui/window.ui:19
+msgid "Open an icon"
+msgstr "Открыть значок"
+
+#: data/resources/ui/window.ui:25
+msgid "Menu"
+msgstr "Меню"
+
+#: data/resources/ui/window.ui:32
+msgid "_Export"
+msgstr "_Экспортировать"
+
+#: data/resources/ui/window.ui:50
+msgid "Make a new App Icon"
+msgstr "Создать новый значок приложения"
+
+#: data/resources/ui/window.ui:176
+msgid "_New App Icon"
+msgstr "_Новый значок приложения"
+
+#: data/resources/ui/window.ui:197
+msgid "_New Window"
+msgstr "_Новое окно"
+
+#: data/resources/ui/window.ui:203
+msgid "_Reload"
+msgstr "_Перезагрузить"
+
+#: data/resources/ui/window.ui:207
+msgid "_Copy Screenshot"
+msgstr "_Копировать снимок экрана"
+
+#: data/resources/ui/window.ui:211
+msgid "_Save Screenshot"
+msgstr "_Сохранить снимок экрана"
+
+#: data/resources/ui/window.ui:215
+msgid "_Shuffle Example Icons"
+msgstr "_Перемешать примеры значков"
+
+#: data/resources/ui/window.ui:221
+msgid "_Keyboard Shortcuts"
+msgstr "_Комбинации клавиш"
+
+#: data/resources/ui/window.ui:225
+msgid "_About App Icon Preview"
+msgstr "_О приложении App Icon Preview"
+
+#: src/application.rs:171
+msgid "translator-credits"
+msgstr ""
+"Svyatoj <e.semenov.surgut@gmail.com>, 2022\n"
+"Ser82-png <sw@atrus.ru>, 2022"
+
+#: src/project.rs:157
+msgid "Export"
+msgstr "Экспортировать"
+
+#: src/project.rs:157 src/widgets/project_previewer.rs:197
+msgid "_Save"
+msgstr "_Сохранить"
+
+#: src/project.rs:162
+msgid "SVG"
+msgstr "SVG"
+
+#: src/widgets/new_project.rs:56
+msgid "Select Icon Location"
+msgstr "Выбрать расположение значка"
+
+#: src/widgets/new_project.rs:59
+msgid "Select"
+msgstr "Выбрать"
+
+#: src/widgets/new_project.rs:59
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/widgets/project_previewer.rs:184
+msgid "Screenshot copied to clipboard"
+msgstr "Копировать снимок экрана в буфер обмена"
+
+#: src/widgets/project_previewer.rs:195
+msgid "Save Screenshot"
+msgstr "Сохранить снимок экрана"
+
+#: src/widgets/project_previewer.rs:202
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: src/widgets/project_previewer.rs:218
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/window.rs:267
+msgid "Open File"
+msgstr "Открыть файл"
+
+#: src/widgets/window.rs:272
+msgid "SVG images"
+msgstr "SVG изображения"
