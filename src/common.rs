@@ -115,8 +115,8 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result
     surface.set_document_unit(cairo::SvgUnit::Px);
     let cr = cairo::Context::new(&surface)?;
     let dimensions = renderer.intrinsic_dimensions();
-    let width = dimensions.width.unwrap().length;
-    let height = dimensions.height.unwrap().length;
+    let width = dimensions.width.length;
+    let height = dimensions.height.length;
 
     renderer.render_layer(&cr, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
 
@@ -136,8 +136,8 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
         let renderer = CairoRenderer::new(handle);
         let viewport = {
             let doc = renderer.intrinsic_dimensions();
-            let width = doc.width.unwrap().length;
-            let height = doc.height.unwrap().length;
+            let width = doc.width.length;
+            let height = doc.height.length;
 
             cairo::Rectangle { x: 0.0, y: 0.0, width, height }
         };
@@ -172,8 +172,8 @@ pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
     let surface = cairo::SvgSurface::new(output_size, output_size, None::<&std::path::Path>).unwrap();
 
     let context = cairo::Context::new(&surface)?;
-    let width = dimensions.width.unwrap().length;
-    let height = dimensions.height.unwrap().length;
+    let width = dimensions.width.length;
+    let height = dimensions.height.length;
 
     renderer.render_layer(&context, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
     Ok(surface)

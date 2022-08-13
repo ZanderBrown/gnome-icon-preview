@@ -61,7 +61,7 @@ mod imp {
                 dialog.set_default_response(gtk::ResponseType::Accept);
                 dialog.set_modal(true);
                 let home_dir = gio::File::for_path(&glib::home_dir());
-                dialog.set_current_folder(&home_dir).unwrap();
+                dialog.set_current_folder(Some(&home_dir)).unwrap();
                 dialog.connect_response(clone!(@weak dialog, @weak parent => move |_, response| {
                     if response == gtk::ResponseType::Accept {
                         let home = glib::home_dir();

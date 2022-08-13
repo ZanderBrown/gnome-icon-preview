@@ -203,7 +203,7 @@ impl ProjectPreviewer {
 
         let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures).unwrap();
         let gdir = gio::File::for_path(&xdg_pictures_dir);
-        dialog.set_current_folder(&gdir).unwrap();
+        dialog.set_current_folder(Some(&gdir)).unwrap();
 
         let any_filter = gtk::FileFilter::new();
         any_filter.set_name(Some(&gettext("App Icon Preview")));
