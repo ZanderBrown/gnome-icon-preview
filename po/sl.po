@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the app-icon-preview package.
 #
 # Matej Urbančič <mateju@svn.gnome.org>, 2020–.
+# Martin Srebotnjak <miles@filmsi.net>, 2022-.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-10-16 10:27+0000\n"
-"PO-Revision-Date: 2021-11-09 17:31+0100\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"POT-Creation-Date: 2022-08-13 12:27+0000\n"
+"PO-Revision-Date: 2022-09-22 09:56+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:70 src/widgets/screenshot_dialog.rs:57
+#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
 msgid "App Icon Preview"
 msgstr "Predogled ikone programa"
 
@@ -33,20 +34,6 @@ msgid "Preview applications icons"
 msgstr "Predogled ikon programov"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:7
-msgid "Default window width"
-msgstr "Privzeta širina okna"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:11
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:12
-msgid "Default window height"
-msgstr "Privzeta višina okna"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:16
-msgid "Default window maximized behaviour"
-msgstr "Obnašanje privzeto razpetega okna"
-
-#: data/org.gnome.design.AppIconPreview.gschema.xml.in:21
 msgid "The latest opened files separated by a comma"
 msgstr "Seznam nazadnje odprtih datotek, ločenih z vejico"
 
@@ -64,13 +51,9 @@ msgstr "Predoglednik ikon je orodje za oblikovanje ikon za namizje GNOME:"
 msgid "Previewing an Application icon"
 msgstr "Predogled ikone programa"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:99
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui in Zander Brown"
-
-#: data/resources/ui/about_dialog.ui.in:10
-msgid "translator-credits"
-msgstr "Matej Urbančič <mateju@src.gnome.org>"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -104,207 +87,193 @@ msgstr "Simbolno"
 msgid "Save Symbolic As…"
 msgstr "Shrani simbolno kot …"
 
-#: data/resources/ui/gtk/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: data/resources/ui/gtk/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Odpre novo okno"
 
-#: data/resources/ui/gtk/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Odpre ikono"
 
-#: data/resources/ui/gtk/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Konča izvajanje programa"
 
-#: data/resources/ui/gtk/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Pogled"
 
-#: data/resources/ui/gtk/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Ponovno naloži ikono"
 
-#: data/resources/ui/gtk/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Izvozi ikono"
 
-#: data/resources/ui/gtk/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Premeša ikone"
 
-#: data/resources/ui/gtk/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Zajeme zaslonsko sliko"
 
-#: data/resources/ui/gtk/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Kopira zaslonsko sliko v odložišče"
 
-#: data/resources/ui/new_project.ui:5
+#: data/resources/ui/new_project.ui:7
 msgid "New App Icon"
 msgstr "Nova ikona programa"
 
-#: data/resources/ui/new_project.ui:15 src/project.rs:102
-#: src/widgets/screenshot_dialog.rs:47
+#: data/resources/ui/new_project.ui:18 src/project.rs:157
+#: src/widgets/project_previewer.rs:198
 msgid "_Cancel"
 msgstr "_Prekliči"
 
-#: data/resources/ui/new_project.ui:20
+#: data/resources/ui/new_project.ui:23
 msgid "_Create"
 msgstr "_Ustvari"
 
-#: data/resources/ui/new_project.ui:46
+#: data/resources/ui/new_project.ui:48
 msgid "App Name"
 msgstr "Ime programa"
 
-#: data/resources/ui/new_project.ui:56
+#: data/resources/ui/new_project.ui:58
 msgid "Icon Location"
 msgstr "Mesto ikone"
 
-#: data/resources/ui/new_project.ui:75
+#: data/resources/ui/new_project.ui:77
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Obrnjen zapis imena domene, na primer org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:89
+#: data/resources/ui/new_project.ui:91
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Datoteka ikone SVG bo shranjena v tej mapi"
 
-#: data/resources/ui/new_project.ui:104
+#: data/resources/ui/new_project.ui:107
 msgid "~/Projects"
 msgstr "~/Projekti"
 
-#: data/resources/ui/new_project.ui:109
+#: data/resources/ui/new_project.ui:113
 msgid "_Browse…"
 msgstr "_Prebrskaj …"
 
-#: data/resources/ui/screenshot_dialog.ui:16
-msgid "_Save…"
-msgstr "Shrani …"
-
-#: data/resources/ui/screenshot_dialog.ui:26
-msgid "_Copy to Clipboard"
-msgstr "Kopiraj v _odložišče"
-
-#: data/resources/ui/window.ui:13
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Odpri "
 
-#: data/resources/ui/window.ui:15
+#: data/resources/ui/window.ui:19
 msgid "Open an icon"
 msgstr "Odpri ikono"
 
-#: data/resources/ui/window.ui:21
+#: data/resources/ui/window.ui:25
 msgid "Menu"
 msgstr "Meni"
 
-#: data/resources/ui/window.ui:28
+#: data/resources/ui/window.ui:32
 msgid "_Export"
 msgstr "_Izvozi"
 
-#: data/resources/ui/window.ui:47
+#: data/resources/ui/window.ui:50
 msgid "Make a new App Icon"
 msgstr "Ustvari novo ikono programa"
 
-#: data/resources/ui/window.ui:173
+#: data/resources/ui/window.ui:176
 msgid "_New App Icon"
 msgstr "_Nova ikona programa"
 
-#: data/resources/ui/window.ui:194
+#: data/resources/ui/window.ui:197
 msgid "_New Window"
 msgstr "_Novo okno"
 
-#: data/resources/ui/window.ui:200
+#: data/resources/ui/window.ui:203
 msgid "_Reload"
 msgstr "Ponovno _naloži"
 
-#: data/resources/ui/window.ui:204
-msgid "_Take Screenshot"
-msgstr "_Zajemi zaslonsko sliko"
+#: data/resources/ui/window.ui:207
+msgid "_Copy Screenshot"
+msgstr "_Kopiraj zaslonsko sliko"
 
-#: data/resources/ui/window.ui:208
+#: data/resources/ui/window.ui:211
+msgid "_Save Screenshot"
+msgstr "_Shrani zaslonsko sliko"
+
+#: data/resources/ui/window.ui:215
 msgid "_Shuffle Example Icons"
 msgstr "_Premešaj primere ikon"
 
-#: data/resources/ui/window.ui:214
+#: data/resources/ui/window.ui:221
 msgid "_Keyboard Shortcuts"
 msgstr "_Tipkovne bližnjice"
 
-#: data/resources/ui/window.ui:218
+#: data/resources/ui/window.ui:225
 msgid "_About App Icon Preview"
 msgstr "_O programu"
 
-#: src/project.rs:102
+#: src/application.rs:171
+msgid "translator-credits"
+msgstr "Matej Urbančič <mateju@src.gnome.org>"
+
+#: src/project.rs:157
 msgid "Export"
 msgstr "Izvoz"
 
-#: src/project.rs:102 src/widgets/screenshot_dialog.rs:46
+#: src/project.rs:157 src/widgets/project_previewer.rs:197
 msgid "_Save"
 msgstr "_Shrani"
 
-#: src/project.rs:107
+#: src/project.rs:162
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:54
+#: src/widgets/new_project.rs:56
+msgid "Select Icon Location"
+msgstr "Izberite mesto ikone"
+
+#: src/widgets/new_project.rs:59
 msgid "Select"
 msgstr "Izberi"
 
-#: src/widgets/new_project.rs:55
+#: src/widgets/new_project.rs:59
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/widgets/screenshot_dialog.rs:43
+#: src/widgets/project_previewer.rs:184
+msgid "Screenshot copied to clipboard"
+msgstr "Posnetek zaslona kopiran na odložišče"
+
+#: src/widgets/project_previewer.rs:195
 msgid "Save Screenshot"
 msgstr "Shrani zajeto sliko"
 
-#: src/widgets/screenshot_dialog.rs:50
+#: src/widgets/project_previewer.rs:202
 msgid "Preview"
 msgstr "Predogled"
 
-#: src/widgets/screenshot_dialog.rs:66
+#: src/widgets/project_previewer.rs:218
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:72
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:292
+#: src/widgets/window.rs:267
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: src/widgets/window.rs:297
+#: src/widgets/window.rs:272
 msgid "SVG images"
 msgstr "Slike SVG"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the recent list"
-#~ msgstr "Odpre seznam nedavnih"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the menu"
-#~ msgstr "Odpre meni"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Take screenshot"
-#~ msgstr "Zajame zaslonsko sliko"
-
-#~ msgid "Close"
-#~ msgstr "Zapri"
-
-#~ msgid "Recent"
-#~ msgstr "Nedavno"
