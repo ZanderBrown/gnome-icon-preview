@@ -148,20 +148,19 @@ impl Application {
 
     fn show_about_dialog(&self) {
         let window = self.active_window().unwrap().downcast::<Window>().unwrap();
-        let dialog = gtk::AboutDialog::builder()
-            .program_name("App Icon Preview")
-            .logo_icon_name(config::APP_ID)
+        adw::AboutWindow::builder()
+            .application_name("App Icon Preview")
+            .application_icon(config::APP_ID)
             .license_type(gtk::License::Gpl30)
             .website("https://gitlab.gnome.org/World/design/app-icon-preview/")
             .version(config::VERSION)
             .transient_for(&window)
             .translator_credits(&gettext("translator-credits"))
             .modal(true)
-            .authors(vec!["Bilal Elmoussaoui".into(), "Zander Brown".into()])
+            .developers(vec!["Bilal Elmoussaoui".into(), "Zander Brown".into()])
             .artists(vec!["Tobias Bernard".into()])
-            .build();
-
-        dialog.show();
+            .build()
+            .present();
     }
 
     pub fn sender(&self) -> Sender<Action> {
