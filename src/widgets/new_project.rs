@@ -1,7 +1,6 @@
 use crate::application::Action;
 
 use gettextrs::gettext;
-use log::error;
 use std::iter::FromIterator;
 use std::path::PathBuf;
 
@@ -9,7 +8,6 @@ use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
-use gtk_macros::send;
 
 mod imp {
     use super::*;
@@ -41,14 +39,14 @@ mod imp {
                 let imp = widget.imp();
 
                 let project_name = format!("{}.Source.svg", imp.project_name.text());
-                let project_path = imp.project_path.text().replacen("~", glib::home_dir().to_str().unwrap(), 1);
+                let project_path = imp.project_path.text().replacen('~', glib::home_dir().to_str().unwrap(), 1);
 
                 let dest_path = PathBuf::from_iter(&[project_path, project_name]);
 
                 let project_file = gio::File::for_path(&dest_path);
 
                 let sender = imp.sender.get().unwrap();
-                send!(sender, Action::NewProject(project_file));
+                let _ = sender.send(Action::NewProject(project_file));
                 widget.destroy();
             });
             klass.install_action("project.browse", None, |parent, _, _| {

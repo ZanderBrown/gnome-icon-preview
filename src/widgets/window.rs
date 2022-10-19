@@ -4,16 +4,14 @@ use crate::config::{APP_ID, PROFILE};
 use crate::project::Project;
 
 use gettextrs::gettext;
-use log::error;
 use std::rc::Rc;
 
 use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gdk, gio, glib, CompositeTemplate};
-use gtk_macros::send;
+use gtk::{gdk, gio, glib};
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Eq, PartialEq)]
 pub enum View {
     Initial,
     Previewer,
@@ -27,7 +25,7 @@ mod imp {
 
     use adw::subclass::prelude::*;
 
-    #[derive(CompositeTemplate)]
+    #[derive(gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/window.ui")]
     pub struct Window {
         pub sender: OnceCell<glib::Sender<Action>>,
@@ -139,7 +137,7 @@ mod imp {
                     let file = file_chooser.file().unwrap();
                     let sender = window.imp().sender.get().unwrap();
                     match Project::parse(file, true) {
-                        Ok(project) => send!(sender, Action::OpenProject(project)),
+                        Ok(project) => sender.send(Action::OpenProject(project)).unwrap(),
                         Err(err) => log::warn!("Failed to open file {}", err),
                     };
                 }

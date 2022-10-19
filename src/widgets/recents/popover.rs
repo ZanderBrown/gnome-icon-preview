@@ -2,12 +2,9 @@ use super::item::RecentItemRow;
 use crate::application::Action;
 use crate::project::Project;
 
-use log::error;
-
 use gtk::glib::{clone, Sender};
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib, prelude::*};
-use gtk_macros::send;
 
 mod imp {
     use super::*;
@@ -50,7 +47,7 @@ mod imp {
 
                     let gesture = gtk::GestureClick::new();
                     gesture.connect_released(clone!(@weak project, @weak popover => move |gesture, _, _, _| {
-                        send!(popover.imp().sender.get().unwrap(), Action::OpenProject(project));
+                        let _ = popover.imp().sender.get().unwrap().send(Action::OpenProject(project));
                         popover.popdown();
                         gesture.set_state(gtk::EventSequenceState::Claimed);
                     }));

@@ -6,7 +6,6 @@ use adw::prelude::*;
 use gettextrs::gettext;
 use gtk::glib::{clone, Receiver, Sender};
 use gtk::{gdk, gio, glib, subclass::prelude::*};
-use gtk_macros::send;
 use log::error;
 
 pub enum Action {
@@ -140,7 +139,7 @@ impl Application {
                 window.set_open_project(project);
             }
             Action::NewProject(project_dest) => match Project::from_template(project_dest) {
-                Ok(project) => send!(self.imp().sender, Action::OpenProject(project)),
+                Ok(project) => self.imp().sender.send(Action::OpenProject(project)).unwrap(),
                 Err(err) => error!("{:#?}", err),
             },
         };

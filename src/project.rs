@@ -11,7 +11,7 @@ use gtk::{
     glib::{self, IsA},
 };
 
-#[derive(PartialEq, Debug, Clone, Copy)]
+#[derive(PartialEq, Eq, Debug, Clone, Copy)]
 pub enum ProjectType {
     Icon,    // A #hicolor & #symbolic found
     Preview, // A 128px SVG found

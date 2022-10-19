@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use gtk::{gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Icon {
     Symbolic,
     Scalable,
