@@ -46,8 +46,9 @@ mod imp {
         }
     }
     impl ObjectImpl for ProjectPreviewer {
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
+        fn constructed(&self) {
+            self.parent_constructed();
+            let obj = self.instance();
 
             let container = gtk::Box::new(gtk::Orientation::Horizontal, 0);
             container.append(&self.light_panel);
@@ -72,7 +73,7 @@ glib::wrapper! {
 impl ProjectPreviewer {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
-        glib::Object::new(&[]).unwrap()
+        glib::Object::new(&[])
     }
 
     fn screenshot(&self) -> Option<gdk::Texture> {

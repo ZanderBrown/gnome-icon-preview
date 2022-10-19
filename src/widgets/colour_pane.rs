@@ -69,7 +69,7 @@ glib::wrapper! {
 
 impl ColourPane {
     pub fn new(style: PaneStyle) -> Self {
-        let pane = glib::Object::new::<Self>(&[]).unwrap();
+        let pane = glib::Object::new::<Self>(&[]);
         pane.imp().style.set(style);
         pane.init();
         pane

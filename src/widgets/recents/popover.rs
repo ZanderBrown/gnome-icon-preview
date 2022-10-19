@@ -38,7 +38,9 @@ mod imp {
     }
 
     impl ObjectImpl for RecentsPopover {
-        fn constructed(&self, obj: &Self::Type) {
+        fn constructed(&self) {
+            self.parent_constructed();
+            let obj = self.instance();
             self.items_listbox.bind_model(
                 Some(&self.model),
                 clone!(@weak obj as popover => @default-panic, move |item| {
@@ -80,8 +82,6 @@ mod imp {
 
             on_manager_changed(&manager);
             manager.connect_changed(on_manager_changed);
-
-            self.parent_constructed(obj);
         }
     }
     impl WidgetImpl for RecentsPopover {}
@@ -95,7 +95,7 @@ glib::wrapper! {
 
 impl RecentsPopover {
     pub fn new(sender: Sender<Action>) -> Self {
-        let popover = glib::Object::new::<Self>(&[]).unwrap();
+        let popover = glib::Object::new::<Self>(&[]);
         popover.imp().sender.set(sender).unwrap();
         popover
     }

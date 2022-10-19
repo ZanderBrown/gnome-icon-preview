@@ -24,7 +24,9 @@ mod imp {
     }
 
     impl ObjectImpl for RecentItemRow {
-        fn constructed(&self, obj: &Self::Type) {
+        fn constructed(&self) {
+            self.parent_constructed();
+
             let container = gtk::Box::new(gtk::Orientation::Horizontal, 12);
 
             self.image.set_icon_size(gtk::IconSize::Large);
@@ -36,8 +38,7 @@ mod imp {
             self.label.add_css_class("recent-item");
             container.append(&self.label);
 
-            obj.set_child(Some(&container));
-            self.parent_constructed(obj);
+            self.instance().set_child(Some(&container));
         }
 
         fn properties() -> &'static [ParamSpec] {
@@ -53,18 +54,18 @@ mod imp {
             PROPERTIES.as_ref()
         }
 
-        fn set_property(&self, obj: &Self::Type, _id: usize, value: &Value, pspec: &ParamSpec) {
+        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
             match pspec.name() {
                 "project" => {
                     let project = value.get().unwrap();
-                    obj.set_project(&project);
+                    self.instance().set_project(&project);
                     self.project.set(project).unwrap();
                 }
                 _ => unimplemented!(),
             }
         }
 
-        fn property(&self, _obj: &Self::Type, _id: usize, pspec: &ParamSpec) -> Value {
+        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
             match pspec.name() {
                 "project" => self.project.get().to_value(),
                 _ => unimplemented!(),
@@ -82,7 +83,7 @@ glib::wrapper! {
 
 impl RecentItemRow {
     pub fn new(project: Project) -> Self {
-        glib::Object::new(&[("project", &project)]).unwrap()
+        glib::Object::new(&[("project", &project)])
     }
 
     fn set_project(&self, project: &Project) {

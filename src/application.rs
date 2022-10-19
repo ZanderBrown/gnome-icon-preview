@@ -45,9 +45,9 @@ mod imp {
     }
     impl ObjectImpl for Application {}
     impl ApplicationImpl for Application {
-        fn startup(&self, application: &Self::Type) {
-            self.parent_startup(application);
-
+        fn startup(&self) {
+            self.parent_startup();
+            let application = self.instance();
             // setup icon theme cache
             if let Some(display) = gdk::Display::default() {
                 let icon_theme = gtk::IconTheme::for_display(&display);
@@ -82,7 +82,9 @@ mod imp {
                 })
             );
         }
-        fn activate(&self, application: &Self::Type) {
+        fn activate(&self) {
+            self.parent_activate();
+            let application = self.instance();
             let window = application.create_window();
             window.present();
 
@@ -101,7 +103,8 @@ mod imp {
             receiver.attach(None, clone!(@strong application => move |action| application.do_action(action)));
         }
 
-        fn open(&self, application: &Self::Type, files: &[gio::File], _hint: &str) {
+        fn open(&self, files: &[gio::File], _hint: &str) {
+            let application = self.instance();
             for file in files.iter() {
                 if let Ok(project) = Project::parse(file.clone(), true) {
                     let window = application.create_window();
@@ -117,7 +120,9 @@ mod imp {
 }
 
 glib::wrapper! {
-    pub struct Application(ObjectSubclass<imp::Application>) @extends gio::Application, gtk::Application, gio::ActionMap;
+    pub struct Application(ObjectSubclass<imp::Application>)
+        @extends gio::Application, gtk::Application,
+        @implements gio::ActionMap, gio::ActionGroup;
 }
 
 impl Application {
@@ -130,10 +135,8 @@ impl Application {
             ("application-id", &config::APP_ID),
             ("flags", &gio::ApplicationFlags::HANDLES_OPEN),
             ("resource-base-path", &Some("/org/gnome/design/AppIconPreview")),
-        ])
-        .unwrap();
-
-        ApplicationExtManual::run(&app);
+        ]);
+        app.run();
     }
 
     fn create_window(&self) -> Window {

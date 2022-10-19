@@ -98,7 +98,7 @@ glib::wrapper! {
 
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
-        let dialog = glib::Object::new::<Self>(&[]).unwrap();
+        let dialog = glib::Object::new::<Self>(&[]);
         dialog.imp().sender.set(sender).unwrap();
         dialog.init();
         dialog

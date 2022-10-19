@@ -48,7 +48,7 @@ glib::wrapper! {
 impl ExportPopover {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
-        glib::Object::new(&[]).unwrap()
+        glib::Object::new(&[])
     }
 
     pub fn set_project(&self, project: &Project) {

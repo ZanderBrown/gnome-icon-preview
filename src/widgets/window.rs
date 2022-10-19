@@ -73,9 +73,9 @@ mod imp {
         }
     }
     impl ObjectImpl for Window {
-        fn constructed(&self, obj: &Self::Type) {
-            self.parent_constructed(obj);
-
+        fn constructed(&self) {
+            self.parent_constructed();
+            let obj = self.instance();
             let app = gio::Application::default().unwrap().downcast::<Application>().unwrap();
 
             self.sender.set(app.sender()).unwrap();
@@ -103,7 +103,7 @@ glib::wrapper! {
 
 impl Window {
     pub fn new(app: &Application) -> Self {
-        glib::Object::new(&[("application", app)]).unwrap()
+        glib::Object::new(&[("application", app)])
     }
 
     pub fn set_open_project(&self, project: Project) {

@@ -48,7 +48,7 @@ glib::wrapper! {
 
 impl Default for Project {
     fn default() -> Self {
-        glib::Object::new(&[]).unwrap()
+        glib::Object::new(&[])
     }
 }
 
@@ -98,7 +98,7 @@ impl Project {
         let height = dimensions.height.length;
 
         if (width - Icon::Scalable.size()).abs() < std::f64::EPSILON && (height - Icon::Scalable.size()).abs() < std::f64::EPSILON {
-            let project: Self = glib::Object::new(&[]).unwrap();
+            let project: Self = glib::Object::new(&[]);
             let imp = project.imp();
             imp.project_type.set(ProjectType::Preview);
             imp.file.set(file).unwrap();
@@ -110,7 +110,7 @@ impl Project {
         }
 
         if handle.has_element_with_id(Icon::Scalable.id())? && handle.has_element_with_id(Icon::Symbolic.id())? {
-            let project: Self = glib::Object::new(&[]).unwrap();
+            let project: Self = glib::Object::new(&[]);
             let imp = project.imp();
             imp.project_type.set(ProjectType::Icon);
             imp.file.set(file).unwrap();

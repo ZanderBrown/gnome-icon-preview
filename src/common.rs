@@ -118,7 +118,7 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result
     let width = dimensions.width.length;
     let height = dimensions.height.length;
 
-    renderer.render_layer(&cr, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
+    renderer.render_layer(&cr, None, &cairo::Rectangle::new(0.0, 0.0, width, height))?;
 
     if icon == Icon::Devel {
         render_stripes(&surface, icon.size())?
@@ -139,16 +139,16 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
             let width = doc.width.length;
             let height = doc.height.length;
 
-            cairo::Rectangle { x: 0.0, y: 0.0, width, height }
+            cairo::Rectangle::new(0.0, 0.0, width, height)
         };
         let (rect, _) = renderer.geometry_for_layer(Some(id), &viewport)?;
 
-        let mut surface = cairo::SvgSurface::new(rect.width, rect.height, Some(dest)).unwrap();
+        let mut surface = cairo::SvgSurface::new(rect.width(), rect.height(), Some(dest)).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
         let cr = cairo::Context::new(&surface)?;
 
-        cr.scale(output_size / rect.width, output_size / rect.height);
-        cr.translate(-rect.x, -rect.y);
+        cr.scale(output_size / rect.width(), output_size / rect.height());
+        cr.translate(-rect.x(), -rect.y());
 
         renderer.render_layer(&cr, None, &viewport)?;
 
@@ -175,7 +175,7 @@ pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
     let width = dimensions.width.length;
     let height = dimensions.height.length;
 
-    renderer.render_layer(&context, None, &cairo::Rectangle { x: 0.0, y: 0.0, width, height })?;
+    renderer.render_layer(&context, None, &cairo::Rectangle::new(0.0, 0.0, width, height))?;
     Ok(surface)
 }
 
