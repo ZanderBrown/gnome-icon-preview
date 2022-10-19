@@ -6,7 +6,7 @@ use adw::prelude::*;
 use gettextrs::gettext;
 use gtk::glib::{clone, Receiver, Sender};
 use gtk::{gdk, gio, glib, subclass::prelude::*};
-use gtk_macros::{action, send};
+use gtk_macros::send;
 use log::error;
 
 pub enum Action {
@@ -47,7 +47,6 @@ mod imp {
     impl ApplicationImpl for Application {
         fn startup(&self) {
             self.parent_startup();
-            let application = self.instance();
             // setup icon theme cache
             if let Some(display) = gdk::Display::default() {
                 let icon_theme = gtk::IconTheme::for_display(&display);
@@ -56,31 +55,17 @@ mod imp {
                 };
                 self.icon_theme.set(icon_theme).unwrap();
             }
-
-            action!(
-                application,
-                "new-window",
-                clone!(@weak application => move |_, _| {
-                    let window = application.create_window();
+            let new_window = gio::ActionEntry::builder("new-window")
+                .activate(move |app: &Self::Type, _, _| {
+                    let window = app.create_window();
                     window.present();
                 })
-            );
+                .build();
+            let quit = gio::ActionEntry::builder("quit").activate(move |app: &Self::Type, _, _| app.quit()).build();
 
-            action!(
-                application,
-                "quit",
-                clone!(@weak application => move |_, _| {
-                    application.quit();
-                })
-            );
+            let about = gio::ActionEntry::builder("about").activate(move |app: &Self::Type, _, _| app.show_about_dialog()).build();
 
-            action!(
-                application,
-                "about",
-                clone!(@weak application => move |_, _| {
-                    application.show_about_dialog();
-                })
-            );
+            self.instance().add_action_entries([new_window, quit, about]).unwrap();
         }
         fn activate(&self) {
             self.parent_activate();
