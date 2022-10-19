@@ -6,7 +6,7 @@ use gtk::{glib, pango};
 
 mod imp {
     use super::*;
-    use glib::{ParamFlags, ParamSpec, ParamSpecObject, Value};
+    use glib::{ParamSpec, ParamSpecObject, Value};
     use once_cell::sync::{Lazy, OnceCell};
 
     #[derive(Debug, Default)]
@@ -42,15 +42,7 @@ mod imp {
         }
 
         fn properties() -> &'static [ParamSpec] {
-            static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| {
-                vec![ParamSpecObject::new(
-                    "project",
-                    "Project",
-                    "The associated recent project",
-                    Project::static_type(),
-                    ParamFlags::READWRITE | ParamFlags::CONSTRUCT,
-                )]
-            });
+            static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| vec![ParamSpecObject::builder::<Project>("project").construct().build()]);
             PROPERTIES.as_ref()
         }
 
