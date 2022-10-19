@@ -11,7 +11,7 @@ use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib, CompositeTemplate};
-use gtk_macros::{action, get_action, send};
+use gtk_macros::send;
 
 #[derive(Debug, PartialEq)]
 pub enum View {
@@ -67,6 +67,84 @@ mod imp {
         }
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
+
+            // Export icon
+            klass.install_action("win.export", None, move |window, _, _| {
+                window.imp().exporter.popup();
+            });
+
+            klass.install_action_async("win.export-save", Some("s"), move |window, _, target| {
+                let target = target.map(ToOwned::to_owned);
+                async move {
+                    if let Some(project) = window.imp().open_project.borrow().as_ref() {
+                        let project_type = target.unwrap().get::<String>().unwrap();
+                        let icon = crate::common::Icon::from(project_type);
+                        if project.export(icon, &window).await.is_err() {
+                            log::warn!("Failed to export the project");
+                        }
+                    };
+                }
+            });
+
+            // New Project
+            klass.install_action("win.new-project", None, move |window, _, _| {
+                let sender = window.imp().sender.get().unwrap().clone();
+                let dialog = NewProjectDialog::new(sender);
+                dialog.set_transient_for(Some(window));
+                dialog.show();
+            });
+
+            // Refresh
+            klass.install_action("win.refresh", None, move |window, _, _| {
+                let imp = window.imp();
+                if let Some(project) = imp.open_project.borrow().as_ref() {
+                    match Project::parse(project.file(), true) {
+                        Ok(project) => {
+                            imp.previewer.preview(&project);
+                            imp.exporter.set_project(&project);
+                        }
+                        Err(err) => log::warn!("Failed to parse the project {}", err),
+                    }
+                };
+            });
+
+            // Shuffle sample icons
+            klass.install_action("win.shuffle", None, move |window, _, _| {
+                window.imp().previewer.shuffle_samples();
+            });
+
+            // Save Screenshot
+            klass.install_action_async("win.save-screenshot", None, move |window, _, _| async move {
+                window.imp().previewer.save_screenshot().await.unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
+            });
+
+            // Copy Screenshot
+            klass.install_action("win.copy-screenshot", None, move |window, _, _| {
+                window.imp().previewer.copy_screenshot();
+            });
+
+            // Open file
+            klass.install_action_async("win.open", None, move |window, _, _| async move {
+                let file_chooser = gtk::FileChooserNative::new(Some(&gettext("Open File")), Some(&window), gtk::FileChooserAction::Open, None, None);
+
+                let svg_filter = gtk::FileFilter::new();
+                svg_filter.set_name(Some(&gettext("SVG images")));
+                svg_filter.add_mime_type("image/svg+xml");
+
+                file_chooser.set_modal(true);
+                file_chooser.add_filter(&svg_filter);
+                let response = file_chooser.run_future().await;
+
+                if response == gtk::ResponseType::Accept {
+                    let file = file_chooser.file().unwrap();
+                    let sender = window.imp().sender.get().unwrap();
+                    match Project::parse(file, true) {
+                        Ok(project) => send!(sender, Action::OpenProject(project)),
+                        Err(err) => log::warn!("Failed to open file {}", err),
+                    };
+                }
+                file_chooser.destroy();
+            });
         }
         fn instance_init(obj: &gtk::glib::subclass::InitializingObject<Self>) {
             obj.init_template();
@@ -85,7 +163,6 @@ mod imp {
             }
 
             obj.setup_widgets();
-            obj.setup_actions();
             obj.set_view(View::Initial);
             obj.setup_drop();
         }
@@ -139,10 +216,10 @@ impl Window {
     pub fn set_view(&self, view: View) {
         let imp = self.imp();
 
-        get_action!(self, @shuffle).set_enabled(view == View::Previewer);
-        get_action!(self, @refresh).set_enabled(view == View::Previewer);
-        get_action!(self, @save_screenshot).set_enabled(view == View::Previewer);
-        get_action!(self, @copy_screenshot).set_enabled(view == View::Previewer);
+        self.action_set_enabled("win.shuffle", view == View::Previewer);
+        self.action_set_enabled("win.refresh", view == View::Previewer);
+        self.action_set_enabled("win.save-screenshot", view == View::Previewer);
+        self.action_set_enabled("win.copy-screenshot", view == View::Previewer);
 
         match view {
             View::Previewer => {
@@ -165,127 +242,6 @@ impl Window {
         imp.open_btn.set_popover(Some(&recents_popover));
 
         imp.export_btn.set_popover(Some(&imp.exporter));
-    }
-
-    fn setup_actions(&self) {
-        let imp = self.imp();
-        let sender = imp.sender.get().unwrap().clone();
-
-        // Export icon
-        action!(
-            self,
-            "export",
-            clone!(@strong imp.exporter as exporter => move |_, _| {
-                exporter.popup();
-            })
-        );
-
-        action!(
-            self,
-            "export-save",
-            Some(glib::VariantTy::new("s").unwrap()),
-            clone!(@weak imp.open_project as project, @weak self as parent => move |_, target| {
-                if let Some(project) = project.borrow().as_ref() {
-                    let project_type = target.unwrap().get::<String>().unwrap();
-                    let icon = crate::common::Icon::from(project_type);
-                    let fut = clone!(@weak project, @weak parent => async move {
-                        if project.export(icon, &parent.upcast::<gtk::Window>()).await.is_err() {
-                            log::warn!("Failed to export the project");
-                        }
-                    });
-                    gtk_macros::spawn!(fut);
-                };
-            })
-        );
-
-        // New Project
-        action!(
-            self,
-            "new-project",
-            clone!(@weak self as window, @strong sender => move |_, _| {
-                let dialog = NewProjectDialog::new(sender.clone());
-                dialog.set_transient_for(Some(&window));
-                dialog.show();
-            })
-        );
-
-        // Refresh
-        action!(
-            self,
-            "refresh",
-            clone!(@strong sender, @weak imp.open_project as project,
-            @strong imp.exporter as exporter, @strong imp.previewer as previewer => move |_, _| {
-                if let Some(project) = project.borrow().as_ref() {
-                   match Project::parse(project.file(), true) {
-                        Ok(project) => {
-                            previewer.preview(&project);
-                            exporter.set_project(&project);
-                        },
-                        Err(err) => log::warn!("Failed to parse the project {}", err),
-                    }
-                };
-            })
-        );
-
-        // Shuffle sample icons
-        action!(
-            self,
-            "shuffle",
-            clone!(@strong imp.previewer as previewer => move |_, _| {
-                previewer.shuffle_samples();
-            })
-        );
-
-        // Save Screenshot
-        action!(
-            self,
-            "save_screenshot",
-            clone!(@strong imp.previewer as previewer => move |_, _| {
-                let ctx = glib::MainContext::default();
-                ctx.spawn_local(clone!(@weak previewer => async move {
-                    previewer.save_screenshot()
-                             .await
-                             .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
-                }));
-            })
-        );
-
-        // Copy Screenshot
-        action!(
-            self,
-            "copy_screenshot",
-            clone!(@strong imp.previewer as previewer => move |_, _| {
-                previewer.copy_screenshot();
-            })
-        );
-
-        // Open file
-        action!(
-            self,
-            "open",
-            clone!(@weak self as window, @strong sender => move |_, _| {
-                let file_chooser = gtk::FileChooserNative::new(Some(&gettext("Open File")),
-                                        Some(&window), gtk::FileChooserAction::Open,
-                                        None, None);
-
-                let svg_filter = gtk::FileFilter::new();
-                svg_filter.set_name(Some(&gettext("SVG images")));
-                svg_filter.add_mime_type("image/svg+xml");
-
-                file_chooser.add_filter(&svg_filter);
-
-                file_chooser.connect_response(clone!(@strong file_chooser, @strong sender => move |_, response| {
-                    if response == gtk::ResponseType::Accept {
-                        let file = file_chooser.file().unwrap();
-                        match Project::parse(file, true) {
-                            Ok(project) => send!(sender, Action::OpenProject(project)),
-                            Err(err) => log::warn!("Failed to open file {}", err),
-                        };
-                    file_chooser.destroy();
-                }}));
-                file_chooser.show()
-            })
-        );
     }
 
     fn setup_drop(&self) {

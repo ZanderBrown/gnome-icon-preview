@@ -52,13 +52,13 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.save_screenshot</property>
+                <property name="action_name">win.save-screenshot</property>
                 <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.copy_screenshot</property>
+                <property name="action_name">win.copy-screenshot</property>
                 <property name="title" translatable="yes" context="shortcut window">Copy a Screenshot to Clipboard</property>
               </object>
             </child>

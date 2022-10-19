@@ -203,11 +203,11 @@
         <attribute name='label' translatable='yes'>_Reload</attribute>
       </item>
       <item>
-        <attribute name='action'>win.copy_screenshot</attribute>
+        <attribute name='action'>win.copy-screenshot</attribute>
         <attribute name='label' translatable='yes'>_Copy Screenshot</attribute>
       </item>
       <item>
-        <attribute name='action'>win.save_screenshot</attribute>
+        <attribute name='action'>win.save-screenshot</attribute>
         <attribute name='label' translatable='yes'>_Save Screenshot</attribute>
       </item>
       <item>

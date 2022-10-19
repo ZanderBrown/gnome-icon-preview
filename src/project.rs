@@ -6,7 +6,10 @@ use rsvg::{CairoRenderer, Loader, SvgHandle};
 
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gdk, gio, glib};
+use gtk::{
+    gdk, gio,
+    glib::{self, IsA},
+};
 
 #[derive(PartialEq, Debug, Clone, Copy)]
 pub enum ProjectType {
@@ -145,7 +148,7 @@ impl Project {
         });
     }
 
-    pub async fn export(&self, icon: Icon, parent: &gtk::Window) -> anyhow::Result<()> {
+    pub async fn export(&self, icon: Icon, parent: &impl IsA<gtk::Window>) -> anyhow::Result<()> {
         let basename = match icon {
             Icon::Devel => format!("{}.Devel.svg", self.name()),
             Icon::Scalable => format!("{}.svg", self.name()),
