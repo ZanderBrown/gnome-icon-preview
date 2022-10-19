@@ -4,7 +4,6 @@ use gettextrs::gettext;
 use std::iter::FromIterator;
 use std::path::PathBuf;
 
-use gtk::glib::clone;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
@@ -32,6 +31,8 @@ mod imp {
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
+            klass.bind_template_instance_callbacks();
+
             klass.install_action("project.cancel", None, |widget, _, _| {
                 widget.destroy();
             });
@@ -49,10 +50,10 @@ mod imp {
                 let _ = sender.send(Action::NewProject(project_file));
                 widget.destroy();
             });
-            klass.install_action("project.browse", None, |parent, _, _| {
+            klass.install_action_async("project.browse", None, |parent, _, _| async move {
                 let dialog = gtk::FileChooserDialog::new(
                     Some(&gettext("Select Icon Location")),
-                    Some(parent),
+                    Some(&parent),
                     gtk::FileChooserAction::SelectFolder,
                     &[(&gettext("Select"), gtk::ResponseType::Accept), (&gettext("Cancel"), gtk::ResponseType::Cancel)],
                 );
@@ -60,20 +61,18 @@ mod imp {
                 dialog.set_modal(true);
                 let home_dir = gio::File::for_path(&glib::home_dir());
                 dialog.set_current_folder(Some(&home_dir)).unwrap();
-                dialog.connect_response(clone!(@weak dialog, @weak parent => move |_, response| {
-                    if response == gtk::ResponseType::Accept {
-                        let home = glib::home_dir();
-                        let home = home.to_str().unwrap();
+                let response = dialog.run_future().await;
+                if response == gtk::ResponseType::Accept {
+                    let home = glib::home_dir();
+                    let home = home.to_str().unwrap();
 
-                        let dest = dialog.file().unwrap().path().unwrap();
-                        let dest = dest.to_str().unwrap();
-                        let dest = dest.replacen(&home, "~", 1);
+                    let dest = dialog.file().unwrap().path().unwrap();
+                    let dest = dest.to_str().unwrap();
+                    let dest = dest.replacen(&home, "~", 1);
 
-                        parent.imp().project_path.set_text(&dest);
-                    }
-                    dialog.destroy();
-                }));
-                dialog.show();
+                    parent.imp().project_path.set_text(&dest);
+                }
+                dialog.destroy();
             });
             klass.add_binding_action(gdk::Key::Escape, gdk::ModifierType::empty(), "window.close", None);
         }
@@ -94,19 +93,18 @@ glib::wrapper! {
         @extends gtk::Widget, gtk::Window, adw::Window;
 }
 
+#[gtk::template_callbacks]
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
         let dialog = glib::Object::new::<Self>(&[]);
         dialog.imp().sender.set(sender).unwrap();
-        dialog.init();
+        dialog.action_set_enabled("project.create", false);
         dialog
     }
 
-    fn init(&self) {
-        self.action_set_enabled("project.create", false);
-        self.imp().project_name.connect_changed(clone!(@weak self as dialog => move |entry| {
-            let app_id = entry.text().to_string();
-            dialog.action_set_enabled("project.create", gio::Application::id_is_valid(&app_id));
-        }));
+    #[template_callback]
+    fn on_project_name_changed(&self, entry: &gtk::Entry) {
+        let app_id = entry.text().to_string();
+        self.action_set_enabled("project.create", gio::Application::id_is_valid(&app_id));
     }
 }

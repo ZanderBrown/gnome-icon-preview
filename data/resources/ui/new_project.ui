@@ -64,6 +64,7 @@
                 </child>
                 <child>
                   <object class="GtkEntry" id="project_name">
+                    <signal name="changed" handler="on_project_name_changed" swapped="true" />
                     <layout>
                       <property name="column">1</property>
                       <property name="row">0</property>
