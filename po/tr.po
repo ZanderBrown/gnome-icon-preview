@@ -1,6 +1,6 @@
-# Turkish translation for icon tool
-# Copyright (C) 2019-2020 icon tool'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the icon tool package.
+# Turkish translation for app-icon-preview
+# Copyright (C) 2019-2022 app-icon-preview's COPYRIGHT HOLDER
+# This file is distributed under the same license as the app-icon-preview package.
 #
 # Emin Tufan Çetin <etcetin@gmail.com>, 2019-2020.
 # Sabri Ünal <libreajans@gmail.com>, 2019, 2020, 2022.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
+"POT-Creation-Date: 2022-08-13 12:27+0000\n"
 "PO-Revision-Date: 2022-04-24 02:42+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Uygulama simgesini önizleme"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:99
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -274,157 +274,10 @@ msgstr "Önizleme"
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/window.rs:267
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: src/widgets/window.rs:273
+#: src/widgets/window.rs:272
 msgid "SVG images"
 msgstr "SVG görüntüler"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the recent list"
-#~ msgstr "Son kullanılanlar listesini aç"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the menu"
-#~ msgstr "Menüyü aç"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Take screenshot"
-#~ msgstr "Ekran görüntüsü al"
-
-#~ msgid "Close"
-#~ msgstr "Kapat"
-
-#~ msgid "Save…"
-#~ msgstr "Kaydet…"
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Panoya Kopyala"
-
-#~ msgid "Open"
-#~ msgstr "Aç"
-
-#~ msgid "Recent"
-#~ msgstr "Son Kullanılan"
-
-#~ msgid "JPEG"
-#~ msgstr "JPEG"
-
-# Şahıs adı olduğu için çevrilmedi
-#~ msgid "Zander Brown"
-#~ msgstr "Zander Brown"
-
-#~ msgid "Copyright © 2018-19 Zander Brown"
-#~ msgstr "Telif Hakkı © 2018-19 Zander Brown"
-
-#~ msgid "Repository"
-#~ msgstr "Depo"
-
-#~ msgid "Kept sane by"
-#~ msgstr "Bakım yapan"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Toggle fullscreen"
-#~ msgstr "Tam ekranı aç/kapat"
-
-#~ msgid "no longer supported"
-#~ msgstr "artık desteklenmiyor"
-
-#~ msgid ""
-#~ "Palette is all grown up!\n"
-#~ "It’s now available separately as org.gnome.zbrown.Palette"
-#~ msgstr ""
-#~ "Palette artık büyüdü!\n"
-#~ "Artık ayrı bir uygulama olarak kullanımda: org.gnome.zbrown.Palette"
-
-#~ msgid "Failed to save screenshot"
-#~ msgstr "Ekran görüntüsü kaydedilemedi"
-
-#~ msgid "This file is defective"
-#~ msgstr "Bu dosya kusurlu"
-
-#~ msgid ""
-#~ "Please start from a template to ensure that your file will work as a "
-#~ "GNOME icon"
-#~ msgstr ""
-#~ "Dosyanızın GNOME simgesi olarak çalışacağından emin olmak için şablondan "
-#~ "başlayın"
-
-#~ msgid "Icons"
-#~ msgstr "Simgeler"
-
-#~ msgid "Save Regular"
-#~ msgstr "Sıradan Kaydet"
-
-#~ msgid "Save Symbolic"
-#~ msgstr "Sembolik Kaydet"
-
-#~ msgid "Save Nightly"
-#~ msgstr "Gecelik Kaydet"
-
-#~ msgid "Icon"
-#~ msgstr "Simge"
-
-#~ msgid "Failed to save exported file"
-#~ msgstr "Dışa aktarılan dosya kaydedilemedi"
-
-#~ msgid "Save Icon"
-#~ msgstr "Simgeyi Kaydet"
-
-#~ msgid "Expecting at least one “.”"
-#~ msgstr "En az bir “.” bekleniyor"
-
-#~ msgid "Welcome screen"
-#~ msgstr "Hoş geldiniz ekranı"
-
-#~ msgid "Preview icons"
-#~ msgstr "Simgeleri önizle"
-
-#~ msgid "Button"
-#~ msgstr "Düğme"
-
-#~ msgid "Insensitive"
-#~ msgstr "Duyarsız"
-
-#~ msgid "Suggested"
-#~ msgstr "Önerilen"
-
-#~ msgid "Destructive"
-#~ msgstr "Yıkıcı"
-
-#~ msgid "Rename"
-#~ msgstr "Yeniden Adlandır"
-
-#~ msgid ""
-#~ "The icon is not recoloring because the file name needs to end in “-"
-#~ "symbolic”"
-#~ msgstr ""
-#~ "Simge yeniden renklendirilemiyor çünkü dosya adının “-symbolic” olarak "
-#~ "bitmesi gerekiyor"
-
-#~ msgid "New Symbolic Icon"
-#~ msgstr "Yeni Sembolik Simge"
-
-#~ msgid "An application’s identity"
-#~ msgstr "Uygulamanın kimliği"
-
-#~ msgid "For actions, status and other things needed in apps"
-#~ msgstr ""
-#~ "Eylemler, durumlar ve uygulama içinde gereksinilen diğer şeyler için"
-
-#~ msgid "Save"
-#~ msgstr "Kaydet"
-
-#~ msgid "Icon Name"
-#~ msgstr "Simge Adı"
-
-#~ msgid "All lowercase with dashes between words, e.g. list-add"
-#~ msgstr "Tümü küçük harf, arasında kısa çizgi olacak biçimde, örn.: list-add"
-
-#~ msgid "Expecting at least one “-”"
-#~ msgstr "En az bir “-” bekleniyor"
-
-#~ msgid "label"
-#~ msgstr "etiket"
