@@ -20,4 +20,3 @@ once_cell = "1.15"
 [dependencies.rsvg]
 package = "librsvg"
 git = "https://gitlab.gnome.org/gnome/librsvg"
-branch = "bilelmoussaoui/release-gtk-rs"
