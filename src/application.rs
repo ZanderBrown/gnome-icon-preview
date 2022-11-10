@@ -54,6 +54,7 @@ mod imp {
                 };
                 self.icon_theme.set(icon_theme).unwrap();
             }
+            let app = self.obj();
             let new_window = gio::ActionEntry::builder("new-window")
                 .activate(move |app: &Self::Type, _, _| {
                     let window = app.create_window();
@@ -64,24 +65,24 @@ mod imp {
 
             let about = gio::ActionEntry::builder("about").activate(move |app: &Self::Type, _, _| app.show_about_dialog()).build();
 
-            self.instance().add_action_entries([new_window, quit, about]).unwrap();
+            app.add_action_entries([new_window, quit, about]).unwrap();
+
+            // Accelerators
+            app.set_accels_for_action("win.open", &["<Control>o"]);
+            app.set_accels_for_action("win.refresh", &["<Control>r"]);
+            app.set_accels_for_action("win.shuffle", &["<Control>x"]);
+            app.set_accels_for_action("win.export", &["<Control>e"]);
+            app.set_accels_for_action("win.save-screenshot", &["<Control>s"]);
+            app.set_accels_for_action("win.copy-screenshot", &["<Control>c"]);
+            app.set_accels_for_action("app.quit", &["<Control>q"]);
+            app.set_accels_for_action("app.new-window", &["<Control>n"]);
         }
+
         fn activate(&self) {
             self.parent_activate();
             let application = self.instance();
             let window = application.create_window();
             window.present();
-
-            // Accelerators
-            application.set_accels_for_action("win.open", &["<Control>o"]);
-            application.set_accels_for_action("win.refresh", &["<Control>r"]);
-            application.set_accels_for_action("win.shuffle", &["<Control>x"]);
-            application.set_accels_for_action("win.export", &["<Control>e"]);
-            application.set_accels_for_action("win.save-screenshot", &["<Control>s"]);
-            application.set_accels_for_action("win.copy-screenshot", &["<Control>c"]);
-            application.set_accels_for_action("app.quit", &["<Control>q"]);
-            application.set_accels_for_action("app.new-window", &["<Control>n"]);
-
             // Setup action channel
             let receiver = self.receiver.borrow_mut().take().unwrap();
             receiver.attach(None, clone!(@strong application => move |action| application.do_action(action)));
