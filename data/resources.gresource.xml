@@ -25,17 +25,13 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.AppIconPreview.svg">icons/org.gnome.design.AppIconPreview.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.AppIconPreview-symbolic.svg">icons/org.gnome.design.AppIconPreview-symbolic.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="de.haeckerfelix.Shortwave.svg">resources/icons/de.haeckerfelix.Shortwave.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Aisleriot.svg">resources/icons/org.gnome.Aisleriot.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Backups.svg">resources/icons/org.gnome.Backups.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Books.svg">resources/icons/org.gnome.Books.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Boxes.svg">resources/icons/org.gnome.Boxes.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Calculator.svg">resources/icons/org.gnome.Calculator.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Camera.svg">resources/icons/org.gnome.Camera.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Characters.svg">resources/icons/org.gnome.Characters.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Clocks.svg">resources/icons/org.gnome.Clocks.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Contacts.svg">resources/icons/org.gnome.Contacts.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Fonts.svg">resources/icons/org.gnome.Fonts.svg</file>
-    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Games.svg">resources/icons/org.gnome.Games.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Logs.svg">resources/icons/org.gnome.Logs.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Maps.svg">resources/icons/org.gnome.Maps.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Messages.svg">resources/icons/org.gnome.Messages.svg</file>
@@ -50,5 +46,15 @@
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Weather.svg">resources/icons/org.gnome.Weather.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Web.svg">resources/icons/org.gnome.Web.svg</file>
     <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.design.Contrast.svg">resources/icons/org.gnome.design.Contrast.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Console.svg">resources/icons/org.gnome.Console.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Posts.svg">resources/icons/org.gnome.Posts.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Firmware.svg">resources/icons/org.gnome.Firmware.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Metronome.svg">resources/icons/org.gnome.Metronome.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.ImageViewer.svg">resources/icons/org.gnome.ImageViewer.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.Highscore.svg">resources/icons/org.gnome.Highscore.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="org.gnome.TextEditor.svg">resources/icons/org.gnome.TextEditor.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="re.sonny.Workbench.svg">resources/icons/re.sonny.Workbench.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="com.github.johnfactotum.Foliate.svg">resources/icons/com.github.johnfactotum.Foliate.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks" alias="com.gitlab.newsflash.svg">resources/icons/com.gitlab.newsflash.svg</file>
   </gresource>
 </gresources>
