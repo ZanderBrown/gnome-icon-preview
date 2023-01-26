@@ -31,6 +31,8 @@
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkImage" id="regular_image">
+                    <property name="width-request">136</property>
+                    <property name="height-request">136</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">128</property>
                     <property name="icon_name">start-here-symbolic</property>
@@ -59,7 +61,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Regular As…</property>
+                    <property name="label" translatable="yes">Save Regular…</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>
@@ -77,6 +79,8 @@
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkImage" id="nightly_image">
+                    <property name="width-request">136</property>
+                    <property name="height-request">136</property>
                     <property name="halign">center</property>
                     <property name="pixel_size">128</property>
                     <property name="icon_name">start-here-symbolic</property>
@@ -105,7 +109,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Nightly As…</property>
+                    <property name="label" translatable="yes">Save Nightly…</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>
@@ -123,6 +127,8 @@
                 <property name="spacing">10</property>
                 <child>
                   <object class="GtkImage" id="symbolic_image">
+                    <property name="width-request">136</property>
+                    <property name="height-request">136</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="vexpand">True</property>
@@ -152,7 +158,7 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">Save Symbolic As…</property>
+                    <property name="label" translatable="yes">Save Symbolic…</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">10</property>

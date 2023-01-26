@@ -51,7 +51,6 @@
 
 .exporter .thumbnail {
 	border: 1px solid @borders;
-	padding: 8px;
 	border-radius: 6px;
 }
 
