@@ -42,9 +42,9 @@ mod imp {
                 let project_name = format!("{}.Source.svg", imp.project_name.text());
                 let project_path = imp.project_path.text().replacen('~', glib::home_dir().to_str().unwrap(), 1);
 
-                let dest_path = PathBuf::from_iter(&[project_path, project_name]);
+                let dest_path = PathBuf::from_iter([project_path, project_name]);
 
-                let project_file = gio::File::for_path(&dest_path);
+                let project_file = gio::File::for_path(dest_path);
 
                 let sender = imp.sender.get().unwrap();
                 let _ = sender.send(Action::NewProject(project_file));
@@ -59,7 +59,7 @@ mod imp {
                 );
                 dialog.set_default_response(gtk::ResponseType::Accept);
                 dialog.set_modal(true);
-                let home_dir = gio::File::for_path(&glib::home_dir());
+                let home_dir = gio::File::for_path(glib::home_dir());
                 dialog.set_current_folder(Some(&home_dir)).unwrap();
                 let response = dialog.run_future().await;
                 if response == gtk::ResponseType::Accept {
@@ -68,7 +68,7 @@ mod imp {
 
                     let dest = dialog.file().unwrap().path().unwrap();
                     let dest = dest.to_str().unwrap();
-                    let dest = dest.replacen(&home, "~", 1);
+                    let dest = dest.replacen(home, "~", 1);
 
                     parent.imp().project_path.set_text(&dest);
                 }

@@ -101,7 +101,7 @@ pub fn init_tmp(icon_theme: &gtk::IconTheme) -> anyhow::Result<()> {
     std::fs::create_dir_all(Icon::Scalable.path())?;
     std::fs::create_dir_all(Icon::Symbolic.path())?;
 
-    icon_theme.add_search_path(&temp_path);
+    icon_theme.add_search_path(temp_path);
     Ok(())
 }
 
