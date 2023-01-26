@@ -30,8 +30,8 @@ impl<T: AsRef<str>> From<T> for Icon {
 impl Icon {
     pub fn path(self) -> PathBuf {
         match self {
-            Icon::Symbolic | Icon::Scalable => icon_theme_path().join("hicolor/symbolic/apps"),
-            Icon::Devel => icon_theme_path().join("hicolor/scalable/apps"),
+            Icon::Scalable | Icon::Devel => icon_theme_path().join("hicolor/scalable/apps"),
+            Icon::Symbolic => icon_theme_path().join("hicolor/symbolic/apps"),
         }
     }
 
