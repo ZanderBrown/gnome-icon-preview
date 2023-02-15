@@ -6,7 +6,7 @@ edition = "2021"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-gtk = { version = "0.6", package = "gtk4", features = ["gnome_43"] }
+gtk = { version = "0.6", package = "gtk4", features = ["gnome_44"] }
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
 adw = { version = "0.3", package = "libadwaita", features = ["v1_2"] }

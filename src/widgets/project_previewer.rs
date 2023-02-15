@@ -192,20 +192,10 @@ impl ProjectPreviewer {
         let bytes = texture.save_to_png_bytes();
         let root = self.root().unwrap();
 
-        let dialog = gtk::FileChooserNative::builder()
-            .title(gettext("Save Screenshot"))
-            .modal(true)
-            .accept_label(gettext("_Save"))
-            .cancel_label(gettext("_Cancel"))
-            .action(gtk::FileChooserAction::Save)
-            .transient_for(root.downcast_ref::<gtk::Window>().unwrap())
-            .build();
-        dialog.set_current_name(&format!("{}.png", &gettext("Preview")));
-
         let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures).unwrap();
         let gdir = gio::File::for_path(&xdg_pictures_dir);
-        dialog.set_current_folder(Some(&gdir)).unwrap();
 
+        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
         let any_filter = gtk::FileFilter::new();
         any_filter.set_name(Some(&gettext("App Icon Preview")));
         any_filter.add_pattern("*.png");
@@ -213,21 +203,27 @@ impl ProjectPreviewer {
         any_filter.add_pattern("*.jpg");
         any_filter.add_pattern("*.jpeg");
         any_filter.add_mime_type("image/jpeg");
-        dialog.add_filter(&any_filter);
+        filters.append(&any_filter);
 
         let png_filter = gtk::FileFilter::new();
         png_filter.set_name(Some(&gettext("PNG")));
         png_filter.add_pattern("*.png");
         png_filter.add_mime_type("image/png");
-        dialog.add_filter(&png_filter);
+        filters.append(&png_filter);
 
-        if dialog.run_future().await == gtk::ResponseType::Accept {
-            let file = dialog.file().unwrap();
+        let dialog = gtk::FileDialog::builder()
+            .title(gettext("Save Screenshot"))
+            .modal(true)
+            .accept_label(gettext("_Save"))
+            .initial_name(format!("{}.png", &gettext("Preview")))
+            .initial_folder(&gdir)
+            .filters(&filters)
+            .build();
 
-            let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::PRIORITY_DEFAULT).await?;
-            stream.write_bytes_future(&bytes, glib::PRIORITY_DEFAULT).await?;
-        };
-        dialog.destroy();
+        let file = dialog.save_future(root.downcast_ref::<gtk::Window>()).await?;
+
+        let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::PRIORITY_DEFAULT).await?;
+        stream.write_bytes_future(&bytes, glib::PRIORITY_DEFAULT).await?;
 
         Ok(())
     }

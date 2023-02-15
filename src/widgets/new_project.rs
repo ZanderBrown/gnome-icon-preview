@@ -50,6 +50,9 @@ mod imp {
                 let _ = sender.send(Action::NewProject(project_file));
                 widget.destroy();
             });
+            // We can't switch to FileDialog here yet until we decide on something
+            // for <https://gitlab.gnome.org/World/design/app-icon-preview/-/merge_requests/89>
+            #[allow(deprecated)]
             klass.install_action_async("project.browse", None, |parent, _, _| async move {
                 let dialog = gtk::FileChooserDialog::new(
                     Some(&gettext("Select Icon Location")),

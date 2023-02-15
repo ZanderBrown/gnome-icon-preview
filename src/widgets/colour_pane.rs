@@ -97,12 +97,12 @@ impl ColourPane {
             Some(basename) => {
                 let icon_name = format!("{}-symbolic", basename.trim_end_matches(".svg"));
                 imp.symbolic_image.set_icon_name(Some(&icon_name));
-                imp.symbolic_image.show();
-                imp.symbolic_label.show();
+                imp.symbolic_image.set_visible(true);
+                imp.symbolic_label.set_visible(true);
             }
             None => {
-                imp.symbolic_image.hide();
-                imp.symbolic_label.hide();
+                imp.symbolic_image.set_visible(false);
+                imp.symbolic_label.set_visible(false);
             }
         }
     }

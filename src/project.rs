@@ -157,25 +157,28 @@ impl Project {
 
         let gfile = gio::File::for_path(icon.path().join(&basename));
 
-        let dialog = gtk::FileChooserNative::new(Some(&gettext("Export")), Some(parent), gtk::FileChooserAction::Save, Some(&gettext("_Save")), Some(&gettext("_Cancel")));
-        dialog.set_modal(true);
-        dialog.set_current_name(&basename);
-
         let svg_filter = gtk::FileFilter::new();
         svg_filter.set_name(Some(&gettext("SVG")));
         svg_filter.add_pattern("*.svg");
         svg_filter.add_mime_type("image/svg+xml");
-        dialog.add_filter(&svg_filter);
+        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
+        filters.append(&svg_filter);
 
-        if dialog.run_future().await == gtk::ResponseType::Accept {
-            let dest = dialog.file().unwrap();
-            let (bytes, _) = gfile.load_contents_future().await?;
-            let cleaned_svg = common::clean_svg(std::str::from_utf8(&bytes)?)?;
+        let dialog = gtk::FileDialog::builder()
+            .title(gettext("Export"))
+            .accept_label(gettext("_Save"))
+            .modal(true)
+            .initial_name(basename)
+            .filters(&filters)
+            .build();
 
-            if let Err(err) = dest.replace_contents_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
-                log::error!("Failed to export icon {:?}", err);
-            };
-        }
+        let dest = dialog.save_future(Some(parent)).await?;
+        let (bytes, _) = gfile.load_contents_future().await?;
+        let cleaned_svg = common::clean_svg(std::str::from_utf8(&bytes)?)?;
+
+        if let Err(err) = dest.replace_contents_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
+            log::error!("Failed to export icon {:?}", err);
+        };
 
         Ok(())
     }

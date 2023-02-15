@@ -86,7 +86,7 @@ mod imp {
                 let sender = window.imp().sender.get().unwrap().clone();
                 let dialog = NewProjectDialog::new(sender);
                 dialog.set_transient_for(Some(window));
-                dialog.show();
+                dialog.present();
             });
 
             // Refresh
@@ -120,25 +120,9 @@ mod imp {
 
             // Open file
             klass.install_action_async("win.open", None, move |window, _, _| async move {
-                let file_chooser = gtk::FileChooserNative::new(Some(&gettext("Open File")), Some(&window), gtk::FileChooserAction::Open, None, None);
-
-                let svg_filter = gtk::FileFilter::new();
-                svg_filter.set_name(Some(&gettext("SVG images")));
-                svg_filter.add_mime_type("image/svg+xml");
-
-                file_chooser.set_modal(true);
-                file_chooser.add_filter(&svg_filter);
-                let response = file_chooser.run_future().await;
-
-                if response == gtk::ResponseType::Accept {
-                    let file = file_chooser.file().unwrap();
-                    let sender = window.imp().sender.get().unwrap();
-                    match Project::parse(file, true) {
-                        Ok(project) => sender.send(Action::OpenProject(project)).unwrap(),
-                        Err(err) => log::warn!("Failed to open file {}", err),
-                    };
+                if let Err(err) = window.open_file().await {
+                    log::warn!("Failed to open file {err}");
                 }
-                file_chooser.destroy();
             });
         }
         fn instance_init(obj: &gtk::glib::subclass::InitializingObject<Self>) {
@@ -208,6 +192,22 @@ impl Window {
         }));
     }
 
+    async fn open_file(&self) -> anyhow::Result<()> {
+        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
+        let svg_filter = gtk::FileFilter::new();
+        svg_filter.set_name(Some(&gettext("SVG images")));
+        svg_filter.add_mime_type("image/svg+xml");
+        filters.append(&svg_filter);
+
+        let dialog = gtk::FileDialog::builder().title(gettext("Open File")).modal(true).filters(&filters).build();
+
+        let file = dialog.open_future(Some(self)).await?;
+        let sender = self.imp().sender.get().unwrap();
+        let project = Project::parse(file, true)?;
+        sender.send(Action::OpenProject(project)).unwrap();
+        Ok(())
+    }
+
     pub fn set_view(&self, view: View) {
         let imp = self.imp();
 
@@ -219,10 +219,10 @@ impl Window {
         match view {
             View::Previewer => {
                 imp.content.set_visible_child_name("previewer");
-                imp.export_btn.show();
+                imp.export_btn.set_visible(true);
             }
             View::Initial => {
-                imp.export_btn.hide();
+                imp.export_btn.set_visible(false);
             }
         };
     }
