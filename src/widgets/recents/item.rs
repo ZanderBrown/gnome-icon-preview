@@ -38,7 +38,7 @@ mod imp {
             self.label.add_css_class("recent-item");
             container.append(&self.label);
 
-            self.instance().set_child(Some(&container));
+            self.obj().set_child(Some(&container));
         }
 
         fn properties() -> &'static [ParamSpec] {
@@ -50,7 +50,7 @@ mod imp {
             match pspec.name() {
                 "project" => {
                     let project = value.get().unwrap();
-                    self.instance().set_project(&project);
+                    self.obj().set_project(&project);
                     self.project.set(project).unwrap();
                 }
                 _ => unimplemented!(),
@@ -75,7 +75,7 @@ glib::wrapper! {
 
 impl RecentItemRow {
     pub fn new(project: Project) -> Self {
-        glib::Object::new(&[("project", &project)])
+        glib::Object::builder().property("project", &project).build()
     }
 
     fn set_project(&self, project: &Project) {

@@ -6,12 +6,12 @@ edition = "2021"
 license = "GPL-3.0-or-later"
 
 [dependencies]
-gtk = { version = "0.5", package = "gtk4", features = ["gnome_43"] }
+gtk = { version = "0.6", package = "gtk4", features = ["gnome_43"] }
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
-adw = { version = "0.2", package = "libadwaita", features = ["v1_2"] }
+adw = { version = "0.3", package = "libadwaita", features = ["v1_2"] }
 pretty_env_logger = "0.4"
-cairo = { version = "0.16", package = "cairo-rs", features = ["svg", "v1_16"] }
+cairo = { version = "0.17", package = "cairo-rs", features = ["svg", "v1_16"] }
 rand = "0.8"
 svgcleaner = "0.9"
 anyhow = "1.0"

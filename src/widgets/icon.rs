@@ -38,7 +38,7 @@ mod imp {
     impl ObjectImpl for Icon {
         fn constructed(&self) {
             self.parent_constructed();
-            let obj = self.instance();
+            let obj = self.obj();
 
             obj.set_valign(gtk::Align::Center);
             obj.set_margin_start(15);
@@ -66,7 +66,7 @@ glib::wrapper! {
 
 impl Icon {
     pub fn new(size: IconSize) -> Self {
-        let icon = glib::Object::new::<Self>(&[("orientation", &gtk::Orientation::Vertical), ("spacing", &6)]);
+        let icon = glib::Object::builder::<Self>().property("orientation", &gtk::Orientation::Vertical).property("spacing", &6).build();
 
         let imp = icon.imp();
         match size {

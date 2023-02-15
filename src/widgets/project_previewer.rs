@@ -48,7 +48,7 @@ mod imp {
     impl ObjectImpl for ProjectPreviewer {
         fn constructed(&self) {
             self.parent_constructed();
-            let obj = self.instance();
+            let obj = self.obj();
 
             let container = gtk::Box::new(gtk::Orientation::Horizontal, 0);
             container.append(&self.light_panel);
@@ -73,7 +73,7 @@ glib::wrapper! {
 impl ProjectPreviewer {
     #[allow(clippy::new_without_default)]
     pub fn new() -> Self {
-        glib::Object::new(&[])
+        glib::Object::new()
     }
 
     fn screenshot(&self) -> Option<gdk::Texture> {
@@ -184,7 +184,7 @@ impl ProjectPreviewer {
 
         let toast = adw::Toast::new(&gettext("Screenshot copied to clipboard"));
         toast.set_timeout(3);
-        self.imp().toast_overlay.add_toast(&toast);
+        self.imp().toast_overlay.add_toast(toast);
     }
 
     pub async fn save_screenshot(&self) -> anyhow::Result<()> {

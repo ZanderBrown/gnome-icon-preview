@@ -65,7 +65,7 @@ mod imp {
 
             let about = gio::ActionEntry::builder("about").activate(move |app: &Self::Type, _, _| app.show_about_dialog()).build();
 
-            app.add_action_entries([new_window, quit, about]).unwrap();
+            app.add_action_entries([new_window, quit, about]);
 
             // Accelerators
             app.set_accels_for_action("win.open", &["<Control>o"]);
@@ -80,7 +80,7 @@ mod imp {
 
         fn activate(&self) {
             self.parent_activate();
-            let application = self.instance();
+            let application = self.obj();
             let window = application.create_window();
             window.present();
             // Setup action channel
@@ -89,7 +89,7 @@ mod imp {
         }
 
         fn open(&self, files: &[gio::File], _hint: &str) {
-            let application = self.instance();
+            let application = self.obj();
             for file in files.iter() {
                 if let Ok(project) = Project::parse(file.clone(), true) {
                     let window = application.create_window();
@@ -116,11 +116,11 @@ impl Application {
         log::info!("Version: {} ({})", config::VERSION, config::PROFILE);
         log::info!("Datadir: {}", config::PKGDATADIR);
 
-        let app = glib::Object::new::<Self>(&[
-            ("application-id", &config::APP_ID),
-            ("flags", &gio::ApplicationFlags::HANDLES_OPEN),
-            ("resource-base-path", &Some("/org/gnome/design/AppIconPreview")),
-        ]);
+        let app = glib::Object::builder::<Self>()
+            .property("application-id", &config::APP_ID)
+            .property("flags", &gio::ApplicationFlags::HANDLES_OPEN)
+            .property("resource-base-path", &Some("/org/gnome/design/AppIconPreview"))
+            .build();
         app.run();
     }
 
@@ -158,8 +158,8 @@ impl Application {
             .transient_for(&window)
             .translator_credits(&gettext("translator-credits"))
             .modal(true)
-            .developers(vec!["Bilal Elmoussaoui".into(), "Zander Brown".into()])
-            .artists(vec!["Tobias Bernard".into()])
+            .developers(vec!["Bilal Elmoussaoui", "Zander Brown"])
+            .artists(vec!["Tobias Bernard"])
             .build()
             .present();
     }

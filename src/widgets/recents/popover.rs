@@ -37,7 +37,7 @@ mod imp {
     impl ObjectImpl for RecentsPopover {
         fn constructed(&self) {
             self.parent_constructed();
-            let obj = self.instance();
+            let obj = self.obj();
             self.items_listbox.bind_model(
                 Some(&self.model),
                 clone!(@weak obj as popover => @default-panic, move |item| {
@@ -51,7 +51,7 @@ mod imp {
                         popover.popdown();
                         gesture.set_state(gtk::EventSequenceState::Claimed);
                     }));
-                    row.add_controller(&gesture);
+                    row.add_controller(gesture);
                     row.upcast::<gtk::Widget>()
                 }),
             );
@@ -92,7 +92,7 @@ glib::wrapper! {
 
 impl RecentsPopover {
     pub fn new(sender: Sender<Action>) -> Self {
-        let popover = glib::Object::new::<Self>(&[]);
+        let popover = glib::Object::new::<Self>();
         popover.imp().sender.set(sender).unwrap();
         popover
     }

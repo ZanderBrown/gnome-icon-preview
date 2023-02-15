@@ -71,17 +71,14 @@ mod imp {
                 window.imp().exporter.popup();
             });
 
-            klass.install_action_async("win.export-save", Some("s"), move |window, _, target| {
-                let target = target.map(ToOwned::to_owned);
-                async move {
-                    if let Some(project) = window.imp().open_project.borrow().as_ref() {
-                        let project_type = target.unwrap().get::<String>().unwrap();
-                        let icon = crate::common::Icon::from(project_type);
-                        if project.export(icon, &window).await.is_err() {
-                            log::warn!("Failed to export the project");
-                        }
-                    };
-                }
+            klass.install_action_async("win.export-save", Some("s"), move |window, _, target| async move {
+                if let Some(project) = window.imp().open_project.borrow().as_ref() {
+                    let project_type = target.unwrap().get::<String>().unwrap();
+                    let icon = crate::common::Icon::from(project_type);
+                    if project.export(icon, &window).await.is_err() {
+                        log::warn!("Failed to export the project");
+                    }
+                };
             });
 
             // New Project
@@ -151,7 +148,7 @@ mod imp {
     impl ObjectImpl for Window {
         fn constructed(&self) {
             self.parent_constructed();
-            let obj = self.instance();
+            let obj = self.obj();
             let app = gio::Application::default().unwrap().downcast::<Application>().unwrap();
 
             self.sender.set(app.sender()).unwrap();
@@ -178,7 +175,7 @@ glib::wrapper! {
 
 impl Window {
     pub fn new(app: &Application) -> Self {
-        glib::Object::new(&[("application", app)])
+        glib::Object::builder().property("application", app).build()
     }
 
     pub fn set_open_project(&self, project: Project) {
@@ -259,6 +256,6 @@ impl Window {
             false
         }));
 
-        self.add_controller(&target);
+        self.add_controller(target);
     }
 }

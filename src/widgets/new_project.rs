@@ -96,7 +96,7 @@ glib::wrapper! {
 #[gtk::template_callbacks]
 impl NewProjectDialog {
     pub fn new(sender: glib::Sender<Action>) -> Self {
-        let dialog = glib::Object::new::<Self>(&[]);
+        let dialog = glib::Object::new::<Self>();
         dialog.imp().sender.set(sender).unwrap();
         dialog.action_set_enabled("project.create", false);
         dialog
