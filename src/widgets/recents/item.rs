@@ -6,11 +6,12 @@ use gtk::{glib, pango};
 
 mod imp {
     use super::*;
-    use glib::{ParamSpec, ParamSpecObject, Value};
-    use once_cell::sync::{Lazy, OnceCell};
+    use once_cell::sync::OnceCell;
 
-    #[derive(Debug, Default)]
+    #[derive(Debug, Default, glib::Properties)]
+    #[properties(wrapper_type = super::RecentItemRow)]
     pub struct RecentItemRow {
+        #[property(get, set = Self::set_project, construct_only)]
         project: OnceCell<Project>,
         pub image: gtk::Image,
         pub label: gtk::Label,
@@ -41,31 +42,37 @@ mod imp {
             self.obj().set_child(Some(&container));
         }
 
-        fn properties() -> &'static [ParamSpec] {
-            static PROPERTIES: Lazy<Vec<ParamSpec>> = Lazy::new(|| vec![ParamSpecObject::builder::<Project>("project").construct().build()]);
-            PROPERTIES.as_ref()
+        fn properties() -> &'static [glib::ParamSpec] {
+            Self::derived_properties()
         }
 
-        fn set_property(&self, _id: usize, value: &Value, pspec: &ParamSpec) {
-            match pspec.name() {
-                "project" => {
-                    let project = value.get().unwrap();
-                    self.obj().set_project(&project);
-                    self.project.set(project).unwrap();
-                }
-                _ => unimplemented!(),
-            }
+        fn set_property(&self, id: usize, value: &glib::Value, pspec: &glib::ParamSpec) {
+            self.derived_set_property(id, value, pspec)
         }
 
-        fn property(&self, _id: usize, pspec: &ParamSpec) -> Value {
-            match pspec.name() {
-                "project" => self.project.get().to_value(),
-                _ => unimplemented!(),
-            }
+        fn property(&self, id: usize, pspec: &glib::ParamSpec) -> glib::Value {
+            self.derived_property(id, pspec)
         }
     }
     impl WidgetImpl for RecentItemRow {}
     impl FlowBoxChildImpl for RecentItemRow {}
+
+    impl RecentItemRow {
+        fn set_project(&self, project: Project) {
+            let project_name = project.name();
+
+            if !project.has_cache_icons() {
+                if let Err(err) = project.cache_icons() {
+                    log::error!("Failed to cache icons for {}: {}", project_name, err);
+                }
+            }
+
+            self.image.set_icon_name(Some(&project_name));
+            self.label.set_label(&project_name);
+            self.label.set_tooltip_text(Some(&project_name));
+            self.project.set(project).unwrap();
+        }
+    }
 }
 
 glib::wrapper! {
@@ -76,20 +83,5 @@ glib::wrapper! {
 impl RecentItemRow {
     pub fn new(project: Project) -> Self {
         glib::Object::builder().property("project", &project).build()
-    }
-
-    fn set_project(&self, project: &Project) {
-        let imp = self.imp();
-        let project_name = project.name();
-
-        if !project.has_cache_icons() {
-            if let Err(err) = project.cache_icons() {
-                log::error!("Failed to cache icons for {}: {}", project_name, err);
-            }
-        }
-
-        imp.image.set_icon_name(Some(&project_name));
-        imp.label.set_label(&project_name);
-        imp.label.set_tooltip_text(Some(&project_name));
     }
 }
