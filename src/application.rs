@@ -156,7 +156,7 @@ impl Application {
             .website("https://gitlab.gnome.org/World/design/app-icon-preview/")
             .version(config::VERSION)
             .transient_for(&window)
-            .translator_credits(&gettext("translator-credits"))
+            .translator_credits(gettext("translator-credits"))
             .modal(true)
             .developers(vec!["Bilal Elmoussaoui", "Zander Brown"])
             .artists(vec!["Tobias Bernard"])

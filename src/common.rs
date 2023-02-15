@@ -85,9 +85,9 @@ pub fn create_tmp(icon: Icon, icon_name: &str) -> anyhow::Result<PathBuf> {
     let mut temp_path = icon.path();
     std::fs::create_dir_all(&temp_path)?;
     let basename = match icon {
-        Icon::Symbolic => format!("{}-symbolic.svg", icon_name),
-        Icon::Scalable => format!("{}.svg", icon_name),
-        Icon::Devel => format!("{}.Devel.svg", icon_name),
+        Icon::Symbolic => format!("{icon_name}-symbolic.svg"),
+        Icon::Scalable => format!("{icon_name}.svg"),
+        Icon::Devel => format!("{icon_name}.Devel.svg"),
     };
     temp_path.push(&basename);
     Ok(temp_path)

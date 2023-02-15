@@ -165,7 +165,7 @@ impl ProjectPreviewer {
             .samples
             .choose_multiple(&mut rng, 6)
             .map(|sample_name| {
-                let resource_uri = format!("resource://org/gnome/design/AppIconPreview/icons/{}", sample_name);
+                let resource_uri = format!("resource://org/gnome/design/AppIconPreview/icons/{sample_name}");
                 gio::File::for_uri(&resource_uri)
             })
             .collect::<Vec<gio::File>>();
@@ -193,10 +193,10 @@ impl ProjectPreviewer {
         let root = self.root().unwrap();
 
         let dialog = gtk::FileChooserNative::builder()
-            .title(&gettext("Save Screenshot"))
+            .title(gettext("Save Screenshot"))
             .modal(true)
-            .accept_label(&gettext("_Save"))
-            .cancel_label(&gettext("_Cancel"))
+            .accept_label(gettext("_Save"))
+            .cancel_label(gettext("_Cancel"))
             .action(gtk::FileChooserAction::Save)
             .transient_for(root.downcast_ref::<gtk::Window>().unwrap())
             .build();
