@@ -2,21 +2,22 @@
 # Copyright (C) 2022 app-icon-preview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the app-icon-preview package.
 # NorwayFun <temuri.doghonadze@gmail.com>, 2022.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-11-10 13:16+0000\n"
-"PO-Revision-Date: 2022-11-25 18:51+0100\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-02-16 05:32+0100\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
@@ -58,28 +59,28 @@ msgstr ""
 "ხატულის გამოსაყენებლად გატანა. ტილოს-გარე ობიექტები წაიშლება და SVG ფაილი "
 "ზომისთვის ოპტიმიზირდება"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "ჩვეულებრივი"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
 msgstr "ჩვეულებრივის შენახვა, როგორც…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "ღამის"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
 msgstr "ღამის შენახვა, როგორც…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "სიმბოლური"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
 msgstr "სიმბოლურის შენახვა, როგორც…"
 
 #: data/resources/ui/help-overlay.ui:11
@@ -265,10 +266,10 @@ msgstr "მინიატურა"
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:126
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/widgets/window.rs:129
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "SVG გამოსახულებები"
