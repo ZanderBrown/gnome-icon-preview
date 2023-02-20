@@ -1,15 +1,15 @@
 # Hungarian translation for icon-tool.
-# Copyright (C) 2019, 2020, 2021, 2022 Free Software Foundation, Inc.
+# Copyright (C) 2019, 2020, 2021, 2022, 2023 Free Software Foundation, Inc.
 # This file is distributed under the same license as the icon-tool package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020, 2021, 2022.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/i"
 "ssues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-03-06 21:34+0100\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-02-20 23:25+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Alkalmazásikon-előnézet"
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui és Zander Brown"
 
@@ -61,29 +61,32 @@ msgstr ""
 "Az ikon exportálása produktív használathoz. A vásznon kívüli objektumok "
 "eltávolításra kerülnek, és az SVG optimalizálva lesz a mérethez"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Szabályos"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Szabályos mentése másként…"
+#: data/resources/ui/export.ui:64
+#| msgid "Save Regular As…"
+msgid "Save Regular…"
+msgstr "Szabályos mentése…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Éjszakai"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Éjszakai mentése másként…"
+#: data/resources/ui/export.ui:112
+#| msgid "Save Nightly As…"
+msgid "Save Nightly…"
+msgstr "Éjszakai mentése…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Szimbolikus"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Szimbolikus mentése másként…"
+#: data/resources/ui/export.ui:161
+#| msgid "Save Symbolic As…"
+msgid "Save Symbolic…"
+msgstr "Szimbolikus mentése…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -139,8 +142,8 @@ msgstr "Képernyőkép másolása a vágólapra"
 msgid "New App Icon"
 msgstr "Új alkalmazásikon"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -156,19 +159,19 @@ msgstr "Alkalmazásnév"
 msgid "Icon Location"
 msgstr "Ikon helye"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "A fordított tartományjelölés neve, például org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Az ikon SVG-fájl ebben a könyvtárban lesz eltárolva"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projektek"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Tallózás…"
 
@@ -205,12 +208,10 @@ msgid "_Reload"
 msgstr "Új_ratöltés"
 
 #: data/resources/ui/window.ui:207
-#| msgid "_Take Screenshot"
 msgid "_Copy Screenshot"
 msgstr "_Képernyőkép másolása"
 
 #: data/resources/ui/window.ui:211
-#| msgid "Save Screenshot"
 msgid "_Save Screenshot"
 msgstr "Kép_ernyőkép mentése"
 
@@ -226,57 +227,54 @@ msgstr "_Gyorsbillentyűk"
 msgid "_About App Icon Preview"
 msgstr "Az Alkalmazásikon-előnézet _névjegye"
 
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019, 2020."
 
-#: src/project.rs:157
+#: src/project.rs:160
 msgid "Export"
 msgstr "Exportálás"
 
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Mentés"
 
-#: src/project.rs:162
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
-#| msgid "Icon Location"
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Ikon helyének kiválasztása"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Kiválasztás"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
 msgstr "Mégse"
 
-#: src/widgets/project_previewer.rs:184
-#| msgctxt "shortcut window"
-#| msgid "Copy a Screenshot to Clipboard"
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Képernyőkép lemásolva a vágólapra"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Képernyőkép mentése"
 
-#: src/widgets/project_previewer.rs:202
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Előnézet"
 
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Fájl megnyitása"
 
-#: src/widgets/window.rs:273
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "SVG-képek"
