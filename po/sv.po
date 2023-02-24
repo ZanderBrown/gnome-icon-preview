@@ -1,7 +1,7 @@
 # Swedish translation for icon-tool.
-# Copyright © 2019-2021 icon-tool's COPYRIGHT HOLDER
+# Copyright © 2019-2023 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2019, 2021.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2019, 2021, 2023.
 # Luna Jernberg <droidbittin@gmail.com>, 2021.
 #
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-12-10 07:15+0000\n"
-"PO-Revision-Date: 2021-12-10 22:58+0100\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-02-15 12:35+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:95 src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Förhandsgranska en programikon"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -62,29 +62,29 @@ msgstr ""
 "Exportera ikonen för skarp användning. Objekt utanför ritytan tas bort och "
 "SVG-filen optimeras för storlek"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Vanlig"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Spara vanlig som…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Spara vanlig…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nattlig"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Spara nattlig som…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Spara nattlig…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Symbolisk"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Spara symbolisk som…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Spara symbolisk…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -140,8 +140,8 @@ msgstr "Kopiera en skärmbild till urklipp"
 msgid "New App Icon"
 msgstr "Ny programikon"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/project_previewer.rs:209
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -157,19 +157,19 @@ msgstr "Programnamn"
 msgid "Icon Location"
 msgstr "Ikonplats"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Det omvända domännotationsnamnet, t.ex. org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "SVG-filen för ikonen kommer lagras i denna katalog"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projekt"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Bläddra…"
 
@@ -225,7 +225,7 @@ msgstr "Tan_gentbordsgenvägar"
 msgid "_About App Icon Preview"
 msgstr "_Om Programikonförhandsgranskning"
 
-#: src/application.rs:173
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -234,57 +234,56 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
 
-#: src/project.rs:161
+#: src/project.rs:160
 msgid "Export"
 msgstr "Exportera"
 
-#: src/project.rs:161 src/widgets/project_previewer.rs:208
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Spara"
 
-#: src/project.rs:166
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Välj ikonplats"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Välj"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Skärmbild kopierad till urklipp"
 
-#: src/widgets/project_previewer.rs:205
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Spara skärmbild"
 
-#: src/widgets/project_previewer.rs:212
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Förhandsgranskning"
 
-#: src/widgets/project_previewer.rs:228
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:234
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:262
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Öppna fil"
 
-#: src/widgets/window.rs:267
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "SVG-bilder"
+
+#~ msgid "JPEG"
+#~ msgstr "JPEG"
 
 #~ msgid "Default window width"
 #~ msgstr "Standardbredd för fönster"
