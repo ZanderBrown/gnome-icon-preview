@@ -117,9 +117,9 @@ impl Application {
         log::info!("Datadir: {}", config::PKGDATADIR);
 
         let app = glib::Object::builder::<Self>()
-            .property("application-id", &config::APP_ID)
-            .property("flags", &gio::ApplicationFlags::HANDLES_OPEN)
-            .property("resource-base-path", &Some("/org/gnome/design/AppIconPreview"))
+            .property("application-id", config::APP_ID)
+            .property("flags", gio::ApplicationFlags::HANDLES_OPEN)
+            .property("resource-base-path", "/org/gnome/design/AppIconPreview")
             .build();
         app.run();
     }
