@@ -1,16 +1,16 @@
 # Polish translation for app-icon-preview.
-# Copyright © 2019-2021 the app-icon-preview authors.
+# Copyright © 2019-2023 the app-icon-preview authors.
 # This file is distributed under the same license as the app-icon-preview package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2019-2021.
-# Aviary.pl <community-poland@mozilla.org>, 2019-2021.
+# Piotr Drąg <piotrdrag@gmail.com>, 2019-2023.
+# Aviary.pl <community-poland@mozilla.org>, 2019-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-12-10 07:15+0000\n"
-"PO-Revision-Date: 2021-12-12 14:33+0100\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-03-05 16:12+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:95 src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Podgląd ikon dla programów"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Podgląd ikony programu"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui i Zander Brown"
 
@@ -62,29 +62,29 @@ msgstr ""
 "Eksport ikony do użytku. Obiekty poza płótnem są usuwane, a rozmiar pliku "
 "SVG jest optymalizowany"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Zwykła"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Zapisz zwykłą jako…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Zapisz zwykłą…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nightly"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Zapisz Nightly jako…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Zapisz Nightly…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Symboliczna"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Zapisz symboliczną jako…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Zapisz symboliczną…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -140,8 +140,8 @@ msgstr "Skopiowanie zrzutu ekranu do schowka"
 msgid "New App Icon"
 msgstr "Nowa ikona programu"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/project_previewer.rs:209
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -157,19 +157,19 @@ msgstr "Nazwa programu"
 msgid "Icon Location"
 msgstr "Położenie ikony"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Odwrotna notacja nazwy domeny, np. „org.inkscape.Inkscape”"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Plik SVG ikony zostanie zapisany w tym katalogu"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projekty"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Przeglądaj…"
 
@@ -225,60 +225,56 @@ msgstr "_Skróty klawiszowe"
 msgid "_About App Icon Preview"
 msgstr "_O programie"
 
-#: src/application.rs:173
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2019-2021\n"
-"Aviary.pl <community-poland@mozilla.org>, 2019-2021"
+"Piotr Drąg <piotrdrag@gmail.com>, 2019-2023\n"
+"Aviary.pl <community-poland@mozilla.org>, 2019-2023"
 
-#: src/project.rs:161
+#: src/project.rs:160
 msgid "Export"
 msgstr "Wyeksportuj"
 
-#: src/project.rs:161 src/widgets/project_previewer.rs:208
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Zapisz"
 
-#: src/project.rs:166
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Wybór położenia ikony"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Skopiowano zrzut ekranu do schowka"
 
-#: src/widgets/project_previewer.rs:205
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Zapis zrzutu ekranu"
 
-#: src/widgets/project_previewer.rs:212
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Podgląd"
 
-#: src/widgets/project_previewer.rs:228
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:234
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:262
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Otwarcie pliku"
 
-#: src/widgets/window.rs:267
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "Obrazy SVG"
