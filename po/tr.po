@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-08-13 12:27+0000\n"
-"PO-Revision-Date: 2022-04-24 02:42+0300\n"
+"POT-Creation-Date: 2023-02-16 04:33+0000\n"
+"PO-Revision-Date: 2023-02-21 00:57+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 # Uygulama adı olduğu için çevrilmedi
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
-msgstr "Uygulama simgelerini önizleme"
+msgstr "Uygulama simgelerini ön izleme"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -50,9 +50,9 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
-msgstr "Uygulama simgesini önizleme"
+msgstr "Uygulama simgesini ön izleme"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:99
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -64,29 +64,29 @@ msgstr ""
 "Simgeyi genel kullanım için aktar. Tuval dışı nesneler silinir ve SVG boyutu "
 "eniyilenir"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Sıradan"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Sıradanı Farklı Kaydet…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Sıradanı Kaydet…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Gecelik"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Geceliği Farklı Kaydet…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Geceliği Kaydet…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Sembolik"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Semboliği Farklı Kaydet…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Semboliği Kaydet…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -142,8 +142,7 @@ msgstr "Ekran Görüntüsünü Panoya Kopyala"
 msgid "New App Icon"
 msgstr "Yeni Uygulama Simgesi"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "İptal _Et"
 
@@ -159,19 +158,19 @@ msgstr "Uygulama Adı"
 msgid "Icon Location"
 msgstr "Simge Konumu"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Ters alan adı gösterim adı, örneğin: org.inscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Simge SVG dosyası bu dizinde saklanacak"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projeler"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Göz At…"
 
@@ -228,56 +227,56 @@ msgid "_About App Icon Preview"
 msgstr "App Icon Preview _Hakkında"
 
 # Header bilgileriyle uyumlu olmasına özen gösterelim.
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
 "Sabri Ünal <libreajans@gmail.com>\n"
 "Emin Tufan Çetin <etcetin@gmail.com>"
 
-#: src/project.rs:157
-msgid "Export"
-msgstr "Dışa Aktar"
-
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
-msgid "_Save"
-msgstr "_Kaydet"
-
-#: src/project.rs:162
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/project.rs:168
+msgid "Export"
+msgstr "Dışa Aktar"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Kaydet"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Simge Konumu Seç"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Seç"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "İptal Et"
 
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Ekran görüntüsü panoya kopyalandı"
 
-#: src/widgets/project_previewer.rs:195
-msgid "Save Screenshot"
-msgstr "Ekran Görüntüsünü Kaydet"
-
-#: src/widgets/project_previewer.rs:202
-msgid "Preview"
-msgstr "Önizleme"
-
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:267
-msgid "Open File"
-msgstr "Dosya Aç"
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Ekran Görüntüsünü Kaydet"
 
-#: src/widgets/window.rs:272
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Ön izleme"
+
+#: src/widgets/window.rs:198
 msgid "SVG images"
 msgstr "SVG görüntüler"
+
+#: src/widgets/window.rs:202
+msgid "Open File"
+msgstr "Dosya Aç"
