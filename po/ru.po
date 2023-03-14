@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-05-17 11:19+0000\n"
-"PO-Revision-Date: 2022-05-26 23:06+1000\n"
-"Last-Translator: Ser82-png <sw@atrus.ru>\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-03-10 18:30+1000\n"
+"Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Предварительный просмотр значка приложения"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:99
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -60,31 +60,31 @@ msgid ""
 "SVG is optimised for size"
 msgstr ""
 "Экспортировать значок для использования. Объекты вне холста будут удалены, а "
-"размер SVG оптимизирован"
+"размер SVG-изображения оптимизирован"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Обычный"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Сохранить «обычный» как…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Сохранить «Обычный»…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Ночной"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Сохранить «ночной» как…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Сохранить «Ночной»…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Символический"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Сохранить «символический» как…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Сохранить «Символический»…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -140,10 +140,10 @@ msgstr "Копировать снимок экрана в буфер обмен�
 msgid "New App Icon"
 msgstr "Новый значок приложения"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
-msgstr "_Отмена"
+msgstr "_Отменить"
 
 #: data/resources/ui/new_project.ui:23
 msgid "_Create"
@@ -157,19 +157,19 @@ msgstr "Название приложения"
 msgid "Icon Location"
 msgstr "Расположение значка"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Обратная запись доменного имени, например org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Файл значка SVG будет храниться в этом каталоге"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Проекты"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Обзор…"
 
@@ -225,56 +225,56 @@ msgstr "_Комбинации клавиш"
 msgid "_About App Icon Preview"
 msgstr "_О приложении App Icon Preview"
 
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
 "Svyatoj <e.semenov.surgut@gmail.com>, 2022\n"
-"Ser82-png <sw@atrus.ru>, 2022"
+"Ser82-png <asvmail.as@gmail.com>, 2022-2023"
 
-#: src/project.rs:157
+#: src/project.rs:160
 msgid "Export"
 msgstr "Экспортировать"
 
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/project.rs:162
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Выбрать расположение значка"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
-msgstr "Отмена"
+msgstr "Отменить"
 
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Сохранить снимок экрана"
 
-#: src/widgets/project_previewer.rs:202
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Предварительный просмотр"
 
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:267
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: src/widgets/window.rs:272
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "SVG изображения"
