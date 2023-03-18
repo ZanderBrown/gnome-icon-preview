@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the app-icon-preview package.
 # Manuela Silva <mmsrs@sky.com>, 2020.
 # Juliano Camargo <julianosc@pm.me>, 2020.
-# Hugo Carvalho <hugokarvalho@hotmail.com>, 2020, 2021.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2021-12-10 07:15+0000\n"
-"PO-Revision-Date: 2021-12-18 14:13+0000\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-03-18 09:48+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.gnome.org/teams/pt/>\n"
 "Language: pt\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:95 src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Pré-visualização de ícone da aplicação"
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "A pré-visualizar um ícone de aplicação"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -63,29 +63,29 @@ msgstr ""
 "Exportar o ícone para utilização na produção. Os objetos fora do ecrã são "
 "removidos e o SVG é optimizado para o tamanho"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Regular"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Guardar Regular como…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Guardar regular…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nightly"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Guardar Nightly como…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Guardar nightly…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Simbólico"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Guardar Simbólico como…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Guardar simbólico…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -141,8 +141,8 @@ msgstr "Copiar uma captura de ecrã para a área de transferência"
 msgid "New App Icon"
 msgstr "Novo ícone de aplicação"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:161
-#: src/widgets/project_previewer.rs:209
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -158,20 +158,20 @@ msgstr "Nome da aplicação"
 msgid "Icon Location"
 msgstr "Localização do ícone"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr ""
 "O nome da notação de domínio invertido, por exemplo org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "O ficheiro de ícone SVG será armazenado neste diretório"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projetos"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "Explorar…"
 
@@ -227,63 +227,62 @@ msgstr "_Teclas de atalho"
 msgid "_About App Icon Preview"
 msgstr "_Acerca da Pré-visualização de ícone da aplicação"
 
-#: src/application.rs:173
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
 "Manuela Silva <mmsrs@sky.com>\n"
 "Hugo Carvalho <hugokarvalho@hotmail.com>"
 
-#: src/project.rs:161
+#: src/project.rs:160
 msgid "Export"
 msgstr "Exportar"
 
-#: src/project.rs:161 src/widgets/project_previewer.rs:208
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Guardar"
 
-#: src/project.rs:166
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Selecionar a localização do ícone"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Selecionar"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Captura de ecrã copiada para a área de transferência"
 
-#: src/widgets/project_previewer.rs:205
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Guardar captura de ecrã"
 
-#: src/widgets/project_previewer.rs:212
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Pré-visualização"
 
-#: src/widgets/project_previewer.rs:228
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:234
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:262
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Abrir Ficheiro"
 
-#: src/widgets/window.rs:267
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "Imagens SVG"
+
+#~ msgid "JPEG"
+#~ msgstr "JPEG"
 
 #~ msgid "Default window width"
 #~ msgstr "Largura predefinida da janela"
