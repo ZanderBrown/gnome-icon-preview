@@ -2,25 +2,26 @@
 # Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the app-icon-preview package.
 # Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.
+# Andika Triwidada <andika@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-04-19 09:38+0700\n"
-"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
+"POT-Creation-Date: 2023-02-15 11:14+0000\n"
+"PO-Revision-Date: 2023-03-21 09:38+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Pratinjau Ikon Aplikasi"
 
@@ -48,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Pratinjau ikon Aplikasi"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -60,29 +61,29 @@ msgstr ""
 "Ekspor ikon untuk penggunaan produksi. Objek di luar kanvas dihapus dan SVG "
 "dioptimalkan untuk ukuran"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Reguler"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Simpan Reguler Sebagai…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Simpan Reguler…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
-msgstr "Malam"
+msgstr "Per Malam"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Simpan Malam Sebagai…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Simpan Per Malam…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
-msgstr "Simbolik"
+msgstr "Simbolis"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Simpan Simbolik Sebagai…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Simpan Simbolis…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -138,8 +139,8 @@ msgstr "Salin Cuplikan Layar ke Papan Klip"
 msgid "New App Icon"
 msgstr "Ikon Aplikasi Baru"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18 src/project.rs:160
+#: src/widgets/project_previewer.rs:199
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -155,19 +156,19 @@ msgstr "Nama Aplikasi"
 msgid "Icon Location"
 msgstr "Lokasi Ikon"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Nama notasi domain terbalik, mis. org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Ikon berkas SVG akan disimpan di direktori ini"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Proyek"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "Ram_ban…"
 
@@ -223,156 +224,56 @@ msgstr "Pintasan Papan Ti_k"
 msgid "_About App Icon Preview"
 msgstr "Tent_ang Pratinjau Ikon Aplikasi"
 
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
-msgstr "Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022."
+msgstr ""
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.\n"
+"Andika Triwidada <andika@gmail.com>, 2023."
 
-#: src/project.rs:157
+#: src/project.rs:160
 msgid "Export"
 msgstr "Ekspor"
 
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
+#: src/project.rs:160 src/widgets/project_previewer.rs:198
 msgid "_Save"
 msgstr "_Simpan"
 
-#: src/project.rs:162
+#: src/project.rs:165
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/widgets/new_project.rs:55
 msgid "Select Icon Location"
 msgstr "Pilih Lokasi Ikon"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Select"
 msgstr "Pilih"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:58
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Salin cuplikan layar ke papan klip"
 
-#: src/widgets/project_previewer.rs:195
+#: src/widgets/project_previewer.rs:196
 msgid "Save Screenshot"
 msgstr "Simpan Cuplikan Layar"
 
-#: src/widgets/project_previewer.rs:202
+#: src/widgets/project_previewer.rs:203
 msgid "Preview"
 msgstr "Pratinjau"
 
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/window.rs:123
 msgid "Open File"
 msgstr "Buka Berkas"
 
-#: src/widgets/window.rs:273
+#: src/widgets/window.rs:126
 msgid "SVG images"
 msgstr "Gambar SVG"
-
-#~ msgid "Default window width"
-#~ msgstr "Lebar jendela bawaan"
-
-#~ msgid "Default window height"
-#~ msgstr "Tinggi jendela bawaan"
-
-#~ msgid "Default window maximized behaviour"
-#~ msgstr "Perilaku bawaan ketika jendela dimaksimalkan"
-
-#~ msgid "_Save…"
-#~ msgstr "_Simpan…"
-
-#~ msgid "_Copy to Clipboard"
-#~ msgstr "_Salin ke Papan Klip"
-
-#~ msgid "Recent"
-#~ msgstr "Terkini"
-
-#~ msgid "JPEG"
-#~ msgstr "JPEG"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the recent list"
-#~ msgstr "Buka daftar terkini"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Open the menu"
-#~ msgstr "Buka menu"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Take screenshot"
-#~ msgstr "Ambil cuplikan layar"
-
-#~ msgid "Close"
-#~ msgstr "Tutup"
-
-#~ msgid "Open"
-#~ msgstr "Buka"
-
-#~ msgid "Zander Brown"
-#~ msgstr "Zander Brown"
-
-#~ msgid "Copyright © 2018-19 Zander Brown"
-#~ msgstr "Hak Cipta © 2018-19 Zander Brown"
-
-#~ msgid "Repository"
-#~ msgstr "Repositori"
-
-#~ msgid "Kept sane by"
-#~ msgstr "Tetap waras"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Toggle fullscreen"
-#~ msgstr "Jungkitkan layar penuh"
-
-#~ msgid "no longer supported"
-#~ msgstr "tidak lagi didukung"
-
-#~ msgid ""
-#~ "Palette is all grown up!\n"
-#~ "It’s now available separately as org.gnome.zbrown.Palette"
-#~ msgstr ""
-#~ "Palet sudah tumbuh!\n"
-#~ "Sekarang tersedia secara terpisah sebagai org.gnome.zbrown.Palette"
-
-#~ msgid "Failed to save screenshot"
-#~ msgstr "Gagal menyimpan cuplikan layar"
-
-#~ msgid "This file is defective"
-#~ msgstr "Berkas ini rusak"
-
-#~ msgid ""
-#~ "Please start from a template to ensure that your file will work as a "
-#~ "GNOME icon"
-#~ msgstr ""
-#~ "Silakan mulai dari templat untuk memastikan bahwa berkas Anda akan "
-#~ "berfungsi sebagai ikon GNOME"
-
-#~ msgid "Icons"
-#~ msgstr "Ikon"
-
-#~ msgid "Save Regular"
-#~ msgstr "Simpan Reguler"
-
-#~ msgid "Save Symbolic"
-#~ msgstr "Simpan Simbolik"
-
-#~ msgid "Save Nightly"
-#~ msgstr "Simpan Malam"
-
-#~ msgid "Icon"
-#~ msgstr "Ikon"
-
-#~ msgid "Failed to save exported file"
-#~ msgstr "Gagal menyimpan berkas yang diekspor"
-
-#~ msgid "Save Icon"
-#~ msgstr "Simpan Ikon"
-
-#~ msgid "Expecting at least one “.”"
-#~ msgstr "Mengharapkan setidaknya satu \".\""
