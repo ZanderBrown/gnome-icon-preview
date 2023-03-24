@@ -1,6 +1,6 @@
 [package]
 name = "app-icon-preview"
-version = "3.2.0"
+version = "3.3.0"
 authors = ["Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>"]
 edition = "2021"
 license = "GPL-3.0-or-later"
