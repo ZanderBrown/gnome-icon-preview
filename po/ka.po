@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-02-16 05:32+0100\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-04 02:15+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "აპის ხატულის მინიატურა"
 
@@ -47,7 +47,7 @@ msgstr "აპის ხატულების გადახედვა პ
 msgid "Previewing an Application icon"
 msgstr "აპლიკაციის ხატულის მინიატურა"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -137,8 +137,7 @@ msgstr "ეკრანის ანაბეჭდის ბუფერში 
 msgid "New App Icon"
 msgstr "ახალი აპის ხატულა"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
@@ -175,12 +174,12 @@ msgid "_Open"
 msgstr "_გახსნა"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "ხატულის გახსნა"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "მენიუ"
+msgid "Main Menu"
+msgstr "მთავარი მენიუ"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -226,27 +225,27 @@ msgstr "აპის ხატულის მინიატურის შე
 msgid "translator-credits"
 msgstr "თემური დოღონაძე"
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "ექსპორტირება"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_შენახვა"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "ექსპორტირება"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_შენახვა"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "აირჩეთ ხატულის მდებარეობა"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "აირჩიეთ"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -254,22 +253,25 @@ msgstr "გაუქმება"
 msgid "Screenshot copied to clipboard"
 msgstr "ეკრანის ანაბეჭდის ბუფერში დაკოპირდა"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "ეკრანის ანაბეჭდის შენახვა"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "მინიატურა"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "ეკრანის ანაბეჭდის შენახვა"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "მინიატურა"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "SVG გამოსახულებები"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: src/widgets/window.rs:126
-msgid "SVG images"
-msgstr "SVG გამოსახულებები"
+#~ msgid "Open an icon"
+#~ msgstr "ხატულის გახსნა"
