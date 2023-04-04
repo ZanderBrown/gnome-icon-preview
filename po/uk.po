@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-02-15 17:09+0200\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-04 21:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Попередній перегляд піктограми програми"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui та Zander Brown"
 
@@ -67,7 +67,6 @@ msgid "Regular"
 msgstr "Звичайна"
 
 #: data/resources/ui/export.ui:64
-#| msgid "Save Regular As…"
 msgid "Save Regular…"
 msgstr "Зберегти звичайну…"
 
@@ -76,7 +75,6 @@ msgid "Nightly"
 msgstr "Нічна"
 
 #: data/resources/ui/export.ui:112
-#| msgid "Save Nightly As…"
 msgid "Save Nightly…"
 msgstr "Зберегти нічну…"
 
@@ -85,7 +83,6 @@ msgid "Symbolic"
 msgstr "Символічна"
 
 #: data/resources/ui/export.ui:161
-#| msgid "Save Symbolic As…"
 msgid "Save Symbolic…"
 msgstr "Зберегти символічну…"
 
@@ -143,8 +140,7 @@ msgstr "Копіювати знімок до буфера"
 msgid "New App Icon"
 msgstr "Нова піктограма програми"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Скасувати"
 
@@ -181,12 +177,15 @@ msgid "_Open"
 msgstr "_Відкрити"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+#| msgctxt "shortcut window"
+#| msgid "Open an Icon"
+msgid "Open an Icon"
 msgstr "Відкрити піктограму"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Меню"
+#| msgid "Menu"
+msgid "Main Menu"
+msgstr "Головне меню"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -232,27 +231,27 @@ msgstr "_Про «Перегляд піктограм програми»"
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Експортувати"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "З_берегти"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Експортувати"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "З_берегти"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Виберіть розташування піктограми"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Вибрати"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -260,25 +259,28 @@ msgstr "Скасувати"
 msgid "Screenshot copied to clipboard"
 msgstr "Знімок вікна скопійовано до буфера"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Зберегти знімок екрана"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Перегляд"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Зберегти знімок екрана"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Перегляд"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "зображення SVG"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Відкрити файл"
 
-#: src/widgets/window.rs:126
-msgid "SVG images"
-msgstr "зображення SVG"
+#~ msgid "Open an icon"
+#~ msgstr "Відкрити піктограму"
 
 #~ msgid "JPEG"
 #~ msgstr "JPEG"
