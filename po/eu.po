@@ -1,13 +1,13 @@
 # Basque translation for icon-tool.
 # Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2019, 2022.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2019, 2022, 2023.
 #
 msgid ""
 msgstr "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-03-12 10:00+0100\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-06 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -17,7 +17,7 @@ msgstr "Project-Id-Version: icon-tool master\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Aplikazio-ikonoen Aurrebista"
 
@@ -43,7 +43,7 @@ msgstr "Aplikazio-ikonoen Aurrebista aplikazioa GNOME mahaigainean erabili daite
 msgid "Previewing an Application icon"
 msgstr "Aplikazio-ikono baten aurrebista"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -53,29 +53,29 @@ msgid ""
 "SVG is optimised for size"
 msgstr "Esportatu ikonoaren bertsio erabilgarria. Oihalez kanpoko objektuak kendu egingo dira eta SVG optimizatu egingo da tamaina txikiagoa izateko"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Arrunta"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Gorde arrunta honela…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Gorde erregularra…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Gauekoa"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Gorde gauekoa honela…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Gorde gauekoa…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Sinbolikoa"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Gorde sinbolikoa honela…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Gorde sinbolikoa…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -131,8 +131,7 @@ msgstr "Kopiatu pantaila-argazkia arbelean"
 msgid "New App Icon"
 msgstr "Aplikazio-ikono berria"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -148,19 +147,19 @@ msgstr "Aplikazioaren izena"
 msgid "Icon Location"
 msgstr "Ikonoaren okalekua"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "Domeinuen alderantzizko izenaren forman, adib. org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Ikonoaren SVG fitxategia direktorio honetan gordeko da"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Proiektuak"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Arakatu…"
 
@@ -169,12 +168,12 @@ msgid "_Open"
 msgstr "_Ireki"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Ireki ikono bat"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menua"
+msgid "Main Menu"
+msgstr "Menu nagusia"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -216,57 +215,60 @@ msgstr "Las_ter-teklak"
 msgid "_About App Icon Preview"
 msgstr "Aplikazio-ikonoen Aurrebista aplikazioari _buruz"
 
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr "translator-credits"
 
-#: src/project.rs:157
-msgid "Export"
-msgstr "Esportatu"
-
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
-msgid "_Save"
-msgstr "_Gorde"
-
-#: src/project.rs:162
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/project.rs:168
+msgid "Export"
+msgstr "Esportatu"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Gorde"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Hautatu kokalekua ikonoarentzako"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Hautatu"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Pantaila-argazkia arbelean kopiatu da"
 
-#: src/widgets/project_previewer.rs:195
-msgid "Save Screenshot"
-msgstr "Gorde pantaila-argazkia"
-
-#: src/widgets/project_previewer.rs:202
-msgid "Preview"
-msgstr "Aurrebista"
-
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Gorde pantaila-argazkia"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Aurrebista"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "SVG irudiak"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Ireki fitxategia"
 
-#: src/widgets/window.rs:273
-msgid "SVG images"
-msgstr "SVG irudiak"
+#~ msgid "Open an icon"
+#~ msgstr "Ireki ikono bat"
 
 #~ msgid "Welcome screen"
 #~ msgstr "Ongi etorriko pantaila"
