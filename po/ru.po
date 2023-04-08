@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-03-10 18:30+1000\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-08 21:07+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Предварительный просмотр значка приложения"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -140,8 +140,7 @@ msgstr "Копировать снимок экрана в буфер обмен�
 msgid "New App Icon"
 msgstr "Новый значок приложения"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -178,12 +177,12 @@ msgid "_Open"
 msgstr "_Открыть"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Открыть значок"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Меню"
+msgid "Main Menu"
+msgstr "Главное меню"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -223,7 +222,7 @@ msgstr "_Комбинации клавиш"
 
 #: data/resources/ui/window.ui:225
 msgid "_About App Icon Preview"
-msgstr "_О приложении App Icon Preview"
+msgstr "_О приложении"
 
 #: src/application.rs:159
 msgid "translator-credits"
@@ -231,27 +230,27 @@ msgstr ""
 "Svyatoj <e.semenov.surgut@gmail.com>, 2022\n"
 "Ser82-png <asvmail.as@gmail.com>, 2022-2023"
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Экспортировать"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_Сохранить"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Экспортировать"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Сохранить"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Выбрать расположение значка"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -259,22 +258,25 @@ msgstr "Отменить"
 msgid "Screenshot copied to clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Сохранить снимок экрана"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Предварительный просмотр"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Сохранить снимок экрана"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "SVG изображения"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: src/widgets/window.rs:126
-msgid "SVG images"
-msgstr "SVG изображения"
+#~ msgid "Open an icon"
+#~ msgstr "Открыть значок"
