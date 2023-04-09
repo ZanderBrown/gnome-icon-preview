@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-02-15 12:35+0100\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-03 17:58+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Programikonförhandsgranskning"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Förhandsgranska en programikon"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -140,8 +140,7 @@ msgstr "Kopiera en skärmbild till urklipp"
 msgid "New App Icon"
 msgstr "Ny programikon"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "A_vbryt"
 
@@ -178,12 +177,12 @@ msgid "_Open"
 msgstr "Ö_ppna"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Öppna en ikon"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Meny"
+msgid "Main Menu"
+msgstr "Huvudmeny"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -234,27 +233,27 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>"
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Exportera"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_Spara"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Exportera"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Spara"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Välj ikonplats"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Välj"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -262,25 +261,28 @@ msgstr "Avbryt"
 msgid "Screenshot copied to clipboard"
 msgstr "Skärmbild kopierad till urklipp"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Spara skärmbild"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Förhandsgranskning"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Spara skärmbild"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Förhandsgranskning"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "SVG-bilder"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Öppna fil"
 
-#: src/widgets/window.rs:126
-msgid "SVG images"
-msgstr "SVG-bilder"
+#~ msgid "Open an icon"
+#~ msgstr "Öppna en ikon"
 
 #~ msgid "JPEG"
 #~ msgstr "JPEG"
