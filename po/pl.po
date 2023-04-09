@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-03-05 16:12+0100\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-09 12:27+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Podgląd ikon dla programów"
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Podgląd ikony programu"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui i Zander Brown"
 
@@ -140,8 +140,7 @@ msgstr "Skopiowanie zrzutu ekranu do schowka"
 msgid "New App Icon"
 msgstr "Nowa ikona programu"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -178,12 +177,12 @@ msgid "_Open"
 msgstr "_Otwórz"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Otwiera ikonę"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menu"
+msgid "Main Menu"
+msgstr "Menu główne"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -231,27 +230,27 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2019-2023\n"
 "Aviary.pl <community-poland@mozilla.org>, 2019-2023"
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Wyeksportuj"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_Zapisz"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Wyeksportuj"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Zapisz"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Wybór położenia ikony"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Wybierz"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -259,22 +258,22 @@ msgstr "Anuluj"
 msgid "Screenshot copied to clipboard"
 msgstr "Skopiowano zrzut ekranu do schowka"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Zapis zrzutu ekranu"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Podgląd"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
-msgid "Open File"
-msgstr "Otwarcie pliku"
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Zapis zrzutu ekranu"
 
-#: src/widgets/window.rs:126
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Podgląd"
+
+#: src/widgets/window.rs:198
 msgid "SVG images"
 msgstr "Obrazy SVG"
+
+#: src/widgets/window.rs:202
+msgid "Open File"
+msgstr "Otwarcie pliku"
