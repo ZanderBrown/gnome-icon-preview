@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/i"
 "ssues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-02-20 23:25+0100\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-04-13 23:23+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Alkalmazásikon-előnézet"
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui és Zander Brown"
 
@@ -66,7 +66,6 @@ msgid "Regular"
 msgstr "Szabályos"
 
 #: data/resources/ui/export.ui:64
-#| msgid "Save Regular As…"
 msgid "Save Regular…"
 msgstr "Szabályos mentése…"
 
@@ -75,7 +74,6 @@ msgid "Nightly"
 msgstr "Éjszakai"
 
 #: data/resources/ui/export.ui:112
-#| msgid "Save Nightly As…"
 msgid "Save Nightly…"
 msgstr "Éjszakai mentése…"
 
@@ -84,7 +82,6 @@ msgid "Symbolic"
 msgstr "Szimbolikus"
 
 #: data/resources/ui/export.ui:161
-#| msgid "Save Symbolic As…"
 msgid "Save Symbolic…"
 msgstr "Szimbolikus mentése…"
 
@@ -142,8 +139,7 @@ msgstr "Képernyőkép másolása a vágólapra"
 msgid "New App Icon"
 msgstr "Új alkalmazásikon"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -180,12 +176,15 @@ msgid "_Open"
 msgstr "_Megnyitás"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+#| msgctxt "shortcut window"
+#| msgid "Open an Icon"
+msgid "Open an Icon"
 msgstr "Egy ikon megnyitása"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menü"
+#| msgid "Menu"
+msgid "Main Menu"
+msgstr "Főmenü"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -231,27 +230,27 @@ msgstr "Az Alkalmazásikon-előnézet _névjegye"
 msgid "translator-credits"
 msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019, 2020."
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Exportálás"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_Mentés"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Exportálás"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Mentés"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Ikon helyének kiválasztása"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Kiválasztás"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -259,22 +258,22 @@ msgstr "Mégse"
 msgid "Screenshot copied to clipboard"
 msgstr "Képernyőkép lemásolva a vágólapra"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Képernyőkép mentése"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Előnézet"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
-msgid "Open File"
-msgstr "Fájl megnyitása"
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Képernyőkép mentése"
 
-#: src/widgets/window.rs:126
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Előnézet"
+
+#: src/widgets/window.rs:198
 msgid "SVG images"
 msgstr "SVG-képek"
+
+#: src/widgets/window.rs:202
+msgid "Open File"
+msgstr "Fájl megnyitása"
