@@ -46,11 +46,6 @@ glib::wrapper! {
 }
 
 impl ExportPopover {
-    #[allow(clippy::new_without_default)]
-    pub fn new() -> Self {
-        glib::Object::new()
-    }
-
     pub fn set_project(&self, project: &Project) {
         let imp = self.imp();
 
@@ -62,5 +57,11 @@ impl ExportPopover {
         if has_symbolic {
             imp.symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
         }
+    }
+}
+
+impl Default for ExportPopover {
+    fn default() -> Self {
+        glib::Object::new()
     }
 }

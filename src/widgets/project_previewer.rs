@@ -71,11 +71,6 @@ glib::wrapper! {
 }
 
 impl ProjectPreviewer {
-    #[allow(clippy::new_without_default)]
-    pub fn new() -> Self {
-        glib::Object::new()
-    }
-
     fn screenshot(&self) -> Option<gdk::Texture> {
         let width = self.allocated_width() as f32;
         let height = self.allocated_height() as f32;
@@ -226,5 +221,11 @@ impl ProjectPreviewer {
         stream.write_bytes_future(&bytes, glib::PRIORITY_DEFAULT).await?;
 
         Ok(())
+    }
+}
+
+impl Default for ProjectPreviewer {
+    fn default() -> Self {
+        glib::Object::new()
     }
 }

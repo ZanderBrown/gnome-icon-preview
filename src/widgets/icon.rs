@@ -11,13 +11,11 @@ pub enum IconSize {
 
 mod imp {
     use super::*;
-    use std::cell::Cell;
 
-    #[derive(Debug)]
+    #[derive(Debug, Default)]
     pub struct Icon {
         pub image: gtk::Image,
         pub label: gtk::Label,
-        pub size: Cell<i32>,
     }
 
     #[glib::object_subclass]
@@ -25,14 +23,6 @@ mod imp {
         const NAME: &'static str = "AppIcon";
         type Type = super::Icon;
         type ParentType = gtk::Box;
-
-        fn new() -> Self {
-            Self {
-                image: gtk::Image::new(),
-                label: gtk::Label::new(None),
-                size: Cell::new(-1),
-            }
-        }
     }
 
     impl ObjectImpl for Icon {
@@ -66,7 +56,7 @@ glib::wrapper! {
 
 impl Icon {
     pub fn new(size: IconSize) -> Self {
-        let icon = glib::Object::builder::<Self>().property("orientation", &gtk::Orientation::Vertical).property("spacing", &6).build();
+        let icon = glib::Object::builder::<Self>().property("orientation", gtk::Orientation::Vertical).property("spacing", 6).build();
 
         let imp = icon.imp();
         match size {

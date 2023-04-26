@@ -3,16 +3,11 @@ use gtk::prelude::*;
 use gtk::subclass::prelude::*;
 use gtk::{gio, glib};
 
-#[derive(Debug, Copy, Eq, PartialEq, Clone)]
+#[derive(Debug, Default, Copy, Eq, PartialEq, Clone)]
 pub enum PaneStyle {
+    #[default]
     Light,
     Dark,
-}
-
-impl Default for PaneStyle {
-    fn default() -> Self {
-        Self::Light
-    }
 }
 
 mod imp {

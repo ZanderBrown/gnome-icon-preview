@@ -4,7 +4,6 @@ use crate::config::{APP_ID, PROFILE};
 use crate::project::Project;
 
 use gettextrs::gettext;
-use std::rc::Rc;
 
 use gtk::glib::clone;
 use gtk::prelude::*;
@@ -30,7 +29,7 @@ mod imp {
     pub struct Window {
         pub sender: OnceCell<glib::Sender<Action>>,
         pub previewer: ProjectPreviewer,
-        pub open_project: Rc<RefCell<Option<Project>>>,
+        pub open_project: RefCell<Option<Project>>,
         pub exporter: ExportPopover,
         pub monitor: RefCell<Option<gio::FileMonitor>>,
         pub settings: gio::Settings,
@@ -51,16 +50,15 @@ mod imp {
 
         fn new() -> Self {
             Self {
-                sender: OnceCell::new(),
-                previewer: ProjectPreviewer::new(),
-                open_project: Rc::new(RefCell::new(None)),
-                exporter: ExportPopover::new(),
-                monitor: RefCell::new(None),
+                sender: Default::default(),
+                previewer: Default::default(),
+                open_project: Default::default(),
+                exporter: Default::default(),
+                monitor: Default::default(),
                 settings: gio::Settings::new(APP_ID),
-
-                content: TemplateChild::default(),
-                export_btn: TemplateChild::default(),
-                open_btn: TemplateChild::default(),
+                content: Default::default(),
+                export_btn: Default::default(),
+                open_btn: Default::default(),
             }
         }
         fn class_init(klass: &mut Self::Class) {
@@ -177,9 +175,9 @@ impl Window {
         imp.monitor.borrow_mut().replace(monitor);
         imp.open_project.borrow_mut().replace(project);
 
-        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@weak imp.open_project as project,
-        @weak self as this => move |monitor, _, _, event| {
+        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@weak self as this => move |monitor, _, _, event| {
             if event == gio::FileMonitorEvent::Changed {
+                let project = &this.imp().open_project;
                 let file = project.borrow().as_ref().unwrap().file();
                 match Project::parse(file, true) {
                     Ok(project) => {
