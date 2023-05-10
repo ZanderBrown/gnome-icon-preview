@@ -1,7 +1,7 @@
 # Indonesian translation for app-icon-preview.
 # Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the app-icon-preview package.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2023.
 # Andika Triwidada <andika@gmail.com>, 2023.
 #
 msgid ""
@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-02-15 11:14+0000\n"
-"PO-Revision-Date: 2023-03-21 09:38+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-05-10 14:24+0700\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:210
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Pratinjau Ikon Aplikasi"
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Pratinjau ikon Aplikasi"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:104
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -139,8 +139,7 @@ msgstr "Salin Cuplikan Layar ke Papan Klip"
 msgid "New App Icon"
 msgstr "Ikon Aplikasi Baru"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:160
-#: src/widgets/project_previewer.rs:199
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -177,12 +176,12 @@ msgid "_Open"
 msgstr "Bu_ka"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
-msgstr "Buka ikon"
+msgid "Open an Icon"
+msgstr "Buka Ikon"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menu"
+msgid "Main Menu"
+msgstr "Menu Utama"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -227,30 +226,30 @@ msgstr "Tent_ang Pratinjau Ikon Aplikasi"
 #: src/application.rs:159
 msgid "translator-credits"
 msgstr ""
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.\n"
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2023.\n"
 "Andika Triwidada <andika@gmail.com>, 2023."
 
-#: src/project.rs:160
-msgid "Export"
-msgstr "Ekspor"
-
-#: src/project.rs:160 src/widgets/project_previewer.rs:198
-msgid "_Save"
-msgstr "_Simpan"
-
-#: src/project.rs:165
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:55
+#: src/project.rs:168
+msgid "Export"
+msgstr "Ekspor"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Simpan"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Pilih Lokasi Ikon"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Pilih"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Batal"
 
@@ -258,22 +257,25 @@ msgstr "Batal"
 msgid "Screenshot copied to clipboard"
 msgstr "Salin cuplikan layar ke papan klip"
 
-#: src/widgets/project_previewer.rs:196
-msgid "Save Screenshot"
-msgstr "Simpan Cuplikan Layar"
-
-#: src/widgets/project_previewer.rs:203
-msgid "Preview"
-msgstr "Pratinjau"
-
-#: src/widgets/project_previewer.rs:219
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:123
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Simpan Cuplikan Layar"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Pratinjau"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "Gambar SVG"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Buka Berkas"
 
-#: src/widgets/window.rs:126
-msgid "SVG images"
-msgstr "Gambar SVG"
+#~ msgid "Open an icon"
+#~ msgstr "Buka ikon"
