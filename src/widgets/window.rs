@@ -40,6 +40,8 @@ mod imp {
         pub export_btn: TemplateChild<gtk::MenuButton>,
         #[template_child]
         pub open_btn: TemplateChild<adw::SplitButton>,
+        #[template_child]
+        pub toolbar_view: TemplateChild<adw::ToolbarView>,
     }
 
     #[glib::object_subclass]
@@ -59,6 +61,7 @@ mod imp {
                 content: Default::default(),
                 export_btn: Default::default(),
                 open_btn: Default::default(),
+                toolbar_view: Default::default(),
             }
         }
         fn class_init(klass: &mut Self::Class) {
@@ -217,6 +220,7 @@ impl Window {
         match view {
             View::Previewer => {
                 imp.content.set_visible_child_name("previewer");
+                imp.toolbar_view.set_top_bar_style(adw::ToolbarStyle::Raised);
                 imp.export_btn.set_visible(true);
             }
             View::Initial => {

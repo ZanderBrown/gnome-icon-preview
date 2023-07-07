@@ -9,7 +9,7 @@ license = "GPL-3.0-or-later"
 gtk = { version = "0.6", package = "gtk4", features = ["gnome_44"] }
 log = "0.4"
 gettext-rs = { version = "0.7", features = ["gettext-system"] }
-adw = { version = "0.4", package = "libadwaita", features = ["v1_2"] }
+adw = { version = "0.4", package = "libadwaita", features = ["v1_4"] }
 pretty_env_logger = "0.4"
 cairo = { version = "0.17", package = "cairo-rs", features = ["svg", "v1_16"] }
 rand = "0.8"
