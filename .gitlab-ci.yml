@@ -1,50 +1,37 @@
-stages:
-  - check
-  - test
+include:
+  - project: 'gnome/citemplates'
+    file: 'flatpak/flatpak-ci-initiative-sdk-extensions.yml'
 
-flatpak:
-  image: "quay.io/gnome_infrastructure/gnome-runtime-images:gnome-master"
-  stage: test
-  tags:
-    - flatpak
+.vars-devel:
   variables:
-    BUNDLE: "app-icon-preview-nightly.flatpak"
     MANIFEST_PATH: "build-aux/org.gnome.design.AppIconPreviewDevel.json"
     FLATPAK_MODULE: "app-icon-preview"
-    MESON_ARGS: "-Dprofile=development"
     APP_ID: "org.gnome.design.AppIconPreviewDevel"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
-  script:
-    - >
-      xvfb-run -a -s "-screen 0 1024x768x24"
-      flatpak-builder --keep-build-dirs --user --disable-rofiles-fuse flatpak_app --repo=repo ${BRANCH:+--default-branch=$BRANCH} ${MANIFEST_PATH}
-    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} ${APP_ID} ${BRANCH}
-  artifacts:
-    name: 'Flatpak artifacts'
-    expose_as: 'Get Flatpak bundle here'
-    when: 'always'
-    paths:
-      - "${BUNDLE}"
-      - '.flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-logs/meson-log.txt'
-      - '.flatpak-builder/build/${FLATPAK_MODULE}/_flatpak_build/meson-logs/testlog.txt'
-    expire_in: 14 days
+    BUNDLE: "app-icon-preview-nightly.flatpak"
+  extends: '.flatpak'
 
-# Configure and run rustfmt
-# Exits and builds fails if on bad format
+# Build Flatpak for x86_64
+build-flatpak:
+  extends: ['.flatpak@x86_64', '.vars-devel']
+  stage: build
+
+nightly@x86_64:
+  extends: '.publish_nightly'
+  needs: ['build-flatpak']
+
 rustfmt:
-  stage: check
   image: "rust:slim"
+  stage: ".pre"
   script:
     - rustup component add rustfmt
-    # Create blank versions of our configured files
-    # so rustfmt does not yell about non-existent files or completely empty files
     - echo -e "" >> src/config.rs
     - rustc -Vv && cargo -Vv
     - cargo fmt --version
     - cargo fmt --all -- --color=always --check
 
 codespell:
-  stage: check
+  stage: ".pre"
   image: "docker.io/bilelmoussaoui/codespell"
   script:
     - codespell -S "*.png,*.po,.git,*.jpg" -L "ser"
