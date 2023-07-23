@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-03-09 22:24+0200\n"
+"POT-Creation-Date: 2023-04-03 10:52+0000\n"
+"PO-Revision-Date: 2023-07-23 15:29+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
 msgid "App Icon Preview"
 msgstr "Sovelluskuvakkeiden esikatselu"
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Sovelluskuvakkeen esikatselua"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -61,29 +61,29 @@ msgstr ""
 "Vie kuvake tuotantokäyttöä varten. Pohjan ulkopuoliset objektit poistetaan "
 "ja SVG optimoidaan koon osalta"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Tavallinen"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Tallenna tavallinen nimellä…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Tallenna tavallinen…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nightly"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Tallenna Nightly nimellä…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Tallenna Nightly…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Symbolinen"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Tallenna symbolinen nimellä…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Tallenna symbolinen…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -139,8 +139,7 @@ msgstr "Kopioi kuvakaappaus leikepöydälle"
 msgid "New App Icon"
 msgstr "Uusi sovelluskuvake"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "_Peru"
 
@@ -156,20 +155,20 @@ msgstr "Sovelluksen nimi"
 msgid "Icon Location"
 msgstr "Kuvakkeen sijainti"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr ""
 "Käänteinen verkkotunnusnotaation nimi, esimerkiksi org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "Kuvakkeen SVG-tiedosto talletetaan tähän kansioon"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projektit"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Selaa…"
 
@@ -178,12 +177,12 @@ msgid "_Open"
 msgstr "_Avaa"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Avaa kuvake"
 
 #: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Valikko"
+msgid "Main Menu"
+msgstr "Päävalikko"
 
 #: data/resources/ui/window.ui:32
 msgid "_Export"
@@ -225,57 +224,60 @@ msgstr "_Pikanäppäimet"
 msgid "_About App Icon Preview"
 msgstr "_Tietoja - Sovelluskuvakkeiden esikatselu"
 
-#: src/application.rs:171
+#: src/application.rs:159
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: src/project.rs:157
-msgid "Export"
-msgstr "Vie"
-
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
-msgid "_Save"
-msgstr "_Tallenna"
-
-#: src/project.rs:162
+#: src/project.rs:161
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
+#: src/project.rs:168
+msgid "Export"
+msgstr "Vie"
+
+#: src/project.rs:169 src/widgets/project_previewer.rs:217
+msgid "_Save"
+msgstr "_Tallenna"
+
+#: src/widgets/new_project.rs:58
 msgid "Select Icon Location"
 msgstr "Valitse kuvakkeen sijainti"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Select"
 msgstr "Valitse"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:61
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:185
 msgid "Screenshot copied to clipboard"
 msgstr "Kuvakaappaus kopioitu leikepöydälle"
 
-#: src/widgets/project_previewer.rs:195
-msgid "Save Screenshot"
-msgstr "Tallenna kuvakaappaus"
-
-#: src/widgets/project_previewer.rs:202
-msgid "Preview"
-msgstr "Esikatsele"
-
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:209
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/project_previewer.rs:215
+msgid "Save Screenshot"
+msgstr "Tallenna kuvakaappaus"
+
+#: src/widgets/project_previewer.rs:218
+msgid "Preview"
+msgstr "Esikatsele"
+
+#: src/widgets/window.rs:198
+msgid "SVG images"
+msgstr "SVG-kuvat"
+
+#: src/widgets/window.rs:202
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: src/widgets/window.rs:273
-msgid "SVG images"
-msgstr "SVG-kuvat"
+#~ msgid "Open an icon"
+#~ msgstr "Avaa kuvake"
 
 #~ msgid "Default window width"
 #~ msgstr "Ikkunan oletusleveys"
