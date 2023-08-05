@@ -1,12 +1,11 @@
+use gtk::{glib, pango, prelude::*, subclass::prelude::*};
+
 use crate::project::Project;
 
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
-use gtk::{glib, pango};
-
 mod imp {
-    use super::*;
     use std::cell::OnceCell;
+
+    use super::*;
 
     #[derive(Debug, Default, glib::Properties)]
     #[properties(wrapper_type = super::RecentItemRow)]
@@ -71,6 +70,8 @@ glib::wrapper! {
 
 impl RecentItemRow {
     pub fn new(project: Project) -> Self {
-        glib::Object::builder().property("project", &project).build()
+        glib::Object::builder()
+            .property("project", &project)
+            .build()
     }
 }

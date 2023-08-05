@@ -1,15 +1,12 @@
-use crate::config;
-use crate::project::Project;
-use crate::widgets::Window;
-
-use adw::prelude::*;
+use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
 use gtk::{
     gdk, gio,
     glib::{self, clone, Receiver, Sender},
-    subclass::prelude::*,
 };
 use log::error;
+
+use crate::{config, project::Project, widgets::Window};
 
 pub enum Action {
     OpenProject(Project),
@@ -17,10 +14,9 @@ pub enum Action {
 }
 
 mod imp {
+    use std::cell::{OnceCell, RefCell};
+
     use super::*;
-    use adw::subclass::prelude::*;
-    use std::cell::OnceCell;
-    use std::cell::RefCell;
 
     pub struct Application {
         pub sender: Sender<Action>,
@@ -64,9 +60,13 @@ mod imp {
                     window.present();
                 })
                 .build();
-            let quit = gio::ActionEntry::builder("quit").activate(move |app: &Self::Type, _, _| app.quit()).build();
+            let quit = gio::ActionEntry::builder("quit")
+                .activate(move |app: &Self::Type, _, _| app.quit())
+                .build();
 
-            let about = gio::ActionEntry::builder("about").activate(move |app: &Self::Type, _, _| app.show_about_dialog()).build();
+            let about = gio::ActionEntry::builder("about")
+                .activate(move |app: &Self::Type, _, _| app.show_about_dialog())
+                .build();
 
             app.add_action_entries([new_window, quit, about]);
 
@@ -88,7 +88,10 @@ mod imp {
             window.present();
             // Setup action channel
             let receiver = self.receiver.borrow_mut().take().unwrap();
-            receiver.attach(None, clone!(@strong application => move |action| application.do_action(action)));
+            receiver.attach(
+                None,
+                clone!(@strong application => move |action| application.do_action(action)),
+            );
         }
 
         fn open(&self, files: &[gio::File], _hint: &str) {
@@ -143,7 +146,11 @@ impl Application {
                 window.set_open_project(project);
             }
             Action::NewProject(project_dest) => match Project::from_template(project_dest) {
-                Ok(project) => self.imp().sender.send(Action::OpenProject(project)).unwrap(),
+                Ok(project) => self
+                    .imp()
+                    .sender
+                    .send(Action::OpenProject(project))
+                    .unwrap(),
                 Err(err) => error!("{:#?}", err),
             },
         };

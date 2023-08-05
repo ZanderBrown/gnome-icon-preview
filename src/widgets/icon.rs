@@ -1,8 +1,6 @@
-use crate::common;
+use gtk::{gio, glib, pango, prelude::*, subclass::prelude::*};
 
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
-use gtk::{gio, glib, pango};
+use crate::common;
 
 pub enum IconSize {
     Small,
@@ -56,7 +54,10 @@ glib::wrapper! {
 
 impl Icon {
     pub fn new(size: IconSize) -> Self {
-        let icon = glib::Object::builder::<Self>().property("orientation", gtk::Orientation::Vertical).property("spacing", 6).build();
+        let icon = glib::Object::builder::<Self>()
+            .property("orientation", gtk::Orientation::Vertical)
+            .property("spacing", 6)
+            .build();
 
         let imp = icon.imp();
         match size {
@@ -75,7 +76,8 @@ impl Icon {
         let imp = self.imp();
         let filename = file.basename().unwrap();
 
-        imp.label.set_text(&common::format_name(filename.to_str().unwrap()));
+        imp.label
+            .set_text(&common::format_name(filename.to_str().unwrap()));
 
         let gicon = gio::FileIcon::new(file);
         imp.image.set_from_gicon(&gicon);

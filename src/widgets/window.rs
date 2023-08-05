@@ -1,14 +1,13 @@
-use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover};
-use crate::application::{Action, Application};
-use crate::config::{APP_ID, PROFILE};
-use crate::project::Project;
-
+use adw::subclass::prelude::*;
 use gettextrs::gettext;
+use gtk::{gdk, gio, glib, glib::clone, prelude::*};
 
-use gtk::glib::clone;
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
-use gtk::{gdk, gio, glib};
+use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover};
+use crate::{
+    application::{Action, Application},
+    config::{APP_ID, PROFILE},
+    project::Project,
+};
 
 #[derive(Debug, Eq, PartialEq)]
 pub enum View {
@@ -17,12 +16,9 @@ pub enum View {
 }
 
 mod imp {
+    use std::cell::{OnceCell, RefCell};
+
     use super::*;
-
-    use std::cell::OnceCell;
-    use std::cell::RefCell;
-
-    use adw::subclass::prelude::*;
 
     #[derive(gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/window.ui")]
@@ -72,15 +68,19 @@ mod imp {
                 window.imp().exporter.popup();
             });
 
-            klass.install_action_async("win.export-save", Some("s"), move |window, _, target| async move {
-                if let Some(project) = window.imp().open_project.borrow().as_ref() {
-                    let project_type = target.unwrap().get::<String>().unwrap();
-                    let icon = crate::common::Icon::from(project_type);
-                    if project.export(icon, &window).await.is_err() {
-                        log::warn!("Failed to export the project");
-                    }
-                };
-            });
+            klass.install_action_async(
+                "win.export-save",
+                Some("s"),
+                move |window, _, target| async move {
+                    if let Some(project) = window.imp().open_project.borrow().as_ref() {
+                        let project_type = target.unwrap().get::<String>().unwrap();
+                        let icon = crate::common::Icon::from(project_type);
+                        if project.export(icon, &window).await.is_err() {
+                            log::warn!("Failed to export the project");
+                        }
+                    };
+                },
+            );
 
             // New Project
             klass.install_action("win.new-project", None, move |window, _, _| {
@@ -110,9 +110,18 @@ mod imp {
             });
 
             // Save Screenshot
-            klass.install_action_async("win.save-screenshot", None, move |window, _, _| async move {
-                window.imp().previewer.save_screenshot().await.unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
-            });
+            klass.install_action_async(
+                "win.save-screenshot",
+                None,
+                move |window, _, _| async move {
+                    window
+                        .imp()
+                        .previewer
+                        .save_screenshot()
+                        .await
+                        .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
+                },
+            );
 
             // Copy Screenshot
             klass.install_action("win.copy-screenshot", None, move |window, _, _| {
@@ -134,7 +143,10 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             let obj = self.obj();
-            let app = gio::Application::default().unwrap().downcast::<Application>().unwrap();
+            let app = gio::Application::default()
+                .unwrap()
+                .downcast::<Application>()
+                .unwrap();
 
             self.sender.set(app.sender()).unwrap();
 
@@ -173,24 +185,29 @@ impl Window {
         let recent_manager = gtk::RecentManager::default();
         recent_manager.add_item(&project.uri());
 
-        let monitor = project.file().monitor_file(gio::FileMonitorFlags::all(), gio::Cancellable::NONE).unwrap();
+        let monitor = project
+            .file()
+            .monitor_file(gio::FileMonitorFlags::all(), gio::Cancellable::NONE)
+            .unwrap();
 
         imp.monitor.borrow_mut().replace(monitor);
         imp.open_project.borrow_mut().replace(project);
 
-        imp.monitor.borrow().as_ref().unwrap().connect_changed(clone!(@weak self as this => move |monitor, _, _, event| {
-            if event == gio::FileMonitorEvent::Changed {
-                let project = &this.imp().open_project;
-                let file = project.borrow().as_ref().unwrap().file();
-                match Project::parse(file, true) {
-                    Ok(project) => {
-                        monitor.cancel();
-                        this.set_open_project(project);
+        imp.monitor.borrow().as_ref().unwrap().connect_changed(
+            clone!(@weak self as this => move |monitor, _, _, event| {
+                if event == gio::FileMonitorEvent::Changed {
+                    let project = &this.imp().open_project;
+                    let file = project.borrow().as_ref().unwrap().file();
+                    match Project::parse(file, true) {
+                        Ok(project) => {
+                            monitor.cancel();
+                            this.set_open_project(project);
+                        }
+                        Err(err) => log::warn!("Failed to parse the project {}", err),
                     }
-                    Err(err) => log::warn!("Failed to parse the project {}", err),
                 }
-            }
-        }));
+            }),
+        );
     }
 
     async fn open_file(&self) -> anyhow::Result<()> {
@@ -200,7 +217,11 @@ impl Window {
         svg_filter.add_mime_type("image/svg+xml");
         filters.append(&svg_filter);
 
-        let dialog = gtk::FileDialog::builder().title(gettext("Open File")).modal(true).filters(&filters).build();
+        let dialog = gtk::FileDialog::builder()
+            .title(gettext("Open File"))
+            .modal(true)
+            .filters(&filters)
+            .build();
 
         let file = dialog.open_future(Some(self)).await?;
         let sender = self.imp().sender.get().unwrap();
@@ -220,7 +241,8 @@ impl Window {
         match view {
             View::Previewer => {
                 imp.content.set_visible_child_name("previewer");
-                imp.toolbar_view.set_top_bar_style(adw::ToolbarStyle::Raised);
+                imp.toolbar_view
+                    .set_top_bar_style(adw::ToolbarStyle::Raised);
                 imp.export_btn.set_visible(true);
             }
             View::Initial => {
@@ -242,21 +264,26 @@ impl Window {
     }
 
     fn setup_drop(&self) {
-        let target = gtk::DropTarget::new(gio::File::static_type(), gdk::DragAction::COPY | gdk::DragAction::MOVE);
+        let target = gtk::DropTarget::new(
+            gio::File::static_type(),
+            gdk::DragAction::COPY | gdk::DragAction::MOVE,
+        );
 
-        target.connect_drop(glib::clone!(@weak self as obj => @default-return false, move |_, value, _, _| {
-            if let Ok(file) = value.get::<gio::File>() {
-                match Project::parse(file, true) {
-                    Ok(project) => {
-                        obj.set_open_project(project);
-                        return true
-                    },
-                    Err(err) => log::warn!("Failed to parse the project {}", err),
+        target.connect_drop(
+            glib::clone!(@weak self as obj => @default-return false, move |_, value, _, _| {
+                if let Ok(file) = value.get::<gio::File>() {
+                    match Project::parse(file, true) {
+                        Ok(project) => {
+                            obj.set_open_project(project);
+                            return true
+                        },
+                        Err(err) => log::warn!("Failed to parse the project {}", err),
+                    }
                 }
-            }
 
-            false
-        }));
+                false
+            }),
+        );
 
         self.add_controller(target);
     }

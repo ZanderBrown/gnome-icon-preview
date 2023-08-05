@@ -1,15 +1,14 @@
-use super::common;
-use crate::common::Icon;
-
 use gettextrs::gettext;
-use rsvg::{CairoRenderer, Loader, SvgHandle};
-
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use gtk::{
     gdk, gio,
     glib::{self, IsA},
+    prelude::*,
+    subclass::prelude::*,
 };
+use rsvg::{CairoRenderer, Loader, SvgHandle};
+
+use super::common;
+use crate::common::Icon;
 
 #[derive(PartialEq, Eq, Debug, Clone, Copy)]
 pub enum ProjectType {
@@ -24,10 +23,9 @@ impl Default for ProjectType {
 }
 
 mod imp {
-    use super::*;
+    use std::cell::{Cell, OnceCell};
 
-    use std::cell::Cell;
-    use std::cell::OnceCell;
+    use super::*;
 
     #[derive(Default)]
     pub struct Project {
@@ -57,11 +55,19 @@ impl Default for Project {
 
 impl Project {
     pub fn from_template(dest: gio::File) -> anyhow::Result<Self> {
-        let template = gio::File::for_uri("resource://org/gnome/design/AppIconPreview/templates/empty_project.svg");
+        let template = gio::File::for_uri(
+            "resource://org/gnome/design/AppIconPreview/templates/empty_project.svg",
+        );
         // Creates the parent directory tree if it does not already exist
-        dest.parent().map(|parent| parent.make_directory_with_parents(gio::Cancellable::NONE));
+        dest.parent()
+            .map(|parent| parent.make_directory_with_parents(gio::Cancellable::NONE));
 
-        template.copy(&dest, gio::FileCopyFlags::OVERWRITE, gio::Cancellable::NONE, None)?;
+        template.copy(
+            &dest,
+            gio::FileCopyFlags::OVERWRITE,
+            gio::Cancellable::NONE,
+            None,
+        )?;
         Project::parse(dest, true)
     }
 
@@ -81,7 +87,10 @@ impl Project {
             }
         }
 
-        let app = gio::Application::default().unwrap().downcast::<crate::Application>().unwrap();
+        let app = gio::Application::default()
+            .unwrap()
+            .downcast::<crate::Application>()
+            .unwrap();
 
         // We need to refresh the search path after caching icons.
         app.icon_theme().add_search_path(common::icon_theme_path());
@@ -90,7 +99,9 @@ impl Project {
     }
 
     pub fn parse(file: gio::File, cache_icons: bool) -> anyhow::Result<Self> {
-        let stream = file.read(gio::Cancellable::NONE)?.upcast::<gio::InputStream>();
+        let stream = file
+            .read(gio::Cancellable::NONE)?
+            .upcast::<gio::InputStream>();
         let mut handle = Loader::new().read_stream(&stream, Some(&file), gio::Cancellable::NONE)?;
         handle.set_stylesheet("#layer3,#layer2 {opacity: 0}")?;
         let renderer = CairoRenderer::new(&handle);
@@ -100,7 +111,9 @@ impl Project {
         let width = dimensions.width.length;
         let height = dimensions.height.length;
 
-        if (width - Icon::Scalable.size()).abs() < std::f64::EPSILON && (height - Icon::Scalable.size()).abs() < std::f64::EPSILON {
+        if (width - Icon::Scalable.size()).abs() < std::f64::EPSILON
+            && (height - Icon::Scalable.size()).abs() < std::f64::EPSILON
+        {
             let project: Self = glib::Object::new();
             let imp = project.imp();
             imp.project_type.set(ProjectType::Preview);
@@ -112,7 +125,9 @@ impl Project {
             return Ok(project);
         }
 
-        if handle.has_element_with_id(Icon::Scalable.id())? && handle.has_element_with_id(Icon::Symbolic.id())? {
+        if handle.has_element_with_id(Icon::Scalable.id())?
+            && handle.has_element_with_id(Icon::Symbolic.id())?
+        {
             let project: Self = glib::Object::new();
             let imp = project.imp();
             imp.project_type.set(ProjectType::Icon);
@@ -129,7 +144,11 @@ impl Project {
 
     pub fn name(&self) -> String {
         let filename = self.file().basename().unwrap();
-        let filename = filename.to_str().unwrap().trim_end_matches(".svg").trim_end_matches(".Source");
+        let filename = filename
+            .to_str()
+            .unwrap()
+            .trim_end_matches(".svg")
+            .trim_end_matches(".Source");
         filename.to_string()
     }
 
@@ -141,7 +160,9 @@ impl Project {
     pub fn open(&self) {
         let uri = self.file().uri();
         glib::idle_add(move || {
-            if let Err(err) = gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>) {
+            if let Err(err) =
+                gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>)
+            {
                 log::error!("Failed to open the project in Inkscape {}", err);
             }
             glib::ControlFlow::Break
@@ -176,7 +197,15 @@ impl Project {
         let (bytes, _) = gfile.load_contents_future().await?;
         let cleaned_svg = common::clean_svg(std::str::from_utf8(&bytes)?)?;
 
-        if let Err(err) = dest.replace_contents_future(cleaned_svg, None, false, gio::FileCreateFlags::REPLACE_DESTINATION).await {
+        if let Err(err) = dest
+            .replace_contents_future(
+                cleaned_svg,
+                None,
+                false,
+                gio::FileCreateFlags::REPLACE_DESTINATION,
+            )
+            .await
+        {
             log::error!("Failed to export icon {:?}", err);
         };
 

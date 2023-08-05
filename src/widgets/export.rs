@@ -1,8 +1,6 @@
-use crate::project::{Project, ProjectType};
+use gtk::{glib, prelude::*, subclass::prelude::*};
 
-use gtk::glib;
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
+use crate::project::{Project, ProjectType};
 
 mod imp {
     use super::*;
@@ -50,12 +48,14 @@ impl ExportPopover {
         let imp = self.imp();
 
         imp.regular_image.set_icon_name(Some(&project.name()));
-        imp.nightly_image.set_icon_name(Some(&format!("{}.Devel", project.name())));
+        imp.nightly_image
+            .set_icon_name(Some(&format!("{}.Devel", project.name())));
 
         let has_symbolic = project.project_type() == ProjectType::Icon;
         imp.symbolic_box.set_visible(has_symbolic);
         if has_symbolic {
-            imp.symbolic_image.set_icon_name(Some(&format!("{}-symbolic", project.name())));
+            imp.symbolic_image
+                .set_icon_name(Some(&format!("{}-symbolic", project.name())));
         }
     }
 }

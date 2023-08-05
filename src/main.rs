@@ -23,7 +23,8 @@ fn main() {
 
     gtk::init().expect("Unable to start GTK 4");
 
-    let res = gio::Resource::load(config::PKGDATADIR.to_owned() + "/resources.gresource").expect("Failed to initialize the resource file.");
+    let res = gio::Resource::load(config::PKGDATADIR.to_owned() + "/resources.gresource")
+        .expect("Failed to initialize the resource file.");
     gio::resources_register(&res);
 
     Application::run();

@@ -1,12 +1,10 @@
-use super::colour_pane::{ColourPane, PaneStyle};
-use crate::project::{Project, ProjectType};
-
+use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
+use gtk::{gdk, gio, glib, graphene, gsk, pango};
 use rand::seq::SliceRandom;
 
-use adw::prelude::*;
-use adw::subclass::prelude::*;
-use gtk::{gdk, gio, glib, graphene, gsk, pango};
+use super::colour_pane::{ColourPane, PaneStyle};
+use crate::project::{Project, ProjectType};
 
 // A struct that represents a widget to render a Project
 mod imp {
@@ -29,12 +27,15 @@ mod imp {
             let light_panel = ColourPane::new(PaneStyle::Light);
             let dark_panel = ColourPane::new(PaneStyle::Dark);
             let toast_overlay = adw::ToastOverlay::new();
-            let samples = gio::resources_enumerate_children("/org/gnome/design/AppIconPreview/icons/", gio::ResourceLookupFlags::NONE)
-                .unwrap()
-                .iter()
-                .map(|sample| sample.to_string())
-                .filter(|sample| !sample.contains("-symbolic"))
-                .collect::<Vec<String>>();
+            let samples = gio::resources_enumerate_children(
+                "/org/gnome/design/AppIconPreview/icons/",
+                gio::ResourceLookupFlags::NONE,
+            )
+            .unwrap()
+            .iter()
+            .map(|sample| sample.to_string())
+            .filter(|sample| !sample.contains("-symbolic"))
+            .collect::<Vec<String>>();
 
             Self {
                 light_panel,
@@ -95,15 +96,31 @@ impl ProjectPreviewer {
         let snap = gtk::Snapshot::new();
 
         // Compute relative positions.
-        let logo_x = if self.direction() == gtk::TextDirection::Ltr { 0.0 } else { text_width + margin };
+        let logo_x = if self.direction() == gtk::TextDirection::Ltr {
+            0.0
+        } else {
+            text_width + margin
+        };
         let logo_y = 0.0;
 
-        let txt_x = if self.direction() == gtk::TextDirection::Ltr { logo_width + margin } else { 0.0 };
-        let txt_y = if text_height < logo_height { (logo_height - text_height) / 2.0 } else { 0.0 };
+        let txt_x = if self.direction() == gtk::TextDirection::Ltr {
+            logo_width + margin
+        } else {
+            0.0
+        };
+        let txt_y = if text_height < logo_height {
+            (logo_height - text_height) / 2.0
+        } else {
+            0.0
+        };
 
         // Snapshot previewer.
         let paintable = gtk::WidgetPaintable::new(Some(self)).current_image();
-        paintable.snapshot(snap.upcast_ref::<gdk::Snapshot>(), width as f64, height as f64);
+        paintable.snapshot(
+            snap.upcast_ref::<gdk::Snapshot>(),
+            width as f64,
+            height as f64,
+        );
 
         // Snapshot logo.
         let origin = if self.direction() == gtk::TextDirection::Ltr {
@@ -117,7 +134,11 @@ impl ProjectPreviewer {
 
         snap.save();
         snap.translate(&point);
-        logo.snapshot(snap.upcast_ref::<gdk::Snapshot>(), logo_width as f64, logo_height as f64);
+        logo.snapshot(
+            snap.upcast_ref::<gdk::Snapshot>(),
+            logo_width as f64,
+            logo_height as f64,
+        );
         snap.restore();
 
         // Snapshot text.
@@ -159,7 +180,8 @@ impl ProjectPreviewer {
             .samples
             .choose_multiple(&mut rng, 6)
             .map(|sample_name| {
-                let resource_uri = format!("resource://org/gnome/design/AppIconPreview/icons/{sample_name}");
+                let resource_uri =
+                    format!("resource://org/gnome/design/AppIconPreview/icons/{sample_name}");
                 gio::File::for_uri(&resource_uri)
             })
             .collect::<Vec<gio::File>>();
@@ -214,10 +236,21 @@ impl ProjectPreviewer {
             .filters(&filters)
             .build();
 
-        let file = dialog.save_future(root.downcast_ref::<gtk::Window>()).await?;
+        let file = dialog
+            .save_future(root.downcast_ref::<gtk::Window>())
+            .await?;
 
-        let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::Priority::default()).await?;
-        stream.write_bytes_future(&bytes, glib::Priority::default()).await?;
+        let stream = file
+            .replace_future(
+                None,
+                false,
+                gio::FileCreateFlags::REPLACE_DESTINATION,
+                glib::Priority::default(),
+            )
+            .await?;
+        stream
+            .write_bytes_future(&bytes, glib::Priority::default())
+            .await?;
 
         Ok(())
     }

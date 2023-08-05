@@ -1,14 +1,17 @@
-use super::item::RecentItemRow;
-use crate::application::Action;
-use crate::project::Project;
+use gtk::{
+    gio, glib,
+    glib::{clone, Sender},
+    prelude::*,
+    subclass::prelude::*,
+};
 
-use gtk::glib::{clone, Sender};
-use gtk::subclass::prelude::*;
-use gtk::{gio, glib, prelude::*};
+use super::item::RecentItemRow;
+use crate::{application::Action, project::Project};
 
 mod imp {
-    use super::*;
     use std::cell::OnceCell;
+
+    use super::*;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/recents_popover.ui")]
@@ -58,8 +61,9 @@ mod imp {
 
             let manager = gtk::RecentManager::default();
             let model = self.model.clone();
-            let on_manager_changed = move |manager: &gtk::RecentManager| {
-                manager.items().into_iter().for_each(clone!(@strong model => move |item| {
+            let on_manager_changed =
+                move |manager: &gtk::RecentManager| {
+                    manager.items().into_iter().for_each(clone!(@strong model => move |item| {
                     let uri = item.uri().to_string();
                     let file = gio::File::for_uri(&uri);
                     let mut exist_already = false;
@@ -75,7 +79,7 @@ mod imp {
                         model.append(&uri);
                     }
                 }));
-            };
+                };
 
             on_manager_changed(&manager);
             manager.connect_changed(on_manager_changed);

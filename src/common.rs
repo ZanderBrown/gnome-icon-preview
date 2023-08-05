@@ -51,11 +51,19 @@ impl Icon {
 }
 
 pub fn icon_theme_path() -> PathBuf {
-    glib::user_cache_dir().join("app-icon-preview").join("icons")
+    glib::user_cache_dir()
+        .join("app-icon-preview")
+        .join("icons")
 }
 
 pub fn format_name(name: &str) -> String {
-    let name = name.trim_end_matches(".svg").trim_end_matches(".Devel").trim_end_matches(".Source").split('.').last().unwrap();
+    let name = name
+        .trim_end_matches(".svg")
+        .trim_end_matches(".Devel")
+        .trim_end_matches(".Source")
+        .split('.')
+        .last()
+        .unwrap();
     let mut formatted_chars = vec![];
 
     let mut chars = name.chars();
@@ -74,10 +82,19 @@ mod tests {
 
     #[test]
     fn test_format_name() {
-        assert_eq!(format_name("org.gnome.design.AppIconPreview"), "App Icon Preview".to_string());
+        assert_eq!(
+            format_name("org.gnome.design.AppIconPreview"),
+            "App Icon Preview".to_string()
+        );
         assert_eq!(format_name("org.gnome.GTG"), "GTG".to_string());
-        assert_eq!(format_name("org.gnome.design.BannerViewer"), "Banner Viewer".to_string());
-        assert_eq!(format_name("org.gnome.design.Contrast"), "Contrast".to_string());
+        assert_eq!(
+            format_name("org.gnome.design.BannerViewer"),
+            "Banner Viewer".to_string()
+        );
+        assert_eq!(
+            format_name("org.gnome.design.Contrast"),
+            "Contrast".to_string()
+        );
     }
 }
 
@@ -162,20 +179,28 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
 }
 
 pub fn get_overlay(output_size: f64) -> anyhow::Result<cairo::SvgSurface> {
-    let stripes = gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
-    let stream = stripes.read(gio::Cancellable::NONE)?.upcast::<gio::InputStream>();
+    let stripes =
+        gio::File::for_uri("resource:///org/gnome/design/AppIconPreview/templates/stripes.svg");
+    let stream = stripes
+        .read(gio::Cancellable::NONE)?
+        .upcast::<gio::InputStream>();
     let handle = Loader::new().read_stream(&stream, Some(&stripes), gio::Cancellable::NONE)?;
 
     let renderer = CairoRenderer::new(&handle);
     let dimensions = renderer.intrinsic_dimensions();
 
-    let surface = cairo::SvgSurface::new(output_size, output_size, None::<&std::path::Path>).unwrap();
+    let surface =
+        cairo::SvgSurface::new(output_size, output_size, None::<&std::path::Path>).unwrap();
 
     let context = cairo::Context::new(&surface)?;
     let width = dimensions.width.length;
     let height = dimensions.height.length;
 
-    renderer.render_layer(&context, None, &cairo::Rectangle::new(0.0, 0.0, width, height))?;
+    renderer.render_layer(
+        &context,
+        None,
+        &cairo::Rectangle::new(0.0, 0.0, width, height),
+    )?;
     Ok(surface)
 }
 
@@ -185,7 +210,11 @@ pub fn render_stripes(source: &cairo::SvgSurface, output_size: f64) -> anyhow::R
     let overlay = get_overlay(output_size)?;
     context.set_source_surface(&overlay, 0.0, 0.0)?;
 
-    let mask = source.create_similar(cairo::Content::Alpha, output_size as i32, output_size as i32)?;
+    let mask = source.create_similar(
+        cairo::Content::Alpha,
+        output_size as i32,
+        output_size as i32,
+    )?;
     let cr_mask = cairo::Context::new(&mask)?;
     cr_mask.set_source_surface(source, 0.0, 0.0)?;
     cr_mask.paint()?;
@@ -235,8 +264,13 @@ pub fn clean_svg(svg: &str) -> anyhow::Result<Vec<u8>> {
         paths_coordinates_precision: 8,
         transforms_precision: 8,
     };
-    let mut document = svgcleaner::cleaner::parse_data(svg, &svgcleaner::ParseOptions::default()).unwrap();
-    let _ = svgcleaner::cleaner::clean_doc(&mut document, &options, &svgcleaner::WriteOptions::default());
+    let mut document =
+        svgcleaner::cleaner::parse_data(svg, &svgcleaner::ParseOptions::default()).unwrap();
+    let _ = svgcleaner::cleaner::clean_doc(
+        &mut document,
+        &options,
+        &svgcleaner::WriteOptions::default(),
+    );
     let mut buf = vec![];
     svgcleaner::cleaner::write_buffer(&document, &svgcleaner::WriteOptions::default(), &mut buf);
 

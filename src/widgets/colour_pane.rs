@@ -1,7 +1,6 @@
+use gtk::{gio, glib, prelude::*, subclass::prelude::*};
+
 use super::icon::{Icon, IconSize};
-use gtk::prelude::*;
-use gtk::subclass::prelude::*;
-use gtk::{gio, glib};
 
 #[derive(Debug, Default, Copy, Eq, PartialEq, Clone)]
 pub enum PaneStyle {
@@ -11,8 +10,9 @@ pub enum PaneStyle {
 }
 
 mod imp {
-    use super::*;
     use std::cell::{Cell, RefCell};
+
+    use super::*;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/colourpane.ui")]

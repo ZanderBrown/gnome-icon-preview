@@ -1,16 +1,15 @@
-use crate::application::Action;
-
-use gettextrs::gettext;
-use std::iter::FromIterator;
-use std::path::PathBuf;
+use std::{iter::FromIterator, path::PathBuf};
 
 use adw::subclass::prelude::*;
-use gtk::prelude::*;
-use gtk::{gdk, gio, glib};
+use gettextrs::gettext;
+use gtk::{gdk, gio, glib, prelude::*};
+
+use crate::application::Action;
 
 mod imp {
-    use super::*;
     use std::cell::OnceCell;
+
+    use super::*;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/new_project.ui")]
@@ -39,7 +38,10 @@ mod imp {
                 let imp = widget.imp();
 
                 let project_name = format!("{}.Source.svg", imp.project_name.text());
-                let project_path = imp.project_path.text().replacen('~', glib::home_dir().to_str().unwrap(), 1);
+                let project_path =
+                    imp.project_path
+                        .text()
+                        .replacen('~', glib::home_dir().to_str().unwrap(), 1);
 
                 let dest_path = PathBuf::from_iter([project_path, project_name]);
 
@@ -57,7 +59,10 @@ mod imp {
                     Some(&gettext("Select Icon Location")),
                     Some(&parent),
                     gtk::FileChooserAction::SelectFolder,
-                    &[(&gettext("Select"), gtk::ResponseType::Accept), (&gettext("Cancel"), gtk::ResponseType::Cancel)],
+                    &[
+                        (&gettext("Select"), gtk::ResponseType::Accept),
+                        (&gettext("Cancel"), gtk::ResponseType::Cancel),
+                    ],
                 );
                 dialog.set_default_response(gtk::ResponseType::Accept);
                 dialog.set_modal(true);
@@ -76,7 +81,12 @@ mod imp {
                 }
                 dialog.destroy();
             });
-            klass.add_binding_action(gdk::Key::Escape, gdk::ModifierType::empty(), "window.close", None);
+            klass.add_binding_action(
+                gdk::Key::Escape,
+                gdk::ModifierType::empty(),
+                "window.close",
+                None,
+            );
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
