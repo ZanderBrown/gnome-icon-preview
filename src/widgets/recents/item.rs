@@ -6,7 +6,7 @@ use gtk::{glib, pango};
 
 mod imp {
     use super::*;
-    use once_cell::sync::OnceCell;
+    use std::cell::OnceCell;
 
     #[derive(Debug, Default, glib::Properties)]
     #[properties(wrapper_type = super::RecentItemRow)]
@@ -24,6 +24,7 @@ mod imp {
         type ParentType = gtk::FlowBoxChild;
     }
 
+    #[glib::derived_properties]
     impl ObjectImpl for RecentItemRow {
         fn constructed(&self) {
             self.parent_constructed();
@@ -40,18 +41,6 @@ mod imp {
             container.append(&self.label);
 
             self.obj().set_child(Some(&container));
-        }
-
-        fn properties() -> &'static [glib::ParamSpec] {
-            Self::derived_properties()
-        }
-
-        fn set_property(&self, id: usize, value: &glib::Value, pspec: &glib::ParamSpec) {
-            self.derived_set_property(id, value, pspec)
-        }
-
-        fn property(&self, id: usize, pspec: &glib::ParamSpec) -> glib::Value {
-            self.derived_property(id, pspec)
         }
     }
     impl WidgetImpl for RecentItemRow {}

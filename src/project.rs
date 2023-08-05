@@ -26,8 +26,8 @@ impl Default for ProjectType {
 mod imp {
     use super::*;
 
-    use once_cell::sync::OnceCell;
     use std::cell::Cell;
+    use std::cell::OnceCell;
 
     #[derive(Default)]
     pub struct Project {
@@ -144,7 +144,7 @@ impl Project {
             if let Err(err) = gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>) {
                 log::error!("Failed to open the project in Inkscape {}", err);
             }
-            glib::Continue(false)
+            glib::ControlFlow::Break
         });
     }
 
@@ -161,7 +161,7 @@ impl Project {
         svg_filter.set_name(Some(&gettext("SVG")));
         svg_filter.add_pattern("*.svg");
         svg_filter.add_mime_type("image/svg+xml");
-        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
+        let filters = gio::ListStore::new::<gtk::FileFilter>();
         filters.append(&svg_filter);
 
         let dialog = gtk::FileDialog::builder()

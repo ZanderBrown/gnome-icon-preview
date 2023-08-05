@@ -4,8 +4,11 @@ use crate::widgets::Window;
 
 use adw::prelude::*;
 use gettextrs::gettext;
-use gtk::glib::{clone, Receiver, Sender};
-use gtk::{gdk, gio, glib, subclass::prelude::*};
+use gtk::{
+    gdk, gio,
+    glib::{self, clone, Receiver, Sender},
+    subclass::prelude::*,
+};
 use log::error;
 
 pub enum Action {
@@ -16,7 +19,7 @@ pub enum Action {
 mod imp {
     use super::*;
     use adw::subclass::prelude::*;
-    use once_cell::sync::OnceCell;
+    use std::cell::OnceCell;
     use std::cell::RefCell;
 
     pub struct Application {
@@ -32,7 +35,7 @@ mod imp {
         type Type = super::Application;
 
         fn new() -> Self {
-            let (sender, r) = glib::MainContext::channel(glib::PRIORITY_DEFAULT);
+            let (sender, r) = glib::MainContext::channel(glib::Priority::default());
             let receiver = RefCell::new(Some(r));
 
             Self {
@@ -133,7 +136,7 @@ impl Application {
         window
     }
 
-    fn do_action(&self, action: Action) -> glib::Continue {
+    fn do_action(&self, action: Action) -> glib::ControlFlow {
         match action {
             Action::OpenProject(project) => {
                 let window = self.active_window().unwrap().downcast::<Window>().unwrap();
@@ -144,7 +147,7 @@ impl Application {
                 Err(err) => error!("{:#?}", err),
             },
         };
-        glib::Continue(true)
+        glib::ControlFlow::Continue
     }
 
     fn show_about_dialog(&self) {

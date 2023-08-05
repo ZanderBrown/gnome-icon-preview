@@ -5,13 +5,12 @@ use gettextrs::gettext;
 use rand::seq::SliceRandom;
 
 use adw::prelude::*;
-use gtk::subclass::prelude::*;
+use adw::subclass::prelude::*;
 use gtk::{gdk, gio, glib, graphene, gsk, pango};
 
 // A struct that represents a widget to render a Project
 mod imp {
     use super::*;
-    use adw::subclass::prelude::*;
 
     pub struct ProjectPreviewer {
         pub light_panel: ColourPane,
@@ -72,8 +71,8 @@ glib::wrapper! {
 
 impl ProjectPreviewer {
     fn screenshot(&self) -> Option<gdk::Texture> {
-        let width = self.allocated_width() as f32;
-        let height = self.allocated_height() as f32;
+        let width = self.width() as f32;
+        let height = self.height() as f32;
 
         let padding: f32 = 12.0;
         let margin: f32 = 6.0;
@@ -190,7 +189,7 @@ impl ProjectPreviewer {
         let xdg_pictures_dir = glib::user_special_dir(glib::UserDirectory::Pictures).unwrap();
         let gdir = gio::File::for_path(&xdg_pictures_dir);
 
-        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
+        let filters = gio::ListStore::new::<gtk::FileFilter>();
         let any_filter = gtk::FileFilter::new();
         any_filter.set_name(Some(&gettext("App Icon Preview")));
         any_filter.add_pattern("*.png");
@@ -217,8 +216,8 @@ impl ProjectPreviewer {
 
         let file = dialog.save_future(root.downcast_ref::<gtk::Window>()).await?;
 
-        let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::PRIORITY_DEFAULT).await?;
-        stream.write_bytes_future(&bytes, glib::PRIORITY_DEFAULT).await?;
+        let stream = file.replace_future(None, false, gio::FileCreateFlags::REPLACE_DESTINATION, glib::Priority::default()).await?;
+        stream.write_bytes_future(&bytes, glib::Priority::default()).await?;
 
         Ok(())
     }

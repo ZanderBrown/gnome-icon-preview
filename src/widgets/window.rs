@@ -19,7 +19,7 @@ pub enum View {
 mod imp {
     use super::*;
 
-    use once_cell::sync::OnceCell;
+    use std::cell::OnceCell;
     use std::cell::RefCell;
 
     use adw::subclass::prelude::*;
@@ -194,7 +194,7 @@ impl Window {
     }
 
     async fn open_file(&self) -> anyhow::Result<()> {
-        let filters = gio::ListStore::new(gtk::FileFilter::static_type());
+        let filters = gio::ListStore::new::<gtk::FileFilter>();
         let svg_filter = gtk::FileFilter::new();
         svg_filter.set_name(Some(&gettext("SVG images")));
         svg_filter.add_mime_type("image/svg+xml");

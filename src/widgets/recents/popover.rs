@@ -8,7 +8,7 @@ use gtk::{gio, glib, prelude::*};
 
 mod imp {
     use super::*;
-    use once_cell::sync::OnceCell;
+    use std::cell::OnceCell;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/recents_popover.ui")]

@@ -4,14 +4,13 @@ use gettextrs::gettext;
 use std::iter::FromIterator;
 use std::path::PathBuf;
 
+use adw::subclass::prelude::*;
 use gtk::prelude::*;
-use gtk::subclass::prelude::*;
 use gtk::{gdk, gio, glib};
 
 mod imp {
     use super::*;
-    use adw::subclass::prelude::*;
-    use once_cell::sync::OnceCell;
+    use std::cell::OnceCell;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/new_project.ui")]
