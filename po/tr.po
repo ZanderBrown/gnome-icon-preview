@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-05-10 07:26+0000\n"
-"PO-Revision-Date: 2023-05-12 11:24+0300\n"
+"POT-Creation-Date: 2023-05-26 22:45+0000\n"
+"PO-Revision-Date: 2023-10-16 00:06+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 # Uygulama adı olduğu için çevrilmedi
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
@@ -144,7 +144,7 @@ msgstr "Yeni Uygulama Simgesi"
 
 #: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
-msgstr "İptal _Et"
+msgstr "İ_ptal"
 
 #: data/resources/ui/new_project.ui:23
 msgid "_Create"
@@ -255,7 +255,7 @@ msgstr "Seç"
 
 #: src/widgets/new_project.rs:61
 msgid "Cancel"
-msgstr "İptal Et"
+msgstr "İptal"
 
 #: src/widgets/project_previewer.rs:180
 msgid "Screenshot copied to clipboard"
