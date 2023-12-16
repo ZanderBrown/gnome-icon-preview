@@ -6,7 +6,7 @@
   <project_license>GPL-3.0-or-later</project_license>
   <project_group>GNOME</project_group>
   <name>App Icon Preview</name>
-  <summary>Tool for designing applications icons</summary>
+  <summary>Icon design helper</summary>
   <description>
     <p>
       App Icon Preview is a tool for designing icons which target the GNOME desktop.
