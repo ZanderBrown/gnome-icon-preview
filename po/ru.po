@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2023-04-03 10:52+0000\n"
-"PO-Revision-Date: 2023-04-08 21:07+1000\n"
+"POT-Creation-Date: 2024-01-02 09:27+0000\n"
+"PO-Revision-Date: 2024-01-05 13:48+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:216
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
@@ -35,8 +35,8 @@ msgid "The latest opened files separated by a comma"
 msgstr "Последние открытые файлы, разделённые запятой"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Инструмент для создания значков приложений"
+msgid "Icon design helper"
+msgstr "Помощник по дизайну значков"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Предварительный просмотр значка приложения"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -172,111 +172,114 @@ msgstr "~/Проекты"
 msgid "_Browse…"
 msgstr "_Обзор…"
 
-#: data/resources/ui/window.ui:17
+#: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_Открыть"
 
-#: data/resources/ui/window.ui:19
+#: data/resources/ui/window.ui:18
 msgid "Open an Icon"
 msgstr "Открыть значок"
 
-#: data/resources/ui/window.ui:25
+#: data/resources/ui/window.ui:24
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: data/resources/ui/window.ui:32
+#: data/resources/ui/window.ui:31
 msgid "_Export"
 msgstr "_Экспортировать"
 
-#: data/resources/ui/window.ui:50
+#: data/resources/ui/window.ui:49
 msgid "Make a new App Icon"
 msgstr "Создать новый значок приложения"
 
-#: data/resources/ui/window.ui:176
+#: data/resources/ui/window.ui:175
 msgid "_New App Icon"
 msgstr "_Новый значок приложения"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:196
 msgid "_New Window"
 msgstr "_Новое окно"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:202
 msgid "_Reload"
 msgstr "_Перезагрузить"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:206
 msgid "_Copy Screenshot"
 msgstr "_Копировать снимок экрана"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:210
 msgid "_Save Screenshot"
 msgstr "_Сохранить снимок экрана"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:214
 msgid "_Shuffle Example Icons"
 msgstr "_Перемешать примеры значков"
 
-#: data/resources/ui/window.ui:221
+#: data/resources/ui/window.ui:220
 msgid "_Keyboard Shortcuts"
 msgstr "_Комбинации клавиш"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:224
 msgid "_About App Icon Preview"
 msgstr "_О приложении"
 
-#: src/application.rs:159
+#: src/application.rs:169
 msgid "translator-credits"
 msgstr ""
 "Svyatoj <e.semenov.surgut@gmail.com>, 2022\n"
-"Ser82-png <asvmail.as@gmail.com>, 2022-2023"
+"Ser82-png <asvmail.as@gmail.com>, 2022-2024"
 
-#: src/project.rs:161
+#: src/project.rs:182
 msgid "SVG"
 msgstr "SVG"
 
-#: src/project.rs:168
+#: src/project.rs:189
 msgid "Export"
 msgstr "Экспортировать"
 
-#: src/project.rs:169 src/widgets/project_previewer.rs:217
+#: src/project.rs:190 src/widgets/project_previewer.rs:233
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/widgets/new_project.rs:58
+#: src/widgets/new_project.rs:59
 msgid "Select Icon Location"
 msgstr "Выбрать расположение значка"
 
-#: src/widgets/new_project.rs:61
+#: src/widgets/new_project.rs:63
 msgid "Select"
 msgstr "Выбрать"
 
-#: src/widgets/new_project.rs:61
+#: src/widgets/new_project.rs:64
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/widgets/project_previewer.rs:185
+#: src/widgets/project_previewer.rs:201
 msgid "Screenshot copied to clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:225
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:215
+#: src/widgets/project_previewer.rs:231
 msgid "Save Screenshot"
 msgstr "Сохранить снимок экрана"
 
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:234
 msgid "Preview"
 msgstr "Предварительный просмотр"
 
-#: src/widgets/window.rs:198
+#: src/widgets/window.rs:216
 msgid "SVG images"
 msgstr "SVG изображения"
 
-#: src/widgets/window.rs:202
+#: src/widgets/window.rs:221
 msgid "Open File"
 msgstr "Открыть файл"
+
+#~ msgid "Tool for designing applications icons"
+#~ msgstr "Инструмент для создания значков приложений"
 
 #~ msgid "Open an icon"
 #~ msgstr "Открыть значок"
