@@ -1,27 +1,27 @@
 # Spanish translation for icon-tool.
 # Copyright (C) 2019 icon-tool's COPYRIGHT HOLDER
 # This file is distributed under the same license as the icon-tool package.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2019-2022.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2019-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
 "issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-02-07 09:07+0100\n"
+"POT-Creation-Date: 2024-01-02 09:27+0000\n"
+"PO-Revision-Date: 2024-01-30 10:22+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 41.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 45.3\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:216
 msgid "App Icon Preview"
 msgstr "Aplicación de vista previa de iconos"
 
@@ -34,8 +34,8 @@ msgid "The latest opened files separated by a comma"
 msgstr "Los archivos abiertos recientemente separados por una coma"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Herramienta para diseñar iconos de aplicaciones"
+msgid "Icon design helper"
+msgstr "Ayudante del diseñador de iconos"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Vista previa del icono de una aplicación"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -61,29 +61,29 @@ msgstr ""
 "Exportar el icono para usar en producción. Los objetos de fuera del lienzo "
 "se eliminan y se optimiza el tamaño del SVG"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Regular"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Guardar regular como…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Guardar regular…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nocturno"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Guardar nocturno como…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Guardar nocturno…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Simbólico"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Guardar simbólico como…"
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Guardar simbólico…"
 
 #: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
@@ -139,8 +139,7 @@ msgstr "Copiar una captura de pantalla al portapapeles"
 msgid "New App Icon"
 msgstr "Nuevo icono de aplicación"
 
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
+#: data/resources/ui/new_project.ui:18
 msgid "_Cancel"
 msgstr "C_ancelar"
 
@@ -156,132 +155,133 @@ msgstr "Nombre de la aplicación"
 msgid "Icon Location"
 msgstr "Ubicación del icono"
 
-#: data/resources/ui/new_project.ui:77
+#: data/resources/ui/new_project.ui:78
 msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
 msgstr "El nombre en notación de dominio inverso, ej. org.inkscape.Inkscape"
 
-#: data/resources/ui/new_project.ui:91
+#: data/resources/ui/new_project.ui:92
 msgid "The icon SVG file will be stored in this directory"
 msgstr "El icono en SVG se guardará en esta carpeta"
 
-#: data/resources/ui/new_project.ui:107
+#: data/resources/ui/new_project.ui:108
 msgid "~/Projects"
 msgstr "~/Projects"
 
-#: data/resources/ui/new_project.ui:113
+#: data/resources/ui/new_project.ui:114
 msgid "_Browse…"
 msgstr "_Examinar…"
 
-#: data/resources/ui/window.ui:17
+#: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_Abrir"
 
-#: data/resources/ui/window.ui:19
-msgid "Open an icon"
+#: data/resources/ui/window.ui:18
+msgid "Open an Icon"
 msgstr "Abrir un icono"
 
-#: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menú"
+#: data/resources/ui/window.ui:24
+msgid "Main Menu"
+msgstr "Menu Principal"
 
-#: data/resources/ui/window.ui:32
+#: data/resources/ui/window.ui:31
 msgid "_Export"
 msgstr "_Exportar"
 
-#: data/resources/ui/window.ui:50
+#: data/resources/ui/window.ui:49
 msgid "Make a new App Icon"
 msgstr "Crear un icono de aplicación nuevo"
 
-#: data/resources/ui/window.ui:176
+#: data/resources/ui/window.ui:175
 msgid "_New App Icon"
 msgstr "_Nuevo icono de aplicación"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:196
 msgid "_New Window"
 msgstr "Ventana _nueva"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:202
 msgid "_Reload"
 msgstr "_Recargar"
 
-#: data/resources/ui/window.ui:207
-#| msgid "_Take Screenshot"
+#: data/resources/ui/window.ui:206
 msgid "_Copy Screenshot"
 msgstr "_Copiar captura de pantalla"
 
-#: data/resources/ui/window.ui:211
-#| msgid "Save Screenshot"
+#: data/resources/ui/window.ui:210
 msgid "_Save Screenshot"
 msgstr "_Guardar captura de pantalla"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:214
 msgid "_Shuffle Example Icons"
 msgstr "Mezclar icono_s de ejemplo"
 
-#: data/resources/ui/window.ui:221
+#: data/resources/ui/window.ui:220
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:224
 msgid "_About App Icon Preview"
 msgstr "_Acerca de la aplicación de vista previa de iconos"
 
-#: src/application.rs:171
+#: src/application.rs:169
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2019\n"
 "Rodrigo Lledó <rodhos92@gmail.com>, 2021"
 
-#: src/project.rs:157
-msgid "Export"
-msgstr "Exportar"
-
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
-msgid "_Save"
-msgstr "_Guardar"
-
-#: src/project.rs:162
+#: src/project.rs:182
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
-#| msgid "Icon Location"
+#: src/project.rs:189
+msgid "Export"
+msgstr "Exportar"
+
+#: src/project.rs:190 src/widgets/project_previewer.rs:233
+msgid "_Save"
+msgstr "_Guardar"
+
+#: src/widgets/new_project.rs:59
 msgid "Select Icon Location"
 msgstr "Seleccionar ubicación del icono"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:63
 msgid "Select"
 msgstr "Seleccionar"
 
-#: src/widgets/new_project.rs:59
+#: src/widgets/new_project.rs:64
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/widgets/project_previewer.rs:184
-#| msgctxt "shortcut window"
-#| msgid "Copy a Screenshot to Clipboard"
+#: src/widgets/project_previewer.rs:201
 msgid "Screenshot copied to clipboard"
 msgstr "Captura copiada al portapapeles"
 
-#: src/widgets/project_previewer.rs:195
-msgid "Save Screenshot"
-msgstr "Guardar captura"
-
-#: src/widgets/project_previewer.rs:202
-msgid "Preview"
-msgstr "Vista previa"
-
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:225
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/project_previewer.rs:231
+msgid "Save Screenshot"
+msgstr "Guardar captura"
+
+#: src/widgets/project_previewer.rs:234
+msgid "Preview"
+msgstr "Vista previa"
+
+#: src/widgets/window.rs:216
+msgid "SVG images"
+msgstr "Imágenes SVG"
+
+#: src/widgets/window.rs:221
 msgid "Open File"
 msgstr "Abrir archivo"
 
-#: src/widgets/window.rs:273
-msgid "SVG images"
-msgstr "Imágenes SVG"
+#~ msgid "Tool for designing applications icons"
+#~ msgstr "Herramienta para diseñar iconos de aplicaciones"
+
+#~ msgid "Open an icon"
+#~ msgstr "Abrir un icono"
 
 #~ msgid "Default window width"
 #~ msgstr "Anchura predeterminada de la ventana"
