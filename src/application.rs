@@ -113,20 +113,18 @@ impl Application {
     }
 
     fn show_about_dialog(&self) {
-        let window = self.active_window().unwrap().downcast::<Window>().unwrap();
-        adw::AboutWindow::builder()
+        let window = self.active_window().and_downcast::<Window>().unwrap();
+        adw::AboutDialog::builder()
             .application_name("App Icon Preview")
             .application_icon(config::APP_ID)
             .license_type(gtk::License::Gpl30)
             .website("https://gitlab.gnome.org/World/design/app-icon-preview/")
             .version(config::VERSION)
-            .transient_for(&window)
             .translator_credits(gettext("translator-credits"))
-            .modal(true)
             .developers(vec!["Bilal Elmoussaoui", "Zander Brown"])
             .artists(vec!["Tobias Bernard"])
             .build()
-            .present();
+            .present(&window);
     }
 
     pub fn icon_theme(&self) -> gtk::IconTheme {

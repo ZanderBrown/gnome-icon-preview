@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="NewProjectDialog" parent="AdwWindow">
-    <property name="default-width">550</property>
-    <property name="default-height">250</property>
-    <property name="modal">True</property>
+  <template class="NewProjectDialog" parent="AdwDialog">
+    <property name="content-width">550</property>
+    <property name="content-height">250</property>
     <property name="title" translatable="yes">New App Icon</property>
     <child>
-      <object class="GtkBox">
-        <property name="orientation">vertical</property>
-        <child>
+      <object class="AdwToolbarView">
+        <child type="top">
           <object class="GtkHeaderBar">
             <property name="show-title-buttons">False</property>
             <child>

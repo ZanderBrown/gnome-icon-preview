@@ -1,6 +1,7 @@
+use adw::prelude::*;
 use adw::subclass::prelude::*;
 use gettextrs::gettext;
-use gtk::{gdk, gio, glib, glib::clone, prelude::*};
+use gtk::{gdk, gio, glib, glib::clone};
 
 use super::{ExportPopover, NewProjectDialog, ProjectPreviewer};
 use crate::{
@@ -96,8 +97,7 @@ mod imp {
                     };
                     None
                 });
-                dialog.set_transient_for(Some(window));
-                dialog.present();
+                dialog.present(window);
             });
 
             // Refresh
@@ -171,7 +171,8 @@ mod imp {
 
 glib::wrapper! {
     pub struct Window(ObjectSubclass<imp::Window>)
-        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow, gio::ActionMap;
+        @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow, gio::ActionMap,
+        @implements gtk::Root;
 }
 
 #[gtk::template_callbacks]

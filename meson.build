@@ -13,7 +13,7 @@ dependency('glib-2.0', version: '>= 2.66')
 dependency('gio-2.0', version: '>= 2.66')
 dependency('gdk-pixbuf-2.0')
 dependency('gtk4', version: '>= 4.0.0')
-dependency('libadwaita-1', version: '>=1.4.beta')
+dependency('libadwaita-1', version: '>=1.5.beta')
 
 
 glib_compile_resources = find_program('glib-compile-resources', required: true)

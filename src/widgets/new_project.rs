@@ -1,8 +1,11 @@
 use std::{iter::FromIterator, path::PathBuf};
 
+use adw::prelude::*;
 use adw::subclass::prelude::*;
 use gettextrs::gettext;
-use gtk::{gdk, gio, glib, prelude::*};
+use gtk::{gio, glib};
+
+use crate::widgets::Window;
 
 mod imp {
     use glib::subclass::Signal;
@@ -22,14 +25,14 @@ mod imp {
     impl ObjectSubclass for NewProjectDialog {
         const NAME: &'static str = "NewProjectDialog";
         type Type = super::NewProjectDialog;
-        type ParentType = adw::Window;
+        type ParentType = adw::Dialog;
 
         fn class_init(klass: &mut Self::Class) {
             klass.bind_template();
             klass.bind_template_instance_callbacks();
 
             klass.install_action("project.cancel", None, |widget, _, _| {
-                widget.destroy();
+                widget.close();
             });
             klass.install_action("project.create", None, |widget, _, _| {
                 let imp = widget.imp();
@@ -45,15 +48,16 @@ mod imp {
                 let project_file = gio::File::for_path(dest_path);
 
                 widget.emit_by_name::<()>("created", &[&project_file]);
-                widget.destroy();
+                widget.close();
             });
             // We can't switch to FileDialog here yet until we decide on something
             // for <https://gitlab.gnome.org/World/design/app-icon-preview/-/merge_requests/89>
             #[allow(deprecated)]
             klass.install_action_async("project.browse", None, |parent, _, _| async move {
+                let window = parent.root().and_downcast::<Window>().unwrap();
                 let dialog = gtk::FileChooserDialog::new(
                     Some(&gettext("Select Icon Location")),
-                    Some(&parent),
+                    Some(&window),
                     gtk::FileChooserAction::SelectFolder,
                     &[
                         (&gettext("Select"), gtk::ResponseType::Accept),
@@ -75,9 +79,8 @@ mod imp {
 
                     parent.imp().project_path.set_text(&dest);
                 }
-                dialog.destroy();
+                dialog.close();
             });
-            klass.add_binding_action(gdk::Key::Escape, gdk::ModifierType::empty(), "window.close");
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
@@ -102,13 +105,12 @@ mod imp {
         }
     }
     impl WidgetImpl for NewProjectDialog {}
-    impl WindowImpl for NewProjectDialog {}
-    impl AdwWindowImpl for NewProjectDialog {}
+    impl AdwDialogImpl for NewProjectDialog {}
 }
 
 glib::wrapper! {
     pub struct NewProjectDialog(ObjectSubclass<imp::NewProjectDialog>)
-        @extends gtk::Widget, gtk::Window, adw::Window;
+        @extends gtk::Widget, adw::Dialog;
 }
 
 #[gtk::template_callbacks]
