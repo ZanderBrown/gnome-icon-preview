@@ -1,26 +1,16 @@
 use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
-use gtk::{
-    gdk, gio,
-    glib::{self, clone, Receiver, Sender},
-};
-use log::error;
+use gtk::{gdk, gio, glib};
 
 use crate::{config, project::Project, widgets::Window};
 
-pub enum Action {
-    OpenProject(Project),
-    NewProject(gio::File),
-}
-
 mod imp {
-    use std::cell::{OnceCell, RefCell};
+    use std::cell::OnceCell;
 
     use super::*;
 
+    #[derive(Default)]
     pub struct Application {
-        pub sender: Sender<Action>,
-        pub receiver: RefCell<Option<Receiver<Action>>>,
         pub icon_theme: OnceCell<gtk::IconTheme>,
     }
 
@@ -29,17 +19,6 @@ mod imp {
         const NAME: &'static str = "Application";
         type ParentType = adw::Application;
         type Type = super::Application;
-
-        fn new() -> Self {
-            let (sender, r) = glib::MainContext::channel(glib::Priority::default());
-            let receiver = RefCell::new(Some(r));
-
-            Self {
-                sender,
-                receiver,
-                icon_theme: OnceCell::new(),
-            }
-        }
     }
     impl ObjectImpl for Application {}
     impl ApplicationImpl for Application {
@@ -86,12 +65,6 @@ mod imp {
             let application = self.obj();
             let window = application.create_window();
             window.present();
-            // Setup action channel
-            let receiver = self.receiver.borrow_mut().take().unwrap();
-            receiver.attach(
-                None,
-                clone!(@strong application => move |action| application.do_action(action)),
-            );
         }
 
         fn open(&self, files: &[gio::File], _hint: &str) {
@@ -139,24 +112,6 @@ impl Application {
         window
     }
 
-    fn do_action(&self, action: Action) -> glib::ControlFlow {
-        match action {
-            Action::OpenProject(project) => {
-                let window = self.active_window().unwrap().downcast::<Window>().unwrap();
-                window.set_open_project(project);
-            }
-            Action::NewProject(project_dest) => match Project::from_template(project_dest) {
-                Ok(project) => self
-                    .imp()
-                    .sender
-                    .send(Action::OpenProject(project))
-                    .unwrap(),
-                Err(err) => error!("{:#?}", err),
-            },
-        };
-        glib::ControlFlow::Continue
-    }
-
     fn show_about_dialog(&self) {
         let window = self.active_window().unwrap().downcast::<Window>().unwrap();
         adw::AboutWindow::builder()
@@ -172,10 +127,6 @@ impl Application {
             .artists(vec!["Tobias Bernard"])
             .build()
             .present();
-    }
-
-    pub fn sender(&self) -> Sender<Action> {
-        self.imp().sender.clone()
     }
 
     pub fn icon_theme(&self) -> gtk::IconTheme {

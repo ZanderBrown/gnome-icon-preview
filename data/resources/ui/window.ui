@@ -17,6 +17,11 @@
                 <property name="use_underline">True</property>
                 <property name="tooltip_text" translatable="yes">Open an Icon</property>
                 <property name="action_name">win.open</property>
+                <property name="popover">
+                  <object class="RecentsPopover">
+                    <signal name="selected" handler="on_recent_selected" swapped="true" />
+                  </object>
+                </property>
               </object>
             </child>
             <child type="end">

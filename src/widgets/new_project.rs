@@ -4,17 +4,14 @@ use adw::subclass::prelude::*;
 use gettextrs::gettext;
 use gtk::{gdk, gio, glib, prelude::*};
 
-use crate::application::Action;
-
 mod imp {
-    use std::cell::OnceCell;
+    use glib::subclass::Signal;
 
     use super::*;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/new_project.ui")]
     pub struct NewProjectDialog {
-        pub sender: OnceCell<glib::Sender<Action>>,
         #[template_child]
         pub project_name: TemplateChild<gtk::Entry>,
         #[template_child]
@@ -47,8 +44,7 @@ mod imp {
 
                 let project_file = gio::File::for_path(dest_path);
 
-                let sender = imp.sender.get().unwrap();
-                let _ = sender.send(Action::NewProject(project_file));
+                widget.emit_by_name::<()>("created", &[&project_file]);
                 widget.destroy();
             });
             // We can't switch to FileDialog here yet until we decide on something
@@ -81,12 +77,7 @@ mod imp {
                 }
                 dialog.destroy();
             });
-            klass.add_binding_action(
-                gdk::Key::Escape,
-                gdk::ModifierType::empty(),
-                "window.close",
-                None,
-            );
+            klass.add_binding_action(gdk::Key::Escape, gdk::ModifierType::empty(), "window.close");
         }
 
         fn instance_init(obj: &glib::subclass::InitializingObject<Self>) {
@@ -94,7 +85,22 @@ mod imp {
         }
     }
 
-    impl ObjectImpl for NewProjectDialog {}
+    impl ObjectImpl for NewProjectDialog {
+        fn signals() -> &'static [Signal] {
+            use std::sync::OnceLock;
+            static SIGNALS: OnceLock<Vec<Signal>> = OnceLock::new();
+            SIGNALS.get_or_init(|| {
+                vec![Signal::builder("created")
+                    .param_types([gio::File::static_type()])
+                    .build()]
+            })
+        }
+
+        fn constructed(&self) {
+            self.parent_constructed();
+            self.obj().action_set_enabled("project.create", false);
+        }
+    }
     impl WidgetImpl for NewProjectDialog {}
     impl WindowImpl for NewProjectDialog {}
     impl AdwWindowImpl for NewProjectDialog {}
@@ -107,16 +113,15 @@ glib::wrapper! {
 
 #[gtk::template_callbacks]
 impl NewProjectDialog {
-    pub fn new(sender: glib::Sender<Action>) -> Self {
-        let dialog = glib::Object::new::<Self>();
-        dialog.imp().sender.set(sender).unwrap();
-        dialog.action_set_enabled("project.create", false);
-        dialog
-    }
-
     #[template_callback]
     fn on_project_name_changed(&self, entry: &gtk::Entry) {
         let app_id = entry.text().to_string();
         self.action_set_enabled("project.create", gio::Application::id_is_valid(&app_id));
+    }
+}
+
+impl Default for NewProjectDialog {
+    fn default() -> Self {
+        glib::Object::new()
     }
 }

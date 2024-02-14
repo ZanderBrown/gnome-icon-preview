@@ -1,10 +1,5 @@
 use gettextrs::gettext;
-use gtk::{
-    gdk, gio,
-    glib::{self, IsA},
-    prelude::*,
-    subclass::prelude::*,
-};
+use gtk::{gdk, gio, glib, prelude::*, subclass::prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
 use super::common;

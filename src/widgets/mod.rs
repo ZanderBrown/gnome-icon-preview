@@ -7,7 +7,6 @@ mod recents;
 mod window;
 
 pub use export::ExportPopover;
-pub use icon::Icon;
 pub use new_project::NewProjectDialog;
 pub use project_previewer::ProjectPreviewer;
 pub use recents::RecentsPopover;

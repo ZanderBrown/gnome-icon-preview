@@ -1,22 +1,21 @@
 use gtk::{
-    gio, glib,
-    glib::{clone, Sender},
+    gio,
+    glib::{self, clone},
     prelude::*,
     subclass::prelude::*,
 };
 
 use super::item::RecentItemRow;
-use crate::{application::Action, project::Project};
+use crate::project::Project;
 
 mod imp {
-    use std::cell::OnceCell;
+    use glib::subclass::Signal;
 
     use super::*;
 
     #[derive(Debug, Default, gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/recents_popover.ui")]
     pub struct RecentsPopover {
-        pub sender: OnceCell<Sender<Action>>,
         model: gtk::StringList,
         #[template_child]
         pub items_listbox: TemplateChild<gtk::ListBox>,
@@ -38,6 +37,16 @@ mod imp {
     }
 
     impl ObjectImpl for RecentsPopover {
+        fn signals() -> &'static [Signal] {
+            use std::sync::OnceLock;
+            static SIGNALS: OnceLock<Vec<Signal>> = OnceLock::new();
+            SIGNALS.get_or_init(|| {
+                vec![Signal::builder("selected")
+                    .param_types([Project::static_type()])
+                    .build()]
+            })
+        }
+
         fn constructed(&self) {
             self.parent_constructed();
             let obj = self.obj();
@@ -50,7 +59,7 @@ mod imp {
 
                     let gesture = gtk::GestureClick::new();
                     gesture.connect_released(clone!(@weak project, @weak popover => move |gesture, _, _, _| {
-                        let _ = popover.imp().sender.get().unwrap().send(Action::OpenProject(project));
+                        popover.emit_by_name::<()>("selected", &[&project]);
                         popover.popdown();
                         gesture.set_state(gtk::EventSequenceState::Claimed);
                     }));
@@ -94,10 +103,8 @@ glib::wrapper! {
         @extends gtk::Widget, gtk::Popover;
 }
 
-impl RecentsPopover {
-    pub fn new(sender: Sender<Action>) -> Self {
-        let popover = glib::Object::new::<Self>();
-        popover.imp().sender.set(sender).unwrap();
-        popover
+impl Default for RecentsPopover {
+    fn default() -> Self {
+        glib::Object::new()
     }
 }

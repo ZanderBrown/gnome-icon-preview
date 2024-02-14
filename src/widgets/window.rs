@@ -2,9 +2,9 @@ use adw::subclass::prelude::*;
 use gettextrs::gettext;
 use gtk::{gdk, gio, glib, glib::clone, prelude::*};
 
-use super::{ExportPopover, NewProjectDialog, ProjectPreviewer, RecentsPopover};
+use super::{ExportPopover, NewProjectDialog, ProjectPreviewer};
 use crate::{
-    application::{Action, Application},
+    application::Application,
     config::{APP_ID, PROFILE},
     project::Project,
 };
@@ -16,14 +16,14 @@ pub enum View {
 }
 
 mod imp {
-    use std::cell::{OnceCell, RefCell};
+    use std::cell::RefCell;
 
     use super::*;
+    use crate::widgets::RecentsPopover;
 
     #[derive(gtk::CompositeTemplate)]
     #[template(resource = "/org/gnome/design/AppIconPreview/window.ui")]
     pub struct Window {
-        pub sender: OnceCell<glib::Sender<Action>>,
         pub previewer: ProjectPreviewer,
         pub open_project: RefCell<Option<Project>>,
         pub exporter: ExportPopover,
@@ -48,7 +48,6 @@ mod imp {
 
         fn new() -> Self {
             Self {
-                sender: Default::default(),
                 previewer: Default::default(),
                 open_project: Default::default(),
                 exporter: Default::default(),
@@ -61,7 +60,10 @@ mod imp {
             }
         }
         fn class_init(klass: &mut Self::Class) {
+            RecentsPopover::ensure_type();
+
             klass.bind_template();
+            klass.bind_template_instance_callbacks();
 
             // Export icon
             klass.install_action("win.export", None, move |window, _, _| {
@@ -70,7 +72,7 @@ mod imp {
 
             klass.install_action_async(
                 "win.export-save",
-                Some("s"),
+                Some(glib::VariantTy::STRING),
                 move |window, _, target| async move {
                     if let Some(project) = window.imp().open_project.borrow().as_ref() {
                         let project_type = target.unwrap().get::<String>().unwrap();
@@ -84,8 +86,16 @@ mod imp {
 
             // New Project
             klass.install_action("win.new-project", None, move |window, _, _| {
-                let sender = window.imp().sender.get().unwrap().clone();
-                let dialog = NewProjectDialog::new(sender);
+                let dialog = NewProjectDialog::default();
+                dialog.connect("created", false, move |args| {
+                    let dialog = args[0].get::<Self::Type>().unwrap();
+                    let file = args[1].get::<gio::File>().unwrap();
+                    match Project::from_template(file) {
+                        Ok(project) => dialog.set_open_project(project),
+                        Err(err) => log::error!("{:#?}", err),
+                    };
+                    None
+                });
                 dialog.set_transient_for(Some(window));
                 dialog.present();
             });
@@ -143,12 +153,6 @@ mod imp {
         fn constructed(&self) {
             self.parent_constructed();
             let obj = self.obj();
-            let app = gio::Application::default()
-                .unwrap()
-                .downcast::<Application>()
-                .unwrap();
-
-            self.sender.set(app.sender()).unwrap();
 
             if PROFILE == "Devel" {
                 obj.add_css_class("devel");
@@ -170,9 +174,15 @@ glib::wrapper! {
         @extends gtk::Widget, gtk::Window, gtk::ApplicationWindow, adw::ApplicationWindow, gio::ActionMap;
 }
 
+#[gtk::template_callbacks]
 impl Window {
     pub fn new(app: &Application) -> Self {
         glib::Object::builder().property("application", app).build()
+    }
+
+    #[template_callback]
+    fn on_recent_selected(&self, project: Project) {
+        self.set_open_project(project);
     }
 
     pub fn set_open_project(&self, project: Project) {
@@ -224,9 +234,9 @@ impl Window {
             .build();
 
         let file = dialog.open_future(Some(self)).await?;
-        let sender = self.imp().sender.get().unwrap();
         let project = Project::parse(file, true)?;
-        sender.send(Action::OpenProject(project)).unwrap();
+
+        self.set_open_project(project);
         Ok(())
     }
 
@@ -255,11 +265,6 @@ impl Window {
         let imp = self.imp();
 
         imp.content.add_named(&imp.previewer, Some("previewer"));
-
-        // Recents Popover
-        let recents_popover = RecentsPopover::new(imp.sender.get().unwrap().clone());
-        imp.open_btn.set_popover(Some(&recents_popover));
-
         imp.export_btn.set_popover(Some(&imp.exporter));
     }
 
