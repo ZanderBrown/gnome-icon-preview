@@ -1,0 +1,279 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2024-02-16 19:58+0000\n"
+"PO-Revision-Date: 2024-02-20 19:29+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:216
+msgid "App Icon Preview"
+msgstr "Ikonvisning"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+msgid "Preview applications icons"
+msgstr "Forhåndsvis appikoner"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Nylig åpnede filer separert med kommaer"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
+msgid "Icon design helper"
+msgstr "Forhåndsvis appikoner"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
+msgid ""
+"App Icon Preview is a tool for designing icons which target the GNOME "
+"desktop."
+msgstr ""
+"Ikonvisning er et hjelpeverktøy til design av appikoner for GNOME. Sett "
+"opp en mal, forhåndsvis ikonet underveis, og eksporter forskjellige "
+"varianter av det."
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
+msgid "Previewing an Application icon"
+msgstr "Forhåndsvisning av appikon"
+
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
+msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgstr "Bilal Elmoussaoui og Zander Brown"
+
+#: data/resources/ui/export.ui:16
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Eksporter ikonet til bruk i en app. Elementer utenfor lerretet blir "
+"fjernet, og filstørrelsen blir optimalisert."
+
+#: data/resources/ui/export.ui:50
+msgid "Regular"
+msgstr "Vanlig"
+
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Lagre…"
+
+#: data/resources/ui/export.ui:98
+msgid "Nightly"
+msgstr "Utvikling"
+
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Lagre…"
+
+#: data/resources/ui/export.ui:148
+msgid "Symbolic"
+msgstr "Symbol"
+
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Lagre…"
+
+#: data/resources/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "App"
+
+#: data/resources/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Nytt vindu"
+
+#: data/resources/ui/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open an Icon"
+msgstr "Åpne ikon"
+
+#: data/resources/ui/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Quit the Application"
+msgstr "Avslutt"
+
+#: data/resources/ui/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Visning"
+
+#: data/resources/ui/help-overlay.ui:38
+msgctxt "shortcut window"
+msgid "Reload the Icon"
+msgstr "Last inn på nytt"
+
+#: data/resources/ui/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Export the Icon"
+msgstr "Eksporter ikon"
+
+#: data/resources/ui/help-overlay.ui:50
+msgctxt "shortcut window"
+msgid "Shuffle Icons"
+msgstr "Bytt ut eksempelikoner"
+
+#: data/resources/ui/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Take Screenshot"
+msgstr "Lagre skjermbilde"
+
+#: data/resources/ui/help-overlay.ui:62
+msgctxt "shortcut window"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "Kopier skjermbilde til utklippstavlen"
+
+#: data/resources/ui/new_project.ui:6
+msgid "New App Icon"
+msgstr "Nytt appikon"
+
+#: data/resources/ui/new_project.ui:16
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: data/resources/ui/new_project.ui:21
+msgid "_Create"
+msgstr "_Opprett"
+
+#: data/resources/ui/new_project.ui:46
+msgid "App Name"
+msgstr "App-ID"
+
+#: data/resources/ui/new_project.ui:56
+msgid "Icon Location"
+msgstr "Mappe"
+
+#: data/resources/ui/new_project.ui:76
+msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+msgstr ""
+"ID-en til appen er basert på en omvendt nettadresse, f. eks. org.inkscape."
+"Inkscape"
+
+#: data/resources/ui/new_project.ui:90
+msgid "The icon SVG file will be stored in this directory"
+msgstr "SVG-filen til ikonet vil lagres i denne mappen"
+
+#: data/resources/ui/new_project.ui:106
+msgid "~/Projects"
+msgstr "~/Projects"
+
+#: data/resources/ui/new_project.ui:112
+msgid "_Browse…"
+msgstr "_Velg…"
+
+#: data/resources/ui/window.ui:16
+msgid "_Open"
+msgstr "_Åpne"
+
+#: data/resources/ui/window.ui:18
+msgid "Open an Icon"
+msgstr "Åpne et ikon"
+
+#: data/resources/ui/window.ui:29
+msgid "Main Menu"
+msgstr "Hovedmeny"
+
+#: data/resources/ui/window.ui:36
+msgid "_Export"
+msgstr "_Eksporter"
+
+#: data/resources/ui/window.ui:54
+msgid "Make a new App Icon"
+msgstr "Lag et nytt appikon"
+
+#: data/resources/ui/window.ui:180
+msgid "_New App Icon"
+msgstr "_Nytt appikon"
+
+#: data/resources/ui/window.ui:201
+msgid "_New Window"
+msgstr "_Nytt vindu"
+
+#: data/resources/ui/window.ui:207
+msgid "_Reload"
+msgstr "_Last inn på nytt"
+
+#: data/resources/ui/window.ui:211
+msgid "_Copy Screenshot"
+msgstr "Kopier _skjermbilde"
+
+#: data/resources/ui/window.ui:215
+msgid "_Save Screenshot"
+msgstr "Lagre skj_ermbilde"
+
+#: data/resources/ui/window.ui:219
+msgid "_Shuffle Example Icons"
+msgstr "_Bytt ut eksempelikoner"
+
+#: data/resources/ui/window.ui:225
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastatursnarveier"
+
+#: data/resources/ui/window.ui:229
+msgid "_About App Icon Preview"
+msgstr "_Om Ikonvisning"
+
+#: src/application.rs:123
+msgid "translator-credits"
+msgstr "Brage Fuglseth"
+
+#: src/project.rs:177
+msgid "SVG"
+msgstr "SVG"
+
+#: src/project.rs:184
+msgid "Export"
+msgstr "Eksporter"
+
+#: src/project.rs:185 src/widgets/project_previewer.rs:233
+msgid "_Save"
+msgstr "_Lagre"
+
+#: src/widgets/new_project.rs:59
+msgid "Select Icon Location"
+msgstr "Velg mappe"
+
+#: src/widgets/new_project.rs:63
+msgid "Select"
+msgstr "Velg"
+
+#: src/widgets/new_project.rs:64
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/widgets/project_previewer.rs:201
+msgid "Screenshot copied to clipboard"
+msgstr "Skjermbilde kopiert til utklippstavlen"
+
+#: src/widgets/project_previewer.rs:225
+msgid "PNG"
+msgstr "PNG"
+
+#: src/widgets/project_previewer.rs:231
+msgid "Save Screenshot"
+msgstr "Lagre skjermbilde"
+
+#: src/widgets/project_previewer.rs:234
+msgid "Preview"
+msgstr "Forhåndsvis"
+
+#: src/widgets/window.rs:227
+msgid "SVG images"
+msgstr "SVG-bilder"
+
+#: src/widgets/window.rs:232
+msgid "Open File"
+msgstr "Åpne fil"
