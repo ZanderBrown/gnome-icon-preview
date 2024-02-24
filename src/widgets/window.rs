@@ -1,9 +1,8 @@
-use adw::prelude::*;
-use adw::subclass::prelude::*;
+use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
 use gtk::{gdk, gio, glib, glib::clone};
 
-use super::{ExportPopover, NewProjectDialog, ProjectPreviewer};
+use super::{ExportPopover, ProjectPreviewer};
 use crate::{
     application::Application,
     config::{APP_ID, PROFILE},
@@ -67,14 +66,14 @@ mod imp {
             klass.bind_template_instance_callbacks();
 
             // Export icon
-            klass.install_action("win.export", None, move |window, _, _| {
+            klass.install_action("win.export", None, |window, _, _| {
                 window.imp().exporter.popup();
             });
 
             klass.install_action_async(
                 "win.export-save",
                 Some(glib::VariantTy::STRING),
-                move |window, _, target| async move {
+                |window, _, target| async move {
                     if let Some(project) = window.imp().open_project.borrow().as_ref() {
                         let project_type = target.unwrap().get::<String>().unwrap();
                         let icon = crate::common::Icon::from(project_type);
@@ -86,22 +85,14 @@ mod imp {
             );
 
             // New Project
-            klass.install_action("win.new-project", None, move |window, _, _| {
-                let dialog = NewProjectDialog::default();
-                dialog.connect("created", false, move |args| {
-                    let dialog = args[0].get::<Self::Type>().unwrap();
-                    let file = args[1].get::<gio::File>().unwrap();
-                    match Project::from_template(file) {
-                        Ok(project) => dialog.set_open_project(project),
-                        Err(err) => log::error!("{:#?}", err),
-                    };
-                    None
-                });
-                dialog.present(window);
+            klass.install_action_async("win.new-project", None, |window, _, _| async move {
+                if let Err(err) = window.new_project().await {
+                    log::warn!("Failed to create a new project {err}");
+                }
             });
 
             // Refresh
-            klass.install_action("win.refresh", None, move |window, _, _| {
+            klass.install_action("win.refresh", None, |window, _, _| {
                 let imp = window.imp();
                 if let Some(project) = imp.open_project.borrow().as_ref() {
                     match Project::parse(project.file(), true) {
@@ -115,31 +106,27 @@ mod imp {
             });
 
             // Shuffle sample icons
-            klass.install_action("win.shuffle", None, move |window, _, _| {
+            klass.install_action("win.shuffle", None, |window, _, _| {
                 window.imp().previewer.shuffle_samples();
             });
 
             // Save Screenshot
-            klass.install_action_async(
-                "win.save-screenshot",
-                None,
-                move |window, _, _| async move {
-                    window
-                        .imp()
-                        .previewer
-                        .save_screenshot()
-                        .await
-                        .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
-                },
-            );
+            klass.install_action_async("win.save-screenshot", None, |window, _, _| async move {
+                window
+                    .imp()
+                    .previewer
+                    .save_screenshot()
+                    .await
+                    .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
+            });
 
             // Copy Screenshot
-            klass.install_action("win.copy-screenshot", None, move |window, _, _| {
+            klass.install_action("win.copy-screenshot", None, |window, _, _| {
                 window.imp().previewer.copy_screenshot();
             });
 
             // Open file
-            klass.install_action_async("win.open", None, move |window, _, _| async move {
+            klass.install_action_async("win.open", None, |window, _, _| async move {
                 if let Err(err) = window.open_file().await {
                     log::warn!("Failed to open file {err}");
                 }
@@ -219,6 +206,19 @@ impl Window {
                 }
             }),
         );
+    }
+
+    async fn new_project(&self) -> anyhow::Result<()> {
+        let dialog = gtk::FileDialog::builder()
+            .accept_label(gettext("_Create"))
+            .initial_name("com.domain.Application.svg")
+            .modal(true)
+            .title(gettext("Select a file"))
+            .build();
+        let file = dialog.save_future(Some(self)).await?;
+        let project = Project::from_template(file)?;
+        self.set_open_project(project);
+        Ok(())
     }
 
     async fn open_file(&self) -> anyhow::Result<()> {
