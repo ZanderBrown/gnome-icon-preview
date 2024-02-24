@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2024-01-02 09:27+0000\n"
-"PO-Revision-Date: 2024-01-04 09:56+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview"
+"\n"
+"POT-Creation-Date: 2024-02-24 00:36+0000\n"
+"PO-Revision-Date: 2024-02-24 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:216
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
 
@@ -136,42 +136,6 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копіювати знімок до буфера"
 
-#: data/resources/ui/new_project.ui:7
-msgid "New App Icon"
-msgstr "Нова піктограма програми"
-
-#: data/resources/ui/new_project.ui:18
-msgid "_Cancel"
-msgstr "_Скасувати"
-
-#: data/resources/ui/new_project.ui:23
-msgid "_Create"
-msgstr "С_творити"
-
-#: data/resources/ui/new_project.ui:48
-msgid "App Name"
-msgstr "Назва програми"
-
-#: data/resources/ui/new_project.ui:58
-msgid "Icon Location"
-msgstr "Розташування піктограми"
-
-#: data/resources/ui/new_project.ui:78
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Назва в оберненому записі доменів. Приклад: org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:92
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Файл піктограми у форматі SVG буде збережено до цього каталогу"
-
-#: data/resources/ui/new_project.ui:108
-msgid "~/Projects"
-msgstr "~/Проєкти"
-
-#: data/resources/ui/new_project.ui:114
-msgid "_Browse…"
-msgstr "Ви_брати…"
-
 #: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_Відкрити"
@@ -180,101 +144,128 @@ msgstr "_Відкрити"
 msgid "Open an Icon"
 msgstr "Відкрити піктограму"
 
-#: data/resources/ui/window.ui:24
+#: data/resources/ui/window.ui:29
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: data/resources/ui/window.ui:31
+#: data/resources/ui/window.ui:36
 msgid "_Export"
 msgstr "_Експортувати"
 
-#: data/resources/ui/window.ui:49
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "Створити піктограму програми"
 
-#: data/resources/ui/window.ui:175
+#: data/resources/ui/window.ui:180
 msgid "_New App Icon"
 msgstr "_Нова піктограма програми"
 
-#: data/resources/ui/window.ui:196
+#: data/resources/ui/window.ui:201
 msgid "_New Window"
 msgstr "_Нове вікно"
 
-#: data/resources/ui/window.ui:202
+#: data/resources/ui/window.ui:207
 msgid "_Reload"
 msgstr "Пе_резавантажити"
 
-#: data/resources/ui/window.ui:206
+#: data/resources/ui/window.ui:211
 msgid "_Copy Screenshot"
 msgstr "_Копіювати знімок"
 
-#: data/resources/ui/window.ui:210
+#: data/resources/ui/window.ui:215
 msgid "_Save Screenshot"
 msgstr "З_берегти знімок"
 
-#: data/resources/ui/window.ui:214
+#: data/resources/ui/window.ui:219
 msgid "_Shuffle Example Icons"
 msgstr "П_еремішати приклади піктограм"
 
-#: data/resources/ui/window.ui:220
+#: data/resources/ui/window.ui:225
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/resources/ui/window.ui:224
+#: data/resources/ui/window.ui:229
 msgid "_About App Icon Preview"
 msgstr "_Про «Перегляд піктограм програми»"
 
-#: src/application.rs:169
+#: src/application.rs:112
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
-#: src/project.rs:182
+#: src/project.rs:180
 msgid "SVG"
 msgstr "SVG"
 
-#: src/project.rs:189
+#: src/project.rs:187
 msgid "Export"
 msgstr "Експортувати"
 
-#: src/project.rs:190 src/widgets/project_previewer.rs:233
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
 msgid "_Save"
 msgstr "З_берегти"
 
-#: src/widgets/new_project.rs:59
-msgid "Select Icon Location"
-msgstr "Виберіть розташування піктограми"
-
-#: src/widgets/new_project.rs:63
-msgid "Select"
-msgstr "Вибрати"
-
-#: src/widgets/new_project.rs:64
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: src/widgets/project_previewer.rs:201
+#: src/widgets/project_previewer.rs:195
 msgid "Screenshot copied to clipboard"
 msgstr "Знімок вікна скопійовано до буфера"
 
-#: src/widgets/project_previewer.rs:225
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:231
+#: src/widgets/project_previewer.rs:225
 msgid "Save Screenshot"
 msgstr "Зберегти знімок екрана"
 
-#: src/widgets/project_previewer.rs:234
+#: src/widgets/project_previewer.rs:228
 msgid "Preview"
 msgstr "Перегляд"
 
+#: src/widgets/window.rs:213
+msgid "_Create"
+msgstr "С_творити"
+
 #: src/widgets/window.rs:216
+#| msgid "Select"
+msgid "Select a file"
+msgstr "Виберіть файл"
+
+#: src/widgets/window.rs:227
 msgid "SVG images"
 msgstr "зображення SVG"
 
-#: src/widgets/window.rs:221
+#: src/widgets/window.rs:232
 msgid "Open File"
 msgstr "Відкрити файл"
+
+#~ msgid "New App Icon"
+#~ msgstr "Нова піктограма програми"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Скасувати"
+
+#~ msgid "App Name"
+#~ msgstr "Назва програми"
+
+#~ msgid "Icon Location"
+#~ msgstr "Розташування піктограми"
+
+#~ msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+#~ msgstr "Назва в оберненому записі доменів. Приклад: org.inkscape.Inkscape"
+
+#~ msgid "The icon SVG file will be stored in this directory"
+#~ msgstr "Файл піктограми у форматі SVG буде збережено до цього каталогу"
+
+#~ msgid "~/Projects"
+#~ msgstr "~/Проєкти"
+
+#~ msgid "_Browse…"
+#~ msgstr "Ви_брати…"
+
+#~ msgid "Select Icon Location"
+#~ msgstr "Виберіть розташування піктограми"
+
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
 
 #~ msgid "Tool for designing applications icons"
 #~ msgstr "Інструмент для створення піктограм програм"
