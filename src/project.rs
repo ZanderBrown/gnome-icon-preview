@@ -18,7 +18,10 @@ impl Default for ProjectType {
 }
 
 mod imp {
-    use std::cell::{Cell, OnceCell};
+    use std::{
+        cell::{Cell, OnceCell, RefCell},
+        collections::HashMap,
+    };
 
     use super::*;
 
@@ -27,6 +30,7 @@ mod imp {
         pub file: OnceCell<gio::File>,
         pub project_type: Cell<ProjectType>,
         pub handle: OnceCell<SvgHandle>,
+        pub(super) cache: RefCell<HashMap<Icon, gio::File>>,
     }
 
     #[glib::object_subclass]
@@ -67,29 +71,28 @@ impl Project {
     }
 
     pub fn cache_icons(&self) -> anyhow::Result<()> {
+        let imp = self.imp();
         let name = self.name();
         let handle = self.imp().handle.get().unwrap();
 
+        let mut guard = imp.cache.borrow_mut();
         match self.project_type() {
             ProjectType::Icon => {
-                common::render_by_id(handle, &name, Icon::Scalable).unwrap();
-                common::render_by_id(handle, &name, Icon::Devel).unwrap();
-                common::render_by_id(handle, &name, Icon::Symbolic).unwrap();
+                let file = common::render_by_id(handle, &name, Icon::Scalable)?;
+                guard.insert(Icon::Scalable, file);
+                let file = common::render_by_id(handle, &name, Icon::Devel)?;
+                guard.insert(Icon::Devel, file);
+                let file = common::render_by_id(handle, &name, Icon::Symbolic)?;
+                guard.insert(Icon::Symbolic, file);
             }
             ProjectType::Preview => {
-                common::render(handle, &name, Icon::Scalable).unwrap();
-                common::render(handle, &name, Icon::Devel).unwrap();
+                let file = common::render(handle, &name, Icon::Scalable)?;
+                guard.insert(Icon::Scalable, file);
+                let file = common::render(handle, &name, Icon::Devel)?;
+                guard.insert(Icon::Devel, file);
             }
-        }
-
-        let app = gio::Application::default()
-            .unwrap()
-            .downcast::<crate::Application>()
-            .unwrap();
-
-        // We need to refresh the search path after caching icons.
-        app.icon_theme().add_search_path(common::icon_theme_path());
-
+        };
+        drop(guard);
         Ok(())
     }
 
@@ -216,6 +219,16 @@ impl Project {
         let has_symbolic = icon_theme.has_icon(&format!("{}-symbolic", self.name()));
 
         has_scalable && has_devel && (has_symbolic || self.project_type() == ProjectType::Preview)
+    }
+
+    pub fn paintable(&self, icon: Icon, size: Option<i32>) -> Option<gtk::IconPaintable> {
+        if self.project_type() == ProjectType::Preview && icon == Icon::Symbolic {
+            return None;
+        }
+        let cache = self.imp().cache.borrow();
+        cache
+            .get(&icon)
+            .map(|file| gtk::IconPaintable::for_file(file, size.unwrap_or(icon.size() as i32), 1))
     }
 
     pub fn file(&self) -> gio::File {

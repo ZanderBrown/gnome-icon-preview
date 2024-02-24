@@ -45,17 +45,19 @@ glib::wrapper! {
 
 impl ExportPopover {
     pub fn set_project(&self, project: &Project) {
+        use crate::common::Icon;
         let imp = self.imp();
 
-        imp.regular_image.set_icon_name(Some(&project.name()));
+        imp.regular_image
+            .set_paintable(project.paintable(Icon::Scalable, None).as_ref());
         imp.nightly_image
-            .set_icon_name(Some(&format!("{}.Devel", project.name())));
+            .set_paintable(project.paintable(Icon::Devel, None).as_ref());
 
         let has_symbolic = project.project_type() == ProjectType::Icon;
         imp.symbolic_box.set_visible(has_symbolic);
         if has_symbolic {
             imp.symbolic_image
-                .set_icon_name(Some(&format!("{}-symbolic", project.name())));
+                .set_paintable(project.paintable(Icon::Symbolic, None).as_ref());
         }
     }
 }

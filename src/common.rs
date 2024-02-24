@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use gtk::{gio, glib, prelude::*};
 use rsvg::{CairoRenderer, Loader, SvgHandle};
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Hash, Eq, PartialEq)]
 pub enum Icon {
     Symbolic,
     Scalable,
@@ -110,25 +110,13 @@ pub fn create_tmp(icon: Icon, icon_name: &str) -> anyhow::Result<PathBuf> {
     Ok(temp_path)
 }
 
-pub fn init_tmp(icon_theme: &gtk::IconTheme) -> anyhow::Result<()> {
-    // Symbolic dir: icons/hicolor/symbolic/apps
-    // App icon dir: icons/hicolor/scalable/apps
-    let temp_path = icon_theme_path();
-
-    std::fs::create_dir_all(Icon::Scalable.path())?;
-    std::fs::create_dir_all(Icon::Symbolic.path())?;
-
-    icon_theme.add_search_path(temp_path);
-    Ok(())
-}
-
-pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<()> {
+pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<gio::File> {
     let output_size = icon.size();
 
     let renderer = CairoRenderer::new(handle);
     let dest = create_tmp(icon, icon_name)?;
 
-    let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(dest)).unwrap();
+    let mut surface = cairo::SvgSurface::new(output_size, output_size, Some(&dest)).unwrap();
     surface.set_document_unit(cairo::SvgUnit::Px);
     let cr = cairo::Context::new(&surface)?;
     let dimensions = renderer.intrinsic_dimensions();
@@ -141,10 +129,10 @@ pub fn render(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result
         render_stripes(&surface, icon.size())?
     }
 
-    Ok(())
+    Ok(gio::File::for_path(dest))
 }
 
-pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<()> {
+pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::Result<gio::File> {
     let dest = create_tmp(icon, icon_name)?;
     let id = icon.id();
     let output_size = icon.size();
@@ -160,7 +148,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
         };
         let (rect, _) = renderer.geometry_for_layer(Some(id), &viewport)?;
 
-        let mut surface = cairo::SvgSurface::new(rect.width(), rect.height(), Some(dest)).unwrap();
+        let mut surface = cairo::SvgSurface::new(rect.width(), rect.height(), Some(&dest)).unwrap();
         surface.set_document_unit(cairo::SvgUnit::Px);
         let cr = cairo::Context::new(&surface)?;
 
@@ -173,7 +161,7 @@ pub fn render_by_id(handle: &SvgHandle, icon_name: &str, icon: Icon) -> anyhow::
             render_stripes(&surface, icon.size())?
         }
 
-        return Ok(());
+        return Ok(gio::File::for_path(dest));
     }
     anyhow::bail!("failed")
 }

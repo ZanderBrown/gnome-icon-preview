@@ -54,8 +54,8 @@ mod imp {
                     log::error!("Failed to cache icons for {}: {}", project_name, err);
                 }
             }
-
-            self.image.set_icon_name(Some(&project_name));
+            let paintable = project.paintable(crate::common::Icon::Scalable, None);
+            self.image.set_paintable(paintable.as_ref());
             self.label.set_label(&project_name);
             self.label.set_tooltip_text(Some(&project_name));
             self.project.set(project).unwrap();

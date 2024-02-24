@@ -1,4 +1,4 @@
-use gtk::{gio, glib, pango, prelude::*, subclass::prelude::*};
+use gtk::{gdk, gio, glib, pango, prelude::*, subclass::prelude::*};
 
 use crate::common;
 
@@ -83,10 +83,10 @@ impl Icon {
         imp.image.set_from_gicon(&gicon);
     }
 
-    pub fn set_icon_name(&self, icon_name: &str) {
+    pub fn set_paintable(&self, name: &str, paintable: Option<&impl IsA<gdk::Paintable>>) {
         let imp = self.imp();
 
-        imp.label.set_text(&common::format_name(icon_name));
-        imp.image.set_icon_name(Some(icon_name));
+        imp.label.set_text(&common::format_name(name));
+        imp.image.set_from_paintable(paintable);
     }
 }

@@ -1,18 +1,14 @@
 use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
-use gtk::{gdk, gio, glib};
+use gtk::{gio, glib};
 
 use crate::{config, project::Project, widgets::Window};
 
 mod imp {
-    use std::cell::OnceCell;
-
     use super::*;
 
     #[derive(Default)]
-    pub struct Application {
-        pub icon_theme: OnceCell<gtk::IconTheme>,
-    }
+    pub struct Application {}
 
     #[glib::object_subclass]
     impl ObjectSubclass for Application {
@@ -25,13 +21,6 @@ mod imp {
         fn startup(&self) {
             self.parent_startup();
             // setup icon theme cache
-            if let Some(display) = gdk::Display::default() {
-                let icon_theme = gtk::IconTheme::for_display(&display);
-                if let Err(err) = crate::common::init_tmp(&icon_theme) {
-                    log::error!("Failed to load icon theme: {}", err);
-                };
-                self.icon_theme.set(icon_theme).unwrap();
-            }
             let app = self.obj();
             let new_window = gio::ActionEntry::builder("new-window")
                 .activate(move |app: &Self::Type, _, _| {
@@ -125,9 +114,5 @@ impl Application {
             .artists(vec!["Tobias Bernard"])
             .build()
             .present(&window);
-    }
-
-    pub fn icon_theme(&self) -> gtk::IconTheme {
-        self.imp().icon_theme.get().unwrap().clone()
     }
 }

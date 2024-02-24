@@ -4,7 +4,7 @@ use gtk::{gdk, gio, glib, graphene, gsk, pango};
 use rand::seq::SliceRandom;
 
 use super::colour_pane::{ColourPane, PaneStyle};
-use crate::project::{Project, ProjectType};
+use crate::project::Project;
 
 // A struct that represents a widget to render a Project
 mod imp {
@@ -160,16 +160,10 @@ impl ProjectPreviewer {
     pub fn preview(&self, project: &Project) {
         let imp = self.imp();
 
-        imp.dark_panel.set_hicolor(&project.name());
-        imp.light_panel.set_hicolor(&project.name());
-
-        let symbolic = match project.project_type() {
-            ProjectType::Icon => Some(project.name()),
-            ProjectType::Preview => None,
-        };
-
-        imp.light_panel.set_symbolic(symbolic.as_deref());
-        imp.dark_panel.set_symbolic(symbolic.as_deref());
+        imp.dark_panel.set_hicolor(&project);
+        imp.light_panel.set_hicolor(&project);
+        imp.light_panel.set_symbolic(&project);
+        imp.dark_panel.set_symbolic(&project);
     }
 
     pub fn shuffle_samples(&self) {
