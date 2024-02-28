@@ -1,27 +1,28 @@
 # Georgian translation for app-icon-preview.
-# Copyright (C) 2022 app-icon-preview's COPYRIGHT HOLDER
+# Copyright (C) 2022 app-icon-preview's authors
 # This file is distributed under the same license as the app-icon-preview package.
 # NorwayFun <temuri.doghonadze@gmail.com>, 2022.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2023-04-03 10:52+0000\n"
-"PO-Revision-Date: 2023-04-04 02:15+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2024-02-24 00:36+0000\n"
+"PO-Revision-Date: 2024-02-28 05:42+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:91 src/widgets/project_previewer.rs:200
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "აპის ხატულის მინიატურა"
 
@@ -34,8 +35,8 @@ msgid "The latest opened files separated by a comma"
 msgstr "უახლესი გახსნილი ფაილების ჩამონათვალი, მძიმეებით გამოყოფილი"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "პროგრამები აპლიკაციის ხატულების შესაქმნელად"
+msgid "Icon design helper"
+msgstr "ხატულის დიზაინის დამხმარე"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -47,7 +48,7 @@ msgstr "აპის ხატულების გადახედვა პ
 msgid "Previewing an Application icon"
 msgstr "აპლიკაციის ხატულის მინიატურა"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:109
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -133,145 +134,138 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "ეკრანის ანაბეჭდის ბუფერში კოპირება"
 
-#: data/resources/ui/new_project.ui:7
-msgid "New App Icon"
-msgstr "ახალი აპის ხატულა"
-
-#: data/resources/ui/new_project.ui:18
-msgid "_Cancel"
-msgstr "_გაუქმება"
-
-#: data/resources/ui/new_project.ui:23
-msgid "_Create"
-msgstr "შექმნა"
-
-#: data/resources/ui/new_project.ui:48
-msgid "App Name"
-msgstr "აპის სახელი"
-
-#: data/resources/ui/new_project.ui:58
-msgid "Icon Location"
-msgstr "ხატულის მდებარეობა"
-
-#: data/resources/ui/new_project.ui:78
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "რევერსული დომენის ნოტაციის სახელი. მაგ: org.inkscape.inkscape"
-
-#: data/resources/ui/new_project.ui:92
-msgid "The icon SVG file will be stored in this directory"
-msgstr "ხატულის SVG ფაილი ამ საქაღალდეში იქნება შენახული"
-
-#: data/resources/ui/new_project.ui:108
-msgid "~/Projects"
-msgstr "~/პროექტები"
-
-#: data/resources/ui/new_project.ui:114
-msgid "_Browse…"
-msgstr "_პოვნა…"
-
-#: data/resources/ui/window.ui:17
+#: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_გახსნა"
 
-#: data/resources/ui/window.ui:19
+#: data/resources/ui/window.ui:18
 msgid "Open an Icon"
 msgstr "ხატულის გახსნა"
 
-#: data/resources/ui/window.ui:25
+#: data/resources/ui/window.ui:29
 msgid "Main Menu"
 msgstr "მთავარი მენიუ"
 
-#: data/resources/ui/window.ui:32
+#: data/resources/ui/window.ui:36
 msgid "_Export"
 msgstr "_გატანა"
 
-#: data/resources/ui/window.ui:50
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "ახალი აპის ხატულის შექმნა"
 
-#: data/resources/ui/window.ui:176
+#: data/resources/ui/window.ui:180
 msgid "_New App Icon"
 msgstr "_ახალი აპის ხატულა"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:201
 msgid "_New Window"
 msgstr "_ახალი ფანჯარა"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:207
 msgid "_Reload"
 msgstr "_გადატვირთვა"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:211
 msgid "_Copy Screenshot"
 msgstr "ეკრანის _ანაბეჭდის კოპირება"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:215
 msgid "_Save Screenshot"
 msgstr "ეკრანის ანაბეჭდის _შენახვა"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:219
 msgid "_Shuffle Example Icons"
 msgstr "შემთხვევითი _ხატულები"
 
-#: data/resources/ui/window.ui:221
+#: data/resources/ui/window.ui:225
 msgid "_Keyboard Shortcuts"
 msgstr "_კლავიატურის მალსახმობები"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:229
 msgid "_About App Icon Preview"
 msgstr "აპის ხატულის მინიატურის შესახებ"
 
-#: src/application.rs:159
+#: src/application.rs:112
 msgid "translator-credits"
 msgstr "თემური დოღონაძე"
 
-#: src/project.rs:161
+#: src/project.rs:180
 msgid "SVG"
 msgstr "SVG"
 
-#: src/project.rs:168
+#: src/project.rs:187
 msgid "Export"
 msgstr "ექსპორტირება"
 
-#: src/project.rs:169 src/widgets/project_previewer.rs:217
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
 msgid "_Save"
 msgstr "_შენახვა"
 
-#: src/widgets/new_project.rs:58
-msgid "Select Icon Location"
-msgstr "აირჩეთ ხატულის მდებარეობა"
-
-#: src/widgets/new_project.rs:61
-msgid "Select"
-msgstr "აირჩიეთ"
-
-#: src/widgets/new_project.rs:61
-msgid "Cancel"
-msgstr "გაუქმება"
-
-#: src/widgets/project_previewer.rs:185
+#: src/widgets/project_previewer.rs:195
 msgid "Screenshot copied to clipboard"
 msgstr "ეკრანის ანაბეჭდის ბუფერში დაკოპირდა"
 
-#: src/widgets/project_previewer.rs:209
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:215
+#: src/widgets/project_previewer.rs:225
 msgid "Save Screenshot"
 msgstr "ეკრანის ანაბეჭდის შენახვა"
 
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:228
 msgid "Preview"
 msgstr "მინიატურა"
 
-#: src/widgets/window.rs:198
+#: src/widgets/window.rs:213
+msgid "_Create"
+msgstr "შექმნა"
+
+#: src/widgets/window.rs:216
+msgid "Select a file"
+msgstr "აირჩიეთ ფაილი"
+
+#: src/widgets/window.rs:227
 msgid "SVG images"
 msgstr "SVG გამოსახულებები"
 
-#: src/widgets/window.rs:202
+#: src/widgets/window.rs:232
 msgid "Open File"
 msgstr "ფაილის გახსნა"
+
+#~ msgid "Tool for designing applications icons"
+#~ msgstr "პროგრამები აპლიკაციის ხატულების შესაქმნელად"
+
+#~ msgid "New App Icon"
+#~ msgstr "ახალი აპის ხატულა"
+
+#~ msgid "_Cancel"
+#~ msgstr "_გაუქმება"
+
+#~ msgid "App Name"
+#~ msgstr "აპის სახელი"
+
+#~ msgid "Icon Location"
+#~ msgstr "ხატულის მდებარეობა"
+
+#~ msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+#~ msgstr "რევერსული დომენის ნოტაციის სახელი. მაგ: org.inkscape.inkscape"
+
+#~ msgid "The icon SVG file will be stored in this directory"
+#~ msgstr "ხატულის SVG ფაილი ამ საქაღალდეში იქნება შენახული"
+
+#~ msgid "~/Projects"
+#~ msgstr "~/პროექტები"
+
+#~ msgid "_Browse…"
+#~ msgstr "_პოვნა…"
+
+#~ msgid "Select Icon Location"
+#~ msgstr "აირჩეთ ხატულის მდებარეობა"
+
+#~ msgid "Cancel"
+#~ msgstr "გაუქმება"
 
 #~ msgid "Open an icon"
 #~ msgstr "ხატულის გახსნა"
