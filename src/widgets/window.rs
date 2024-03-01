@@ -78,8 +78,8 @@ mod imp {
                         window.imp().exporter.popdown();
                         let project_type = target.unwrap().get::<String>().unwrap();
                         let icon = crate::common::Icon::from(project_type);
-                        if project.export(icon, &window).await.is_err() {
-                            log::warn!("Failed to export the project");
+                        if let Err(err) = project.export(icon, &window).await {
+                            log::warn!("Failed to export the project: {err}");
                         }
                     };
                 },
