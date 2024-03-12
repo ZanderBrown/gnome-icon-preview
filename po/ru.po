@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2024-01-02 09:27+0000\n"
-"PO-Revision-Date: 2024-01-05 13:48+1000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2024-02-24 00:36+0000\n"
+"PO-Revision-Date: 2024-03-08 10:33+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:216
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
@@ -136,42 +136,6 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: data/resources/ui/new_project.ui:7
-msgid "New App Icon"
-msgstr "Новый значок приложения"
-
-#: data/resources/ui/new_project.ui:18
-msgid "_Cancel"
-msgstr "_Отменить"
-
-#: data/resources/ui/new_project.ui:23
-msgid "_Create"
-msgstr "_Создать"
-
-#: data/resources/ui/new_project.ui:48
-msgid "App Name"
-msgstr "Название приложения"
-
-#: data/resources/ui/new_project.ui:58
-msgid "Icon Location"
-msgstr "Расположение значка"
-
-#: data/resources/ui/new_project.ui:78
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Обратная запись доменного имени, например org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:92
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Файл значка SVG будет храниться в этом каталоге"
-
-#: data/resources/ui/new_project.ui:108
-msgid "~/Projects"
-msgstr "~/Проекты"
-
-#: data/resources/ui/new_project.ui:114
-msgid "_Browse…"
-msgstr "_Обзор…"
-
 #: data/resources/ui/window.ui:16
 msgid "_Open"
 msgstr "_Открыть"
@@ -180,103 +144,129 @@ msgstr "_Открыть"
 msgid "Open an Icon"
 msgstr "Открыть значок"
 
-#: data/resources/ui/window.ui:24
+#: data/resources/ui/window.ui:29
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: data/resources/ui/window.ui:31
+#: data/resources/ui/window.ui:36
 msgid "_Export"
 msgstr "_Экспортировать"
 
-#: data/resources/ui/window.ui:49
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "Создать новый значок приложения"
 
-#: data/resources/ui/window.ui:175
+#: data/resources/ui/window.ui:180
 msgid "_New App Icon"
 msgstr "_Новый значок приложения"
 
-#: data/resources/ui/window.ui:196
+#: data/resources/ui/window.ui:201
 msgid "_New Window"
 msgstr "_Новое окно"
 
-#: data/resources/ui/window.ui:202
+#: data/resources/ui/window.ui:207
 msgid "_Reload"
 msgstr "_Перезагрузить"
 
-#: data/resources/ui/window.ui:206
+#: data/resources/ui/window.ui:211
 msgid "_Copy Screenshot"
 msgstr "_Копировать снимок экрана"
 
-#: data/resources/ui/window.ui:210
+#: data/resources/ui/window.ui:215
 msgid "_Save Screenshot"
 msgstr "_Сохранить снимок экрана"
 
-#: data/resources/ui/window.ui:214
+#: data/resources/ui/window.ui:219
 msgid "_Shuffle Example Icons"
 msgstr "_Перемешать примеры значков"
 
-#: data/resources/ui/window.ui:220
+#: data/resources/ui/window.ui:225
 msgid "_Keyboard Shortcuts"
 msgstr "_Комбинации клавиш"
 
-#: data/resources/ui/window.ui:224
+#: data/resources/ui/window.ui:229
 msgid "_About App Icon Preview"
 msgstr "_О приложении"
 
-#: src/application.rs:169
+#: src/application.rs:112
 msgid "translator-credits"
 msgstr ""
 "Svyatoj <e.semenov.surgut@gmail.com>, 2022\n"
 "Ser82-png <asvmail.as@gmail.com>, 2022-2024"
 
-#: src/project.rs:182
+#: src/project.rs:180
 msgid "SVG"
 msgstr "SVG"
 
-#: src/project.rs:189
+#: src/project.rs:187
 msgid "Export"
 msgstr "Экспортировать"
 
-#: src/project.rs:190 src/widgets/project_previewer.rs:233
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
 msgid "_Save"
 msgstr "_Сохранить"
 
-#: src/widgets/new_project.rs:59
-msgid "Select Icon Location"
-msgstr "Выбрать расположение значка"
-
-#: src/widgets/new_project.rs:63
-msgid "Select"
-msgstr "Выбрать"
-
-#: src/widgets/new_project.rs:64
-msgid "Cancel"
-msgstr "Отменить"
-
-#: src/widgets/project_previewer.rs:201
+#: src/widgets/project_previewer.rs:195
 msgid "Screenshot copied to clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: src/widgets/project_previewer.rs:225
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/project_previewer.rs:231
+#: src/widgets/project_previewer.rs:225
 msgid "Save Screenshot"
 msgstr "Сохранить снимок экрана"
 
-#: src/widgets/project_previewer.rs:234
+#: src/widgets/project_previewer.rs:228
 msgid "Preview"
 msgstr "Предварительный просмотр"
 
+#: src/widgets/window.rs:213
+msgid "_Create"
+msgstr "_Создать"
+
 #: src/widgets/window.rs:216
+msgid "Select a file"
+msgstr "Выбрать файл"
+
+#: src/widgets/window.rs:227
 msgid "SVG images"
 msgstr "SVG изображения"
 
-#: src/widgets/window.rs:221
+#: src/widgets/window.rs:232
 msgid "Open File"
 msgstr "Открыть файл"
+
+#~ msgid "New App Icon"
+#~ msgstr "Новый значок приложения"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Отменить"
+
+#~ msgid "App Name"
+#~ msgstr "Название приложения"
+
+#~ msgid "Icon Location"
+#~ msgstr "Расположение значка"
+
+#~ msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+#~ msgstr "Обратная запись доменного имени, например org.inkscape.Inkscape"
+
+#~ msgid "The icon SVG file will be stored in this directory"
+#~ msgstr "Файл значка SVG будет храниться в этом каталоге"
+
+#~ msgid "~/Projects"
+#~ msgstr "~/Проекты"
+
+#~ msgid "_Browse…"
+#~ msgstr "_Обзор…"
+
+#~ msgid "Select Icon Location"
+#~ msgstr "Выбрать расположение значка"
+
+#~ msgid "Cancel"
+#~ msgstr "Отменить"
 
 #~ msgid "Tool for designing applications icons"
 #~ msgstr "Инструмент для создания значков приложений"
