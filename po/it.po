@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2020-06-02 18:55+0000\n"
-"PO-Revision-Date: 2020-07-29 10:00+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2024-02-24 00:36+0000\n"
+"PO-Revision-Date: 2024-05-30 16:04+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <gnome-it-list@gnome.org>\n"
 "Language: it\n"
@@ -21,9 +21,8 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Anteprima icone"
 
@@ -31,9 +30,13 @@ msgstr "Anteprima icone"
 msgid "Preview applications icons"
 msgstr "Visualizza un'anteprima delle icone delle applicazioni"
 
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Gli ultimi file aperti separati da virgole"
+
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Strumento per progettare icone di applicazioni"
+msgid "Icon design helper"
+msgstr "Aiutante per la progettazione di icone "
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -47,17 +50,11 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Anteprima di un'icona applicazione"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
-msgid "translator-credits"
-msgstr ""
-"Milo Casagrande <milo@milo.name>, 2020\n"
-"doteuto <doteuto81@gmail.com>, 2020"
-
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
@@ -65,223 +62,178 @@ msgstr ""
 "Esporta l'icona per un uso in produzione: gli oggetti al di fuori del canvas "
 "vengono eliminati e l'SVG viene ottimizzato per la dimensione"
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Regolare"
 
-#: data/resources/ui/export.ui:89
-msgid "Save Regular As…"
-msgstr "Salva regolare come…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Salva regolare…"
 
-#: data/resources/ui/export.ui:145
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nightly"
 
-#: data/resources/ui/export.ui:165
-msgid "Save Nightly As…"
-msgstr "Salva nightly come…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Salva nightly…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Salvare simbolico come…"
-
-#: data/resources/ui/export.ui:218
+#: data/resources/ui/export.ui:148
 msgid "Symbolic"
 msgstr "Simbolico"
 
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/export.ui:161
+msgid "Save Symbolic…"
+msgstr "Salvare simbolico…"
+
+#: data/resources/ui/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Applicazione"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:15
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nuova finestra"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Apre un'icona"
 
-#: data/resources/ui/help-overlay.ui:33
+#: data/resources/ui/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Apre l'elenco recente"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Apre il menù"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
+msgid "Quit the Application"
 msgstr "Esce dall'applicazione"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Vista"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:38
 msgctxt "shortcut window"
-msgid "Reload the icon"
+msgid "Reload the Icon"
 msgstr "Ricarica l'icona"
 
-#: data/resources/ui/help-overlay.ui:67
+#: data/resources/ui/help-overlay.ui:44
 msgctxt "shortcut window"
-msgid "Export the icon"
+msgid "Export the Icon"
 msgstr "Esporta l'icona"
 
-#: data/resources/ui/help-overlay.ui:74
+#: data/resources/ui/help-overlay.ui:50
 msgctxt "shortcut window"
-msgid "Shuffle icons"
+msgid "Shuffle Icons"
 msgstr "Mischia le icone"
 
-#: data/resources/ui/help-overlay.ui:81
+#: data/resources/ui/help-overlay.ui:56
 msgctxt "shortcut window"
-msgid "Take screenshot"
+msgid "Take Screenshot"
 msgstr "Cattura schermata"
 
-#: data/resources/ui/help-overlay.ui:88
+#: data/resources/ui/help-overlay.ui:62
 msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
+msgid "Copy a Screenshot to Clipboard"
 msgstr "Copia una schermata negli appunti"
 
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "_Nuova finestra"
+#: data/resources/ui/window.ui:16
+msgid "_Open"
+msgstr "_Apri"
 
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Ricarica"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "Cattura _schermata"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "_Mischia icone di esempio"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "_Scorciatoie da tastiera"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "I_nformazioni su Anteprima icone"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Nome applicazione"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Posizione icona"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Notazione inversa del dominio, per esempio org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Il file SVG dell'icona verrà salvata in questa cartella"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Progetti"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Esplora…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
-#: src/project.rs:95
-msgid "_Cancel"
-msgstr "A_nnulla"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Crea"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Chiudi"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Salva…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Copia negli appunti"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Apri"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
+#: data/resources/ui/window.ui:18
+msgid "Open an Icon"
 msgstr "Apre un'icona"
 
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Recenti"
+#: data/resources/ui/window.ui:29
+msgid "Main Menu"
+msgstr "Menù principale"
 
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Menù"
+#: data/resources/ui/window.ui:36
+msgid "_Export"
+msgstr "_Esporta"
 
-#: data/resources/ui/window.ui.in:85 src/project.rs:95
-msgid "Export"
-msgstr "Esporta"
-
-#: data/resources/ui/window.ui.in:118
+#: data/resources/ui/window.ui:54
 msgid "Make a new App Icon"
 msgstr "Crea una nuova icona applicazione"
 
-#: data/resources/ui/window.ui.in:273
-msgid "New App Icon"
-msgstr "Nuova icona applicazione"
+#: data/resources/ui/window.ui:180
+msgid "_New App Icon"
+msgstr "_Nuova icona app"
 
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Seleziona"
+#: data/resources/ui/window.ui:201
+msgid "_New Window"
+msgstr "_Nuova finestra"
 
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Annulla"
+#: data/resources/ui/window.ui:207
+msgid "_Reload"
+msgstr "_Ricarica"
 
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Salvataggio schermata"
+#: data/resources/ui/window.ui:211
+msgid "_Copy Screenshot"
+msgstr "_Copia schermata"
 
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:95
+#: data/resources/ui/window.ui:215
+msgid "_Save Screenshot"
+msgstr "_Salva schermata"
+
+#: data/resources/ui/window.ui:219
+msgid "_Shuffle Example Icons"
+msgstr "_Mischia icone di esempio"
+
+#: data/resources/ui/window.ui:225
+msgid "_Keyboard Shortcuts"
+msgstr "_Scorciatoie da tastiera"
+
+#: data/resources/ui/window.ui:229
+msgid "_About App Icon Preview"
+msgstr "I_nformazioni su Anteprima icone"
+
+#: src/application.rs:112
+msgid "translator-credits"
+msgstr ""
+"Milo Casagrande <milo@milo.name>, 2020\n"
+"doteuto <doteuto81@gmail.com>, 2020"
+
+#: src/project.rs:180
+msgid "SVG"
+msgstr "SVG"
+
+#: src/project.rs:187
+msgid "Export"
+msgstr "Esporta"
+
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
 msgid "_Save"
 msgstr "_Salva"
 
-#: src/widgets/screenshot_dialog.rs:47
-msgid "Preview"
-msgstr "Anteprima"
+#: src/widgets/project_previewer.rs:195
+msgid "Screenshot copied to clipboard"
+msgstr "Schermata copiata negli appunti"
 
-#: src/widgets/screenshot_dialog.rs:62
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:68
-msgid "JPEG"
-msgstr "JPEG"
+#: src/widgets/project_previewer.rs:225
+msgid "Save Screenshot"
+msgstr "Salvataggio schermata"
 
-#: src/widgets/window.rs:231
-msgid "Open File"
-msgstr "Apri file"
+#: src/widgets/project_previewer.rs:228
+msgid "Preview"
+msgstr "Anteprima"
 
-#: src/widgets/window.rs:236
+#: src/widgets/window.rs:213
+msgid "_Create"
+msgstr "_Crea"
+
+#: src/widgets/window.rs:216
+msgid "Select a file"
+msgstr "Seleziona un file"
+
+#: src/widgets/window.rs:227
 msgid "SVG images"
 msgstr "Immagini SVG"
 
-#: src/project.rs:100
-msgid "SVG"
-msgstr "SVG"
+#: src/widgets/window.rs:232
+msgid "Open File"
+msgstr "Apri file"
