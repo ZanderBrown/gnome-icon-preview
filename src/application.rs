@@ -104,7 +104,7 @@ impl Application {
     fn show_about_dialog(&self) {
         let window = self.active_window().and_downcast::<Window>().unwrap();
         adw::AboutDialog::builder()
-            .application_name("App Icon Preview")
+            .application_name(gettext("App Icon Preview"))
             .application_icon(config::APP_ID)
             .license_type(gtk::License::Gpl30)
             .website("https://gitlab.gnome.org/World/design/app-icon-preview/")
