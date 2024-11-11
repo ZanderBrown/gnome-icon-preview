@@ -75,6 +75,7 @@ mod imp {
                 Some(glib::VariantTy::STRING),
                 |window, _, target| async move {
                     if let Some(project) = window.imp().open_project.borrow().as_ref() {
+                        window.imp().exporter.popdown();
                         let project_type = target.unwrap().get::<String>().unwrap();
                         let icon = crate::common::Icon::from(project_type);
                         if project.export(icon, &window).await.is_err() {
