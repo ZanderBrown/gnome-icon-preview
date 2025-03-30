@@ -16,8 +16,40 @@ mod imp {
         type ParentType = adw::Application;
         type Type = super::Application;
     }
-    impl ObjectImpl for Application {}
+
+    impl ObjectImpl for Application {
+        fn constructed(&self) {
+            self.parent_constructed();
+
+            self.obj().add_main_option(
+                "new-window",
+                glib::Char::from(b'w'),
+                glib::OptionFlags::NONE,
+                glib::OptionArg::None,
+                &gettext("Open a new window"),
+                None,
+            );
+        }
+    }
+
     impl ApplicationImpl for Application {
+        fn handle_local_options(&self, options: &glib::VariantDict) -> glib::ExitCode {
+            let app = self.obj();
+
+            if options.contains("new-window") {
+                if let Err(err) = app.register(None::<&gio::Cancellable>) {
+                    log::error!("Failed to register the application: {err}");
+                }
+
+                if app.is_remote() {
+                    app.activate_action("new-window", None);
+                    return glib::ExitCode::SUCCESS;
+                }
+            }
+
+            self.parent_handle_local_options(options)
+        }
+
         fn startup(&self) {
             self.parent_startup();
             // setup icon theme cache
@@ -52,6 +84,12 @@ mod imp {
         fn activate(&self) {
             self.parent_activate();
             let application = self.obj();
+
+            if let Some(window) = application.active_window() {
+                window.present();
+                return;
+            }
+
             let window = application.create_window();
             window.present();
         }
