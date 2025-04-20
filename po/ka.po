@@ -2,15 +2,15 @@
 # Copyright (C) 2022 app-icon-preview's authors
 # This file is distributed under the same license as the app-icon-preview package.
 # NorwayFun <temuri.doghonadze@gmail.com>, 2022.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023-2024.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2024-02-24 00:36+0000\n"
-"PO-Revision-Date: 2024-02-28 05:42+0100\n"
+"POT-Creation-Date: 2025-04-19 19:23+0000\n"
+"PO-Revision-Date: 2025-04-20 04:43+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -18,17 +18,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "აპის ხატულის მინიატურა"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "აპის ხატულების გადახედვა"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+msgid "New Window"
+msgstr "ახალი ფანჯარა"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -186,7 +191,11 @@ msgstr "_კლავიატურის მალსახმობები"
 msgid "_About App Icon Preview"
 msgstr "აპის ხატულის მინიატურის შესახებ"
 
-#: src/application.rs:112
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "ახალი ფანჯრის გახსნა"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr "თემური დოღონაძე"
 
@@ -218,19 +227,19 @@ msgstr "ეკრანის ანაბეჭდის შენახვა"
 msgid "Preview"
 msgstr "მინიატურა"
 
-#: src/widgets/window.rs:213
+#: src/widgets/window.rs:214
 msgid "_Create"
 msgstr "შექმნა"
 
-#: src/widgets/window.rs:216
+#: src/widgets/window.rs:217
 msgid "Select a file"
 msgstr "აირჩიეთ ფაილი"
 
-#: src/widgets/window.rs:227
+#: src/widgets/window.rs:228
 msgid "SVG images"
 msgstr "SVG გამოსახულებები"
 
-#: src/widgets/window.rs:232
+#: src/widgets/window.rs:233
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
@@ -266,6 +275,3 @@ msgstr "ფაილის გახსნა"
 
 #~ msgid "Cancel"
 #~ msgstr "გაუქმება"
-
-#~ msgid "Open an icon"
-#~ msgstr "ხატულის გახსნა"
