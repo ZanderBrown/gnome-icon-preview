@@ -1,10 +1,10 @@
 <a href="https://flathub.org/apps/details/org.gnome.design.AppIconPreview">
-<img src="https://flathub.org/assets/badges/flathub-badge-i-en.png" width="190px" />
+<img src="https://flathub.org/api/badge?svg&locale=en&light" width="190px" />
 </a>
 
 # App Icon Preview
 
-<img src="https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/icons/org.gnome.design.AppIconPreview.svg" width="128" height="128" />
+<img src="data/icons/org.gnome.design.AppIconPreview.svg" width="128" height="128" />
 <p>Tool for designing applications icons.</p>
 
 ## Screenshots
