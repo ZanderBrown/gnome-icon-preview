@@ -12,6 +12,10 @@
       App Icon Preview is a tool for designing icons which target the GNOME desktop.
     </p>
   </description>
+  <branding>
+    <color type="primary" scheme_preference="light">#99c1f1</color>
+    <color type="primary" scheme_preference="dark">#1a5fb4</color>
+  </branding>
   <screenshots>
     <screenshot type="default">
       <image>https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/screenshot1.png</image>
