@@ -126,17 +126,21 @@
                 <property name="orientation">vertical</property>
                 <property name="spacing">10</property>
                 <child>
-                  <object class="GtkImage" id="symbolic_image">
-                    <property name="width-request">136</property>
-                    <property name="height-request">136</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="vexpand">True</property>
-                    <property name="pixel_size">16</property>
-                    <property name="icon_name">start-here-symbolic</property>
+                  <object class="AdwBin">
                     <style>
                       <class name="thumbnail"/>
                     </style>
+                    <property name="vexpand">True</property>
+                    <child>
+                      <object class="GtkImage" id="symbolic_image">
+                        <property name="width-request">16</property>
+                        <property name="height-request">16</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="pixel_size">16</property>
+                        <property name="icon_name">start-here-symbolic</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>
