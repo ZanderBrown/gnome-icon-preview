@@ -12,10 +12,6 @@
       App Icon Preview is a tool for designing icons which target the GNOME desktop.
     </p>
   </description>
-  <kudos>
-    <kudo>HiDpiIcon</kudo>
-    <kudo>ModernToolkit</kudo>
-  </kudos>
   <screenshots>
     <screenshot type="default">
       <image>https://gitlab.gnome.org/World/design/app-icon-preview/raw/master/data/screenshots/screenshot1.png</image>
