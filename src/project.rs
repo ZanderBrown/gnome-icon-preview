@@ -109,8 +109,8 @@ impl Project {
         let width = dimensions.width.length;
         let height = dimensions.height.length;
 
-        if (width - Icon::Scalable.size()).abs() < std::f64::EPSILON
-            && (height - Icon::Scalable.size()).abs() < std::f64::EPSILON
+        if (width - Icon::Scalable.size()).abs() < f64::EPSILON
+            && (height - Icon::Scalable.size()).abs() < f64::EPSILON
         {
             let project: Self = glib::Object::new();
             let imp = project.imp();

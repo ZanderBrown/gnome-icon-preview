@@ -62,7 +62,7 @@ pub fn format_name(name: &str) -> String {
         .trim_end_matches(".Devel")
         .trim_end_matches(".Source")
         .split('.')
-        .last()
+        .next_back()
         .unwrap();
     let mut formatted_chars = vec![];
 

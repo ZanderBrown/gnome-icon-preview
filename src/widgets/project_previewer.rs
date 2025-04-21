@@ -160,10 +160,10 @@ impl ProjectPreviewer {
     pub fn preview(&self, project: &Project) {
         let imp = self.imp();
 
-        imp.dark_panel.set_hicolor(&project);
-        imp.light_panel.set_hicolor(&project);
-        imp.light_panel.set_symbolic(&project);
-        imp.dark_panel.set_symbolic(&project);
+        imp.dark_panel.set_hicolor(project);
+        imp.light_panel.set_hicolor(project);
+        imp.light_panel.set_symbolic(project);
+        imp.dark_panel.set_symbolic(project);
     }
 
     pub fn shuffle_samples(&self) {

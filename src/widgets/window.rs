@@ -73,15 +73,17 @@ mod imp {
             klass.install_action_async(
                 "win.export-save",
                 Some(glib::VariantTy::STRING),
-                |window, _, target| async move {
-                    if let Some(project) = window.imp().open_project.borrow().as_ref() {
-                        window.imp().exporter.popdown();
-                        let project_type = target.unwrap().get::<String>().unwrap();
-                        let icon = crate::common::Icon::from(project_type);
-                        if let Err(err) = project.export(icon, &window).await {
-                            log::warn!("Failed to export the project: {err}");
-                        }
+                async move |window, _, target| {
+                    let project = match window.imp().open_project.borrow().as_ref() {
+                        Some(project) => project.clone(),
+                        None => return,
                     };
+                    window.imp().exporter.popdown();
+                    let project_type = target.unwrap().get::<String>().unwrap();
+                    let icon = crate::common::Icon::from(project_type);
+                    if let Err(err) = project.export(icon, &window).await {
+                        log::warn!("Failed to export the project: {err}");
+                    }
                 },
             );
 
