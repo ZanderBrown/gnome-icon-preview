@@ -76,28 +76,6 @@ pub fn format_name(name: &str) -> String {
     formatted_chars.iter().collect()
 }
 
-#[cfg(test)]
-mod tests {
-    use super::format_name;
-
-    #[test]
-    fn test_format_name() {
-        assert_eq!(
-            format_name("org.gnome.design.AppIconPreview"),
-            "App Icon Preview".to_string()
-        );
-        assert_eq!(format_name("org.gnome.GTG"), "GTG".to_string());
-        assert_eq!(
-            format_name("org.gnome.design.BannerViewer"),
-            "Banner Viewer".to_string()
-        );
-        assert_eq!(
-            format_name("org.gnome.design.Contrast"),
-            "Contrast".to_string()
-        );
-    }
-}
-
 pub fn create_tmp(icon: Icon, icon_name: &str) -> anyhow::Result<PathBuf> {
     let mut temp_path = icon.path();
     std::fs::create_dir_all(&temp_path)?;
@@ -263,4 +241,26 @@ pub fn clean_svg(svg: &str) -> anyhow::Result<Vec<u8>> {
     svgcleaner::cleaner::write_buffer(&document, &svgcleaner::WriteOptions::default(), &mut buf);
 
     Ok(buf)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::format_name;
+
+    #[test]
+    fn test_format_name() {
+        assert_eq!(
+            format_name("org.gnome.design.AppIconPreview"),
+            "App Icon Preview".to_string()
+        );
+        assert_eq!(format_name("org.gnome.GTG"), "GTG".to_string());
+        assert_eq!(
+            format_name("org.gnome.design.BannerViewer"),
+            "Banner Viewer".to_string()
+        );
+        assert_eq!(
+            format_name("org.gnome.design.Contrast"),
+            "Contrast".to_string()
+        );
+    }
 }
