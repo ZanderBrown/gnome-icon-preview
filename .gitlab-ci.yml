@@ -1,6 +1,12 @@
 include:
-  - project: 'gnome/citemplates'
-    file: 'flatpak/flatpak-ci-initiative-sdk-extensions.yml'
+  - project: "GNOME/citemplates"
+    file: "templates/default-rules.yml"
+  - project: "GNOME/citemplates"
+    file: "flatpak/flatpak_ci_initiative.yml"
+  - project: "GNOME/citemplates"
+    file: "templates/basic-release-with-dist.yml"
+    inputs:
+      dist-job-name: "build-flatpak"
 
 .vars-devel:
   variables:
