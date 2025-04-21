@@ -84,9 +84,9 @@ impl ColourPane {
             icon.set_paintable(&project.name(), paintable_64.as_ref());
         }
 
-        imp.hicolor_128.set_from_paintable(paintable_128.as_ref());
-        imp.hicolor_64.set_from_paintable(paintable_64.as_ref());
-        imp.hicolor_32.set_from_paintable(paintable_32.as_ref());
+        imp.hicolor_128.set_paintable(paintable_128.as_ref());
+        imp.hicolor_64.set_paintable(paintable_64.as_ref());
+        imp.hicolor_32.set_paintable(paintable_32.as_ref());
     }
 
     pub fn set_symbolic(&self, project: &Project) {
@@ -94,7 +94,7 @@ impl ColourPane {
 
         match project.paintable(crate::common::Icon::Symbolic, None) {
             Some(paintable) => {
-                imp.symbolic_image.set_from_paintable(Some(&paintable));
+                imp.symbolic_image.set_paintable(Some(&paintable));
                 imp.symbolic_image.set_visible(true);
                 imp.symbolic_label.set_visible(true);
             }

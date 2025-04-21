@@ -87,6 +87,6 @@ impl Icon {
         let imp = self.imp();
 
         imp.label.set_text(&common::format_name(name));
-        imp.image.set_from_paintable(paintable);
+        imp.image.set_paintable(paintable);
     }
 }

@@ -1,7 +1,7 @@
 use adw::{prelude::*, subclass::prelude::*};
 use gettextrs::gettext;
 use gtk::{gdk, gio, glib, graphene, gsk, pango};
-use rand::seq::SliceRandom;
+use rand::prelude::IndexedRandom;
 
 use super::colour_pane::{ColourPane, PaneStyle};
 use crate::project::Project;
@@ -168,7 +168,7 @@ impl ProjectPreviewer {
 
     pub fn shuffle_samples(&self) {
         let imp = self.imp();
-        let mut rng = &mut rand::thread_rng();
+        let mut rng = &mut rand::rng();
 
         let samples = imp
             .samples

@@ -112,7 +112,7 @@ mod imp {
 
 glib::wrapper! {
     pub struct Application(ObjectSubclass<imp::Application>)
-        @extends gio::Application, gtk::Application,
+        @extends gio::Application, gtk::Application, adw::Application,
         @implements gio::ActionMap, gio::ActionGroup;
 }
 
@@ -151,6 +151,6 @@ impl Application {
             .developers(vec!["Bilal Elmoussaoui", "Zander Brown"])
             .artists(vec!["Tobias Bernard"])
             .build()
-            .present(&window);
+            .present(Some(&window));
     }
 }

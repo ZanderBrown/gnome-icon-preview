@@ -192,21 +192,27 @@ impl Window {
         imp.monitor.borrow_mut().replace(monitor);
         imp.open_project.borrow_mut().replace(project);
 
-        imp.monitor.borrow().as_ref().unwrap().connect_changed(
-            clone!(@weak self as this => move |monitor, _, _, event| {
-                if event == gio::FileMonitorEvent::Changed {
-                    let project = &this.imp().open_project;
-                    let file = project.borrow().as_ref().unwrap().file();
-                    match Project::parse(file, true) {
-                        Ok(project) => {
-                            monitor.cancel();
-                            this.set_open_project(project);
+        imp.monitor
+            .borrow()
+            .as_ref()
+            .unwrap()
+            .connect_changed(clone!(
+                #[weak(rename_to = this)]
+                self,
+                move |monitor, _, _, event| {
+                    if event == gio::FileMonitorEvent::Changed {
+                        let project = &this.imp().open_project;
+                        let file = project.borrow().as_ref().unwrap().file();
+                        match Project::parse(file, true) {
+                            Ok(project) => {
+                                monitor.cancel();
+                                this.set_open_project(project);
+                            }
+                            Err(err) => log::warn!("Failed to parse the project {}", err),
                         }
-                        Err(err) => log::warn!("Failed to parse the project {}", err),
                     }
                 }
-            }),
-        );
+            ));
     }
 
     async fn new_project(&self) -> anyhow::Result<()> {
@@ -276,21 +282,25 @@ impl Window {
             gdk::DragAction::COPY | gdk::DragAction::MOVE,
         );
 
-        target.connect_drop(
-            glib::clone!(@weak self as obj => @default-return false, move |_, value, _, _| {
+        target.connect_drop(glib::clone!(
+            #[weak(rename_to = obj)]
+            self,
+            #[upgrade_or]
+            false,
+            move |_, value, _, _| {
                 if let Ok(file) = value.get::<gio::File>() {
                     match Project::parse(file, true) {
                         Ok(project) => {
                             obj.set_open_project(project);
-                            return true
-                        },
+                            return true;
+                        }
                         Err(err) => log::warn!("Failed to parse the project {}", err),
                     }
                 }
 
                 false
-            }),
-        );
+            }
+        ));
 
         self.add_controller(target);
     }
