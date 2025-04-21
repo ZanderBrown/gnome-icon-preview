@@ -41,9 +41,11 @@ mod imp {
             use std::sync::OnceLock;
             static SIGNALS: OnceLock<Vec<Signal>> = OnceLock::new();
             SIGNALS.get_or_init(|| {
-                vec![Signal::builder("selected")
-                    .param_types([Project::static_type()])
-                    .build()]
+                vec![
+                    Signal::builder("selected")
+                        .param_types([Project::static_type()])
+                        .build(),
+                ]
             })
         }
 

@@ -2,7 +2,7 @@
 name = "app-icon-preview"
 version = "3.4.0"
 authors = ["Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>"]
-edition = "2021"
+edition = "2024"
 license = "GPL-3.0-or-later"
 
 [dependencies]
