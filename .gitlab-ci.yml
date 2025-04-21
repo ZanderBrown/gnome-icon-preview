@@ -1,3 +1,8 @@
+stages:
+  - check
+  - test
+  - deploy
+
 include:
   - project: "GNOME/citemplates"
     file: "templates/default-rules.yml"
@@ -15,20 +20,18 @@ include:
     APP_ID: "org.gnome.design.AppIconPreviewDevel"
     RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
     BUNDLE: "app-icon-preview-nightly.flatpak"
-  extends: '.flatpak'
 
 # Build Flatpak for x86_64
 build-flatpak:
   extends: ['.flatpak@x86_64', '.vars-devel']
-  stage: build
 
 nightly@x86_64:
-  extends: '.publish_nightly'
+  extends: ['.publish_nightly', '.vars-devel']
   needs: ['build-flatpak']
 
 rustfmt:
   image: "rust:slim"
-  stage: ".pre"
+  stage: check
   script:
     - rustup component add rustfmt
     - echo -e "" >> src/config.rs
@@ -37,7 +40,7 @@ rustfmt:
     - cargo fmt --all -- --color=always --check
 
 codespell:
-  stage: ".pre"
+  stage: check
   image: "docker.io/bilelmoussaoui/codespell"
   script:
     - codespell -S "*.png,*.po,.git,*.jpg" -L "ser"
