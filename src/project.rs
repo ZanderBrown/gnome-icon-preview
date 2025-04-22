@@ -221,14 +221,19 @@ impl Project {
         has_scalable && has_devel && (has_symbolic || self.project_type() == ProjectType::Preview)
     }
 
-    pub fn paintable(&self, icon: Icon, size: Option<i32>) -> Option<gtk::IconPaintable> {
+    pub fn paintable(
+        &self,
+        icon: Icon,
+        size: Option<i32>,
+        scale: i32,
+    ) -> Option<gtk::IconPaintable> {
         if self.project_type() == ProjectType::Preview && icon == Icon::Symbolic {
             return None;
         }
         let cache = self.imp().cache.borrow();
-        cache
-            .get(&icon)
-            .map(|file| gtk::IconPaintable::for_file(file, size.unwrap_or(icon.size() as i32), 1))
+        cache.get(&icon).map(|file| {
+            gtk::IconPaintable::for_file(file, size.unwrap_or(icon.size() as i32), scale)
+        })
     }
 
     pub fn file(&self) -> gio::File {

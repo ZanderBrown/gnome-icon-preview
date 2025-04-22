@@ -73,10 +73,11 @@ impl ColourPane {
 
     pub fn set_hicolor(&self, project: &Project) {
         let imp = self.imp();
-        let paintable_32 = project.paintable(crate::common::Icon::Scalable, Some(32));
-        let paintable_64 = project.paintable(crate::common::Icon::Scalable, Some(64));
-        let paintable_96 = project.paintable(crate::common::Icon::Scalable, Some(96));
-        let paintable_128 = project.paintable(crate::common::Icon::Scalable, Some(128));
+        let scale = self.scale_factor();
+        let paintable_32 = project.paintable(crate::common::Icon::Scalable, Some(32), scale);
+        let paintable_64 = project.paintable(crate::common::Icon::Scalable, Some(64), scale);
+        let paintable_96 = project.paintable(crate::common::Icon::Scalable, Some(96), scale);
+        let paintable_128 = project.paintable(crate::common::Icon::Scalable, Some(128), scale);
 
         if let Some(icon) = imp.small_icons.borrow_mut().get(2) {
             icon.set_paintable(&project.name(), paintable_64.as_ref());
@@ -93,7 +94,8 @@ impl ColourPane {
     pub fn set_symbolic(&self, project: &Project) {
         let imp = self.imp();
 
-        match project.paintable(crate::common::Icon::Symbolic, None) {
+        let scale = self.scale_factor();
+        match project.paintable(crate::common::Icon::Symbolic, None, scale) {
             Some(paintable) => {
                 imp.symbolic_image.set_paintable(Some(&paintable));
                 imp.symbolic_image.set_visible(true);

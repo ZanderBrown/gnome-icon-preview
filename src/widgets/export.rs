@@ -48,16 +48,17 @@ impl ExportPopover {
         use crate::common::Icon;
         let imp = self.imp();
 
+        let scale = self.scale_factor();
         imp.regular_image
-            .set_paintable(project.paintable(Icon::Scalable, None).as_ref());
+            .set_paintable(project.paintable(Icon::Scalable, None, scale).as_ref());
         imp.nightly_image
-            .set_paintable(project.paintable(Icon::Devel, None).as_ref());
+            .set_paintable(project.paintable(Icon::Devel, None, scale).as_ref());
 
         let has_symbolic = project.project_type() == ProjectType::Icon;
         imp.symbolic_box.set_visible(has_symbolic);
         if has_symbolic {
             imp.symbolic_image
-                .set_paintable(project.paintable(Icon::Symbolic, None).as_ref());
+                .set_paintable(project.paintable(Icon::Symbolic, None, scale).as_ref());
         }
     }
 }
