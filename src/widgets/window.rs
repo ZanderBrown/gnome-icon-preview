@@ -30,6 +30,8 @@ mod imp {
         pub monitor: RefCell<Option<gio::FileMonitor>>,
         pub settings: gio::Settings,
 
+        pub scale_notify_handle: RefCell<Option<glib::SignalHandlerId>>,
+
         #[template_child]
         pub content: TemplateChild<gtk::Stack>,
         #[template_child]
@@ -57,6 +59,7 @@ mod imp {
                 export_btn: Default::default(),
                 open_btn: Default::default(),
                 toolbar_view: Default::default(),
+                scale_notify_handle: Default::default(),
             }
         }
         fn class_init(klass: &mut Self::Class) {
@@ -182,6 +185,22 @@ impl Window {
         self.set_view(View::Previewer);
         imp.previewer.preview(&project);
         imp.exporter.set_project(&project);
+
+        let handle = self.connect_scale_factor_notify(clone!(
+            #[weak(rename_to = obj)]
+            self,
+            #[weak]
+            project,
+            move |_| {
+                let imp = obj.imp();
+                imp.previewer.preview(&project);
+                imp.exporter.set_project(&project);
+            }
+        ));
+
+        if let Some(old_handle) = imp.scale_notify_handle.replace(Some(handle)) {
+            self.disconnect(old_handle);
+        }
 
         let recent_manager = gtk::RecentManager::default();
         recent_manager.add_item(&project.uri());

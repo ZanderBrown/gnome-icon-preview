@@ -48,7 +48,9 @@ impl ExportPopover {
         use crate::common::Icon;
         let imp = self.imp();
 
-        let scale = self.scale_factor();
+        // We get the scale_factor from the parent widget. For some reason the
+        // popover will always report 1.
+        let scale = self.parent().map_or(1, |p| p.scale_factor());
         imp.regular_image
             .set_paintable(project.paintable(Icon::Scalable, None, scale).as_ref());
         imp.nightly_image
