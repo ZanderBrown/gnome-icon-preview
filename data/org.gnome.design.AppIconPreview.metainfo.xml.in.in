@@ -23,6 +23,11 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.5.1" date="2025-04-23">
+      <description>
+        <p>Fixed blurry icons on the preview</p>
+      </description>
+    </release>
     <release version="3.5.0" date="2025-04-21">
       <description>
         <p>Bugfix release</p>
