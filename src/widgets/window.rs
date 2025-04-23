@@ -210,8 +210,8 @@ impl Window {
             .monitor_file(gio::FileMonitorFlags::all(), gio::Cancellable::NONE)
             .unwrap();
 
-        imp.monitor.borrow_mut().replace(monitor);
-        imp.open_project.borrow_mut().replace(project);
+        imp.monitor.replace(Some(monitor));
+        imp.open_project.replace(Some(project));
 
         imp.monitor
             .borrow()
