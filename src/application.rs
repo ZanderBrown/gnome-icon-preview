@@ -117,7 +117,7 @@ glib::wrapper! {
 }
 
 impl Application {
-    pub fn run() {
+    pub fn run() -> glib::ExitCode {
         log::info!("App Icon Preview ({})", config::APP_ID);
         log::info!("Version: {} ({})", config::VERSION, config::PROFILE);
         log::info!("Datadir: {}", config::PKGDATADIR);
@@ -127,7 +127,7 @@ impl Application {
             .property("flags", gio::ApplicationFlags::HANDLES_OPEN)
             .property("resource-base-path", "/org/gnome/design/AppIconPreview")
             .build();
-        app.run();
+        app.run()
     }
 
     fn create_window(&self) -> Window {
