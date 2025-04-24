@@ -3,32 +3,38 @@
 # This file is distributed under the same license as the icon-tool package.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2019-2021.
 # Jhonata Fernandes <fjhonata14@gmail.com>, 2024.
+# Álvaro Burns <>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2024-02-24 00:36+0000\n"
-"PO-Revision-Date: 2021-12-10 14:31-0300\n"
-"Last-Translator: Jhonata Fernandes <fjhonata14@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"POT-Creation-Date: 2025-04-23 17:37+0000\n"
+"PO-Revision-Date: 2025-04-24 07:12-0300\n"
+"Last-Translator: Álvaro Burns <>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Visualização de ícones de aplicativos"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Visualize ícones de aplicativos"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+msgid "New Window"
+msgstr "Nova janela"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -50,7 +56,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Visualizando um ícone de aplicativo"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -78,11 +84,11 @@ msgstr "Nightly"
 msgid "Save Nightly…"
 msgstr "Salvar nightly…"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Simbólico"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Salvar simbólico…"
 
@@ -188,7 +194,11 @@ msgstr "Atalhos de _teclado"
 msgid "_About App Icon Preview"
 msgstr "_Sobre o Visualização de ícones de aplicativos"
 
-#: src/application.rs:112
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "Abrir uma nova janela"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr ""
 "Rafael Fontenelle <rafaelff@gnome.org>\n"
@@ -222,19 +232,19 @@ msgstr "Salvar captura de tela"
 msgid "Preview"
 msgstr "Visualizar"
 
-#: src/widgets/window.rs:213
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "_Criar"
 
-#: src/widgets/window.rs:216
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Selecionar um arquivo"
 
-#: src/widgets/window.rs:227
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "Imagens SVG"
 
-#: src/widgets/window.rs:232
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Abrir arquivo"
 
@@ -264,9 +274,6 @@ msgstr "Abrir arquivo"
 
 #~ msgid "_Browse…"
 #~ msgstr "_Navegar…"
-
-#~ msgid "Open an icon"
-#~ msgstr "Abre um ícone"
 
 #~ msgid "Select Icon Location"
 #~ msgstr "Selecionar local do ícone"
