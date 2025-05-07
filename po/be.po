@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2024-08-31 16:09+0000\n"
-"PO-Revision-Date: 2024-12-28 09:30+0300\n"
+"POT-Creation-Date: 2025-04-23 17:37+0000\n"
+"PO-Revision-Date: 2025-05-07 05:09+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -18,17 +18,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Папярэдні прагляд значкоў праграм"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+msgid "New Window"
+msgstr "Новае акно"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -50,7 +55,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Папярэдні прагляд значка праграмы"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
@@ -78,11 +83,11 @@ msgstr "Начны"
 msgid "Save Nightly…"
 msgstr "Захаваць начны…"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Сімвалічны"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Захаваць сімвалічны…"
 
@@ -188,7 +193,11 @@ msgstr "_Спалучэнні клавіш"
 msgid "_About App Icon Preview"
 msgstr "Пр_а App Icon Preview"
 
-#: src/application.rs:112
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "Адкрыць новае акно"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr "Юрась Шумовіч <shumovichy@gmail.com>"
 
@@ -220,19 +229,19 @@ msgstr "Захаваць здымак экрана"
 msgid "Preview"
 msgstr "Папярэдні прагляд"
 
-#: src/widgets/window.rs:213
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "_Стварыць"
 
-#: src/widgets/window.rs:216
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Выбраць файл"
 
-#: src/widgets/window.rs:227
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "Выявы SVG"
 
-#: src/widgets/window.rs:232
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Адкрыць файл"
 
@@ -262,9 +271,6 @@ msgstr "Адкрыць файл"
 
 #~ msgid "_Browse…"
 #~ msgstr "А_гляд…"
-
-#~ msgid "Open an icon"
-#~ msgstr "Адкрыць значок"
 
 #~ msgid "Select Icon Location"
 #~ msgstr "Выберыце размяшчэнне значка"
