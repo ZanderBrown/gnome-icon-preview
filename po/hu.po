@@ -1,14 +1,14 @@
 # Hungarian translation for icon-tool.
-# Copyright (C) 2019, 2020, 2021, 2022, 2023, 2024 Free Software Foundation, Inc.
+# Copyright (C) 2019, 2020, 2021, 2022, 2023, 2024, 2025 Free Software Foundation, Inc.
 # This file is distributed under the same license as the icon-tool package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020, 2021, 2022, 2023, 2024.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview\n"
-"POT-Creation-Date: 2024-02-24 00:36+0000\n"
-"PO-Revision-Date: 2024-03-02 20:22+0100\n"
+"POT-Creation-Date: 2025-04-23 17:37+0000\n"
+"PO-Revision-Date: 2025-05-14 17:25+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -16,17 +16,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Alkalmazásikon-előnézet"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
 msgstr "Alkalmazások ikonjainak előnézete"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+#| msgctxt "shortcut window"
+#| msgid "New Window"
+msgid "New Window"
+msgstr "Új ablak"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -48,7 +55,7 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui és Zander Brown"
 
@@ -76,11 +83,11 @@ msgstr "Éjszakai"
 msgid "Save Nightly…"
 msgstr "Éjszakai mentése…"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Szimbolikus"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Szimbolikus mentése…"
 
@@ -186,7 +193,12 @@ msgstr "_Gyorsbillentyűk"
 msgid "_About App Icon Preview"
 msgstr "Az Alkalmazásikon-előnézet _névjegye"
 
-#: src/application.rs:112
+#: src/application.rs:29
+#| msgid "Open an Icon"
+msgid "Open a new window"
+msgstr "Új ablak megnyitása"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr "Úr Balázs <ur.balazs at fsf dot hu>, 2019, 2020."
 
@@ -218,19 +230,18 @@ msgstr "Képernyőkép mentése"
 msgid "Preview"
 msgstr "Előnézet"
 
-#: src/widgets/window.rs:213
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "_Létrehozás"
 
-#: src/widgets/window.rs:216
-#| msgid "Select"
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Fájl kiválasztása"
 
-#: src/widgets/window.rs:227
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "SVG-képek"
 
-#: src/widgets/window.rs:232
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Fájl megnyitása"
