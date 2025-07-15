@@ -1,67 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkShortcutsWindow" id="help_overlay">
-    <property name="modal">True</property>
+  <object class="AdwShortcutsDialog" id="shortcuts_dialog">
     <child>
-      <object class="GtkShortcutsSection">
-        <property name="section-name">shortcuts</property>
-        <property name="max-height">12</property>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">Application</property>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes" context="shortcut window">Application</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">app.new-window</property>
-                <property name="title" translatable="yes" context="shortcut window">New Window</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.open</property>
-                <property name="title" translatable="yes" context="shortcut window">Open an Icon</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">app.quit</property>
-                <property name="title" translatable="yes" context="shortcut window">Quit the Application</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">app.new-window</property>
+            <property name="title" translatable="yes" context="shortcut window">New Window</property>
           </object>
         </child>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes" context="shortcut window">View</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.refresh</property>
-                <property name="title" translatable="yes" context="shortcut window">Reload the Icon</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.export</property>
-                <property name="title" translatable="yes" context="shortcut window">Export the Icon</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.shuffle</property>
-                <property name="title" translatable="yes" context="shortcut window">Shuffle Icons</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.save-screenshot</property>
-                <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="action_name">win.copy-screenshot</property>
-                <property name="title" translatable="yes" context="shortcut window">Copy a Screenshot to Clipboard</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.open</property>
+            <property name="title" translatable="yes" context="shortcut window">Open an Icon</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">app.quit</property>
+            <property name="title" translatable="yes" context="shortcut window">Quit the Application</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">View</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.refresh</property>
+            <property name="title" translatable="yes" context="shortcut window">Reload the Icon</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.export</property>
+            <property name="title" translatable="yes" context="shortcut window">Export the Icon</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.shuffle</property>
+            <property name="title" translatable="yes" context="shortcut window">Shuffle Icons</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.save-screenshot</property>
+            <property name="title" translatable="yes" context="shortcut window">Take Screenshot</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action_name">win.copy-screenshot</property>
+            <property name="title" translatable="yes" context="shortcut window">Copy a Screenshot to Clipboard</property>
           </object>
         </child>
       </object>
