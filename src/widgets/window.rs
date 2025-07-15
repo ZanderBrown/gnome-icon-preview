@@ -106,7 +106,7 @@ mod imp {
                             imp.previewer.preview(&project);
                             imp.exporter.set_project(&project);
                         }
-                        Err(err) => log::warn!("Failed to parse the project {}", err),
+                        Err(err) => log::warn!("Failed to parse the project {err}"),
                     }
                 };
             });
@@ -123,7 +123,7 @@ mod imp {
                     .previewer
                     .save_screenshot()
                     .await
-                    .unwrap_or_else(|err| log::error!("Could not save screenshot: {}", err));
+                    .unwrap_or_else(|err| log::error!("Could not save screenshot: {err}"));
             });
 
             // Copy Screenshot
@@ -229,7 +229,7 @@ impl Window {
                                 monitor.cancel();
                                 this.set_open_project(project);
                             }
-                            Err(err) => log::warn!("Failed to parse the project {}", err),
+                            Err(err) => log::warn!("Failed to parse the project {err}"),
                         }
                     }
                 }
@@ -315,7 +315,7 @@ impl Window {
                             obj.set_open_project(project);
                             return true;
                         }
-                        Err(err) => log::warn!("Failed to parse the project {}", err),
+                        Err(err) => log::warn!("Failed to parse the project {err}"),
                     }
                 }
 

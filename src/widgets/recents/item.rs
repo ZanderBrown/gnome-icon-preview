@@ -51,7 +51,7 @@ mod imp {
 
             if !project.has_cache_icons() {
                 if let Err(err) = project.cache_icons() {
-                    log::error!("Failed to cache icons for {}: {}", project_name, err);
+                    log::error!("Failed to cache icons for {project_name}: {err}");
                 }
             }
             let scale = self.obj().scale_factor();

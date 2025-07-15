@@ -161,7 +161,7 @@ impl Project {
             if let Err(err) =
                 gio::AppInfo::launch_default_for_uri(&uri, None::<&gio::AppLaunchContext>)
             {
-                log::error!("Failed to open the project in Inkscape {}", err);
+                log::error!("Failed to open the project in Inkscape {err}");
             }
             glib::ControlFlow::Break
         });
@@ -204,7 +204,7 @@ impl Project {
             )
             .await
         {
-            log::error!("Failed to export icon {:?}", err);
+            log::error!("Failed to export icon {err:?}");
         };
 
         Ok(())
