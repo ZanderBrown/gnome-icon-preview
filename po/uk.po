@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview"
 "\n"
-"POT-Creation-Date: 2025-04-19 19:23+0000\n"
-"PO-Revision-Date: 2025-04-20 08:39+0300\n"
+"POT-Creation-Date: 2025-07-31 17:28+0000\n"
+"PO-Revision-Date: 2025-07-31 21:29+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,20 +20,18 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
 #: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Перегляд піктограм програми"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Перегляд піктограм програм"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
-#| msgctxt "shortcut window"
-#| msgid "New Window"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
 msgid "New Window"
 msgstr "Нове вікно"
 
@@ -57,8 +55,9 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Попередній перегляд піктограми програми"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
+#| msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui & Zander Brown"
 msgstr "Bilal Elmoussaoui та Zander Brown"
 
 #: data/resources/ui/export.ui:16
@@ -85,60 +84,60 @@ msgstr "Нічна"
 msgid "Save Nightly…"
 msgstr "Зберегти нічну…"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Символічна"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Зберегти символічну…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Програма"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Нове вікно"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Відкрити піктограму"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Вийти з програми"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Перегляд"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Перезавантажити піктограму"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Експортувати піктограму"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Перемішати піктограми"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Зробити знімок"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копіювати знімок до буфера"
@@ -196,7 +195,6 @@ msgid "_About App Icon Preview"
 msgstr "_Про «Перегляд піктограм програми»"
 
 #: src/application.rs:29
-#| msgid "Open an icon"
 msgid "Open a new window"
 msgstr "Відкрити нове вікно"
 
@@ -232,19 +230,19 @@ msgstr "Зберегти знімок екрана"
 msgid "Preview"
 msgstr "Перегляд"
 
-#: src/widgets/window.rs:214
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "С_творити"
 
-#: src/widgets/window.rs:217
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Виберіть файл"
 
-#: src/widgets/window.rs:228
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "зображення SVG"
 
-#: src/widgets/window.rs:233
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Відкрити файл"
 
