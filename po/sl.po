@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-04-19 19:23+0000\n"
-"PO-Revision-Date: 2025-04-21 08:52+0200\n"
+"POT-Creation-Date: 2025-07-31 18:30+0000\n"
+"PO-Revision-Date: 2025-08-01 12:35+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups."
 "com>\n"
@@ -24,18 +24,18 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
 #: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Predogled ikone programa"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Predogled ikon programov"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
 msgid "New Window"
 msgstr "Novo okno"
 
@@ -57,8 +57,8 @@ msgstr "Predoglednik ikon je orodje za oblikovanje ikon za namizje GNOME:"
 msgid "Previewing an Application icon"
 msgstr "Predogled ikone programa"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
+msgid "Bilal Elmoussaoui & Zander Brown"
 msgstr "Bilal Elmoussaoui in Zander Brown"
 
 #: data/resources/ui/export.ui:16
@@ -85,60 +85,60 @@ msgstr "Preizkusna"
 msgid "Save Nightly…"
 msgstr "Shrani kot preizkusno …"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Simbolna"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Shrani kot simbolno …"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Program"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Odpre novo okno"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Odpre ikono"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Konča izvajanje programa"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Pogled"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Ponovno naloži ikono"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Izvozi ikono"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Premeša ikone"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Zajeme zaslonsko sliko"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Kopira zaslonsko sliko v odložišče"
@@ -231,18 +231,18 @@ msgstr "Shrani zajeto sliko"
 msgid "Preview"
 msgstr "Predogled"
 
-#: src/widgets/window.rs:214
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "_Ustvari"
 
-#: src/widgets/window.rs:217
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Izberite datoteko"
 
-#: src/widgets/window.rs:228
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "Slike SVG"
 
-#: src/widgets/window.rs:233
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Odpri datoteko"
