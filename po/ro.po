@@ -2,350 +2,258 @@
 # Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the app-icon-preview package.
 # Florentina Mușat <emryslokadottir@gmail.com>, 2020.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2025.
+# Antonio Marin <gnmer.6qxyg@slmail.me>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2020-05-21 12:54+0000\n"
-"PO-Revision-Date: 2020-05-21 16:51+0300\n"
-"Last-Translator: Florentina Mușat <emryslokadottir [at] gmail [dot] com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2025-08-02 00:19+0000\n"
+"PO-Revision-Date: 2025-08-05 13:10+0200\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 2.3.1\n"
+"20)) ? 1 : 2);\n"
+"X-Generator: Gtranslator 48.0\n"
+"X-DL-Lang: ro\n"
+"X-DL-Module: app-icon-preview\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: None\n"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
+msgid "App Icon Preview"
+msgstr "Previzualizare simboluri"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:52
-#: src/widgets/project_previewer.rs:45
-msgid "App Icon Preview"
-msgstr "Previzualizare iconiță de aplicație"
-
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
 msgid "Preview applications icons"
-msgstr "Previzualizează iconițele aplicațiilor"
+msgstr "Previzualizează simbolurile aplicațiilor"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
+msgid "New Window"
+msgstr "Fereastră nouă"
+
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Ultimele fișiere deschise separate de virgulă"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Unealta pentru proiectarea iconițelor de aplicații"
+msgid "Icon design helper"
+msgstr "Asistent pentru proiectarea simbolurilor"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
 "App Icon Preview is a tool for designing icons which target the GNOME "
 "desktop."
 msgstr ""
-"Previzualizare iconiță de aplicație este o unealtă pentru proiectarea de "
-"iconițe care vizează desktopul GNOME."
+"„Previzualizare simboluri” este un instrument pentru proiectarea de "
+"simboluri destinate interfeței grafice GNOME."
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
-msgstr "Se previzualizează o iconiță de aplicație"
+msgstr "Previzualizarea simbolului unei aplicații"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:69
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
+msgid "Bilal Elmoussaoui & Zander Brown"
+msgstr "Bilal Elmoussaoui și Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
-msgid "translator-credits"
-msgstr "Florentina Mușat <emryslokadottir [at] gmail [dot] com>, 2020"
-
-#: data/resources/ui/export.ui:19
+#: data/resources/ui/export.ui:16
 msgid ""
 "Export the icon for production use. Off-canvas objects are removed and the "
 "SVG is optimised for size"
 msgstr ""
-"Exportă iconița pentru utilizarea în producție. Obiectele din afara "
-"canvasului sunt eliminate și SVG-ul este optimizat pentru dimensiune"
+"Exportă simbolul pentru utilizarea în producție. Obiectele din afara "
+"cadrului de desenare sunt eliminate și imaginea în formatul SVG este "
+"optimizată ca mărime"
 
-#: data/resources/ui/export.ui:69
+#: data/resources/ui/export.ui:50
 msgid "Regular"
-msgstr "Obișnuit"
+msgstr "Normal"
 
-#: data/resources/ui/export.ui:89
-msgid "Save Regular As…"
-msgstr "Salvează obișnuitul ca…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Salvează ca Normal…"
 
-#: data/resources/ui/export.ui:145
+# R-GC, scrie:
+# am tradus „nightly” ca «întunecat», ținînd cont de contextul  în care apare: normal/întunecat; gîndesc că autorii se referă de fapt la tema pictogramei: clară(luminoasă)/întunecată, și nu la stadiul de «dezvoltare» al pictogramei, așa cum se traduce nightly=(ultima) versiune de dezvoltare.
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
-msgstr "Nocturn"
+msgstr "Întunecat"
+
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Salvează ca Întunecat…"
+
+#: data/resources/ui/export.ui:152
+msgid "Symbolic"
+msgstr "Simplu"
 
 #: data/resources/ui/export.ui:165
-msgid "Save Nightly As…"
-msgstr "Salvează nocturnul ca…"
+msgid "Save Symbolic…"
+msgstr "Salvează ca Simplu…"
 
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr "Salvează simbolicul ca…"
-
-#: data/resources/ui/export.ui:218
-msgid "Symbolic"
-msgstr "Simbolic"
-
-#: data/resources/ui/help-overlay.ui:13
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Aplicație"
 
-#: data/resources/ui/help-overlay.ui:19
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Fereastră nouă"
 
-#: data/resources/ui/help-overlay.ui:26
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
-msgid "Open an icon"
-msgstr "Deschide o iconiță"
+msgid "Open an Icon"
+msgstr "Deschide un simbol"
+
+#: data/resources/ui/help-overlay.ui:22
+msgctxt "shortcut window"
+msgid "Quit the Application"
+msgstr "Închide aplicația"
+
+#: data/resources/ui/help-overlay.ui:29
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Arată"
 
 #: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Deschide lista recentă"
+msgid "Reload the Icon"
+msgstr "Reîncarcă simbolul"
 
-#: data/resources/ui/help-overlay.ui:40
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Deschide meniul"
+msgid "Export the Icon"
+msgstr "Exportă simbolul"
 
-#: data/resources/ui/help-overlay.ui:47
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
-msgid "Quit the application"
-msgstr "Închide aplicația"
+msgid "Shuffle Icons"
+msgstr "Amestecă simbolurile"
 
-#: data/resources/ui/help-overlay.ui:54
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
-msgid "View"
-msgstr "Vizualizare"
+msgid "Take Screenshot"
+msgstr "Instantaneu de ecran"
 
-#: data/resources/ui/help-overlay.ui:60
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
-msgid "Reload the icon"
-msgstr "Reîncarcă iconița"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "Copiază instantaneul de ecran"
 
-#: data/resources/ui/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Export the icon"
-msgstr "Exportă iconița"
+#: data/resources/ui/window.ui:16
+msgid "_Open"
+msgstr "_Deschide"
 
-#: data/resources/ui/help-overlay.ui:74
-msgctxt "shortcut window"
-msgid "Shuffle icons"
-msgstr "Amestecă iconițele"
+#: data/resources/ui/window.ui:18
+msgid "Open an Icon"
+msgstr "Deschide un simbol"
 
-#: data/resources/ui/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Take screenshot"
-msgstr "Ia o captură de ecran"
+#: data/resources/ui/window.ui:29
+msgid "Main Menu"
+msgstr "Opțiuni"
 
-#: data/resources/ui/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
-msgstr "Copiază o captură de ecran în clipboard"
+#: data/resources/ui/window.ui:36
+msgid "_Export"
+msgstr "_Exportă"
 
-#: data/resources/ui/menus.ui:19
+#: data/resources/ui/window.ui:54
+msgid "Make a new App Icon"
+msgstr "Creează un simbol nou"
+
+#: data/resources/ui/window.ui:180
+msgid "_New App Icon"
+msgstr "Simbol _nou de aplicație"
+
+#: data/resources/ui/window.ui:201
 msgid "_New Window"
 msgstr "Fereastră _nouă"
 
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Reîncarcă"
+#: data/resources/ui/window.ui:207
+msgid "_Reload"
+msgstr "_Reîncarcă"
 
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Ia o captură de ecran"
+#: data/resources/ui/window.ui:211
+msgid "_Copy Screenshot"
+msgstr "_Copiază instantaneul"
 
-#: data/resources/ui/menus.ui:72
+#: data/resources/ui/window.ui:215
+msgid "_Save Screenshot"
+msgstr "_Salvează instantaneul"
+
+#: data/resources/ui/window.ui:219
 msgid "_Shuffle Example Icons"
-msgstr "Ame_stecă iconițele exemplu"
+msgstr "Ame_stecă simbolurile de exemplu"
 
-#: data/resources/ui/menus.ui:97
+#: data/resources/ui/window.ui:225
 msgid "_Keyboard Shortcuts"
-msgstr "Scurtături de _tastatură"
+msgstr "Scur_tături"
 
-#: data/resources/ui/menus.ui:111
+#: data/resources/ui/window.ui:229
 msgid "_About App Icon Preview"
-msgstr "_Despre Previzualizare iconițe de aplicații"
+msgstr "_Despre Previzualizare simboluri"
 
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Nume aplicație"
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "Deschide o fereastră nouă"
 
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Locația iconiței"
+#: src/application.rs:150
+msgid "translator-credits"
+msgstr ""
+"Florentina Mușat <emryslokadottir [at] gmail [dot] com>, 2020\n"
+"Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2025\n"
+"Antonio Marin <gnmer.6qxyg@slmail.me>, 2025"
 
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Numele notării de domeniu invers, de ex. org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Fișierul SVG iconiță va fi stocat în acest director"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Proiecte"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Navighează…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:43
-#: src/project.rs:96
-msgid "_Cancel"
-msgstr "_Anulează"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Creează"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Închide"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Salvează…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Copiază la clipboard"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Deschide"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Deschide o iconiță"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Recente"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Meniu"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:93
-msgid "Export"
-msgstr "Exportă"
-
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Creează o iconiță de aplicație nouă"
-
-#: data/resources/ui/window.ui.in:273
-msgid "New App Icon"
-msgstr "Iconiță de aplicație nouă"
-
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Selectează"
-
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Anulează"
-
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Salvează captura de ecran"
-
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:96
-msgid "_Save"
-msgstr "_Salvează"
-
-#: src/widgets/screenshot_dialog.rs:46
-msgid "Preview"
-msgstr "Previzualizare"
-
-#: src/widgets/screenshot_dialog.rs:61
-msgid "PNG"
-msgstr "PNG"
-
-#: src/widgets/screenshot_dialog.rs:67
-msgid "JPEG"
-msgstr "JPEG"
-
-#: src/widgets/window.rs:229
-msgid "Open File"
-msgstr "Deschide un fișier"
-
-#: src/widgets/window.rs:234
-msgid "SVG images"
-msgstr "Imagini SVG"
-
-#: src/project.rs:102
+#: src/project.rs:180
 msgid "SVG"
 msgstr "SVG"
 
-#~ msgid "Zander Brown"
-#~ msgstr "Zander Brown"
+#: src/project.rs:187
+msgid "Export"
+msgstr "Exportă"
 
-#~ msgid "Copyright © 2018-19 Zander Brown"
-#~ msgstr "Drepturi de autor © 2018-19 Zander Brown"
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
+msgid "_Save"
+msgstr "_Salvează"
 
-#~ msgid "Repository"
-#~ msgstr "Depozit"
+#: src/widgets/project_previewer.rs:195
+msgid "Screenshot copied to clipboard"
+msgstr "Instantaneul de ecran a fost copiat"
 
-#~ msgid "Kept sane by"
-#~ msgstr "Păstrat sănătos de"
+#: src/widgets/project_previewer.rs:219
+msgid "PNG"
+msgstr "PNG"
 
-#~ msgctxt "shortcut window"
-#~ msgid "Toggle fullscreen"
-#~ msgstr "Comută ecran complet"
+#: src/widgets/project_previewer.rs:225
+msgid "Save Screenshot"
+msgstr "Salvează instantaneul"
 
-#~ msgid "no longer supported"
-#~ msgstr "nu mai este suportat"
+#: src/widgets/project_previewer.rs:228
+msgid "Preview"
+msgstr "Previzualizare"
 
-#~ msgid ""
-#~ "Palette is all grown up!\n"
-#~ "It’s now available separately as org.gnome.zbrown.Palette"
-#~ msgstr ""
-#~ "Paleta a crescut!\n"
-#~ "Este acum disponibilă separat ca org.gnome.zbrown.Palette"
+#: src/widgets/window.rs:241
+msgid "_Create"
+msgstr "_Creează"
 
-#~ msgid "Failed to save screenshot"
-#~ msgstr "Nu s-a putut salva captura de ecran"
+#: src/widgets/window.rs:244
+msgid "Select a file"
+msgstr "Alege un fișier"
 
-#~ msgid "This file is defective"
-#~ msgstr "Acest fișier este defect"
+#: src/widgets/window.rs:255
+msgid "SVG images"
+msgstr "Imagini SVG"
 
-#~ msgid ""
-#~ "Please start from a template to ensure that your file will work as a "
-#~ "GNOME icon"
-#~ msgstr ""
-#~ "Începeți de la un șablon pentru a vă asigura că fișierul va funcționa ca "
-#~ "o iconiță GNOME"
-
-#~ msgid "_Open"
-#~ msgstr "_Deschide"
-
-#~ msgid "Icons"
-#~ msgstr "Iconițe"
-
-#~ msgid "Save Regular"
-#~ msgstr "Salvează obișnuitul"
-
-#~ msgid "Save Symbolic"
-#~ msgstr "Salvează simbolicul"
-
-#~ msgid "Save Nightly"
-#~ msgstr "Salvează nocturnul"
-
-#~ msgid "Icon"
-#~ msgstr "Iconiță"
-
-#~ msgid "Failed to save exported file"
-#~ msgstr "Nu s-a putut salva fișierul exportat"
-
-#~ msgid "Save Icon"
-#~ msgstr "Salvează iconița"
-
-#~ msgid "Expecting at least one “.”"
-#~ msgstr "Se așteaptă cel puțin un „.”."
+#: src/widgets/window.rs:260
+msgid "Open File"
+msgstr "Deschide un fișier"
