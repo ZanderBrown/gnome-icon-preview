@@ -1,19 +1,19 @@
-# Brazilian Portuguese translation for icon-tool.
+# Brazilian Portuguese translation for app-icon-preview.
 # Copyright (C) 2021 icon-tool's COPYRIGHT HOLDER
-# This file is distributed under the same license as the icon-tool package.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2019-2021.
+# This file is distributed under the same license as the app-icon-preview package.
 # Jhonata Fernandes <fjhonata14@gmail.com>, 2024.
 # Álvaro Burns <>, 2025.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2019-2025.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: icon-tool master\n"
+"Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-04-23 17:37+0000\n"
-"PO-Revision-Date: 2025-04-24 07:12-0300\n"
-"Last-Translator: Álvaro Burns <>\n"
-"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
+"POT-Creation-Date: 2025-08-05 23:29+0000\n"
+"PO-Revision-Date: 2025-08-05 22:54-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,18 +21,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
 #: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Visualização de ícones de aplicativos"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Visualize ícones de aplicativos"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
 msgid "New Window"
 msgstr "Nova janela"
 
@@ -57,8 +57,8 @@ msgid "Previewing an Application icon"
 msgstr "Visualizando um ícone de aplicativo"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui & Zander Brown"
+msgstr "Bilal Elmoussaoui & Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -92,52 +92,52 @@ msgstr "Simbólico"
 msgid "Save Symbolic…"
 msgstr "Salvar simbólico…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Aplicativo"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nova janela"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Abre um ícone"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Sai do aplicativo"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Visualização"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Recarrega o ícone"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Exporta o ícone"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Embaralha os ícones"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Obtém uma captura de tela"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Copia uma captura de tela para a área de transferência"
