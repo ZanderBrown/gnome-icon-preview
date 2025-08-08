@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-04-23 17:37+0000\n"
-"PO-Revision-Date: 2025-05-02 09:59+1000\n"
+"POT-Creation-Date: 2025-08-02 00:19+0000\n"
+"PO-Revision-Date: 2025-08-02 21:55+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -20,18 +20,18 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
 #: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "App Icon Preview"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Просмотр значков приложений"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
 msgid "New Window"
 msgstr "Новое окно"
 
@@ -56,8 +56,8 @@ msgid "Previewing an Application icon"
 msgstr "Предварительный просмотр значка приложения"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui & Zander Brown"
+msgstr "Bilal Elmoussaoui & Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -91,52 +91,52 @@ msgstr "Символический"
 msgid "Save Symbolic…"
 msgstr "Сохранить «Символический»…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Приложение"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Новое окно"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Открыть значок"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Закрыть приложение"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Вид"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Перезагрузить значок"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Экспортировать значок"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Перемешать значки"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Сделать снимок экрана"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
