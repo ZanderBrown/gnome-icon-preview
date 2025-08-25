@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: icon-tool master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview\n"
-"POT-Creation-Date: 2025-04-23 17:37+0000\n"
-"PO-Revision-Date: 2025-05-14 17:25+0200\n"
+"POT-Creation-Date: 2025-08-12 20:34+0000\n"
+"PO-Revision-Date: 2025-08-25 17:01+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -18,20 +18,18 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.12.3\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
 #: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
 #: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Alkalmazásikon-előnézet"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Alkalmazások ikonjainak előnézete"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:19
-#| msgctxt "shortcut window"
-#| msgid "New Window"
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
 msgid "New Window"
 msgstr "Új ablak"
 
@@ -56,7 +54,8 @@ msgid "Previewing an Application icon"
 msgstr "Egy alkalmazásikon előnézete"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
+#| msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui & Zander Brown"
 msgstr "Bilal Elmoussaoui és Zander Brown"
 
 #: data/resources/ui/export.ui:16
@@ -91,52 +90,52 @@ msgstr "Szimbolikus"
 msgid "Save Symbolic…"
 msgstr "Szimbolikus mentése…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Alkalmazás"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Új ablak"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Egy ikon megnyitása"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Kilépés az alkalmazásból"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Nézet"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Az ikon újratöltése"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Az ikon exportálása"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Ikonok megkeverése"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Képernyőkép készítése"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Képernyőkép másolása a vágólapra"
@@ -194,7 +193,6 @@ msgid "_About App Icon Preview"
 msgstr "Az Alkalmazásikon-előnézet _névjegye"
 
 #: src/application.rs:29
-#| msgid "Open an Icon"
 msgid "Open a new window"
 msgstr "Új ablak megnyitása"
 
