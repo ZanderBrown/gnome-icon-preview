@@ -22,6 +22,14 @@
       <caption>Previewing an Application icon</caption>
     </screenshot>
   </screenshots>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </recommends>
+  <requires>
+    <display_length compare="ge">960</display_length>
+  </requires>
   <releases>
     <release version="3.5.1" date="2025-04-23">
       <description>

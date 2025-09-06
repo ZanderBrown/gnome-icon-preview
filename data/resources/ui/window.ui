@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template parent="AdwApplicationWindow" class="Window">
+    <!-- NOTE: Keep in sync with the display_length in the metainfo. -->
     <property name="default_width">960</property>
     <property name="default_height">550</property>
     <property name="resizable">False</property>
