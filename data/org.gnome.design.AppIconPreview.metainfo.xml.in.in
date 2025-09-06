@@ -118,7 +118,7 @@
   <url type="homepage">https://gitlab.gnome.org/World/design/app-icon-preview</url>
   <url type="bugtracker">https://gitlab.gnome.org/World/design/app-icon-preview/issues</url>
   <url type="translate">https://l10n.gnome.org/module/app-icon-preview/</url>
-  <url type="vcs-browser">https://l10n.gnome.org/module/app-icon-preview/</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/World/design/app-icon-preview</url>
   <update_contact>bil.elmoussaoui@gmail.com</update_contact>
   <translation type="gettext">app-icon-preview</translation>
   <content_rating type="oars-1.1" />
