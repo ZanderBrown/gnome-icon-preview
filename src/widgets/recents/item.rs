@@ -49,10 +49,10 @@ mod imp {
         fn set_project(&self, project: Project) {
             let project_name = project.name();
 
-            if !project.has_cache_icons() {
-                if let Err(err) = project.cache_icons() {
-                    log::error!("Failed to cache icons for {project_name}: {err}");
-                }
+            if !project.has_cache_icons()
+                && let Err(err) = project.cache_icons()
+            {
+                log::error!("Failed to cache icons for {project_name}: {err}");
             }
             let scale = self.obj().scale_factor();
             let paintable = project.paintable(crate::common::Icon::Scalable, None, scale);
