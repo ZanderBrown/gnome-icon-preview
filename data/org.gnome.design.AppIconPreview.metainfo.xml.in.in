@@ -130,8 +130,8 @@
   <update_contact>bil.elmoussaoui@gmail.com</update_contact>
   <translation type="gettext">app-icon-preview</translation>
   <content_rating type="oars-1.1" />
-  <developer_name>Bilal Elmoussaoui &amp; Zander Brown</developer_name>
+  <developer_name>Bilal Elmoussaoui and Zander Brown</developer_name>
   <developer id="org.gnome.design.app-icon-preview">
-    <name translatable="no">Bilal Elmoussaoui &amp; Zander Brown</name>
+    <name>Bilal Elmoussaoui and Zander Brown</name>
   </developer>
 </component>
