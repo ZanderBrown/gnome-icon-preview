@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-08-05 11:56+0000\n"
-"PO-Revision-Date: 2025-08-06 01:28+0200\n"
+"POT-Creation-Date: 2025-09-10 11:06+0000\n"
+"PO-Revision-Date: 2025-09-12 02:45+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "Language: ka\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.7\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:2
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
@@ -53,10 +53,9 @@ msgstr "აპის ხატულების გადახედვა პ
 msgid "Previewing an Application icon"
 msgstr "აპლიკაციის ხატულის მინიატურა"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-#| msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgid "Bilal Elmoussaoui & Zander Brown"
-msgstr "Bilal Elmoussaoui & Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:133
+msgid "Bilal Elmoussaoui and Zander Brown"
+msgstr "Bilal Elmoussaoui and Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -140,55 +139,55 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "ეკრანის ანაბეჭდის ბუფერში კოპირება"
 
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_გახსნა"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an Icon"
 msgstr "ხატულის გახსნა"
 
-#: data/resources/ui/window.ui:29
+#: data/resources/ui/window.ui:30
 msgid "Main Menu"
 msgstr "მთავარი მენიუ"
 
-#: data/resources/ui/window.ui:36
+#: data/resources/ui/window.ui:37
 msgid "_Export"
 msgstr "_გატანა"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "ახალი აპის ხატულის შექმნა"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_ახალი აპის ხატულა"
 
-#: data/resources/ui/window.ui:201
+#: data/resources/ui/window.ui:202
 msgid "_New Window"
 msgstr "_ახალი ფანჯარა"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:208
 msgid "_Reload"
 msgstr "_გადატვირთვა"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:212
 msgid "_Copy Screenshot"
 msgstr "ეკრანის _ანაბეჭდის კოპირება"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:216
 msgid "_Save Screenshot"
 msgstr "ეკრანის ანაბეჭდის _შენახვა"
 
-#: data/resources/ui/window.ui:219
+#: data/resources/ui/window.ui:220
 msgid "_Shuffle Example Icons"
 msgstr "შემთხვევითი _ხატულები"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:226
 msgid "_Keyboard Shortcuts"
 msgstr "_კლავიატურის მალსახმობები"
 
-#: data/resources/ui/window.ui:229
+#: data/resources/ui/window.ui:230
 msgid "_About App Icon Preview"
 msgstr "აპის ხატულის მინიატურის შესახებ"
 
