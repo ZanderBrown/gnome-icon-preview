@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2024-02-24 00:36+0000\n"
-"PO-Revision-Date: 2024-03-04 20:23+0200\n"
+"POT-Creation-Date: 2025-09-12 00:46+0000\n"
+"PO-Revision-Date: 2025-09-12 19:19+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -17,17 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.7\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Sovelluskuvakkeiden esikatselu"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
 msgstr "Esikatsele sovellusten kuvakkeita"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
+msgid "New Window"
+msgstr "Uusi ikkuna"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
@@ -49,9 +54,10 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Sovelluskuvakkeen esikatselua"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:133
+#| msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui and Zander Brown"
+msgstr "Bilal Elmoussaoui ja Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -77,117 +83,121 @@ msgstr "Nightly"
 msgid "Save Nightly…"
 msgstr "Tallenna Nightly…"
 
-#: data/resources/ui/export.ui:148
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Symbolinen"
 
-#: data/resources/ui/export.ui:161
+#: data/resources/ui/export.ui:165
 msgid "Save Symbolic…"
 msgstr "Tallenna symbolinen…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Sovellus"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Avaa kuvake"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Lopeta sovellus"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Näytä"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Lataa kuvake uudelleen"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Vie kuvake"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Sekoita kuvakkeet"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Ota kuvakaappaus"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Kopioi kuvakaappaus leikepöydälle"
 
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Avaa"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an Icon"
 msgstr "Avaa kuvake"
 
-#: data/resources/ui/window.ui:29
+#: data/resources/ui/window.ui:30
 msgid "Main Menu"
 msgstr "Päävalikko"
 
-#: data/resources/ui/window.ui:36
+#: data/resources/ui/window.ui:37
 msgid "_Export"
 msgstr "_Vie"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Luo uusi sovelluskuvake"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Uusi sovelluskuvake"
 
-#: data/resources/ui/window.ui:201
+#: data/resources/ui/window.ui:202
 msgid "_New Window"
 msgstr "_Uusi ikkuna"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:208
 msgid "_Reload"
 msgstr "_Lataa uudelleen"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:212
 msgid "_Copy Screenshot"
 msgstr "_Kopioi kuvakaappaus"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:216
 msgid "_Save Screenshot"
 msgstr "_Tallenna kuvakaappaus"
 
-#: data/resources/ui/window.ui:219
+#: data/resources/ui/window.ui:220
 msgid "_Shuffle Example Icons"
 msgstr "_Sekoita esimerkkikuvakkeet"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:226
 msgid "_Keyboard Shortcuts"
 msgstr "_Pikanäppäimet"
 
-#: data/resources/ui/window.ui:229
+#: data/resources/ui/window.ui:230
 msgid "_About App Icon Preview"
 msgstr "_Tietoja - Sovelluskuvakkeiden esikatselu"
 
-#: src/application.rs:112
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "Avaa uusi ikkuna"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
@@ -219,19 +229,19 @@ msgstr "Tallenna kuvakaappaus"
 msgid "Preview"
 msgstr "Esikatsele"
 
-#: src/widgets/window.rs:213
+#: src/widgets/window.rs:241
 msgid "_Create"
 msgstr "_Luo"
 
-#: src/widgets/window.rs:216
+#: src/widgets/window.rs:244
 msgid "Select a file"
 msgstr "Valitse tiedosto"
 
-#: src/widgets/window.rs:227
+#: src/widgets/window.rs:255
 msgid "SVG images"
 msgstr "SVG-kuvat"
 
-#: src/widgets/window.rs:232
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
@@ -268,9 +278,6 @@ msgstr "Avaa tiedosto"
 
 #~ msgid "Cancel"
 #~ msgstr "Peru"
-
-#~ msgid "Open an icon"
-#~ msgstr "Avaa kuvake"
 
 #~ msgid "Default window width"
 #~ msgstr "Ikkunan oletusleveys"
