@@ -4,15 +4,16 @@
 # Jhonata Fernandes <fjhonata14@gmail.com>, 2024.
 # Álvaro Burns <>, 2025.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2019-2025.
+# Juliano de Souza Camargo <julianosc@pm.me>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-08-05 23:29+0000\n"
-"PO-Revision-Date: 2025-08-05 22:54-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2025-09-12 16:20+0000\n"
+"PO-Revision-Date: 2025-09-13 10:56-0300\n"
+"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -56,9 +57,9 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Visualizando um ícone de aplicativo"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-msgid "Bilal Elmoussaoui & Zander Brown"
-msgstr "Bilal Elmoussaoui & Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:133
+msgid "Bilal Elmoussaoui and Zander Brown"
+msgstr "Bilal Elmoussaoui and Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -142,55 +143,55 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Copia uma captura de tela para a área de transferência"
 
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Abrir"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an Icon"
 msgstr "Abrir um ícone"
 
-#: data/resources/ui/window.ui:29
+#: data/resources/ui/window.ui:30
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: data/resources/ui/window.ui:36
+#: data/resources/ui/window.ui:37
 msgid "_Export"
 msgstr "_Exportar"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Crie um novo ícone de aplicativo"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Novo ícone de aplicativo"
 
-#: data/resources/ui/window.ui:201
+#: data/resources/ui/window.ui:202
 msgid "_New Window"
 msgstr "_Nova janela"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:208
 msgid "_Reload"
 msgstr "_Recarregar"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:212
 msgid "_Copy Screenshot"
 msgstr "_Copiar captura de tela"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:216
 msgid "_Save Screenshot"
 msgstr "_Salvar captura de tela"
 
-#: data/resources/ui/window.ui:219
+#: data/resources/ui/window.ui:220
 msgid "_Shuffle Example Icons"
 msgstr "_Embaralhar ícones de exemplo"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:226
 msgid "_Keyboard Shortcuts"
 msgstr "Atalhos de _teclado"
 
-#: data/resources/ui/window.ui:229
+#: data/resources/ui/window.ui:230
 msgid "_About App Icon Preview"
 msgstr "_Sobre o Visualização de ícones de aplicativos"
 
@@ -202,7 +203,8 @@ msgstr "Abrir uma nova janela"
 msgid "translator-credits"
 msgstr ""
 "Rafael Fontenelle <rafaelff@gnome.org>\n"
-"Jhonata Fernandes <fjhonata14@gmail.com>"
+"Jhonata Fernandes <fjhonata14@gmail.com>\n"
+"Juliano de Souza Camargo <julianosc@pm.me>"
 
 #: src/project.rs:180
 msgid "SVG"
