@@ -1,41 +1,47 @@
 # Dutch translation for app-icon-preview.
 # Copyright (C) 2020 app-icon-preview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the app-icon-preview package.
-# Nathan Follens <nfollens@gnome.org>, 2020-2022.
+# Nathan Follens <nfollens@gnome.org>, 2020-2022, 2025.
+# Dick Groskamp <dikgro@yahoo.co.uk>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2022-01-28 21:28+0000\n"
-"PO-Revision-Date: 2022-03-25 21:13+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2025-10-10 16:27+0000\n"
+"PO-Revision-Date: 2025-10-11 21:38+0200\n"
 "Last-Translator: Nathan Follens <nfollens@gnome.org>\n"
-"Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
+"Language-Team: GNOME-NL https://matrix.to/#/#nl:gnome.org\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
-#: src/widgets/project_previewer.rs:90 src/widgets/project_previewer.rs:209
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:2
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
+#: src/application.rs:145 src/main.rs:22 src/widgets/project_previewer.rs:86
+#: src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Toepassingspictogrammen"
 
-#: data/org.gnome.design.AppIconPreview.desktop.in.in:4
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:3
 msgid "Preview applications icons"
-msgstr "Toepassingspictogrammen bekijken"
+msgstr "Toepassingspictogrammen voorvertonen"
+
+#: data/org.gnome.design.AppIconPreview.desktop.in.in:18
+msgid "New Window"
+msgstr "Nieuw venster"
 
 #: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
 msgid "The latest opened files separated by a comma"
 msgstr "De meest recent geopende bestanden, gescheiden door komma’s"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Hulpmiddel om toepassingspictogrammen te ontwerpen"
+msgid "Icon design helper"
+msgstr "Hulpprogramma voor ontwerp van pictogrammen"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -43,15 +49,16 @@ msgid ""
 "desktop."
 msgstr ""
 "Toepassingspictogrammen is een hulpmiddel om pictogrammen te ontwerpen, "
-"bedoeld voor het Gnome-bureaublad."
+"bedoeld voor het GNOME-bureaublad."
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:22
 msgid "Previewing an Application icon"
-msgstr "Voorbeeld van een toepassingspictogram"
+msgstr "Een toepassingspictogram voorvertonen"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:94
-msgid "Bilal Elmoussaoui &amp; Zander Brown"
-msgstr "Bilal Elmoussaoui &amp; Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:133
+#| msgid "Bilal Elmoussaoui &amp; Zander Brown"
+msgid "Bilal Elmoussaoui and Zander Brown"
+msgstr "Bilal Elmoussaoui en Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -61,223 +68,220 @@ msgstr ""
 "Exporteer het pictogram voor gebruik. Objecten die niet op het canvas staan "
 "worden verwijderd, en de grootte van het SVG-bestand wordt geoptimaliseerd"
 
-#: data/resources/ui/export.ui:48
+#: data/resources/ui/export.ui:50
 msgid "Regular"
 msgstr "Gewoon"
 
-#: data/resources/ui/export.ui:62
-msgid "Save Regular As…"
-msgstr "Gewoon opslaan als…"
+#: data/resources/ui/export.ui:64
+msgid "Save Regular…"
+msgstr "Gewoon opslaan…"
 
-#: data/resources/ui/export.ui:94
+#: data/resources/ui/export.ui:98
 msgid "Nightly"
 msgstr "Nightly"
 
-#: data/resources/ui/export.ui:108
-msgid "Save Nightly As…"
-msgstr "Nightly opslaan als…"
+#: data/resources/ui/export.ui:112
+msgid "Save Nightly…"
+msgstr "Nightly opslaan…"
 
-#: data/resources/ui/export.ui:142
+#: data/resources/ui/export.ui:152
 msgid "Symbolic"
 msgstr "Symbolisch"
 
-#: data/resources/ui/export.ui:155
-msgid "Save Symbolic As…"
-msgstr "Symbolisch opslaan als…"
+#: data/resources/ui/export.ui:165
+msgid "Save Symbolic…"
+msgstr "Symbolisch opslaan…"
 
-#: data/resources/ui/help-overlay.ui:11
+#: data/resources/ui/help-overlay.ui:6
 msgctxt "shortcut window"
 msgid "Application"
 msgstr "Toepassing"
 
-#: data/resources/ui/help-overlay.ui:15
+#: data/resources/ui/help-overlay.ui:10
 msgctxt "shortcut window"
 msgid "New Window"
 msgstr "Nieuw venster"
 
-#: data/resources/ui/help-overlay.ui:21
+#: data/resources/ui/help-overlay.ui:16
 msgctxt "shortcut window"
 msgid "Open an Icon"
 msgstr "Pictogram openen"
 
-#: data/resources/ui/help-overlay.ui:27
+#: data/resources/ui/help-overlay.ui:22
 msgctxt "shortcut window"
 msgid "Quit the Application"
 msgstr "Toepassing afsluiten"
 
-#: data/resources/ui/help-overlay.ui:34
+#: data/resources/ui/help-overlay.ui:29
 msgctxt "shortcut window"
 msgid "View"
 msgstr "Weergave"
 
-#: data/resources/ui/help-overlay.ui:38
+#: data/resources/ui/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Reload the Icon"
 msgstr "Pictogram herladen"
 
-#: data/resources/ui/help-overlay.ui:44
+#: data/resources/ui/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Export the Icon"
 msgstr "Pictogram exporteren"
 
-#: data/resources/ui/help-overlay.ui:50
+#: data/resources/ui/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Shuffle Icons"
 msgstr "Pictogram schudden"
 
-#: data/resources/ui/help-overlay.ui:56
+#: data/resources/ui/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Take Screenshot"
 msgstr "Schermafdruk maken"
 
-#: data/resources/ui/help-overlay.ui:62
+#: data/resources/ui/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Een schermafdruk naar het klembord kopiëren"
-
-#: data/resources/ui/new_project.ui:7
-msgid "New App Icon"
-msgstr "Nieuw toepassingspictogram"
-
-#: data/resources/ui/new_project.ui:18 src/project.rs:157
-#: src/widgets/project_previewer.rs:198
-msgid "_Cancel"
-msgstr "_Annuleren"
-
-#: data/resources/ui/new_project.ui:23
-msgid "_Create"
-msgstr "Aan_maken"
-
-#: data/resources/ui/new_project.ui:48
-msgid "App Name"
-msgstr "Toepassingsnaam"
-
-#: data/resources/ui/new_project.ui:58
-msgid "Icon Location"
-msgstr "Pictogramlocatie"
-
-#: data/resources/ui/new_project.ui:77
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "De omgekeerde domeinnotatienaam, bv. org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:91
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Het SVG-bestand van het pictogram dat in deze map wordt opgeslagen"
-
-#: data/resources/ui/new_project.ui:107
-msgid "~/Projects"
-msgstr "~/Projecten"
-
-#: data/resources/ui/new_project.ui:113
-msgid "_Browse…"
-msgstr "_Bladeren…"
 
 #: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Openen"
 
 #: data/resources/ui/window.ui:19
-msgid "Open an icon"
+msgid "Open an Icon"
 msgstr "Open een pictogram"
 
-#: data/resources/ui/window.ui:25
-msgid "Menu"
-msgstr "Menu"
+#: data/resources/ui/window.ui:30
+msgid "Main Menu"
+msgstr "Hoofdmenu"
 
-#: data/resources/ui/window.ui:32
+#: data/resources/ui/window.ui:37
 msgid "_Export"
 msgstr "_Exporteren"
 
-#: data/resources/ui/window.ui:50
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Maak een nieuw toepassingspictogram aan"
 
-#: data/resources/ui/window.ui:176
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Nieuw toepassingspictogram"
 
-#: data/resources/ui/window.ui:197
+#: data/resources/ui/window.ui:202
 msgid "_New Window"
 msgstr "_Nieuw venster"
 
-#: data/resources/ui/window.ui:203
+#: data/resources/ui/window.ui:208
 msgid "_Reload"
 msgstr "He_rladen"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:212
 msgid "_Copy Screenshot"
 msgstr "Schermafdruk _kopiëren"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:216
 msgid "_Save Screenshot"
 msgstr "Schermafdruk op_slaan"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:220
 msgid "_Shuffle Example Icons"
 msgstr "Voorbeeldpictogrammen _schudden"
 
-#: data/resources/ui/window.ui:221
+#: data/resources/ui/window.ui:226
 msgid "_Keyboard Shortcuts"
 msgstr "Snel_toetsen"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:230
 msgid "_About App Icon Preview"
 msgstr "_Over toepassingspictogrammen"
 
-#: src/application.rs:171
+#: src/application.rs:29
+msgid "Open a new window"
+msgstr "Open een nieuw venster"
+
+#: src/application.rs:150
 msgid "translator-credits"
 msgstr ""
-"Nathan Follens <nfollens@gnome.org\n"
-"\n"
-"Meer info over Gnome-NL https://nl.gnome.org"
+"Nathan Follens <nfollens@gnome.org>\n"
+"Dick Groskamp <dikgro@yahoo.co.uk>\n"
+"Meer info over GNOME-NL https://nl.gnome.org"
 
-#: src/project.rs:157
-msgid "Export"
-msgstr "Exporteren"
-
-#: src/project.rs:157 src/widgets/project_previewer.rs:197
-msgid "_Save"
-msgstr "Op_slaan"
-
-#: src/project.rs:162
+#: src/project.rs:180
 msgid "SVG"
 msgstr "SVG"
 
-#: src/widgets/new_project.rs:56
-msgid "Select Icon Location"
-msgstr "Selecteer pictogramlocatie"
+#: src/project.rs:187
+msgid "Export"
+msgstr "Exporteren"
 
-#: src/widgets/new_project.rs:59
-msgid "Select"
-msgstr "Selecteren"
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
+msgid "_Save"
+msgstr "Op_slaan"
 
-#: src/widgets/new_project.rs:59
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: src/widgets/project_previewer.rs:184
+#: src/widgets/project_previewer.rs:195
 msgid "Screenshot copied to clipboard"
 msgstr "Schermafdruk gekopieerd naar klembord"
 
-#: src/widgets/project_previewer.rs:195
-msgid "Save Screenshot"
-msgstr "Schermafdruk opslaan"
-
-#: src/widgets/project_previewer.rs:202
-msgid "Preview"
-msgstr "Voorbeeld"
-
-#: src/widgets/project_previewer.rs:218
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/window.rs:268
+#: src/widgets/project_previewer.rs:225
+msgid "Save Screenshot"
+msgstr "Schermafdruk opslaan"
+
+# Of infinitief? - Nathan
+#: src/widgets/project_previewer.rs:228
+msgid "Preview"
+msgstr "Voorvertoning"
+
+#: src/widgets/window.rs:241
+msgid "_Create"
+msgstr "Aan_maken"
+
+#: src/widgets/window.rs:244
+msgid "Select a file"
+msgstr "Kies een bestand"
+
+#: src/widgets/window.rs:255
+msgid "SVG images"
+msgstr "SVG-afbeeldingen"
+
+#: src/widgets/window.rs:260
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: src/widgets/window.rs:273
-msgid "SVG images"
-msgstr "SVG-afbeeldingen"
+#~ msgid "Tool for designing applications icons"
+#~ msgstr "Hulpmiddel om toepassingspictogrammen te ontwerpen"
+
+#~ msgid "New App Icon"
+#~ msgstr "Nieuw toepassingspictogram"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Annuleren"
+
+#~ msgid "App Name"
+#~ msgstr "Toepassingsnaam"
+
+#~ msgid "Icon Location"
+#~ msgstr "Pictogramlocatie"
+
+#~ msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+#~ msgstr "De omgekeerde domeinnotatienaam, bv. org.inkscape.Inkscape"
+
+#~ msgid "The icon SVG file will be stored in this directory"
+#~ msgstr "Het SVG-bestand van het pictogram dat in deze map wordt opgeslagen"
+
+#~ msgid "~/Projects"
+#~ msgstr "~/Projecten"
+
+#~ msgid "_Browse…"
+#~ msgstr "_Bladeren…"
+
+#~ msgid "Select Icon Location"
+#~ msgstr "Selecteer pictogramlocatie"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
 
 #~ msgid "Default window width"
 #~ msgstr "Standaard vensterbreedte"
