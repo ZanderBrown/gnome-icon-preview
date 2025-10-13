@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
 "preview\n"
-"POT-Creation-Date: 2025-08-02 00:19+0000\n"
-"PO-Revision-Date: 2025-08-02 21:55+1000\n"
+"POT-Creation-Date: 2025-09-14 08:59+0000\n"
+"PO-Revision-Date: 2025-10-02 22:11+1000\n"
 "Last-Translator: Ser82-png <asvmail.as@gmail.com>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -55,9 +55,9 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Предварительный просмотр значка приложения"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:125
-msgid "Bilal Elmoussaoui & Zander Brown"
-msgstr "Bilal Elmoussaoui & Zander Brown"
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:133
+msgid "Bilal Elmoussaoui and Zander Brown"
+msgstr "Bilal Elmoussaoui и Zander Brown"
 
 #: data/resources/ui/export.ui:16
 msgid ""
@@ -141,55 +141,55 @@ msgctxt "shortcut window"
 msgid "Copy a Screenshot to Clipboard"
 msgstr "Копировать снимок экрана в буфер обмена"
 
-#: data/resources/ui/window.ui:16
+#: data/resources/ui/window.ui:17
 msgid "_Open"
 msgstr "_Открыть"
 
-#: data/resources/ui/window.ui:18
+#: data/resources/ui/window.ui:19
 msgid "Open an Icon"
 msgstr "Открыть значок"
 
-#: data/resources/ui/window.ui:29
+#: data/resources/ui/window.ui:30
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: data/resources/ui/window.ui:36
+#: data/resources/ui/window.ui:37
 msgid "_Export"
 msgstr "_Экспортировать"
 
-#: data/resources/ui/window.ui:54
+#: data/resources/ui/window.ui:55
 msgid "Make a new App Icon"
 msgstr "Создать новый значок приложения"
 
-#: data/resources/ui/window.ui:180
+#: data/resources/ui/window.ui:181
 msgid "_New App Icon"
 msgstr "_Новый значок приложения"
 
-#: data/resources/ui/window.ui:201
+#: data/resources/ui/window.ui:202
 msgid "_New Window"
 msgstr "_Новое окно"
 
-#: data/resources/ui/window.ui:207
+#: data/resources/ui/window.ui:208
 msgid "_Reload"
 msgstr "_Перезагрузить"
 
-#: data/resources/ui/window.ui:211
+#: data/resources/ui/window.ui:212
 msgid "_Copy Screenshot"
 msgstr "_Копировать снимок экрана"
 
-#: data/resources/ui/window.ui:215
+#: data/resources/ui/window.ui:216
 msgid "_Save Screenshot"
 msgstr "_Сохранить снимок экрана"
 
-#: data/resources/ui/window.ui:219
+#: data/resources/ui/window.ui:220
 msgid "_Shuffle Example Icons"
 msgstr "_Перемешать примеры значков"
 
-#: data/resources/ui/window.ui:225
+#: data/resources/ui/window.ui:226
 msgid "_Keyboard Shortcuts"
 msgstr "_Комбинации клавиш"
 
-#: data/resources/ui/window.ui:229
+#: data/resources/ui/window.ui:230
 msgid "_About App Icon Preview"
 msgstr "_О приложении"
 
