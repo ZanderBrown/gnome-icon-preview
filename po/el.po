@@ -6,23 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: app-icon-preview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-preview/"
-"issues\n"
-"POT-Creation-Date: 2020-09-13 13:26+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/World/design/app-icon-"
+"preview\n"
+"POT-Creation-Date: 2024-02-24 00:36+0000\n"
 "PO-Revision-Date: 2020-10-01 02:08+0300\n"
+"Last-Translator: Giannis Antypas <gianni.antypas@gmail.com>\n"
 "Language-Team: Greek <gnome-el-list@gnome.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: Efstathios Iosifidis <eiosifidis@gnome.org>\n"
 "X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.design.AppIconPreview.desktop.in.in:3
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8
-#: data/resources/ui/window.ui.in:15 src/widgets/screenshot_dialog.rs:53
-#: src/widgets/project_previewer.rs:45
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:8 src/main.rs:22
+#: src/widgets/project_previewer.rs:86 src/widgets/project_previewer.rs:210
 msgid "App Icon Preview"
 msgstr "Προεπισκόπηση εικονιδίου εφαρμογής"
 
@@ -30,9 +29,13 @@ msgstr "Προεπισκόπηση εικονιδίου εφαρμογής"
 msgid "Preview applications icons"
 msgstr "Προεπισκόπηση εικονιδίων εφαρμογών"
 
+#: data/org.gnome.design.AppIconPreview.gschema.xml.in:6
+msgid "The latest opened files separated by a comma"
+msgstr "Τα προσφάτως ανοιγμένα αρχεία χωρισμένα με κόμμα"
+
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:9
-msgid "Tool for designing applications icons"
-msgstr "Εργαλείο σχεδιασμού εικονιδίων εφαρμογών"
+msgid "Icon design helper"
+msgstr "Βοηθός σχεδίασης εικονιδίων"
 
 #: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:11
 msgid ""
@@ -46,11 +49,187 @@ msgstr ""
 msgid "Previewing an Application icon"
 msgstr "Προεπισκόπηση ενός εικονιδίου εφαρμογής"
 
-#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:89
+#: data/org.gnome.design.AppIconPreview.metainfo.xml.in.in:114
 msgid "Bilal Elmoussaoui &amp; Zander Brown"
 msgstr "Bilal Elmoussaoui &amp; Zander Brown"
 
-#: data/resources/ui/about_dialog.ui.in:15
+#: data/resources/ui/export.ui:16
+msgid ""
+"Export the icon for production use. Off-canvas objects are removed and the "
+"SVG is optimised for size"
+msgstr ""
+"Εξαγωγή του εικονιδίου για χρήση στην παραγωγή. Τα αντικείμενα εκτός καμβά "
+"αφαιρούνται και το SVG βελτιστοποιείται για το μέγεθος"
+
+#: data/resources/ui/export.ui:50
+msgid "Regular"
+msgstr "Κλασικό"
+
+#: data/resources/ui/export.ui:64
+#, fuzzy
+#| msgid "Save Regular As…"
+msgid "Save Regular…"
+msgstr "Αποθήκευση κλασικού ως…"
+
+#: data/resources/ui/export.ui:98
+msgid "Nightly"
+msgstr "Πειραματικό"
+
+#: data/resources/ui/export.ui:112
+#, fuzzy
+#| msgid "Save Nightly As…"
+msgid "Save Nightly…"
+msgstr "Αποθήκευση πειραματικού ως…"
+
+#: data/resources/ui/export.ui:148
+msgid "Symbolic"
+msgstr "Συμβολικό"
+
+#: data/resources/ui/export.ui:161
+#, fuzzy
+#| msgid "Save…"
+msgid "Save Symbolic…"
+msgstr "Αποθήκευση…"
+
+#: data/resources/ui/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "Application"
+msgstr "Εφαρμογή"
+
+#: data/resources/ui/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "New Window"
+msgstr "Νέο παράθυρο"
+
+#: data/resources/ui/help-overlay.ui:21
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Open an icon"
+msgctxt "shortcut window"
+msgid "Open an Icon"
+msgstr "Άνοιγμα εικονιδίου"
+
+#: data/resources/ui/help-overlay.ui:27
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Quit the application"
+msgctxt "shortcut window"
+msgid "Quit the Application"
+msgstr "Τερματισμός εφαρμογής"
+
+#: data/resources/ui/help-overlay.ui:34
+msgctxt "shortcut window"
+msgid "View"
+msgstr "Προβολή"
+
+#: data/resources/ui/help-overlay.ui:38
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Reload the icon"
+msgctxt "shortcut window"
+msgid "Reload the Icon"
+msgstr "Επαναφόρτωση εικονιδίου"
+
+#: data/resources/ui/help-overlay.ui:44
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Export the icon"
+msgctxt "shortcut window"
+msgid "Export the Icon"
+msgstr "Εξαγωγή εικονιδίου"
+
+#: data/resources/ui/help-overlay.ui:50
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Shuffle icons"
+msgctxt "shortcut window"
+msgid "Shuffle Icons"
+msgstr "Ανακάτεμα εικονιδίων"
+
+#: data/resources/ui/help-overlay.ui:56
+#, fuzzy
+#| msgid "_Take Screenshot"
+msgctxt "shortcut window"
+msgid "Take Screenshot"
+msgstr "_Λήψη στιγμιότυπου οθόνης"
+
+#: data/resources/ui/help-overlay.ui:62
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Copy a screenshot to clipboard"
+msgctxt "shortcut window"
+msgid "Copy a Screenshot to Clipboard"
+msgstr "Αντιγραφή ενός στιγμιότυπου στο πρόχειρο"
+
+#: data/resources/ui/window.ui:16
+#, fuzzy
+#| msgid "Open"
+msgid "_Open"
+msgstr "Άνοιγμα"
+
+#: data/resources/ui/window.ui:18
+#, fuzzy
+#| msgid "Open an icon"
+msgid "Open an Icon"
+msgstr "Άνοιγμα εικονιδίου"
+
+#: data/resources/ui/window.ui:29
+#, fuzzy
+#| msgid "Menu"
+msgid "Main Menu"
+msgstr "Μενού"
+
+#: data/resources/ui/window.ui:36
+#, fuzzy
+#| msgid "Export"
+msgid "_Export"
+msgstr "Εξαγωγή"
+
+#: data/resources/ui/window.ui:54
+msgid "Make a new App Icon"
+msgstr "Δημιουργία νέου εικονιδίου εφαρμογής"
+
+#: data/resources/ui/window.ui:180
+#, fuzzy
+#| msgid "New App Icon"
+msgid "_New App Icon"
+msgstr "Νέο εικονίδιο εφαρμογής"
+
+#: data/resources/ui/window.ui:201
+msgid "_New Window"
+msgstr "_Νέο παράθυρο"
+
+#: data/resources/ui/window.ui:207
+#, fuzzy
+#| msgid "Reload"
+msgid "_Reload"
+msgstr "Επαναφόρτωση"
+
+#: data/resources/ui/window.ui:211
+#, fuzzy
+#| msgid "_Take Screenshot"
+msgid "_Copy Screenshot"
+msgstr "_Λήψη στιγμιότυπου οθόνης"
+
+#: data/resources/ui/window.ui:215
+#, fuzzy
+#| msgid "Save Screenshot"
+msgid "_Save Screenshot"
+msgstr "Αποθήκευση στιγμιότυπου οθόνης"
+
+#: data/resources/ui/window.ui:219
+msgid "_Shuffle Example Icons"
+msgstr "_Ανακάτεμα εικονιδίων παραδείγματος"
+
+#: data/resources/ui/window.ui:225
+msgid "_Keyboard Shortcuts"
+msgstr "_Συντομεύσεις πληκτρολογίου"
+
+#: data/resources/ui/window.ui:229
+msgid "_About App Icon Preview"
+msgstr "_Περί προεπισκόπησης εικονιδίου εφαρμογής"
+
+#: src/application.rs:112
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -59,231 +238,102 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
 "http://gnome.gr/"
 
-#: data/resources/ui/export.ui:19
-msgid ""
-"Export the icon for production use. Off-canvas objects are removed and the "
-"SVG is optimised for size"
-msgstr ""
-"Εξαγωγή του εικονιδίου για χρήση στην παραγωγή. Τα αντικείμενα εκτός καμβά "
-"αφαιρούνται και το SVG βελτιστοποιείται για το μέγεθος"
+#: src/project.rs:180
+msgid "SVG"
+msgstr "SVG"
 
-#: data/resources/ui/export.ui:69
-msgid "Regular"
-msgstr "Κλασικό"
-
-#: data/resources/ui/export.ui:89
-msgid "Save Regular As…"
-msgstr "Αποθήκευση κλασικού ως…"
-
-#: data/resources/ui/export.ui:145
-msgid "Nightly"
-msgstr "Πειραματικό"
-
-#: data/resources/ui/export.ui:165
-msgid "Save Nightly As…"
-msgstr "Αποθήκευση πειραματικού ως…"
-
-#: data/resources/ui/export.ui:196
-msgid "Save Symbolic As…"
-msgstr ""
-
-#: data/resources/ui/export.ui:218
-msgid "Symbolic"
-msgstr ""
-
-#: data/resources/ui/help-overlay.ui:13
-msgctxt "shortcut window"
-msgid "Application"
-msgstr "Εφαρμογή"
-
-#: data/resources/ui/help-overlay.ui:19
-msgctxt "shortcut window"
-msgid "New Window"
-msgstr "Νέο παράθυρο"
-
-#: data/resources/ui/help-overlay.ui:26
-msgctxt "shortcut window"
-msgid "Open an icon"
-msgstr "Άνοιγμα εικονιδίου"
-
-#: data/resources/ui/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Open the recent list"
-msgstr "Άνοιγμα πρόσφατης λίστας"
-
-#: data/resources/ui/help-overlay.ui:40
-msgctxt "shortcut window"
-msgid "Open the menu"
-msgstr "Άνοιγμα μενού"
-
-#: data/resources/ui/help-overlay.ui:47
-msgctxt "shortcut window"
-msgid "Quit the application"
-msgstr "Τερματισμός εφαρμογής"
-
-#: data/resources/ui/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "View"
-msgstr "Προβολή"
-
-#: data/resources/ui/help-overlay.ui:60
-msgctxt "shortcut window"
-msgid "Reload the icon"
-msgstr "Επαναφόρτωση εικονιδίου"
-
-#: data/resources/ui/help-overlay.ui:67
-msgctxt "shortcut window"
-msgid "Export the icon"
-msgstr "Εξαγωγή εικονιδίου"
-
-#: data/resources/ui/help-overlay.ui:74
-msgctxt "shortcut window"
-msgid "Shuffle icons"
-msgstr "Ανακάτεμα εικονιδίων"
-
-#: data/resources/ui/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Take screenshot"
-msgstr "Λήψη στιγμιοτύπου οθόνης"
-
-#: data/resources/ui/help-overlay.ui:88
-msgctxt "shortcut window"
-msgid "Copy a screenshot to clipboard"
-msgstr "Αντιγραφή ενός στιγμιότυπου στο πρόχειρο"
-
-#: data/resources/ui/menus.ui:19
-msgid "_New Window"
-msgstr "_Νέο παράθυρο"
-
-#: data/resources/ui/menus.ui:44
-msgid "Reload"
-msgstr "Επαναφόρτωση"
-
-#: data/resources/ui/menus.ui:58
-msgid "_Take Screenshot"
-msgstr "_Λήψη στιγμιότυπου οθόνης"
-
-#: data/resources/ui/menus.ui:72
-msgid "_Shuffle Example Icons"
-msgstr "_Ανακάτεμα εικονιδίων παραδείγματος"
-
-#: data/resources/ui/menus.ui:97
-msgid "_Keyboard Shortcuts"
-msgstr "_Συντομεύσεις πληκτρολογίου"
-
-#: data/resources/ui/menus.ui:111
-msgid "_About App Icon Preview"
-msgstr "_Περί προεπισκόπησης εικονιδίου εφαρμογής"
-
-#: data/resources/ui/new_project.ui:45
-msgid "App Name"
-msgstr "Όνομα εφαρμογής"
-
-#: data/resources/ui/new_project.ui:57
-msgid "Icon Location"
-msgstr "Τοποθεσία εικονιδίου"
-
-#: data/resources/ui/new_project.ui:80
-msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
-msgstr "Το όνομα αντίστροφης σημείωσης τομέα, πχ org.inkscape.Inkscape"
-
-#: data/resources/ui/new_project.ui:96
-msgid "The icon SVG file will be stored in this directory"
-msgstr "Το εικονίδιο SVG θα αποθηκευτεί σε αυτόν τον κατάλογο"
-
-#: data/resources/ui/new_project.ui:114
-msgid "~/Projects"
-msgstr "~/Projects"
-
-#: data/resources/ui/new_project.ui:124
-msgid "Browse…"
-msgstr "Περιήγηση…"
-
-#: data/resources/ui/new_project.ui:183 src/widgets/screenshot_dialog.rs:44
-#: src/project.rs:98
-msgid "_Cancel"
-msgstr "_Aκύρωση"
-
-#: data/resources/ui/new_project.ui:189
-msgid "_Create"
-msgstr "_Δημιουργία"
-
-#: data/resources/ui/screenshot_dialog.ui:50
-msgid "Close"
-msgstr "Κλείσιμο"
-
-#: data/resources/ui/screenshot_dialog.ui:59
-msgid "Save…"
-msgstr "Αποθήκευση…"
-
-#: data/resources/ui/screenshot_dialog.ui:77
-msgid "Copy to Clipboard"
-msgstr "Αντιγραφή στο πρόχειρο"
-
-#: data/resources/ui/window.ui.in:23
-msgid "Open"
-msgstr "Άνοιγμα"
-
-#: data/resources/ui/window.ui.in:27
-msgid "Open an icon"
-msgstr "Άνοιγμα εικονιδίου"
-
-#: data/resources/ui/window.ui.in:41
-msgid "Recent"
-msgstr "Πρόσφατα"
-
-#: data/resources/ui/window.ui.in:69
-msgid "Menu"
-msgstr "Μενού"
-
-#: data/resources/ui/window.ui.in:85 src/project.rs:98
+#: src/project.rs:187
 msgid "Export"
 msgstr "Εξαγωγή"
 
-#: data/resources/ui/window.ui.in:118
-msgid "Make a new App Icon"
-msgstr "Δημιουργία νέου εικονιδίου εφαρμογής"
-
-#: data/resources/ui/window.ui.in:273
-msgid "New App Icon"
-msgstr "Νέο εικονίδιο εφαρμογής"
-
-#: src/widgets/new_project.rs:50
-msgid "Select"
-msgstr "Επιλογή"
-
-#: src/widgets/new_project.rs:51
-msgid "Cancel"
-msgstr "Διαγραφή"
-
-#: src/widgets/screenshot_dialog.rs:40
-msgid "Save Screenshot"
-msgstr "Αποθήκευση στιγμιότυπου οθόνης"
-
-#: src/widgets/screenshot_dialog.rs:43 src/project.rs:98
+#: src/project.rs:188 src/widgets/project_previewer.rs:227
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
-#: src/widgets/screenshot_dialog.rs:47
-msgid "Preview"
-msgstr "Προεπισκόπηση"
+#: src/widgets/project_previewer.rs:195
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Copy a screenshot to clipboard"
+msgid "Screenshot copied to clipboard"
+msgstr "Αντιγραφή ενός στιγμιότυπου στο πρόχειρο"
 
-#: src/widgets/screenshot_dialog.rs:62
+#: src/widgets/project_previewer.rs:219
 msgid "PNG"
 msgstr "PNG"
 
-#: src/widgets/screenshot_dialog.rs:68
-msgid "JPEG"
-msgstr "JPEG"
+#: src/widgets/project_previewer.rs:225
+msgid "Save Screenshot"
+msgstr "Αποθήκευση στιγμιότυπου οθόνης"
 
-#: src/widgets/window.rs:234
-msgid "Open File"
-msgstr "Άνοιγμα αρχείου"
+#: src/widgets/project_previewer.rs:228
+msgid "Preview"
+msgstr "Προεπισκόπηση"
 
-#: src/widgets/window.rs:239
+#: src/widgets/window.rs:213
+msgid "_Create"
+msgstr "_Δημιουργία"
+
+#: src/widgets/window.rs:216
+#, fuzzy
+#| msgid "Select"
+msgid "Select a file"
+msgstr "Επιλογή"
+
+#: src/widgets/window.rs:227
 msgid "SVG images"
 msgstr "Εικόνες SVG"
 
-#: src/project.rs:103
-msgid "SVG"
-msgstr "SVG"
+#: src/widgets/window.rs:232
+msgid "Open File"
+msgstr "Άνοιγμα αρχείου"
+
+#~ msgid "Tool for designing applications icons"
+#~ msgstr "Εργαλείο σχεδιασμού εικονιδίων εφαρμογών"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open the recent list"
+#~ msgstr "Άνοιγμα πρόσφατης λίστας"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open the menu"
+#~ msgstr "Άνοιγμα μενού"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Take screenshot"
+#~ msgstr "Λήψη στιγμιοτύπου οθόνης"
+
+#~ msgid "App Name"
+#~ msgstr "Όνομα εφαρμογής"
+
+#~ msgid "Icon Location"
+#~ msgstr "Τοποθεσία εικονιδίου"
+
+#~ msgid "The reverse domain notation name, e.g. org.inkscape.Inkscape"
+#~ msgstr "Το όνομα αντίστροφης σημείωσης τομέα, πχ org.inkscape.Inkscape"
+
+#~ msgid "The icon SVG file will be stored in this directory"
+#~ msgstr "Το εικονίδιο SVG θα αποθηκευτεί σε αυτόν τον κατάλογο"
+
+#~ msgid "~/Projects"
+#~ msgstr "~/Projects"
+
+#~ msgid "Browse…"
+#~ msgstr "Περιήγηση…"
+
+#~ msgid "_Cancel"
+#~ msgstr "_Aκύρωση"
+
+#~ msgid "Close"
+#~ msgstr "Κλείσιμο"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Αντιγραφή στο πρόχειρο"
+
+#~ msgid "Recent"
+#~ msgstr "Πρόσφατα"
+
+#~ msgid "Cancel"
+#~ msgstr "Διαγραφή"
+
+#~ msgid "JPEG"
+#~ msgstr "JPEG"
